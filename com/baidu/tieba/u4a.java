@@ -1,177 +1,243 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-/* loaded from: classes7.dex */
-public class u4a extends BdAsyncTask<Void, Void, String> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class u4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public b c;
+    public int a;
+    public PersonalCardCategoryActivity b;
+    public View c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public MemberRecommendView f;
+    public BdListView g;
+    public t4a h;
+    public View i;
+    public TextView j;
+    public int k;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, String str, String str2);
-
-        void b(int i, int i2);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements xf {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u4a a;
-
-        public a(u4a u4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u4aVar;
-        }
-
-        @Override // com.baidu.tieba.xf
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c != null) {
-                this.a.c.b(i, i2);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162407, "Lcom/baidu/tieba/u4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948162407, "Lcom/baidu/tieba/u4a;");
-                return;
-            }
-        }
-        d = File.separator;
-    }
-
-    public u4a(String str, String str2, b bVar) {
+    public u4a(PersonalCardCategoryActivity personalCardCategoryActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {personalCardCategoryActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = bVar;
+        this.a = 3;
+        this.k = 0;
+        this.b = personalCardCategoryActivity;
+        this.k = vi.g(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
+        View inflate = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01e8, (ViewGroup) null);
+        this.c = inflate;
+        this.b.setContentView(inflate);
+        this.i = this.c.findViewById(R.id.obfuscated_res_0x7f090414);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f1061);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f090641);
+        this.f = memberRecommendView;
+        memberRecommendView.setFromType(9);
+        TextView textView = new TextView(this.b.getActivity());
+        this.j = textView;
+        textView.setHeight(vi.g(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.g = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f090640);
+        t4a t4aVar = new t4a(this.b.getPageContext());
+        this.h = t4aVar;
+        this.g.setAdapter((ListAdapter) t4aVar);
     }
 
-    public final void c(File file) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, file) != null) || qi.isEmpty(this.a)) {
-            return;
-        }
-        File file2 = new File(this.a);
-        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
-            return;
-        }
-        for (File file3 : listFiles) {
-            if (file3 != null && !file3.equals(file)) {
-                FileHelper.deleteFileOrDir(file3);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
+    public final List<Object> a(List<s4a> list) {
         InterceptResult invokeL;
+        int size;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!qi.isEmpty(this.a) && !qi.isEmpty(this.b)) {
-                new File(this.a).mkdirs();
-                String str = this.a + d + "annivervideo.temp";
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                tf tfVar = new tf();
-                tfVar.b().s(this.b);
-                if (new qf(tfVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
-                    return e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (s4a s4aVar : list) {
+                ArrayList<v3a> a = s4aVar.a();
+                if (a != null && (size = a.size()) != 0) {
+                    arrayList.add(s4aVar.b());
+                    if (size > 6) {
+                        size = 6;
+                    }
+                    int i2 = 0;
+                    while (i2 < size) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int i3 = 0;
+                        while (true) {
+                            i = this.a;
+                            if (i3 < i) {
+                                int i4 = i2 + i3;
+                                if (i4 < size) {
+                                    arrayList2.add(a.get(i4));
+                                }
+                                i3++;
+                            }
+                        }
+                        arrayList.add(arrayList2);
+                        i2 = i2 + (i - 1) + 1;
+                    }
                 }
             }
-            return "";
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final String e() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.hideNetRefreshView(this.c);
+            this.i.setVisibility(0);
+        }
+    }
+
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a + d + "annivervideo.temp");
-            StringBuilder sb = new StringBuilder();
-            sb.append(yi.c(this.b));
-            sb.append(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            String sb2 = sb.toString();
-            File file2 = new File(this.a + d + sb2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                c(file2);
-                return file2.getAbsolutePath();
-            }
-            return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public void d() {
+        boolean z;
+        t4a t4aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            d05 layoutMode = this.b.getLayoutMode();
+            if (TbadkApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.b.getLayoutMode().k(this.c);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.g;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (t4aVar = this.h) != null) {
+                t4aVar.notifyDataSetChanged();
+            }
+            MemberRecommendView memberRecommendView = this.f;
+            if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
+                this.f.d();
+            }
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
         }
-        if (!qi.isEmpty(str)) {
-            this.c.a(true, str, this.b);
-        } else {
-            this.c.a(false, null, null);
+    }
+
+    public final void e(List<s4a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.g.setVisibility(0);
+                this.h.b(a(list));
+                this.h.notifyDataSetChanged();
+                return;
+            }
+            this.g.setVisibility(8);
+        }
+    }
+
+    public final boolean f(a5a a5aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a5aVar)) == null) {
+            if (a5aVar != null && !StringUtils.isNull(a5aVar.c())) {
+                this.f.setVisibility(0);
+                this.f.e(a5aVar);
+                return true;
+            }
+            this.f.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(PersonalCardItemView.b bVar) {
+        t4a t4aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && (t4aVar = this.h) != null) {
+            t4aVar.a(bVar);
+        }
+    }
+
+    public void h(BdListView.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) {
+            this.g.setOnSrollToBottomListener(pVar);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.i.setVisibility(8);
+            String string = this.b.getPageContext().getResources().getString(R.string.no_data_text);
+            this.b.setNetRefreshViewTopMargin(this.k);
+            this.b.showNetRefreshView(this.c, string, false);
+        }
+    }
+
+    public void j(int i, a5a a5aVar, List<s4a> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), a5aVar, list, Boolean.valueOf(z)}) == null) {
+            if ((a5aVar != null && !StringUtils.isNull(a5aVar.c())) || (list != null && list.size() > 0)) {
+                if (i != 0) {
+                    return;
+                }
+                b();
+                if (f(a5aVar)) {
+                    this.g.removeHeaderView(this.j);
+                    this.g.addHeaderView(this.j);
+                } else {
+                    this.g.removeHeaderView(this.j);
+                }
+                e(list);
+                return;
+            }
+            i();
         }
     }
 }

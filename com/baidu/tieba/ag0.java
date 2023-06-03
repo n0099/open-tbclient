@@ -1,31 +1,29 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.Rotation;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.gles.GeneratedTexture;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.util.List;
-/* loaded from: classes4.dex */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.concurrent.locks.ReentrantLock;
+/* loaded from: classes5.dex */
 public class ag0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public int[] b;
-    public final FloatBuffer c;
-    public final FloatBuffer d;
-    public final FloatBuffer e;
-    public int f;
-    public int g;
-    public int h;
-    public float[] i;
+    public String a;
+    public String b;
+    public String c;
 
     public ag0() {
         Interceptable interceptable = $ic;
@@ -40,185 +38,240 @@ public class ag0 {
                 return;
             }
         }
-        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
-        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(fg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.c = asFloatBuffer;
-        asFloatBuffer.put(fg0.a).position(0);
-        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(hg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.d = asFloatBuffer2;
-        asFloatBuffer2.put(hg0.a).position(0);
-        float[] b = hg0.b(Rotation.NORMAL, false, true);
-        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.e = asFloatBuffer3;
-        asFloatBuffer3.put(b).position(0);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = "video_session";
+        b(sf0.a());
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public ag0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr != null && this.h < iArr.length) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = str;
+        b(sf0.a());
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                file.renameTo(new File(str2));
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x001c */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:50:0x0082 -> B:80:0x0085). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(String str, byte[] bArr, String str2) {
+        RandomAccessFile randomAccessFile;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, bArr, str2) == null) || bArr == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        FileLock fileLock = 0;
+        fileLock = 0;
+        try {
+            try {
+                try {
+                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    try {
+                    } catch (Exception e) {
+                        e = e;
+                        uf0.b("DpStatFileWriter", "FileWriter invoke write fail:", e);
+                        if (fileLock != 0) {
+                            try {
+                                fileLock.release();
+                            } catch (Exception e2) {
+                                uf0.b("DpStatFileWriter", "file lock release fail", e2);
+                            }
+                        }
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (Exception e3) {
+                            uf0.b("DpStatFileWriter", "file lock release fail", e3);
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            fileLock.close();
+                        } catch (Exception e4) {
+                            uf0.b("DpStatFileWriter", "file close fail", e4);
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e5) {
+                e = e5;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (0 != 0) {
+                }
+                if (0 != 0) {
+                }
+                throw th;
+            }
+        } catch (Exception e6) {
+            uf0.b("DpStatFileWriter", "file close fail", e6);
+        }
+        if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
+            try {
+                randomAccessFile.close();
+                return;
+            } catch (Exception e7) {
+                uf0.b("DpStatFileWriter", "file close fail", e7);
+                return;
+            }
+        }
+        fileLock = randomAccessFile.getChannel().tryLock();
+        if (fileLock != 0 && fileLock.isValid()) {
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.write(bArr);
+            if (!TextUtils.isEmpty(str2)) {
+                randomAccessFile.write(str2.getBytes());
+            }
+        }
+        if (fileLock != 0) {
+            try {
+                fileLock.release();
+            } catch (Exception e8) {
+                uf0.b("DpStatFileWriter", "file lock release fail", e8);
+            }
+        }
+        randomAccessFile.close();
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            File file = new File(str);
+            return file.exists() && file.isFile() && file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return true;
+            File file = new File(str);
+            return file.exists() && file.isFile();
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void b() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int[] iArr = this.b;
-            if (iArr != null) {
-                GLES20.glDeleteTextures(iArr.length, iArr, 0);
-                this.b = null;
-            }
-            int[] iArr2 = this.a;
-            if (iArr2 != null) {
-                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
-                this.a = null;
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+            return;
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = 0;
-        }
-    }
-
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i != 0 && i2 != 0) {
-            if (this.f != i || this.g != i2) {
-                if (this.a != null) {
-                    b();
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            String str = this.a;
+            if (g(str)) {
+                String str2 = this.b;
+                f(str2);
+                if (h(str, str2)) {
+                    f(str);
+                } else {
+                    f(str);
+                    c(str2, str);
                 }
-                this.f = i;
-                this.g = i2;
-                d(2);
+                f(str2);
             }
+        } finally {
+            reentrantLock.unlock();
         }
     }
 
-    public final void d(int i) {
-        int i2;
+    public void b(Context context) {
+        String c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int[] iArr = this.a;
-            if (iArr != null) {
-                i2 = i + iArr.length;
-            } else {
-                i2 = i;
-            }
-            int[] iArr2 = new int[i2];
-            int[] iArr3 = new int[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                int[] iArr4 = this.a;
-                if (iArr4 != null && iArr4.length > i3) {
-                    iArr2[i3] = iArr4[i3];
-                }
-                int[] iArr5 = this.b;
-                if (iArr5 != null && iArr5.length > i3) {
-                    iArr3[i3] = iArr5[i3];
-                }
-                if (iArr3[i3] == 0) {
-                    GLES20.glGenFramebuffers(1, iArr2, i3);
-                    GLES20.glGenTextures(1, iArr3, i3);
-                    GLES20.glBindTexture(3553, iArr3[i3]);
-                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
-                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
-                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
-                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
-                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
-                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
-                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
-                    GLES20.glBindTexture(3553, 0);
-                    GLES20.glBindFramebuffer(36160, 0);
-                }
-            }
-            this.a = iArr2;
-            this.b = iArr3;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (c = xf0.c(context)) == null) {
+            return;
         }
+        new File(c).mkdirs();
     }
 
-    public int e(int i, zf0 zf0Var) {
-        InterceptResult invokeIL;
+    public void e(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, zf0Var)) == null) {
-            if (zf0Var == null) {
-                return i;
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
             try {
-                if (a()) {
-                    d(2);
-                }
-                zf0Var.s();
-                GLES20.glBindFramebuffer(36160, this.a[this.h]);
-                GLES20.glViewport(0, 0, this.f, this.g);
-                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
-                GLES20.glClear(16640);
-                zf0Var.p(i, this.c, this.e);
-                GLES20.glBindFramebuffer(36160, 0);
-                i = this.b[this.h];
-                this.h++;
-                return i;
+                d(this.a, bArr, "\r\n");
+            } catch (AssertionError unused) {
+                uf0.e("DpStatFileWriter", "write data to file fail");
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public boolean h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                this.c.equals("live_show_session");
+                bufferedReader.close();
+                inputStreamReader.close();
+                fileInputStream.close();
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
-                return i;
+                uf0.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                return true;
             }
         }
-        return invokeIL.intValue;
-    }
-
-    public int f(int i, List<zf0> list) {
-        InterceptResult invokeIL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
-            if (list != null) {
-                int size = list.size();
-                if (size == 0) {
-                    return i;
-                }
-                if (this.a.length - this.h <= size) {
-                    d(size);
-                }
-                int i3 = this.h;
-                while (true) {
-                    i2 = this.h;
-                    if (i3 >= i2 + size) {
-                        break;
-                    }
-                    zf0 zf0Var = list.get(i3 - i2);
-                    zf0Var.s();
-                    GLES20.glBindFramebuffer(36160, this.a[i3]);
-                    GLES20.glViewport(0, 0, this.f, this.g);
-                    float[] fArr = this.i;
-                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
-                    GLES20.glClear(16640);
-                    zf0Var.p(i, this.c, this.e);
-                    GLES20.glBindFramebuffer(36160, 0);
-                    i = this.b[i3];
-                    i3++;
-                }
-                this.h = i2 + size;
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
-
-    public void h(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            float[] fArr = this.i;
-            fArr[0] = f;
-            fArr[1] = f2;
-            fArr[2] = f3;
-            fArr[3] = f4;
-        }
+        return invokeLL.booleanValue;
     }
 }

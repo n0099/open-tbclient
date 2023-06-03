@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +57,7 @@ public class SimpleFunctionDescriptorImpl extends FunctionDescriptorImpl impleme
                 break;
             case 12:
             case 16:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 13:
             case 17:

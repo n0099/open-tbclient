@@ -6,11 +6,9 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.DownDetail;
 import com.baidu.down.common.TaskMsg;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
-import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,9 +99,9 @@ public class WriteThread implements Runnable {
                 randomAccessFile.seek(byteArrayInfo.mFilePos);
                 randomAccessFile.write(byteArrayInfo.mByteArray, 0, byteArrayInfo.mByteArrayLength);
                 abstractTask.mProgressInfo.updateProgress(byteArrayInfo.mFilePos, byteArrayInfo.mByteArrayLength);
-                if (abstractTask.needWriteDb && System.currentTimeMillis() - abstractTask.mWriteFileLastTime > BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT) {
+                if (abstractTask.needWriteDb && System.currentTimeMillis() - abstractTask.mWriteFileLastTime > 1500) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(abstractTask.mProgressInfo.getCurrentLength()));
+                    contentValues.put("current_bytes", Long.valueOf(abstractTask.mProgressInfo.getCurrentLength()));
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(abstractTask.mDownloadId)});
                     abstractTask.mWriteFileLastTime = System.currentTimeMillis();
                 }
@@ -165,7 +163,7 @@ public class WriteThread implements Runnable {
     /* JADX WARN: Code restructure failed: missing block: B:85:0x0308, code lost:
         r0 = new android.content.ContentValues();
         r0.put("status", java.lang.Integer.valueOf(r5.mStatus));
-        r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
+        r0.put("current_bytes", java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
         com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
      */
     /* JADX WARN: Removed duplicated region for block: B:121:0x034a A[SYNTHETIC] */

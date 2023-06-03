@@ -1,103 +1,30 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class us5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
-            }
-            if (!qi.isEquals(yt5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
-                try {
-                    str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            String c = yt5.c(str, "topic_id=");
-            String c2 = yt5.c(str, "topic_name=");
-            String c3 = yt5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            String c4 = yt5.c(str, "nonavigationbar=");
-            if ((!qi.isEmpty(c) || !qi.isEmpty(c2)) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13395");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param("obj_type", xi.g());
+            statisticItem.param("resource_id", xi.k());
+            statisticItem.param("aid", TbSingleton.getInstance().getCpuFlopsDuration());
+            statisticItem.param("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
+            TiebaStatic.log(statisticItem);
         }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (yt5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return yt5.c(str, "topic_id=");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return yt5.c(str, "hottopic_detail_hybrid-");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-        sb.append("1");
-        sb.append("&nonavigationbar=");
-        sb.append("1");
-        sb.append("&from=");
-        sb.append("1");
-        if (str != null) {
-            sb.append("&topic_id=");
-            sb.append(str);
-        }
-        if (str2 != null) {
-            sb.append("&topic_name=");
-            sb.append(str2);
-        }
-        sb.append("&skin=");
-        sb.append(SkinManager.getCurrentSkinTypeString());
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

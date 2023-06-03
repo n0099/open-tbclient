@@ -1,113 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q44 extends og2 {
+public class q44 extends e44 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qg2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements V8Engine.WorkerFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q44 a;
-
-        public a(q44 q44Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041848, "Lcom/baidu/tieba/q44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = q44Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
-        public V8Engine onCreateWorker() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                r44 r44Var = new r44(this.a.getInitBasePath());
-                r44Var.H0();
-                r44Var.u(new ah2(r44Var));
-                r44Var.G0(new bh2(r44Var));
-                return r44Var.l0();
-            }
-            return (V8Engine) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q44(@NonNull String str, @NonNull lh2 lh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, lh2Var, v8ThreadDelegatePolicy);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, lh2Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (lh2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041848, "Lcom/baidu/tieba/q44;");
                 return;
             }
         }
-        V8Engine v8Engine = this.a;
-        if (v8Engine == null) {
-            return;
-        }
-        v8Engine.setWorkerFactoryDelegate(new a(this));
+        c = is1.a;
     }
 
-    @Override // com.baidu.tieba.og2
-    @NonNull
-    public EventTarget A() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q44() {
+        super("startPermissionsPage");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new n34(this);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (EventTarget) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.og2
-    public EventTarget D() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e44
+    public y32 a(JSONObject jSONObject, cp2 cp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new q34(this);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cp2Var)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 != null && b0.w() != null) {
+                String str = Build.MANUFACTURER;
+                if (!TextUtils.isEmpty(str)) {
+                    str = str.toLowerCase(Locale.US);
+                }
+                if (TextUtils.equals(str, "oppo")) {
+                    try {
+                        Intent intent = new Intent(b0.w().getPackageName());
+                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
+                        b0.w().startActivity(intent);
+                    } catch (Exception e) {
+                        if (c) {
+                            e.printStackTrace();
+                        }
+                        cp3.f(b0.w());
+                    }
+                } else {
+                    cp3.g(b0.w());
+                }
+                cp2Var.onSuccess(null);
+            } else if (c) {
+                Log.d("StartPermissionsPage", "swan or activity is null");
+            }
+            return null;
         }
-        return (EventTarget) invokeV.objValue;
+        return (y32) invokeLL.objValue;
     }
 }

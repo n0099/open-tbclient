@@ -10,14 +10,14 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CustomScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class CustomScrollView extends ScrollView {
     public Field d;
     public a e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class CustomScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 if (this.d == null) {
-                    this.d = ri.f(this, "mScroller");
+                    this.d = vi.f(this, "mScroller");
                 }
                 Object obj = this.d.get(this);
                 if (obj == null) {
@@ -178,7 +178,7 @@ public class CustomScrollView extends ScrollView {
             if (i2 == 0 || z) {
                 try {
                     if (this.d == null) {
-                        this.d = ri.f(this, "mScroller");
+                        this.d = vi.f(this, "mScroller");
                     }
                     Object obj = this.d.get(this);
                     if (obj != null && (obj instanceof Scroller)) {

@@ -6,7 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ResponseProcessCookies implements HttpResponseInterceptor {
     public ResponseProcessCookies() {
         throw new RuntimeException("Stub!");

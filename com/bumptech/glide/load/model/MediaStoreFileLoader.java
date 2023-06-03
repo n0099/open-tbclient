@@ -14,11 +14,11 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
     public final Context context;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements ModelLoaderFactory<Uri, File> {
         public final Context context;
 
@@ -37,7 +37,7 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FilePathFetcher implements DataFetcher<File> {
         public static final String[] PROJECTION = {"_data"};
         public final Context context;

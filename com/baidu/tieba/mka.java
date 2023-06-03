@@ -1,268 +1,128 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
+import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class mka extends fka implements ama {
+public class mka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nka B;
-    public String C;
-    public Thread D;
-    public long E;
-    public long F;
+    public List<String> a;
+    public List<List<String>> b;
+    public VideoCategoryClassData c;
+    public BdUniqueId d;
 
-    /* loaded from: classes6.dex */
-    public class a extends bma {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mka a;
-
-        public a(mka mkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mkaVar;
-        }
-
-        @Override // com.baidu.tieba.bma, com.baidu.tieba.ama
-        public void onExceptionThrown(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
-                return;
-            }
-            this.a.z.onExceptionThrown(str);
-        }
-
-        @Override // com.baidu.tieba.bma
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a.k = true;
-                if (this.a.z == null || this.a.l) {
-                    return;
-                }
-                this.a.z.onFinishedWriting(z);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mka(String str, String str2, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    public mka(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, iArr};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.C = str2;
-        this.B.e(str2);
-        F(this);
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new VideoCategoryClassData();
+        this.d = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.fka
-    public void B(long j) {
+    public VideoCategoryClassData a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = j * 1000;
-            if (j2 < 0) {
-                j2 = 0;
-            }
-            this.E = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
-                }
-                synchronized (this.c) {
-                    this.e.seek(j2);
-                }
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            this.c.setFirstClass(this.a.get(i));
+            this.c.setSecondClass(this.b.get(i).get(i2));
+            this.c.getTags().clear();
+            return this.c;
         }
+        return (VideoCategoryClassData) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.fka
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
-            return;
-        }
-        long currentPosition = this.e.getCurrentPosition();
-        long j = this.E;
-        long j2 = currentPosition - j;
-        long j3 = this.F;
-        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
-        double d = duration == 0 ? 0.0d : j2 / duration;
-        double d2 = d >= 0.0d ? d : 0.0d;
-        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
-    }
-
-    @Override // com.baidu.tieba.fka
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.I();
-            Thread thread = this.D;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.D = thread2;
-                thread2.start();
-            }
-            super.I();
-        }
-    }
-
-    public void R(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            long j2 = j * 1000;
-            this.F = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
-                }
-                synchronized (this.c) {
-                    this.e.h(j2);
-                }
-            }
-        }
-    }
-
-    public void S(bma bmaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bmaVar) == null) {
-            this.z = bmaVar;
-            this.B.d(new a(this));
-        }
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.l = true;
-            this.k = true;
-            Thread thread = this.D;
-            if (thread != null) {
-                try {
-                    thread.interrupt();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                this.D = null;
-            }
-            try {
-                this.B.g();
-            } catch (Exception e2) {
-                gna.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ama
-    public void onCancel() {
-        bma bmaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bmaVar = this.z) == null) {
-            return;
-        }
-        bmaVar.onCancel();
-    }
-
-    @Override // com.baidu.tieba.ama
-    public void onExceptionThrown(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onExceptionThrown(str);
-    }
-
-    @Override // com.baidu.tieba.ama
-    public void onProgressChanged(int i, double d, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onProgressChanged(i, d, j);
-    }
-
-    @Override // com.baidu.tieba.ama
-    public void onTrackEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                gna.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fka
-    public jka p() throws IOException {
+    public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            nka nkaVar = new nka(this.C, m(), i());
-            this.B = nkaVar;
-            return nkaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (jka) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fka
-    public void t() {
+    public List<List<String>> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getTags();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
+            getSelectClassReqMessage.setTag(this.d);
+            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
 
-    @Override // com.baidu.tieba.fka
-    public void u() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
+            getSelectTagReqMessage.setTag(this.d);
+            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
+            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
         }
     }
 
-    @Override // com.baidu.tieba.fka
-    public void v() {
+    public void g(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.D != null) {
-                this.D = null;
-            }
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                gna.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.clear();
+            this.a.addAll(list);
+        }
+    }
+
+    public void h(List<List<String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+        }
+    }
+
+    public void i(VideoCategoryClassData videoCategoryClassData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
+            this.c = videoCategoryClassData;
         }
     }
 }

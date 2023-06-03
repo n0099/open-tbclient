@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
+import com.baidu.tieba.g5;
+import com.baidu.tieba.l1.a;
+import com.baidu.tieba.o7;
+import com.baidu.tieba.s6;
+import com.baidu.tieba.u1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class l1 extends c1<l5, a> {
+public abstract class l1<P extends a> extends g1<y3, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public String c;
+    public s6<o7.b<String, n4>> b;
+    public a c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b1
-    /* renamed from: f */
-    public o6<w0> a(String str, x2 x2Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, x2Var, aVar)) == null) {
-            return null;
-        }
-        return (o6) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c1
+    @Override // com.baidu.tieba.g1
     /* renamed from: g */
-    public void c(a1 a1Var, String str, x2 x2Var, a aVar) {
+    public void c(e1 e1Var, String str, b3 b3Var, P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, a1Var, str, x2Var, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, e1Var, str, b3Var, p) == null) {
         }
     }
+
+    public abstract n4 h(b3 b3Var, P p);
 
     /* loaded from: classes6.dex */
-    public static class a extends y0<l5> {
+    public static class a extends c1<y3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String b;
-        public String c;
-        public boolean d;
-        public String e;
-        public String f;
+        public u1.b b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -56,90 +50,110 @@ public class l1 extends c1<l5, a> {
                     return;
                 }
             }
-            this.d = true;
+            u1.b bVar = new u1.b();
+            this.b = bVar;
+            Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
+            bVar.g = textureFilter;
+            bVar.f = textureFilter;
+            Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
+            bVar.i = textureWrap;
+            bVar.h = textureWrap;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l1(f1 f1Var) {
-        super(f1Var);
+    public l1(j1 j1Var) {
+        super(j1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f1Var};
+            Object[] objArr = {j1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f1) newInitContext.callArgs[0]);
+                super((j1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = ".vert";
-        this.c = ".frag";
+        this.b = new s6<>();
+        this.c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c1
-    /* renamed from: h */
-    public l5 d(a1 a1Var, String str, x2 x2Var, a aVar) {
-        InterceptResult invokeLLLL;
-        String str2;
-        x2 b;
-        String o;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r6v1, types: [V, com.baidu.tieba.n4] */
+    @Override // com.baidu.tieba.f1
+    /* renamed from: f */
+    public s6<a1> a(String str, b3 b3Var, P p) {
+        InterceptResult invokeLLL;
+        u1.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, a1Var, str, x2Var, aVar)) == null) {
-            String str3 = null;
-            if (aVar != null) {
-                String str4 = aVar.b;
-                if (str4 == null) {
-                    str4 = null;
-                }
-                str2 = aVar.c;
-                if (str2 == null) {
-                    str2 = null;
-                }
-                str3 = str4;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, b3Var, p)) == null) {
+            s6<a1> s6Var = new s6<>();
+            ?? h = h(b3Var, p);
+            if (h == 0) {
+                return s6Var;
+            }
+            o7.b<String, n4> bVar2 = new o7.b<>();
+            bVar2.a = str;
+            bVar2.b = h;
+            synchronized (this.b) {
+                this.b.a(bVar2);
+            }
+            if (p != null) {
+                bVar = p.b;
             } else {
-                str2 = null;
+                bVar = this.c.b;
             }
-            if (str3 == null && str.endsWith(this.c)) {
-                str3 = str.substring(0, str.length() - this.c.length()) + this.b;
-            }
-            if (str2 == null && str.endsWith(this.b)) {
-                str2 = str.substring(0, str.length() - this.b.length()) + this.c;
-            }
-            if (str3 == null) {
-                b = x2Var;
-            } else {
-                b = b(str3);
-            }
-            if (str2 != null) {
-                x2Var = b(str2);
-            }
-            String o2 = b.o();
-            if (b.equals(x2Var)) {
-                o = o2;
-            } else {
-                o = x2Var.o();
-            }
-            if (aVar != null) {
-                if (aVar.e != null) {
-                    o2 = aVar.e + o2;
-                }
-                if (aVar.f != null) {
-                    o = aVar.f + o;
+            s6.b<ModelMaterial> it = h.c.iterator();
+            while (it.hasNext()) {
+                s6<u4> s6Var2 = it.next().i;
+                if (s6Var2 != null) {
+                    s6.b<u4> it2 = s6Var2.iterator();
+                    while (it2.hasNext()) {
+                        s6Var.a(new a1(it2.next().a, Texture.class, bVar));
+                    }
                 }
             }
-            l5 l5Var = new l5(o2, o);
-            if ((aVar == null || aVar.d) && !l5Var.o()) {
-                a1Var.p().b("ShaderProgram " + str + " failed to compile:\n" + l5Var.l());
-            }
-            return l5Var;
+            return s6Var;
         }
-        return (l5) invokeLLLL.objValue;
+        return (s6) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g1
+    /* renamed from: i */
+    public y3 d(e1 e1Var, String str, b3 b3Var, P p) {
+        InterceptResult invokeLLLL;
+        n4 n4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, e1Var, str, b3Var, p)) == null) {
+            synchronized (this.b) {
+                n4Var = null;
+                for (int i = 0; i < this.b.b; i++) {
+                    if (this.b.get(i).a.equals(str)) {
+                        n4Var = this.b.get(i).b;
+                        this.b.h(i);
+                    }
+                }
+            }
+            if (n4Var == null) {
+                return null;
+            }
+            y3 y3Var = new y3(n4Var, new g5.a(e1Var));
+            Iterator<z6> it = y3Var.h().iterator();
+            while (it.hasNext()) {
+                if (it.next() instanceof Texture) {
+                    it.remove();
+                }
+            }
+            return y3Var;
+        }
+        return (y3) invokeLLLL.objValue;
     }
 }

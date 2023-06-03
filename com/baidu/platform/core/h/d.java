@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.e;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,17 +59,18 @@ public class d extends e {
                 com.baidu.platform.util.a aVar = this.a;
                 aVar.a("location", latLng2.latitude + "," + latLng2.longitude);
             }
-            String str = "true";
-            if (suggestionSearchOption.mCityLimit.booleanValue()) {
-                this.a.a("city_limit", "true");
+            boolean booleanValue = suggestionSearchOption.mCityLimit.booleanValue();
+            String str = YYOption.IsLive.VALUE_TRUE;
+            if (booleanValue) {
+                this.a.a("city_limit", YYOption.IsLive.VALUE_TRUE);
             } else {
-                this.a.a("city_limit", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                this.a.a("city_limit", "false");
             }
             this.a.a("from", "android_map_sdk");
             this.a.a("output", "json");
             com.baidu.platform.util.a aVar2 = this.a;
             if (!suggestionSearchOption.isExtendAdcode()) {
-                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                str = "false";
             }
             aVar2.a("extensions_adcode", str);
         }

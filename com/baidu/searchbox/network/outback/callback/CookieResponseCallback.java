@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.outback.callback;
 
 import com.baidu.searchbox.network.outback.core.Response;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public abstract void handleCookies(List<String> list) throws Exception;
 

@@ -1,393 +1,119 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.uu2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m74 extends EventTargetImpl {
+public class m74 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final Set<String> f;
-    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public n12 b;
-    public String c;
-    public qg2 d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements uu2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSEvent a;
-        public final /* synthetic */ m74 b;
 
-        public a(m74 m74Var, JSEvent jSEvent) {
+        @Override // com.baidu.tieba.uu2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a(m74 m74Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m74Var, jSEvent};
+                Object[] objArr = {m74Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = m74Var;
-            this.a = jSEvent;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.uu2.c
+        public void onFailed() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f015f, 1).show();
             }
-            m74.super.dispatchEvent(this.a);
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
-        public final /* synthetic */ m74 b;
-
-        public b(m74 m74Var, Object obj) {
+        @Override // com.baidu.tieba.uu2.c
+        public void onSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m74Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = n74.c();
+                File b = n74.b();
+                if (c.exists() && cs4.U(c.getPath(), b.getPath())) {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0160, 1).show();
+                } else {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f015f, 1).show();
                 }
             }
-            this.b = m74Var;
-            this.a = obj;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sb4.call(this.b.b, true, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ m74 c;
-
-        public c(m74 m74Var, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m74Var, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = m74Var;
-            this.a = str;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                w74 w74Var = new w74();
-                w74Var.errMsg = this.a;
-                w74Var.statusCode = this.b;
-                sb4.call(this.c.b, false, w74Var);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925567, "Lcom/baidu/tieba/m74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925567, "Lcom/baidu/tieba/m74;");
-                return;
-            }
-        }
-        e = qp1.a;
-        f = Sets.newHashSet("REFERER", "USER-AGENT");
-        g = Sets.newHashSet("localhost", "127.0.0.1");
-    }
-
-    public String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g93 M = g93.M();
-            if (M != null) {
-                return String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", M.O(), M.V());
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String g0 = g93.g0();
-            if (TextUtils.isEmpty(g0)) {
-                return "";
-            }
-            return g0 + "_" + System.currentTimeMillis();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m74(@NonNull qg2 qg2Var, n12 n12Var) {
-        super(qg2Var);
+    public m74(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/debugGameExtensionCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qg2Var, n12Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.d = qg2Var;
-        this.c = y();
-        this.b = n12Var;
     }
 
-    public static void F(@NonNull Request.Builder builder, n12 n12Var, Map<String, String> map) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, builder, n12Var, map) == null) && n12Var != null && n12Var.k() >= 1) {
-            for (String str : n12Var.j()) {
-                if (!TextUtils.isEmpty(str) && !f.contains(str.toUpperCase(Locale.US))) {
-                    String f2 = an3.f(n12Var.H(str));
-                    if (!TextUtils.isEmpty(f2)) {
-                        if (map != null) {
-                            map.put(str.toLowerCase(Locale.US), f2);
-                        }
-                        builder.header(str, f2);
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (!vd3.b) {
+                return false;
             }
-        }
-    }
-
-    public boolean A(@Nullable HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-            if (httpUrl != null && !g.contains(httpUrl.host().toLowerCase(Locale.US))) {
-                return true;
+            JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015d, 1).show();
+                return false;
             }
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015e, 1).show();
+                return false;
+            }
+            o84.f(optString, new a(this));
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void D(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.d.postOnJSThread(new b(this, obj));
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
-    public boolean dispatchEvent(JSEvent jSEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSEvent)) == null) {
-            this.d.postOnJSThread(new a(this, jSEvent));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void C(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
-            this.d.postOnJSThread(new c(this, str2, i));
-        }
-    }
-
-    public HttpUrl E(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            HttpUrl parse = HttpUrl.parse(str);
-            if (f93.K().w() == null) {
-                if (!A(parse)) {
-                    return null;
-                }
-                return parse;
-            } else if (e && f53.o()) {
-                return parse;
-            } else {
-                if (!A(parse)) {
-                    return null;
-                }
-                return parse;
-            }
-        }
-        return (HttpUrl) invokeL.objValue;
-    }
-
-    public void H(n12 n12Var) {
-        n12 n12Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, n12Var) == null) && n12Var != null && (n12Var2 = this.b) != null) {
-            n12Var2.G("success", n12Var.u("success"));
-            this.b.G(com.baidu.pass.biometrics.face.liveness.b.a.g0, n12Var.u(com.baidu.pass.biometrics.face.liveness.b.a.g0));
-            this.b.G(TaskProcessData.keyComplete, n12Var.u(TaskProcessData.keyComplete));
-        }
-    }
-
-    public void G(@NonNull Request.Builder builder, n12 n12Var, Map<String, String> map, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{builder, n12Var, map, Boolean.valueOf(z)}) == null) {
-            F(builder, n12Var, map);
-            if (z) {
-                builder.header("Referer", B());
-            }
-        }
-    }
-
-    public JSONObject I(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        List<String> values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str) && (values = headers.values(str)) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void abort() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.b != null && g93.M() != null) {
-            g93.M().i0().cancelTag(this.c);
-        }
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String B = this.b.B("url");
-            if (this.b != null && !TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(B)) {
-                    C("", -1, "request:url is invalid");
-                    return null;
-                } else if (g93.M() == null) {
-                    C("", -1, "request:swanApp is null");
-                    return null;
-                } else {
-                    HttpUrl E = E(B);
-                    if (E == null) {
-                        C(B, -1, "request:url scheme is invalid");
-                        return null;
-                    }
-                    String url = E.url().toString();
-                    int c2 = x93.c("request", url, "");
-                    if (c2 != 0) {
-                        if (c2 != 1) {
-                            if (c2 != 2) {
-                                C(url, -1, "request:host not in white list");
-                                return null;
-                            }
-                            C(url, -1, "request:url header must be https or wss");
-                            return null;
-                        }
-                        C(url, -1, "request:host not in white list");
-                        return null;
-                    }
-                    return url;
-                }
-            }
-            C("", 0, "request:swanApp is null");
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.utils.UniqueId;
-import com.baidu.tieba.ar;
-import com.baidu.tieba.br;
-import com.baidu.tieba.xq;
-import com.baidu.tieba.yq;
-import com.baidu.tieba.zq;
+import com.baidu.tieba.pr;
+import com.baidu.tieba.qr;
+import com.baidu.tieba.rr;
+import com.baidu.tieba.sr;
+import com.baidu.tieba.tr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,11 +30,11 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\"\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\bÇ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b(\u0010)J=\u0010\n\u001a\u00020\t\"\b\b\u0000\u0010\u0002*\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u00052\u000e\u0010\b\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ\u001f\u0010\u000e\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\b\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u001d\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u001d\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0016J;\u0010\u0019\u001a&\u0012 \u0012\u001e\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00010\u0005\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00010\u00070\u0018\u0018\u00010\u00172\u0006\u0010\u0015\u001a\u00020\u0014H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ!\u0010\u001b\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\f\u0018\u00010\u00172\u0006\u0010\u0015\u001a\u00020\u0014H\u0002¢\u0006\u0004\b\u001b\u0010\u001aJ'\u0010\u001d\u001a\u00020\t2\u0006\u0010\u001c\u001a\u00020\u00142\u0010\u0010\b\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0001\u0018\u00010\u0007¢\u0006\u0004\b\u001d\u0010\u001eJ\u001f\u0010\u001f\u001a\u00020\t2\u0006\u0010\u001c\u001a\u00020\u00142\b\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u001f\u0010 R\"\u0010#\u001a\u000e\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\"0!8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b&\u0010'¨\u0006*"}, d2 = {"Lcom/baidu/bdtask/event/TaskBusinessEventManager;", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", ExifInterface.GPS_DIRECTION_TRUE, "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Ljava/lang/Class;", "eventClass", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "", "addBusinessEventAction", "(Lcom/baidu/bdtask/model/info/TaskInfo;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", WebChromeClient.KEY_ARG_CALLBACK, "addBusinessEventCallback", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/utils/UniqueId;", "eventId", "dispatchBusinessEvent", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/utils/UniqueId;)V", "", "singleKey", "(Ljava/lang/String;Lcom/baidu/bdtask/utils/UniqueId;)V", "", "Lkotlin/Pair;", "getBusinessEventActions", "(Ljava/lang/String;)Ljava/util/Set;", "getBusinessEventCallbacks", "actionId", "removeBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "removeBusinessEventCallback", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Ljava/util/concurrent/ConcurrentHashMap;", "Lcom/baidu/bdtask/event/TaskBusinessEventCache;", "cacheMap", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/locks/ReentrantLock;", "fairLock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class TaskBusinessEventManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock a;
-    public static final ConcurrentHashMap<String, br> b;
+    public static final ConcurrentHashMap<String, tr> b;
     public static final TaskBusinessEventManager c;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,24 +70,24 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final <T extends xq> void a(TaskInfo taskInfo, Class<T> cls, yq<T> yqVar) {
+    public final <T extends pr> void a(TaskInfo taskInfo, Class<T> cls, qr<T> qrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, taskInfo, cls, yqVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, taskInfo, cls, qrVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
                 if (!b.containsKey(singleKey)) {
-                    b.put(singleKey, new br(taskInfo.deepCopy()));
+                    b.put(singleKey, new tr(taskInfo.deepCopy()));
                 } else {
-                    br brVar = b.get(singleKey);
-                    if (brVar != null) {
-                        brVar.d(taskInfo.deepCopy());
+                    tr trVar = b.get(singleKey);
+                    if (trVar != null) {
+                        trVar.d(taskInfo.deepCopy());
                     }
                 }
-                br brVar2 = b.get(singleKey);
-                if (brVar2 != null) {
-                    brVar2.e(cls, yqVar);
+                tr trVar2 = b.get(singleKey);
+                if (trVar2 != null) {
+                    trVar2.e(cls, qrVar);
                     Unit unit = Unit.INSTANCE;
                 }
             } finally {
@@ -96,24 +96,24 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final void b(TaskInfo taskInfo, zq zqVar) {
+    public final void b(TaskInfo taskInfo, rr rrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, zqVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, rrVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
                 if (!b.containsKey(singleKey)) {
-                    b.put(singleKey, new br(taskInfo.deepCopy()));
+                    b.put(singleKey, new tr(taskInfo.deepCopy()));
                 } else {
-                    br brVar = b.get(singleKey);
-                    if (brVar != null) {
-                        brVar.d(taskInfo.deepCopy());
+                    tr trVar = b.get(singleKey);
+                    if (trVar != null) {
+                        trVar.d(taskInfo.deepCopy());
                     }
                 }
-                br brVar2 = b.get(singleKey);
-                if (brVar2 != null) {
-                    brVar2.c(zqVar);
+                tr trVar2 = b.get(singleKey);
+                if (trVar2 != null) {
+                    trVar2.c(rrVar);
                     Unit unit = Unit.INSTANCE;
                 }
             } finally {
@@ -122,16 +122,16 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final void g(String str, yq<? extends xq> yqVar) {
+    public final void g(String str, qr<? extends pr> qrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, yqVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, qrVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, br> entry : b.entrySet()) {
-                    br value = entry.getValue();
+                for (Map.Entry<String, tr> entry : b.entrySet()) {
+                    tr value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
-                        value.b(yqVar);
+                        value.b(qrVar);
                     }
                 }
                 Unit unit = Unit.INSTANCE;
@@ -141,16 +141,16 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final void h(String str, zq zqVar) {
+    public final void h(String str, rr rrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, zqVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, rrVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, br> entry : b.entrySet()) {
-                    br value = entry.getValue();
+                for (Map.Entry<String, tr> entry : b.entrySet()) {
+                    tr value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
-                        value.g(zqVar);
+                        value.g(rrVar);
                     }
                 }
                 Unit unit = Unit.INSTANCE;
@@ -166,11 +166,11 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                final xq a2 = ar.a.a(taskInfo, uniqueId);
+                final pr a2 = sr.a.a(taskInfo, uniqueId);
                 if (a2 != null) {
                     DebugTrace.a.c(new Function0<String>(a2) { // from class: com.baidu.bdtask.event.TaskBusinessEventManager$dispatchBusinessEvent$1$1
                         public static /* synthetic */ Interceptable $ic;
-                        public final /* synthetic */ xq $event;
+                        public final /* synthetic */ pr $event;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -205,12 +205,12 @@ public final class TaskBusinessEventManager {
                             return (String) invokeV.objValue;
                         }
                     });
-                    Set<Pair<Class<? extends xq>, yq<? extends xq>>> e = c.e(taskInfo.getSingleKey());
-                    Set<zq> f = c.f(taskInfo.getSingleKey());
+                    Set<Pair<Class<? extends pr>, qr<? extends pr>>> e = c.e(taskInfo.getSingleKey());
+                    Set<rr> f = c.f(taskInfo.getSingleKey());
                     if (f != null) {
-                        for (zq zqVar : f) {
-                            if (zqVar != null) {
-                                zqVar.onEvent(a2);
+                        for (rr rrVar : f) {
+                            if (rrVar != null) {
+                                rrVar.onEvent(a2);
                             }
                         }
                     }
@@ -220,12 +220,12 @@ public final class TaskBusinessEventManager {
                             Pair pair = (Pair) it.next();
                             if (a2.getClass().isAssignableFrom((Class) pair.getFirst())) {
                                 Object second = pair.getSecond();
-                                if (!(second instanceof yq)) {
+                                if (!(second instanceof qr)) {
                                     second = null;
                                 }
-                                yq yqVar = (yq) second;
-                                if (yqVar != null) {
-                                    yqVar.a(a2);
+                                qr qrVar = (qr) second;
+                                if (qrVar != null) {
+                                    qrVar.a(a2);
                                 }
                             }
                         }
@@ -239,36 +239,36 @@ public final class TaskBusinessEventManager {
     }
 
     public final void d(String str, UniqueId uniqueId) {
-        br brVar;
+        tr trVar;
         TaskInfo h;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) && (brVar = b.get(str)) != null && (h = brVar.h()) != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) && (trVar = b.get(str)) != null && (h = trVar.h()) != null) {
             c(h, uniqueId);
         }
     }
 
-    public final Set<Pair<Class<? extends xq>, yq<? extends xq>>> e(String str) {
+    public final Set<Pair<Class<? extends pr>, qr<? extends pr>>> e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            br brVar = b.get(str);
-            if (brVar == null || (!Intrinsics.areEqual(brVar.h().getSingleKey(), str))) {
+            tr trVar = b.get(str);
+            if (trVar == null || (!Intrinsics.areEqual(trVar.h().getSingleKey(), str))) {
                 return null;
             }
-            return brVar.f();
+            return trVar.f();
         }
         return (Set) invokeL.objValue;
     }
 
-    public final Set<zq> f(String str) {
+    public final Set<rr> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            br brVar = b.get(str);
-            if (brVar == null || (!Intrinsics.areEqual(brVar.h().getSingleKey(), str))) {
+            tr trVar = b.get(str);
+            if (trVar == null || (!Intrinsics.areEqual(trVar.h().getSingleKey(), str))) {
                 return null;
             }
-            return brVar.a();
+            return trVar.a();
         }
         return (Set) invokeL.objValue;
     }

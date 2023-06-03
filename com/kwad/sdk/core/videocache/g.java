@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public volatile e aeD;
     public final b aeF;
@@ -18,7 +18,7 @@ public final class g {
     public final AtomicInteger aeC = new AtomicInteger(0);
     public final List<b> aeE = new CopyOnWriteArrayList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends Handler implements b {
         public final List<b> aeE;
         public final String url;

@@ -1,12 +1,12 @@
 package com.kwai.filedownloader.a;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.kwai.filedownloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0662a extends Iterable<com.kwai.filedownloader.c.c> {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0682a extends Iterable<com.kwai.filedownloader.c.c> {
         void Di();
 
         void a(int i, com.kwai.filedownloader.c.c cVar);
@@ -14,7 +14,7 @@ public interface a {
         void c(com.kwai.filedownloader.c.c cVar);
     }
 
-    InterfaceC0662a Dh();
+    InterfaceC0682a Dh();
 
     void a(int i, int i2, long j);
 

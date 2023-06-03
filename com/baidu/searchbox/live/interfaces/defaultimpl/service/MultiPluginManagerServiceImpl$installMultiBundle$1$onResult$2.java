@@ -47,6 +47,6 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2
             });
             return;
         }
-        this.this$0.$installCallback.onResult(str, false, MultiPluginManagerServiceImpl.INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL, str2);
+        this.this$0.$installCallback.onResult(str, false, -130, str2);
     }
 }

@@ -6,11 +6,9 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoSystemHelper {
     public static final String TAG = "VideoSystemHelper";
 
@@ -57,7 +55,7 @@ public class VideoSystemHelper {
             return 0;
         }
         Resources resources = appContext.getResources();
-        return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
+        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android"));
     }
 
     public static int getStatusBarHeight() {
@@ -66,7 +64,7 @@ public class VideoSystemHelper {
         if (appContext == null) {
             return 0;
         }
-        int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+        int identifier = appContext.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
         if (identifier > 0) {
             try {
                 i = appContext.getResources().getDimensionPixelSize(identifier);
@@ -79,7 +77,14 @@ public class VideoSystemHelper {
         return i;
     }
 
-    @PublicMethod
+    public static boolean isLargeScreen() {
+        Context appContext = BDPlayerConfig.getAppContext();
+        if (appContext == null || appContext.getResources() == null || appContext.getResources().getConfiguration() == null || (appContext.getResources().getConfiguration().screenLayout & 15) != 3) {
+            return false;
+        }
+        return true;
+    }
+
     public static void setKeepScreenOnOff(Activity activity, boolean z) {
         if (activity != null) {
             if (z) {

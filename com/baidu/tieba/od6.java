@@ -1,29 +1,193 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchReqMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class od6 {
+/* loaded from: classes7.dex */
+public abstract class od6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public final RecyclerView.LayoutManager a;
 
-    public od6(TbPageContext tbPageContext) {
+    public abstract int c(View view2);
+
+    public abstract int d(View view2);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract int g();
+
+    /* loaded from: classes7.dex */
+    public static class a extends od6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(RecyclerView.LayoutManager layoutManager) {
+            super(layoutManager, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int c(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return this.a.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int d(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                return this.a.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.getWidth();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.getPaddingLeft();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return (this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight();
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends od6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(RecyclerView.LayoutManager layoutManager) {
+            super(layoutManager, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int c(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return this.a.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int d(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                return this.a.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.getHeight();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.getPaddingTop();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.od6
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return (this.a.getHeight() - this.a.getPaddingTop()) - this.a.getPaddingBottom();
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    public od6(RecyclerView.LayoutManager layoutManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {layoutManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,23 +197,29 @@ public class od6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        ip5 ip5Var = new ip5(309641);
-        ip5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
-        MessageManager.getInstance().registerTask(ip5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, ar9.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
-        tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        new Rect();
+        this.a = layoutManager;
     }
 
-    public void a(int i, long j) {
+    public /* synthetic */ od6(RecyclerView.LayoutManager layoutManager, a aVar) {
+        this(layoutManager);
+    }
+
+    public static od6 a(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
-            candidateSearchReqMsg.applyId = i;
-            candidateSearchReqMsg.fid = j;
-            candidateSearchReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) {
+            return new a(layoutManager);
         }
+        return (od6) invokeL.objValue;
+    }
+
+    public static od6 b(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, layoutManager)) == null) {
+            return new b(layoutManager);
+        }
+        return (od6) invokeL.objValue;
     }
 }

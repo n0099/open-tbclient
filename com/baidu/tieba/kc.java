@@ -1,171 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class kc implements rc {
+public class kc extends DiskFileOperate implements bc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public ArrayList<String> a;
 
-    public kc(Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {str, str2, action, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (obj != null && obj.getClass().isArray()) {
-            this.a = obj;
-        }
+        this.a = arrayList;
     }
 
-    @Override // com.baidu.tieba.rc
-    public Object a(ae aeVar) {
+    @Override // com.baidu.tieba.bc
+    public boolean compare(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aeVar)) == null) {
-            Object f = f(aeVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
-                }
-                if (f instanceof JSONArray) {
-                    return f.toString();
-                }
-                return f;
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc
-    public Object b(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aeVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc
-    public Object c(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aeVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc
-    public Object e(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aeVar)) == null) {
-            return d(aeVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc
-    public Object d(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aeVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Boolean.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Byte.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Character.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Double.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Float.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Integer.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Long.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Short.TYPE) {
-                    return this.a;
-                }
-                if (componentType == String.class) {
-                    return this.a;
-                }
-                int length = Array.getLength(this.a);
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < length; i++) {
-                    Object f = de.a(Array.get(this.a, i)).f(new ae(componentType));
-                    if (f != null) {
-                        jSONArray.put(f);
-                    }
-                }
-                return jSONArray.toString();
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc
-    public Object f(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aeVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Character.TYPE) {
-                    return String.valueOf((char[]) this.a);
-                }
-                if (componentType == Byte.TYPE) {
-                    try {
-                        ji.k((byte[]) this.a, 0);
-                    } catch (Exception unused) {
-                        return null;
-                    }
-                } else {
-                    int length = Array.getLength(this.a);
-                    JSONArray jSONArray = new JSONArray();
-                    for (int i = 0; i < length; i++) {
-                        Object f = de.a(Array.get(this.a, i)).f(new ae(componentType));
-                        if (f != null) {
-                            jSONArray.put(f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            if (this.a != null && file != null) {
+                String name = file.getName();
+                if (!TextUtils.isEmpty(name)) {
+                    Iterator<String> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        if (name.equals(it.next())) {
+                            return true;
                         }
                     }
-                    return jSONArray;
                 }
             }
-            return null;
+            return false;
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

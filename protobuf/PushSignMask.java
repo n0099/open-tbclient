@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PushSignMask extends Message {
     public static final Integer DEFAULT_SIGNPUSHMASK = 0;
     public static final Integer DEFAULT_SIGNPUSHTIMESTAMP = 0;
@@ -11,7 +11,7 @@ public final class PushSignMask extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer signPushTimeStamp;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PushSignMask> {
         public Integer signPushMask;
         public Integer signPushTimeStamp;

@@ -13,11 +13,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Headers {
     public final String[] namesAndValues;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public final List<String> namesAndValues = new ArrayList(20);
 

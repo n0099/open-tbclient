@@ -86,7 +86,7 @@ public class TiebaStaticHelper {
         statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
         statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
         statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
-        statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
+        statisticItem.param("yyuid", yyExtData.mYyUid);
         statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
         statisticItem.param("template_id", yyExtData.mTemplateId);
         if (!statisticItem.hasParam("liveid")) {

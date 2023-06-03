@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class AsyncTask$Status {
@@ -32,7 +31,7 @@ public final class AsyncTask$Status {
             }
         }
         PENDING = new AsyncTask$Status("PENDING", 0);
-        RUNNING = new AsyncTask$Status(TornadoLiteRuntime.STATE_RUNNING, 1);
+        RUNNING = new AsyncTask$Status("RUNNING", 1);
         AsyncTask$Status asyncTask$Status = new AsyncTask$Status("FINISHED", 2);
         FINISHED = asyncTask$Status;
         $VALUES = new AsyncTask$Status[]{PENDING, RUNNING, asyncTask$Status};

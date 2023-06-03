@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareParents;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeclareParentsImpl implements DeclareParents {
     public AjType<?> declaringType;
     public String firstMissingTypeName;

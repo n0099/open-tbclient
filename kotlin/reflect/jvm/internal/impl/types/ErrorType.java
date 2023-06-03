@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.util.StringHelper;
 import java.util.List;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
@@ -109,7 +108,7 @@ public class ErrorType extends SimpleType {
         if (getArguments().isEmpty()) {
             joinToString = "";
         } else {
-            joinToString = CollectionsKt___CollectionsKt.joinToString(getArguments(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "<", ">", -1, StringHelper.STRING_MORE, null);
+            joinToString = CollectionsKt___CollectionsKt.joinToString(getArguments(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "<", ">", -1, "...", null);
         }
         sb.append(joinToString);
         return sb.toString();

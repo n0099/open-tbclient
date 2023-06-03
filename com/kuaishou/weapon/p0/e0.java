@@ -2,7 +2,6 @@ package com.kuaishou.weapon.p0;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +70,7 @@ public class e0 {
             try {
                 Process start = new ProcessBuilder("/system/bin/cat", k1.a).start();
                 StringBuffer stringBuffer = new StringBuffer();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream(), IMAudioTransRequest.CHARSET));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream(), "utf-8"));
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (TextUtils.isEmpty(readLine)) {

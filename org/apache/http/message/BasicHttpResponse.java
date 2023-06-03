@@ -7,7 +7,7 @@ import org.apache.http.ProtocolVersion;
 import org.apache.http.ReasonPhraseCatalog;
 import org.apache.http.StatusLine;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicHttpResponse extends AbstractHttpMessage implements HttpResponse {
     public BasicHttpResponse(ProtocolVersion protocolVersion, int i, String str) {
         throw new RuntimeException("Stub!");

@@ -1,163 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.du2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class yf3 {
+public class yf3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public hy1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948328195, "Lcom/baidu/tieba/yf3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948328195, "Lcom/baidu/tieba/yf3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yf3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/webviewPostMessage");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = qp1.a;
-        a = 0;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        du2.a W = f93.K().q().W();
-        String i = li3.i(W.j0(), W.G());
-        if (!jSONObject.has("appid")) {
-            gm3.f(jSONObject, "appid", W.H());
-        }
-        if (!jSONObject.has("swan")) {
-            gm3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            gm3.f(jSONObject, "appversion", W.v1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            gm3.f(jSONObject, "swanNativeVersion", rp1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            gm3.f(jSONObject, "thirdversion", W.w1());
-        }
-        if (f93.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
-            gm3.f(jSONObject, "isWebDowngrade", "1");
-        }
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String o = ym3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
+            y82.i("webviewPostMsg", "start post webview msg");
+            hy1 hy1Var = this.c;
+            if (hy1Var == null) {
+                y82.c("webviewPostMsg", "none webview widget");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
+                return false;
             }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = ym3.i(o, hashSet);
-            String f = ym3.f(str);
-            return f + "?" + i;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
-        }
-    }
-
-    public static <EvenT extends ig3> EvenT f(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(f93.K().q().F0() ? 1 : 0));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ig3> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            if (c() == 2) {
-                z = true;
+            wf3 params = hy1Var.getParams();
+            if (params == null) {
+                y82.c("webviewPostMsg", "none WWWParams");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
+                return false;
+            }
+            JSONObject a = vd3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                y82.c("webviewPostMsg", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+                return false;
+            } else if (!a.has("data")) {
+                y82.c("webviewPostMsg", "none param data");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
+                return false;
             } else {
-                z = false;
+                String optString = a.optString("data");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("data", optString);
+                    jSONObject.put("eventType", "message");
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
+                    jSONObject.put("webviewId", params.b);
+                } catch (JSONException e) {
+                    if (vd3.b) {
+                        e.printStackTrace();
+                    }
+                    y82.c("webviewPostMsg", "meet json exception");
+                }
+                fr3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
+                y82.i("webviewPostMsg", "post webview msg success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            if (z) {
-                str = "2";
-            } else {
-                str = "1";
-            }
-            e(event, "launchType", str);
-            return event;
         }
-        return (EvenT) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static <EvenT extends ig3> EvenT h(EvenT event) {
-        InterceptResult invokeL;
+    public void j(hy1 hy1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(f93.K().q().E0()));
-            return event;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy1Var) == null) {
+            this.c = hy1Var;
         }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ig3> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(ag2.B0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ig3> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
-            }
-            return event;
-        }
-        return (EvenT) invokeLLL.objValue;
     }
 }

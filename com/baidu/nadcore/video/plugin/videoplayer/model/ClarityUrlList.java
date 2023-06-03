@@ -3,15 +3,15 @@ package com.baidu.nadcore.video.plugin.videoplayer.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.bz0;
-import com.baidu.tieba.it0;
-import com.baidu.tieba.mt0;
-import com.baidu.tieba.nt0;
-import com.baidu.tieba.o01;
+import com.baidu.tieba.k01;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.ru0;
+import com.baidu.tieba.vu0;
+import com.baidu.tieba.wu0;
+import com.baidu.tieba.x11;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,19 +47,19 @@ public class ClarityUrlList extends ArrayList<c> {
                         }
                         c = 65535;
                     } else {
-                        if (str.equals(Config.STAT_SDK_CHANNEL)) {
+                        if (str.equals("sc")) {
                             c = 2;
                         }
                         c = 65535;
                     }
                 } else {
-                    if (str.equals("1080p")) {
+                    if (str.equals(ClarityUrlList.ClarityUrl.KEY_1080P)) {
                         c = 3;
                     }
                     c = 65535;
                 }
             } else {
-                if (str.equals("hd")) {
+                if (str.equals(ClarityUrlList.ClarityUrl.KEY_HD)) {
                     c = 1;
                 }
                 c = 65535;
@@ -99,14 +99,14 @@ public class ClarityUrlList extends ArrayList<c> {
         public float h;
         public int i;
         public int j;
-        public mt0 k;
+        public vu0 k;
 
         static {
-            bj0.b().getString(R.string.nad_videoplayer_clarity_text_sd);
-            bj0.b().getString(R.string.nad_videoplayer_clarity_text_hd);
-            bj0.b().getString(R.string.nad_videoplayer_clarity_text_sc);
-            bj0.b().getString(R.string.nad_videoplayer_clarity_text_1080p);
-            bj0.b().getString(R.string.nad_videoplayer_clarity_text_auto);
+            kk0.b().getString(R.string.nad_videoplayer_clarity_text_sd);
+            kk0.b().getString(R.string.nad_videoplayer_clarity_text_hd);
+            kk0.b().getString(R.string.nad_videoplayer_clarity_text_sc);
+            kk0.b().getString(R.string.nad_videoplayer_clarity_text_1080p);
+            kk0.b().getString(R.string.nad_videoplayer_clarity_text_auto);
         }
 
         public c() {
@@ -115,7 +115,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.f = -1.0f;
         }
 
-        public mt0 b() {
+        public vu0 b() {
             return this.k;
         }
 
@@ -184,7 +184,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.g = null;
             this.i = jSONObject.optInt("videoBps");
             this.j = jSONObject.optInt("vodMoovSize");
-            this.k = nt0.b(jSONObject.optString("auth"));
+            this.k = wu0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -283,7 +283,7 @@ public class ClarityUrlList extends ArrayList<c> {
         ArrayList arrayList = new ArrayList(this);
         Collections.sort(arrayList, new a());
         setCurrentClarityUrl((c) arrayList.get(0));
-        if (it0.b()) {
+        if (ru0.b()) {
             setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }
@@ -346,7 +346,7 @@ public class ClarityUrlList extends ArrayList<c> {
             return;
         }
         Collections.sort(this);
-        bz0 b2 = o01.b(this, get(size() - 1).i());
+        k01 b2 = x11.b(this, get(size() - 1).i());
         this.mSelectType = b2.b;
         int i2 = b2.a;
         this.mDefaultClarity = i2;

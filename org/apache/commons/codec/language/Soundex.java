@@ -3,7 +3,7 @@ package org.apache.commons.codec.language;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Soundex implements StringEncoder {
     public int maxLength;
     public final char[] soundexMapping;

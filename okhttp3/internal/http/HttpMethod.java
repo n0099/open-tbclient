@@ -2,7 +2,7 @@ package okhttp3.internal.http;
 
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HttpMethod {
     public static boolean invalidatesCache(String str) {
         if (!str.equals("POST") && !str.equals("PATCH") && !str.equals(HttpPut.METHOD_NAME) && !str.equals(HttpDelete.METHOD_NAME) && !str.equals("MOVE")) {

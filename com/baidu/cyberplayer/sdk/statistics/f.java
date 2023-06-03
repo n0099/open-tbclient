@@ -15,6 +15,10 @@ public class f {
         this.a = i;
     }
 
+    public void a(e eVar) {
+        this.c.a(eVar);
+    }
+
     public int a() {
         return this.a;
     }
@@ -32,9 +36,5 @@ public class f {
             jSONObject.put("data", jSONArray);
         }
         return jSONObject;
-    }
-
-    public void a(e eVar) {
-        this.c.a(eVar);
     }
 }

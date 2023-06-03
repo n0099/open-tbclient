@@ -6,7 +6,7 @@ import androidx.annotation.AnyThread;
 import androidx.annotation.MainThread;
 import com.facebook.drawee.components.DeferredReleaser;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeferredReleaserConcurrentImpl extends DeferredReleaser {
     public final Object mLock = new Object();
     public final Runnable releaseRunnable = new Runnable() { // from class: com.facebook.drawee.components.DeferredReleaserConcurrentImpl.1

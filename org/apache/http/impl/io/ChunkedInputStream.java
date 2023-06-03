@@ -5,7 +5,7 @@ import java.io.InputStream;
 import org.apache.http.Header;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ChunkedInputStream extends InputStream {
     public ChunkedInputStream(SessionInputBuffer sessionInputBuffer) {
         throw new RuntimeException("Stub!");

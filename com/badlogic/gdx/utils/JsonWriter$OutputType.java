@@ -2,9 +2,9 @@ package com.badlogic.gdx.utils;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.e7;
-import com.baidu.tieba.x7;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tieba.b8;
+import com.baidu.tieba.i7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,24 +98,24 @@ public final class JsonWriter$OutputType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            x7 x7Var = new x7(str);
-            x7Var.G('\\', "\\\\");
-            x7Var.G('\r', "\\r");
-            x7Var.G('\n', "\\n");
-            x7Var.G('\t', "\\t");
-            int i = e7.a[ordinal()];
+            b8 b8Var = new b8(str);
+            b8Var.G('\\', "\\\\");
+            b8Var.G('\r', "\\r");
+            b8Var.G('\n', "\\n");
+            b8Var.G('\t', "\\t");
+            int i = i7.a[ordinal()];
             if (i == 1) {
-                if (!str.contains(ResourceConstants.CMT) && !str.contains(ResourceConstants.EXT_CMT_START) && minimalNamePattern.matcher(x7Var).matches()) {
-                    return x7Var.toString();
+                if (!str.contains(ResourceConstants.CMT) && !str.contains(ResourceConstants.EXT_CMT_START) && minimalNamePattern.matcher(b8Var).matches()) {
+                    return b8Var.toString();
                 }
             }
-            if (javascriptPattern.matcher(x7Var).matches()) {
-                return x7Var.toString();
+            if (javascriptPattern.matcher(b8Var).matches()) {
+                return b8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            x7Var.G(Typography.quote, "\\\"");
-            sb.append(x7Var.toString());
+            b8Var.G(Typography.quote, "\\\"");
+            sb.append(b8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }
@@ -132,18 +132,18 @@ public final class JsonWriter$OutputType {
             }
             String obj2 = obj.toString();
             if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                x7 x7Var = new x7(obj2);
-                x7Var.G('\\', "\\\\");
-                x7Var.G('\r', "\\r");
-                x7Var.G('\n', "\\n");
-                x7Var.G('\t', "\\t");
-                if (this == minimal && !obj2.equals("true") && !obj2.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE) && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains(ResourceConstants.CMT) && !obj2.contains(ResourceConstants.EXT_CMT_START) && (length = x7Var.length()) > 0 && x7Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(x7Var).matches()) {
-                    return x7Var.toString();
+                b8 b8Var = new b8(obj2);
+                b8Var.G('\\', "\\\\");
+                b8Var.G('\r', "\\r");
+                b8Var.G('\n', "\\n");
+                b8Var.G('\t', "\\t");
+                if (this == minimal && !obj2.equals(YYOption.IsLive.VALUE_TRUE) && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains(ResourceConstants.CMT) && !obj2.contains(ResourceConstants.EXT_CMT_START) && (length = b8Var.length()) > 0 && b8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(b8Var).matches()) {
+                    return b8Var.toString();
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(Typography.quote);
-                x7Var.G(Typography.quote, "\\\"");
-                sb.append(x7Var.toString());
+                b8Var.G(Typography.quote, "\\\"");
+                sb.append(b8Var.toString());
                 sb.append(Typography.quote);
                 return sb.toString();
             }

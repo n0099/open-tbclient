@@ -2966,7 +2966,7 @@ public class ExifInterface {
                     }
                     break;
                 case -1487394660:
-                    if (lowerCase.equals(WordCommandManager.IMAGE_JPEG)) {
+                    if (lowerCase.equals("image/jpeg")) {
                         c = 0;
                         break;
                     }

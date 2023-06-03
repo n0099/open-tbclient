@@ -17,7 +17,7 @@ import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ContentProviderProxy extends ContentProvider {
     public ContentProviderManager mPluginProviderManager;
 

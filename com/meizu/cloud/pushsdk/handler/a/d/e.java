@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<com.meizu.cloud.pushsdk.handler.a.c.c> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

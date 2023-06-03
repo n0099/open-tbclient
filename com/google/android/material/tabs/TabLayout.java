@@ -82,7 +82,7 @@ public class TabLayout extends HorizontalScrollView {
     public static final int DEFAULT_HEIGHT = 48;
     @Dimension(unit = 0)
     public static final int DEFAULT_HEIGHT_WITH_TEXT_ICON = 72;
-    public static final int DEF_STYLE_RES = 2131755850;
+    public static final int DEF_STYLE_RES = 2131755852;
     @Dimension(unit = 0)
     public static final int FIXED_WRAP_GUTTER_MIN = 16;
     public static final int GRAVITY_CENTER = 1;
@@ -544,19 +544,19 @@ public class TabLayout extends HorizontalScrollView {
         @NonNull
 
         /* renamed from: view  reason: collision with root package name */
-        public TabView f1076view;
+        public TabView f1212view;
         public int position = -1;
         @LabelVisibility
         public int labelVisibilityMode = 1;
 
         @Nullable
         public BadgeDrawable getBadge() {
-            return this.f1076view.getBadge();
+            return this.f1212view.getBadge();
         }
 
         @Nullable
         public CharSequence getContentDescription() {
-            TabView tabView = this.f1076view;
+            TabView tabView = this.f1212view;
             if (tabView == null) {
                 return null;
             }
@@ -575,7 +575,7 @@ public class TabLayout extends HorizontalScrollView {
 
         @NonNull
         public BadgeDrawable getOrCreateBadge() {
-            return this.f1076view.getOrCreateBadge();
+            return this.f1212view.getOrCreateBadge();
         }
 
         public int getPosition() {
@@ -609,12 +609,12 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         public void removeBadge() {
-            this.f1076view.removeBadge();
+            this.f1212view.removeBadge();
         }
 
         public void reset() {
             this.parent = null;
-            this.f1076view = null;
+            this.f1212view = null;
             this.tag = null;
             this.icon = null;
             this.text = null;
@@ -633,7 +633,7 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         public void updateView() {
-            TabView tabView = this.f1076view;
+            TabView tabView = this.f1212view;
             if (tabView != null) {
                 tabView.update();
             }
@@ -650,7 +650,7 @@ public class TabLayout extends HorizontalScrollView {
 
         @NonNull
         public Tab setCustomView(@LayoutRes int i) {
-            return setCustomView(LayoutInflater.from(this.f1076view.getContext()).inflate(i, (ViewGroup) this.f1076view, false));
+            return setCustomView(LayoutInflater.from(this.f1212view.getContext()).inflate(i, (ViewGroup) this.f1212view, false));
         }
 
         @NonNull
@@ -698,7 +698,7 @@ public class TabLayout extends HorizontalScrollView {
         @NonNull
         public Tab setText(@Nullable CharSequence charSequence) {
             if (TextUtils.isEmpty(this.contentDesc) && !TextUtils.isEmpty(charSequence)) {
-                this.f1076view.setContentDescription(charSequence);
+                this.f1212view.setContentDescription(charSequence);
             }
             this.text = charSequence;
             updateView();
@@ -713,8 +713,8 @@ public class TabLayout extends HorizontalScrollView {
                 this.parent.updateTabViews(true);
             }
             updateView();
-            if (BadgeUtils.USE_COMPAT_PARENT && this.f1076view.hasBadgeDrawable() && this.f1076view.badgeDrawable.isVisible()) {
-                this.f1076view.invalidate();
+            if (BadgeUtils.USE_COMPAT_PARENT && this.f1212view.hasBadgeDrawable() && this.f1212view.badgeDrawable.isVisible()) {
+                this.f1212view.invalidate();
             }
             return this;
         }
@@ -727,8 +727,8 @@ public class TabLayout extends HorizontalScrollView {
                 this.parent.updateTabViews(true);
             }
             updateView();
-            if (BadgeUtils.USE_COMPAT_PARENT && this.f1076view.hasBadgeDrawable() && this.f1076view.badgeDrawable.isVisible()) {
-                this.f1076view.invalidate();
+            if (BadgeUtils.USE_COMPAT_PARENT && this.f1212view.hasBadgeDrawable() && this.f1212view.badgeDrawable.isVisible()) {
+                this.f1212view.invalidate();
             }
             return this;
         }
@@ -955,7 +955,7 @@ public class TabLayout extends HorizontalScrollView {
             } else {
                 frameLayout = this;
             }
-            ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0243, (ViewGroup) frameLayout, false);
+            ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024a, (ViewGroup) frameLayout, false);
             this.iconView = imageView;
             frameLayout.addView(imageView, 0);
         }
@@ -970,7 +970,7 @@ public class TabLayout extends HorizontalScrollView {
             } else {
                 frameLayout = this;
             }
-            TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0244, (ViewGroup) frameLayout, false);
+            TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024b, (ViewGroup) frameLayout, false);
             this.textView = textView;
             frameLayout.addView(textView);
         }
@@ -1500,7 +1500,7 @@ public class TabLayout extends HorizontalScrollView {
     public Tab newTab() {
         Tab createTabFromPool = createTabFromPool();
         createTabFromPool.parent = this;
-        createTabFromPool.f1076view = createTabView(createTabFromPool);
+        createTabFromPool.f1212view = createTabView(createTabFromPool);
         return createTabFromPool;
     }
 
@@ -1572,7 +1572,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     private void addTabView(@NonNull Tab tab) {
-        TabView tabView = tab.f1076view;
+        TabView tabView = tab.f1212view;
         tabView.setSelected(false);
         tabView.setActivated(false);
         this.slidingTabIndicator.addView(tabView, tab.getPosition(), createLayoutParamsForTabs());
@@ -1878,7 +1878,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     public TabLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ee);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406f8);
     }
 
     private void configureTab(@NonNull Tab tab, int i) {
@@ -1967,7 +1967,7 @@ public class TabLayout extends HorizontalScrollView {
         this.tabPaddingTop = obtainStyledAttributes.getDimensionPixelSize(22, this.tabPaddingTop);
         this.tabPaddingEnd = obtainStyledAttributes.getDimensionPixelSize(20, this.tabPaddingEnd);
         this.tabPaddingBottom = obtainStyledAttributes.getDimensionPixelSize(19, this.tabPaddingBottom);
-        int resourceId = obtainStyledAttributes.getResourceId(25, R.style.obfuscated_res_0x7f100216);
+        int resourceId = obtainStyledAttributes.getResourceId(25, R.style.obfuscated_res_0x7f100218);
         this.tabTextAppearance = resourceId;
         TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
         try {
@@ -1994,8 +1994,8 @@ public class TabLayout extends HorizontalScrollView {
             this.unboundedRipple = obtainStyledAttributes.getBoolean(29, false);
             obtainStyledAttributes.recycle();
             Resources resources = getResources();
-            this.tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c4);
-            this.scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c2);
+            this.tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cf);
+            this.scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cd);
             applyModeAndGravity();
         } catch (Throwable th) {
             obtainStyledAttributes2.recycle();

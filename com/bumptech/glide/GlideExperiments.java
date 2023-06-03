@@ -4,15 +4,15 @@ import androidx.annotation.Nullable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GlideExperiments {
     public final Map<Class<?>, Experiment> experiments;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Experiment {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public final Map<Class<?>, Experiment> experiments = new HashMap();
 

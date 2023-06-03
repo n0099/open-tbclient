@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class User extends Message {
     public static final String DEFAULT_APPEALTHREADPOPOVER = "";
     public static final String DEFAULT_BAWUTYPE = "";
@@ -339,7 +339,7 @@ public final class User extends Message {
     public static final List<BazhuSign> DEFAULT_MANAGERFORUM = Collections.emptyList();
     public static final Integer DEFAULT_DISPLAYAUTHTYPE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<User> {
         public ActivitySponsor activitySponsor;
         public Integer agreeNum;

@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.types.error;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Collection;
 import java.util.List;
@@ -237,7 +236,7 @@ public class ErrorSimpleFunctionDescriptorImpl extends SimpleFunctionDescriptorI
                                 objArr[0] = "modality";
                                 break;
                             case 4:
-                                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                                objArr[0] = "visibility";
                                 break;
                             case 6:
                                 objArr[0] = "kind";

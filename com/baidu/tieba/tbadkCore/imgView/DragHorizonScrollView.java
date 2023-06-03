@@ -15,7 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds9;
+import com.baidu.tieba.py9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public ds9 c;
+    public py9 c;
     public int d;
     public int e;
     public int f;
@@ -206,7 +206,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             this.n = viewConfiguration.getScaledMaximumFlingVelocity();
             this.j = new Scroller(context, new LinearInterpolator());
             this.k = new Scroller(context);
-            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703f7);
+            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070402);
             this.r = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }
@@ -316,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(ds9 ds9Var) {
+    public void setDragController(py9 py9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, ds9Var) == null) {
-            this.c = ds9Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, py9Var) == null) {
+            this.c = py9Var;
         }
     }
 
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        ds9 ds9Var;
+        py9 py9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (ds9Var = this.c) != null) {
-                    ds9Var.d();
+                if ((this.o || this.p) && (py9Var = this.c) != null) {
+                    py9Var.d();
                     return;
                 }
                 return;

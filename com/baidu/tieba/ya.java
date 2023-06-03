@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes8.dex */
-public abstract class ya extends bb<byte[]> {
+public abstract class ya extends eb<CustomResponsedMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(int i, BdUniqueId bdUniqueId);
-
-    public abstract void b(BdUniqueId bdUniqueId);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ya(int i) {
@@ -31,6 +29,9 @@ public abstract class ya extends bb<byte[]> {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
+            throw new InvalidParameterException("cmd invalid");
         }
     }
 }

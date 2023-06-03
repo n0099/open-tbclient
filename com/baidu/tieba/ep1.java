@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.r.a;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
-public class ep1 {
+public class ep1 extends ip1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.sso.r.a a;
-    public Context b;
-    public String c;
-    public String d;
-    public bp1 e;
-    public ServiceConnection f;
+    public boolean c;
+    public long d;
+    public V8ExceptionInfo e;
+    public int f;
 
-    public ep1(Context context) {
+    public ep1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,80 +29,63 @@ public class ep1 {
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.d = null;
-        this.f = new gp1(this);
-        this.b = context;
+        this.c = false;
     }
 
-    public void b() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            this.b.bindService(intent, this.f, 1);
+            this.e = null;
+            this.d = 0L;
+            this.f = -1;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Signature[] signatureArr;
-        PackageInfo packageInfo;
+    @Override // com.baidu.tieba.ip1
+    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a != null) {
-                String str3 = null;
-                try {
-                    if (TextUtils.isEmpty(this.c)) {
-                        this.c = this.b.getPackageName();
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
+            synchronized (this) {
+                if (this.e == null && v8ExceptionInfo != null) {
+                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+                    this.f = i;
+                    if (this.b != null) {
+                        this.b.a();
                     }
-                    if (TextUtils.isEmpty(this.d)) {
-                        try {
-                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
-                        } catch (PackageManager.NameNotFoundException unused) {
-                        }
-                        if (packageInfo != null) {
-                            signatureArr = packageInfo.signatures;
-                            if (signatureArr != null && signatureArr.length > 0) {
-                                try {
-                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                                    StringBuilder sb = new StringBuilder();
-                                    for (byte b : digest) {
-                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                                    }
-                                    str3 = sb.toString();
-                                } catch (NoSuchAlgorithmException unused2) {
-                                }
-                            }
-                            this.d = str3;
-                        }
-                        signatureArr = null;
-                        if (signatureArr != null) {
-                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                            StringBuilder sb2 = new StringBuilder();
-                            while (r3 < r4) {
-                            }
-                            str3 = sb2.toString();
-                        }
-                        this.d = str3;
-                    }
-                    str2 = ((a.AbstractBinderC0190a.C0191a) this.a).a(this.c, this.d, str);
-                } catch (Throwable unused3) {
-                    str2 = str3;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    return str2;
                 }
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                if (this.b != null && this.d > 0 && this.e != null) {
+                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
+                        this.b.b(new hp1(this.f, this.e, this.d));
+                        d();
+                    }
+                    return;
+                }
+                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
+            }
+        }
+    }
+
+    public synchronized void f(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                this.c = z;
+                if (z) {
+                    this.d = j;
+                    this.e = null;
+                }
+            }
+        }
     }
 }

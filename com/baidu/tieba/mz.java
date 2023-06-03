@@ -1,37 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cesium.a.i;
+import com.baidu.card.view.BjhArticleLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class mz extends lz {
+public class mz extends by {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b d;
+    public LinearLayout h;
+    public BjhArticleLayout i;
+    public f15 j;
+    public int k;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ mz a;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Class<?> a;
-        public Method b;
-        public Method c;
-
-        public b() {
+        public a(mz mzVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mzVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,93 +43,113 @@ public final class mz extends lz {
                     return;
                 }
             }
-            d();
+            this.a = mzVar;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final long b(Object obj) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            mz mzVar;
+            ux.a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                try {
-                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
-                } catch (Exception unused) {
-                    throw new i.a("");
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (mzVar = this.a).e) != null) {
+                aVar.a(mzVar.j);
             }
-            return invokeL.longValue;
-        }
-
-        public final void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a = Class.forName(com.baidu.cesium.a.i.a(jz.a()), true, Object.class.getClassLoader());
-                    this.b = com.baidu.cesium.a.i.b(this.a, com.baidu.cesium.a.i.a(jz.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.c = com.baidu.cesium.a.i.b(this.a, com.baidu.cesium.a.i.a(jz.c()), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public final void f(Object obj, byte[] bArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
-                try {
-                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
-                } catch (Exception unused) {
-                    throw new i.a("");
-                }
-            }
-        }
-
-        public final Object g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
         }
     }
 
-    public mz(int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mz(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
-        this.d = new b(null);
+        this.k = 3;
     }
 
-    @Override // com.baidu.tieba.lz
-    public com.baidu.cesium.a.b b(byte[] bArr, int i, int i2) {
-        long j;
-        InterceptResult invokeLII;
+    public void A(ux.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            try {
-                Object g = this.d.g();
-                this.d.f(g, bArr, i, i2);
-                j = this.d.b(g);
-            } catch (Exception unused) {
-                j = 4294967295L;
-            }
-            return com.baidu.cesium.a.b.a(new long[]{j});
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.e = aVar;
         }
-        return (com.baidu.cesium.a.b) invokeLII.objValue;
+    }
+
+    @Override // com.baidu.tieba.ux
+    public void p(eo6<f15> eo6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eo6Var) == null) {
+            super.p(eo6Var);
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.setSubClickListener(eo6Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oy
+    /* renamed from: z */
+    public void a(f15 f15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f15Var) == null) {
+            this.j = f15Var;
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.a(f15Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ux
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.h == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b);
+                this.h = linearLayout;
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
+                this.h.setOrientation(1);
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.h.removeAllViews();
+            if (this.i == null) {
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.b);
+                this.i = bjhArticleLayout;
+                bjhArticleLayout.setJumpToPbListener(new a(this));
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.topMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+            this.h.addView(this.i, layoutParams);
+            return this.h;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && i != this.k) {
+            this.k = i;
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            BjhArticleLayout bjhArticleLayout = this.i;
+            if (bjhArticleLayout != null) {
+                bjhArticleLayout.onChangeSkinType(tbPageContext, i);
+            }
+        }
     }
 }

@@ -1,53 +1,27 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class tv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sv2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
-        long parseLong;
+    public static synchronized sv2 a() {
+        InterceptResult invokeV;
+        sv2 sv2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                g62.o("map", "color string is empty, use default " + Integer.toHexString(i));
-                return i;
-            }
-            try {
-                if (str.charAt(0) == '#') {
-                    String substring = str.substring(1);
-                    if (substring.length() != 6 && substring.length() != 8) {
-                        throw new IllegalArgumentException("char count not right");
-                    }
-                    if (substring.length() == 6) {
-                        parseLong = Long.parseLong(substring, 16) | (-16777216);
-                    } else {
-                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
-                    }
-                    return (int) parseLong;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tv2.class) {
+                if (a == null) {
+                    a = new sv2();
                 }
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                g62.o("map", "parse color error, use default " + Integer.toHexString(i));
-                return i;
+                sv2Var = a;
             }
+            return sv2Var;
         }
-        return invokeLI.intValue;
-    }
-
-    public static float b(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            return (float) (d * xm3.l(AppRuntime.getAppContext()));
-        }
-        return invokeCommon.floatValue;
+        return (sv2) invokeV.objValue;
     }
 }

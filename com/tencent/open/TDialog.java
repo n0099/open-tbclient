@@ -24,7 +24,6 @@ import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
-import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
@@ -214,7 +213,7 @@ public class TDialog extends b {
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
             g a = g.a();
-            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.a, false);
+            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt("ret", -6), this.a, false);
             IUiListener iUiListener = this.e;
             if (iUiListener != null) {
                 iUiListener.onComplete(jSONObject);

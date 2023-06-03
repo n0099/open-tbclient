@@ -1,90 +1,104 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class yo6 extends so6 {
+public class yo6 extends BaseCardInfo implements ap6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
     public boolean b;
-    public PointF c;
-    public RectF d;
+    public String c;
+    public List<xo6> d;
+    public int e;
+    public int f;
+
+    @Override // com.baidu.tieba.ap6
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948336937, "Lcom/baidu/tieba/yo6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948336937, "Lcom/baidu/tieba/yo6;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+    }
 
     public yo6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new PointF();
-        this.d = new RectF();
+        this.a = true;
+        this.b = true;
     }
 
-    public final PointF c() {
+    @Override // com.baidu.tieba.ap6
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (PointF) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final boolean d() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return g;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.so6, com.baidu.tieba.n7.a
-    public void reset() {
+    @Override // com.baidu.tieba.ap6
+    public void N(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = false;
-            this.c = new PointF();
-            this.d = new RectF();
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.b = z;
         }
     }
 
-    public final yo6 update(boolean z, int i, PointF position, RectF rect, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ap6
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(position, "position");
-            Intrinsics.checkNotNullParameter(rect, "rect");
-            this.b = z;
-            if (!Intrinsics.areEqual(this.c, position)) {
-                this.c.set(position);
-            }
-            if (!Intrinsics.areEqual(this.d, rect)) {
-                this.d.set(rect);
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return (yo6) invokeCommon.objValue;
     }
 }

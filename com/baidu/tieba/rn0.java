@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public interface rn0 extends sn0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public interface rn0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
 
-    void onActivityDestroyed(Activity activity);
+    <T extends qn0> void a(@Nullable T t);
 
-    void onActivityPaused(Activity activity);
+    <T extends qn0> void b(@NonNull Object obj, @NonNull tn0<T> tn0Var);
 
-    void onActivityResumed(Activity activity);
+    <T extends qn0> void c(@NonNull Object obj, int i, @NonNull tn0<T> tn0Var);
 
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
-
-    void onActivityStarted(Activity activity);
-
-    void onActivityStopped(Activity activity);
-
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+    void unregister(@NonNull Object obj);
 }

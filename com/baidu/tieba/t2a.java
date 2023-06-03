@@ -1,165 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.data.VideoEasterEggData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.UserPendantData;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Pendant;
 /* loaded from: classes7.dex */
-public class t2a implements s2a {
+public class t2a extends jb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoEasterEggData a;
+    public final MainTabActivity a;
+    public final g1a b;
 
-    public t2a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t2a(MainTabActivity mainTabActivity, v0a v0aVar) {
+        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, v0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+    }
+
+    public final void a() {
+        g1a g1aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (g1aVar = this.b) != null && g1aVar.a() != null && this.a.A == 1) {
+            this.b.a().d();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            MainTabActivity mainTabActivity = this.a;
+            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
+                this.b.a().f();
             }
         }
     }
 
-    @Override // com.baidu.tieba.s2a
-    public String a() {
-        InterceptResult invokeV;
+    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        boolean z;
+        boolean z2;
+        g1a g1aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
+                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1 && (g1aVar = this.b) != null && g1aVar.a() != null) {
+                    this.b.a().d();
+                    this.b.a().f();
+                }
+                a();
+                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
+                d(profileHttpResponseMessage.GetUser().pendant);
             }
-            return videoEasterEggData.getPopText();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
             }
-            return videoEasterEggData.getActivityID();
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s2a
-    public String d() {
-        InterceptResult invokeV;
+    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
+                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1) {
+                    g1a g1aVar = this.b;
+                    if (g1aVar != null && g1aVar.a() != null) {
+                        this.b.a().d();
+                    }
+                    a();
+                }
+                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
+                d(profileSocketResponseMessage.GetUser().pendant);
             }
-            return videoEasterEggData.getShareTitle();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
             }
-            return videoEasterEggData.getShareUrl();
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s2a
-    public String g() {
-        InterceptResult invokeV;
+    public final void d(Pendant pendant) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
+            UserPendantData userPendantData = new UserPendantData();
+            userPendantData.parserProtobuf(pendant);
+            TbSingleton.getInstance().setUserPendantData(userPendantData);
+        }
+    }
+
+    @Override // com.baidu.tieba.jb
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
+            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+                return;
             }
-            return videoEasterEggData.getPopImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public String getVideoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+            if (z) {
+                c((ProfileSocketResponseMessage) responsedMessage);
             }
-            return videoEasterEggData.getVideoUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+            if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                b((ProfileHttpResponseMessage) responsedMessage);
             }
-            return videoEasterEggData.getShareImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareContent();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) != null) || intent == null) {
-            return;
-        }
-        intent.getStringExtra("from");
-        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
-        }
-    }
-
-    @Override // com.baidu.tieba.s2a
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && !qi.isEmpty(g())) {
-            lg.h().m(g(), 10, null, bdUniqueId);
         }
     }
 }

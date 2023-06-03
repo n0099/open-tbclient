@@ -159,12 +159,12 @@ public class PopupEmotionView extends FrameLayout {
             this.mCtx = context;
             setPadding(0, 0, 0, 0);
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
-            this.mIcon = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090fab);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
+            this.mIcon = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090fbe);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f09239e);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.preview_content);
             this.mContentView = relativeLayout;
             relativeLayout.setBackground(ContextCompat.getDrawable(this.mCtx, R.drawable.emotion_preview_shape));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925a1);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925d5);
             this.mTriangleView = imageView;
             imageView.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.emotion_preview_triangle));
         }

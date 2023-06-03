@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 @RequiresApi(19)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     public static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
     public static final Bitmap.Config[] ARGB_4444_IN_CONFIGS;
@@ -27,7 +27,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes = new HashMap();
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 
@@ -54,7 +54,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Key implements Poolable {
         public Bitmap.Config config;
         public final KeyPool pool;
@@ -122,7 +122,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool

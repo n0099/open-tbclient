@@ -5,14 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.sf;
-import com.baidu.tieba.tf;
+import com.baidu.tieba.wf;
+import com.baidu.tieba.xf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,24 +81,24 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
                 }
                 return contentType.substring(indexOf + 8, indexOf2);
             }
-            return IMAudioTransRequest.CHARSET;
+            return "utf-8";
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, tf tfVar) {
+    public void logStatInBackground(int i, xf xfVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, tfVar) == null) && tfVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, xfVar) == null) && xfVar.d().size() > 0) {
             int i2 = 1;
-            sf sfVar = tfVar.d().get(tfVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(tfVar.d().size() - 1);
+            wf wfVar = xfVar.d().get(xfVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(xfVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = sfVar.b;
-            statisticsData.mTime = sfVar.f;
-            statisticsData.mTimesNum = sfVar.e;
-            if (tfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = wfVar.b;
+            statisticsData.mTime = wfVar.f;
+            statisticsData.mTimesNum = wfVar.e;
+            if (xfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;

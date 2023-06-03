@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.a.a;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static byte[] a(InputStream inputStream, String str) throws Exception {
         MessageDigest messageDigest = MessageDigest.getInstance(str);

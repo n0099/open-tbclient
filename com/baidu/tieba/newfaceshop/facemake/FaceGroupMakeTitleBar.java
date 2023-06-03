@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FaceGroupMakeTitleBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public TextView b;
     public ImageView c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,10 +126,10 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b7, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02bf, (ViewGroup) this, true);
             this.a = (TextView) findViewById(R.id.tv_title);
             this.b = (TextView) findViewById(R.id.tv_right);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911c2);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);

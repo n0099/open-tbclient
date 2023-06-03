@@ -4,7 +4,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultCloseableReference<T> extends CloseableReference<T> {
     public static final String TAG = "DefaultCloseableReference";
 
@@ -19,7 +19,7 @@ public class DefaultCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo106clone() {
+    public CloseableReference<T> mo161clone() {
         Preconditions.checkState(isValid());
         return new DefaultCloseableReference(this.mSharedReference, this.mLeakHandler, this.mStacktrace);
     }

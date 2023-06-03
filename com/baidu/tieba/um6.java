@@ -1,101 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.d25;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class um6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
+/* loaded from: classes8.dex */
+public interface um6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
 
-    /* loaded from: classes7.dex */
-    public static class a implements d25.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
+    void a();
 
-        public a(TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
+    @NonNull
+    android.webkit.WebView b(Context context, String str);
 
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                d25Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements d25.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                d25Var.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
-        Uri uri;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            d25 d25Var = new d25(tbPageContext.getPageActivity());
-            d25Var.setContentViewSize(1);
-            d25Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-            d25Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
-            d25Var.setNegativeButton(R.string.not_change_account, new b());
-            d25Var.create(tbPageContext).show();
-        }
-    }
+    void c(String str, android.webkit.WebView webView);
 }

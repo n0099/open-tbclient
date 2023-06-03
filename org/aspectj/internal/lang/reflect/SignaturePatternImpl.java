@@ -1,7 +1,7 @@
 package org.aspectj.internal.lang.reflect;
 
 import org.aspectj.lang.reflect.SignaturePattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class SignaturePatternImpl implements SignaturePattern {
     public String sigPattern;
 

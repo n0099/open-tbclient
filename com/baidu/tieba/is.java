@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,19 +8,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public final class is {
     public static /* synthetic */ Interceptable $ic;
-    public static final is b;
-    public static final a c;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public static final is c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (is) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307651, "Lcom/baidu/tieba/is;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448307651, "Lcom/baidu/tieba/is;");
+                return;
+            }
+        }
+        a = new a(null);
     }
 
     /* loaded from: classes6.dex */
@@ -41,61 +52,38 @@ public final class is {
             }
         }
 
-        public final is a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return is.b;
-            }
-            return (is) invokeV.objValue;
-        }
-
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307651, "Lcom/baidu/tieba/is;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        public final <T extends ls> JSONArray a(List<T> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    for (T t : list) {
+                        jSONArray.put(t.c());
+                    }
+                }
+                return jSONArray;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307651, "Lcom/baidu/tieba/is;");
-                return;
-            }
+            return (JSONArray) invokeL.objValue;
         }
-        c = new a(null);
-        b = new is("https://ug.baidu.com");
-    }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public is(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        public final JSONArray b(List<byte[]> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    for (byte[] bArr : list) {
+                        jSONArray.put(gu.a(bArr));
+                    }
+                }
+                return jSONArray;
             }
+            return (JSONArray) invokeL.objValue;
         }
-        this.a = str;
     }
 }

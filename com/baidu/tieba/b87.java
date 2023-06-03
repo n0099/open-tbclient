@@ -1,37 +1,28 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.view.View;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class b87 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class b87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Drawable> a;
 
-    public b87() {
+    public static final boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092877);
+            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
+                return true;
             }
+            view2.setTag(R.id.obfuscated_res_0x7f092877, Integer.valueOf(SkinManager.getCurrentSkinType()));
+            return false;
         }
-        this.a = new HashMap<>();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.isEmpty()) {
-            this.a.clear();
-        }
+        return invokeL.booleanValue;
     }
 }

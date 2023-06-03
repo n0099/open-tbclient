@@ -1,180 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.view.EmotionView;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class p29 extends BaseAdapter {
+/* loaded from: classes7.dex */
+public class p29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EmotionImageData> a;
-    public b b;
-    public EmotionView.c c;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void f(EmotionImageData emotionImageData);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p29 a;
-
-        public a(p29 p29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
             }
-            this.a = p29Var;
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
         }
+        return (SpannableString) invokeLI.objValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && (view2 instanceof EmotionView)) {
-                this.a.b.f(((EmotionView) view2).getData());
+    public static void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).o();
+    }
+
+    public static void c(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).o();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
             }
         }
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).o();
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public EmotionView a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public p29() {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!ListUtils.isEmpty(this.a)) {
-                return this.a.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(List<EmotionImageData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
         }
     }
 
-    public void c(EmotionView.c cVar) {
+    public static void g(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
         }
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                cVar = new c();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0597, (ViewGroup) null);
-                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.emotion_view);
-                cVar.a = emotionView;
-                emotionView.n0();
-                cVar.a.setController(this.c);
-                cVar.a.setOnClickListener(new a(this));
-                view3.setTag(cVar);
-            } else {
-                view3 = view2;
-                cVar = (c) view2.getTag();
-            }
-            List<EmotionImageData> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                cVar.a.p0(this.a.get(i));
-            }
-            return view3;
-        }
-        return (View) invokeILL.objValue;
     }
 }

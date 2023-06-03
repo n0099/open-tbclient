@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.bytedance.pangle.GlobalParam;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusPluginStateListener;
@@ -27,7 +26,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static volatile DexClassLoader d;
     public static volatile boolean f;
@@ -35,12 +34,12 @@ public class e {
     public volatile boolean h = false;
     public volatile String i = "none";
     public final Context j;
-    public static final String a = UnitedSchemeConstants.UNITED_SCHEME_NEXT + File.separator;
+    public static final String a = "next" + File.separator;
     public static final HashMap<String, TTPluginListener> b = new HashMap<>();
     public static final HashMap<String, Handler> c = new HashMap<>();
     public static volatile e e = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements IZeusLogger {
         public a() {
         }
@@ -76,7 +75,7 @@ public class e {
         d.a(new ArrayList());
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b implements TTAdEvent {
         @Override // com.bytedance.sdk.openadsdk.TTAdEvent
         public void onEvent(int i, Bundle bundle) {
@@ -210,7 +209,7 @@ public class e {
         Bundle bundle = new Bundle();
         bundle.putInt("action", 0);
         bundle.putString("plugin_pkg_name", plugin.mPkgName);
-        bundle.putString("plugin_version", a(plugin.getVersion()));
+        bundle.putString(PluginConstants.KEY_PLUGIN_VERSION, a(plugin.getVersion()));
         TTAdManager adManager = TTAdSdk.getAdManager();
         if (adManager != null) {
             adManager.getExtra(Bundle.class, bundle);
@@ -326,7 +325,7 @@ public class e {
     public Bundle a(String str, Bundle bundle) {
         String a2 = a(str);
         if (!TextUtils.isEmpty(a2)) {
-            bundle.putString("plugin_version", a2);
+            bundle.putString(PluginConstants.KEY_PLUGIN_VERSION, a2);
         }
         f.a(str, bundle);
         Bundle bundle2 = new Bundle();

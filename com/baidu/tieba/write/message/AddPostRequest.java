@@ -6,9 +6,8 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,10 +48,10 @@ public class AddPostRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ss5.c(builder, true, true, true);
+            uw5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
-            builder.tbs = this.requestData.get(HttpRequest.TBS);
+            builder.tbs = this.requestData.get("tbs");
             builder.video_other = this.requestData.get("video_other");
             builder.anonymous = this.requestData.get("anonymous");
             builder.can_no_forum = this.requestData.get("can_no_forum");
@@ -114,7 +113,7 @@ public class AddPostRequest extends NetMessage {
             builder.jfrom = this.requestData.get("jfrom");
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_show_bless = Integer.valueOf(pg.e(this.requestData.get("is_show_bless"), 0));
+            builder.is_show_bless = Integer.valueOf(tg.e(this.requestData.get("is_show_bless"), 0));
             try {
                 builder.show_custom_figure = Integer.valueOf(Integer.parseInt(this.requestData.get("show_custom_figure")));
             } catch (NumberFormatException unused) {

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
@@ -147,9 +147,9 @@ public class c {
         StringBuilder sb = new StringBuilder();
         sb.append("isSessionValid(), result = ");
         if (this.b.isSessionValid()) {
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
         } else {
-            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            str = "false";
         }
         sb.append(str);
         SLog.i("openSDK_LOG.QQAuth", sb.toString());

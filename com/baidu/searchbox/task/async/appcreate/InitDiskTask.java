@@ -5,8 +5,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tieba.ac;
-import com.baidu.tieba.n9;
+import com.baidu.tieba.ec;
+import com.baidu.tieba.r9;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class InitDiskTask extends LaunchTask {
@@ -22,12 +22,12 @@ public class InitDiskTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new n9.a() { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
-            @Override // com.baidu.tieba.n9.a
+        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new r9.a() { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
+            @Override // com.baidu.tieba.r9.a
             public void onDatabaseCreated(SQLiteDatabase sQLiteDatabase) {
                 TbadkSettings.getInst().saveLong("tdatabasecreatetime", new Date().getTime());
             }
         });
-        ac.f().g(TbConfig.getTempDirName());
+        ec.f().g(TbConfig.getTempDirName());
     }
 }

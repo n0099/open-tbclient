@@ -16,7 +16,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // 
         /* renamed from: clone */
-        public abstract BuilderType mo29clone();
+        public abstract BuilderType mo43clone();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder

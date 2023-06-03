@@ -6,7 +6,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RecyclableBufferedInputStream extends FilterInputStream {
     public volatile byte[] buf;
     public final ArrayPool byteArrayPool;
@@ -20,7 +20,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         return true;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class InvalidMarkException extends IOException {
         public static final long serialVersionUID = -4338378848813561757L;
 

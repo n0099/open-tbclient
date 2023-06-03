@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
-import com.baidu.tieba.r29;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.w89;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(r29 r29Var);
+        void a(w89 w89Var);
 
         void onFail(int i, String str);
     }
@@ -54,13 +54,13 @@ public class SuggestEmotionModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0426a implements Runnable {
+        public class RunnableC0414a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0426a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0414a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class SuggestEmotionModel extends BdBaseModel {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String)) {
                 return;
             }
-            sg.a().post(new RunnableC0426a(this, customResponsedMessage));
+            wg.a().post(new RunnableC0414a(this, customResponsedMessage));
         }
     }
 

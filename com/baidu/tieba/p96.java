@@ -1,76 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class p96 extends en<v96, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class p96 extends ShareItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public e66 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p96(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public p96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public String s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.E0;
         }
-        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void u(e66 e66Var) {
+    public String t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e66Var) == null) {
-            this.b = e66Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.D0;
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v96 v96Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        InterceptResult invokeCommon;
+    public String u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v96Var, alaGameFrsGameViewHolder})) == null) {
-            alaGameFrsGameViewHolder.a.i(v96Var);
-            alaGameFrsGameViewHolder.a.t(this.b);
-            return alaGameFrsGameViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.C0;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public JSONArray v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.F0;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void w(JSONObject jSONObject) throws JSONException {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            int i = 1;
+            this.w0 = true;
+            this.v = jSONObject.getString("title");
+            this.x = jSONObject.getString(GameAssistConstKt.KEY_LINKURL);
+            this.w = jSONObject.optString("content");
+            this.A = jSONObject.optString("imageUrl");
+            this.C0 = jSONObject.optString("mediaType");
+            if (StringUtils.isNull(this.A)) {
+                str = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
+            } else {
+                str = this.A;
+            }
+            this.A = str;
+            this.z = Uri.parse(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
+            if (optJSONObject != null) {
+                this.x0 = optJSONObject.optString("source2");
+                this.z0 = optJSONObject.optString("source3");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
+            if (optJSONObject2 != null) {
+                this.y0 = 2;
+                this.F0 = optJSONObject2.optJSONArray("cmd_pannel");
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
+                this.G0 = optJSONObject3;
+                if (optJSONObject3 != null) {
+                    this.D0 = optJSONObject3.optString("key");
+                    this.E0 = this.G0.optString("content");
+                    return;
+                }
+                return;
+            }
+            if (!"url".equals(jSONObject.optString("type"))) {
+                i = 3;
+            }
+            this.y0 = i;
+        }
     }
 }

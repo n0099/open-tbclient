@@ -1,85 +1,172 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class xy2 extends xx1 {
+public final class xy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<wy2> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SwanCallImageMenuApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xy2(@NonNull hx1 hx1Var) {
-        super(hx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316632, "Lcom/baidu/tieba/xy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948316632, "Lcom/baidu/tieba/xy2;");
                 return;
             }
         }
+        a = new ArrayList<>();
     }
 
-    public g12 y(String str) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            nv1 i = tu2.U().i();
-            if (!(i instanceof NgWebView)) {
-                return new g12(1001, "call image menu fail");
-            }
-            zu1 E0 = ns2.E0();
-            if (E0 == null) {
-                return new g12(1001, "call image menu fail");
-            }
-            E0.b((NgWebView) i, str);
-            return g12.f();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
         }
-        return (g12) invokeL.objValue;
     }
 
-    public g12 x(String str) {
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null) {
+                    wy2Var.onDestroy();
+                }
+            }
+        }
+    }
+
+    public static void a(wy2 wy2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, wy2Var) == null) && wy2Var != null && !a.contains(wy2Var)) {
+            a.add(wy2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null) {
+                    wy2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null) {
+                    wy2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(wy2 wy2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, wy2Var) != null) || wy2Var == null) {
+            return;
+        }
+        a.remove(wy2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wy2 wy2Var = a.get(size);
+            if (wy2Var != null && TextUtils.equals(str, wy2Var.b())) {
+                wy2Var.onDestroy();
+            }
+        }
+    }
+
+    public static wy2 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callImageMenu", false);
-            if (g93.b0() == null) {
-                return new g12(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null && TextUtils.equals(str, wy2Var.c())) {
+                    return wy2Var;
+                }
             }
-            String optString = ((JSONObject) s.second).optString("imageURL");
-            if (TextUtils.isEmpty(optString)) {
-                return new g12(202, ns2.c().getString(R.string.obfuscated_res_0x7f0f16eb));
-            }
-            return y(optString);
+            return null;
         }
-        return (g12) invokeL.objValue;
+        return (wy2) invokeL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null && TextUtils.equals(str, wy2Var.b()) && wy2Var.onBackPressed()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static wy2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wy2 wy2Var = a.get(size);
+                if (wy2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, wy2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, wy2Var.f())) || TextUtils.equals(str3, wy2Var.c())))) {
+                    return wy2Var;
+                }
+            }
+            return null;
+        }
+        return (wy2) invokeLLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wy2 wy2Var = a.get(size);
+            if (wy2Var != null && TextUtils.equals(str, wy2Var.b())) {
+                wy2Var.k(z);
+            }
+        }
     }
 }

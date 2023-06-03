@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
+import com.baidu.tieba.u95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class r4a implements View.OnTouchListener {
+public class r4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Spannable a;
-    public ox5 b;
+    public BubbleListActivity a;
+    public View b;
+    public NavigationBar c;
+    public MemberRecommendView d;
+    public BdListView e;
+    public v95 f;
+    public q4a g;
+    public int h;
 
-    public r4a(Spannable spannable) {
+    public r4a(BubbleListActivity bubbleListActivity, m4a m4aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
+            Object[] objArr = {bubbleListActivity, m4aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,62 +53,160 @@ public class r4a implements View.OnTouchListener {
                 return;
             }
         }
-        this.b = null;
-        this.a = spannable;
+        this.f = null;
+        this.h = 0;
+        this.a = bubbleListActivity;
+        this.h = vi.g(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0187, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.setTitleText(R.string.obfuscated_res_0x7f0f03a2);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09288c);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(7);
+        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09150b);
+        v95 v95Var = new v95(this.a.getPageContext());
+        this.f = v95Var;
+        this.e.setPullRefresh(v95Var);
+        TextView textView = new TextView(this.a.getActivity());
+        textView.setHeight(vi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
+        this.e.addFooterView(textView);
+        q4a q4aVar = new q4a(this.a.getPageContext(), m4aVar);
+        this.g = q4aVar;
+        this.e.setAdapter((ListAdapter) q4aVar);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        ox5 ox5Var;
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (!(view2 instanceof TextView)) {
-                return false;
-            }
-            TextView textView = (TextView) view2;
-            if (action == 3 && (ox5Var = this.b) != null) {
-                ox5Var.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                view2.invalidate();
-                this.b = null;
-                return false;
-            }
-            if (action == 1 || action == 0) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                Layout layout = textView.getLayout();
-                if (layout == null) {
-                    return false;
-                }
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                Spannable spannable = this.a;
-                if (spannable == null) {
-                    return false;
-                }
-                ox5[] ox5VarArr = (ox5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ox5.class);
-                if (ox5VarArr != null && ox5VarArr.length != 0 && ox5VarArr[0] != null) {
-                    if (action == 1) {
-                        ox5VarArr[0].h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        ox5VarArr[0].onClick(textView);
-                        view2.invalidate();
-                    } else {
-                        this.b = ox5VarArr[0];
-                        Spannable spannable2 = this.a;
-                        Selection.setSelection(spannable2, spannable2.getSpanStart(ox5VarArr[0]), this.a.getSpanEnd(ox5VarArr[0]));
-                        view2.invalidate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 1 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 2; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
                     }
-                    return true;
                 }
-                ox5 ox5Var2 = this.b;
-                if (ox5Var2 != null) {
-                    ox5Var2.h(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view2.invalidate();
-                }
-                Selection.removeSelection(this.a);
+                arrayList.add(arrayList2);
             }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final boolean f(a5a a5aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a5aVar)) == null) {
+            if (a5aVar != null && !StringUtils.isNull(a5aVar.c())) {
+                this.d.setVisibility(0);
+                this.d.e(a5aVar);
+                return true;
+            }
+            this.d.setVisibility(8);
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.b.setVisibility(0);
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.z(0L);
+        }
+    }
+
+    public void d() {
+        q4a q4aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            et5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.e;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (q4aVar = this.g) != null) {
+                q4aVar.notifyDataSetChanged();
+            }
+            v95 v95Var = this.f;
+            if (v95Var != null) {
+                v95Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.d.d();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.b.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.h);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.e.setVisibility(0);
+                this.g.b(list);
+                this.g.notifyDataSetChanged();
+                return;
+            }
+            this.e.setVisibility(8);
+        }
+    }
+
+    public void g(BdListView.p pVar, u95.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.e.setOnSrollToBottomListener(pVar);
+            this.f.f(gVar);
+        }
+    }
+
+    public void i(a5a a5aVar, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, a5aVar, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                f(a5aVar);
+                e(a(list));
+                return;
+            }
+            h();
+        }
     }
 }

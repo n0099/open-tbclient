@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.gamevideo.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecomVertical.DataReq;
 import tbclient.RecomVertical.RecomVerticalReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GameVideoRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class GameVideoRequestMessage extends NetMessage {
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ss5.a(builder, true);
+                uw5.a(builder, true);
             }
             RecomVerticalReqIdl.Builder builder2 = new RecomVerticalReqIdl.Builder();
             builder2.data = builder.build(false);

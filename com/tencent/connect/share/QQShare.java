@@ -11,7 +11,6 @@ import android.util.Base64;
 import androidx.core.content.FileProvider;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.IntentConstants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -265,7 +264,7 @@ public class QQShare extends BaseApi {
         }
         if (!TextUtils.isEmpty(str2)) {
             if (str2.length() > 20) {
-                str2 = str2.substring(0, 20) + StringHelper.STRING_MORE;
+                str2 = str2.substring(0, 20) + "...";
             }
             stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(str2), 2));
         }

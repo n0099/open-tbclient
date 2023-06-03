@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.searchbox.ui.ImageViewPressedEffectHelper;
 import com.ss.android.download.api.config.q;
 import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.downloadlib.activity.JumpKllkActivity;
@@ -33,7 +33,7 @@ public class h {
                     intent.setPackage(i);
                 }
                 if (com.ss.android.socialbase.downloader.g.a.c().a("fix_jump_market")) {
-                    intent.addFlags(335544320);
+                    intent.addFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                 } else if (!(context instanceof Activity)) {
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
@@ -63,7 +63,7 @@ public class h {
         intent.putExtra("open_url", str);
         intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
         if (com.ss.android.socialbase.downloader.g.a.c().a("fix_app_link_flag")) {
-            intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            intent.addFlags(67108864);
         }
         if (l.b(context, intent)) {
             if (com.ss.android.downloadlib.addownload.j.i().optInt("open_url_mode") == 0 && com.ss.android.downloadlib.addownload.j.k() != null && com.ss.android.downloadlib.addownload.j.k().a() && Build.VERSION.SDK_INT >= 26 && aVar.q()) {
@@ -397,7 +397,7 @@ public class h {
             if (z) {
                 sb.append(com.ss.android.socialbase.appdownloader.f.c.a(i.optString("ae"), optString));
             } else {
-                intent.addFlags(335544320);
+                intent.addFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
             }
             l.a(jSONObject, "mf", Boolean.valueOf(a4));
             l.a(jSONObject, "if", Boolean.valueOf(z));

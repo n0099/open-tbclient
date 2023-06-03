@@ -1,28 +1,37 @@
 package com.baidu.searchbox.floating.service;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.config.Config;
+import com.baidu.searchbox.floating.service.FloatViewService;
 import com.baidu.searchbox.floating.utils.UtilsKt;
 import com.baidu.searchbox.floating.widget.ViewManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.open.SocialConstants;
+import kotlin.Lazy;
+import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001\u0010\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\u0007¢\u0006\u0004\b\u0016\u0010\tJ\u001b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\n\u0010\tJ)\u0010\u000e\u001a\u00020\u000b2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R\u0018\u0010\u0014\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/floating/service/FloatViewService;", "Landroid/app/Service;", "Landroid/content/Intent;", "intent", "Landroid/os/IBinder;", "onBind", "(Landroid/content/Intent;)Landroid/os/IBinder;", "", "onCreate", "()V", MissionEvent.MESSAGE_DESTROY, "", "flags", "startId", "onStartCommand", "(Landroid/content/Intent;II)I", "com/baidu/searchbox/floating/service/FloatViewService$receiver$1", SocialConstants.PARAM_RECEIVER, "Lcom/baidu/searchbox/floating/service/FloatViewService$receiver$1;", "Lcom/baidu/searchbox/floating/widget/ViewManager;", "viewManager", "Lcom/baidu/searchbox/floating/widget/ViewManager;", "<init>", "Companion", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u00005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005*\u0001\u0004\u0018\u0000 \u00142\u00020\u0001:\u0001\u0014B\u0005¢\u0006\u0002\u0010\u0002J\u0014\u0010\b\u001a\u0004\u0018\u00010\t2\b\u0010\n\u001a\u0004\u0018\u00010\u000bH\u0016J\b\u0010\f\u001a\u00020\rH\u0016J\b\u0010\u000e\u001a\u00020\rH\u0016J\"\u0010\u000f\u001a\u00020\u00102\b\u0010\n\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0010H\u0016J\b\u0010\u0013\u001a\u00020\rH\u0002R\u0010\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0005R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/searchbox/floating/service/FloatViewService;", "Landroid/app/Service;", "()V", SocialConstants.PARAM_RECEIVER, "com/baidu/searchbox/floating/service/FloatViewService$receiver$1", "Lcom/baidu/searchbox/floating/service/FloatViewService$receiver$1;", "viewManager", "Lcom/baidu/searchbox/floating/widget/ViewManager;", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onCreate", "", MissionEvent.MESSAGE_DESTROY, "onStartCommand", "", "flags", "startId", "startForegroundWithNotification", "Companion", "floating-view_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public final class FloatViewService extends Service {
-    public static final Companion Companion = new Companion(null);
     public static final String FLOAT_ACTION = "com.baidu.searchbox.floating.action.FLOATING";
     public static final String FLOAT_DISMISS = "float_dismiss";
     public static final String FLOAT_DISMISS_IMMEDIATELY = "float_dismiss_immediately";
@@ -42,7 +51,7 @@ public final class FloatViewService extends Service {
             ViewManager viewManager6;
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(intent, "intent");
-            if (!(!Intrinsics.areEqual(intent.getAction(), FloatViewService.FLOAT_ACTION))) {
+            if (Intrinsics.areEqual(intent.getAction(), FloatViewService.FLOAT_ACTION)) {
                 viewManager = FloatViewService.this.viewManager;
                 if (viewManager != null) {
                     if (intent.getBooleanExtra(FloatViewService.FLOAT_DISMISS, false)) {
@@ -79,41 +88,63 @@ public final class FloatViewService extends Service {
         }
     };
     public ViewManager viewManager;
+    public static final Companion Companion = new Companion(null);
+    public static final Lazy<Handler> innerHandler$delegate = LazyKt__LazyJVMKt.lazy(new Function0<Handler>() { // from class: com.baidu.searchbox.floating.service.FloatViewService$Companion$innerHandler$2
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // kotlin.jvm.functions.Function0
+        public final Handler invoke() {
+            return new Handler(Looper.getMainLooper());
+        }
+    });
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0010\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b \u0010!J\u001f\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\b\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\b\u0010\tJ\u001d\u0010\u000b\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u0003¢\u0006\u0004\b\u000b\u0010\u0007J\u001d\u0010\u000e\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0011\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u0001H\u0000¢\u0006\u0004\b\u0010\u0010\tR\u0016\u0010\u0013\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0015\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0014R\u0016\u0010\u0016\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0014R\u0016\u0010\u0017\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0014R\u0016\u0010\u0018\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0014R\u0016\u0010\u0019\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0014R$\u0010\u001a\u001a\u0004\u0018\u00010\f8\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001f¨\u0006\""}, d2 = {"Lcom/baidu/searchbox/floating/service/FloatViewService$Companion;", "Landroid/content/Context;", "context", "", "immediately", "", "dismiss", "(Landroid/content/Context;Z)V", "invalidate", "(Landroid/content/Context;)V", MapBundleKey.MapObjKey.OBJ_SL_VISI, "setVisible", "Lcom/baidu/searchbox/floating/config/Config;", "cfg", "startService", "(Landroid/content/Context;Lcom/baidu/searchbox/floating/config/Config;)V", "stopService$floating_view_release", "stopService", "", "FLOAT_ACTION", "Ljava/lang/String;", "FLOAT_DISMISS", "FLOAT_DISMISS_IMMEDIATELY", "FLOAT_INVALIDATE", "FLOAT_VISIBLE", "TAG", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)V", "<init>", "()V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\b\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\n\u001a\u00020\u000bH\u0002J\u0018\u0010\u001a\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\b\b\u0002\u0010\u001b\u001a\u00020\u001cJ\u000e\u0010\u001d\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019J\u0016\u0010\u001e\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001f\u001a\u00020\u001cJ\u0016\u0010 \u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010!\u001a\u00020\u000bJ\u0015\u0010\"\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019H\u0000¢\u0006\u0002\b#R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0080T¢\u0006\u0002\n\u0000R \u0010\n\u001a\u0004\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013¨\u0006$"}, d2 = {"Lcom/baidu/searchbox/floating/service/FloatViewService$Companion;", "", "()V", "FLOAT_ACTION", "", "FLOAT_DISMISS", "FLOAT_DISMISS_IMMEDIATELY", "FLOAT_INVALIDATE", "FLOAT_VISIBLE", "TAG", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)V", "innerHandler", "Landroid/os/Handler;", "getInnerHandler", "()Landroid/os/Handler;", "innerHandler$delegate", "Lkotlin/Lazy;", "checkNotification", "", "context", "Landroid/content/Context;", "dismiss", "immediately", "", "invalidate", "setVisible", MapBundleKey.MapObjKey.OBJ_SL_VISI, "startService", "cfg", "stopService", "stopService$floating_view_release", "floating-view_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class Companion {
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public Companion() {
+        }
+
+        private final Handler getInnerHandler() {
+            return (Handler) FloatViewService.innerHandler$delegate.getValue();
         }
 
         public final Config getConfig() {
             return FloatViewService.config;
         }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        /* JADX INFO: Access modifiers changed from: private */
+        public final void checkNotification(Context context, Config config) {
+            if (config.getNotification() == null) {
+                config.setNotification(UtilsKt.getDefaultNotification$default(context, 0, null, null, null, null, 62, null));
+            }
         }
 
-        public final void invalidate(Context context) {
+        public final void dismiss(Context context, boolean z) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
-            intent.putExtra(FloatViewService.FLOAT_INVALIDATE, true);
-            Unit unit = Unit.INSTANCE;
-            UtilsKt.sendLocalBroadcast(context, intent);
+            intent.putExtra(FloatViewService.FLOAT_DISMISS, true);
+            intent.putExtra(FloatViewService.FLOAT_DISMISS_IMMEDIATELY, z);
+            if (Build.VERSION.SDK_INT <= 30) {
+                UtilsKt.sendLocalBroadcast(context, intent);
+            } else {
+                UtilsKt.sendLocalBroadcastSync(context, intent);
+            }
         }
 
-        public final void setConfig(Config config) {
-            FloatViewService.config = config;
-        }
-
-        public final void stopService$floating_view_release(Context context) {
+        public final void setVisible(Context context, boolean z) {
             Intrinsics.checkNotNullParameter(context, "context");
-            context.stopService(new Intent(context, FloatViewService.class));
+            Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
+            intent.putExtra(FloatViewService.FLOAT_VISIBLE, z);
+            UtilsKt.sendLocalBroadcast(context, intent);
         }
 
         public static /* synthetic */ void dismiss$default(Companion companion, Context context, boolean z, int i, Object obj) {
@@ -123,27 +154,49 @@ public final class FloatViewService extends Service {
             companion.dismiss(context, z);
         }
 
-        public final void dismiss(Context context, boolean z) {
+        /* renamed from: startService$lambda-0  reason: not valid java name */
+        public static final void m91startService$lambda0(Context context) {
+            Intrinsics.checkNotNullParameter(context, "$context");
+            context.startForegroundService(new Intent(context, FloatViewService.class));
+        }
+
+        public final void invalidate(Context context) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
-            intent.putExtra(FloatViewService.FLOAT_DISMISS, true);
-            intent.putExtra(FloatViewService.FLOAT_DISMISS_IMMEDIATELY, z);
-            Unit unit = Unit.INSTANCE;
+            intent.putExtra(FloatViewService.FLOAT_INVALIDATE, true);
             UtilsKt.sendLocalBroadcast(context, intent);
         }
 
-        public final void setVisible(Context context, boolean z) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
-            intent.putExtra(FloatViewService.FLOAT_VISIBLE, z);
-            Unit unit = Unit.INSTANCE;
-            UtilsKt.sendLocalBroadcast(context, intent);
+        public final void setConfig(Config config) {
+            FloatViewService.config = config;
         }
 
-        public final void startService(Context context, Config cfg) {
+        public final void stopService$floating_view_release(Context context) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            BdVideoLog.d(FloatViewService.TAG, "stopService");
+            context.stopService(new Intent(context, FloatViewService.class));
+        }
+
+        public final void startService(final Context context, Config cfg) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(cfg, "cfg");
             setConfig(cfg);
+            if (cfg.isForeground() && Build.VERSION.SDK_INT >= 26) {
+                checkNotification(context, cfg);
+                getInnerHandler().post(new Runnable() { // from class: com.baidu.tieba.oo1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable = $ic;
+                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                            FloatViewService.Companion.m91startService$lambda0(context);
+                        }
+                    }
+                });
+                return;
+            }
             context.startService(new Intent(context, FloatViewService.class));
         }
     }
@@ -151,7 +204,9 @@ public final class FloatViewService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
+        startForegroundWithNotification();
         UtilsKt.registerLocalReceiver(this, this.receiver, new IntentFilter(FLOAT_ACTION));
+        BdVideoLog.d(TAG, "onCreate");
     }
 
     @Override // android.app.Service
@@ -163,12 +218,43 @@ public final class FloatViewService extends Service {
         }
         this.viewManager = null;
         config = null;
+        BdVideoLog.d(TAG, MissionEvent.MESSAGE_DESTROY);
         super.onDestroy();
+    }
+
+    private final void startForegroundWithNotification() {
+        Unit unit;
+        Config config2 = config;
+        if (config2 != null) {
+            if (config2.isForeground()) {
+                if (config2.getNotification() == null) {
+                    Companion companion = Companion;
+                    Context applicationContext = getApplicationContext();
+                    Intrinsics.checkNotNullExpressionValue(applicationContext, "applicationContext");
+                    companion.checkNotification(applicationContext, config2);
+                }
+                startForeground(1, config2.getNotification());
+            }
+            unit = Unit.INSTANCE;
+        } else {
+            unit = null;
+        }
+        if (unit == null) {
+            Context applicationContext2 = getApplicationContext();
+            Intrinsics.checkNotNullExpressionValue(applicationContext2, "applicationContext");
+            Notification defaultNotification$default = UtilsKt.getDefaultNotification$default(applicationContext2, 0, null, null, null, null, 62, null);
+            if (defaultNotification$default != null) {
+                startForeground(1, defaultNotification$default);
+            }
+        }
+        BdVideoLog.d(TAG, "startForegroundWithNotification config=" + config);
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         IFloating floatingContext;
+        BdVideoLog.d(TAG, "onStartCommand config=" + config);
+        startForegroundWithNotification();
         if (config == null) {
             return 2;
         }
@@ -189,15 +275,7 @@ public final class FloatViewService extends Service {
         Intrinsics.checkNotNull(config3);
         ViewManager viewManager2 = new ViewManager(applicationContext, config3);
         viewManager2.createView();
-        Unit unit = Unit.INSTANCE;
         this.viewManager = viewManager2;
-        Config config4 = config;
-        Intrinsics.checkNotNull(config4);
-        if (config4.isForeground()) {
-            Config config5 = config;
-            Intrinsics.checkNotNull(config5);
-            startForeground(1, config5.getNotification());
-        }
         return 2;
     }
 }

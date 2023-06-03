@@ -12,72 +12,46 @@ import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.tieba.R;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0016\u0018\u00002\u00020\u00012\u00020\u0002B\u0007¢\u0006\u0004\b\u001c\u0010\bJ\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\n\u001a\u00020\u00062\b\u0010\t\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ#\u0010\u0013\u001a\u00020\u00062\b\u0010\u0011\u001a\u0004\u0018\u00010\u00102\b\u0010\u0012\u001a\u0004\u0018\u00010\u0010H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u0019\u0010\u0017\u001a\u00020\u00062\b\b\u0002\u0010\u0016\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u001a\u0010\u001b¨\u0006\u001d"}, d2 = {"Lcom/baidu/searchbox/player/element/PlayButtonElement;", "android/view/View$OnClickListener", "Lcom/baidu/searchbox/player/element/AbsElement;", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "", "initElement", "()V", "v", "onClick", "(Landroid/view/View;)V", "Lcom/baidu/searchbox/player/event/VideoEvent;", "event", "onEventNotify", "(Lcom/baidu/searchbox/player/event/VideoEvent;)V", "Lcom/baidu/searchbox/player/constants/PlayerStatus;", "status", "old", "onPlayerStatusChanged", "(Lcom/baidu/searchbox/player/constants/PlayerStatus;Lcom/baidu/searchbox/player/constants/PlayerStatus;)V", "", "isPlaying", "setPlayIcon", "(Z)V", "Landroid/widget/ImageView;", "playBtn", "Landroid/widget/ImageView;", "<init>", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+@Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\b\u0016\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\n\u001a\u00020\u000bH\u0016J\b\u0010\f\u001a\u00020\rH\u0016J\u0012\u0010\u000e\u001a\u00020\r2\b\u0010\u000f\u001a\u0004\u0018\u00010\u000bH\u0016J\u0010\u0010\u0010\u001a\u00020\r2\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\u001c\u0010\u0013\u001a\u00020\r2\b\u0010\u0014\u001a\u0004\u0018\u00010\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0015H\u0016J\u0012\u0010\u0017\u001a\u00020\r2\b\b\u0002\u0010\u0018\u001a\u00020\u0019H\u0014R\u001a\u0010\u0004\u001a\u00020\u0005X\u0084.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\t¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/player/element/PlayButtonElement;", "Lcom/baidu/searchbox/player/element/AbsElement;", "Landroid/view/View$OnClickListener;", "()V", "playBtn", "Landroid/widget/ImageView;", "getPlayBtn", "()Landroid/widget/ImageView;", "setPlayBtn", "(Landroid/widget/ImageView;)V", "getContentView", "Landroid/view/View;", "initElement", "", "onClick", "v", "onEventNotify", "event", "Lcom/baidu/searchbox/player/event/VideoEvent;", "onPlayerStatusChanged", "status", "Lcom/baidu/searchbox/player/constants/PlayerStatus;", "old", "setPlayIcon", "isPlaying", "", "framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes4.dex */
 public class PlayButtonElement extends AbsElement implements View.OnClickListener {
     public ImageView playBtn;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
-    public final /* synthetic */ class WhenMappings {
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
+    /* loaded from: classes4.dex */
+    public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
         static {
             int[] iArr = new int[PlayerStatus.values().length];
-            $EnumSwitchMapping$0 = iArr;
             iArr[PlayerStatus.PLAYING.ordinal()] = 1;
-            $EnumSwitchMapping$0[PlayerStatus.PREPARED.ordinal()] = 2;
-            $EnumSwitchMapping$0[PlayerStatus.PREPARING.ordinal()] = 3;
+            iArr[PlayerStatus.PREPARED.ordinal()] = 2;
+            iArr[PlayerStatus.PREPARING.ordinal()] = 3;
+            $EnumSwitchMapping$0 = iArr;
         }
     }
 
     @Override // com.baidu.searchbox.player.element.IElement
     public View getContentView() {
+        return getPlayBtn();
+    }
+
+    public final ImageView getPlayBtn() {
         ImageView imageView = this.playBtn;
-        if (imageView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("playBtn");
+        if (imageView != null) {
+            return imageView;
         }
-        return imageView;
+        Intrinsics.throwUninitializedPropertyAccessException("playBtn");
+        return null;
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         ImageView imageView = new ImageView(getContext());
-        this.playBtn = imageView;
-        if (imageView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("playBtn");
-        }
         int dp2px = BdPlayerUtils.dp2px(imageView, 42.0f);
         imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
         imageView.setOnClickListener(this);
-    }
-
-    private final void setPlayIcon(boolean z) {
-        if (z) {
-            ImageView imageView = this.playBtn;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("playBtn");
-            }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080268);
-            return;
-        }
-        ImageView imageView2 = this.playBtn;
-        if (imageView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("playBtn");
-        }
-        imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080269);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        BDVideoPlayer videoPlayer = getVideoPlayer();
-        if (videoPlayer.isPlaying()) {
-            videoPlayer.pause(1);
-        } else if (videoPlayer.isPause()) {
-            videoPlayer.resume();
-        } else {
-            videoPlayer.start();
-        }
+        setPlayBtn(imageView);
     }
 
     public static /* synthetic */ void setPlayIcon$default(PlayButtonElement playButtonElement, boolean z, int i, Object obj) {
@@ -91,6 +65,30 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setPlayIcon");
     }
 
+    public void onClick(View view2) {
+        BDVideoPlayer videoPlayer = getVideoPlayer();
+        if (videoPlayer.isPlaying()) {
+            videoPlayer.pause(1);
+        } else if (videoPlayer.isPause()) {
+            videoPlayer.resume();
+        } else {
+            videoPlayer.start();
+        }
+    }
+
+    public final void setPlayBtn(ImageView imageView) {
+        Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+        this.playBtn = imageView;
+    }
+
+    public void setPlayIcon(boolean z) {
+        if (z) {
+            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080277);
+        } else {
+            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f080278);
+        }
+    }
+
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
     public void onEventNotify(VideoEvent event) {
         Intrinsics.checkNotNullParameter(event, "event");
@@ -98,9 +96,7 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
         switch (action.hashCode()) {
             case 14382657:
                 if (action.equals(ControlEvent.ACTION_STATUS_SYNC)) {
-                    BDVideoPlayer videoPlayer = getVideoPlayer();
-                    Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
-                    setPlayIcon(!videoPlayer.isPause());
+                    setPlayIcon(!getVideoPlayer().isPause());
                     return;
                 }
                 return;
@@ -120,13 +116,8 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
                 if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
                     int intExtra = event.getIntExtra(1);
                     if (intExtra != 904 && intExtra != 956) {
-                        if (702 == intExtra) {
-                            BDVideoPlayer videoPlayer2 = getVideoPlayer();
-                            Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
-                            if (videoPlayer2.isPlaying()) {
-                                setPlayIcon(true);
-                                return;
-                            }
+                        if (702 == intExtra && getVideoPlayer().isPlaying()) {
+                            setPlayIcon(true);
                             return;
                         }
                         return;
@@ -143,7 +134,12 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
     public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         int i;
-        if (playerStatus == null || ((i = WhenMappings.$EnumSwitchMapping$0[playerStatus.ordinal()]) != 1 && i != 2 && i != 3)) {
+        if (playerStatus == null) {
+            i = -1;
+        } else {
+            i = WhenMappings.$EnumSwitchMapping$0[playerStatus.ordinal()];
+        }
+        if (i != 1 && i != 2 && i != 3) {
             setPlayIcon(false);
         } else {
             setPlayIcon(true);

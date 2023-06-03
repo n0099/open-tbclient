@@ -1,133 +1,92 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tieba.te3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class u14 extends m14 {
+/* loaded from: classes8.dex */
+public class u14 extends t14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements te3.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km2 a;
-
-        public a(u14 u14Var, km2 km2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u14Var, km2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km2Var;
-        }
-
-        @Override // com.baidu.tieba.te3.f
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == -1) {
-                    u14.c(this.a, "202");
-                } else if (i == 1) {
-                    u14.c(this.a, BasicPushStatus.SUCCESS_CODE);
-                } else {
-                    this.a.onFail(101, "noPermission");
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158129, "Lcom/baidu/tieba/u14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948158129, "Lcom/baidu/tieba/u14;");
-                return;
-            }
-        }
-        c = qp1.a;
-    }
+    public boolean G;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u14() {
-        super("addShortcutToDesktop");
+    public u14(Context context, AdElementInfo adElementInfo, u04 u04Var) {
+        super(context, adElementInfo, u04Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, u04Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (u04) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.G = false;
     }
 
-    public static void c(km2 km2Var, String str) {
+    @Override // com.baidu.tieba.t14
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, km2Var, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+            int videoWidth = adElementInfo.getVideoWidth();
+            int videoHeight = adElementInfo.getVideoHeight();
+            this.n = q04.b().k();
+            this.o = q04.b().j();
+            if (videoWidth < videoHeight) {
+                this.G = true;
+                int i = this.n;
+                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
+                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
+                layoutParams.leftMargin = (this.n - i2) - i3;
+                layoutParams.addRule(15);
+                layoutParams.removeRule(13);
+                layoutParams.removeRule(12);
+                layoutParams.bottomMargin = 0;
+                relativeLayout.setLayoutParams(layoutParams);
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f0608f3));
             }
-            km2Var.onSuccess(jSONObject);
         }
     }
 
-    @Override // com.baidu.tieba.m14
-    public g12 a(JSONObject jSONObject, km2 km2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.t14
+    public String q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
-            g93 b0 = g93.b0();
-            if (b0 != null && b0.w() != null && b0.W() != null) {
-                if (te3.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
-                    c(km2Var, Info.kBaiduPIDValue);
-                    return null;
-                }
-                te3.j(b0.w(), b0.W(), 1, new a(this, km2Var));
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.G) {
+                return "reward_banner_land_html";
             }
-            km2Var.onFail(100, "swan or activity is null");
-            if (c) {
-                Log.d("AddShortcutToDesktop", "swan or activity is null");
-                return null;
-            }
-            return null;
+            return "reward_banner_html";
         }
-        return (g12) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t14
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d06ed, (ViewGroup) null);
+        }
+        return (View) invokeV.objValue;
     }
 }

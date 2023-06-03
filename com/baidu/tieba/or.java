@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class or implements tr {
+/* loaded from: classes7.dex */
+public final class or {
     public static /* synthetic */ Interceptable $ic;
-    public static final b c;
+    public static final b d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Integer a;
-    public final byte[] b;
+    public final int a;
+    public final String b;
+    public final TaskResponseData c;
 
     static {
         InterceptResult invokeClinit;
@@ -36,105 +35,64 @@ public final class or implements tr {
                 return;
             }
         }
-        c = new b(null);
+        d = new b(null);
     }
 
-    @JvmStatic
-    public static final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof or) {
-                    or orVar = (or) obj;
-                    return Intrinsics.areEqual(this.a, orVar.a) && Intrinsics.areEqual(this.b, orVar.b);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Integer num = this.a;
-            int hashCode = (num != null ? num.hashCode() : 0) * 31;
-            byte[] bArr = this.b;
-            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public byte[] b;
+        public final String a;
 
-        public a() {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
         }
 
-        public final or c() {
+        public final or a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return new or(this.a, ot.c(this.b));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                mu muVar = new mu();
+                try {
+                    JSONObject jSONObject = new JSONObject(this.a);
+                    int optInt = jSONObject.optInt("errno");
+                    String errmsg = jSONObject.optString("errmsg");
+                    String data = jSONObject.optString("data");
+                    ku a = muVar.a("response");
+                    Intrinsics.checkExpressionValueIsNotNull(data, "data");
+                    TaskResponseData taskResponseData = (TaskResponseData) a.a(data);
+                    if (taskResponseData != null) {
+                        Intrinsics.checkExpressionValueIsNotNull(errmsg, "errmsg");
+                        return new or(optInt, errmsg, taskResponseData);
+                    }
+                    return new or(301, "task complete request failed", null, 4, null);
+                } catch (JSONException e) {
+                    String message = e.getMessage();
+                    if (message == null) {
+                        message = "task complete request failed";
+                    }
+                    return new or(301, message, null, 4, null);
+                }
             }
             return (or) invokeV.objValue;
         }
-
-        public final a a(Integer num) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
-                this.a = num;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                this.b = bArr;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,67 +111,80 @@ public final class or implements tr {
             }
         }
 
-        @JvmStatic
-        public final a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new a();
-            }
-            return (a) invokeV.objValue;
-        }
-
         public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public final or b(String str) {
+        public final a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    return new or(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), ot.b(jSONObject.optString("RandomBytes")));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    DebugTrace debugTrace = DebugTrace.a;
-                    debugTrace.a("parse random fail:" + e.getMessage());
-                    return null;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return new a(str);
             }
-            return (or) invokeL.objValue;
+            return (a) invokeL.objValue;
         }
     }
 
-    public or(Integer num, byte[] bArr) {
+    public or(int i, String str, TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {num, bArr};
+            Object[] objArr = {Integer.valueOf(i), str, taskResponseData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = num;
-        this.b = bArr;
+        this.a = i;
+        this.b = str;
+        this.c = taskResponseData;
     }
 
-    @Override // com.baidu.tieba.tr
-    public JSONObject c() {
+    public /* synthetic */ or(int i, String str, TaskResponseData taskResponseData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, str, (i2 & 4) != 0 ? null : taskResponseData);
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("GMTUnixTime", this.a);
-            jSONObject.putOpt("RandomBytes", ot.a(this.b));
-            return jSONObject;
+            if (this.a == 0) {
+                return true;
+            }
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final TaskResponseData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (TaskResponseData) invokeV.objValue;
     }
 }

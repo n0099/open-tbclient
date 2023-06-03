@@ -1,78 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
 /* loaded from: classes7.dex */
-public abstract class s2b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "PBKDF2";
+public class s2b extends h3b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948100934, "Lcom/baidu/tieba/s2b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s2b(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigGdt);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948100934, "Lcom/baidu/tieba/s2b;");
-        }
-    }
-
-    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
-        SecretKeyFactory secretKeyFactory;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            try {
-                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
-                if (z) {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-                } else {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                }
-                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                String str = a;
-                a3b.c(str, "pbkdf exception : " + e.getMessage());
-                return new byte[0];
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigGdt) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    @Override // com.baidu.tieba.h3b, com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
-            return a(cArr, bArr, i, i2, false);
-        }
-        return (byte[]) invokeLLII.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new l2b(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    @Override // com.baidu.tieba.h3b
+    public void f(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (Build.VERSION.SDK_INT < 26) {
-                a3b.c(a, "system version not high than 26");
-                return bArr2;
-            }
-            return a(cArr, bArr, i, i2, true);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.showFullScreenAD(activity);
         }
-        return (byte[]) invokeLLII.objValue;
+    }
+
+    @Override // com.baidu.tieba.h3b
+    public void k(UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.loadFullScreenAD();
+        }
     }
 }

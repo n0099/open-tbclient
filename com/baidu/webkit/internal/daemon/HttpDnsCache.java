@@ -2,8 +2,7 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
@@ -117,7 +116,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     public static void restoreLastCacheFromCfg() {
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals("false")) {
             Log.i(LOG_TAG, "restoreLastCacheFromCfg http_dns_persist false");
             return;
         }
@@ -151,7 +150,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     public static String transHttpsUrl(String str) {
         boolean z = true;
         try {
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
                 z = false;
             }
             return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;
@@ -162,14 +161,14 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     public static void tryToUpdateHttpDnsCache(Context context) {
         String str;
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
             str = "tryToUpdateHttpDnsCache http_dns false";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             str = "tryToUpdateHttpDnsCache festival return";
         } else {
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCache");
             restoreLastCacheFromCfg();
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals(YYOption.IsLive.VALUE_TRUE)) {
                 try {
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(new HttpDnsCache());
@@ -190,14 +189,14 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     public static void tryToUpdateHttpDnsCacheStaticIP(Context context) {
         String str;
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
             str = "tryToUpdateHttpDnsCacheStaticIP http_dns false";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             str = "tryToUpdateHttpDnsCacheStaticIP festival return";
         } else {
             restoreLastCacheFromCfg();
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP");
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals(YYOption.IsLive.VALUE_TRUE)) {
                 try {
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(new HttpDnsCache());
@@ -262,7 +261,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            String str = new String(byteArray, IMAudioTransRequest.CHARSET);
+            String str = new String(byteArray, "utf-8");
             if (!TextUtils.isEmpty(str)) {
                 WebSettingsGlobalBlink.setHttpDnsCache(str, 2);
             }

@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -158,7 +159,7 @@ public class IMChatRoomEnterRequest extends BaseHttpRequest {
                         chatRoomInfo.roomInfo.resourceId = jSONObject.optString("resource_id");
                         chatRoomInfo.roomInfo.ext = jSONObject.optString("ext");
                     }
-                    JSONObject jSONObject3 = (JSONObject) jSONObject.opt("user_info");
+                    JSONObject jSONObject3 = (JSONObject) jSONObject.opt(SourceConstant.SOURCE_USER_INFO);
                     if (jSONObject3 != null) {
                         IChatRoomEnterListener.UserInfo userInfo = new IChatRoomEnterListener.UserInfo();
                         chatRoomInfo.userInfo = userInfo;

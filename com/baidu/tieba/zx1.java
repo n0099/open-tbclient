@@ -1,40 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
 /* loaded from: classes8.dex */
-public abstract class zx1 extends jx1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zx1 {
+    hy1 a(Context context);
 
-    @Override // com.baidu.tieba.jx1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Interaction" : (String) invokeV.objValue;
-    }
+    dy1 b(Context context);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zx1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    hy1 c(Context context);
+
+    td2 d();
+
+    ey1 e(Context context, int i);
+
+    hy1 f(Context context);
+
+    hy1 g(Context context);
+
+    ud2 h(Context context, int i);
+
+    hy1 i(Context context);
+
+    boolean j(int i);
 }

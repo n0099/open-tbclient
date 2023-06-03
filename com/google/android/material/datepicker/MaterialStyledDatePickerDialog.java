@@ -23,7 +23,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;
     @StyleRes
-    public static final int DEF_STYLE_RES = 2131755314;
+    public static final int DEF_STYLE_RES = 2131755316;
     @NonNull
     public final Drawable background;
     @NonNull

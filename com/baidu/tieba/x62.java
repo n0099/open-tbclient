@@ -1,97 +1,141 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.util.Base64;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x62 {
+public class x62 extends v62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252245, "Lcom/baidu/tieba/x62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948252245, "Lcom/baidu/tieba/x62;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x62(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b + "/swan-core/master/master.html";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + "/swan-core/slaves/slaves.html";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return TextUtils.equals(c, "update_tag_by_remote_debug");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return !TextUtils.isEmpty(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            c = "update_tag_by_remote_debug";
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.k = pp3.g((float) jSONObject.optDouble("x"));
+            this.l = pp3.g((float) jSONObject.optDouble("y"));
+            this.m = pp3.g((float) jSONObject.optDouble("width"));
+            this.n = pp3.g((float) jSONObject.optDouble("height"));
+        } catch (Exception e) {
+            y82.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
     }
 
-    public static void e(String str) {
+    public final byte[] h(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("RemoteDebugger", "Current launch mode is " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = width * height;
+            int[] iArr = new int[i];
+            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+            byte[] bArr = new byte[i * 4];
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = iArr[i2];
+                int i4 = i2 * 4;
+                bArr[i4] = (byte) Color.red(i3);
+                bArr[i4 + 1] = (byte) Color.green(i3);
+                bArr[i4 + 2] = (byte) Color.blue(i3);
+                bArr[i4 + 3] = (byte) Color.alpha(i3);
             }
-            c = str;
-            if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
-                w62.g().o();
-            }
+            return bArr;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void g(String str) {
+    public JSONObject i(@NonNull View view2) {
+        InterceptResult invokeL;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
+            int i2 = 0;
+            if (measuredWidth > 0 && measuredHeight > 0) {
+                int i3 = this.k;
+                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
+                int i4 = this.l;
+                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
+                int i5 = this.m;
+                if (i5 <= 0 || this.k + i5 > measuredWidth) {
+                    i5 = measuredWidth - this.k;
+                }
+                this.m = i5;
+                int i6 = this.n;
+                if (i6 <= 0 || this.l + i6 > measuredHeight) {
+                    i6 = measuredHeight - this.l;
+                }
+                this.n = i6;
+                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawARGB(0, 0, 0, 0);
+                canvas.translate(-this.k, -this.l);
+                view2.draw(canvas);
+                Bitmap j = j(createBitmap);
+                str = Base64.encodeToString(h(j), 2);
+                i2 = j.getWidth();
+                i = j.getHeight();
+            } else {
+                y82.b("canvasGetImageData", "canvas size is invalid.");
+                str = "";
+                i = 0;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i);
+                jSONObject.put("data", str);
+            } catch (Exception e) {
+                y82.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @NonNull
+    public final Bitmap j(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
+            float l = 1.0f / pp3.l(fv2.c());
+            Matrix matrix = new Matrix();
+            matrix.postScale(l, l);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

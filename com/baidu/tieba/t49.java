@@ -1,93 +1,71 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t49 extends f09<u49, GodReplyMoreViewHolder> {
+public class t49 extends q49<u49, CustomDialogData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+
+    @Override // com.baidu.tieba.v49
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v49
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t49(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public t49(TbPageContext tbPageContext, CustomDialogData customDialogData) {
+        super(tbPageContext, new u49(tbPageContext), customDialogData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {tbPageContext, customDialogData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((w49) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (w49) objArr2[1], (IBaseDialogData) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: u */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0750, viewGroup, false));
-        }
-        return (GodReplyMoreViewHolder) invokeL.objValue;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
+        V v = this.h;
+        if (v instanceof u49) {
+            ((u49) v).f(this);
         }
     }
 
-    @Override // com.baidu.tieba.f09, com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (u49) obj, (GodReplyMoreViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, u49 u49Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
-        InterceptResult invokeCommon;
-        TextView textView;
+    @Override // com.baidu.tieba.v49
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u49Var, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) u49Var, (u49) godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
-                }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return vi.g(this.c, R.dimen.obfuscated_res_0x7f07041c);
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 }

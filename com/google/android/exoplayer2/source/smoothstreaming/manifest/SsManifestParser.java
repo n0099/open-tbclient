@@ -341,7 +341,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
             int parseRequiredInt = parseRequiredInt(xmlPullParser, KEY_BITRATE);
             String fourCCToMimeType = fourCCToMimeType(parseRequiredString(xmlPullParser, KEY_FOUR_CC));
             if (intValue == 2) {
-                this.format = Format.createVideoContainerFormat(attributeValue, MimeTypes.VIDEO_MP4, fourCCToMimeType, null, parseRequiredInt, parseRequiredInt(xmlPullParser, "MaxWidth"), parseRequiredInt(xmlPullParser, "MaxHeight"), -1.0f, buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA)), 0);
+                this.format = Format.createVideoContainerFormat(attributeValue, "video/mp4", fourCCToMimeType, null, parseRequiredInt, parseRequiredInt(xmlPullParser, "MaxWidth"), parseRequiredInt(xmlPullParser, "MaxHeight"), -1.0f, buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA)), 0);
             } else if (intValue == 1) {
                 if (fourCCToMimeType == null) {
                     fourCCToMimeType = "audio/mp4a-latm";
@@ -416,7 +416,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
             this.streamElements.toArray(streamElementArr);
             if (this.protectionElement != null) {
                 SsManifest.ProtectionElement protectionElement = this.protectionElement;
-                DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(protectionElement.uuid, MimeTypes.VIDEO_MP4, protectionElement.data));
+                DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(protectionElement.uuid, "video/mp4", protectionElement.data));
                 for (int i = 0; i < size; i++) {
                     SsManifest.StreamElement streamElement = streamElementArr[i];
                     int i2 = 0;

@@ -1,147 +1,64 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class q62 {
+public class q62 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path a;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public q62() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && this.a != null) {
+            int alpha = f52Var.c.getAlpha();
+            f52Var.c(f52Var.c);
+            canvas.drawPath(this.a, f52Var.c);
+            f52Var.c.setAlpha(alpha);
+        }
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = pp3.g((float) jSONArray.optDouble(0));
+                    int g2 = pp3.g((float) jSONArray.optDouble(1));
+                    int g3 = pp3.g((float) jSONArray.optDouble(2));
+                    int g4 = pp3.g((float) jSONArray.optDouble(3));
+                    Path path = new Path();
+                    this.a = path;
+                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
+                }
+            } catch (Exception e) {
+                if (is1.a) {
+                    e.printStackTrace();
                 }
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            g93 b0;
-            SwanAppActivity w;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = g93.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
-                w.N();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.view.View.OnTouchListener
-        @SuppressLint({"ClickableViewAccessibility"})
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            g93 b0;
-            SwanAppActivity w;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = g93.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
-                w.w0();
-            }
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public static View a(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) null);
-            inflate.setOnTouchListener(new b());
-            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-            viewGroup.removeView(inflate);
-            viewGroup.addView(inflate);
-            return inflate;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            an3.a0(new a());
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            an3.a0(new c());
-        }
-    }
-
-    public static void d(@NonNull Activity activity, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, view2) == null) {
-            ((ViewGroup) activity.getWindow().getDecorView()).removeView(view2);
         }
     }
 }

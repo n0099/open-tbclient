@@ -1,78 +1,45 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km4 {
+public class km4 extends hm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public km4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.hl4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hl4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a = a(messageDigest.digest(), "", z);
-                            kp4.d(fileInputStream);
-                            return a;
-                        }
-                    }
-                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                    kp4.d(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    kp4.d(fileInputStream2);
-                    throw th;
-                }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeLZ.objValue;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            jm4.b(str, map, map2, jSONObject, new il4(aVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.hl4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, hl4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            jm4.a(str, map, map2, new il4(aVar));
         }
     }
 }

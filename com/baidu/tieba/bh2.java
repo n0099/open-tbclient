@@ -1,187 +1,191 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bh2 implements V8Engine.JavaScriptExceptionDelegate {
+public class bh2 implements ah2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bh2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public og2 a;
-    public String b;
+    public final Map<String, zg2> a;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final boolean d;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSEvent a;
-        public String b;
-        public String c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ bh2 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-919017920, "Lcom/baidu/tieba/bh2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-919017920, "Lcom/baidu/tieba/bh2$a;");
-                    return;
-                }
-            }
-            d = qp1.a;
-        }
-
-        public a() {
+        public a(bh2 bh2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bh2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new JSEvent("error");
+            this.b = bh2Var;
+            this.a = str;
         }
 
-        public JSEvent a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("message", this.b);
-                    jSONObject.put("stack", this.c);
-                } catch (JSONException e) {
-                    if (d) {
-                        Log.e("V8Exception", Log.getStackTraceString(e));
-                    }
-                }
-                if (jSONObject.length() > 0) {
-                    this.a.data = jSONObject;
-                }
-                return this.a;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
-            return (JSEvent) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644893, "Lcom/baidu/tieba/bh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947644893, "Lcom/baidu/tieba/bh2;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
-    public bh2(og2 og2Var) {
+    public bh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {og2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
-        this.a = og2Var;
+        this.a = new HashMap();
     }
 
-    public final void a(String str, String str2) {
+    public static bh2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.n() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (bh2.class) {
+                    if (b == null) {
+                        b = new bh2();
+                    }
+                }
+            }
+            return b;
         }
-        EventTarget n = this.a.n();
-        a aVar = new a();
-        aVar.b(str + "\n" + str2);
-        aVar.c("");
-        n.dispatchEvent(aVar.a());
+        return (bh2) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
-    @SuppressLint({"SwanDebugLog"})
-    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
-        String str;
+    public synchronized bh2 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        zg2 zg2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (zg2Var = this.a.get(str)) != null) {
+                    zg2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
         }
-        String str2 = "";
-        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-            str = "";
-        } else {
-            str = v8ExceptionInfo.exceptionMsg;
+        return (bh2) invokeLL.objValue;
+    }
+
+    public synchronized bh2 f(String str, ch2 ch2Var) {
+        InterceptResult invokeLL;
+        zg2 zg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ch2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (zg2Var = this.a.get(str)) != null) {
+                    zg2Var.e(str, ch2Var);
+                    return this;
+                }
+                return this;
+            }
         }
-        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-            str2 = v8ExceptionInfo.exceptionTrace;
+        return (bh2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
         }
-        Log.e("V8Exception", this.a.m0() + "msg: " + str + " ,stack: " + str2);
-        this.a.w().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
-            return;
+    }
+
+    public final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
         }
-        this.b = str;
-        a(str, str2);
-        rq1 j = os2.j();
-        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
-        ag3.b(v8ExceptionInfo);
-        os2.i().r(v8ExceptionInfo);
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void h(String str) {
+        zg2 zg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (zg2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    zg2Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public synchronized bh2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        zg2 zg2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (zg2Var = this.a.get(str)) != null) {
+                    zg2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (bh2) invokeCommon.objValue;
+    }
+
+    public synchronized bh2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    zg2 zg2Var = new zg2();
+                    this.a.put(str, zg2Var);
+                    zg2Var.f(str);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (bh2) invokeL.objValue;
     }
 }

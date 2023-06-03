@@ -1,5 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import android.content.Context;
+/* loaded from: classes7.dex */
 public interface oz5 {
-    Object a();
+    void a();
+
+    void b(int i, int i2, int i3, int i4);
+
+    Context getContext();
+
+    boolean post(Runnable runnable);
+
+    boolean removeCallbacks(Runnable runnable);
 }

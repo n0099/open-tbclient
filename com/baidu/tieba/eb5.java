@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
 /* loaded from: classes5.dex */
-public class eb5 {
+public class eb5 extends Editable.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public List<VoiceRoom> c;
+    public fb5 a;
 
-    public eb5() {
+    public eb5(fb5 fb5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fb5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,53 +28,18 @@ public class eb5 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = fb5Var;
     }
 
-    public List<VoiceRoom> a() {
-        InterceptResult invokeV;
+    @Override // android.text.Editable.Factory
+    public Editable newEditable(CharSequence charSequence) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
+            return spannableStringBuilder;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public Long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(DataRes dataRes) {
-        VoiceRoom voiceRoom;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        ForumInfo forumInfo = dataRes.forum;
-        if (forumInfo != null) {
-            this.a = forumInfo.id;
-            this.b = forumInfo.name;
-        }
-        if (!ListUtils.isEmpty(dataRes.voice_room_list)) {
-            for (ThreadInfo threadInfo : dataRes.voice_room_list) {
-                if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
-                    this.c.add(voiceRoom);
-                }
-            }
-        }
+        return (Editable) invokeL.objValue;
     }
 }

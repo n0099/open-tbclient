@@ -30,6 +30,6 @@ public class SetImageWatermarkTypeReqMsg extends HttpMessage {
                 return;
             }
         }
-        addParam(SWITCH, i);
+        addParam("switch", i);
     }
 }

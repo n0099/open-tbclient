@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -217,7 +216,7 @@ public class HttpHelper {
                     return httpURLConnection;
                 }
             } else if (bArr != null && bArr.length > 0) {
-                LogUtils.d(TAG, "requestparamter:" + new String(bArr, IMAudioTransRequest.CHARSET));
+                LogUtils.d(TAG, "requestparamter:" + new String(bArr, "utf-8"));
             }
             str2 = str;
             LogUtils.d(TAG, "requestUrl:" + str2);

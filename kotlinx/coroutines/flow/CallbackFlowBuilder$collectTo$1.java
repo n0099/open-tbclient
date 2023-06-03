@@ -1,22 +1,20 @@
 package kotlinx.coroutines.flow;
 
-import androidx.exifinterface.media.ExifInterface;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0094@"}, d2 = {"collectTo", "", ExifInterface.GPS_DIRECTION_TRUE, "scope", "Lkotlinx/coroutines/channels/ProducerScope;", "continuation", "Lkotlin/coroutines/Continuation;", ""}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.flow.CallbackFlowBuilder", f = "Builders.kt", i = {0, 0}, l = {340}, m = "collectTo", n = {"this", "scope"}, s = {"L$0", "L$1"})
+@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.flow.CallbackFlowBuilder", f = "Builders.kt", i = {0}, l = {336}, m = "collectTo", n = {"scope"}, s = {"L$0"})
 /* loaded from: classes10.dex */
 public final class CallbackFlowBuilder$collectTo$1 extends ContinuationImpl {
     public Object L$0;
-    public Object L$1;
     public int label;
     public /* synthetic */ Object result;
-    public final /* synthetic */ CallbackFlowBuilder this$0;
+    public final /* synthetic */ CallbackFlowBuilder<T> this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CallbackFlowBuilder$collectTo$1(CallbackFlowBuilder callbackFlowBuilder, Continuation continuation) {
+    public CallbackFlowBuilder$collectTo$1(CallbackFlowBuilder<T> callbackFlowBuilder, Continuation<? super CallbackFlowBuilder$collectTo$1> continuation) {
         super(continuation);
         this.this$0 = callbackFlowBuilder;
     }

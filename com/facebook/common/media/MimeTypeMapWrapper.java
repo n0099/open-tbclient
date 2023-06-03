@@ -3,7 +3,7 @@ package com.facebook.common.media;
 import android.webkit.MimeTypeMap;
 import com.facebook.common.internal.ImmutableMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MimeTypeMapWrapper {
     public static final MimeTypeMap sMimeTypeMap = MimeTypeMap.getSingleton();
     public static final Map<String, String> sMimeTypeToExtensionMap = ImmutableMap.of("image/heif", "heif", "image/heic", "heic");

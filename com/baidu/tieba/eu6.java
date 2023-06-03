@@ -1,146 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eu6 {
+public final class eu6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
-    public EnterForumTabFeedFragment a;
-    public BdTypeRecyclerView b;
-    public qu6 c;
-    public hu6 d;
-    public ju6 e;
-    public iu6 f;
-    public ku6 g;
-    public ru6 h;
-    public mu6 i;
-    public ou6 j;
-    public nu6 k;
-    public lu6 l;
-    public pu6 m;
-    public gu6 n;
-    public su6 o;
-    public List<en> p;
 
-    public eu6(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746883, "Lcom/baidu/tieba/eu6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746883, "Lcom/baidu/tieba/eu6;");
                 return;
             }
         }
-        this.p = new LinkedList();
-        this.a = enterForumTabFeedFragment;
-        this.b = bdTypeRecyclerView;
-        a();
+        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
+        a = createBitmap;
     }
 
-    public final void a() {
+    public static final Bitmap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qu6 qu6Var = new qu6(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.I1());
-            this.c = qu6Var;
-            qu6Var.y(this.b);
-            this.p.add(this.c);
-            hu6 hu6Var = new hu6(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.I1());
-            this.d = hu6Var;
-            hu6Var.z(this.b);
-            this.p.add(this.d);
-            ju6 ju6Var = new ju6(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.I1());
-            this.e = ju6Var;
-            ju6Var.y(this.b);
-            this.p.add(this.e);
-            iu6 iu6Var = new iu6(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.I1());
-            this.f = iu6Var;
-            iu6Var.y(this.b);
-            this.p.add(this.f);
-            ku6 ku6Var = new ku6(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.I1());
-            this.g = ku6Var;
-            ku6Var.y(this.b);
-            this.p.add(this.g);
-            ru6 ru6Var = new ru6(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.I1());
-            this.h = ru6Var;
-            ru6Var.B(this.b);
-            this.p.add(this.h);
-            mu6 mu6Var = new mu6(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.I1());
-            this.i = mu6Var;
-            mu6Var.u(this.b);
-            this.p.add(this.i);
-            ou6 ou6Var = new ou6(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.I1());
-            this.j = ou6Var;
-            ou6Var.y(this.b);
-            this.p.add(this.j);
-            nu6 nu6Var = new nu6(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.I1());
-            this.k = nu6Var;
-            nu6Var.u(this.b);
-            this.p.add(this.k);
-            lu6 lu6Var = new lu6(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.I1());
-            this.l = lu6Var;
-            lu6Var.y(this.b);
-            this.p.add(this.l);
-            pu6 pu6Var = new pu6(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.I1());
-            this.m = pu6Var;
-            pu6Var.y(this.b);
-            this.p.add(this.m);
-            gu6 gu6Var = new gu6(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.I1());
-            this.n = gu6Var;
-            gu6Var.z(this.b);
-            this.p.add(this.n);
-            su6 su6Var = new su6(this.a.getPageContext(), f15.d, this.a.getUniqueId(), this.a.I1());
-            this.o = su6Var;
-            su6Var.x(this.b);
-            this.p.add(this.o);
-            this.b.addAdapters(this.p);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (Bitmap) invokeV.objValue;
     }
 
-    public void b() {
+    public static final boolean a(ws6 ws6Var, ws6 ws6Var2, wu6 wu6Var, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(ArrayList<rn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            hu6 hu6Var = this.d;
-            if (hu6Var != null) {
-                hu6Var.setFromCDN(z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{ws6Var, ws6Var2, wu6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int width = wu6Var.getWidth();
+            float q = ws6Var.f().q();
+            float q2 = ws6Var2.f().q();
+            long j3 = j - ws6Var.j();
+            float f = width;
+            float f2 = (float) j2;
+            if (f - ((q2 + f) * (((float) (j - ws6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
+                return true;
             }
-            iu6 iu6Var = this.f;
-            if (iu6Var != null) {
-                iu6Var.setFromCDN(z);
-            }
-            ju6 ju6Var = this.e;
-            if (ju6Var != null) {
-                ju6Var.setFromCDN(z);
-            }
+            return false;
         }
+        return invokeCommon.booleanValue;
+    }
+
+    public static final boolean c(ws6 ws6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, ws6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
+            if (j - ws6Var.j() < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean d(ws6 ws6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, ws6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
+            if (!e(ws6Var, j) && !c(ws6Var, j)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean e(ws6 ws6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, ws6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
+            if (j - ws6Var.j() > ws6Var.g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean f(ws6 ws6Var, ws6 danmaku, wu6 displayer, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{ws6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Intrinsics.checkNotNullParameter(ws6Var, "<this>");
+            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            if (d(ws6Var, j)) {
+                return false;
+            }
+            long j3 = danmaku.j() - ws6Var.j();
+            if (j3 <= 0) {
+                return true;
+            }
+            if (Math.abs(j3) >= j2 || e(ws6Var, j) || e(danmaku, j)) {
+                return false;
+            }
+            if (ws6Var.e().j() != 5 && ws6Var.e().j() != 4 && !a(ws6Var, danmaku, displayer, j, j2) && !a(ws6Var, danmaku, displayer, j + j2, j2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

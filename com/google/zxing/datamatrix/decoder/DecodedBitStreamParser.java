@@ -2,7 +2,6 @@ package com.google.zxing.datamatrix.decoder;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -166,7 +165,7 @@ public final class DecodedBitStreamParser {
                     return Mode.PAD_ENCODE;
                 } else {
                     if (readBits <= 229) {
-                        int i = readBits + MultiPluginManagerServiceImpl.INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL;
+                        int i = readBits - 130;
                         if (i < 10) {
                             sb.append(TransactionIdCreater.FILL_BYTE);
                         }

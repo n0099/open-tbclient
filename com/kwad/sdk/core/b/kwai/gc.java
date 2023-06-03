@@ -1,7 +1,8 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class gc implements com.kwad.sdk.core.d<com.kwad.components.core.webview.b.a.s> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.components.core.webview.b.a.s sVar, JSONObject jSONObject) {
@@ -10,7 +11,7 @@ public final class gc implements com.kwad.sdk.core.d<com.kwad.components.core.we
         }
         sVar.kD = jSONObject.optInt("currentTime");
         sVar.NZ = jSONObject.optBoolean("failed");
-        sVar.Oa = jSONObject.optBoolean("finished");
+        sVar.Oa = jSONObject.optBoolean(DownloadStatisticConstants.UBC_TYPE_FINISHED);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -28,7 +29,7 @@ public final class gc implements com.kwad.sdk.core.d<com.kwad.components.core.we
         }
         boolean z2 = sVar.Oa;
         if (z2) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "finished", z2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, DownloadStatisticConstants.UBC_TYPE_FINISHED, z2);
         }
         return jSONObject;
     }

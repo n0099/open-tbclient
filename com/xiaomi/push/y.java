@@ -2,7 +2,6 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import com.baidu.android.util.media.WebpUtils;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
@@ -98,7 +97,7 @@ public class y {
             } catch (IOException e) {
                 e = e;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m120a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m175a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -172,7 +171,7 @@ public class y {
                 } else {
                     if (TextUtils.isEmpty(str)) {
                         Date date = new Date();
-                        zipEntry = new ZipEntry(String.valueOf(date.getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+                        zipEntry = new ZipEntry(String.valueOf(date.getTime()) + ".txt");
                     } else {
                         zipEntry = new ZipEntry(str);
                     }
@@ -210,7 +209,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m783a(File file) {
+    public static boolean m838a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface t60 extends Closeable {
-    void disconnect();
+public final class t60 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int getCode() throws IOException;
-
-    Map<String, List<String>> getHeaders() throws IOException;
-
-    InputStream getInputStream() throws IOException;
-
-    String getMessage() throws IOException;
-
-    InputStream q() throws IOException;
-
-    void t(int i);
-
-    int u();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133019, "Lcom/baidu/tieba/t60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133019, "Lcom/baidu/tieba/t60;");
+                return;
+            }
+        }
+        a = Boolean.parseBoolean(YYOption.IsLive.VALUE_TRUE);
+    }
 }

@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.hb;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.sq9;
+import com.baidu.tieba.ex9;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.lb;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,9 +93,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sq9)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ex9)) {
                 boolean z = true;
-                if (((sq9) customResponsedMessage.getData()).n() != 1) {
+                if (((ex9) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
                 this.a.a.L1(z);
@@ -104,7 +104,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends fb {
+    public class b extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -131,7 +131,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             this.a = forumDetailModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -156,7 +156,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends hb {
+    public class c extends lb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -202,7 +202,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0db6);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0def);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
@@ -313,7 +313,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -342,7 +342,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
-            forumDetailRequestMessage.setForumId(pg.g(str, 0L));
+            forumDetailRequestMessage.setForumId(tg.g(str, 0L));
             sendMessage(forumDetailRequestMessage);
         }
     }

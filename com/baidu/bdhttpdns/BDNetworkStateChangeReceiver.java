@@ -7,9 +7,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.fp;
-import com.baidu.tieba.gp;
-import com.baidu.tieba.rk;
+import com.baidu.tieba.vk;
+import com.baidu.tieba.xp;
+import com.baidu.tieba.yp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,14 +108,14 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         datagramSocket2 = datagramSocket;
                         if (datagramSocket2 != null) {
                         }
-                        gp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
-                        rk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
+                        yp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                        vk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
                         return null;
                     }
                     if (datagramSocket2 != null) {
                     }
-                    gp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
-                    rk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
+                    yp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                    vk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
                     return null;
                 }
                 if (datagramSocket != null) {
@@ -138,8 +138,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         e2.printStackTrace();
                     }
                 }
-                gp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
-                rk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
+                yp.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                vk.a().c(Config.DEVICE_PART, "IP STATUS: isIPv4Reachable:" + BDNetworkStateChangeReceiver.isIPv4Reachable + " isIPv6Reachable:" + BDNetworkStateChangeReceiver.isIPv6Reachable);
                 return null;
             }
             return invokeV.objValue;
@@ -238,7 +238,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private void processCacheOnNetworkChange(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            gp.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
+            yp.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
             HttpDnsClient z = HttpDnsClient.z();
             z.x();
             BDHttpDns h = BDHttpDns.h(context);
@@ -249,7 +249,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 h.d().a();
             }
             if (this.httpDnsPrefetch && b != null && !b.isEmpty()) {
-                z.O(b, new fp(context));
+                z.O(b, new xp(context));
             }
         }
     }
@@ -285,7 +285,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             }
             try {
                 if (!this.beforeNetInfo.equals(str) && str != "") {
-                    gp.a("Current net type: %s.", str);
+                    yp.a("Current net type: %s.", str);
                     processCacheOnNetworkChange(context);
                 }
             } catch (RuntimeException e2) {

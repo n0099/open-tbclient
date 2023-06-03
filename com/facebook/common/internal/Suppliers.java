@@ -2,7 +2,7 @@ package com.facebook.common.internal;
 
 import com.facebook.infer.annotation.Nullsafe;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Suppliers {
     public static final Supplier<Boolean> BOOLEAN_TRUE = new Supplier<Boolean>() { // from class: com.facebook.common.internal.Suppliers.2
         /* JADX DEBUG: Method merged with bridge method */

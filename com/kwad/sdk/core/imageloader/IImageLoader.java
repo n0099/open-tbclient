@@ -7,7 +7,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.service.kwai.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IImageLoader extends g {
     void clearMemory(Context context);
 

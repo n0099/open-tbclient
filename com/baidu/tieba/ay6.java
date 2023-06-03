@@ -1,53 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionVoteEntryView;
-import com.baidu.tieba.y65;
+import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ay6 {
+import java.util.ArrayList;
+import tbclient.ForumGuide.LikeForum;
+import tbclient.PrivateForumInfo;
+import tbclient.ThemeColorInfo;
+/* loaded from: classes5.dex */
+public class ay6 extends e25 implements iq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public z65 c;
-    public RelativeLayout d;
-    public NoNetworkView e;
-    public PbListView f;
-    public kx6 g;
-    public ForumEmotionVoteEntryView h;
-    public ri5 i;
-    public NoDataView j;
-    public LinearLayout k;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public int j;
+    public int k;
+    public int l;
+    public PrivateForumInfo m;
+    public int n;
+    public long o;
+    public long p;
+    public ArrayList<FrsTabItemData> q;
 
-    public ay6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ay6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,224 +46,199 @@ public class ay6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d030f, (ViewGroup) null);
-        this.d = relativeLayout;
-        this.e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090b8f);
-        this.b = bdTypeListView;
-        bdTypeListView.addHeaderView(this.k);
-        this.b.setDivider(null);
-        z65 z65Var = new z65(this.a);
-        this.c = z65Var;
-        z65Var.a0(bdUniqueId);
-        this.b.setPullRefresh(this.c);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f = pbListView;
-        pbListView.a();
-        j();
-        i();
-        k();
-        q();
+        d(1);
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.y();
-        }
-    }
-
-    public BdTypeListView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (BdTypeListView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public ViewGroup d() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            return this.i;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ForumEmotionVoteEntryView e() {
+    public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.p;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.o;
+        }
+        return invokeV.longValue;
+    }
+
+    public ArrayList<FrsTabItemData> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.q;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.h;
         }
-        return (ForumEmotionVoteEntryView) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void f() {
+    public int o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PbListView pbListView = this.f;
-            if (pbListView != null) {
-                pbListView.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        PrivateForumInfo privateForumInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1) {
+                return true;
             }
-            this.b.setNextPage(null);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.p = j;
         }
     }
 
-    public void g() {
-        ri5 ri5Var;
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ri5Var = this.i) != null) {
-            ri5Var.dettachView(this.d);
-            this.i = null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.g = i;
         }
     }
 
-    public void h() {
+    public void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoDataView noDataView = this.j;
-            if (noDataView != null) {
-                noDataView.setVisibility(8);
-            }
-            this.g.c().setVisibility(0);
-            this.h.setVisibility(0);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public final void i() {
+    public void y(LikeForum likeForum) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            kx6 kx6Var = new kx6(this.a);
-            this.g = kx6Var;
-            kx6Var.c().setVisibility(8);
-            this.b.addHeaderView(this.g.c());
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-            this.k = linearLayout;
-            linearLayout.setGravity(17);
-            this.b.addHeaderView(this.k);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.a.getPageActivity());
-            this.h = forumEmotionVoteEntryView;
-            this.b.addHeaderView(forumEmotionVoteEntryView);
-        }
-    }
-
-    public void p() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
-            }
-            this.f.Q();
-            this.f.S();
-        }
-    }
-
-    public void q() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (tbPageContext = this.a) != null && this.d != null) {
-            ri5 ri5Var = new ri5(tbPageContext.getPageActivity());
-            this.i = ri5Var;
-            ri5Var.attachView(this.d, false);
-            this.i.onChangeSkinType();
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f.r(R.color.CAM_X0204);
-            this.f.e(i);
-            this.c.H(i);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-            this.e.d(this.a, i);
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.h;
-            if (forumEmotionVoteEntryView != null) {
-                forumEmotionVoteEntryView.b(i);
-            }
-        }
-    }
-
-    public void m(ForumEmotionData forumEmotionData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, forumEmotionData) != null) || forumEmotionData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048594, this, likeForum) != null) || likeForum == null) {
             return;
         }
-        g();
-        if (forumEmotionData.banner != null) {
-            this.g.c().setVisibility(0);
-            this.g.f(this.a.getUniqueId());
-            this.g.e(new ox6(forumEmotionData.banner));
-            this.g.h();
-        }
-        List<String> list = forumEmotionData.forum_avatar;
-        if (list != null) {
-            this.h.setAvatarList(list);
-        }
+        z(likeForum, null);
     }
 
-    public void n(y65.g gVar) {
+    public boolean q() {
+        InterceptResult invokeV;
+        PrivateForumInfo privateForumInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.c.f(gVar);
-        }
-    }
-
-    public void o(BdListView.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, pVar) == null) {
-            this.b.setOnSrollToBottomListener(pVar);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.j == null) {
-                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ri.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07034d)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0601)), null, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1 && this.m.private_forum_audit_status.intValue() == 2) {
+                return true;
             }
-            this.j.setVisibility(0);
-            this.g.c().setVisibility(4);
-            this.h.setVisibility(4);
-            this.j.f(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void s() {
-        PbListView pbListView;
+    public void z(LikeForum likeForum, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
-            }
-            this.f.F(this.a.getResources().getString(R.string.list_no_more));
-            this.f.g();
+        if ((interceptable != null && interceptable.invokeLL(1048595, this, likeForum, context) != null) || likeForum == null) {
+            return;
+        }
+        try {
+            this.d = String.valueOf(likeForum.forum_id);
+            this.e = likeForum.forum_name;
+            this.g = likeForum.is_sign.intValue();
+            this.f = likeForum.level_id.intValue();
+            this.i = likeForum.avatar;
+            this.o = likeForum.sort_value.longValue();
+            this.h = likeForum.hot_num.intValue();
+            ThemeColorInfo themeColorInfo = likeForum.theme_color;
+            likeForum.need_trans.booleanValue();
+            this.q = new ArrayList<>();
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

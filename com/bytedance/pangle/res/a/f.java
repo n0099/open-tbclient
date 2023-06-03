@@ -1,7 +1,7 @@
 package com.bytedance.pangle.res.a;
 
 import java.io.DataInput;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class f implements DataInput {
     public final i a;
 

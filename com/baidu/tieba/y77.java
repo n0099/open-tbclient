@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
+import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes8.dex */
 public interface y77 {
-    void a(int i, int i2, View view2, View view3, ThreadData threadData);
+    @NonNull
+    List<g87<?, ?>> a();
 }

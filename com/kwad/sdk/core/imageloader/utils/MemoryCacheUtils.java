@@ -6,7 +6,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MemoryCacheUtils {
     public static final String URI_AND_SIZE_SEPARATOR = "_";
     public static final String WIDTH_AND_HEIGHT_SEPARATOR = "x";

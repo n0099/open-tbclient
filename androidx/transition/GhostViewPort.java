@@ -50,7 +50,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     }
 
     public static GhostViewPort getGhostView(View view2) {
-        return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090de5);
+        return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090df7);
     }
 
     public static void removeGhost(View view2) {
@@ -142,7 +142,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     }
 
     public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
-        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090de5, ghostViewPort);
+        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090df7, ghostViewPort);
     }
 
     @Override // androidx.transition.GhostView

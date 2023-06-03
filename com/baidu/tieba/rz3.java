@@ -1,25 +1,118 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class rz3 {
+public class rz3 implements zz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<zz3>> a;
+    public Context a;
+    public String b;
+    public AdElementInfo c;
+    public DownloadState d;
+    public p04 e;
+    public b f;
 
-    public rz3() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rz3 this$0;
+        public long time;
+
+        public b(rz3 rz3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rz3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = rz3Var;
+            this.time = 0L;
+        }
+
+        public /* synthetic */ b(rz3 rz3Var, a aVar) {
+            this(rz3Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getData() != null && PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
+                if (!TextUtils.equals(this.this$0.c.getPackageName(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
+                    return;
+                }
+                this.time = System.currentTimeMillis();
+                this.this$0.j("3");
+            }
+        }
+    }
+
+    public rz3(Context context, AdElementInfo adElementInfo, p04 p04Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, p04Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,117 +122,68 @@ public class rz3 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.d = DownloadState.NOT_START;
+        this.a = context;
+        this.c = adElementInfo;
+        this.e = p04Var;
     }
 
-    public synchronized void a(String str, zz3 zz3Var) {
+    @Override // com.baidu.tieba.zz3
+    public void c(DownloadState downloadState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, zz3Var) == null) {
-            synchronized (this) {
-                if (e(str, zz3Var)) {
-                    return;
-                }
-                List<zz3> c = c(str);
-                if (!c.contains(zz3Var)) {
-                    c.add(zz3Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) != null) || this.d == downloadState) {
+            return;
+        }
+        if (downloadState == DownloadState.DOWNLOADED) {
+            j("2");
+            h();
+        }
+        this.d = downloadState;
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
         }
     }
 
-    public synchronized void b(String str, a04 a04Var) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, a04Var) == null) {
-            synchronized (this) {
-                for (zz3 zz3Var : new ArrayList(c(str))) {
-                    if (zz3Var != null) {
-                        zz3Var.a(a04Var);
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f == null) {
+            this.f = new b(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+            intentFilter.addDataScheme("package");
+            this.a.registerReceiver(this.f, intentFilter);
         }
     }
 
-    public synchronized void g(String str, zz3 zz3Var) {
+    public void i() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, zz3Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (zz3Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<zz3> c = c(str);
-                if (c.contains(zz3Var)) {
-                    c.remove(zz3Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bVar = this.f) != null) {
+            this.a.unregisterReceiver(bVar);
+            this.f = null;
         }
     }
 
-    public final List<zz3> c(String str) {
-        InterceptResult invokeL;
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
-            }
-            List<zz3> list = this.a.get(str);
-            if (list == null) {
-                return new ArrayList();
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                List<zz3> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            g14 g14Var = new g14();
+            g14Var.s = this.b;
+            g14Var.r = str;
+            j14.e(g14Var, this.c, this.e);
         }
     }
 
-    public final boolean e(String str, zz3 zz3Var) {
-        InterceptResult invokeLL;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, zz3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && zz3Var != null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+            j("1");
         }
-        return invokeLL.booleanValue;
     }
 }

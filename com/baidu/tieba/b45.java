@@ -2,14 +2,15 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class b45 implements tj1 {
+/* loaded from: classes5.dex */
+public class b45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
     public b45() {
         Interceptable interceptable = $ic;
@@ -23,24 +24,5 @@ public class b45 implements tj1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.tj1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new nj7());
-            arrayList.add(new rj7());
-            arrayList.add(new vj7());
-            arrayList.add(new zj7());
-            arrayList.add(new dk7());
-            arrayList.add(new hk7());
-            arrayList.add(new lk7());
-            arrayList.add(new pn9());
-            return arrayList;
-        }
-        return invokeV.objValue;
     }
 }

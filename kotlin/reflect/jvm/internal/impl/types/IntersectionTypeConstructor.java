@@ -26,7 +26,7 @@ public final class IntersectionTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2044getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2099getDeclarationDescriptor() {
         return null;
     }
 
@@ -108,7 +108,7 @@ public final class IntersectionTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public Collection<KotlinType> mo2045getSupertypes() {
+    public Collection<KotlinType> mo2100getSupertypes() {
         return this.intersectedTypes;
     }
 

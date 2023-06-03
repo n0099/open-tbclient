@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TimeLineInfo;
+import tbclient.RecomTopicList;
 /* loaded from: classes5.dex */
 public class by7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
     public int f;
+    public long g;
 
     public by7() {
         Interceptable interceptable = $ic;
@@ -26,24 +30,53 @@ public class by7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = true;
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
-        String str;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        if (qi.isEmpty(timeLineInfo.small_title)) {
-            str = timeLineInfo.show_time;
-        } else {
-            str = timeLineInfo.small_title;
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == 1) {
+                return true;
+            }
+            return false;
         }
-        this.d = str;
-        this.e = timeLineInfo.bg_color;
+        return invokeV.booleanValue;
+    }
+
+    public by7(@NonNull RecomTopicList recomTopicList, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = recomTopicList.topic_id.longValue();
+        this.b = recomTopicList.topic_name;
+        this.c = recomTopicList.tag.intValue();
+        this.d = i + 1;
+        this.f = recomTopicList.is_video_topic.intValue();
+        this.g = recomTopicList.discuss_num.longValue();
     }
 }

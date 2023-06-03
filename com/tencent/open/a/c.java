@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public class c {
@@ -36,7 +37,7 @@ public class c {
             return "";
         }
         a = "";
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
+        WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();
             int height = windowManager.getDefaultDisplay().getHeight();
@@ -54,7 +55,7 @@ public class c {
         try {
             if (b == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
                 sb.append("imei=");
                 sb.append(b(context));

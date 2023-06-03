@@ -9,6 +9,7 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +38,7 @@ public final class g {
             if (z && b.aa) {
                 intent = a(intent);
             }
-            return PendingIntent.getActivity(context, i, intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : 134217728);
+            return PendingIntent.getActivity(context, i, intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeCommon.objValue;
     }
@@ -76,7 +77,7 @@ public final class g {
             if (launchIntentForPackage == null) {
                 return null;
             }
-            return PendingIntent.getActivity(context, i, launchIntentForPackage, Build.VERSION.SDK_INT >= 31 ? 201326592 : 134217728);
+            return PendingIntent.getActivity(context, i, launchIntentForPackage, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeLI.objValue;
     }
@@ -98,7 +99,7 @@ public final class g {
             if (b.aa && (downloadTask.getTag() instanceof DownloadParams) && ((DownloadParams) downloadTask.getTag()).requestInstallPermission) {
                 intent = a(intent);
             }
-            return PendingIntent.getActivity(context, downloadTask.getId(), intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : 134217728);
+            return PendingIntent.getActivity(context, downloadTask.getId(), intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeL.objValue;
     }

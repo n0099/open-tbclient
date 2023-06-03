@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface om1 {
-    void a();
+    void d();
 
-    void b(pm1 pm1Var);
+    void g();
+
+    void h(String str);
+
+    void onAdError(String str);
 }

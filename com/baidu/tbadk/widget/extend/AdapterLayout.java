@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.dz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cv5 a;
+    public dz5 a;
     public DataSetObserver b;
     public boolean c;
 
@@ -117,22 +117,22 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public void a() {
-        cv5 cv5Var;
+        dz5 dz5Var;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cv5Var = this.a) != null && (dataSetObserver = this.b) != null) {
-            cv5Var.e(dataSetObserver);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dz5Var = this.a) != null && (dataSetObserver = this.b) != null) {
+            dz5Var.e(dataSetObserver);
             this.a = null;
             this.b = null;
         }
     }
 
     public final void b() {
-        cv5 cv5Var;
+        dz5 dz5Var;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cv5Var = this.a) != null && (dataSetObserver = this.b) != null && !this.c) {
-            cv5Var.d(dataSetObserver);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dz5Var = this.a) != null && (dataSetObserver = this.b) != null && !this.c) {
+            dz5Var.d(dataSetObserver);
             this.c = true;
         }
     }
@@ -152,12 +152,12 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public final void d() {
-        cv5 cv5Var;
+        dz5 dz5Var;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (cv5Var = this.a) != null && (dataSetObserver = this.b) != null && this.c) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (dz5Var = this.a) != null && (dataSetObserver = this.b) != null && this.c) {
             this.c = false;
-            cv5Var.e(dataSetObserver);
+            dz5Var.e(dataSetObserver);
         }
     }
 
@@ -179,12 +179,12 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
-    public void setAdapter(cv5 cv5Var) {
+    public void setAdapter(dz5 dz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cv5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, dz5Var) == null) {
             d();
-            if (cv5Var != null) {
-                this.a = cv5Var;
+            if (dz5Var != null) {
+                this.a = dz5Var;
                 this.b = new a(this);
                 b();
                 c();

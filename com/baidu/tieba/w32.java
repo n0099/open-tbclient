@@ -1,66 +1,111 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class w32 implements Cloneable {
+public class w32 implements u32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile w32 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public u22 d;
+    public List<u32> a;
 
-    public w32(JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948219571, "Lcom/baidu/tieba/w32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948219571, "Lcom/baidu/tieba/w32;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    public w32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        b(jSONArray);
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new v32());
     }
 
-    public boolean a() {
+    public static w32 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            u22 u22Var = this.d;
-            if (u22Var != null && u22Var.d()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (w32.class) {
+                    if (c == null) {
+                        c = new w32();
+                    }
+                }
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (w32) invokeV.objValue;
     }
 
-    public void b(JSONArray jSONArray) {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 3) {
-                    this.a = xm3.g((float) jSONArray.optDouble(0));
-                    this.b = xm3.g((float) jSONArray.optDouble(1));
-                    this.c = jSONArray.optInt(2);
-                    this.d = new u22(jSONArray.optJSONArray(3));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("Api-Marker", "release: ");
                 }
-            } catch (Exception e) {
-                if (qp1.a) {
-                    e.printStackTrace();
+                if (c == null) {
+                    return;
                 }
+                c = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u32
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markStart: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).a(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u32
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markEnd: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).b(str);
             }
         }
     }

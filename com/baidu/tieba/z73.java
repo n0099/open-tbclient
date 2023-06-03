@@ -1,87 +1,129 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes8.dex */
-public final class z73 extends TimerTask {
+public class z73 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView3d c;
 
-    public z73(WheelView3d wheelView3d, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Float.valueOf(f)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312819, "Lcom/baidu/tieba/z73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948312819, "Lcom/baidu/tieba/z73;");
                 return;
             }
         }
-        this.c = wheelView3d;
-        this.b = f;
-        this.a = 2.1474836E9f;
+        a = is1.a;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            y73 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static y73 b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
+                }
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (!a) {
+                        return null;
                     }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
+                    throw new RuntimeException("Messenger代理类不存在：" + str);
                 }
-            }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
-                return;
-            }
-            WheelView3d wheelView3d = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
+                int modifiers = cls.getModifiers();
+                if (y73.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof y73)) {
+                        if (!a) {
+                            return null;
+                        }
+                        throw new RuntimeException("Messenger代理类不是:" + y73.class.getName());
+                    }
+                    return (y73) newInstance;
                 }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
+                if (!a) {
+                    return null;
                 }
+                throw new RuntimeException("Messenger代理类不合法：" + str);
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (!a) {
+                    return null;
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
-            } else {
-                this.a = f4 - 20.0f;
-            }
-            this.c.getHandler().sendEmptyMessage(1000);
+        }
+        return (y73) invokeL.objValue;
+    }
+
+    public static void c(int i, String str, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || g83.a(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            r83.f(bundle2);
+        } else {
+            r83.e(i, bundle2);
         }
     }
 }

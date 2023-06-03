@@ -2,7 +2,7 @@ package com.baidu.searchbox.looper.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.looper.impl.LooperBlock;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ILooperRegister {
     public abstract boolean checkEnable();
 

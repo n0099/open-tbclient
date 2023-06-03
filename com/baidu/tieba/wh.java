@@ -1,205 +1,249 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class wh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a extends fc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh c;
-        public final /* synthetic */ boolean d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, String str2, DiskFileOperate.Action action, gh ghVar, boolean z) {
-            super(str, str2, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, ghVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ghVar;
-            this.d = z;
-        }
-
-        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void callback(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.callback(z);
-                if (z) {
-                    this.c.G(getFileInfo().length());
-                    if (this.d || this.c.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                        wh.c(this.c, false, false, false);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends DiskFileOperate {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ boolean d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, gh ghVar, boolean z, boolean z2, boolean z3) {
-            super(str, str2, str3, str4, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {str, str2, str3, str4, action, ghVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ghVar;
-            this.b = z;
-            this.c = z2;
-            this.d = z3;
-        }
-
-        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void callback(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.callback(z);
-                if (z) {
-                    this.a.G(0L);
-                    qh.m().r(this.a, this.b, this.c, this.d);
-                } else if (this.a.t() >= 307200 && this.a.o() != "stat") {
-                    wh.a(BdStatisticsManager.getInstance().getWriteDir(), this.a.r(), this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c extends fc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, String str2, DiskFileOperate.Action action, gh ghVar) {
-            super(str, str2, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, ghVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ghVar;
-        }
-
-        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void callback(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.callback(z);
-                if (z) {
-                    this.c.G(getFileInfo().length());
-                }
-            }
-        }
-    }
-
-    public static void a(String str, String str2, gh ghVar) {
+    public static void a(HashMap<String, Object> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, ghVar) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(str, str2, DiskFileOperate.Action.DELETE);
-            diskFileOperate.setSdCard(ghVar.E());
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            ac.f().a(diskFileOperate);
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, hashMap, str, str2) == null) && hashMap != null && str != null && str2 != null) {
+            hashMap.put(str, str2);
         }
     }
 
-    public static long b(gh ghVar) {
+    public static void b(StringBuilder sb, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, str, str2, Boolean.valueOf(z)}) == null) && sb != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "";
+                }
+                sb.append("&");
+                sb.append(str);
+                sb.append("=");
+                if (z) {
+                    str2 = URLEncoder.encode(str2, "utf-8");
+                }
+                sb.append(str2);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    public static String c(eh ehVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ghVar)) == null) {
-            if (ghVar == null) {
-                return -1L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ehVar)) == null) {
+            if (ehVar == null) {
+                return null;
             }
-            if (ghVar.t() <= 0) {
-                c cVar = new c(BdStatisticsManager.getInstance().getWriteDir(), ghVar.s(), DiskFileOperate.Action.INFO, ghVar);
-                cVar.setSdCard(ghVar.E());
-                cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                if (ac.f().a(cVar)) {
-                    return ghVar.t();
+            StringBuilder sb = new StringBuilder();
+            try {
+                sb.append("product");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.a, "utf-8"));
+                sb.append("&");
+                sb.append("sub_sys");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.b, "utf-8"));
+                sb.append("&");
+                sb.append("version");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.c, "utf-8"));
+                sb.append("&");
+                sb.append("os");
+                sb.append("=");
+                sb.append("android");
+                sb.append("&");
+                sb.append(HttpConstants.OS_VERSION);
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.q, "utf-8"));
+                if (!TextUtils.isEmpty(ehVar.d)) {
+                    sb.append("&");
+                    sb.append("from");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.d, "utf-8"));
                 }
+                if (!TextUtils.isEmpty(ehVar.e)) {
+                    sb.append("&");
+                    sb.append("cfrom");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.e, "utf-8"));
+                }
+                sb.append("&");
+                sb.append("phone");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.k, "utf-8"));
+                if (!TextUtils.isEmpty(ehVar.l)) {
+                    sb.append("&");
+                    sb.append("uid");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.l, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ehVar.f)) {
+                    sb.append("&");
+                    sb.append("client_id");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.f, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ehVar.i)) {
+                    sb.append("&");
+                    sb.append("imei");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.i, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ehVar.m)) {
+                    sb.append("&");
+                    sb.append("uname");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.m, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ehVar.g)) {
+                    sb.append("&");
+                    sb.append("cuid");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.g, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ehVar.h)) {
+                    sb.append("&");
+                    sb.append("cuid_galaxy2");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ehVar.h, "utf-8"));
+                }
+                sb.append("&");
+                sb.append("net");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ehVar.o, "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                BdLog.e(e);
             }
-            return ghVar.t();
+            return sb.toString();
         }
-        return invokeL.longValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void c(gh ghVar, boolean z, boolean z2, boolean z3) {
+    public static String d(boolean z, eh ehVar) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{ghVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || ghVar == null) {
-            return;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65539, null, z, ehVar)) == null) {
+            if (ehVar == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("_client_type=2");
+            b(sb, "_client_version", ehVar.c, z);
+            b(sb, HttpRequest.PHONE_IMEI, ehVar.i, z);
+            b(sb, HttpRequest.CLIENT_ID, ehVar.f, z);
+            b(sb, HttpRequest.SUBAPP_TYPE, ehVar.j, z);
+            b(sb, HttpConstants.OS_VERSION, ehVar.q, z);
+            b(sb, "from", ehVar.d, z);
+            b(sb, "cfrom", ehVar.e, z);
+            b(sb, "net_type", ehVar.p, z);
+            b(sb, "cuid", ehVar.g, z);
+            b(sb, "model", ehVar.k, z);
+            if (TextUtils.isEmpty(ehVar.l)) {
+                b(sb, "uid", "0", z);
+            } else {
+                b(sb, "uid", ehVar.l, z);
+            }
+            b(sb, "un", ehVar.m, z);
+            b(sb, "utbrand", ehVar.w, z);
+            b(sb, "cuid_galaxy2", ehVar.h, z);
+            return sb.toString();
         }
-        b bVar = new b(BdStatisticsManager.getInstance().getWriteDir(), ghVar.s(), BdStatisticsManager.getInstance().getWriteDir(), ghVar.r(), DiskFileOperate.Action.RENAME, ghVar, z, z2, z3);
-        bVar.setSdCard(ghVar.E());
-        bVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-        ac.f().a(bVar);
+        return (String) invokeZL.objValue;
     }
 
-    public static void d(gh ghVar, boolean z) {
+    public static String e(kh khVar, eh ehVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65539, null, ghVar, z) == null) && ghVar != null && ghVar.m() != 0) {
-            a aVar = new a(BdStatisticsManager.getInstance().getWriteDir(), ghVar.s(), DiskFileOperate.Action.APPEND, ghVar, z);
-            aVar.setSdCard(ghVar.E());
-            aVar.b(ghVar.x().toString());
-            ghVar.d();
-            if (!ghVar.A()) {
-                aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                aVar.setTrySuccessWeight(3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, khVar, ehVar)) == null) {
+            if (khVar.p() != null && (khVar.p().equals("omp") || khVar.p().equals("mon"))) {
+                return c(ehVar);
             }
-            ac.f().a(aVar);
+            return d(true, ehVar);
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static HashMap<String, Object> f(String str, eh ehVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, ehVar, z)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            a(hashMap, HttpRequest.CLIENT_TYPE, "2");
+            a(hashMap, "_client_version", ehVar.c);
+            a(hashMap, HttpRequest.CLIENT_ID, ehVar.f);
+            a(hashMap, HttpRequest.SUBAPP_TYPE, ehVar.j);
+            a(hashMap, "from", ehVar.d);
+            a(hashMap, "net_type", ehVar.p);
+            a(hashMap, "cuid", ehVar.g);
+            a(hashMap, "cuid_galaxy2", ehVar.h);
+            if (TextUtils.isEmpty(ehVar.l)) {
+                ehVar.l = "0";
+            }
+            a(hashMap, "uid", ehVar.l);
+            a(hashMap, "un", ehVar.m);
+            a(hashMap, HttpRequest.BDUSS, ehVar.n);
+            if (z) {
+                a(hashMap, "find_bug", "2");
+            } else {
+                a(hashMap, "find_bug", "0");
+            }
+            a(hashMap, "sz", ehVar.r);
+            a(hashMap, BaiduIdentityManager.PARAM_CUA, ehVar.s);
+            a(hashMap, TiebaStatic.Params.BDID, ehVar.z);
+            a(hashMap, "cookie", ehVar.n);
+            a(hashMap, "utbrand", ehVar.w);
+            a(hashMap, "baiduapppb_ut", ehVar.x);
+            a(hashMap, HttpRequest.USER_AGENT, ehVar.y);
+            a(hashMap, "active_timestamp", ehVar.A);
+            a(hashMap, "first_install_time", ehVar.B);
+            a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, ehVar.C);
+            a(hashMap, "event_day", ehVar.D);
+            if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                a(hashMap, "model", ehVar.k);
+                a(hashMap, "oaid", ehVar.t);
+                if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", YYOption.IsLive.VALUE_TRUE);
+                    MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, HttpRequest.ANDROID_ID, ehVar.v);
+                    a(hashMap, HttpRequest.PHONE_IMEI, ehVar.i);
+                }
+            } else {
+                MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+            }
+            if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", YYOption.IsLive.VALUE_TRUE);
+                    MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, "mac", ehVar.u);
+                }
+            } else {
+                MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeLLZ.objValue;
     }
 }

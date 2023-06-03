@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static boolean bQ(@NonNull Context context) {
         try {

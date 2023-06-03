@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.media2.session.SessionCommand;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.gi3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,361 +12,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
-/* loaded from: classes4.dex */
-public final class am3 {
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Stack;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class am3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile k b;
-    public static volatile k c;
-    public static volatile k d;
-    public static final w7b e;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface j extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements w7b<Pair<Runnable, String>> {
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public a() {
+        public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Pair<Runnable, String> pair) {
-            boolean z;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                long j = 0;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                File file = new File(this.a);
                 try {
+                    jSONObject.put("file_name", this.b);
+                    jSONObject.put("file_tree", am3.d(file));
+                    jSONObject.put("file_stack_info", this.c);
+                    jSONObject.put("file_free_space", file.getFreeSpace());
+                    jSONObject.put("file_total_space", file.getTotalSpace());
+                } catch (JSONException e) {
                     if (am3.a) {
-                        j = System.currentTimeMillis();
+                        e.printStackTrace();
                     }
-                    ((Runnable) pair.first).run();
+                }
+                gi3.b bVar = new gi3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
+                bVar.j(this.b);
+                bVar.h(xb3.K().getAppId());
+                bVar.i(jSONObject.toString());
+                bVar.m();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
+                    jSONObject.put("pagePath", this.b);
+                } catch (JSONException e) {
                     if (am3.a) {
-                        Log.d("SwanAppExecutorUtils", "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - j) + "ms");
+                        e.printStackTrace();
                     }
-                } finally {
-                    if (z) {
-                    }
-                    Thread.currentThread().setName(name);
                 }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements a8b<Pair<Runnable, String>, i7b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return m7b.g(pair).h(Schedulers.io()).f(am3.e).l();
-            }
-            return (i7b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements a8b<Pair<Runnable, String>, i7b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return m7b.g(pair).h(Schedulers.computation()).f(am3.e).l();
-            }
-            return (i7b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d implements w7b<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && am3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class e implements w7b<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                am3.g().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class f implements w7b<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && am3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class g implements w7b<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                am3.f().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class h implements w7b<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public h(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && am3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class i implements w7b<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                am3.h().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class k extends ccb<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(dcb dcbVar) {
-            super(dcbVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dcbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((dcb) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
-            }
-        }
-
-        @Override // com.baidu.tieba.am3.j
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, am3.i(str)));
+                gi3.b bVar = new gi3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
+                bVar.i(jSONObject.toString());
+                bVar.h(xb3.K().getAppId());
+                bVar.m();
             }
         }
     }
@@ -384,142 +141,83 @@ public final class am3 {
                 return;
             }
         }
-        a = qp1.a;
-        e = new a();
+        a = is1.a;
+        b = -1;
     }
 
-    public am3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static p7b c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return m7b.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
-        }
-        return (p7b) invokeCommon.objValue;
-    }
-
-    public static p7b d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return m7b.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
-        }
-        return (p7b) invokeCommon.objValue;
-    }
-
-    public static p7b e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return m7b.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
-        }
-        return (p7b) invokeCommon.objValue;
-    }
-
-    public static j f() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == null) {
-                synchronized (am3.class) {
-                    if (c == null) {
-                        c = new k(PublishSubject.H());
-                        c.p().f(new c()).u().v();
-                    }
-                }
-            }
-            return c;
-        }
-        return (j) invokeV.objValue;
-    }
-
-    public static j g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == null) {
-                synchronized (am3.class) {
-                    if (b == null) {
-                        b = new k(PublishSubject.H());
-                        b.p().f(new b()).u().v();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b < 0) {
+                fv2.g0().getSwitch("swan_app_file_analysis_switch", 0);
+                b = 0;
             }
             return b;
         }
-        return (j) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static j h() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (d == null) {
-                synchronized (am3.class) {
-                    if (d == null) {
-                        d = new k(PublishSubject.H());
-                        d.p().m(Schedulers.io()).c(e).u().v();
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || c() <= 0) {
+            return;
+        }
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String f = qp3.f(str2);
+            if (!new File(str, f + ".swan.js").exists()) {
+                f(str, f);
+                return;
+            }
+            return;
+        }
+        e(str, str2);
+    }
+
+    public static String d(File file) {
+        InterceptResult invokeL;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            if (file != null && file.exists() && file.isDirectory()) {
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                Stack stack = new Stack();
+                stack.push(file);
+                while (!stack.isEmpty()) {
+                    File file2 = (File) stack.pop();
+                    if (file2 != null) {
+                        if (file2.isFile()) {
+                            arrayList.add(file2);
+                        } else if (file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length > 0) {
+                            Collections.addAll(stack, listFiles);
+                        }
                     }
                 }
-            }
-            return d;
-        }
-        return (j) invokeV.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (str != null) {
-                if (!str.startsWith("SwanAppExecutorUtils_")) {
-                    str = "SwanAppExecutorUtils_" + str;
+                if (arrayList.size() > 0) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        File file3 = (File) arrayList.get(i);
+                        arrayList2.add(file3.getAbsolutePath() + "|" + new Date(file3.lastModified()));
+                    }
                 }
-            } else {
-                str = null;
+                return Arrays.toString(arrayList2.toArray());
             }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
-            }
-            if (str.length() > 256) {
-                return str.substring(0, 255);
-            }
-            return str;
+            return "";
         }
         return (String) invokeL.objValue;
     }
 
-    public static void j(@NonNull Runnable runnable, @NonNull String str) {
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, runnable, str) == null) {
-            f().execute(runnable, str);
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            so3.f().execute(new b(str, str2));
         }
     }
 
-    public static void k(@NonNull Runnable runnable, @NonNull String str) {
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, runnable, str) == null) {
-            g().execute(runnable, str);
-        }
-    }
-
-    public static void l(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, runnable, str) == null) {
-            h().execute(runnable, str);
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            so3.f().execute(new a(str, str2, Arrays.toString(new Exception().getStackTrace())));
         }
     }
 }

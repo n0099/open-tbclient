@@ -1,41 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jd4 {
+public class jd4 extends aj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
-    public static boolean a(Object obj, String str) {
-        InterceptResult invokeLL;
+    public jd4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
-            if (obj != null && !TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.aj3
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
-            if (!a(obj, str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            if (id4.g()) {
-                return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (aj3.j) {
+                    e.printStackTrace();
+                }
             }
-            return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
+            return super.f();
         }
-        return (Method) invokeLLL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

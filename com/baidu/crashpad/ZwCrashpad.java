@@ -7,7 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -383,9 +383,9 @@ public class ZwCrashpad {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled) {
                     if (z) {
-                        str = "true";
+                        str = YYOption.IsLive.VALUE_TRUE;
                     } else {
-                        str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                        str = "false";
                     }
                     mUploadCrashLogFailedEncrypt = str;
                     if (mNativeIsInitialized) {

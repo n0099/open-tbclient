@@ -1,7 +1,6 @@
 package com.baidu.android.common.security;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -206,7 +205,7 @@ public final class RSAUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, map)) == null) {
-            return Base64.encode(((Key) map.get("PrivateKey")).getEncoded(), IMAudioTransRequest.CHARSET);
+            return Base64.encode(((Key) map.get("PrivateKey")).getEncoded(), "utf-8");
         }
         return (String) invokeL.objValue;
     }
@@ -215,7 +214,7 @@ public final class RSAUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
-            return Base64.encode(((Key) map.get("PublicKey")).getEncoded(), IMAudioTransRequest.CHARSET);
+            return Base64.encode(((Key) map.get("PublicKey")).getEncoded(), "utf-8");
         }
         return (String) invokeL.objValue;
     }

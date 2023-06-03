@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i57;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ja7;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ArrayList<i57> b;
+    public ArrayList<ja7> b;
     public View.OnClickListener c;
     public View.OnClickListener d;
 
@@ -58,15 +58,15 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                     return;
                 }
             }
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090798);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f092844);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f0907a3);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09287d);
             this.b = clickableHeaderImageView;
-            clickableHeaderImageView.setRadius(ri.g(view2.getContext(), R.dimen.obfuscated_res_0x7f070411));
+            clickableHeaderImageView.setRadius(vi.g(view2.getContext(), R.dimen.obfuscated_res_0x7f07041c));
             this.b.setAutoChangeStyle(true);
             this.b.setClickable(false);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092843);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092845);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0914c6);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09287c);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09287e);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0914de);
         }
     }
 
@@ -100,7 +100,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return invokeV.intValue;
     }
 
-    public ArrayList<i57> m() {
+    public ArrayList<ja7> m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -128,16 +128,16 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         }
     }
 
-    public final i57 n(int i) {
+    public final ja7 n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (i57) ListUtils.getItem(this.b, i);
+            return (ja7) ListUtils.getItem(this.b, i);
         }
-        return (i57) invokeI.objValue;
+        return (ja7) invokeI.objValue;
     }
 
-    public void r(ArrayList<i57> arrayList) {
+    public void r(ArrayList<ja7> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
             this.b = arrayList;
@@ -165,22 +165,22 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
             if (j == 0 || ListUtils.isEmpty(this.b)) {
                 return false;
             }
-            i57 i57Var = null;
-            Iterator<i57> it = this.b.iterator();
+            ja7 ja7Var = null;
+            Iterator<ja7> it = this.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                i57 next = it.next();
+                ja7 next = it.next();
                 if (next != null && next.a == j) {
-                    i57Var = next;
+                    ja7Var = next;
                     break;
                 }
             }
-            if (i57Var != null) {
-                this.b.remove(i57Var);
+            if (ja7Var != null) {
+                this.b.remove(ja7Var);
             }
-            if (i57Var == null) {
+            if (ja7Var == null) {
                 return false;
             }
             return true;
@@ -195,7 +195,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
-            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02d4, (ViewGroup) null));
+            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02dc, (ViewGroup) null));
         }
         return (FansViewHolder) invokeLI.objValue;
     }
@@ -204,7 +204,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: p */
     public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
-        i57 n;
+        ja7 n;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fansViewHolder, i) != null) || fansViewHolder == null || (n = n(i)) == null) {
             return;

@@ -6,8 +6,10 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHel
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import kotlin.Deprecated;
+import kotlin.DeprecationLevel;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
+import kotlin.ReplaceWith;
 import kotlin.Unit;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.collections.ArraysKt___ArraysKt;
@@ -20,35 +22,34 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.TypeIntrinsics;
 import kotlinx.coroutines.DebugKt;
-import kotlinx.coroutines.ExperimentalCoroutinesApi;
+import kotlinx.coroutines.ObsoleteCoroutinesApi;
+import kotlinx.coroutines.channels.BroadcastChannel;
 import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.intrinsics.UndispatchedKt;
 import kotlinx.coroutines.selects.SelectClause2;
 import kotlinx.coroutines.selects.SelectInstance;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\b\u0007\u0018\u0000 B*\u0004\b\u0000\u0010\u00012\u00020\u0002:\u0004CBDEB\u0011\b\u0016\u0012\u0006\u0010=\u001a\u00028\u0000¢\u0006\u0004\b@\u0010AB\u0007¢\u0006\u0004\b@\u0010<J?\u0010\u0007\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00040\u00032\u0014\u0010\u0005\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0004\u0018\u00010\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\f\u001a\u00020\u000b2\b\u0010\n\u001a\u0004\u0018\u00010\tH\u0017¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\f\u001a\u00020\u00102\u000e\u0010\n\u001a\n\u0018\u00010\u000ej\u0004\u0018\u0001`\u000fH\u0016¢\u0006\u0004\b\f\u0010\u0011J\u0019\u0010\u0012\u001a\u00020\u000b2\b\u0010\n\u001a\u0004\u0018\u00010\tH\u0016¢\u0006\u0004\b\u0012\u0010\rJ\u001d\u0010\u0013\u001a\u00020\u00102\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J)\u0010\u0018\u001a\u00020\u00102\u0018\u0010\u0017\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\t\u0012\u0004\u0012\u00020\u00100\u0015j\u0002`\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0019\u0010\u001a\u001a\u00020\u00102\b\u0010\n\u001a\u0004\u0018\u00010\tH\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001d\u001a\u00020\u000b2\u0006\u0010\u001c\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u0019\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010\u001c\u001a\u00028\u0000H\u0002¢\u0006\u0004\b \u0010!J\u0015\u0010#\u001a\b\u0012\u0004\u0012\u00028\u00000\"H\u0016¢\u0006\u0004\b#\u0010$JX\u0010-\u001a\u00020\u0010\"\u0004\b\u0001\u0010%2\f\u0010'\u001a\b\u0012\u0004\u0012\u00028\u00010&2\u0006\u0010\u001c\u001a\u00028\u00002(\u0010,\u001a$\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000)\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010*\u0012\u0006\u0012\u0004\u0018\u00010+0(H\u0002ø\u0001\u0000¢\u0006\u0004\b-\u0010.J?\u0010/\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0004\u0018\u00010\u00032\u0012\u0010\u0005\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00040\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0002¢\u0006\u0004\b/\u0010\bJ\u001b\u00100\u001a\u00020\u00102\u0006\u0010\u001c\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u000b8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b2\u00103R\u0016\u00104\u001a\u00020\u000b8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b4\u00103R(\u00108\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000)058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b6\u00107R\u0019\u0010=\u001a\u00028\u00008F@\u0006¢\u0006\f\u0012\u0004\b;\u0010<\u001a\u0004\b9\u0010:R\u0015\u0010?\u001a\u0004\u0018\u00018\u00008F@\u0006¢\u0006\u0006\u001a\u0004\b>\u0010:\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006F"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/BroadcastChannel;", "", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "list", "subscriber", "addSubscriber", "([Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "", "(Ljava/util/concurrent/CancellationException;)V", "close", "closeSubscriber", "(Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)V", "Lkotlin/Function1;", "Lkotlinx/coroutines/channels/Handler;", "handler", "invokeOnClose", "(Lkotlin/jvm/functions/Function1;)V", "invokeOnCloseHandler", "(Ljava/lang/Throwable;)V", "element", "offer", "(Ljava/lang/Object;)Z", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "offerInternal", "(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "()Lkotlinx/coroutines/channels/ReceiveChannel;", "R", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlin/Function2;", "Lkotlinx/coroutines/channels/SendChannel;", "Lkotlin/coroutines/Continuation;", "", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "registerSelectSend", "(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V", "removeSubscriber", "send", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "isClosedForSend", "()Z", "isFull", "Lkotlinx/coroutines/selects/SelectClause2;", "getOnSend", "()Lkotlinx/coroutines/selects/SelectClause2;", "onSend", "getValue", "()Ljava/lang/Object;", "value$annotations", "()V", "value", "getValueOrNull", "valueOrNull", "<init>", "(Ljava/lang/Object;)V", "Companion", "Closed", "State", "Subscriber", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@ExperimentalCoroutinesApi
+@ObsoleteCoroutinesApi
+@Metadata(d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\b\u0007\u0018\u0000 B*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u00028\u00000G:\u0004CBDEB\u0011\b\u0016\u0012\u0006\u0010\u0002\u001a\u00028\u0000¢\u0006\u0004\b\u0003\u0010\u0004B\u0007¢\u0006\u0004\b\u0003\u0010\u0005J?\u0010\n\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00070\u00062\u0014\u0010\b\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0007\u0018\u00010\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\u000f\u001a\u00020\u000e2\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0017¢\u0006\u0004\b\u000f\u0010\u0010J\u001f\u0010\u000f\u001a\u00020\u00132\u000e\u0010\r\u001a\n\u0018\u00010\u0011j\u0004\u0018\u0001`\u0012H\u0016¢\u0006\u0004\b\u000f\u0010\u0014J\u0019\u0010\u0015\u001a\u00020\u000e2\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0016¢\u0006\u0004\b\u0015\u0010\u0010J\u001d\u0010\u0016\u001a\u00020\u00132\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J)\u0010\u001b\u001a\u00020\u00132\u0018\u0010\u001a\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\f\u0012\u0004\u0012\u00020\u00130\u0018j\u0002`\u0019H\u0016¢\u0006\u0004\b\u001b\u0010\u001cJ\u0019\u0010\u001d\u001a\u00020\u00132\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u0019\u0010!\u001a\u0004\u0018\u00010 2\u0006\u0010\u001f\u001a\u00028\u0000H\u0002¢\u0006\u0004\b!\u0010\"J\u0015\u0010$\u001a\b\u0012\u0004\u0012\u00028\u00000#H\u0016¢\u0006\u0004\b$\u0010%JX\u0010.\u001a\u00020\u0013\"\u0004\b\u0001\u0010&2\f\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00010'2\u0006\u0010\u001f\u001a\u00028\u00002(\u0010-\u001a$\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000*\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010+\u0012\u0006\u0012\u0004\u0018\u00010,0)H\u0002ø\u0001\u0000¢\u0006\u0004\b.\u0010/J?\u00100\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0007\u0018\u00010\u00062\u0012\u0010\b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00070\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007H\u0002¢\u0006\u0004\b0\u0010\u000bJ\u001b\u00101\u001a\u00020\u00132\u0006\u0010\u001f\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b1\u00102J&\u00106\u001a\b\u0012\u0004\u0012\u00020\u0013032\u0006\u0010\u001f\u001a\u00028\u0000H\u0016ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b4\u00105R\u0014\u00107\u001a\u00020\u000e8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b7\u00108R&\u0010<\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000*098VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b:\u0010;R\u0017\u0010\u0002\u001a\u00028\u00008F¢\u0006\f\u0012\u0004\b?\u0010\u0005\u001a\u0004\b=\u0010>R\u0013\u0010A\u001a\u0004\u0018\u00018\u00008F¢\u0006\u0006\u001a\u0004\b@\u0010>\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b¡\u001e0\u0001¨\u0006F"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;", ExifInterface.LONGITUDE_EAST, "value", "<init>", "(Ljava/lang/Object;)V", "()V", "", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "list", "subscriber", "addSubscriber", "([Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "", "(Ljava/util/concurrent/CancellationException;)V", "close", "closeSubscriber", "(Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)V", "Lkotlin/Function1;", "Lkotlinx/coroutines/channels/Handler;", "handler", "invokeOnClose", "(Lkotlin/jvm/functions/Function1;)V", "invokeOnCloseHandler", "(Ljava/lang/Throwable;)V", "element", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "offerInternal", "(Ljava/lang/Object;)Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "()Lkotlinx/coroutines/channels/ReceiveChannel;", "R", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlin/Function2;", "Lkotlinx/coroutines/channels/SendChannel;", "Lkotlin/coroutines/Continuation;", "", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "registerSelectSend", "(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V", "removeSubscriber", "send", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ChannelResult;", "trySend-JP2dKIU", "(Ljava/lang/Object;)Ljava/lang/Object;", "trySend", "isClosedForSend", "()Z", "Lkotlinx/coroutines/selects/SelectClause2;", "getOnSend", "()Lkotlinx/coroutines/selects/SelectClause2;", "onSend", "getValue", "()Ljava/lang/Object;", "getValue$annotations", "getValueOrNull", "valueOrNull", "Companion", "Closed", "State", "Subscriber", "kotlinx-coroutines-core", "Lkotlinx/coroutines/channels/BroadcastChannel;"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
+    @Deprecated
     public static final State<Object> INITIAL_STATE;
+    @Deprecated
     public static final Symbol UNDEFINED;
-    public static final AtomicReferenceFieldUpdater _state$FU;
-    public static final AtomicIntegerFieldUpdater _updating$FU;
-    public static final AtomicReferenceFieldUpdater onCloseHandler$FU;
-    public volatile Object _state;
-    public volatile int _updating;
-    public volatile Object onCloseHandler;
+    public static final /* synthetic */ AtomicReferenceFieldUpdater _state$FU;
+    public static final /* synthetic */ AtomicIntegerFieldUpdater _updating$FU;
+    public static final /* synthetic */ AtomicReferenceFieldUpdater onCloseHandler$FU;
+    public volatile /* synthetic */ Object _state;
+    public volatile /* synthetic */ int _updating;
+    public volatile /* synthetic */ Object onCloseHandler;
     public static final Companion Companion = new Companion(null);
+    @Deprecated
     public static final Closed CLOSED = new Closed(null);
 
-    public static /* synthetic */ void value$annotations() {
+    public static /* synthetic */ void getValue$annotations() {
     }
 
-    @Override // kotlinx.coroutines.channels.SendChannel
-    public boolean isFull() {
-        return false;
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0002\b\n\b\u0002\u0018\u0000B\u0011\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\t\u0010\nR\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00018\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0013\u0010\u0006\u001a\u00020\u00018F@\u0006¢\u0006\u0006\u001a\u0004\b\u0004\u0010\u0005R\u0013\u0010\b\u001a\u00020\u00018F@\u0006¢\u0006\u0006\u001a\u0004\b\u0007\u0010\u0005¨\u0006\u000b"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "", "closeCause", "Ljava/lang/Throwable;", "getSendException", "()Ljava/lang/Throwable;", "sendException", "getValueException", "valueException", "<init>", "(Ljava/lang/Throwable;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0003\n\u0002\b\u0007\b\u0002\u0018\u00002\u00020\u0001B\u000f\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004R\u0012\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\u0005\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\b\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b\t\u0010\u0007¨\u0006\n"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "", "closeCause", "", "(Ljava/lang/Throwable;)V", "sendException", "getSendException", "()Ljava/lang/Throwable;", "valueException", "getValueException", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class Closed {
         @JvmField
@@ -75,24 +76,18 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0082\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000e\u0010\u0005R\u001c\u0010\u0002\u001a\u00020\u00018\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u0012\u0004\b\u0004\u0010\u0005R\u001e\u0010\b\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u00068\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\b\u0010\tR\u001c\u0010\u000b\u001a\u00020\n8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u000b\u0010\f\u0012\u0004\b\r\u0010\u0005¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Companion;", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "CLOSED", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "CLOSED$annotations", "()V", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$State;", "", "INITIAL_STATE", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$State;", "Lkotlinx/coroutines/internal/Symbol;", "UNDEFINED", "Lkotlinx/coroutines/internal/Symbol;", "UNDEFINED$annotations", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0082\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0005\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\t"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Companion;", "", "()V", "CLOSED", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Closed;", "INITIAL_STATE", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$State;", "UNDEFINED", "Lkotlinx/coroutines/internal/Symbol;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class Companion {
-        public static /* synthetic */ void CLOSED$annotations() {
-        }
-
-        public static /* synthetic */ void UNDEFINED$annotations() {
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public Companion() {
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0005\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u0001B'\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0006\u0012\u0014\u0010\u0004\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u0003\u0018\u00010\u0002¢\u0006\u0004\b\t\u0010\nR$\u0010\u0004\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u0003\u0018\u00010\u00028\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0004\u0010\u0005R\u0018\u0010\u0007\u001a\u0004\u0018\u00010\u00068\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$State;", ExifInterface.LONGITUDE_EAST, "", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "subscribers", "[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "", "value", "Ljava/lang/Object;", "<init>", "(Ljava/lang/Object;[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u00012\u00020\u0002B%\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002\u0012\u0014\u0010\u0004\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u0006\u0018\u00010\u0005¢\u0006\u0002\u0010\u0007R \u0010\u0004\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u0006\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\u0004\n\u0002\u0010\bR\u0012\u0010\u0003\u001a\u0004\u0018\u00010\u00028\u0006X\u0087\u0004¢\u0006\u0002\n\u0000¨\u0006\t"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$State;", ExifInterface.LONGITUDE_EAST, "", "value", "subscribers", "", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "(Ljava/lang/Object;[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;)V", "[Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class State<E> {
         @JvmField
@@ -106,12 +101,13 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u00012\u00020\u00022\u00020\u0003B\u0015\u0012\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00010\r¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00028\u0001H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\fR\u001c\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00010\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ReceiveChannel;", "Lkotlinx/coroutines/channels/ConflatedChannel;", "element", "", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "", "wasClosed", "", "onCancelIdempotent", "(Z)V", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;", "broadcastChannel", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;", "<init>", "(Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003B\u0013\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0015\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010\nJ\u0010\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000eH\u0014R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00010\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedBroadcastChannel$Subscriber;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ConflatedChannel;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "broadcastChannel", "Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;", "(Lkotlinx/coroutines/channels/ConflatedBroadcastChannel;)V", "offerInternal", "", "element", "(Ljava/lang/Object;)Ljava/lang/Object;", "onCancelIdempotent", "", "wasClosed", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class Subscriber<E> extends ConflatedChannel<E> implements ReceiveChannel<E> {
         public final ConflatedBroadcastChannel<E> broadcastChannel;
 
         public Subscriber(ConflatedBroadcastChannel<E> conflatedBroadcastChannel) {
+            super(null);
             this.broadcastChannel = conflatedBroadcastChannel;
         }
 
@@ -138,6 +134,29 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         onCloseHandler$FU = AtomicReferenceFieldUpdater.newUpdater(ConflatedBroadcastChannel.class, Object.class, "onCloseHandler");
     }
 
+    public ConflatedBroadcastChannel() {
+        this._state = INITIAL_STATE;
+        this._updating = 0;
+        this.onCloseHandler = null;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: kotlinx.coroutines.selects.SelectClause2<E, kotlinx.coroutines.channels.SendChannel<? super E>>, kotlinx.coroutines.selects.SelectClause2<E, kotlinx.coroutines.channels.SendChannel<E>> */
+    @Override // kotlinx.coroutines.channels.SendChannel
+    public SelectClause2<E, SendChannel<E>> getOnSend() {
+        return (SelectClause2<E, SendChannel<? super E>>) new SelectClause2<E, SendChannel<? super E>>(this) { // from class: kotlinx.coroutines.channels.ConflatedBroadcastChannel$onSend$1
+            public final /* synthetic */ ConflatedBroadcastChannel<E> this$0;
+
+            {
+                this.this$0 = this;
+            }
+
+            @Override // kotlinx.coroutines.selects.SelectClause2
+            public <R> void registerSelectClause2(SelectInstance<? super R> selectInstance, E e, Function2<? super SendChannel<? super E>, ? super Continuation<? super R>, ? extends Object> function2) {
+                this.this$0.registerSelectSend(selectInstance, e, function2);
+            }
+        };
+    }
+
     public final E getValue() {
         Object obj = this._state;
         if (!(obj instanceof Closed)) {
@@ -148,26 +167,9 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
                 }
                 throw new IllegalStateException("No value");
             }
-            throw new IllegalStateException(("Invalid state " + obj).toString());
+            throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
         }
         throw ((Closed) obj).getValueException();
-    }
-
-    public ConflatedBroadcastChannel() {
-        this._state = INITIAL_STATE;
-        this._updating = 0;
-        this.onCloseHandler = null;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: kotlinx.coroutines.selects.SelectClause2<E, kotlinx.coroutines.channels.SendChannel<? super E>>, kotlinx.coroutines.selects.SelectClause2<E, kotlinx.coroutines.channels.SendChannel<E>> */
-    @Override // kotlinx.coroutines.channels.SendChannel
-    public SelectClause2<E, SendChannel<E>> getOnSend() {
-        return (SelectClause2<E, SendChannel<? super E>>) new SelectClause2<E, SendChannel<? super E>>() { // from class: kotlinx.coroutines.channels.ConflatedBroadcastChannel$onSend$1
-            @Override // kotlinx.coroutines.selects.SelectClause2
-            public <R> void registerSelectClause2(SelectInstance<? super R> selectInstance, E e, Function2<? super SendChannel<? super E>, ? super Continuation<? super R>, ? extends Object> function2) {
-                ConflatedBroadcastChannel.this.registerSelectSend(selectInstance, e, function2);
-            }
-        };
     }
 
     public final E getValueOrNull() {
@@ -183,7 +185,7 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
             }
             return e;
         }
-        throw new IllegalStateException(("Invalid state " + obj).toString());
+        throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
@@ -197,10 +199,10 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
     }
 
     private final void invokeOnCloseHandler(Throwable th) {
-        Object obj;
-        Object obj2 = this.onCloseHandler;
-        if (obj2 != null && obj2 != (obj = AbstractChannelKt.HANDLER_INVOKED) && onCloseHandler$FU.compareAndSet(this, obj2, obj)) {
-            ((Function1) TypeIntrinsics.beforeCheckcastToFunctionOfArity(obj2, 1)).invoke(th);
+        Symbol symbol;
+        Object obj = this.onCloseHandler;
+        if (obj != null && obj != (symbol = AbstractChannelKt.HANDLER_INVOKED) && onCloseHandler$FU.compareAndSet(this, obj, symbol)) {
+            ((Function1) TypeIntrinsics.beforeCheckcastToFunctionOfArity(obj, 1)).invoke(th);
         }
     }
 
@@ -210,12 +212,19 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'trySend' method", replaceWith = @ReplaceWith(expression = "trySend(element).isSuccess", imports = {}))
     public boolean offer(E e) {
+        return BroadcastChannel.DefaultImpls.offer(this, e);
+    }
+
+    @Override // kotlinx.coroutines.channels.SendChannel
+    /* renamed from: trySend-JP2dKIU */
+    public Object mo2293trySendJP2dKIU(E e) {
         Closed offerInternal = offerInternal(e);
         if (offerInternal == null) {
-            return true;
+            return ChannelResult.Companion.m2313successJP2dKIU(Unit.INSTANCE);
         }
-        throw offerInternal.getSendException();
+        return ChannelResult.Companion.m2311closedJP2dKIU(offerInternal.getSendException());
     }
 
     private final Subscriber<E>[] addSubscriber(Subscriber<E>[] subscriberArr, Subscriber<E> subscriber) {
@@ -233,8 +242,8 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
     public Object send(E e, Continuation<? super Unit> continuation) {
         Closed offerInternal = offerInternal(e);
         if (offerInternal == null) {
-            if (offerInternal == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                return offerInternal;
+            if (IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() == null) {
+                return null;
             }
             return Unit.INSTANCE;
         }
@@ -254,16 +263,10 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
             if (obj instanceof State) {
                 State state = (State) obj;
                 obj2 = state.value;
-                if (obj != null) {
-                    subscriberArr = state.subscribers;
-                    if (subscriberArr == null) {
-                        Intrinsics.throwNpe();
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.ConflatedBroadcastChannel.State<E>");
-                }
+                subscriberArr = state.subscribers;
+                Intrinsics.checkNotNull(subscriberArr);
             } else {
-                throw new IllegalStateException(("Invalid state " + obj).toString());
+                throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
             }
         } while (!_state$FU.compareAndSet(this, obj, new State(obj2, removeSubscriber(subscriberArr, subscriber))));
     }
@@ -277,6 +280,7 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         Closed closed;
         do {
             obj = this._state;
+            i = 0;
             if (obj instanceof Closed) {
                 return false;
             }
@@ -287,20 +291,36 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
                     closed = new Closed(th);
                 }
             } else {
-                throw new IllegalStateException(("Invalid state " + obj).toString());
+                throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
             }
         } while (!_state$FU.compareAndSet(this, obj, closed));
-        if (obj != null) {
-            Subscriber<E>[] subscriberArr = ((State) obj).subscribers;
-            if (subscriberArr != null) {
-                for (Subscriber<E> subscriber : subscriberArr) {
-                    subscriber.close(th);
-                }
+        Subscriber<E>[] subscriberArr = ((State) obj).subscribers;
+        if (subscriberArr != null) {
+            int length = subscriberArr.length;
+            while (i < length) {
+                Subscriber<E> subscriber = subscriberArr[i];
+                i++;
+                subscriber.close(th);
             }
-            invokeOnCloseHandler(th);
-            return true;
         }
-        throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.ConflatedBroadcastChannel.State<E>");
+        invokeOnCloseHandler(th);
+        return true;
+    }
+
+    @Override // kotlinx.coroutines.channels.SendChannel
+    /* renamed from: invokeOnClose */
+    public void mo2352invokeOnClose(Function1<? super Throwable, Unit> function1) {
+        if (!onCloseHandler$FU.compareAndSet(this, null, function1)) {
+            Object obj = this.onCloseHandler;
+            if (obj == AbstractChannelKt.HANDLER_INVOKED) {
+                throw new IllegalStateException("Another handler was already registered and successfully invoked");
+            }
+            throw new IllegalStateException(Intrinsics.stringPlus("Another handler was already registered: ", obj));
+        }
+        Object obj2 = this._state;
+        if ((obj2 instanceof Closed) && onCloseHandler$FU.compareAndSet(this, function1, AbstractChannelKt.HANDLER_INVOKED)) {
+            function1.invoke(((Closed) obj2).closeCause);
+        }
     }
 
     private final Closed offerInternal(E e) {
@@ -315,11 +335,8 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
                     return (Closed) obj;
                 }
                 if (obj instanceof State) {
-                    if (obj == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.ConflatedBroadcastChannel.State<E>");
-                    }
                 } else {
-                    throw new IllegalStateException(("Invalid state " + obj).toString());
+                    throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
                 }
             } finally {
                 this._updating = 0;
@@ -327,7 +344,11 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         } while (!_state$FU.compareAndSet(this, obj, new State(e, ((State) obj).subscribers)));
         Subscriber<E>[] subscriberArr = ((State) obj).subscribers;
         if (subscriberArr != null) {
-            for (Subscriber<E> subscriber : subscriberArr) {
+            int length = subscriberArr.length;
+            int i = 0;
+            while (i < length) {
+                Subscriber<E> subscriber = subscriberArr[i];
+                i++;
                 subscriber.offerInternal(e);
             }
         }
@@ -340,10 +361,10 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
             return;
         }
         Closed offerInternal = offerInternal(e);
-        if (offerInternal != null) {
-            selectInstance.resumeSelectWithException(offerInternal.getSendException());
-        } else {
+        if (offerInternal == null) {
             UndispatchedKt.startCoroutineUnintercepted(function2, this, selectInstance.getCompletion());
+        } else {
+            selectInstance.resumeSelectWithException(offerInternal.getSendException());
         }
     }
 
@@ -370,22 +391,6 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
         return subscriberArr2;
     }
 
-    @Override // kotlinx.coroutines.channels.SendChannel
-    /* renamed from: invokeOnClose */
-    public void mo2261invokeOnClose(Function1<? super Throwable, Unit> function1) {
-        if (!onCloseHandler$FU.compareAndSet(this, null, function1)) {
-            Object obj = this.onCloseHandler;
-            if (obj == AbstractChannelKt.HANDLER_INVOKED) {
-                throw new IllegalStateException("Another handler was already registered and successfully invoked");
-            }
-            throw new IllegalStateException("Another handler was already registered: " + obj);
-        }
-        Object obj2 = this._state;
-        if ((obj2 instanceof Closed) && onCloseHandler$FU.compareAndSet(this, function1, AbstractChannelKt.HANDLER_INVOKED)) {
-            function1.invoke(((Closed) obj2).closeCause);
-        }
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlinx.coroutines.channels.ConflatedBroadcastChannel$Subscriber */
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlinx.coroutines.channels.ConflatedBroadcastChannel<E> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -393,7 +398,6 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
     public ReceiveChannel<E> openSubscription() {
         Object obj;
         State state;
-        Object obj2;
         Subscriber subscriber = new Subscriber(this);
         do {
             obj = this._state;
@@ -402,19 +406,14 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
                 return subscriber;
             } else if (obj instanceof State) {
                 state = (State) obj;
-                Object obj3 = state.value;
-                if (obj3 != UNDEFINED) {
-                    subscriber.offerInternal(obj3);
-                }
-                obj2 = state.value;
-                if (obj != null) {
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.ConflatedBroadcastChannel.State<E>");
+                Object obj2 = state.value;
+                if (obj2 != UNDEFINED) {
+                    subscriber.offerInternal(obj2);
                 }
             } else {
-                throw new IllegalStateException(("Invalid state " + obj).toString());
+                throw new IllegalStateException(Intrinsics.stringPlus("Invalid state ", obj).toString());
             }
-        } while (!_state$FU.compareAndSet(this, obj, new State(obj2, addSubscriber(state.subscribers, subscriber))));
+        } while (!_state$FU.compareAndSet(this, obj, new State(state.value, addSubscriber(state.subscribers, subscriber))));
         return subscriber;
     }
 }

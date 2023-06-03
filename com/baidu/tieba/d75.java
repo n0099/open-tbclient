@@ -1,69 +1,86 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d75 extends b75 {
+public final class d75 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d75(Drawable drawable, int i, int i2, int i3) {
-        super(drawable, i);
+    public d75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.a = i2;
-        this.b = i3;
-    }
-
-    @Override // com.baidu.tieba.b75, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.c);
-            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
-            canvas.restore();
         }
     }
 
-    @Override // com.baidu.tieba.b75, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.v65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            if (this.a == 0 && this.b == 0) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-            }
-            return getDrawable().getBounds().width() + this.a + this.b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "updateDialog");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
-        return invokeCommon.intValue;
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v65
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        JSONObject syncJson;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn() || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+                return false;
+            }
+            VersionData versionData = new VersionData();
+            versionData.parserJson(syncJson.optJSONObject("version"));
+            if (versionData.hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (versionData.forceUpdate()) {
+                    if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                        return true;
+                    }
+                } else {
+                    long updateNotifyTime = TbadkCoreApplication.getInst().getUpdateNotifyTime();
+                    long time = new Date().getTime();
+                    if (time - updateNotifyTime > 86400000 && versionData.getStrategy() == 0 && TbadkCoreApplication.getInst().getResumeNum() > 0 && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                        TbadkCoreApplication.getInst().setUpdateNotifyTime(time);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

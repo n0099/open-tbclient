@@ -1,6 +1,5 @@
 package com.baidu.searchbox.crius.debug;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startBenchmark() {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09239e);
         int i = this.mBenchmarkWhich;
         if (i == 1) {
             benchmarkInflate(textView);
@@ -37,11 +36,9 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     private void updatePreview() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8c);
-        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) linearLayout, false);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eba);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) linearLayout, false);
         inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         linearLayout.removeAllViews();
         linearLayout.addView(inflate);
@@ -52,31 +49,27 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         this.mBenchmarkWhich = 1;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     private void benchmarkInflate(TextView textView) {
         LayoutInflater from = LayoutInflater.from(this);
         CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Inflate");
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Inflate");
         for (int i = 0; i < 500; i++) {
             criusBenchmarkAggregator.startTrace();
-            from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
+            from.inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
             criusBenchmarkAggregator.endTrace();
             criusBenchmarkAggregator2.startTrace();
-            from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
+            from.inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
             criusBenchmarkAggregator2.endTrace();
         }
         textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     private void benchmarkLayout(TextView textView) {
         LayoutInflater from = LayoutInflater.from(this);
         CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Layout");
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Layout");
-        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
-        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
+        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
+        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
         for (int i = 0; i < 500; i++) {
             inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
             inflate2.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -90,14 +83,12 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     private void benchmarkMeasure(TextView textView) {
         LayoutInflater from = LayoutInflater.from(this);
         CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Measure");
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Measure");
-        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
-        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
+        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
+        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
         for (int i = 0; i < 500; i++) {
             criusBenchmarkAggregator.startTrace();
             inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -109,21 +100,20 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.searchbox.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         CriusLoader.init(this);
         super.onCreate(bundle);
         setContentView(R.layout.obfuscated_res_0x7f0d002e);
         updatePreview();
-        ((Button) findViewById(R.id.obfuscated_res_0x7f09048b)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+        ((Button) findViewById(R.id.obfuscated_res_0x7f090490)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 DebugCriusBenchmarkActivity.this.startBenchmark();
             }
         });
-        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903d0);
-        spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
+        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903d3);
+        spinner.setAdapter((SpinnerAdapter) new ArrayAdapter(this, 17367048, new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
         spinner.setOnItemSelectedListener(this);
     }
 

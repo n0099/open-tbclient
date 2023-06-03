@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.b.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static class C0666a implements b {
+        /* loaded from: classes10.dex */
+        public static class C0686a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b avL;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
-            public C0666a(IBinder iBinder) {
+            public C0686a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -423,7 +423,7 @@ public interface b extends IInterface {
         public static b DX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0666a.avL : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0686a.avL : (b) invokeV.objValue;
         }
 
         public static b a(IBinder iBinder) {
@@ -434,7 +434,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0666a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0686a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -458,11 +458,11 @@ public interface b extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC0664a.c(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0684a.c(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC0664a.c(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC0684a.c(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

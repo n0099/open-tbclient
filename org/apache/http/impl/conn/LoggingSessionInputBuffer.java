@@ -5,7 +5,7 @@ import org.apache.http.io.HttpTransportMetrics;
 import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LoggingSessionInputBuffer implements SessionInputBuffer {
     public LoggingSessionInputBuffer(SessionInputBuffer sessionInputBuffer, Wire wire) {
         throw new RuntimeException("Stub!");

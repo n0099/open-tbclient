@@ -61,7 +61,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity implements IPluginActivity {
     public boolean hasInit = true;
     public Plugin mPlugin;

@@ -1,215 +1,246 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.location.Address;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dfa extends InputStream {
+public class dfa {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public efa b;
-    public long c;
-    public boolean d;
+    public String a;
+    public BdUniqueId b;
+    public cfa c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947704010, "Lcom/baidu/tieba/dfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<afa, Integer, bfa> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dfa a;
+
+        public b(dfa dfaVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947704010, "Lcom/baidu/tieba/dfa;");
-                return;
-            }
-        }
-        e = dfa.class.getName();
-    }
-
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.a.available();
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.reset();
-                } catch (IOException e2) {
-                    this.b.b(e2, this.c);
-                    throw e2;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dfaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dfaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(bfa bfaVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bfaVar) == null) && this.a.c != null) {
+                this.a.c.a(bfaVar);
+            }
+        }
+
+        public /* synthetic */ b(dfa dfaVar, a aVar) {
+            this(dfaVar);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public bfa doInBackground(afa... afaVarArr) {
+            InterceptResult invokeL;
+            afa afaVar;
+            int netErrorCode;
+            ImageUploadResult.picInfo picinfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, afaVarArr)) == null) {
+                String str = null;
+                if (afaVarArr.length == 0 || (afaVar = afaVarArr[0]) == null) {
+                    return null;
+                }
+                ic icVar = new ic("images", TbMd5.getNameMd5FromUrl(afaVar.i + 42), DiskFileOperate.Action.READ);
+                icVar.setSubFolder(true);
+                icVar.setIsFormatData(false);
+                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(icVar.buildPath(), icVar.getName()), true, false);
+                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
+                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                        str = uploadInBackground.picInfo.originPic.picUrl;
+                    } else {
+                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
+                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
+                            str = uploadInBackground.picInfo.bigPic.picUrl;
+                        } else {
+                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
+                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
+                                str = uploadInBackground.picInfo.smallPic.picUrl;
+                            }
+                        }
+                    }
+                }
+                if (StringUtils.isNull(str)) {
+                    str = afaVar.j;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                netWork.addPostData("anonymous", "1");
+                netWork.addPostData("can_no_forum", "0");
+                netWork.addPostData("is_feedback", "0");
+                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
+                    netWork.addPostData("vcode_tag", "12");
+                }
+                netWork.addPostData("new_vcode", "1");
+                netWork.addPostData("content", afaVar.m);
+                netWork.addPostData("fid", afaVar.e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, afaVar.f);
+                netWork.addPostData("is_hide", "0");
+                netWork.addPostData(IntentConfig.CALL_FROM, "2");
+                netWork.addPostData("title", afaVar.m);
+                netWork.addPostData("is_ntitle", "1");
+                netWork.addPostData("st_type", "notitle");
+                netWork.addPostData("is_location", "2");
+                Address j = pf.n().j(false);
+                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
+                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+                }
+                LocationData b = cz9.a().b();
+                if (b != null) {
+                    netWork.addPostData("name", b.getFormatted_address());
+                    netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
+                }
+                netWork.addPostData("is_link_thread", "0");
+                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                }
+                netWork.addPostData("tbopen_app_key", afaVar.a);
+                netWork.addPostData("tbopen_app_icon", afaVar.d);
+                netWork.addPostData("tbopen_app_name", afaVar.c);
+                netWork.addPostData("share_abstract", afaVar.h);
+                netWork.addPostData("share_image", str);
+                netWork.addPostData("share_h5_url", afaVar.k);
+                netWork.addPostData("share_naws_app_key", afaVar.b);
+                netWork.addPostData("share_naws_path", afaVar.l);
+                String postNetData = netWork.postNetData();
+                bfa bfaVar = new bfa();
+                try {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    jSONObject.optString("msg");
+                    jSONObject.optString("pre_msg");
+                    bfaVar.b = afaVar.e;
+                    bfaVar.c = jSONObject.optString("tid");
+                    jSONObject.optString("pid");
+                    jSONObject.optString("video_id");
+                } catch (Exception unused) {
+                }
+                ErrorData errorData = new ErrorData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    errorData.parserJson(postNetData);
+                } else {
+                    if (netWork.isNetSuccess()) {
+                        netErrorCode = netWork.getServerErrorCode();
+                    } else {
+                        netErrorCode = netWork.getNetErrorCode();
+                    }
+                    errorData.setError_code(netErrorCode);
+                    errorData.setError_msg(netWork.getErrorString());
+                }
+                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0def));
+                }
+                bfaVar.a = errorData;
+                try {
+                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+                } catch (Exception unused2) {
+                }
+                return bfaVar;
+            }
+            return (bfa) invokeL.objValue;
+        }
+
+        public String c(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                String str3 = this.a.a + str2;
+                if (str != null) {
+                    return this.a.a + str + "/" + str2;
+                }
+                return str3;
+            }
+            return (String) invokeLL.objValue;
         }
     }
 
-    public dfa(InputStream inputStream, efa efaVar) {
+    public dfa(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, efaVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0L;
-        this.d = false;
-        this.a = inputStream;
-        this.b = efaVar;
+        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.b = bdUniqueId;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public void c(cfa cfaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d) {
-            this.d = true;
-            try {
-                try {
-                    if (this.a.read() == -1) {
-                        this.b.onComplete(this.c);
-                    } else {
-                        this.b.a(this.c);
-                    }
-                    this.a.close();
-                } catch (Exception unused) {
-                    this.a.close();
-                } catch (Throwable th) {
-                    try {
-                        this.a.close();
-                    } catch (Exception e2) {
-                        this.b.b(e2, this.c);
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                this.b.b(e3, this.c);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, cfaVar) == null) {
+            this.c = cfaVar;
         }
     }
 
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    public void d(afa afaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read();
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, afaVar) == null) {
+            b bVar = new b(this, null);
+            bVar.setTag(this.b);
+            bVar.execute(afaVar);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, 0, bArr.length);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, i, i2);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long skip = this.a.skip(j);
-            this.c += skip;
-            return skip;
-        }
-        return invokeJ.longValue;
     }
 }

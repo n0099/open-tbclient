@@ -1,8 +1,9 @@
 package com.qq.e.comm.pi;
 
 import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface NEADI extends ADI {
     String getAdNetWorkName();
 
@@ -14,7 +15,7 @@ public interface NEADI extends ADI {
 
     void setMinVideoDuration(int i);
 
-    void setVideoOption(VideoOption videoOption);
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
-    void setVideoPlayPolicy(int i);
+    void setVideoOption(VideoOption videoOption);
 }

@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.data;
 
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.ugc.bean.MusicData;
 import com.baidu.ugc.editvideo.editvideo.data.MusicInfo;
 import com.baidu.ugc.editvideo.filter.FilterValue;
@@ -141,7 +140,7 @@ public class VideoMuxerData implements Serializable {
 
     public String getLogType() {
         int i = this.mVideoUploadType;
-        return i == 1 ? StatConstants.VALUE_TYPE_UPLOAD : i == 2 ? "shoot" : "unknown";
+        return i == 1 ? "upload" : i == 2 ? "shoot" : "unknown";
     }
 
     public MusicData getMusicData() {

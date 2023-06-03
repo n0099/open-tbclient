@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Bundle;
-import android.os.Debug;
-import android.os.Process;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.h72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,417 +15,205 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Random;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class g72 {
+public abstract class g72<V extends SimpleDraweeView, M extends h72> extends l72<V, M> {
     public static /* synthetic */ Interceptable $ic;
-    public static ActivityManager c;
-    public static float d;
-    public static int e;
-    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public DecimalFormat a;
-    public volatile d b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putLong("key_get_host_pss", Debug.getPss());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 0.0f;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static volatile String e = "0";
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-821124601, "Lcom/baidu/tieba/g72$d;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-821124601, "Lcom/baidu/tieba/g72$d;");
-            }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = "0";
-            this.b = "0";
-            this.c = "0";
-            this.d = "0";
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g72 a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-821124570, "Lcom/baidu/tieba/g72$e;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-821124694, "Lcom/baidu/tieba/g72$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-821124570, "Lcom/baidu/tieba/g72$e;");
+                    classClinitInterceptable.invokePostClinit(-821124694, "Lcom/baidu/tieba/g72$a;");
                     return;
                 }
             }
-            a = new g72(null);
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746759, "Lcom/baidu/tieba/g72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746759, "Lcom/baidu/tieba/g72;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-        c = (ActivityManager) ns2.c().getSystemService("activity");
-        d = -1.0f;
-        ns2.g0().getSwitch("swan_memory_sample", 0);
-        e = 0;
-        f = new Random().nextInt(100);
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!m()) {
-                return "";
-            }
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
-            g62.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
-            return b2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public g72() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g72(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, m};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (m72) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new DecimalFormat("#.###");
     }
 
-    public static g72 c() {
-        InterceptResult invokeV;
+    public static Uri W(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e.a;
-        }
-        return (g72) invokeV.objValue;
-    }
-
-    public static float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d < 0.0f) {
-                d = e().floatValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = gj3.s(str);
+            yb3 M = yb3.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.k0();
+            } else {
+                str2 = null;
+                str3 = null;
             }
-            return d;
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = gj3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = gj3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
         }
-        return invokeV.floatValue;
+        return (Uri) invokeL.objValue;
     }
 
-    public static Float e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l72
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull q82 q82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, q82Var) == null) {
+            super.C(v, m, q82Var);
+            if (q82Var.a(9)) {
+                U(v, m);
+            }
         }
-        return (Float) invokeV.objValue;
     }
 
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return t53.c(b.class, null).a.getLong("key_get_host_pss");
-        }
-        return invokeV.longValue;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l72, com.baidu.tieba.n72
     @NonNull
-    public d g() {
-        InterceptResult invokeV;
+    /* renamed from: S */
+    public q82 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b != null) {
-                return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            q82 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
             }
-            return new d();
+            return k;
         }
-        return (d) invokeV.objValue;
+        return (q82) invokeLL.objValue;
     }
 
-    public void l() {
+    public void U(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b == null) {
-            this.b = j();
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            V(v, m, null);
         }
     }
 
-    public void n() {
+    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
+            return;
         }
-    }
-
-    public /* synthetic */ g72(a aVar) {
-        this();
-    }
-
-    public final String b(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            return this.a.format(f2);
+        if (n72.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
         }
-        return (String) invokeF.objValue;
-    }
-
-    @NonNull
-    public static c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            c cVar = new c();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), f93.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            cVar.c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    cVar.b = ((float) Debug.getPss()) / 1024.0f;
-                }
-                if (memoryInfo3 != null) {
-                    cVar.a = ((float) f()) / 1024.0f;
-                }
-            }
-            return cVar;
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
+            return;
         }
-        return (c) invokeV.objValue;
-    }
-
-    public final void a(JSONObject jSONObject, ActivityManager.MemoryInfo memoryInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) && jSONObject != null && memoryInfo != null) {
-            this.b = new d();
-            this.b.b = jSONObject.optString("host_used_mem");
-            this.b.a = jSONObject.optString("smart_app_used_mem");
-            this.b.d = jSONObject.optString("sys_free_mem");
-            this.b.c = b(((float) memoryInfo.totalMem) / 1048576.0f);
+        y82.i("Component-SimpleDrawee", "Image Uri:" + W);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
         }
-    }
-
-    public String h(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!m()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                g62.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i);
-                Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), i});
-                if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                    Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
-                    if (memoryInfo != null) {
-                        jSONObject.put("smart_app_used_mem", b(((float) Debug.getPss()) / 1024.0f));
-                        jSONObject.put("total_rss", b((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
-                        jSONObject.put("private_clean", b(memoryInfo.getTotalPrivateClean() / 1024.0f));
-                        jSONObject.put("private_dirty", b(memoryInfo.getTotalPrivateDirty() / 1024.0f));
-                        jSONObject.put("shared_clean", b(memoryInfo.getTotalSharedClean() / 1024.0f));
-                        jSONObject.put("shared_dirty", b(memoryInfo.getTotalSharedDirty() / 1024.0f));
-                    }
-                    Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
-                    if (memoryInfo2 != null) {
-                        jSONObject.put("host_used_mem", b((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
-                    }
-                }
-                ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                c.getMemoryInfo(memoryInfo3);
-                jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
-                if (memoryInfo3.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put("sys_low_mem", str);
-                jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
-                jSONObject.put("native_heap_alloc", b(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
-                jSONObject.put("vm_max_mem", b(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
-                jSONObject.put("vm_total_mem", b(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
-                jSONObject.put("vm_free_mem", b(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
-                jSONObject.put("thread_count", Thread.activeCount());
-                a(jSONObject, memoryInfo3);
-            } catch (Exception e2) {
-                g62.k("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
-            }
-            g62.k("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
-            return jSONObject.toString();
+        HashMap hashMap = new HashMap();
+        String g0 = si2.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
         }
-        return (String) invokeI.objValue;
-    }
-
-    public d j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d dVar = new d();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), f93.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    if (TextUtils.equals("0", d.e)) {
-                        String unused = d.e = b(((float) memoryInfo.totalMem) / 1048576.0f);
-                    }
-                    dVar.c = d.e;
-                    dVar.d = b(((float) memoryInfo.availMem) / 1048576.0f);
-                    dVar.a = b(((float) Debug.getPss()) / 1024.0f);
-                }
-                if (memoryInfo3 != null) {
-                    dVar.b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
-                }
-            }
-            return dVar;
+        String b = fp3.b();
+        if (!TextUtils.isEmpty(b) && fp3.c(W.toString())) {
+            hashMap.put("Referer", b);
         }
-        return (d) invokeV.objValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            g62.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + e + "; mRandomNum =" + f);
-            int i = e;
-            if (i <= 0) {
-                return false;
-            }
-            if (i < 100 && f > i) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        sw1 C = fv2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

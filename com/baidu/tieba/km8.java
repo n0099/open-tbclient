@@ -1,100 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km8 implements AppInfoService {
+public abstract class km8<SdkMsg extends ChatMsg, T> implements nm8<SdkMsg, qk8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public void addHostJavascriptInterface(@NonNull WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
-        }
-    }
+    public abstract int c();
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    @NonNull
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
+    public abstract SdkMsg e(T t);
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    @NonNull
-    public String getCloudControlUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getLiveAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "com.baidu.tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    @NonNull
-    public String getProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getSid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public float getStaticDeviceScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            return -1.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public boolean isNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public abstract T g(SdkMsg sdkmsg);
 
     public km8() {
         Interceptable interceptable = $ic;
@@ -110,107 +41,84 @@ public class km8 implements AppInfoService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public Application getApplication() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nm8
+    /* renamed from: d */
+    public SdkMsg b(qk8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbadkCoreApplication.getInst();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
-        return (Application) invokeV.objValue;
+        return (SdkMsg) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getCuid() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nm8
+    /* renamed from: f */
+    public qk8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return TbadkCoreApplication.getInst().getCuidGalaxy2();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getImAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return String.valueOf(10773430L);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getVersionCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return TbadkCoreApplication.getInst().getVersionCode() + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getVersionName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return TbConfig.getVersion();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return TbadkCoreApplication.getInst().getZid();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return AppConfig.isDebug();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getFFmpegPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!StringUtils.isNull(TbadkCoreApplication.getInst().getLibcyberffmpeg()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibssl()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibcrypto())) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("libcyber-ffmpeg", TbadkCoreApplication.getInst().getLibcyberffmpeg());
-                    jSONObject.put("libcyber-ffmpeg_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                    jSONObject.put("libssl", TbadkCoreApplication.getInst().getLibssl());
-                    jSONObject.put("libssl_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                    jSONObject.put("libcrypto", TbadkCoreApplication.getInst().getLibcrypto());
-                    jSONObject.put("libcrypto_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return jSONObject.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            qk8<T> qk8Var = new qk8<>();
+            qk8Var.i(g(msg));
+            qk8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            qk8Var.d(msgKey);
+            qk8Var.e().l(msg.getContacterUk());
+            qk8Var.e().k(xua.c(msg.getSenderUid(), 0L));
+            qk8Var.e().i(msg.getStatus());
+            qk8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            qk8Var.e().h(isSelf);
+            if (!isSelf) {
+                qk8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                qk8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                qk8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                qk8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
             }
-            return "";
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    qk8Var.e().j(jSONObject.optInt("type"));
+                    qk8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!ui.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    pk8 g = qk8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return qk8Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getUA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return yt5.b() + " (Baidu; P1 " + ti.k() + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+        return (qk8) invokeL.objValue;
     }
 }

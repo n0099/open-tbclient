@@ -1,9 +1,7 @@
 package com.baidu.platform.core.f;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,7 +50,7 @@ public class d extends com.baidu.platform.base.e {
         if (interceptable == null || interceptable.invokeL(65537, this, drivingRoutePlanOption) == null) {
             this.a.a("qt", "cars");
             this.a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-            this.a.a("ie", IMAudioTransRequest.CHARSET);
+            this.a.a("ie", "utf-8");
             this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "6");
             this.a.a("extinfo", PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK);
@@ -68,7 +66,7 @@ public class d extends com.baidu.platform.base.e {
             }
             PlanNode planNode2 = drivingRoutePlanOption.mFrom;
             if (planNode2 != null) {
-                this.a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
+                this.a.a("sc", planNode2.getCity());
             }
             PlanNode planNode3 = drivingRoutePlanOption.mTo;
             if (planNode3 != null) {

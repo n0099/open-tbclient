@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

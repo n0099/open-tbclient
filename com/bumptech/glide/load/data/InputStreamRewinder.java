@@ -6,12 +6,12 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class InputStreamRewinder implements DataRewinder<InputStream> {
     public static final int MARK_READ_LIMIT = 5242880;
     public final RecyclableBufferedInputStream bufferedStream;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements DataRewinder.Factory<InputStream> {
         public final ArrayPool byteArrayPool;
 

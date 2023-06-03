@@ -10,7 +10,6 @@ import android.system.Os;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.location.BDLocation;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.kwad.sdk.crash.model.message.DiskInfo;
@@ -48,14 +47,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static final File aik = new File("/proc/self/fd");
     public static final File ail = new File("/proc/self/task");
 
     public static void B(File file) {
         try {
-            c.a(SystemUtil.bD(21) ? new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, "-b", "events", "-d", "-f", file.getPath()}, 0);
+            c.a(SystemUtil.bD(21) ? new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-d", "-f", file.getPath()}, 0);
         } catch (IOException e) {
             com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }

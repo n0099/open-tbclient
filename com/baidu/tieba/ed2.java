@@ -1,49 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ed2 {
-    public static final ed2 a = new a();
+public class ed2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
-
-    /* loaded from: classes5.dex */
-    public static class a implements ed2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static synchronized dd2 a(@NonNull String str) {
+        InterceptResult invokeL;
+        dd2 id2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            synchronized (ed2.class) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case 48:
+                        if (str.equals("0")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 49:
+                        if (str.equals("1")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 50:
+                        if (str.equals("2")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 51:
+                        if (str.equals("3")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 52:
+                        if (str.equals("4")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c != 4) {
+                                    id2Var = new cd2();
+                                } else {
+                                    id2Var = new gd2();
+                                }
+                            } else {
+                                id2Var = new fd2();
+                            }
+                        } else {
+                            id2Var = new hd2();
+                        }
+                    } else {
+                        id2Var = new bd2();
+                    }
+                } else {
+                    id2Var = new id2();
                 }
             }
+            return id2Var;
         }
-
-        @Override // com.baidu.tieba.ed2
-        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, prefetchEvent, pMSAppInfo, bundle)) == null) {
-                if (pMSAppInfo != null && pMSAppInfo.appCategory == 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeLLL.booleanValue;
-        }
+        return (dd2) invokeL.objValue;
     }
 }

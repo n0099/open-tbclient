@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] b;
@@ -44,7 +44,7 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13aa), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ab)};
+        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13fc), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13fd)};
         c = new int[]{100, 200};
     }
 
@@ -68,8 +68,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
         }
         Fragment[] fragmentArr = new Fragment[2];
         this.a = fragmentArr;
-        fragmentArr[0] = AlaRecentHistoryFragment.L1(0);
-        this.a[1] = AlaRecentHistoryFragment.L1(1);
+        fragmentArr[0] = AlaRecentHistoryFragment.M1(0);
+        this.a[1] = AlaRecentHistoryFragment.M1(1);
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter

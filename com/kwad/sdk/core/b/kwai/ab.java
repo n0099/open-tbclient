@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -71,7 +70,7 @@ public final class ab implements com.kwad.sdk.core.d<AdTemplate> {
         adTemplate.inPlayAgain = jSONObject.optBoolean("inPlayAgain");
         adTemplate.watched = jSONObject.optBoolean("watched");
         adTemplate.converted = jSONObject.optBoolean("converted");
-        adTemplate.fromCache = jSONObject.optBoolean("fromCache", new Boolean(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE).booleanValue());
+        adTemplate.fromCache = jSONObject.optBoolean("fromCache", new Boolean("false").booleanValue());
         adTemplate.loadDataTime = jSONObject.optLong("loadDataTime");
         adTemplate.checkDataTime = jSONObject.optLong("checkDataTime");
         adTemplate.showStartTime = jSONObject.optLong("showStartTime");

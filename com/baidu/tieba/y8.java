@@ -1,120 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class y8 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
-    public static y8 b;
+    public static File a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321198, "Lcom/baidu/tieba/y8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448321198, "Lcom/baidu/tieba/y8;");
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public y8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321198, "Lcom/baidu/tieba/y8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321198, "Lcom/baidu/tieba/y8;");
+                return;
             }
         }
+        a = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "abjson");
+        b = KVStorageFactory.getDefaultSharedPreferences().getBoolean("abtest_mock", false);
     }
 
-    public String c() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.getString("abtest_sap_data", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a.exists() && a.isDirectory() && a.list() != null && a.list().length > 0) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String d() {
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a.getString("abtest_sap_version", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public Set<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static y8 b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (y8.class) {
-                if (b == null) {
-                    b = new y8();
-                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
-                }
-            }
             return b;
         }
-        return (y8) invokeV.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return sharedPreferences.getString("abtest_" + str, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences.Editor edit = a.edit();
-            edit.putString("abtest_client_sample_version", str);
-            edit.apply();
-        }
+        return invokeV.booleanValue;
     }
 }

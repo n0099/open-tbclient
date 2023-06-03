@@ -23,7 +23,6 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
-import com.baidu.searchbox.net.update.UpdateConstants;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -264,7 +263,7 @@ public class ShareActivity extends BaseActivity {
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
             jSONObject.put("session_id", getIntent().getStringExtra(ShareCallPacking.EXTRA_SESSION_ID));
-            jSONObject.put(UpdateConstants.TRACE_ID, getIntent().getStringExtra(ShareCallPacking.EXTRA_TRACE_ID));
+            jSONObject.put("trace_id", getIntent().getStringExtra(ShareCallPacking.EXTRA_TRACE_ID));
             this.z = getIntent().getStringExtra(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE);
             this.A = getIntent().getStringExtra(ShareCallPacking.EXTRA_CALL_TYPE_SHARE);
             Log.d(B, "调用来源=" + this.A + ", 调起方=" + this.x + ", 被调起方=" + this.w + ", shareVer=" + this.z);

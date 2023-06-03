@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,7 +127,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,8 +138,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.c = ri.l(inst);
-        this.d = ri.j(inst);
+        this.c = vi.l(inst);
+        this.d = vi.j(inst);
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 

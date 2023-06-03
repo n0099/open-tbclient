@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class n24 {
+public class n24 extends s24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public o34 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,72 +31,157 @@ public final class n24 {
                 return;
             }
         }
-        b = qp1.a;
+        d = is1.a;
     }
 
-    public n24() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n24(int i) {
+        super("onSuccess", 0, f(null, i, false));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n24(Download download) {
+        super("onSuccess", 0, f(d(download), -1, false));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
     }
 
-    public void c() {
-        o34 o34Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n24(Download download, boolean z) {
+        super("onSuccess", 0, f(e(download, z), -1, false));
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (o34Var = this.a) != null) {
-            o34Var.c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
         }
     }
 
-    public static n24 d(n12 n12Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n24(boolean z) {
+        super("onSuccess", 0, f(null, -1, z));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static JSONObject d(Download download) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, n12Var)) == null) {
-            if (n12Var == null) {
-                return null;
-            }
-            n24 n24Var = new n24();
-            n24Var.a = o34.e(n12Var);
-            return n24Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
+            return e(download, false);
         }
-        return (n24) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void b(String str) {
+    public static JSONObject e(Download download, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            o34 o34Var = this.a;
-            if (o34Var != null) {
-                o34Var.b(a);
-            }
-        }
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, download, z)) == null) {
             JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
+            }
             try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", ty3.a(str));
-            } catch (Exception e) {
-                if (b) {
+                jSONObject.put("apkId", new g24(download).h());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                if (z) {
+                    jSONObject.put("status", Download.DownloadState.CANCEL.ordinal());
+                } else {
+                    jSONObject.put("status", download.getState().ordinal());
+                }
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                if (h24.d(download)) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject.put("fileExist", str);
+            } catch (JSONException e) {
+                if (d) {
                     e.printStackTrace();
                 }
             }
             return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (JSONObject) invokeLZ.objValue;
+    }
+
+    public static String f(Object obj, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                if (i > -1) {
+                    jSONObject.put("progress", i);
+                }
+                jSONObject.put("installed", z);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeCommon.objValue;
     }
 }

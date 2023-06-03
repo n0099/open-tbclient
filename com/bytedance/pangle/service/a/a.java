@@ -16,12 +16,12 @@ import com.bytedance.pangle.plugin.PluginManager;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends d.a {
     public static volatile a b;
     public final HashMap<ComponentName, IBinder> c = new HashMap<>();
     public final HashMap<ComponentName, b> d = new HashMap<>();
-    public final C0538a<Intent> e = new C0538a<>();
+    public final C0558a<Intent> e = new C0558a<>();
     public final HashMap<ComponentName, com.bytedance.pangle.service.a> f = new HashMap<>();
     public final HashSet<ComponentName> g = new HashSet<>();
     public final HashSet<ComponentName> h = new HashSet<>();
@@ -33,9 +33,9 @@ public class a extends d.a {
     }
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0538a<T> extends HashMap<f, T> {
-        public C0538a() {
+    /* loaded from: classes9.dex */
+    public class C0558a<T> extends HashMap<f, T> {
+        public C0558a() {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
@@ -86,7 +86,7 @@ public class a extends d.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends HashSet<f> {
         public b() {
         }

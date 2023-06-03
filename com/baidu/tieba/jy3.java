@@ -1,236 +1,195 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes6.dex */
-public abstract class jy3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String k = "ug_";
-    public static String l = "ug_business";
-    public static String m = "ctkey";
-    public static String n = "CTK";
-    public static String o = "sid_eid";
-    public static String p = "exps";
+public class jy3 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Context b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public hy3 i;
-    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947899589, "Lcom/baidu/tieba/jy3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947899589, "Lcom/baidu/tieba/jy3;");
-        }
-    }
-
-    public abstract HashMap<String, String> a();
-
-    public abstract String e();
-
-    public jy3(Context context, hy3 hy3Var) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr, Key key, int i) {
+        InterceptResult invokeLLI;
+        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] doFinal;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, hy3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
-        this.f = "1";
-        this.g = "2";
-        this.h = "8.800201";
-        this.b = context;
-        this.i = hy3Var;
-        if (hy3Var != null) {
-            this.c = hy3Var.b();
-            this.d = this.i.e();
-            this.e = this.i.g();
-        }
-        if (!zy3.o()) {
-            this.j = zy3.b();
-        }
-    }
-
-    public final HashMap<String, String> b() {
-        InterceptResult invokeV;
-        String str;
-        JSONArray optJSONArray;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                hashMap.put(lw.a, String.valueOf(Math.round(zy3.i(this.b) / zy3.d(this.b))));
-                hashMap.put(MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, String.valueOf(Math.round(zy3.h(this.b) / zy3.d(this.b))));
-                StringBuilder sb = new StringBuilder();
-                sb.append("");
-                sb.append(NetworkUtils.c(false));
-                hashMap.put("net", sb.toString());
-                hashMap.put("n", this.f);
-                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
-                hashMap.put("appid", this.d);
-                hashMap.put(TbConfig.SW_APID, "" + zy3.i(this.b));
-                hashMap.put("sh", "" + zy3.h(this.b));
-                hashMap.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, "" + f());
-                hashMap.put("os", "android");
-                hashMap.put("pa", yx3.b().c());
-                hashMap.put("apid", "" + this.c);
-                hashMap.put("chid", "0");
-                String m2 = yx3.b().m();
-                if (m2.equals("0")) {
-                    m2 = "";
-                }
-                hashMap.put("imei", m2);
-                hashMap.put("cuid", yx3.b().e());
-                hashMap.put("osv", zy3.f());
-                hashMap.put("tp", zy3.e());
-                hashMap.put("app_ver", zy3.l());
-                String c = zy3.c(d(), "BAIDUID");
-                if (TextUtils.isEmpty(c) || c.split(":").length <= 0) {
-                    str = "";
-                } else {
-                    str = c.split(":")[0];
-                }
-                hashMap.put("baiduid", str);
-                hashMap.put("p_ver", this.h);
-                hashMap.put("rpt", this.g);
-                hashMap.put("tab", "2");
-                hashMap.put("req_id", "");
-                hashMap.put("scene", yx3.b().getScene());
-                String e = e();
-                hashMap.put(p, e);
-                hashMap.put(TiebaStatic.Params.EQID, yx3.b().g());
-                JSONObject n2 = yx3.b().n();
-                if (n2 != null) {
-                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys != null && keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next)) {
-                                String optString = jSONObject.optString(next, "none");
-                                if (n.equals(next)) {
-                                    hashMap.put(m, optString);
-                                    this.j = optString;
-                                } else {
-                                    hashMap.put(k + next, optString);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
+            ?? r0 = 0;
+            if (bArr != null && bArr.length != 0 && key != null) {
+                try {
+                    if (i > 0) {
+                        try {
+                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                            cipher.init(1, key);
+                            byteArrayOutputStream = new ByteArrayOutputStream();
+                            try {
+                                int length = bArr.length;
+                                int i2 = 0;
+                                while (true) {
+                                    int i3 = length - i2;
+                                    if (i3 <= 0) {
+                                        break;
+                                    }
+                                    if (i3 > i) {
+                                        doFinal = cipher.doFinal(bArr, i2, i);
+                                    } else {
+                                        doFinal = cipher.doFinal(bArr, i2, i3);
+                                    }
+                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
+                                    i2 += i;
+                                }
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return byteArray;
+                            } catch (InvalidKeyException e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                return null;
+                            } catch (NoSuchAlgorithmException e4) {
+                                e = e4;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (BadPaddingException e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (IllegalBlockSizeException e6) {
+                                e = e6;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (NoSuchPaddingException e7) {
+                                e = e7;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            }
+                        } catch (InvalidKeyException e8) {
+                            e = e8;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchAlgorithmException e9) {
+                            e = e9;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (BadPaddingException e10) {
+                            e = e10;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (IllegalBlockSizeException e11) {
+                            e = e11;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchPaddingException e12) {
+                            e = e12;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r0 != 0) {
+                                try {
+                                    r0.close();
+                                } catch (IOException e13) {
+                                    e13.printStackTrace();
                                 }
                             }
+                            throw th;
                         }
                     }
-                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
-                        StringBuilder sb2 = new StringBuilder();
-                        if (!TextUtils.isEmpty(e)) {
-                            sb2.append(e + ",");
-                        }
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            String optString2 = optJSONArray.optString(i);
-                            if (!TextUtils.isEmpty(optString2)) {
-                                sb2.append(optString2);
-                                if (i >= 0 && i < optJSONArray.length() - 1) {
-                                    sb2.append(",");
-                                }
-                            }
-                        }
-                        if (sb2.length() > 0) {
-                            hashMap.put(p, sb2.toString());
-                        }
-                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    r0 = key;
                 }
-                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
-                    hashMap.put(n, this.j);
-                }
-                hashMap.put("con_name", yx3.b().a());
-            } catch (Exception unused) {
             }
-            return hashMap;
+            return null;
         }
-        return (HashMap) invokeV.objValue;
+        return (byte[]) invokeLLI.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, String str, int i) {
+        InterceptResult invokeLLI;
+        PublicKey c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
+                return null;
+            }
+            return a(bArr, c, i);
         }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeLLI.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static PublicKey c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return yx3.b().f(".baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
             try {
-                String m2 = yx3.b().m();
-                String e = NetworkUtils.e(this.b);
-                if (TextUtils.isEmpty(m2)) {
-                    return e;
-                }
-                return m2;
-            } catch (Exception unused) {
-                return "";
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, String> b = b();
-            b.putAll(a());
-            return wy3.a(this.a, b);
-        }
-        return (String) invokeV.objValue;
+        return (PublicKey) invokeL.objValue;
     }
 }

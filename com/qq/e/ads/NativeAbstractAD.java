@@ -5,18 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.cfg.BrowserType;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.util.AdError;
-import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownAPPConfirmPolicy f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface BasicADListener {
         void onNoAD(AdError adError);
     }
@@ -51,17 +49,9 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
         a((NativeAbstractAD<T>) ((ADI) obj));
     }
 
-    @Deprecated
-    public void setBrowserType(BrowserType browserType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, browserType) == null) {
-            GDTLogger.w("setBrowserType已废弃，调用无效");
-        }
-    }
-
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downAPPConfirmPolicy) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downAPPConfirmPolicy) == null) {
             this.f = downAPPConfirmPolicy;
             T t = this.a;
             if (t == 0 || downAPPConfirmPolicy == null) {

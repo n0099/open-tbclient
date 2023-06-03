@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.GetRequest;
+import android.text.TextUtils;
+import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class bg4 extends GetRequest.GetRequestBuilder {
+public class bg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public static boolean a(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
+            if (obj != null && !TextUtils.isEmpty(str)) {
+                return true;
             }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.GetRequest.GetRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public GetRequest build() {
-        InterceptResult invokeV;
+    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yf4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
+            if (!a(obj, str)) {
+                return null;
+            }
+            if (ag4.g()) {
+                return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
+            }
+            return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
         }
-        return (GetRequest) invokeV.objValue;
+        return (Method) invokeLLL.objValue;
     }
 }

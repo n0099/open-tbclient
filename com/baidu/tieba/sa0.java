@@ -1,31 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface sa0 {
-    void E0();
+public class sa0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a1(List<String> list);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948144551, "Lcom/baidu/tieba/sa0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948144551, "Lcom/baidu/tieba/sa0;");
+        }
+    }
 
-    void h0();
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return ua0.g(context);
+        }
+        return invokeL.intValue;
+    }
 
-    void i0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return ua0.l(context);
+        }
+        return invokeL.booleanValue;
+    }
 
-    void k(int i);
+    public static void c(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
+            ua0.u(context, z);
+        }
+    }
 
-    void l();
-
-    void q(ta0 ta0Var);
-
-    void showToast(String str);
-
-    void t(List<String> list);
-
-    void u(SearchResultBean searchResultBean);
-
-    void z0(List<? extends LiveRoomEntity> list);
+    public static void d(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {
+            ua0.t(context, i);
+        }
+    }
 }

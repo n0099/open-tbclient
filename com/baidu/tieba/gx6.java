@@ -1,286 +1,556 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.ex6;
-import com.baidu.tieba.faceshop.CollectEmotionData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class gx6 {
+/* loaded from: classes6.dex */
+public class gx6 extends ki5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ex6 a;
-    public Handler b;
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ gx6 c;
-
-        /* loaded from: classes5.dex */
-        public class a implements ex6.l {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.ex6.l
-            public void onResult(int i, int i2, int i3) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                    b bVar = this.a;
-                    bVar.c.g(bVar.b);
-                }
-            }
-        }
-
-        public b(gx6 gx6Var, List list, List list2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809348, "Lcom/baidu/tieba/gx6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gx6Var, list, list2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = gx6Var;
-            this.a = list;
-            this.b = list2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.a.i(this.a, false, new a(this));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947809348, "Lcom/baidu/tieba/gx6;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements ex6.l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ gx6 c;
-
-        public a(gx6 gx6Var, List list, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gx6Var, list, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = gx6Var;
-            this.a = list;
-            this.b = map;
-        }
-
-        @Override // com.baidu.tieba.ex6.l
-        public void onResult(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                this.c.d(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements ex6.l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(gx6 gx6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gx6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ex6.l
-        public void onResult(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                if (i2 > 0) {
-                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
-                    vt8.u(System.currentTimeMillis());
-                }
-                vt8.o().x(false);
-            }
-        }
+        ki5.a.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        HashMap<String, Integer> hashMap = ki5.a;
+        Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d43);
+        hashMap.put("image_emoticon", valueOf);
+        HashMap<String, Integer> hashMap2 = ki5.a;
+        Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d74);
+        hashMap2.put("image_emoticon2", valueOf2);
+        HashMap<String, Integer> hashMap3 = ki5.a;
+        Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7f);
+        hashMap3.put("image_emoticon3", valueOf3);
+        HashMap<String, Integer> hashMap4 = ki5.a;
+        Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8a);
+        hashMap4.put("image_emoticon4", valueOf4);
+        HashMap<String, Integer> hashMap5 = ki5.a;
+        Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d95);
+        hashMap5.put("image_emoticon5", valueOf5);
+        HashMap<String, Integer> hashMap6 = ki5.a;
+        Integer valueOf6 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d97);
+        hashMap6.put("image_emoticon6", valueOf6);
+        HashMap<String, Integer> hashMap7 = ki5.a;
+        Integer valueOf7 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da1);
+        hashMap7.put("image_emoticon7", valueOf7);
+        HashMap<String, Integer> hashMap8 = ki5.a;
+        Integer valueOf8 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dac);
+        hashMap8.put("image_emoticon8", valueOf8);
+        HashMap<String, Integer> hashMap9 = ki5.a;
+        Integer valueOf9 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db7);
+        hashMap9.put("image_emoticon9", valueOf9);
+        HashMap<String, Integer> hashMap10 = ki5.a;
+        Integer valueOf10 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d44);
+        hashMap10.put("image_emoticon10", valueOf10);
+        HashMap<String, Integer> hashMap11 = ki5.a;
+        Integer valueOf11 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d4f);
+        hashMap11.put("image_emoticon11", valueOf11);
+        HashMap<String, Integer> hashMap12 = ki5.a;
+        Integer valueOf12 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d5a);
+        hashMap12.put("image_emoticon12", valueOf12);
+        HashMap<String, Integer> hashMap13 = ki5.a;
+        Integer valueOf13 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d65);
+        hashMap13.put("image_emoticon13", valueOf13);
+        HashMap<String, Integer> hashMap14 = ki5.a;
+        Integer valueOf14 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6e);
+        hashMap14.put("image_emoticon14", valueOf14);
+        HashMap<String, Integer> hashMap15 = ki5.a;
+        Integer valueOf15 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6f);
+        hashMap15.put("image_emoticon15", valueOf15);
+        ki5.a.put("image_emoticon16", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        ki5.a.put("image_emoticon17", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d71));
+        ki5.a.put("image_emoticon18", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        ki5.a.put("image_emoticon19", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d73));
+        ki5.a.put("image_emoticon20", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d75));
+        ki5.a.put("image_emoticon21", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d76));
+        ki5.a.put("image_emoticon22", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d77));
+        ki5.a.put("image_emoticon23", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d78));
+        ki5.a.put("image_emoticon24", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d79));
+        ki5.a.put("image_emoticon25", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7a));
+        ki5.a.put("image_emoticon26", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7b));
+        ki5.a.put("image_emoticon27", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7c));
+        ki5.a.put("image_emoticon28", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7d));
+        ki5.a.put("image_emoticon29", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7e));
+        ki5.a.put("image_emoticon30", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d80));
+        ki5.a.put("image_emoticon31", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d81));
+        ki5.a.put("image_emoticon32", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d82));
+        ki5.a.put("image_emoticon33", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d83));
+        ki5.a.put("image_emoticon61", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d98));
+        ki5.a.put("image_emoticon62", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d99));
+        ki5.a.put("image_emoticon63", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9a));
+        ki5.a.put("image_emoticon64", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9b));
+        ki5.a.put("image_emoticon65", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9c));
+        ki5.a.put("image_emoticon66", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9d));
+        ki5.a.put("image_emoticon67", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9e));
+        ki5.a.put("image_emoticon68", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9f));
+        ki5.a.put("image_emoticon69", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da0));
+        ki5.a.put("image_emoticon70", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da2));
+        ki5.a.put("image_emoticon71", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da3));
+        ki5.a.put("image_emoticon72", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da4));
+        ki5.a.put("image_emoticon73", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da5));
+        ki5.a.put("image_emoticon74", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da6));
+        ki5.a.put("image_emoticon75", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da7));
+        ki5.a.put("image_emoticon76", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da8));
+        ki5.a.put("image_emoticon85", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db2));
+        ki5.a.put("image_emoticon86", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db3));
+        ki5.a.put("image_emoticon87", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db4));
+        ki5.a.put("image_emoticon88", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db5));
+        ki5.a.put("image_emoticon89", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        ki5.a.put("image_emoticon90", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db8));
+        ki5.a.put("image_emoticon91", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db9));
+        ki5.a.put("image_emoticon92", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dba));
+        ki5.a.put("image_emoticon93", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbb));
+        ki5.a.put("image_emoticon94", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbc));
+        ki5.a.put("image_emoticon95", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbd));
+        ki5.a.put("image_emoticon96", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbe));
+        ki5.a.put("image_emoticon97", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbf));
+        ki5.a.put("image_emoticon98", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc0));
+        ki5.a.put("image_emoticon99", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc1));
+        ki5.a.put("image_emoticon100", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d45));
+        ki5.a.put("image_emoticon125", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d60));
+        ki5.a.put("image_emoticon126", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d61));
+        ki5.a.put("image_emoticon127", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d62));
+        ki5.a.put("image_emoticon129", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d64));
+        ki5.a.put("image_emoticon130", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d66));
+        ki5.a.put("image_emoticon131", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67));
+        ki5.a.put("image_emoticon132", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68));
+        ki5.a.put("image_emoticon128", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d63));
+        ki5.a.put("image_emoticon133", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69));
+        ki5.a.put("image_emoticon134", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a));
+        ki5.a.put("image_emoticon135", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b));
+        ki5.a.put("image_emoticon136", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c));
+        ki5.a.put("image_emoticon137", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d));
+        ki5.a.put("shoubai_emoji_face_01", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080620));
+        ki5.a.put("shoubai_emoji_face_02", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080621));
+        ki5.a.put("shoubai_emoji_face_03", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080622));
+        ki5.a.put("shoubai_emoji_face_04", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080623));
+        ki5.a.put("shoubai_emoji_face_05", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080624));
+        ki5.a.put("shoubai_emoji_face_06", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080625));
+        ki5.a.put("shoubai_emoji_face_07", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080626));
+        ki5.a.put("shoubai_emoji_face_08", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080627));
+        ki5.a.put("shoubai_emoji_face_09", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080628));
+        ki5.a.put("shoubai_emoji_face_10", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080629));
+        ki5.a.put("shoubai_emoji_face_11", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080631));
+        ki5.a.put("shoubai_emoji_face_12", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080632));
+        ki5.a.put("shoubai_emoji_face_13", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080633));
+        ki5.a.put("shoubai_emoji_face_14", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080634));
+        ki5.a.put("shoubai_emoji_face_15", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080635));
+        ki5.a.put("shoubai_emoji_face_16", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080636));
+        ki5.a.put("shoubai_emoji_face_17", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080637));
+        ki5.a.put("shoubai_emoji_face_18", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080638));
+        ki5.a.put("shoubai_emoji_face_19", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080639));
+        ki5.a.put("shoubai_emoji_face_20", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063a));
+        ki5.a.put("shoubai_emoji_face_21", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063b));
+        ki5.a.put("shoubai_emoji_face_22", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063c));
+        ki5.a.put("shoubai_emoji_face_23", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063d));
+        ki5.a.put("shoubai_emoji_face_24", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063e));
+        ki5.a.put("shoubai_emoji_face_25", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063f));
+        ki5.a.put("shoubai_emoji_face_26", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080640));
+        ki5.a.put("shoubai_emoji_face_27", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080641));
+        ki5.a.put("shoubai_emoji_face_28", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080642));
+        ki5.a.put("shoubai_emoji_face_29", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080643));
+        ki5.a.put("shoubai_emoji_face_30", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080644));
+        ki5.a.put("shoubai_emoji_face_31", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080645));
+        ki5.a.put("shoubai_emoji_face_32", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080646));
+        ki5.a.put("shoubai_emoji_face_33", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080647));
+        ki5.a.put("shoubai_emoji_face_34", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080648));
+        ki5.a.put("shoubai_emoji_face_35", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080649));
+        ki5.a.put("shoubai_emoji_face_36", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064a));
+        ki5.a.put("shoubai_emoji_face_37", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064b));
+        ki5.a.put("shoubai_emoji_face_38", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064c));
+        ki5.a.put("shoubai_emoji_face_39", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064d));
+        ki5.a.put("shoubai_emoji_face_40", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064e));
+        ki5.a.put("shoubai_emoji_face_41", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064f));
+        ki5.a.put("shoubai_emoji_face_42", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080650));
+        ki5.a.put("shoubai_emoji_face_43", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080651));
+        ki5.a.put("shoubai_emoji_face_44", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080652));
+        ki5.a.put("shoubai_emoji_face_45", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080653));
+        ki5.a.put("shoubai_emoji_face_46", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080654));
+        ki5.a.put("shoubai_emoji_face_47", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080655));
+        ki5.a.put("shoubai_emoji_face_48", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080656));
+        ki5.a.put("shoubai_emoji_face_49", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080657));
+        ki5.a.put("shoubai_emoji_face_50", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080658));
+        ki5.a.put("shoubai_emoji_face_51", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080659));
+        ki5.a.put("shoubai_emoji_face_52", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065a));
+        ki5.a.put("shoubai_emoji_face_53", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065b));
+        ki5.a.put("shoubai_emoji_face_54", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065c));
+        ki5.a.put("shoubai_emoji_face_55", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065d));
+        ki5.a.put("shoubai_emoji_face_56", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065e));
+        ki5.a.put("shoubai_emoji_face_57", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065f));
+        ki5.a.put("shoubai_emoji_face_58", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080660));
+        ki5.a.put("shoubai_emoji_face_59", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080661));
+        ki5.a.put("shoubai_emoji_face_60", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080662));
+        ki5.a.put("shoubai_emoji_face_61", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080663));
+        ki5.a.put("shoubai_emoji_face_62", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080664));
+        ki5.a.put("shoubai_emoji_face_63", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080665));
+        ki5.a.put("shoubai_emoji_face_64", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080666));
+        ki5.a.put("shoubai_emoji_face_65", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080667));
+        ki5.a.put("shoubai_emoji_face_66", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080668));
+        ki5.a.put("shoubai_emoji_face_67", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080669));
+        ki5.a.put("shoubai_emoji_face_68", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066a));
+        ki5.a.put("shoubai_emoji_face_69", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066b));
+        ki5.a.put("shoubai_emoji_face_70", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066c));
+        ki5.a.put("shoubai_emoji_face_71", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066d));
+        ki5.a.put("shoubai_emoji_face_72", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066e));
+        ki5.a.put("shoubai_emoji_face_73", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066f));
+        ki5.a.put("shoubai_emoji_face_74", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080670));
+        ki5.a.put("shoubai_emoji_face_75", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080671));
+        ki5.a.put("shoubai_emoji_face_76", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080672));
+        ki5.a.put("shoubai_emoji_face_77", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080673));
+        ki5.a.put("shoubai_emoji_face_78", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080674));
+        ki5.a.put("shoubai_emoji_face_79", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080675));
+        ki5.a.put("shoubai_emoji_face_80", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080676));
+        ki5.a.put("shoubai_emoji_face_81", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080677));
+        ki5.a.put("shoubai_emoji_face_82", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080678));
+        ki5.a.put("shoubai_emoji_face_83", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080679));
+        ki5.a.put("shoubai_emoji_face_84", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067a));
+        ki5.a.put("shoubai_emoji_face_85", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067b));
+        ki5.a.put("shoubai_emoji_face_86", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067c));
+        ki5.a.put("shoubai_emoji_face_87", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067d));
+        ki5.a.put("shoubai_emoji_face_88", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067e));
+        ki5.a.put("shoubai_emoji_face_89", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067f));
+        ki5.a.put("shoubai_emoji_face_90", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080680));
+        ki5.a.put("shoubai_emoji_face_91", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080681));
+        ki5.a.put("shoubai_emoji_face_92", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080682));
+        ki5.a.put("shoubai_emoji_face_93", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080683));
+        ki5.a.put("shoubai_emoji_face_94", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080684));
+        ki5.a.put("shoubai_emoji_face_95", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080685));
+        ki5.a.put("shoubai_emoji_face_96", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080686));
+        ki5.a.put("shoubai_emoji_face_97", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080687));
+        ki5.a.put("shoubai_emoji_face_98", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080688));
+        ki5.a.put("shoubai_emoji_face_99", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080689));
+        ki5.a.put("shoubai_emoji_face_100", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062a));
+        ki5.a.put("shoubai_emoji_face_101", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062b));
+        ki5.a.put("shoubai_emoji_face_102", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062c));
+        ki5.a.put("shoubai_emoji_face_103", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062d));
+        ki5.a.put("shoubai_emoji_face_104", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062e));
+        ki5.a.put("shoubai_emoji_face_105", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062f));
+        ki5.a.put("shoubai_emoji_face_106", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080630));
+        ki5.a.put("bearchildren_01", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08027f));
+        ki5.a.put("bearchildren_02", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080280));
+        ki5.a.put("bearchildren_03", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080281));
+        ki5.a.put("bearchildren_04", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080282));
+        ki5.a.put("bearchildren_05", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080283));
+        ki5.a.put("bearchildren_06", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080284));
+        ki5.a.put("bearchildren_07", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080285));
+        ki5.a.put("bearchildren_08", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080286));
+        ki5.a.put("bearchildren_09", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080287));
+        ki5.a.put("bearchildren_10", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080288));
+        ki5.a.put("bearchildren_11", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080289));
+        ki5.a.put("bearchildren_12", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028a));
+        ki5.a.put("bearchildren_13", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028b));
+        ki5.a.put("bearchildren_14", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028c));
+        ki5.a.put("bearchildren_15", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028d));
+        ki5.a.put("bearchildren_16", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028e));
+        ki5.a.put("bearchildren_17", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028f));
+        ki5.a.put("bearchildren_18", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080290));
+        ki5.a.put("bearchildren_19", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080291));
+        ki5.a.put("bearchildren_20", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080292));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d60));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d64));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d66));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d62));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d61));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d63));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc1));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbe));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc0));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db4));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbc));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db2));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db8));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbb));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dba));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db3));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db9));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db5));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbd));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d45));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbf));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d81));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d78));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d76));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        ki5.b.add(0, valueOf14);
+        ki5.b.add(0, valueOf7);
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7b));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da8));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da7));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da6));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d71));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da5));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da4));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7e));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d82));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d73));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da3));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da2));
+        ki5.b.add(0, valueOf15);
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da0));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7c));
+        ki5.b.add(0, valueOf4);
+        ki5.b.add(0, valueOf5);
+        ki5.b.add(0, valueOf11);
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d80));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d83));
+        ki5.b.add(0, valueOf13);
+        ki5.b.add(0, valueOf9);
+        ki5.b.add(0, valueOf10);
+        ki5.b.add(0, valueOf8);
+        ki5.b.add(0, valueOf6);
+        ki5.b.add(0, valueOf12);
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9f));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7a));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9e));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7d));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9d));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d75));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d77));
+        ki5.b.add(0, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d79));
+        ki5.b.add(0, valueOf3);
+        ki5.b.add(0, valueOf2);
+        ki5.b.add(0, valueOf);
+        ki5.c.put("#(呵呵)", valueOf);
+        ki5.c.put("#(哈哈)", valueOf2);
+        ki5.c.put("#(吐舌)", valueOf3);
+        ki5.c.put("#(啊)", valueOf4);
+        ki5.c.put("#(酷)", valueOf5);
+        ki5.c.put("#(怒)", valueOf6);
+        ki5.c.put("#(开心)", valueOf7);
+        ki5.c.put("#(汗)", valueOf8);
+        ki5.c.put("#(泪)", valueOf9);
+        ki5.c.put("#(黑线)", valueOf10);
+        ki5.c.put("#(鄙视)", valueOf11);
+        ki5.c.put("#(不高兴)", valueOf12);
+        ki5.c.put("#(真棒)", valueOf13);
+        ki5.c.put("#(钱)", valueOf14);
+        ki5.c.put("#(疑问)", valueOf15);
+        ki5.c.put("#(阴险)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        ki5.c.put("#(吐)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d71));
+        ki5.c.put("#(咦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        ki5.c.put("#(委屈)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d73));
+        ki5.c.put("#(花心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d75));
+        ki5.c.put("#(呼~)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d76));
+        ki5.c.put("#(笑眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d77));
+        ki5.c.put("#(冷)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d78));
+        ki5.c.put("#(太开心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d79));
+        ki5.c.put("#(滑稽)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7a));
+        ki5.c.put("#(勉强)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7b));
+        ki5.c.put("#(狂汗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7c));
+        ki5.c.put("#(乖)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7d));
+        ki5.c.put("#(睡觉)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d7e));
+        ki5.c.put("#(惊哭)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d80));
+        ki5.c.put("#(升起)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d81));
+        ki5.c.put("#(惊讶)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d82));
+        ki5.c.put("#(喷)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d83));
+        ki5.c.put("#(哼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d98));
+        ki5.c.put("#(吃瓜)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d99));
+        ki5.c.put("#(扔便便)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9a));
+        ki5.c.put("#(惊恐)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9b));
+        ki5.c.put("#(哎呦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9c));
+        ki5.c.put("#(小乖)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9d));
+        ki5.c.put("#(捂嘴笑)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9e));
+        ki5.c.put("#(你懂的)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d9f));
+        ki5.c.put("#(what)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da0));
+        ki5.c.put("#(酸爽)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da2));
+        ki5.c.put("#(呀咩爹)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da3));
+        ki5.c.put("#(笑尿)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da4));
+        ki5.c.put("#(挖鼻)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da5));
+        ki5.c.put("#(犀利)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da6));
+        ki5.c.put("#(小红脸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da7));
+        ki5.c.put("#(懒得理)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080da8));
+        ki5.c.put("#(暗中观察)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db2));
+        ki5.c.put("#(吃瓜)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db3));
+        ki5.c.put("#(喝酒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db4));
+        ki5.c.put("#(嘿嘿嘿)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db5));
+        ki5.c.put("#(噗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db6));
+        ki5.c.put("#(困成狗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db8));
+        ki5.c.put("#(微微一笑)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080db9));
+        ki5.c.put("#(托腮)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dba));
+        ki5.c.put("#(摊手)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbb));
+        ki5.c.put("#(柯基暗中观察)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbc));
+        ki5.c.put("#(欢呼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbd));
+        ki5.c.put("#(炸药)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbe));
+        ki5.c.put("#(香槟)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69));
+        ki5.c.put("#(突然兴奋)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dbf));
+        ki5.c.put("#(紧张)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc0));
+        ki5.c.put("#(黑头瞪眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080dc1));
+        ki5.c.put("#(黑头高兴)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d45));
+        ki5.c.put("#(奥特曼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d60));
+        ki5.c.put("#(不听)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d61));
+        ki5.c.put("#(干饭)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d62));
+        ki5.c.put("#(菜狗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d64));
+        ki5.c.put("#(老虎)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d66));
+        ki5.c.put("#(嗷呜)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67));
+        ki5.c.put("#(烟花)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68));
+        ki5.c.put("#(望远镜)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d63));
+        ki5.c.put("#(文字啊)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a));
+        ki5.c.put("#(文字对)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b));
+        ki5.c.put("#(鼠1)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c));
+        ki5.c.put("#(鼠2)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d));
+        ki5.c.put("[微笑]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080620));
+        ki5.c.put("[开心]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080621));
+        ki5.c.put("[期待]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080622));
+        ki5.c.put("[大笑]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080623));
+        ki5.c.put("[鼓掌]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080624));
+        ki5.c.put("[悠闲]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080625));
+        ki5.c.put("[笑哭]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080626));
+        ki5.c.put("[不要啊]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080627));
+        ki5.c.put("[啊]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080628));
+        ki5.c.put("[哟]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080629));
+        ki5.c.put("[汗]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080631));
+        ki5.c.put("[抠鼻]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080632));
+        ki5.c.put("[哼]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080633));
+        ki5.c.put("[发怒]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080634));
+        ki5.c.put("[委屈]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080635));
+        ki5.c.put("[不高兴]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080636));
+        ki5.c.put("[囧]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080637));
+        ki5.c.put("[惊哭]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080638));
+        ki5.c.put("[大哭]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080639));
+        ki5.c.put("[流泪]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063a));
+        ki5.c.put("[害羞]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063b));
+        ki5.c.put("[亲亲]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063c));
+        ki5.c.put("[色]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063d));
+        ki5.c.put("[舔屏]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063e));
+        ki5.c.put("[得意]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08063f));
+        ki5.c.put("[疑问]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080640));
+        ki5.c.put("[晕]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080641));
+        ki5.c.put("[大哈]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080642));
+        ki5.c.put("[二哈]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080643));
+        ki5.c.put("[三哈]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080644));
+        ki5.c.put("[白眼]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080645));
+        ki5.c.put("[阴险]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080646));
+        ki5.c.put("[你懂的]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080647));
+        ki5.c.put("[偷笑]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080648));
+        ki5.c.put("[睡觉]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080649));
+        ki5.c.put("[哈欠]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064a));
+        ki5.c.put("[再见]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064b));
+        ki5.c.put("[鄙视]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064c));
+        ki5.c.put("[抓狂]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064d));
+        ki5.c.put("[咒骂]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064e));
+        ki5.c.put("[衰]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08064f));
+        ki5.c.put("[骷髅]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080650));
+        ki5.c.put("[嘘]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080651));
+        ki5.c.put("[闭嘴]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080652));
+        ki5.c.put("[呆]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080653));
+        ki5.c.put("[什么鬼]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080654));
+        ki5.c.put("[吐]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080655));
+        ki5.c.put("[已阅]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080656));
+        ki5.c.put("[同上]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080657));
+        ki5.c.put("[友军]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080658));
+        ki5.c.put("[爱钱]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080659));
+        ki5.c.put("[Freestyle]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065a));
+        ki5.c.put("[国宝]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065b));
+        ki5.c.put("[羊驼]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065c));
+        ki5.c.put("[鲜花]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065d));
+        ki5.c.put("[中国加油]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065e));
+        ki5.c.put("[庆祝]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08065f));
+        ki5.c.put("[生日蛋糕]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080660));
+        ki5.c.put("[MicDrop]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080661));
+        ki5.c.put("[赞同]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080662));
+        ki5.c.put("[药丸]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080663));
+        ki5.c.put("[蜡烛]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080664));
+        ki5.c.put("[鸡蛋]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080665));
+        ki5.c.put("[浪]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080666));
+        ki5.c.put("[打call]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080667));
+        ki5.c.put("[尬笑]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080668));
+        ki5.c.put("[坏笑]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080669));
+        ki5.c.put("[没眼看]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066a));
+        ki5.c.put("[嘿哈]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066b));
+        ki5.c.put("[前面的别走]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066c));
+        ki5.c.put("[滑稽]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066d));
+        ki5.c.put("[捂脸]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066e));
+        ki5.c.put("[左捂脸]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08066f));
+        ki5.c.put("[666]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080670));
+        ki5.c.put("[2018]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080671));
+        ki5.c.put("[福]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080672));
+        ki5.c.put("[红包]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080673));
+        ki5.c.put("[鞭炮]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080674));
+        ki5.c.put("[财神]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080675));
+        ki5.c.put("[饺子]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080676));
+        ki5.c.put("[车票]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080677));
+        ki5.c.put("[火车]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080678));
+        ki5.c.put("[飞机]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080679));
+        ki5.c.put("[射门]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067a));
+        ki5.c.put("[红牌]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067b));
+        ki5.c.put("[黄牌]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067c));
+        ki5.c.put("[哨子]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067d));
+        ki5.c.put("[比分]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067e));
+        ki5.c.put("[啤酒]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08067f));
+        ki5.c.put("[足球]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080680));
+        ki5.c.put("[大力神杯]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080681));
+        ki5.c.put("[锦鲤]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080682));
+        ki5.c.put("[2019]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080683));
+        ki5.c.put("[猪年]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080684));
+        ki5.c.put("[双手鼓掌]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080685));
+        ki5.c.put("[火焰]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080686));
+        ki5.c.put("[祈福]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080687));
+        ki5.c.put("[亲吻]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080688));
+        ki5.c.put("[天使]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080689));
+        ki5.c.put("[樱花]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062a));
+        ki5.c.put("[加油]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062b));
+        ki5.c.put("[泡泡枪]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062c));
+        ki5.c.put("[气球]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062d));
+        ki5.c.put("[棒棒糖]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062e));
+        ki5.c.put("[小黄鸭]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08062f));
+        ki5.c.put("[粽子]", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080630));
+        ki5.c.put("#(熊-88)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08027f));
+        ki5.c.put("#(熊-HI)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080280));
+        ki5.c.put("#(熊-人艰不拆)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080281));
+        ki5.c.put("#(熊-啥)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080282));
+        ki5.c.put("#(熊-大哭)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080283));
+        ki5.c.put("#(熊-失落)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080284));
+        ki5.c.put("#(熊-怒赞)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080285));
+        ki5.c.put("#(熊-惊呆了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080286));
+        ki5.c.put("#(熊-李菊福)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080287));
+        ki5.c.put("#(熊-来信砍)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080288));
+        ki5.c.put("#(熊-欢迎入群)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080289));
+        ki5.c.put("#(熊-牛闪闪)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028a));
+        ki5.c.put("#(熊-生日快乐)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028b));
+        ki5.c.put("#(熊-石化)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028c));
+        ki5.c.put("#(熊-羞羞哒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028d));
+        ki5.c.put("#(熊-肥皂必杀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028e));
+        ki5.c.put("#(熊-谢谢你)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08028f));
+        ki5.c.put("#(熊-跳舞)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080290));
+        ki5.c.put("#(熊-霹雳舞)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080291));
+        ki5.c.put("#(熊-鼓掌)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080292));
     }
 
     public gx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = ex6.t();
-        this.b = new Handler(Looper.getMainLooper());
-    }
-
-    public final void g(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            st8.a("【表情云同步】：5 - 收藏表情：根据云端数据进行排序");
-            this.a.u(list, false, new c(this));
-        }
-    }
-
-    public final void d(List<CollectEmotionData> list, Map<String, CollectEmotionData> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
-            ArrayList<CollectEmotionData> arrayList = new ArrayList();
-            for (CollectEmotionData collectEmotionData : list) {
-                if (collectEmotionData != null && !map.containsKey(collectEmotionData.pid) && !TextUtils.isEmpty(collectEmotionData.picUrl)) {
-                    arrayList.add(collectEmotionData);
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                st8.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
-                ArrayList arrayList2 = new ArrayList();
-                for (CollectEmotionData collectEmotionData2 : arrayList) {
-                    xh5 xh5Var = new xh5();
-                    xh5Var.f = collectEmotionData2.pkgId;
-                    xh5Var.a = collectEmotionData2.pid;
-                    xh5Var.d = collectEmotionData2.picUrl;
-                    xh5Var.b = collectEmotionData2.width;
-                    xh5Var.c = collectEmotionData2.height;
-                    xh5Var.e = collectEmotionData2.thumbnail;
-                    arrayList2.add(xh5Var);
-                }
-                this.b.post(new b(this, arrayList2, list));
-                return;
-            }
-            g(list);
-        }
-    }
-
-    public final void e(List<CollectEmotionData> list, List<CollectEmotionData> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, CollectEmotionData> h = h(list2);
-            Map<String, CollectEmotionData> h2 = h(list);
-            for (Map.Entry<String, CollectEmotionData> entry : h.entrySet()) {
-                if (!h2.containsKey(entry.getKey())) {
-                    arrayList.add(entry.getValue());
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                st8.a("【表情云同步】：4 - 收藏表情：删除云端没有的表情");
-                this.a.x(arrayList, false, new a(this, list, h));
-                return;
-            }
-            d(list, h);
-        }
-    }
-
-    public void f(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            ex6.t().l(true);
-            List<CollectEmotionData> q = uw6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
-            for (CollectEmotionData collectEmotionData : q) {
-                String p = ex6.p(collectEmotionData.pid, false);
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(p);
-                collectEmotionData.imageFileInfo = imageFileInfo;
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
-            Iterator<CollectEmotionData> it = list.iterator();
-            while (it.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().pkgId);
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
-            Iterator<CollectEmotionData> it2 = q.iterator();
-            while (it2.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().pkgId);
-            }
-            e(list, q);
-        }
-    }
-
-    public final Map<String, CollectEmotionData> h(List<CollectEmotionData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list != null) {
-                for (CollectEmotionData collectEmotionData : list) {
-                    if (collectEmotionData != null && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                        hashMap.put(collectEmotionData.pid, collectEmotionData);
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
     }
 }

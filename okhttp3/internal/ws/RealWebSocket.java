@@ -31,7 +31,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final long CANCEL_AFTER_CLOSE_MILLIS = 60000;
@@ -61,7 +61,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     public final ArrayDeque<Object> messageAndCloseQueue = new ArrayDeque<>();
     public int receivedCloseCode = -1;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class CancelRunnable implements Runnable {
         public CancelRunnable() {
         }
@@ -72,7 +72,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Close {
         public final long cancelAfterCloseMillis;
         public final int code;
@@ -85,7 +85,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Message {
         public final ByteString data;
         public final int formatOpcode;
@@ -96,7 +96,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class PingRunnable implements Runnable {
         public PingRunnable() {
         }
@@ -107,7 +107,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Streams implements Closeable {
         public final boolean client;
         public final BufferedSink sink;

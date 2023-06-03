@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ae2;
 /* loaded from: classes5.dex */
-public interface be2 {
+public interface be2<T extends ae2> extends ce2<T> {
+    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
+    void d(yl2 yl2Var);
 
-        WebResourceResponse b(String str, Map<String, String> map, boolean z);
+    boolean i();
 
-        boolean c();
-
-        String d();
-
-        String getMimeType();
-
-        Map<String, String> getRequestHeaders();
-    }
-
-    WebResourceResponse a(@NonNull a aVar);
+    void j(boolean z, je2 je2Var);
 }

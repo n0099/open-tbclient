@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class axa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mra a;
-    public final dsa b;
-    public final HashMap<String, fsa> c;
+    @Inject(force = false)
+    public gl1<fxa> a;
 
-    /* loaded from: classes4.dex */
-    public interface a<E> {
-        void a(E e);
-
-        void b(E e);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            el1 b = el1.b();
+            this.a = b;
+            b.a(new gxa());
+        }
     }
 
     public axa() {
@@ -34,20 +34,6 @@ public class axa {
                 return;
             }
         }
-        this.b = new dsa();
-        this.c = new HashMap<>();
-    }
-
-    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    aVar.b(e);
-                } else {
-                    aVar.a(e);
-                }
-            }
-        }
+        a();
     }
 }

@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ImShareThreadInfo extends Message {
     public static final String DEFAULT_TITLE = "";
     @ProtoField(tag = 3)
@@ -39,7 +39,7 @@ public final class ImShareThreadInfo extends Message {
     public static final List<Voice> DEFAULT_VOICEINFO = Collections.emptyList();
     public static final List<Media> DEFAULT_MEDIA = Collections.emptyList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<ImShareThreadInfo> {
         public User author;
         public SimpleForum forumInfo;

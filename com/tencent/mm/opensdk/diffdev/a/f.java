@@ -1,7 +1,6 @@
 package com.tencent.mm.opensdk.diffdev.a;
 
 import android.os.AsyncTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
@@ -31,7 +30,7 @@ public final class f extends AsyncTask<Void, Void, a> {
                     format = String.format("parse fail, build String fail, ex = %s", e.getMessage());
                 }
                 try {
-                    JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
+                    JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
                     int i = jSONObject.getInt("wx_errcode");
                     aVar.v = i;
                     Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));

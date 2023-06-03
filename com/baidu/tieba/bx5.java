@@ -1,53 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public abstract class bx5 {
+public class bx5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public yw5 b;
+    public final ArrayMap<KEY, Long> a;
+    public final long b;
 
-    public abstract void a();
-
-    public abstract void d(int i);
-
-    public abstract void e();
-
-    public bx5() {
+    public bx5(int i, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayMap<>();
+        this.b = timeUnit.toMillis(i);
     }
 
-    public xw5 b() {
+    public static <T> bx5<T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new bx5<>(1000, TimeUnit.MILLISECONDS);
         }
-        return (xw5) invokeV.objValue;
+        return (bx5) invokeV.objValue;
     }
 
-    public yw5 c() {
-        InterceptResult invokeV;
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
-        return (yw5) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

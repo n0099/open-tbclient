@@ -1,113 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.SimpleForum;
 /* loaded from: classes7.dex */
 public class r8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<SimpleForum> b;
-    public String c;
-    public b d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public BdUniqueId i;
-    public fb j;
+    public int a;
+    public float b;
+    public int c;
+    public Camera d;
+    public x8a e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(List<SimpleForum> list, int i);
-
-        void onError();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r8a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(r8a r8aVar, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r8aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r8aVar;
-        }
-
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
-            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                return;
-            }
-            if (responsedMessage.hasError()) {
-                if (this.a.d != null) {
-                    this.a.d.onError();
-                    return;
-                }
-                return;
-            }
-            if (z) {
-                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                this.a.b = getRepostForumHttpResMessage.getForumList();
-                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
-                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
-            }
-            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                this.a.b = getRepostForumSocketResMessage.getForumList();
-                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
-                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
-            }
-            if (this.a.d != null) {
-                this.a.d.a(this.a.b, this.a.g);
-            }
-        }
-    }
-
-    public r8a(BdUniqueId bdUniqueId) {
+    public r8a(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,53 +33,104 @@ public class r8a {
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.j = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.j);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.j.getSocketMessageListener().setSelfListener(true);
+        this.a = 0;
+        this.d = camera;
     }
 
-    public void i(b bVar) {
+    public void c(x8a x8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x8aVar) == null) {
+            this.e = x8aVar;
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public final void d(int i) {
+        Camera camera;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
+            return;
         }
+        Camera.Parameters parameters = camera.getParameters();
+        if (!parameters.isZoomSupported()) {
+            return;
+        }
+        parameters.setZoom(i);
+        this.d.setParameters(parameters);
+        this.c = i;
     }
 
-    public void k(String str) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Camera camera = this.d;
+            if (camera == null) {
+                return -1;
+            }
+            Camera.Parameters parameters = camera.getParameters();
+            if (!parameters.isZoomSupported()) {
+                return -1;
+            }
+            if (parameters.getMaxZoom() > 40) {
+                return 40;
+            }
+            return parameters.getMaxZoom();
         }
+        return invokeV.intValue;
     }
 
-    public void l(String str) {
+    public boolean b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            x8a x8aVar = this.e;
+            if (x8aVar != null && x8aVar.j()) {
+                return true;
+            }
+            int action = motionEvent.getAction() & 255;
+            int i = 0;
+            if (action != 0) {
+                if (action != 2) {
+                    if (action == 5) {
+                        this.a = 1;
+                        this.b = e(motionEvent);
+                    }
+                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
+                    return true;
+                } else {
+                    float e = e(motionEvent);
+                    int i2 = (int) ((e - this.b) / 10.0f);
+                    if (i2 >= 1 || i2 <= -1) {
+                        int i3 = this.c + i2;
+                        if (i3 > a()) {
+                            i3 = a();
+                        }
+                        if (i3 >= 0) {
+                            i = i3;
+                        }
+                        d(i);
+                        this.b = e;
+                    }
+                }
+            } else {
+                this.a = 0;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void h() {
+    public final float e(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.e);
-            getRepostForumReqMessage.setThreadContent(this.f);
-            getRepostForumReqMessage.setForumId(this.h);
-            getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.i);
-            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
         }
+        return invokeL.floatValue;
     }
 }

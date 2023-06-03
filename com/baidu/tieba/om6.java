@@ -1,56 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class om6 implements j37 {
+/* loaded from: classes7.dex */
+public class om6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.j37
-    public String getKey() {
-        InterceptResult invokeV;
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CLICK_VIDEO_TOPIC : (String) invokeV.objValue;
-    }
-
-    public om6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            fm6.b("newHybrid", "基础版本：" + str + ",当前版本：" + str2);
+            if (TextUtils.equals(str, str2)) {
+                return true;
             }
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    String[] split = str.split("[._]");
+                    String[] split2 = str2.split("[._]");
+                    int min = Math.min(split.length, split2.length);
+                    long j = 0;
+                    for (int i = 0; i < min; i++) {
+                        j = b(split2[i]).longValue() - b(split[i]).longValue();
+                        if (j != 0) {
+                            break;
+                        }
+                    }
+                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i2 == 0) {
+                        if (split2.length > split.length) {
+                            return true;
+                        }
+                        return false;
+                    } else if (i2 > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.j37
-    public Map<String, String> a(vz6 businessInfo) {
+    public static Long b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("topic_id");
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return Long.valueOf(Long.parseLong(str));
+            } catch (NumberFormatException unused) {
+                return 0L;
             }
-            hashMap.put("topic_id", str);
-            hashMap.put("obj_locate", "4");
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        return (Long) invokeL.objValue;
     }
 }

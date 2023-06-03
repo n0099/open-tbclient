@@ -57,7 +57,7 @@ import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static volatile String a;
     public static ITTDownloadVisitor c;
@@ -67,7 +67,7 @@ public class d {
     public static final AtomicBoolean d = new AtomicBoolean(false);
     public static boolean b = true;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements g {
         public b() {
         }
@@ -135,11 +135,11 @@ public class d {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.d$d  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0542d implements k {
+    /* loaded from: classes9.dex */
+    public static class C0562d implements k {
         public final WeakReference<Context> a;
 
-        public C0542d(Context context) {
+        public C0562d(Context context) {
             this.a = new WeakReference<>(context);
         }
 
@@ -147,18 +147,18 @@ public class d {
             return DialogBuilder.builder().setTitle(bVar.b).setMessage(bVar.c).setNegativeBtnText(bVar.e).setPositiveBtnText(bVar.d).setIcon(bVar.g).setDialogStatusChangedListener(new IDialogStatusChangedListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.InterfaceC0695b interfaceC0695b = bVar.h;
-                    if (interfaceC0695b != null) {
-                        interfaceC0695b.c(dialogInterface);
+                    b.InterfaceC0712b interfaceC0712b = bVar.h;
+                    if (interfaceC0712b != null) {
+                        interfaceC0712b.c(dialogInterface);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onNegativeBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0695b interfaceC0695b = bVar.h;
-                    if (interfaceC0695b != null) {
+                    b.InterfaceC0712b interfaceC0712b = bVar.h;
+                    if (interfaceC0712b != null) {
                         try {
-                            interfaceC0695b.b(dialogInterface);
+                            interfaceC0712b.b(dialogInterface);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -167,9 +167,9 @@ public class d {
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onPositiveBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0695b interfaceC0695b = bVar.h;
-                    if (interfaceC0695b != null) {
-                        interfaceC0695b.a(dialogInterface);
+                    b.InterfaceC0712b interfaceC0712b = bVar.h;
+                    if (interfaceC0712b != null) {
+                        interfaceC0712b.a(dialogInterface);
                     }
                 }
             });
@@ -286,7 +286,7 @@ public class d {
         return context;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements f {
         private void a(com.ss.android.download.api.model.c cVar, boolean z) {
             TTDownloadEventLogger tTDownloadEventLogger;
@@ -337,7 +337,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c implements h {
         @Override // com.ss.android.download.api.config.h
         public void a(Activity activity, int i, String[] strArr, int[] iArr) {
@@ -375,7 +375,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class e implements IDownloadHttpService {
         @Override // com.ss.android.socialbase.downloader.network.IDownloadHttpService
         public i downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
@@ -481,8 +481,8 @@ public class d {
     }
 
     public static boolean a(Activity activity, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0700a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
-            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0700a
+        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0717a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
+            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0717a
             public void a() {
                 ExitInstallListener exitInstallListener2 = ExitInstallListener.this;
                 if (exitInstallListener2 != null) {
@@ -574,7 +574,7 @@ public class d {
         if (a2 == null) {
             return false;
         }
-        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0542d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
+        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0562d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
             @Override // com.ss.android.download.api.config.i
             public JSONObject a() {
                 if (d.d() != null) {
@@ -590,7 +590,7 @@ public class d {
                 }
                 return false;
             }
-        }).a(new a.C0694a().b("143").a(TTAdConstant.APP_NAME).c("4.5.2.6").d(String.valueOf(4526)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
+        }).a(new a.C0711a().b("143").a(TTAdConstant.APP_NAME).c("4.5.2.6").d(String.valueOf(4526)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
             @Override // com.ss.android.download.api.config.p
             public byte[] a(byte[] bArr, int i) {
                 return new byte[0];

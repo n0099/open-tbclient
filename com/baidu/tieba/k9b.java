@@ -1,43 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l7b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
-public final class k9b extends l7b {
+public final class k9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final k9b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
+    public final Executor a;
+    public final ExecutorService b;
 
-    public k9b(ThreadFactory threadFactory) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947869333, "Lcom/baidu/tieba/k9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947869333, "Lcom/baidu/tieba/k9b;");
+                return;
+            }
+        }
+        c = new k9b();
+    }
+
+    public k9b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = threadFactory;
-    }
-
-    @Override // com.baidu.tieba.l7b
-    public l7b.a createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new l9b(this.a);
-        }
-        return (l7b.a) invokeV.objValue;
+        this.a = s8b.a();
+        this.b = s8b.d();
     }
 }

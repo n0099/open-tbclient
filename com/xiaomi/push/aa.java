@@ -21,7 +21,7 @@ public class aa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m194a() {
+    public static boolean m249a() {
         try {
             return Environment.getExternalStorageState().equals("removed");
         } catch (Exception e) {
@@ -44,6 +44,6 @@ public class aa {
     }
 
     public static boolean d() {
-        return (b() || c() || m194a()) ? false : true;
+        return (b() || c() || m249a()) ? false : true;
     }
 }

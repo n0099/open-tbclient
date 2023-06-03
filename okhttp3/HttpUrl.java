@@ -22,7 +22,7 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
 import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HttpUrl {
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     public static final String FRAGMENT_ENCODE_SET = "";
@@ -48,7 +48,7 @@ public final class HttpUrl {
     public final String url;
     public final String username;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static final String INVALID_HOST = "Invalid URL host";
         @Nullable

@@ -1,123 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.d25;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kj9 extends d25 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public EditText b;
+public interface kj9 {
+    JSONObject a();
 
     /* loaded from: classes6.dex */
-    public class a implements d25.e {
+    public static abstract class a implements kj9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ kj9 b;
+        public final int a;
+        public final long b;
 
-        public a(kj9 kj9Var, Activity activity) {
+        public a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj9Var, activity};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = kj9Var;
-            this.a = activity;
+            this.a = i;
+            this.b = System.currentTimeMillis();
         }
 
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
+        @Override // com.baidu.tieba.kj9
+        public JSONObject a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                if (!qi.isEmpty(this.b.b.getText().toString())) {
-                    TbSingleton.getInstance().setVisitPreviewServer(true);
-                    String obj = this.b.b.getText().toString();
-                    TbSingleton.getInstance().setPubEnvValue(obj);
-                    ri.P(this.a, R.string.obfuscated_res_0x7f0f03e9);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("timestamp", this.b);
+                    jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.b.dismiss();
+                return jSONObject;
             }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements d25.e {
+    public static abstract class b implements kj9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kj9 a;
+        public final int a;
+        public final String b;
+        public final long c;
 
-        public b(kj9 kj9Var) {
+        public b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj9Var};
+                Object[] objArr = {Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = kj9Var;
+            this.a = i;
+            this.b = str;
+            this.c = System.currentTimeMillis();
         }
 
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
+        @Override // com.baidu.tieba.kj9
+        public JSONObject a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                this.a.dismiss();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("source", this.b);
+                    jSONObject.put("timestamp", this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
             }
+            return (JSONObject) invokeV.objValue;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kj9(Activity activity) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0261, (ViewGroup) null);
-        this.a = linearLayout;
-        setContentView(linearLayout);
-        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090a45);
-        setPositiveButton(R.string.obfuscated_res_0x7f0f04b2, new a(this, activity));
-        setNegativeButton(R.string.obfuscated_res_0x7f0f03c3, new b(this));
     }
 }

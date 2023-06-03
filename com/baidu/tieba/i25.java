@@ -1,119 +1,346 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class i25 extends h25 {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.VideoImageColor;
+/* loaded from: classes6.dex */
+public class i25 implements q75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView l;
-    public TextView m;
-    public View.OnClickListener n;
-    public int o;
-    public int p;
+    public String a;
+    public String b;
+    public CoverImageColor c;
+    public List<VideoImageColor> d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public boolean l;
+    public String m;
+    public float n;
+    public List<String> o;
+    public fx9 p;
 
-    @Override // com.baidu.tieba.h25
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<VideoImageColor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(i25 i25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
+                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
+            }
+            return invokeLL.intValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i25(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public i25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public CoverImageColor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (CoverImageColor) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public fx9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (fx9) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q75
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q75
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.n;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<String> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.o;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<VideoImageColor> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public i25(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.o = R.color.CAM_X0304;
-        this.p = R.color.CAM_X0107;
-        this.l = (TextView) e().findViewById(R.id.title_ok);
-        this.m = (TextView) e().findViewById(R.id.title_cancel);
-        i(true);
+        this.e = str;
+        this.f = str2;
+        this.i = str3;
     }
 
-    @Override // com.baidu.tieba.h25
-    public void b(g9<?> g9Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public i25 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g9Var) == null) {
-            super.b(g9Var);
-            o();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i25 i25Var = new i25();
+            i25Var.a = this.a;
+            i25Var.b = this.b;
+            i25Var.c = this.c;
+            i25Var.d = this.d;
+            i25Var.e = this.e;
+            i25Var.f = this.f;
+            i25Var.g = this.g;
+            i25Var.i = this.i;
+            i25Var.j = this.j;
+            i25Var.k = this.k;
+            i25Var.m = this.m;
+            i25Var.n = this.n;
+            i25Var.o = this.o;
+            i25Var.h = this.h;
+            return i25Var;
+        }
+        return (i25) invokeV.objValue;
+    }
+
+    public void o(HeadImgs headImgs) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
+            return;
+        }
+        this.a = headImgs.cover_url;
+        this.b = headImgs.play_url;
+        this.c = headImgs.cover_image_color;
+        s(headImgs.video_image_color);
+        this.e = headImgs.img_url;
+        this.f = headImgs.pc_url;
+        this.g = headImgs.schema;
+        this.m = headImgs.tag_name_url;
+        this.h = headImgs.package_name;
+        String str = headImgs.tag_name_wh;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                int e = tg.e(split[0], 1);
+                int e2 = tg.e(split[1], 1);
+                if (e2 != 0) {
+                    this.n = e / e2;
+                }
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+        }
+        String str2 = headImgs.title;
+        if (str2 != null) {
+            this.i = str2.trim();
+        }
+        String str3 = headImgs.subtitle;
+        if (str3 != null) {
+            this.j = str3.trim();
+        }
+        String str4 = headImgs.btn_text;
+        if (str4 != null) {
+            this.k = str4.trim();
+        }
+        this.o = headImgs.third_statistics_url;
+        fx9 fx9Var = new fx9();
+        this.p = fx9Var;
+        fx9Var.d(headImgs);
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.e = str;
         }
     }
 
-    @Override // com.baidu.tieba.h25
-    public void h(int i) {
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            j(i);
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f = str;
         }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            p45.d(this.l).z(this.o);
-            p45.d(this.m).z(this.p);
-        }
-    }
-
-    public i25 p(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
-            this.m.setText(i);
-            this.m.setOnClickListener(onClickListener);
-            this.m.setVisibility(0);
-            return this;
-        }
-        return (i25) invokeIL.objValue;
-    }
-
-    public i25 q(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
-            this.l.setText(i);
-            this.l.setOnClickListener(onClickListener);
-            this.l.setVisibility(0);
-            this.n = onClickListener;
-            return this;
-        }
-        return (i25) invokeIL.objValue;
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.o = R.color.CAM_X0304;
-                this.l.setEnabled(true);
-                this.l.setOnClickListener(this.n);
-            } else {
-                this.o = R.color.CAM_X0110;
-                this.l.setEnabled(false);
-                this.l.setOnClickListener(null);
-            }
-            o();
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
         }
+    }
+
+    public void s(List<VideoImageColor> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList(list);
+        Collections.sort(arrayList, new a(this));
+        this.d = arrayList;
     }
 }

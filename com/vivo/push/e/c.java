@@ -24,6 +24,7 @@ import java.security.Signature;
 import java.security.UnrecoverableEntryException;
 import java.util.Calendar;
 import javax.security.auth.x500.X500Principal;
+import org.chromium.net.AndroidKeyStore;
 /* loaded from: classes10.dex */
 public final class c implements a {
     public static /* synthetic */ Interceptable $ic;
@@ -97,7 +98,7 @@ public final class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             try {
-                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
                 this.c = keyStore;
                 keyStore.load(null);
                 this.d = new X500Principal("CN=Push SDK, OU=VIVO, O=VIVO PUSH, C=CN");
@@ -121,7 +122,7 @@ public final class c implements a {
                 calendar2.add(1, 999);
                 if (Build.VERSION.SDK_INT >= 18) {
                     KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context.getApplicationContext()).setAlias("PushRsaKeyAlias").setSubject(this.d).setSerialNumber(BigInteger.valueOf(1337L)).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build();
-                    KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+                    KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", AndroidKeyStore.TAG);
                     keyPairGenerator.initialize(build);
                     keyPairGenerator.generateKeyPair();
                 }

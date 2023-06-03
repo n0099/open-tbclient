@@ -32,11 +32,11 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.j65;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.s7a;
-import com.baidu.tieba.wk5;
+import com.baidu.tieba.g95;
+import com.baidu.tieba.hea;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    j65.d((Activity) data);
+                    g95.d((Activity) data);
                 }
             }
         }
@@ -162,10 +162,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            j65.f(tbPageContext.getPageActivity(), 1, true);
+                            g95.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            j65.f(tbPageContext.getPageActivity(), 2, true);
+                            g95.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -173,7 +173,7 @@ public class MainTabActivityStatic {
                         try {
                             Uri parse = Uri.parse(str);
                             if (parse != null && !StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
-                                int e = pg.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e = tg.e(parse.getQueryParameter("subTabIndex"), 0);
                                 if (e == 1) {
                                     i = 18;
                                 } else {
@@ -198,7 +198,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            j65.f(tbPageContext.getPageActivity(), i, true);
+                            g95.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -287,10 +287,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                wk5.b().m(wk5.b().j());
-                wk5.b().c();
-            } else if (!wk5.b().i() && wk5.b().k()) {
-                wk5.b().o();
+                yo5.b().m(yo5.b().j());
+                yo5.b().c();
+            } else if (!yo5.b().i() && yo5.b().k()) {
+                yo5.b().o();
             }
         }
     }
@@ -329,10 +329,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                wk5.b().m(wk5.b().j());
-                wk5.b().c();
-            } else if (!wk5.b().i() && wk5.b().k()) {
-                wk5.b().o();
+                yo5.b().m(yo5.b().j());
+                yo5.b().c();
+            } else if (!yo5.b().i() && yo5.b().k()) {
+                yo5.b().o();
             }
         }
     }
@@ -388,11 +388,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                s7a.j(tbPageContext, "", forumWriteData);
+                                hea.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                s7a.j(tbPageContext, str2, forumWriteData2);
+                                hea.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -623,7 +623,7 @@ public class MainTabActivityStatic {
         if (b2 != a || c2 != b) {
             a = b2;
             b = c2;
-            o65.m().z("message_count", b2);
+            l95.m().z("message_count", b2);
             ChatTabUnreadCountData chatTabUnreadCountData = new ChatTabUnreadCountData();
             chatTabUnreadCountData.setCountNum(b2);
             chatTabUnreadCountData.setShowTip(c2);

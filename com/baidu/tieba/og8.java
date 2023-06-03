@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes6.dex */
-public final class og8 extends ng8<ImageMsg, re8> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class og8 extends th8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ng8
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sh8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            return false;
         }
-        return invokeV.intValue;
+        return invokeCommon.booleanValue;
     }
 
     public og8() {
@@ -37,32 +41,36 @@ public final class og8 extends ng8<ImageMsg, re8> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ng8
-    /* renamed from: h */
-    public ImageMsg e(re8 re8Var) {
+    @Override // com.baidu.tieba.th8
+    public List<rh8> j(@NonNull List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, re8Var)) == null) {
-            return new ImageMsg();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof BaseMsg) {
+                    BaseMsg baseMsg = (BaseMsg) obj;
+                    List<AbilityItem> quickOperate = baseMsg.getCommonMsgField().getQuickOperate();
+                    if (ListUtils.isEmpty(quickOperate)) {
+                        break;
+                    }
+                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
+                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
+                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
+                            tg8 tg8Var = new tg8();
+                            tg8Var.e(abilityItem);
+                            tg8Var.f(baseMsg);
+                            if (baseMsg != null && baseMsg.getCommonMsgField() != null) {
+                                tg8Var.g(baseMsg.getCommonMsgField().getUserId());
+                            }
+                            arrayList.add(tg8Var);
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        return (ImageMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ng8
-    /* renamed from: i */
-    public re8 g(ImageMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            re8 re8Var = new re8();
-            re8Var.e(sdkMsg.getRemoteUrl());
-            re8Var.g(sdkMsg.getThumbUrl());
-            re8Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
-            return re8Var;
-        }
-        return (re8) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

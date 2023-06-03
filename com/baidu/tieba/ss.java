@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ss<D extends BuoyViewData> implements ys<D> {
+public class ss {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ss a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final at<D> a;
 
     public ss() {
         Interceptable interceptable = $ic;
@@ -23,25 +21,30 @@ public class ss<D extends BuoyViewData> implements ys<D> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new at<>();
     }
 
-    public zs<D> a() {
+    public static ss a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ss.class) {
+                    if (a == null) {
+                        a = new ss();
+                    }
+                }
+            }
+            return a;
         }
-        return (zs) invokeV.objValue;
+        return (ss) invokeV.objValue;
     }
 
-    public void b(D d) {
+    public void b(String str, us usVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d) == null) {
-            this.a.o(d);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, usVar) == null) {
+            xs.b().g(str, usVar);
         }
     }
 }

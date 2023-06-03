@@ -10,7 +10,7 @@ public class c74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String errMsg;
+    public int progress;
 
     public c74() {
         Interceptable interceptable = $ic;

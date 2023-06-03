@@ -1,28 +1,28 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.bab;
-import com.baidu.tieba.bbb;
-import com.baidu.tieba.d8b;
-import com.baidu.tieba.ibb;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.k7b;
-import com.baidu.tieba.o7b;
-import com.baidu.tieba.u7b;
+import com.baidu.tieba.bpb;
+import com.baidu.tieba.bqb;
+import com.baidu.tieba.dnb;
+import com.baidu.tieba.iqb;
+import com.baidu.tieba.jmb;
+import com.baidu.tieba.kmb;
+import com.baidu.tieba.omb;
+import com.baidu.tieba.umb;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes10.dex */
-public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
+/* loaded from: classes2.dex */
+public final class QueuedProducer<T> extends AtomicLong implements kmb, jmb<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final o7b<? super T> child;
+    public final omb<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.jmb
     public void onCompleted() {
         this.done = true;
         drain();
@@ -32,13 +32,13 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(o7b<? super T> o7bVar) {
-        this(o7bVar, r0);
-        Queue babVar;
-        if (ibb.b()) {
-            babVar = new bbb();
+    public QueuedProducer(omb<? super T> ombVar) {
+        this(ombVar, r0);
+        Queue bpbVar;
+        if (iqb.b()) {
+            bpbVar = new bqb();
         } else {
-            babVar = new bab();
+            bpbVar = new bpb();
         }
     }
 
@@ -54,26 +54,26 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
         return true;
     }
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.jmb
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.jmb
     public void onNext(T t) {
         if (!offer(t)) {
             onError(new MissingBackpressureException());
         }
     }
 
-    @Override // com.baidu.tieba.k7b
+    @Override // com.baidu.tieba.kmb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                d8b.b(this, j);
+                dnb.b(this, j);
                 drain();
                 return;
             }
@@ -82,8 +82,8 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedProducer(o7b<? super T> o7bVar, Queue<Object> queue) {
-        this.child = o7bVar;
+    public QueuedProducer(omb<? super T> ombVar, Queue<Object> queue) {
+        this.child = ombVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -111,7 +111,7 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
     private void drain() {
         boolean z;
         if (this.wip.getAndIncrement() == 0) {
-            o7b<? super T> o7bVar = this.child;
+            omb<? super T> ombVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -133,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            o7bVar.onNext(null);
+                            ombVar.onNext(null);
                         } else {
-                            o7bVar.onNext(poll);
+                            ombVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -143,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements k7b, j7b<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        u7b.g(th, o7bVar, poll);
+                        umb.g(th, ombVar, poll);
                         return;
                     }
                 }

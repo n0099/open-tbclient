@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k15;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.h45;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -263,12 +263,12 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.j = new a(this);
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051c, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090fda);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fd8);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090fd9);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fd7);
-        this.b.setRadius(ri.g(context, R.dimen.tbds24));
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0528, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090fed);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090feb);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090fec);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fea);
+        this.b.setRadius(vi.g(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);
         this.b.setDefaultBgResource(17170445);
@@ -295,19 +295,19 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, k15 k15Var, boolean z) {
+    public void f(ThreadData threadData, h45 h45Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, k15Var, z) == null) {
-            if (threadData != null && k15Var != null && !StringUtils.isNull(k15Var.d())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, h45Var, z) == null) {
+            if (threadData != null && h45Var != null && !StringUtils.isNull(h45Var.d())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.N(k15Var.a(), 10, false);
-                this.c.setText(k15Var.d());
+                this.b.N(h45Var.a(), 10, false);
+                this.c.setText(h45Var.d());
                 if (!this.g) {
                     this.g = true;
-                    this.h = k15Var.e();
+                    this.h = h45Var.f();
                     j();
                     return;
                 }
@@ -357,13 +357,13 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.h) {
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f071b));
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0751));
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundResource(this.d, 17170445);
                 this.d.setOnClickListener(null);
                 return;
             }
-            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02e1));
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02e5));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
             this.d.setOnClickListener(this.j);

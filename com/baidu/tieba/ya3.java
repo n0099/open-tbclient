@@ -1,87 +1,165 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Bundle;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.vc3;
+import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.swan.apps.res.ui.BdDatePicker;
+import com.baidu.tieba.db3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
+import com.google.gson.internal.bind.TypeAdapters;
+import java.util.Date;
 /* loaded from: classes8.dex */
 public class ya3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdDatePicker c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
+    public boolean h;
+    public Date i;
+    public Date j;
 
     /* loaded from: classes8.dex */
-    public class a implements vc3.e {
+    public static class a extends db3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
+        public Date e;
+        public Date f;
+        public Date g;
+        public String h;
+        public boolean i;
 
-        public a(ya3 ya3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ya3Var, callbackHandler, unitedSchemeEntity, str};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
         }
 
-        @Override // com.baidu.tieba.vc3.e
-        public void a(String str) {
+        @Override // com.baidu.tieba.db3.a
+        public db3 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                g62.i("PreloadSubPackage", "preload subPackage success");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.c);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ya3 ya3Var = (ya3) super.a();
+                ya3Var.n(this.h);
+                ya3Var.l(this.i);
+                Date date = this.g;
+                if (date != null) {
+                    ya3Var.q(date.getYear() + FeatureCodes.SKY_SEG);
+                    ya3Var.o(this.g.getMonth() + 1);
+                    ya3Var.k(this.g.getDate());
+                }
+                Date date2 = this.e;
+                if (date2 != null) {
+                    ya3Var.p(date2);
+                }
+                Date date3 = this.f;
+                if (date3 != null) {
+                    ya3Var.m(date3);
+                }
+                return ya3Var;
             }
+            return (db3) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.vc3.e
-        public void b(int i, zk3 zk3Var) {
+        @Override // com.baidu.tieba.db3.a
+        public db3 b(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zk3Var) == null) {
-                g62.c("PreloadSubPackage", "preload subPackage failed");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.c);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new ya3(context);
             }
+            return (db3) invokeL.objValue;
+        }
+
+        public a l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.i = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a m(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
+                this.f = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a n(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.h = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
+                this.g = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a p(Date date) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
+                this.e = date;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ya3(da3 da3Var) {
-        super(da3Var, "/swanAPI/preloadSubPackage");
+    public ya3(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001bb);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,52 +167,147 @@ public class ya3 extends db3 {
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (g93Var == null) {
-                g62.c("PreloadSubPackage", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                g62.c("PreloadSubPackage", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                g62.c("PreloadSubPackage", "none cb");
-                if (db3.b) {
-                    Log.d("SwanAppAction", "preload subPackage cb is empty");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString2 = optParamsAsJo.optString("root");
-            if (TextUtils.isEmpty(optString2)) {
-                g62.c("PreloadSubPackage", "subPackage root is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (g93Var.v0(optString2) && g93Var.u0(optString2)) {
-                g62.i("PreloadSubPackage", "subPackage have existed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
-                return false;
-            } else {
-                String R = g93Var.R(optString2);
-                if (TextUtils.isEmpty(R)) {
-                    g62.i("PreloadSubPackage", "subPackage cannot find aps key");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                vc3.l(g93Var.b, g93Var.k0(), "1", optString2, R, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdDatePicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setScrollCycle(true);
+            this.c.setStartDate(this.i);
+            this.c.setEndDate(this.j);
+            this.c.setYear(this.d);
+            this.c.setMonth(this.e);
+            this.c.setDay(this.f);
+            this.c.n();
+            this.c.setFields(this.g);
+            this.c.setDisabled(this.h);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.getDay();
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.getMonth();
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c.getYear();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xa3, android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.show();
+        }
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (j(TypeAdapters.AnonymousClass27.YEAR)) {
+                sb.append(String.format("%d-", Integer.valueOf(i())));
+            }
+            if (j(TypeAdapters.AnonymousClass27.MONTH)) {
+                sb.append(String.format("%02d-", Integer.valueOf(g())));
+            }
+            if (j("day")) {
+                sb.append(String.format("%02d", Integer.valueOf(f())));
+            }
+            String sb2 = sb.toString();
+            if (sb2.endsWith("-")) {
+                return sb2.substring(0, sb2.length() - 1);
+            }
+            return sb2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.c.l(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void m(Date date) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
+            this.j = date;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            e();
+            b().j(this.c);
+        }
+    }
+
+    public void p(Date date) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, date) == null) {
+            this.i = date;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.d = i;
+        }
     }
 }

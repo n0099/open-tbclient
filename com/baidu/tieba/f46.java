@@ -1,197 +1,154 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.widget.scalablevideoview.PivotPoint;
-import com.baidu.tieba.advert.sdk.widget.scalablevideoview.ScalableType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class f46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g46 a;
-    public g46 b;
+    public boolean a;
+    public Context b;
+    public SparseArray<String> c;
+    public SparseArray<String> d;
+    public String[] e;
+    public LinearLayout f;
+    public CompoundButton.OnCheckedChangeListener g;
+    public CompoundButton.OnCheckedChangeListener h;
+    public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public int m;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f46 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-852405244, "Lcom/baidu/tieba/f46$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-852405244, "Lcom/baidu/tieba/f46$a;");
+        public a(f46 f46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PivotPoint.values().length];
-            b = iArr;
-            try {
-                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                b[PivotPoint.CENTER.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
-            }
-            int[] iArr2 = new int[ScalableType.values().length];
-            a = iArr2;
-            try {
-                iArr2[ScalableType.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[ScalableType.FIT_XY.ordinal()] = 2;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[ScalableType.FIT_CENTER.ordinal()] = 3;
-            } catch (NoSuchFieldError unused12) {
-            }
-            try {
-                a[ScalableType.FIT_START.ordinal()] = 4;
-            } catch (NoSuchFieldError unused13) {
-            }
-            try {
-                a[ScalableType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError unused14) {
-            }
-            try {
-                a[ScalableType.LEFT_TOP.ordinal()] = 6;
-            } catch (NoSuchFieldError unused15) {
-            }
-            try {
-                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
-            } catch (NoSuchFieldError unused16) {
-            }
-            try {
-                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
-            } catch (NoSuchFieldError unused17) {
-            }
-            try {
-                a[ScalableType.CENTER_TOP.ordinal()] = 9;
-            } catch (NoSuchFieldError unused18) {
-            }
-            try {
-                a[ScalableType.CENTER.ordinal()] = 10;
-            } catch (NoSuchFieldError unused19) {
-            }
-            try {
-                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
-            } catch (NoSuchFieldError unused20) {
-            }
-            try {
-                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
-            } catch (NoSuchFieldError unused21) {
-            }
-            try {
-                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
-            } catch (NoSuchFieldError unused22) {
-            }
-            try {
-                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
-            } catch (NoSuchFieldError unused23) {
-            }
-            try {
-                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
-            } catch (NoSuchFieldError unused24) {
-            }
-            try {
-                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
-            } catch (NoSuchFieldError unused25) {
-            }
-            try {
-                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
-            } catch (NoSuchFieldError unused26) {
-            }
-            try {
-                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
-            } catch (NoSuchFieldError unused27) {
-            }
-            try {
-                a[ScalableType.CENTER_CROP.ordinal()] = 19;
-            } catch (NoSuchFieldError unused28) {
-            }
-            try {
-                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
-            } catch (NoSuchFieldError unused29) {
-            }
-            try {
-                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
-            } catch (NoSuchFieldError unused30) {
-            }
-            try {
-                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
-            } catch (NoSuchFieldError unused31) {
-            }
-            try {
-                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
-            } catch (NoSuchFieldError unused32) {
-            }
-            try {
-                a[ScalableType.START_INSIDE.ordinal()] = 24;
-            } catch (NoSuchFieldError unused33) {
-            }
-            try {
-                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
-            } catch (NoSuchFieldError unused34) {
-            }
-            try {
-                a[ScalableType.END_INSIDE.ordinal()] = 26;
-            } catch (NoSuchFieldError unused35) {
+            this.a = f46Var;
+        }
+
+        @Override // android.widget.CompoundButton.OnCheckedChangeListener
+        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+            Map.Entry entry;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && compoundButton != null && this.a.i != null && !this.a.i.isEmpty()) {
+                boolean z2 = false;
+                if (z && this.a.k) {
+                    for (Map.Entry entry2 : this.a.i.entrySet()) {
+                        if (entry2 != null) {
+                            if (entry2.getKey() == compoundButton) {
+                                ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
+                                entry2.setValue(Boolean.TRUE);
+                            } else {
+                                ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
+                                entry2.setValue(Boolean.FALSE);
+                            }
+                        }
+                    }
+                }
+                if (this.a.k && !z && !this.a.l) {
+                    Iterator it = this.a.i.entrySet().iterator();
+                    while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
+                    }
+                    if (!z2) {
+                        for (Map.Entry entry3 : this.a.i.entrySet()) {
+                            if (entry3 != null && entry3.getKey() == compoundButton) {
+                                ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
+                                entry3.setValue(Boolean.TRUE);
+                                return;
+                            }
+                        }
+                    }
+                }
+                if (this.a.g != null) {
+                    this.a.g.onCheckedChanged(compoundButton, z);
+                }
             }
         }
     }
 
-    public f46(g46 g46Var, g46 g46Var2) {
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+
+        public b(f46 f46Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f46Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i2;
+            if (str != null && str.contains("%")) {
+                String[] split = str.split("%");
+                this.c = split[0];
+                if (split.length > 1) {
+                    this.d = split[1];
+                }
+            } else {
+                this.c = str;
+            }
+            this.a = i;
+        }
+    }
+
+    public f46(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g46Var, g46Var2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,226 +158,404 @@ public class f46 {
                 return;
             }
         }
-        this.a = g46Var;
-        this.b = g46Var2;
+        this.a = false;
+        this.c = null;
+        this.d = null;
+        this.k = false;
+        this.l = true;
+        this.m = -1;
+        this.b = context;
+        this.j = vi.g(context, R.dimen.M_H_X003);
+        this.h = new a(this);
     }
 
-    public final Matrix a() {
-        InterceptResult invokeV;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.CENTER);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void j(e35 e35Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, e35Var) != null) || e35Var == null) {
+            return;
+        }
+        this.c = e35Var.b();
+        this.d = e35Var.g;
+    }
+
+    public void k(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
+            this.e = strArr;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onCheckedChangeListener) == null) {
+            this.g = onCheckedChangeListener;
+        }
+    }
+
+    public final View e(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-            return c();
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.RIGHT_BOTTOM);
+            int i = 0;
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f, false);
             }
-            return d();
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+                if (bVar.a == this.m) {
+                    nEGFeedBackReasonCheckBox.setEnabled(false);
+                }
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+                if (bVar2.a == this.m) {
+                    nEGFeedBackReasonCheckBox2.setEnabled(false);
+                }
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(4);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            if (!z) {
+                i = this.j;
+            }
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
         }
-        return (Matrix) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final Matrix k() {
+    public final View f(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            int i = 0;
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.neg_feedback_reason_item, (ViewGroup) this.f, false);
+            }
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(8);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            if (!z) {
+                i = this.j;
+            }
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View g() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b);
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
+            }
+            List<List<b>> p = p();
+            if (ListUtils.isEmpty(p)) {
+                return null;
+            }
+            int size = p.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            for (int i = 0; i < size; i++) {
+                List<b> list = p.get(i);
+                if (i == size - 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                View e = e(list, z, this.f.getChildAt(i));
+                if (e != null && e.getParent() == null) {
+                    this.f.addView(e);
+                }
+            }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View h() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b);
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
+            }
+            List<List<b>> s = s();
+            if (ListUtils.isEmpty(s)) {
+                return null;
+            }
+            int size = s.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            for (int i = 0; i < size; i++) {
+                List<b> list = s.get(i);
+                if (i == size - 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                View f = f(list, z, this.f.getChildAt(i));
+                if (f != null && f.getParent() == null) {
+                    this.f.addView(f);
+                }
+            }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final List<List<b>> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String[] strArr = this.e;
+            if (strArr != null && strArr.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < this.e.length; i += 2) {
+                    ArrayList arrayList2 = new ArrayList();
+                    if (!StringUtils.isNull(this.e[i])) {
+                        arrayList2.add(new b(this, i, i + 1, this.e[i]));
+                    }
+                    int i2 = i + 1;
+                    String[] strArr2 = this.e;
+                    if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                        arrayList2.add(new b(this, i2, i + 2, this.e[i2]));
+                    }
+                    if (arrayList2.size() > 0) {
+                        arrayList.add(arrayList2);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
-        return (Matrix) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final Matrix n() {
+    public final List<List<b>> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
-                return l(PivotPoint.LEFT_TOP);
+            String[] strArr = this.e;
+            if (strArr != null && strArr.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < this.e.length; i += 2) {
+                    ArrayList arrayList2 = new ArrayList();
+                    if (!StringUtils.isNull(this.e[i])) {
+                        arrayList2.add(new b(this, i, 0, this.e[i]));
+                    }
+                    int i2 = i + 1;
+                    String[] strArr2 = this.e;
+                    if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                        arrayList2.add(new b(this, i2, 0, this.e[i2]));
+                    }
+                    if (arrayList2.size() > 0) {
+                        arrayList.add(arrayList2);
+                    }
+                }
+                return arrayList;
             }
-            return e();
+            return null;
         }
-        return (Matrix) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final Matrix c() {
+    public final List<List<b>> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return h(PivotPoint.CENTER);
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return h(PivotPoint.RIGHT_BOTTOM);
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return h(PivotPoint.LEFT_TOP);
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return j(1.0f, 1.0f, PivotPoint.LEFT_TOP);
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final Matrix g(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
-            float b = this.a.b() / this.b.b();
-            float a2 = this.a.a() / this.b.a();
-            float max = Math.max(b, a2);
-            return j(max / b, max / a2, pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix h(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
-            float b = this.a.b() / this.b.b();
-            float a2 = this.a.a() / this.b.a();
-            float min = Math.min(b, a2);
-            return j(min / b, min / a2, pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix l(PivotPoint pivotPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) {
-            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint);
-        }
-        return (Matrix) invokeL.objValue;
-    }
-
-    public final Matrix i(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.setScale(f, f2, f3, f4);
-            return matrix;
-        }
-        return (Matrix) invokeCommon.objValue;
-    }
-
-    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
-            switch (a.b[pivotPoint.ordinal()]) {
-                case 1:
-                    return i(f, f2, 0.0f, 0.0f);
-                case 2:
-                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
-                case 3:
-                    return i(f, f2, 0.0f, this.a.a());
-                case 4:
-                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
-                case 5:
-                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
-                case 6:
-                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
-                case 7:
-                    return i(f, f2, this.a.b(), 0.0f);
-                case 8:
-                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
-                case 9:
-                    return i(f, f2, this.a.b(), this.a.a());
-                default:
-                    throw new IllegalArgumentException("Illegal PivotPoint");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < size) {
+                    int i2 = i + 1;
+                    int i3 = i + 2;
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i, this.c.keyAt(i), this.c.valueAt(i));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i));
+                    }
+                    arrayList2.add(bVar);
+                    if (i2 > i && i2 < size) {
+                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i2));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i = i3;
+                }
+                return arrayList;
             }
+            return q();
         }
-        return (Matrix) invokeCommon.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public Matrix m(ScalableType scalableType) {
-        InterceptResult invokeL;
+    public final List<List<b>> s() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
-            switch (a.a[scalableType.ordinal()]) {
-                case 1:
-                    return k();
-                case 2:
-                    return f();
-                case 3:
-                    return c();
-                case 4:
-                    return e();
-                case 5:
-                    return d();
-                case 6:
-                    return l(PivotPoint.LEFT_TOP);
-                case 7:
-                    return l(PivotPoint.LEFT_CENTER);
-                case 8:
-                    return l(PivotPoint.LEFT_BOTTOM);
-                case 9:
-                    return l(PivotPoint.CENTER_TOP);
-                case 10:
-                    return l(PivotPoint.CENTER);
-                case 11:
-                    return l(PivotPoint.CENTER_BOTTOM);
-                case 12:
-                    return l(PivotPoint.RIGHT_TOP);
-                case 13:
-                    return l(PivotPoint.RIGHT_CENTER);
-                case 14:
-                    return l(PivotPoint.RIGHT_BOTTOM);
-                case 15:
-                    return g(PivotPoint.LEFT_TOP);
-                case 16:
-                    return g(PivotPoint.LEFT_CENTER);
-                case 17:
-                    return g(PivotPoint.LEFT_BOTTOM);
-                case 18:
-                    return g(PivotPoint.CENTER_TOP);
-                case 19:
-                    return g(PivotPoint.CENTER);
-                case 20:
-                    return g(PivotPoint.CENTER_BOTTOM);
-                case 21:
-                    return g(PivotPoint.RIGHT_TOP);
-                case 22:
-                    return g(PivotPoint.RIGHT_CENTER);
-                case 23:
-                    return g(PivotPoint.RIGHT_BOTTOM);
-                case 24:
-                    return n();
-                case 25:
-                    return a();
-                case 26:
-                    return b();
-                default:
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                int i5 = 0;
+                int i6 = -1;
+                if (this.a) {
+                    i = 0;
+                } else {
+                    i = -1;
+                }
+                if (this.a) {
+                    i2 = size - 1;
+                } else {
+                    i2 = size;
+                }
+                if (i2 > 1 && i2 % 2 == 1) {
+                    i6 = i + 1;
+                }
+                ArrayList arrayList = new ArrayList();
+                while (i5 < size) {
+                    if (i5 != i && i5 != i6) {
+                        i4 = i5 + 1;
+                        i3 = i5 + 2;
+                    } else {
+                        i3 = i5 + 1;
+                        i4 = i5;
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i5, this.c.keyAt(i5), this.c.valueAt(i5));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i5)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i5));
+                    }
+                    arrayList2.add(bVar);
+                    if (i4 > i5 && i4 < size) {
+                        b bVar2 = new b(this, i4, this.c.keyAt(i4), this.c.valueAt(i4));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i5)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i4));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i5 = i3;
+                }
+                return arrayList;
             }
+            return r();
         }
-        return (Matrix) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

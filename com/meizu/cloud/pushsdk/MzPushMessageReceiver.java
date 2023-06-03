@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class MzPushMessageReceiver extends BroadcastReceiver {
     public static final String TAG = "MzPushMessageReceiver";
     public static boolean bInitLog;

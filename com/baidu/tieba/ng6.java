@@ -1,54 +1,20 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
 public class ng6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, vg6> a;
-    public final Map<String, vg6> b;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ng6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-576272434, "Lcom/baidu/tieba/ng6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-576272434, "Lcom/baidu/tieba/ng6$b;");
-                    return;
-                }
-            }
-            a = new ng6(null);
-        }
-    }
+    public int a;
+    public String b;
+    public ArrayList<og6> c;
 
     public ng6() {
         Interceptable interceptable = $ic;
@@ -63,112 +29,54 @@ public class ng6 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
+        this.c = new ArrayList<>();
     }
 
-    public static ng6 d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (ng6) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ ng6(a aVar) {
-        this();
-    }
-
-    public vg6 e(String str) {
-        InterceptResult invokeL;
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.b.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
         }
-        return (vg6) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public vg6 f(Uri uri) {
-        InterceptResult invokeL;
+    public void a(og6 og6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                return this.a.get(uri.getPath());
-            }
-            return null;
-        }
-        return (vg6) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b.remove(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, og6Var) == null) {
+            this.c.add(og6Var);
         }
     }
 
-    public void i(Map<String, vg6> map) {
+    public og6 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.a.clear();
-            if (!zh6.b(map)) {
-                this.a.putAll(map);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return (og6) ListUtils.getItem(this.c, i);
+        }
+        return (og6) invokeI.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void a(String str, vg6 vg6Var) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, vg6Var) == null) {
-            this.b.put(str, vg6Var);
-        }
-    }
-
-    public void j(String str, Map<String, vg6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            h(str);
-            this.a.putAll(map);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !zh6.b(this.a)) {
-            for (String str : this.a.keySet()) {
-                vg6 vg6Var = this.a.get(str);
-                if (vg6Var != null) {
-                    vg6Var.g = true;
-                }
-            }
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (String str2 : this.a.keySet()) {
-            vg6 vg6Var = this.a.get(str2);
-            if (vg6Var != null && str.equals(vg6Var.c)) {
-                vg6Var.g = true;
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.a.keySet().iterator();
-        while (it.hasNext()) {
-            vg6 vg6Var = this.a.get(it.next());
-            if (vg6Var != null && str.equals(vg6Var.c)) {
-                it.remove();
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
         }
     }
 }

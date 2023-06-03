@@ -1,6 +1,5 @@
 package com.baidu.ar.face;
 
-import android.support.v4.media.session.MediaSessionCompat;
 import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.face.a.a;
@@ -15,7 +14,7 @@ public class b {
     public boolean nF = true;
     public boolean nG = true;
     public int nH = 180;
-    public int nI = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+    public int nI = 320;
     public boolean nJ = true;
     public boolean nK = false;
     public int nL = 4;
@@ -96,7 +95,7 @@ public class b {
 
     public void dr() {
         this.nH = 180;
-        this.nI = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        this.nI = 320;
     }
 
     public void ds() {

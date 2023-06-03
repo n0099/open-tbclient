@@ -217,7 +217,7 @@ public class ForegroundBusDelegate implements IBridgeActivityDelegate {
             mapFromForegroundRequestHeader.put("version", HiAnalyticsUtil.versionCodeToName(String.valueOf(this.foregroundHeader.getKitSdkVersion())));
             ResponseHeader responseHeader = this.responseHeader;
             if (responseHeader != null) {
-                mapFromForegroundRequestHeader.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(responseHeader.getStatusCode()));
+                mapFromForegroundRequestHeader.put("statusCode", String.valueOf(responseHeader.getStatusCode()));
                 mapFromForegroundRequestHeader.put("result", String.valueOf(this.responseHeader.getErrorCode()));
             }
             if (getActivity() != null) {
@@ -234,7 +234,7 @@ public class ForegroundBusDelegate implements IBridgeActivityDelegate {
             mapFromForegroundRequestHeader.put("version", HiAnalyticsUtil.versionCodeToName(String.valueOf(this.foregroundHeader.getKitSdkVersion())));
             ResponseHeader responseHeader = this.responseHeader;
             if (responseHeader != null) {
-                mapFromForegroundRequestHeader.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(responseHeader.getStatusCode()));
+                mapFromForegroundRequestHeader.put("statusCode", String.valueOf(responseHeader.getStatusCode()));
                 mapFromForegroundRequestHeader.put("result", String.valueOf(this.responseHeader.getErrorCode()));
             }
             if (getActivity() != null) {

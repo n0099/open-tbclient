@@ -20,16 +20,16 @@ public class b {
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0124b {
+    public interface InterfaceC0129b {
         void a(float f);
     }
 
     /* loaded from: classes3.dex */
     public class a implements SensorEventListener {
-        public final /* synthetic */ InterfaceC0124b a;
+        public final /* synthetic */ InterfaceC0129b a;
 
-        public a(InterfaceC0124b interfaceC0124b) {
-            this.a = interfaceC0124b;
+        public a(InterfaceC0129b interfaceC0129b) {
+            this.a = interfaceC0129b;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -49,9 +49,9 @@ public class b {
                 Log.w(str2, "onSensorChanged() event.values[0]:" + b.this.f);
             }
             b.this.e = System.currentTimeMillis();
-            InterfaceC0124b interfaceC0124b = this.a;
-            if (interfaceC0124b != null) {
-                interfaceC0124b.a(b.this.a());
+            InterfaceC0129b interfaceC0129b = this.a;
+            if (interfaceC0129b != null) {
+                interfaceC0129b.a(b.this.a());
             }
         }
     }
@@ -77,7 +77,7 @@ public class b {
     }
 
     @TargetApi(3)
-    public void a(InterfaceC0124b interfaceC0124b) {
+    public void a(InterfaceC0129b interfaceC0129b) {
         SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
         this.b = sensorManager;
         if (sensorManager == null) {
@@ -89,7 +89,7 @@ public class b {
         if (defaultSensor == null) {
             return;
         }
-        a aVar = new a(interfaceC0124b);
+        a aVar = new a(interfaceC0129b);
         this.d = aVar;
         this.b.registerListener(aVar, this.c, 3);
     }

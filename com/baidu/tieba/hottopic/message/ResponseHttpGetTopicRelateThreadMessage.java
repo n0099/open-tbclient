@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.sz7;
+import com.baidu.tieba.h58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,11 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz7 hotThreadItemListData;
+    public h58 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -57,19 +57,19 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
             DataRes dataRes = getTopicRelateThreadResIdl.data;
             this.thread_list = dataRes.thread_list;
             this.page = dataRes.page;
-            sz7 sz7Var = new sz7();
-            this.hotThreadItemListData = sz7Var;
-            sz7Var.i(getTopicRelateThreadResIdl.data);
+            h58 h58Var = new h58();
+            this.hotThreadItemListData = h58Var;
+            h58Var.i(getTopicRelateThreadResIdl.data);
         }
     }
 
-    public sz7 getHotThreadItemListData() {
+    public h58 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (sz7) invokeV.objValue;
+        return (h58) invokeV.objValue;
     }
 
     public Page getPage() {

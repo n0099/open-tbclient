@@ -11,6 +11,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
@@ -187,7 +188,7 @@ public final class VideoFrameReleaseTimeHelper {
         if (context == null) {
             windowManager = null;
         } else {
-            windowManager = (WindowManager) context.getSystemService("window");
+            windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
         this.windowManager = windowManager;
         if (windowManager != null) {

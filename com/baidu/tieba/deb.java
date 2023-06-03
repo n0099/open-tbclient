@@ -1,58 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kdb;
+import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class deb implements fhb {
+public abstract class deb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kdb.a a;
+    public String a;
 
-    @Override // com.baidu.tieba.fhb
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
+    public abstract void f(Bundle bundle);
+
+    public abstract boolean g(Bundle bundle);
+
+    public abstract String h(Bundle bundle);
+
+    public abstract void i(String str);
+
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
-        return invokeLL.booleanValue;
     }
 
-    public deb(kdb.a aVar) {
+    public final eeb<String> m(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return ceb.f.a().j(this.a, str);
+                }
             }
+            return new eeb<>(false, "sendData2MainProcessForStr null");
         }
-        this.a = aVar;
-    }
-
-    @Override // com.baidu.tieba.fhb
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
-            kdb.a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(cancelType);
-            }
-        }
+        return (eeb) invokeL.objValue;
     }
 }

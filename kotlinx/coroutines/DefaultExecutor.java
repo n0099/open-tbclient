@@ -1,25 +1,31 @@
 package kotlinx.coroutines;
 
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
 import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.coroutines.CoroutineContext;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u000b\bÀ\u0002\u0018\u00002\u00020\u00012\u00020\u0002B\t\b\u0002¢\u0006\u0004\b,\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\u0003H\u0000¢\u0006\u0004\b\t\u0010\u0005J#\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\f\u001a\u00020\u000b2\n\u0010\u000e\u001a\u00060\u0001j\u0002`\rH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0015\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0015\u0010\u0005J\u0015\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u000b¢\u0006\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u000b8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\u00198\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001e\u0010\u001bR\u0016\u0010\u001f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010\u001dR\u0016\u0010 \u001a\u00020\u00198\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b \u0010\u001bR\u0016\u0010!\u001a\u00020\u00198\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b!\u0010\u001bR\u0016\u0010#\u001a\u00020\"8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b#\u0010$R\u001e\u0010%\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\f\n\u0004\b%\u0010&\u0012\u0004\b'\u0010\u0005R\u0016\u0010(\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b(\u0010\u001bR\u0016\u0010)\u001a\u00020\u00128B@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\b)\u0010\u0014R\u0016\u0010+\u001a\u00020\u00068T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b*\u0010\b¨\u0006-"}, d2 = {"Lkotlinx/coroutines/DefaultExecutor;", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/EventLoopImplBase;", "", "acknowledgeShutdownIfNeeded", "()V", "Ljava/lang/Thread;", "createThreadSync", "()Ljava/lang/Thread;", "ensureStarted$kotlinx_coroutines_core", "ensureStarted", "", "timeMillis", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlinx/coroutines/DisposableHandle;", "invokeOnTimeout", "(JLjava/lang/Runnable;)Lkotlinx/coroutines/DisposableHandle;", "", "notifyStartup", "()Z", "run", "timeout", "shutdown", "(J)V", "", "ACTIVE", "I", "DEFAULT_KEEP_ALIVE", "J", "FRESH", "KEEP_ALIVE_NANOS", "SHUTDOWN_ACK", "SHUTDOWN_REQ", "", "THREAD_NAME", "Ljava/lang/String;", "_thread", "Ljava/lang/Thread;", "_thread$annotations", "debugStatus", "isShutdownRequested", "getThread", "thread", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlinx.coroutines.EventLoopImplBase;
+@Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\bÀ\u0002\u0018\u00002\u00020\u00012\u00060\u0002j\u0002`\u0003B\u0007\b\u0002¢\u0006\u0002\u0010\u0004J\b\u0010\u001d\u001a\u00020\u001eH\u0002J\b\u0010\u001f\u001a\u00020\u0011H\u0002J\u0014\u0010 \u001a\u00020\u001e2\n\u0010!\u001a\u00060\u0002j\u0002`\u0003H\u0016J\r\u0010\"\u001a\u00020\u001eH\u0000¢\u0006\u0002\b#J$\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\b2\n\u0010'\u001a\u00060\u0002j\u0002`\u00032\u0006\u0010(\u001a\u00020)H\u0016J\b\u0010*\u001a\u00020\u0015H\u0002J\u0018\u0010+\u001a\u00020\u001e2\u0006\u0010,\u001a\u00020\b2\u0006\u0010-\u001a\u00020.H\u0014J\b\u0010/\u001a\u00020\u001eH\u0016J\b\u00100\u001a\u00020\u001eH\u0016J\b\u00101\u001a\u00020\u001eH\u0002J\u000e\u00102\u001a\u00020\u001e2\u0006\u00103\u001a\u00020\bR\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\b\n\u0000\u0012\u0004\b\u0012\u0010\u0004R\u000e\u0010\u0013\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0014\u001a\u00020\u00158BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0016R\u0014\u0010\u0017\u001a\u00020\u00158BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0016R\u0014\u0010\u0018\u001a\u00020\u00158@X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u0016R\u0014\u0010\u001a\u001a\u00020\u00118TX\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u001b\u0010\u001c¨\u00064"}, d2 = {"Lkotlinx/coroutines/DefaultExecutor;", "Lkotlinx/coroutines/EventLoopImplBase;", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "()V", "ACTIVE", "", "DEFAULT_KEEP_ALIVE_MS", "", "FRESH", "KEEP_ALIVE_NANOS", "SHUTDOWN", "SHUTDOWN_ACK", "SHUTDOWN_REQ", "THREAD_NAME", "", "_thread", "Ljava/lang/Thread;", "get_thread$annotations", "debugStatus", "isShutDown", "", "()Z", "isShutdownRequested", "isThreadPresent", "isThreadPresent$kotlinx_coroutines_core", "thread", "getThread", "()Ljava/lang/Thread;", "acknowledgeShutdownIfNeeded", "", "createThreadSync", "enqueue", DownloadStatisticConstants.UBC_VALUE_TASK, "ensureStarted", "ensureStarted$kotlinx_coroutines_core", "invokeOnTimeout", "Lkotlinx/coroutines/DisposableHandle;", "timeMillis", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "context", "Lkotlin/coroutines/CoroutineContext;", "notifyStartup", "reschedule", "now", "delayedTask", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "run", "shutdown", "shutdownError", "shutdownForTests", "timeout", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class DefaultExecutor extends EventLoopImplBase implements Runnable {
     public static final int ACTIVE = 1;
-    public static final long DEFAULT_KEEP_ALIVE = 1000;
+    public static final long DEFAULT_KEEP_ALIVE_MS = 1000;
     public static final int FRESH = 0;
     public static final DefaultExecutor INSTANCE;
     public static final long KEEP_ALIVE_NANOS;
+    public static final int SHUTDOWN = 4;
     public static final int SHUTDOWN_ACK = 3;
     public static final int SHUTDOWN_REQ = 2;
     public static final String THREAD_NAME = "kotlinx.coroutines.DefaultExecutor";
     public static volatile Thread _thread;
     public static volatile int debugStatus;
 
-    public static /* synthetic */ void _thread$annotations() {
+    public static /* synthetic */ void get_thread$annotations() {
     }
 
     static {
@@ -57,6 +63,13 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         return thread;
     }
 
+    private final boolean isShutDown() {
+        if (debugStatus == 4) {
+            return true;
+        }
+        return false;
+    }
+
     private final boolean isShutdownRequested() {
         int i = debugStatus;
         if (i != 2 && i != 3) {
@@ -74,6 +87,10 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         return true;
     }
 
+    private final void shutdownError() {
+        throw new RejectedExecutionException("DefaultExecutor was shut down. This error indicates that Dispatchers.shutdown() was invoked prior to completion of exiting coroutines, leaving coroutines in incomplete state. Please refer to Dispatchers.shutdown documentation for more details");
+    }
+
     @Override // kotlinx.coroutines.EventLoopImplPlatform
     public Thread getThread() {
         Thread thread = _thread;
@@ -81,6 +98,27 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
             return createThreadSync();
         }
         return thread;
+    }
+
+    public final boolean isThreadPresent$kotlinx_coroutines_core() {
+        if (_thread != null) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlinx.coroutines.EventLoopImplBase, kotlinx.coroutines.EventLoop
+    public void shutdown() {
+        debugStatus = 4;
+        super.shutdown();
+    }
+
+    @Override // kotlinx.coroutines.EventLoopImplBase
+    public void enqueue(Runnable runnable) {
+        if (isShutDown()) {
+            shutdownError();
+        }
+        super.enqueue(runnable);
     }
 
     public final synchronized void ensureStarted$kotlinx_coroutines_core() {
@@ -110,17 +148,24 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
     }
 
     @Override // kotlinx.coroutines.EventLoopImplBase, kotlinx.coroutines.Delay
-    public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
+    public DisposableHandle invokeOnTimeout(long j, Runnable runnable, CoroutineContext coroutineContext) {
         return scheduleInvokeOnTimeout(j, runnable);
+    }
+
+    @Override // kotlinx.coroutines.EventLoopImplPlatform
+    public void reschedule(long j, EventLoopImplBase.DelayedTask delayedTask) {
+        shutdownError();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[SPUT, INVOKE, INVOKE]}, finally: {[SPUT, INVOKE, INVOKE, INVOKE, IF, INVOKE, INVOKE, INVOKE, IF, INVOKE, IF] complete} */
     @Override // java.lang.Runnable
     public void run() {
-        long nanoTime;
+        Unit unit;
+        Long valueOf;
+        long longValue;
         boolean isEmpty;
         ThreadLocalEventLoop.INSTANCE.setEventLoop$kotlinx_coroutines_core(this);
-        TimeSource timeSource = TimeSourceKt.getTimeSource();
+        AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
         if (timeSource != null) {
             timeSource.registerTimeLoopThread();
         }
@@ -136,41 +181,43 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
                 Thread.interrupted();
                 long processNextEvent = processNextEvent();
                 if (processNextEvent == Long.MAX_VALUE) {
-                    int i = (j > Long.MAX_VALUE ? 1 : (j == Long.MAX_VALUE ? 0 : -1));
-                    if (i == 0) {
-                        TimeSource timeSource2 = TimeSourceKt.getTimeSource();
-                        if (timeSource2 != null) {
-                            nanoTime = timeSource2.nanoTime();
-                        } else {
-                            nanoTime = System.nanoTime();
+                    AbstractTimeSource timeSource2 = AbstractTimeSourceKt.getTimeSource();
+                    if (timeSource2 == null) {
+                        valueOf = null;
+                    } else {
+                        valueOf = Long.valueOf(timeSource2.nanoTime());
+                    }
+                    if (valueOf == null) {
+                        longValue = System.nanoTime();
+                    } else {
+                        longValue = valueOf.longValue();
+                    }
+                    if (j == Long.MAX_VALUE) {
+                        j = KEEP_ALIVE_NANOS + longValue;
+                    }
+                    long j2 = j - longValue;
+                    if (j2 <= 0) {
+                        _thread = null;
+                        acknowledgeShutdownIfNeeded();
+                        AbstractTimeSource timeSource3 = AbstractTimeSourceKt.getTimeSource();
+                        if (timeSource3 != null) {
+                            timeSource3.unregisterTimeLoopThread();
                         }
-                        if (i == 0) {
-                            j = KEEP_ALIVE_NANOS + nanoTime;
-                        }
-                        long j2 = j - nanoTime;
-                        if (j2 <= 0) {
-                            _thread = null;
-                            acknowledgeShutdownIfNeeded();
-                            TimeSource timeSource3 = TimeSourceKt.getTimeSource();
-                            if (timeSource3 != null) {
-                                timeSource3.unregisterTimeLoopThread();
-                            }
-                            if (!isEmpty()) {
-                                getThread();
-                                return;
-                            }
+                        if (!isEmpty()) {
+                            getThread();
                             return;
                         }
-                        processNextEvent = RangesKt___RangesKt.coerceAtMost(processNextEvent, j2);
-                    } else {
-                        processNextEvent = RangesKt___RangesKt.coerceAtMost(processNextEvent, KEEP_ALIVE_NANOS);
+                        return;
                     }
+                    processNextEvent = RangesKt___RangesKt.coerceAtMost(processNextEvent, j2);
+                } else {
+                    j = Long.MAX_VALUE;
                 }
                 if (processNextEvent > 0) {
                     if (isShutdownRequested()) {
                         _thread = null;
                         acknowledgeShutdownIfNeeded();
-                        TimeSource timeSource4 = TimeSourceKt.getTimeSource();
+                        AbstractTimeSource timeSource4 = AbstractTimeSourceKt.getTimeSource();
                         if (timeSource4 != null) {
                             timeSource4.unregisterTimeLoopThread();
                         }
@@ -180,10 +227,14 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
                         }
                         return;
                     }
-                    TimeSource timeSource5 = TimeSourceKt.getTimeSource();
-                    if (timeSource5 != null) {
-                        timeSource5.parkNanos(this, processNextEvent);
+                    AbstractTimeSource timeSource5 = AbstractTimeSourceKt.getTimeSource();
+                    if (timeSource5 == null) {
+                        unit = null;
                     } else {
+                        timeSource5.parkNanos(this, processNextEvent);
+                        unit = Unit.INSTANCE;
+                    }
+                    if (unit == null) {
                         LockSupport.parkNanos(this, processNextEvent);
                     }
                 }
@@ -191,7 +242,7 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         } finally {
             _thread = null;
             acknowledgeShutdownIfNeeded();
-            TimeSource timeSource6 = TimeSourceKt.getTimeSource();
+            AbstractTimeSource timeSource6 = AbstractTimeSourceKt.getTimeSource();
             if (timeSource6 != null) {
                 timeSource6.unregisterTimeLoopThread();
             }
@@ -201,7 +252,8 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         }
     }
 
-    public final synchronized void shutdown(long j) {
+    public final synchronized void shutdownForTests(long j) {
+        Unit unit;
         long currentTimeMillis = System.currentTimeMillis() + j;
         if (!isShutdownRequested()) {
             debugStatus = 2;
@@ -209,10 +261,14 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         while (debugStatus != 3 && _thread != null) {
             Thread thread = _thread;
             if (thread != null) {
-                TimeSource timeSource = TimeSourceKt.getTimeSource();
-                if (timeSource != null) {
-                    timeSource.unpark(thread);
+                AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
+                if (timeSource == null) {
+                    unit = null;
                 } else {
+                    timeSource.unpark(thread);
+                    unit = Unit.INSTANCE;
+                }
+                if (unit == null) {
                     LockSupport.unpark(thread);
                 }
             }

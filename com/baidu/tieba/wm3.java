@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wm3 implements View.OnTouchListener {
+public class wm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
 
     public wm3() {
         Interceptable interceptable = $ic;
@@ -27,39 +31,22 @@ public class wm3 implements View.OnTouchListener {
         }
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static wm3 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 2) {
-                    View view3 = this.a;
-                    if (view3 == null) {
-                        view2.setAlpha(1.0f);
-                        return false;
-                    }
-                    view3.setAlpha(1.0f);
-                    return false;
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            wm3 wm3Var = new wm3();
+            if (jSONObject == null) {
+                return wm3Var;
             }
-            View view4 = this.a;
-            float f = 0.5f;
-            if (view4 == null) {
-                if (!ns2.M().a()) {
-                    f = 0.2f;
-                }
-                view2.setAlpha(f);
-                return false;
-            }
-            if (!ns2.M().a()) {
-                f = 0.2f;
-            }
-            view4.setAlpha(f);
-            return false;
+            wm3Var.a = jSONObject.optString("SSID");
+            wm3Var.b = jSONObject.optString("BSSID");
+            wm3Var.e = jSONObject.optBoolean("maunal");
+            wm3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
+            wm3Var.c = jSONObject.optString("identity");
+            return wm3Var;
         }
-        return invokeLL.booleanValue;
+        return (wm3) invokeL.objValue;
     }
 }

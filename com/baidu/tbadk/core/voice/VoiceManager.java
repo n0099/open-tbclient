@@ -23,6 +23,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
@@ -32,20 +33,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.jj;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.kt9;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ti;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.w85;
-import com.baidu.tieba.wk5;
-import com.baidu.tieba.x85;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.ij;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.nj;
+import com.baidu.tieba.og;
+import com.baidu.tieba.p9;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.tb5;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.wz9;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,8 +92,8 @@ public class VoiceManager extends BroadcastReceiver {
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<kt9> mRecorderManagerRespMsg;
-    public kg<x85> mResourceCall;
+    public CustomResponsedMessage<wz9> mRecorderManagerRespMsg;
+    public og<tb5> mResourceCall;
     public l mSensorListener;
     public final BroadcastReceiver mVoicePlayerReceiver;
     public Sensor proximitySensor;
@@ -126,9 +127,9 @@ public class VoiceManager extends BroadcastReceiver {
 
     /* loaded from: classes4.dex */
     public interface j {
-        i e1(VoiceData.VoiceModel voiceModel);
+        i f1(VoiceData.VoiceModel voiceModel);
 
-        VoiceManager x0();
+        VoiceManager y0();
     }
 
     static {
@@ -319,7 +320,7 @@ public class VoiceManager extends BroadcastReceiver {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends kg<x85> {
+    public class c extends og<tb5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
@@ -343,21 +344,21 @@ public class VoiceManager extends BroadcastReceiver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.og
         /* renamed from: a */
-        public void onLoaded(x85 x85Var, String str, int i) {
+        public void onLoaded(tb5 tb5Var, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, x85Var, str, i) == null) {
-                super.onLoaded(x85Var, str, i);
-                if (this.a.getCurPlayModel() == null || this.a.sPlayView == null || x85Var == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tb5Var, str, i) == null) {
+                super.onLoaded(tb5Var, str, i);
+                if (this.a.getCurPlayModel() == null || this.a.sPlayView == null || tb5Var == null) {
                     return;
                 }
-                String e = x85Var.e();
-                String d = x85Var.d();
-                int b = x85Var.b();
-                String c = x85Var.c();
+                String e = tb5Var.e();
+                String d = tb5Var.d();
+                int b = tb5Var.b();
+                String c = tb5Var.c();
                 if (!StringUtils.isNull(e) && !StringUtils.isNull(d)) {
-                    if (!qi.isEquals(this.a.getCurPlayModel().getVoiceId(), d) || !VoiceManager.isVoiceDownloading(this.a.getCurPlayModel().voice_status.intValue())) {
+                    if (!ui.isEquals(this.a.getCurPlayModel().getVoiceId(), d) || !VoiceManager.isVoiceDownloading(this.a.getCurPlayModel().voice_status.intValue())) {
                         return;
                     }
                     VoiceManager voiceManager = this.a;
@@ -368,7 +369,7 @@ public class VoiceManager extends BroadcastReceiver {
                 if (b > 0 && !StringUtils.isNull(c) && (b == 2 || b == 4 || b == 3 || b == 7)) {
                     this.a.sPlayView.onShowErr(5, c);
                 } else {
-                    this.a.sPlayView.onShowErr(5, jj.a(R.string.voice_err_load_fail));
+                    this.a.sPlayView.onShowErr(5, nj.a(R.string.voice_err_load_fail));
                 }
                 VoiceManager voiceManager2 = this.a;
                 voiceManager2.setPlayWaiting(voiceManager2.getCurPlayModel());
@@ -548,9 +549,9 @@ public class VoiceManager extends BroadcastReceiver {
                             i playView3 = this.this$0.getPlayView();
                             if (playView3 != null) {
                                 if (intExtra2 == 2) {
-                                    a = jj.a(R.string.voice_err_io);
+                                    a = nj.a(R.string.voice_err_io);
                                 } else {
-                                    a = jj.a(R.string.obfuscated_res_0x7f0f17a8);
+                                    a = nj.a(R.string.obfuscated_res_0x7f0f180c);
                                 }
                                 playView3.onShowErr(5, a);
                             }
@@ -646,10 +647,10 @@ public class VoiceManager extends BroadcastReceiver {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't wrap try/catch for region: R(5:3|(3:4|5|6)|(5:7|8|(1:10)(1:21)|11|(1:13))|15|16) */
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x0095, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x0096, code lost:
             if (r4 == null) goto L19;
          */
-        /* JADX WARN: Removed duplicated region for block: B:44:0x009d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:47:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -723,12 +724,12 @@ public class VoiceManager extends BroadcastReceiver {
     }
 
     /* loaded from: classes4.dex */
-    public class k implements ej {
+    public class k implements ij {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
 
-        @Override // com.baidu.tieba.gj
+        @Override // com.baidu.tieba.kj
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -753,7 +754,7 @@ public class VoiceManager extends BroadcastReceiver {
             this.a = voiceManager;
         }
 
-        @Override // com.baidu.tieba.ej
+        @Override // com.baidu.tieba.ij
         public void d(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
@@ -772,7 +773,7 @@ public class VoiceManager extends BroadcastReceiver {
             this(voiceManager);
         }
 
-        @Override // com.baidu.tieba.gj
+        @Override // com.baidu.tieba.kj
         public void c(String str, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) && this.a.sPlayView != null && this.a.getCurPlayModel() != null) {
@@ -798,7 +799,7 @@ public class VoiceManager extends BroadcastReceiver {
             }
         }
 
-        @Override // com.baidu.tieba.gj
+        @Override // com.baidu.tieba.kj
         public void error(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
@@ -909,7 +910,7 @@ public class VoiceManager extends BroadcastReceiver {
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = !isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, kt9.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, wz9.class);
         this.mSensorListener = new l(this, null);
     }
 
@@ -931,9 +932,9 @@ public class VoiceManager extends BroadcastReceiver {
             view2.setBackgroundColor(-16777216);
         }
         if (this.windowManager == null) {
-            this.windowManager = (WindowManager) this.context.getContext().getSystemService("window");
+            this.windowManager = (WindowManager) this.context.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
-        if (!ug.f(this.context)) {
+        if (!yg.f(this.context)) {
             return;
         }
         try {
@@ -1016,12 +1017,12 @@ public class VoiceManager extends BroadcastReceiver {
 
     public void openSpeaker() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.audioManager != null && jj.a != 2) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.audioManager != null && nj.a != 2) {
             if (!TbadkCoreApplication.getInst().isHeadsetModeOn() && !TbadkCoreApplication.getInst().getIsPhoneCalling()) {
                 try {
                     saveInitVoiceStatus();
                     setSpeakerphone(true);
-                    jj.b = 3;
+                    nj.b = 3;
                     stopVoiceAndRePlay();
                     return;
                 } catch (Exception e2) {
@@ -1088,7 +1089,7 @@ public class VoiceManager extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeL(65591, this, voiceModel) == null) {
             unRegistSensorHandler();
             voiceModel.voice_status = 1;
-            jj.b = 2;
+            nj.b = 2;
             setVolumeControlStream();
             i playView = getPlayView();
             if (playView != null) {
@@ -1101,7 +1102,7 @@ public class VoiceManager extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65592, null, z) == null) {
             bVoiceUseSoftDecoder = true;
-            o65.m().w("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+            l95.m().w("voice_use_soft_decoder", bVoiceUseSoftDecoder);
         }
     }
 
@@ -1135,7 +1136,7 @@ public class VoiceManager extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
             if (getCurPlayModel() != null) {
-                lg.h().c(getCurPlayModel().getId(), 23);
+                pg.h().c(getCurPlayModel().getId(), 23);
             }
             release();
         }
@@ -1227,7 +1228,7 @@ public class VoiceManager extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeV(65569, null) == null) {
             synchronized (VoiceManager.class) {
                 if (!bInitConfig) {
-                    bVoiceUseSoftDecoder = o65.m().i("voice_use_soft_decoder", jj.b());
+                    bVoiceUseSoftDecoder = l95.m().i("voice_use_soft_decoder", nj.b());
                 }
             }
         }
@@ -1295,19 +1296,19 @@ public class VoiceManager extends BroadcastReceiver {
         return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public kt9 getRecorderManager() {
+    public wz9 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage<kt9> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<wz9> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                kt9 data = this.mRecorderManagerRespMsg.getData();
+                wz9 data = this.mRecorderManagerRespMsg.getData();
                 data.a(this.context);
                 return data;
             }
             return null;
         }
-        return (kt9) invokeV.objValue;
+        return (wz9) invokeV.objValue;
     }
 
     public boolean isPlaying() {
@@ -1379,7 +1380,7 @@ public class VoiceManager extends BroadcastReceiver {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65578, this, f2)) == null) {
-            if (ti.g().equals(MI3_MODEL_NAME) && this.sensorRegisterTime + 300 > new Date().getTime()) {
+            if (xi.g().equals(MI3_MODEL_NAME) && this.sensorRegisterTime + 300 > new Date().getTime()) {
                 return true;
             }
             return false;
@@ -1505,7 +1506,7 @@ public class VoiceManager extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeV(65593, this) == null) {
             try {
                 if (this.context != null && this.context.getPageActivity() != null) {
-                    this.context.getPageActivity().setVolumeControlStream(jj.b);
+                    this.context.getPageActivity().setVolumeControlStream(nj.b);
                 }
             } catch (Exception e2) {
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e2.getMessage(), "");
@@ -1521,7 +1522,7 @@ public class VoiceManager extends BroadcastReceiver {
         saveInitVoiceStatus();
         try {
             setSpeakerphone(false);
-            jj.b = 0;
+            nj.b = 0;
             stopVoiceAndRePlay();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1629,7 +1630,7 @@ public class VoiceManager extends BroadcastReceiver {
             try {
                 if (bInitSpeakerphoneOn != null && bInitMode != null && bInitVolume != null) {
                     setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                    jj.b = 3;
+                    nj.b = 3;
                     bInitSpeakerphoneOn = null;
                     bInitMode = null;
                     bInitVolume = null;
@@ -1650,24 +1651,24 @@ public class VoiceManager extends BroadcastReceiver {
                 if (this.mResourceCall == null) {
                     this.mResourceCall = new c(this);
                 }
-                Object b2 = w85.b(voiceModel.getId());
+                Object b2 = sb5.b(voiceModel.getId());
                 if (b2 == null) {
-                    if (this.context != null && (this.context.getOrignalPage() instanceof l9)) {
-                        bdUniqueId = ((l9) this.context.getOrignalPage()).getUniqueId();
+                    if (this.context != null && (this.context.getOrignalPage() instanceof p9)) {
+                        bdUniqueId = ((p9) this.context.getOrignalPage()).getUniqueId();
                     } else {
                         bdUniqueId = null;
                     }
                     if (voiceModel.isGroupChat) {
-                        b2 = lg.h().k(voiceModel.getVoiceUrl(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                        b2 = pg.h().k(voiceModel.getVoiceUrl(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
                     } else {
-                        b2 = lg.h().k(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                        b2 = pg.h().k(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
                     }
                 }
                 if (voiceModel.isLocal && b2 == null) {
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, jj.a(R.string.obfuscated_res_0x7f0f17a6));
+                    this.mPlayCall.error(5, nj.a(R.string.obfuscated_res_0x7f0f180a));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1730,8 +1731,8 @@ public class VoiceManager extends BroadcastReceiver {
         } else {
             i2 = 1;
         }
-        wk5.b().l(true);
-        wk5.b().n(true);
+        yo5.b().l(true);
+        yo5.b().n(true);
         if (getCurPlayModel() != null) {
             getCurPlayModel().setCurr_time(0);
             if (getCurPlayModel() == this.mNewClickModel) {
@@ -1772,9 +1773,9 @@ public class VoiceManager extends BroadcastReceiver {
                 try {
                     if (isVoicePlaying(voiceModel.voice_status.intValue())) {
                         setStatusWaiting(voiceModel);
-                        cj.f();
-                        if (wk5.b().d()) {
-                            wk5.b().l(false);
+                        gj.f();
+                        if (yo5.b().d()) {
+                            yo5.b().l(false);
                         }
                     } else {
                         setStatusWaiting(voiceModel);
@@ -1798,7 +1799,7 @@ public class VoiceManager extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00aa A[Catch: Exception -> 0x00ae, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ae, blocks: (B:5:0x000c, B:7:0x0010, B:8:0x0018, B:10:0x0023, B:12:0x0031, B:14:0x0040, B:16:0x0048, B:17:0x004b, B:18:0x004d, B:20:0x0054, B:23:0x005b, B:25:0x006a, B:27:0x0074, B:28:0x0080, B:31:0x009e, B:33:0x00aa, B:30:0x008a), top: B:44:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ab A[Catch: Exception -> 0x00af, TRY_LEAVE, TryCatch #0 {Exception -> 0x00af, blocks: (B:5:0x000c, B:7:0x0010, B:8:0x0018, B:10:0x0023, B:12:0x0031, B:14:0x0040, B:16:0x0048, B:17:0x004b, B:18:0x004d, B:20:0x0054, B:23:0x005b, B:25:0x006a, B:27:0x0074, B:28:0x0080, B:31:0x009f, B:33:0x00ab, B:30:0x008b), top: B:44:0x000c }] */
     /* JADX WARN: Removed duplicated region for block: B:45:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1812,7 +1813,7 @@ public class VoiceManager extends BroadcastReceiver {
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, jj.a(R.string.obfuscated_res_0x7f0f17a6));
+                    this.mPlayCall.error(5, nj.a(R.string.obfuscated_res_0x7f0f180a));
                     return;
                 }
                 registSensor();
@@ -1820,14 +1821,14 @@ public class VoiceManager extends BroadcastReceiver {
                 firstOpenSpeaker();
                 if (this.audioManager != null) {
                     if (this.audioManager.isSpeakerphoneOn()) {
-                        jj.b = 3;
+                        nj.b = 3;
                     } else {
-                        jj.b = 0;
+                        nj.b = 0;
                     }
                 }
                 setVolumeControlStream();
                 if (!bUseMedaiPlayer && !isUseMediaPlayer()) {
-                    boolean e2 = cj.e(str, this.mPlayCall, voiceModel.getCurr_time());
+                    boolean e2 = gj.e(str, this.mPlayCall, voiceModel.getCurr_time());
                     voiceModel.setCurr_time(0);
                     if (!e2) {
                         FieldBuilder fieldBuilder = new FieldBuilder();

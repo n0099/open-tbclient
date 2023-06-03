@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,26 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kc6 {
     public static /* synthetic */ Interceptable $ic;
+    public static kc6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public List<mc6> l;
-    public int m;
-    public long n;
+    public List<StatisticItem> a;
 
     public kc6() {
         Interceptable interceptable = $ic;
@@ -41,210 +30,88 @@ public class kc6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = -1;
-        this.l = new ArrayList();
     }
 
-    public String a() {
+    public static kc6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<mc6> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.l == null) {
-                this.l = new ArrayList();
-            }
-            return this.l;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.b == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.c == 9) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.c == 10) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            this.c = jSONObject.optInt("type");
-            this.d = jSONObject.optInt("mark_id");
-            this.e = jSONObject.optString("mark_name");
-            this.g = jSONObject.optString("description");
-            this.i = jSONObject.optInt("wear_status");
-            this.f = jSONObject.optString("mark_pic");
-            this.h = jSONObject.optInt("mark_rank");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            jSONObject.optInt("weight");
-            this.j = jSONObject.optString("next_level_diff");
-            jSONObject.optString("mark_dir_level");
-            this.k = jSONObject.optString("expire_text");
-            jSONObject.optString(DiskUpdateListener.BEGIN_TIME);
-            jSONObject.optString("end_time");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    mc6 mc6Var = new mc6();
-                    mc6Var.e(optJSONArray.optJSONObject(i));
-                    this.l.add(mc6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kc6.class) {
+                    if (b == null) {
+                        b = new kc6();
+                    }
                 }
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
-            if (optJSONObject != null) {
-                this.m = pg.e(optJSONObject.optString("props_id"), -1);
-                this.n = pg.g(optJSONObject.optString("price"), 0L);
-                optJSONObject.optString("buy_cycle");
-                optJSONObject.optInt("buy_staus");
+            return b;
+        }
+        return (kc6) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
+        }
+    }
+
+    public final long c(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
+            if (threadData != null && threadData.getThreadAlaInfo() != null) {
+                return threadData.getThreadAlaInfo().live_id;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("nobility_info");
-            if (optJSONObject2 != null) {
-                optJSONObject2.optInt("nobility_type");
-                optJSONObject2.optString("nobility_type_name");
+            return -1L;
+        }
+        return invokeL.longValue;
+    }
+
+    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
+        InterceptResult invokeCommon;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getThreadAlaInfo() != null && !StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
+                str3 = threadData.getThreadAlaInfo().appId;
+            } else {
+                str3 = "";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", 1);
+            statisticItem.param("obj_id", c(threadData));
+            statisticItem.param("tid", threadData.getId());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            statisticItem.param("entryid", i2);
+            statisticItem.param("name", str2);
+            statisticItem.param("is_small_follow", i);
+            return statisticItem;
+        }
+        return (StatisticItem) invokeCommon.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
             }
         }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.i = i;
-        }
+        this.a.clear();
     }
 }

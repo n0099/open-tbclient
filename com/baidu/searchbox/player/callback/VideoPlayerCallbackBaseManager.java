@@ -1,16 +1,29 @@
 package com.baidu.searchbox.player.callback;
 
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ILayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayerCallbackBaseManager {
     public ILayerActionCallback mLayerActionCallback;
+    public ILoadingCallback mLoadingCallback;
+    public IPlayerVolumeChangedListener mPlayerVolumeChangedListener;
+    public IPlayerPropertyStateCallback mPropertyStateChangedCallback;
     public IVideoPlayerCallback mVideoPlayerCallback;
 
-    @PublicMethod
+    public ILoadingCallback getLoadingCallback() {
+        return this.mLoadingCallback;
+    }
+
+    public IPlayerPropertyStateCallback getPlayerPropertyCallback() {
+        return this.mPropertyStateChangedCallback;
+    }
+
+    public IPlayerVolumeChangedListener getPlayerVolumeChangedListener() {
+        return this.mPlayerVolumeChangedListener;
+    }
+
     public IVideoPlayerCallback getVideoPlayerCallback() {
         return this.mVideoPlayerCallback;
     }
@@ -67,6 +80,9 @@ public class VideoPlayerCallbackBaseManager {
     public void release() {
         this.mVideoPlayerCallback = null;
         this.mLayerActionCallback = null;
+        this.mPropertyStateChangedCallback = null;
+        this.mPlayerVolumeChangedListener = null;
+        this.mLoadingCallback = null;
     }
 
     private void dispatchOnInfoAction(int i) {
@@ -81,6 +97,13 @@ public class VideoPlayerCallbackBaseManager {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
             iVideoPlayerCallback.onEnd(i);
+        }
+    }
+
+    public void onGlobalOrientationLock(boolean z) {
+        IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
+        if (iVideoPlayerCallback != null) {
+            iVideoPlayerCallback.onGlobalOrientationLock(z);
         }
     }
 
@@ -112,11 +135,29 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
+    public void onVolumeChanged(int i) {
+        IPlayerVolumeChangedListener iPlayerVolumeChangedListener = this.mPlayerVolumeChangedListener;
+        if (iPlayerVolumeChangedListener != null) {
+            iPlayerVolumeChangedListener.onVolumeChanged(i);
+        }
+    }
+
     public void setLayerActionCallback(ILayerActionCallback iLayerActionCallback) {
         this.mLayerActionCallback = iLayerActionCallback;
     }
 
-    @PublicMethod
+    public void setLoadingCallback(ILoadingCallback iLoadingCallback) {
+        this.mLoadingCallback = iLoadingCallback;
+    }
+
+    public void setPlayerVolumeChangedListener(IPlayerVolumeChangedListener iPlayerVolumeChangedListener) {
+        this.mPlayerVolumeChangedListener = iPlayerVolumeChangedListener;
+    }
+
+    public void setPropertyStateCallback(IPlayerPropertyStateCallback iPlayerPropertyStateCallback) {
+        this.mPropertyStateChangedCallback = iPlayerPropertyStateCallback;
+    }
+
     public void setVideoPlayerCallback(IVideoPlayerCallback iVideoPlayerCallback) {
         this.mVideoPlayerCallback = iVideoPlayerCallback;
     }
@@ -265,6 +306,13 @@ public class VideoPlayerCallbackBaseManager {
         IVideoPlayerCallback iVideoPlayerCallback = this.mVideoPlayerCallback;
         if (iVideoPlayerCallback != null) {
             iVideoPlayerCallback.onUpdateProgress(i, i2, i3);
+        }
+    }
+
+    public void onMuteStateChanged(boolean z, boolean z2) {
+        IPlayerPropertyStateCallback iPlayerPropertyStateCallback = this.mPropertyStateChangedCallback;
+        if (iPlayerPropertyStateCallback != null) {
+            iPlayerPropertyStateCallback.onMuteStateChanged(z, z2);
         }
     }
 

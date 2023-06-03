@@ -1,21 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,107 +11,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PrivateForumInfo;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes8.dex */
-public class yh7 extends PriorityOrganizer.Task {
+public final class yh7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final String t;
+    public static final a c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
-    public FrsPrivateCommonDialogView o;
-    public PrivateForumPopInfoData p;
-    public boolean q;
-    public String r;
-    public String s;
+    public final GroupFeedCard a;
+    public final String b;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d25 a;
-        public final /* synthetic */ yh7 b;
-
-        public a(yh7 yh7Var, d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh7Var, d25Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yh7Var;
-            this.a = d25Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                boolean booleanValue = ((Boolean) view2.getTag(R.id.is_forum_owner_check)).booleanValue();
-                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.private_pop_info);
-                UrlManager.getInstance().dealOneLink(this.b.m.getPageContext(), new String[]{privateForumPopInfoData.Y()});
-                gj7.f(privateForumPopInfoData, booleanValue, this.b.r, this.b.s, true);
-                this.a.dismiss();
-                this.b.t();
-            }
+    @JvmStatic
+    public static final void f(ForumGroup forumGroup, List<vn> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
+            c.b(forumGroup, list, str);
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements d25.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yh7 a;
-
-        public b(yh7 yh7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yh7Var;
-        }
-
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                d25Var.dismiss();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
-                this.a.t();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements DialogInterface.OnDismissListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public c(yh7 yh7Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -134,11 +57,39 @@ public class yh7 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        public final BdUniqueId a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                a35.s("frsExam");
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (BdUniqueId) invokeV.objValue;
+            }
+            return yh7.d;
+        }
+
+        @JvmStatic
+        public final void b(ForumGroup frsForumGroup, List<vn> newList, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
+                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
+                Intrinsics.checkNotNullParameter(newList, "newList");
+                int i = 0;
+                int i2 = 0;
+                for (vn vnVar : newList) {
+                    Integer num = frsForumGroup.feed_card.index;
+                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
+                    if (i >= num.intValue()) {
+                        break;
+                    }
+                    if (!Intrinsics.areEqual(vnVar.getType(), ThreadData.TYPE_TOP) && !pv5.p(vnVar)) {
+                        i++;
+                    }
+                    i2++;
+                }
+                if (i2 <= newList.size()) {
+                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
+                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
+                    newList.add(i2, new yh7(groupFeedCard, str));
+                }
             }
         }
     }
@@ -156,15 +107,18 @@ public class yh7 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        t = TbConfig.TIEBA_ADDRESS + "mo/q/forumtarget?fid=%1$s&fn=%2$s&nomenu=1";
+        c = new a(null);
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        d = gen;
     }
 
-    public yh7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public yh7(GroupFeedCard data, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {data, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -174,94 +128,36 @@ public class yh7 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        this.q = false;
-        this.n = frsActivity;
-        this.m = frsFragment;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
+    public final GroupFeedCard d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.I3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (GroupFeedCard) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
+    public final String e() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a35.j()) {
-                return false;
-            }
-            hq9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            FrsViewData frsViewData = new FrsViewData();
-            frsViewData.receiveData(frsResponseData);
-            if (frsViewData.getForum() != null) {
-                this.s = frsViewData.getForum().getName();
-                this.r = frsViewData.getForum().getId();
-            }
-            if (StringUtils.isNull(this.s) || StringUtils.isNull(this.r)) {
-                return false;
-            }
-            if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
-                return false;
-            }
-            PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
-            this.p = privateForumPopInfoData;
-            privateForumPopInfoData.Z(frsViewData.getPrivateForumTotalInfo().c());
-            this.o = new FrsPrivateCommonDialogView(this.n);
-            PrivateForumInfo a2 = frsViewData.getPrivateForumTotalInfo().a();
-            if (a2 != null && a2.private_forum_status.intValue() == 1 && (qi.isEmpty(this.p.X()) || this.p.W() != pg.e(this.r, 0))) {
-                this.p.c0("create_success");
-                this.p.d0(String.format(t, this.r, this.s));
-                this.p.b0(pg.e(this.r, -1));
-                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1655));
-                this.p.a0(this.m.getString(R.string.obfuscated_res_0x7f0f1656));
-                z = this.o.c(this.p, false);
-            } else if (this.p.W() == pg.e(this.r, 0)) {
-                z = this.o.c(this.p, false);
-            } else {
-                z = false;
-            }
-            if (!z) {
-                PrivateForumPopInfoData privateForumPopInfo = frsViewData.getPrivateForumPopInfo();
-                this.p = privateForumPopInfo;
-                if (privateForumPopInfo != null && privateForumPopInfo.W() == pg.e(this.r, 0)) {
-                    this.q = true;
-                    return this.o.c(this.p, true);
-                }
-                return z;
-            }
-            return z;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d25 d25Var = new d25(this.n);
-            d25Var.setContentViewSize(10);
-            d25Var.setContentView(this.o);
-            d25Var.setCanceledOnTouchOutside(false);
-            this.o.setConfirmButton(new a(this, d25Var));
-            d25Var.setCloseButton(new b(this));
-            d25Var.setOnDismissListener(new c(this));
-            d25Var.create(this.m.getPageContext()).show();
-            FrsPrivateCommonDialogView.setDialogShown(this.p, this.q);
-            gj7.f(this.p, this.q, this.r, this.s, false);
-            this.m.P4(true);
-            a35.m("frsExam");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return d;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

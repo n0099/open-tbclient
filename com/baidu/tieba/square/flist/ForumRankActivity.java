@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do9;
-import com.baidu.tieba.f9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.j9;
+import com.baidu.tieba.pu9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.u95;
+import com.baidu.tieba.v95;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,16 +40,16 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public do9 c;
+    public pu9 c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
     public LinearLayout g;
-    public z65 h;
+    public v95 h;
     public FrameLayout i;
     public String j;
     public boolean k;
-    public final f9 l;
+    public final j9 l;
     public final ImageProvider m;
 
     /* loaded from: classes7.dex */
@@ -87,7 +87,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements y65.g {
+    public class b implements u95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -110,7 +110,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.baidu.tieba.y65.g
+        @Override // com.baidu.tieba.u95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !this.a.b.loadData()) {
@@ -120,7 +120,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends f9 {
+    public class c extends j9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -143,7 +143,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.baidu.tieba.f9
+        @Override // com.baidu.tieba.j9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -164,15 +164,15 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                             this.a.e.setTag(forumRankData.pic_url);
                             ViewGroup.LayoutParams layoutParams = this.a.e.getLayoutParams();
                             layoutParams.width = -1;
-                            layoutParams.height = (int) ((ri.l(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
+                            layoutParams.height = (int) ((vi.l(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
                             this.a.j = forumRankData.pic_url;
                         }
                         this.a.c.f(forumRankData.forumsquare_list);
-                        do9 do9Var = this.a.c;
+                        pu9 pu9Var = this.a.c;
                         if (forumRankData.is_order == 0) {
                             z = false;
                         }
-                        do9Var.h(Boolean.valueOf(z));
+                        pu9Var.h(Boolean.valueOf(z));
                         this.a.d.setTitleText(forumRankData.title);
                         ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
                         if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
@@ -189,22 +189,22 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                     }
                     this.a.a.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091ea2), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091ed0), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                     NewErrorData newErrorData = forumRankData.error;
                     if (newErrorData != null) {
                         this.a.showToast(newErrorData.usermsg);
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0def);
                         return;
                     }
                 }
                 this.a.a.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091ea2), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091ed0), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0def);
             }
         }
     }
@@ -306,9 +306,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            do9 do9Var = new do9(getPageContext(), 0);
-            this.c = do9Var;
-            do9Var.e(100);
+            pu9 pu9Var = new pu9(getPageContext(), 0);
+            this.c = pu9Var;
+            pu9Var.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);
@@ -334,7 +334,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 this.a.setBackgroundColor(getResources().getColor(R.color.common_color_10163));
                 this.c.d(false);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091ea2), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091ed0), i);
             this.h.H(i);
             this.c.i(R.drawable.btn_add_end, R.drawable.btn_add);
             SkinManager.setBackgroundResource(this.g, R.drawable.bg_black_banner_down);
@@ -344,7 +344,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d02f2);
+            setContentView(R.layout.obfuscated_res_0x7f0d02fa);
             TbImageView tbImageView = new TbImageView(getPageContext().getPageActivity());
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -352,20 +352,20 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.d = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.setTitleText("");
-            this.a = (BdListView) findViewById(R.id.obfuscated_res_0x7f0914dd);
-            this.e.setLayoutParams(new AbsListView.LayoutParams(ri.l(getPageContext().getPageActivity()), (int) (ri.l(getPageContext().getPageActivity()) * 0.5d)));
+            this.a = (BdListView) findViewById(R.id.obfuscated_res_0x7f0914f5);
+            this.e.setLayoutParams(new AbsListView.LayoutParams(vi.l(getPageContext().getPageActivity()), (int) (vi.l(getPageContext().getPageActivity()) * 0.5d)));
             this.e.setVisibility(8);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
             this.g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            z65 z65Var = new z65(getPageContext());
-            this.h = z65Var;
-            this.a.setPullRefresh(z65Var);
+            v95 v95Var = new v95(getPageContext());
+            this.h = v95Var;
+            this.a.setPullRefresh(v95Var);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ri.g(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + vi.g(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.a.w(textView, 0);
             this.h.f(new b(this));
-            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909ca);
+            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909db);
         }
     }
 
@@ -375,7 +375,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (forumRankModel = this.b) != null) {
             forumRankModel.loadData();
-            hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091ea2));
+            hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091ed0));
         }
     }
 

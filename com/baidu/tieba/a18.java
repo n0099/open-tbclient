@@ -1,173 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.data.StatisticInfoField;
-import com.baidu.tieba.uh5;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes4.dex */
-public class a18 extends BdAsyncTask<String, Integer, String> {
+public class a18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public String b;
-    public String c;
-    public long d;
-    public long e;
-    public String f;
-    public Context g;
-    public boolean h;
-    public HashMap<String, Boolean> i;
 
-    public a18(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
+    public static void a(DataRes.Builder builder, List<vn> list) {
+        mo6 mo6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = new HashMap<>();
-        this.g = context;
-        this.b = str;
-        this.e = j;
-        this.f = str2;
-        this.d = j2;
-        this.h = z;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
-                ri.P(TbadkCoreApplication.getInst(), R.string.save_emotion_duplicate);
-            } else if (this.c == null) {
-            } else {
-                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    uh5.b bVar = new uh5.b();
-                    bVar.c = this.c;
-                    String str = this.b;
-                    bVar.a = str;
-                    bVar.b = str;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
-                    return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
                 }
-                Intent intent = new Intent(uh5.a);
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra(uh5.b, this.b);
-                intent.putExtra(uh5.c, this.b);
-                intent.putExtra(uh5.d, this.c);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                this.c = new JSONObject(str).getString("pid");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
-            }
-            this.c = null;
-            super.cancel(true);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onPreExecute();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
-            this.a = netWork;
-            String str = null;
-            try {
-                netWork.addPostData("pic_url", this.b);
-                str = this.a.postMultiNetData();
-                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    c(str);
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                vn vnVar = (vn) ListUtils.getItem(list, i);
+                if ((vnVar instanceof mo6) && (threadData = (mo6Var = (mo6) vnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(tg.g(threadData.getTid(), 0L))) != null) {
+                    mo6Var.D(threadPersonalized.source);
+                    mo6Var.I(threadPersonalized.weight);
+                    mo6Var.y(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        mo6Var.A(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        mo6Var.feedBackReasonMap = sparseArray;
+                        mo6Var.z(threadPersonalized.extra);
+                    }
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public static void b(List<vn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            super.onPostExecute((a18) str);
-            if (this.h) {
-                b();
-                s08.a(2, 1, this.e, this.d);
-                return;
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+            return;
+        }
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            vn vnVar = (vn) ListUtils.getItem(list, i);
+            boolean z = vnVar instanceof ap6;
+            if (z) {
+                ((ap6) vnVar).g(true);
             }
-            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
-            StatisticInfoField statisticInfoField = new StatisticInfoField();
-            String str2 = this.f;
-            if (str2 != null) {
-                statisticInfoField.setForumName(str2);
+            i++;
+            vn vnVar2 = (vn) ListUtils.getItem(list, i);
+            if (z && (vnVar2 instanceof ap6)) {
+                ap6 ap6Var = (ap6) vnVar;
+                ap6 ap6Var2 = (ap6) vnVar2;
+                if (ap6Var.v()) {
+                    ap6Var2.g(false);
+                    if (ap6Var2 instanceof h18) {
+                        ap6Var.N(false);
+                    }
+                }
             }
-            statisticInfoField.setForumId(String.valueOf(this.e));
-            statisticInfoField.setChatRoomId(String.valueOf(this.d));
-            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
-            personalMsgImageActivityConfig.setFrom(1);
-            personalMsgImageActivityConfig.setPid(this.c);
-            personalMsgImageActivityConfig.isFromGroupChat(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
-            s08.a(1, 2, this.e, this.d);
+            if (vnVar instanceof h18) {
+                ((h18) vnVar).N(false);
+            }
+        }
+    }
+
+    public static void c(DataRes.Builder builder, List<vn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
         }
     }
 }

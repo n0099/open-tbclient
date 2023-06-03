@@ -12,6 +12,7 @@ import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,7 +89,7 @@ public final class BIMRtcPbGenerator {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             DisplayMetrics displayMetrics = new DisplayMetrics();
             int i3 = 0;
             if (windowManager != null) {

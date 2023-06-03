@@ -24,10 +24,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
+import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
@@ -108,14 +108,14 @@ public class ImageActivity extends Activity {
             ImageActivity.this.j.setVisibility(8);
             JSONObject jSONObject = (JSONObject) obj;
             try {
-                i = jSONObject.getInt(Constants.KEYS.RET);
+                i = jSONObject.getInt("ret");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             if (i == 0) {
                 ImageActivity.this.a("设置成功", 0);
                 ImageActivity.this.a("10658", 0L);
-                d.a().a(ImageActivity.this.b.getOpenId(), ImageActivity.this.b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "3", "0");
+                d.a().a(ImageActivity.this.b.getOpenId(), ImageActivity.this.b.getAppId(), Constants.VIA_SET_AVATAR_SUCCEED, "12", "3", "0");
                 ImageActivity imageActivity = ImageActivity.this;
                 if (imageActivity.c != null && !"".equals(ImageActivity.this.c)) {
                     Intent intent = new Intent();
@@ -129,7 +129,7 @@ public class ImageActivity extends Activity {
                 return;
             }
             ImageActivity.this.a("设置出错了，请重新登录再尝试下呢：）", 1);
-            d.a().a(ImageActivity.this.b.getOpenId(), ImageActivity.this.b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "1");
+            d.a().a(ImageActivity.this.b.getOpenId(), ImageActivity.this.b.getAppId(), Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "1");
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -167,7 +167,7 @@ public class ImageActivity extends Activity {
             JSONObject jSONObject = (JSONObject) obj;
             int i = -1;
             try {
-                i = jSONObject.getInt(Constants.KEYS.RET);
+                i = jSONObject.getInt("ret");
                 if (i == 0) {
                     final String string = jSONObject.getString("nickname");
                     ImageActivity.this.d.post(new Runnable() { // from class: com.tencent.connect.avatar.ImageActivity.6.1
@@ -204,7 +204,7 @@ public class ImageActivity extends Activity {
             BaseApi.TempRequestListener tempRequestListener = new BaseApi.TempRequestListener(iUiListener);
             a.putByteArray("picture", byteArray);
             HttpUtils.requestAsync(this.c, f.a(), "user/set_user_face", a, "POST", tempRequestListener);
-            d.a().a(this.c.getOpenId(), this.c.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "0");
+            d.a().a(this.c.getOpenId(), this.c.getAppId(), Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "0");
         }
     }
 
@@ -368,10 +368,10 @@ public class ImageActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, String str2, String str3) {
         Intent intent = new Intent();
-        intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_CODE, i);
-        intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_MSG, str2);
-        intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_DETAIL, str3);
-        intent.putExtra(com.tencent.connect.common.Constants.KEY_RESPONSE, str);
+        intent.putExtra(Constants.KEY_ERROR_CODE, i);
+        intent.putExtra(Constants.KEY_ERROR_MSG, str2);
+        intent.putExtra(Constants.KEY_ERROR_DETAIL, str3);
+        intent.putExtra(Constants.KEY_RESPONSE, str);
         setResult(-1, intent);
     }
 
@@ -414,8 +414,8 @@ public class ImageActivity extends Activity {
             this.s = a2;
         } catch (IOException e) {
             e.printStackTrace();
-            a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-            a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
+            a(Constants.MSG_IMAGE_ERROR, 1);
+            a(-5, null, Constants.MSG_IMAGE_ERROR, e.getMessage());
             d();
         }
         if (a2 != null) {
@@ -490,8 +490,8 @@ public class ImageActivity extends Activity {
             a(createBitmap2);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-            a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
+            a(Constants.MSG_IMAGE_ERROR, 1);
+            a(-5, null, Constants.MSG_IMAGE_ERROR, e.getMessage());
             d();
         }
     }
@@ -538,7 +538,7 @@ public class ImageActivity extends Activity {
         setRequestedOrientation(1);
         setContentView(a());
         this.d = new Handler();
-        Bundle bundleExtra = getIntent().getBundleExtra(com.tencent.connect.common.Constants.KEY_PARAMS);
+        Bundle bundleExtra = getIntent().getBundleExtra(Constants.KEY_PARAMS);
         this.r = bundleExtra.getString("picture");
         this.c = bundleExtra.getString("return_activity");
         String string = bundleExtra.getString("appid");

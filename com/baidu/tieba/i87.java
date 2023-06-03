@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i87 {
+public final class i87<T> extends s77<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rh7 a;
+    public final T c;
+    public final String d;
 
-    public i87(TbPageContext tbPageContext, rh7 rh7Var) {
+    public i87(@NonNull T t, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, rh7Var};
+            Object[] objArr = {t, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +29,29 @@ public class i87 {
                 return;
             }
         }
-        this.a = rh7Var;
+        this.c = t;
+        this.d = str;
     }
 
-    public void a(pz5 pz5Var) {
-        rh7 rh7Var;
+    @Override // com.baidu.tieba.h87
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pz5Var) == null) && (rh7Var = this.a) != null && rh7Var.U0() != null && this.a.U0().C0() != null && this.a.x1() != null && pz5Var != null && this.a.x1().g0() != null && this.a.w0() != null) {
-            BdTypeRecyclerView g0 = this.a.x1().g0();
-            int i = pz5Var.a;
-            if (i != 2) {
-                if (i != 3 || pz5Var.a() == null) {
-                    return;
-                }
-                g0.removeHeaderView(pz5Var.a());
-                this.a.w0().y0(0);
-            } else if (pz5Var.a() == null) {
-            } else {
-                g0.removeHeaderView(pz5Var.a());
-                g0.addHeaderView(pz5Var.a(), g0.getHeaderViewsCount() - 1);
-                this.a.w0().y0(8);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h87
+    @NonNull
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (T) invokeV.objValue;
     }
 }

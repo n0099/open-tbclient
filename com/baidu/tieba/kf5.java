@@ -1,129 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class kf5 {
-    public static /* synthetic */ Interceptable $ic;
+public class kf5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public cn a;
-    public cn b;
-    public int c;
-    public int d;
 
-    public abstract String b(int i);
-
-    public abstract int c();
-
-    public abstract String f();
-
-    public abstract String g();
-
-    public abstract EmotionGroupType h();
-
-    public abstract int i();
-
-    public abstract boolean j();
-
-    public abstract int l();
-
-    public abstract boolean m(String str);
-
-    public abstract cn n(String str);
-
-    public abstract cn o(String str);
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947911183, "Lcom/baidu/tieba/kf5;")) == null) {
+            return;
         }
-    }
-
-    public kf5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947911183, "Lcom/baidu/tieba/kf5;");
         }
     }
 
-    public int a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (ui.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
+            }
+            return l95.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
         return invokeV.intValue;
     }
 
-    public cn d() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (cn) invokeV.objValue;
-    }
-
-    public cn e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (cn) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.icon_mask_share_wechat40_svg;
+                    }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.icon_mask_share_wechat40_svg;
+                            }
+                            return R.drawable.icon_mask_share_qq40_svg;
+                        }
+                        return R.drawable.icon_mask_share_weibo40_svg;
+                    }
+                    return R.drawable.icon_mask_share_qqzone40_svg;
+                }
+                return R.drawable.icon_mask_share_circle40_svg;
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    public void q(int i) {
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void r(cn cnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, cnVar) == null) {
-            if (cnVar != null) {
-                cnVar.p();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
             }
-            this.a = cnVar;
-        }
-    }
-
-    public void s(cn cnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, cnVar) == null) {
-            if (cnVar != null) {
-                cnVar.p();
+            if (!ui.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = l95.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
             }
-            this.b = cnVar;
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !ui.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            l95.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            l95.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
         }
     }
 
-    public void t(int i) {
+    public static void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.c = i;
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !ui.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            l95.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
         }
     }
 }

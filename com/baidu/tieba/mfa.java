@@ -1,289 +1,194 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64InputStream;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class mfa implements gga {
+public class mfa implements lfa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tga a;
-    public String b;
+    @NonNull
+    public final NewVcodeView a;
+    @NonNull
+    public final NewWriteModel b;
+    public final NewWriteModel.d c;
 
-    public abstract qga j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
-
-    public abstract qga k(String str, byte[] bArr, Map<String, String> map) throws IOException;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972129, "Lcom/baidu/tieba/mfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947972129, "Lcom/baidu/tieba/mfa;");
-                return;
-            }
+    @Override // com.baidu.tieba.lfa
+    public void c(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
         }
-        c = nga.m();
     }
 
-    public mfa() {
+    @Override // com.baidu.tieba.lfa
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.lfa
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements NewWriteModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mfa a;
+
+        public a(mfa mfaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mfaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mfaVar;
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, xd5 xd5Var, WriteData writeData, AntiData antiData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, xd5Var, writeData, antiData}) == null) {
+                this.a.a.showPostThreadLoadingView(false);
+                if (z) {
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                    intent.putExtras(bundle);
+                    hx9.j(writeData);
+                    k0a.a(writeData, postWriteCallBackData.getThreadId());
+                    this.a.a.getContext().setResult(-1, intent);
+                    this.a.a.getContext().finish();
+                } else if (xd5Var != null && !TextUtils.isEmpty(xd5Var.c())) {
+                    if (this.a.a.getWebView() != null) {
+                        this.a.a.getWebView().loadUrl(xd5Var.c());
+                    }
+                } else {
+                    if (postWriteCallBackData != null) {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                    }
+                    this.a.a.getContext().finish();
+                }
+            }
+        }
+    }
+
+    public mfa(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newVcodeView, newWriteModel};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new tga();
-        this.b = "";
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.s0(aVar);
     }
 
-    public final HashMap<String, String> c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lfa
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>(2);
-            hashMap.put("Content-type", "application/x-www-form-urlencoded");
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gga
-    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return i(this.b, jSONObject, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gga
-    public boolean b(File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return h(this.b, file, j, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = nga.k(z);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public final String e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.a.isUBCDebug();
-            if (TextUtils.isEmpty(str)) {
-                str = d(isUBCDebug);
-            }
-            if (z2) {
-                c2 = nga.h(str);
-            } else {
-                c2 = nga.c(str);
-            }
-            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
-                c2 = tha.a(c2, "debug", "1");
-            }
-            if (z) {
-                c2 = tha.a(c2, "reallog", "1");
-            }
-            if (sfa.o().E()) {
-                return tha.a(c2, "beta", "1");
-            }
-            return c2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final boolean f(qga qgaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qgaVar)) == null) {
-            if (qgaVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("objc:jsAiCodeBack")) {
                 return false;
             }
-            if (!qgaVar.e()) {
-                if (c) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + qgaVar.d());
-                } else {
-                    pga.a().i(qgaVar.d(), null);
-                }
-                if (sfa.o().M()) {
-                    g(qgaVar.c());
-                }
-                qgaVar.a();
-                return false;
+            String a2 = fy5.a(str);
+            if (!TextUtils.isEmpty(a2) && !"0".equals(a2)) {
+                g(a2);
+                return true;
             }
-            try {
-                int i = new JSONObject(qgaVar.b()).getInt("error");
-                if (i != 0) {
-                    if (c) {
-                        Log.d("UploadManager", "server error");
-                    }
-                    if (!c) {
-                        pga.a().k(i);
-                    }
-                }
-            } catch (Exception e) {
-                if (c) {
-                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
-                } else {
-                    pga.a().j(Log.getStackTraceString(e));
-                }
-            }
-            qgaVar.a();
+            this.a.getContext().finish();
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void g(int i) {
-        long j;
+    @Override // com.baidu.tieba.lfa
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean z = true;
-            if (i != 403 && i != 408 && i != 499) {
-                if (i >= 500 && i < 600) {
-                    j = 300000;
-                } else {
-                    z = false;
-                    if (!z) {
-                        sfa.o().Z(currentTimeMillis);
-                        return;
-                    }
-                    return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.showWebView(false);
+            if (this.b.k0() == null) {
+                return;
+            }
+            String vcodeUrl = this.b.k0().getVcodeUrl();
+            if (!TextUtils.isEmpty(vcodeUrl) && this.a.getWebView() != null) {
+                this.a.getWebView().loadUrl(vcodeUrl);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lfa
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (!vi.F()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0def);
+                this.a.getContext().finish();
+            } else if (!TextUtils.isEmpty(str)) {
+                this.a.showPostThreadLoadingView(true);
+                if (this.b.k0() != null) {
+                    this.b.k0().setVcode(str);
+                    this.b.k0().setVcodeType("6");
                 }
+                this.b.v0();
             } else {
-                j = 60000;
-            }
-            currentTimeMillis += j;
-            if (!z) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0def);
+                this.a.getContext().finish();
             }
         }
     }
 
-    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        InputStream inputStream;
+    @Override // com.baidu.tieba.lfa
+    public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            String e = e(str, z, z2);
-            HashMap<String, String> c2 = c();
-            if (uga.m().p() && j > 0) {
-                c2.put("Content-Length", String.valueOf(j));
-            }
-            InputStream inputStream2 = null;
-            try {
-                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
-                try {
-                    try {
-                        boolean f = f(j(e, inputStream, c2));
-                        oha.b(inputStream);
-                        return f;
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (c) {
-                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
-                        } else {
-                            pga.a().i(null, Log.getStackTraceString(e));
-                        }
-                        oha.b(inputStream);
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    inputStream2 = inputStream;
-                    oha.b(inputStream2);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                inputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
+            this.a.showWebViewDelay(500);
         }
-    }
-
-    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (jSONObject != null && (a = qha.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
-                a[0] = 117;
-                a[1] = 123;
-                String e = e(str, z, z2);
-                HashMap<String, String> c2 = c();
-                if (uga.m().p()) {
-                    c2.put("Content-Length", String.valueOf(a.length));
-                }
-                try {
-                    return f(k(e, a, c2));
-                } catch (IOException e2) {
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
-                    } else {
-                        pga.a().i(null, Log.getStackTraceString(e2));
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

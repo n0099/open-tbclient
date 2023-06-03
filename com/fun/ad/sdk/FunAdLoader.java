@@ -8,6 +8,8 @@ import java.util.List;
 public interface FunAdLoader {
     void destroy();
 
+    ReadyCacheStatistic getCacheStatistic(String str);
+
     List<CacheStatistic> getCacheStatistics(String str);
 
     FunNativeAd2 getNativeAd2(Context context);

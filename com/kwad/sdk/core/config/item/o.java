@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class o extends a<String> {
     public o(String str, String str2) {
         super(str, str2);

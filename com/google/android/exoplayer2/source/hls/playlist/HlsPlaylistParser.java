@@ -486,7 +486,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static DrmInitData.SchemeData parseWidevineSchemeData(String str, String str2) throws ParserException {
         if (KEYFORMAT_WIDEVINE_PSSH_BINARY.equals(str2)) {
             String parseStringAttr = parseStringAttr(str, REGEX_URI);
-            return new DrmInitData.SchemeData(C.WIDEVINE_UUID, MimeTypes.VIDEO_MP4, Base64.decode(parseStringAttr.substring(parseStringAttr.indexOf(44)), 0));
+            return new DrmInitData.SchemeData(C.WIDEVINE_UUID, "video/mp4", Base64.decode(parseStringAttr.substring(parseStringAttr.indexOf(44)), 0));
         } else if (KEYFORMAT_WIDEVINE_PSSH_JSON.equals(str2)) {
             try {
                 return new DrmInitData.SchemeData(C.WIDEVINE_UUID, "hls", str.getBytes("UTF-8"));

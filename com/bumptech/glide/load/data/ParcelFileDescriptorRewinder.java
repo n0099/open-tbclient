@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFileDescriptor> {
     public final InternalRewinder rewinder;
 
@@ -18,7 +18,7 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFi
     }
 
     @RequiresApi(21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements DataRewinder.Factory<ParcelFileDescriptor> {
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
         @NonNull
@@ -35,7 +35,7 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFi
     }
 
     @RequiresApi(21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class InternalRewinder {
         public final ParcelFileDescriptor parcelFileDescriptor;
 

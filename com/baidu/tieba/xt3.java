@@ -1,146 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public wt3 i;
-    public wt3 j;
-    public wt3 k;
-    public wt3 l;
 
-    public xt3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311858, "Lcom/baidu/tieba/xt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948311858, "Lcom/baidu/tieba/xt3;");
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
+        a = is1.a;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.h) {
-                return b(this.l);
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
+            bj3 bj3Var = new bj3();
+            bj3Var.a = "swan";
+            bj3Var.b = str;
+            bj3Var.g = str2;
+            if (TextUtils.equals(str, "click")) {
+                bj3Var.e = str3;
             }
-            wt3 wt3Var = this.k;
-            if (wt3Var != null) {
-                return wt3Var.c;
+            bj3Var.f = str5;
+            bj3Var.a("source", str4);
+            if (a) {
+                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + bj3Var.f());
             }
-            wt3 wt3Var2 = this.i;
-            if (wt3Var2 != null) {
-                return wt3Var2.c;
-            }
-            wt3 wt3Var3 = this.j;
-            if (wt3Var3 != null) {
-                return wt3Var3.c;
-            }
-            return -1;
+            ri3.x("1372", bj3Var);
         }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.g != -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int b(wt3 wt3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wt3Var)) == null) {
-            if (wt3Var != null) {
-                return wt3Var.c;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int c(wt3 wt3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wt3Var)) == null) {
-            if (wt3Var != null) {
-                return wt3Var.b;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.h);
-                if (this.h) {
-                    jSONObject.put("little_freq_min", c(this.j));
-                    jSONObject.put("little_freq_max", b(this.j));
-                    jSONObject.put("big_freq_min", c(this.i));
-                    jSONObject.put("big_freq_max", b(this.i));
-                    jSONObject.put("little_cores", this.b);
-                    jSONObject.put("big_cores", this.d);
-                    jSONObject.put("little_index", this.c);
-                    jSONObject.put("big_index", this.e);
-                    if (this.g != -1) {
-                        jSONObject.put("super_freq_min", c(this.k));
-                        jSONObject.put("super_freq_max", b(this.k));
-                        jSONObject.put("super_cores", this.f);
-                        jSONObject.put("super_index", this.g);
-                    }
-                } else {
-                    jSONObject.put("freq_min", c(this.l));
-                    jSONObject.put("freq_max", b(this.l));
-                }
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

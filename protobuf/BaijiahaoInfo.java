@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BaijiahaoInfo extends Message {
     public static final String DEFAULT_AUTHDESC = "";
     public static final String DEFAULT_AVATAR = "";
@@ -26,7 +26,7 @@ public final class BaijiahaoInfo extends Message {
     public static final Integer DEFAULT_AUTHID = 0;
     public static final Integer DEFAULT_CANMODIFYAVATAR = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<BaijiahaoInfo> {
         public String authDesc;
         public Integer authId;

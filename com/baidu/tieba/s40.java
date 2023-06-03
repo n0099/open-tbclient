@@ -1,72 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s40 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final char[] b;
-    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101306, "Lcom/baidu/tieba/s40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Comparator<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101306, "Lcom/baidu/tieba/s40;");
-                return;
-            }
+            this.a = str;
         }
-        a = "0123456789ABCDEF".toCharArray();
-        b = "0123456789abcdef".toCharArray();
-        c = new byte[128];
-        for (int i = 0; i < 10; i++) {
-            byte[] bArr = c;
-            bArr[i + 48] = (byte) i;
-            byte b2 = (byte) (i + 10);
-            bArr[i + 65] = b2;
-            bArr[i + 97] = b2;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.a, "").compareTo(jSONObject2.optString(this.a, "")) : invokeLL.intValue;
         }
     }
 
-    public static char[] a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        char[] cArr;
+    public static JSONArray a(JSONArray jSONArray, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            if (z) {
-                cArr = a;
-            } else {
-                cArr = b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONArray, str)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return jSONArray;
             }
-            char[] cArr2 = new char[bArr.length * 2];
-            int i = 0;
-            for (byte b2 : bArr) {
-                int i2 = i + 1;
-                cArr2[i] = cArr[(b2 & 240) >>> 4];
-                i = i2 + 1;
-                cArr2[i2] = cArr[b2 & 15];
+            int length = jSONArray.length();
+            ArrayList arrayList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    arrayList.add(optJSONObject);
+                }
             }
-            return cArr2;
+            Collections.sort(arrayList, new a(str));
+            return new JSONArray((Collection) arrayList);
         }
-        return (char[]) invokeLZ.objValue;
+        return (JSONArray) invokeLL.objValue;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static boolean b(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            return new String(a(bArr, z));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, jSONObject2, str)) == null) {
+            String optString = jSONObject.optString(str);
+            String optString2 = jSONObject2.optString(str);
+            return TextUtils.isEmpty(optString) ? !TextUtils.isEmpty(optString2) : !optString.equals(optString2);
         }
-        return (String) invokeLZ.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, jSONObject2, str)) == null) ? jSONObject.optLong(str, -1L) != jSONObject2.optLong(str, -1L) : invokeLLL.booleanValue;
     }
 }

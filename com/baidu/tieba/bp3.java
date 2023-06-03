@@ -1,37 +1,28 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static dp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static dp3 a() {
-        InterceptResult invokeV;
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static boolean a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new dp3("0");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return NotificationManagerCompat.from(context).areNotificationsEnabled();
             }
-            return a;
+            return true;
         }
-        return (dp3) invokeV.objValue;
-    }
-
-    public static void b(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            dp3 dp3Var = a;
-            if (dp3Var == null) {
-                a = new dp3(str);
-            } else {
-                dp3Var.n(str);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

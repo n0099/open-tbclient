@@ -1,19 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final /* synthetic */ class np0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public final class np0 extends qn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public String a;
+    @Nullable
+    public HashMap<String, String> b;
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-        $EnumSwitchMapping$0[NestedEvent.SCROLL_FINISH.ordinal()] = 3;
+    public np0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "-1";
     }
 }

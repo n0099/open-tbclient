@@ -3,7 +3,6 @@ package com.baidu.platform.core.g;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,19 +84,19 @@ public class e extends com.baidu.platform.base.e {
                             str4 = str7;
                         }
                     } else {
-                        aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                        aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                         aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                         str4 = "&sharecallbackflag=cycleRoute";
                         str2 = "cycle";
                     }
                 } else {
-                    aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                    aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                     aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                     str4 = "&sharecallbackflag=footRoute";
                     str2 = "walk";
                 }
             } else {
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                 aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                 str4 = "&sharecallbackflag=carRoute";
                 str2 = "nav";

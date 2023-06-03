@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes8.dex */
 public interface yf7 {
-    void a(int i, LiveFuseForumData liveFuseForumData);
+    void l(String str);
 
-    void b(int i, LiveFuseForumData liveFuseForumData, int i2);
+    void m();
 
-    void c(int i, LiveFuseForumData liveFuseForumData);
+    void n(boolean z);
 }

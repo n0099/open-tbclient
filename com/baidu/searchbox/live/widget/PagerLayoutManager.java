@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PagerLayoutManager extends LinearLayoutManager implements View.OnTouchListener {
     public static final float DEFAULT_SPEED = 70.0f;
     public static final float VERTICAL_OFFSET_DOWN = -10.0f;
@@ -32,10 +32,10 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
     public boolean scroll;
     public int slideOffset;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PagerListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public enum PageAction {
             UP,
             DOWN,
@@ -55,7 +55,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         void onStartPageScrolledOffset(boolean z, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePagerListener implements PagerListener {
         @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
         public void onAttachedToWindow(View view2) {
@@ -82,12 +82,12 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface TouchListener {
         void onTouch(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PagerHelper extends PagerSnapHelper {
         public OrientationHelper mHorizontalHelper;
         public OrientationHelper mVerticalHelper;

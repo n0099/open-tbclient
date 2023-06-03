@@ -1,100 +1,168 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dw5 implements hg<yv5> {
+public class dw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static dw5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public c a;
+    public b b;
 
-    public yv5 e(yv5 yv5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yv5Var)) == null) ? yv5Var : (yv5) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public yv5 i(yv5 yv5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yv5Var)) == null) ? yv5Var : (yv5) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onResult(boolean z);
     }
 
-    public dw5(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<String, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dw5 a;
+
+        public c(dw5 dw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dw5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                return Boolean.valueOf(this.a.d());
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
+                this.a.b.onResult(bool.booleanValue());
+            }
+        }
+
+        public /* synthetic */ c(dw5 dw5Var, a aVar) {
+            this(dw5Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718983, "Lcom/baidu/tieba/dw5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947718983, "Lcom/baidu/tieba/dw5;");
                 return;
             }
         }
-        this.a = i;
+        c = new dw5();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.hg
-    public /* bridge */ /* synthetic */ yv5 a(yv5 yv5Var) {
-        yv5 yv5Var2 = yv5Var;
-        e(yv5Var2);
-        return yv5Var2;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.hg
-    public /* bridge */ /* synthetic */ yv5 c(yv5 yv5Var) {
-        yv5 yv5Var2 = yv5Var;
-        i(yv5Var2);
-        return yv5Var2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hg
-    /* renamed from: f */
-    public void b(yv5 yv5Var) {
+    public dw5() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, yv5Var) == null) && yv5Var != null && yv5Var.b() != null) {
-            yv5Var.b().recycle();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public int g() {
+    public static dw5 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c;
         }
-        return invokeV.intValue;
+        return (dw5) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hg
-    /* renamed from: h */
-    public yv5 d() {
-        InterceptResult invokeV;
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new yv5(this.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            c cVar = this.a;
+            if (cVar != null) {
+                cVar.cancel();
+            }
+            c cVar2 = new c(this, null);
+            this.a = cVar2;
+            cVar2.setPriority(4);
+            this.a.execute(new String[0]);
         }
-        return (yv5) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        String str;
+        String[] split;
+        int e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+            if (GetFileData != null) {
+                str = new String(GetFileData);
+            } else {
+                str = null;
+            }
+            long j = StringUtils.getyyyyMMddHHTimeForNow();
+            long j2 = 0;
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
+                e = 0;
+            } else {
+                e = tg.e(split[0], 0);
+                j2 = tg.g(split[1], j);
+            }
+            if (j2 == j && e > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

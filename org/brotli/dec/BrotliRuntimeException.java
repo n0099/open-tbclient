@@ -1,5 +1,5 @@
 package org.brotli.dec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BrotliRuntimeException extends RuntimeException {
     public BrotliRuntimeException(String str) {
         super(str);

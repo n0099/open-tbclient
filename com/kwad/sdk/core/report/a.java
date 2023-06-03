@@ -1,9 +1,9 @@
 package com.kwad.sdk.core.report;
 
-import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
@@ -15,18 +15,18 @@ import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.utils.ai;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static ExecutorService ZC = com.kwad.sdk.core.threads.b.vm();
 
     @KsJson
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0648a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes10.dex */
+    public static class C0668a extends com.kwad.sdk.core.response.kwai.a {
         public String Qd;
         public int code;
 
-        public C0648a(int i, String str) {
+        public C0668a(int i, String str) {
             this.code = i;
             this.Qd = str;
         }
@@ -64,7 +64,7 @@ public final class a {
             bVar = new u.b();
         }
         bVar.abI = i;
-        b(adTemplate, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, bVar, null);
+        b(adTemplate, 320, bVar, null);
     }
 
     public static void a(AdTemplate adTemplate, int i, @NonNull u.b bVar, @Nullable JSONObject jSONObject) {
@@ -103,9 +103,9 @@ public final class a {
         b(adTemplate, i, bVar, jSONObject);
     }
 
-    public static void a(AdTemplate adTemplate, C0648a c0648a) {
+    public static void a(AdTemplate adTemplate, C0668a c0668a) {
         u.b bVar = new u.b();
-        bVar.abL = c0648a.toJson().toString();
+        bVar.abL = c0668a.toJson().toString();
         b(adTemplate, 40, bVar, null);
     }
 
@@ -164,7 +164,7 @@ public final class a {
         u.a aVar = new u.a();
         aVar.abA = 1;
         fVar.a(aVar);
-        b(adTemplate, 804, fVar.uw(), null);
+        b(adTemplate, CyberPlayerManager.MEDIA_ERROR_UNDEFINE_AUDIO_NOT_PLAY, fVar.uw(), null);
     }
 
     public static void aF(AdTemplate adTemplate) {
@@ -172,7 +172,7 @@ public final class a {
         u.a aVar = new u.a();
         aVar.abA = 2;
         fVar.a(aVar);
-        b(adTemplate, 804, fVar.uw(), null);
+        b(adTemplate, CyberPlayerManager.MEDIA_ERROR_UNDEFINE_AUDIO_NOT_PLAY, fVar.uw(), null);
     }
 
     public static boolean aG(AdTemplate adTemplate) {

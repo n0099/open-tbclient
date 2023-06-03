@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface nd2 {
-    String a(@NonNull String str);
+    void a(hy1 hy1Var);
+
+    void b(hy1 hy1Var);
 }

@@ -1,22 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final /* synthetic */ class vh0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+/* loaded from: classes8.dex */
+public class vh0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        int[] iArr = new int[AdDownloadStatus.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-        $EnumSwitchMapping$0[AdDownloadStatus.PAUSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-        $EnumSwitchMapping$0[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-        $EnumSwitchMapping$0[AdDownloadStatus.FAILED.ordinal()] = 6;
+        boolean z;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240651, "Lcom/baidu/tieba/vh0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948240651, "Lcom/baidu/tieba/vh0;");
+                return;
+            }
+        }
+        try {
+            z = wh0.a;
+        } catch (Throwable unused) {
+            z = false;
+        }
+        a = z;
     }
 }

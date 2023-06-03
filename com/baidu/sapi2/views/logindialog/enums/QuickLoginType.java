@@ -2,7 +2,6 @@ package com.baidu.sapi2.views.logindialog.enums;
 
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.account.contants.LoginConstants;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes3.dex */
 public enum QuickLoginType {
     HISTORY(0, "history"),
@@ -18,7 +17,7 @@ public enum QuickLoginType {
     XIAOMI(10, RomUtils.MANUFACTURER_XIAOMI),
     MEIZU(11, "meizu"),
     FULL_SCREEN(12, "full_screen"),
-    REGISTER(13, MiPushClient.COMMAND_REGISTER);
+    REGISTER(13, "register");
     
     public final int a;
     public final String b;

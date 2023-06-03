@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
 import android.util.Log;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
 import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.coremedia.iso.boxes.GenreBox;
 import com.coremedia.iso.boxes.RatingBox;
@@ -23,7 +24,7 @@ public final class MetadataUtil {
     public static final int SHORT_TYPE_ARTIST = Util.getIntegerCodeForString("ART");
     public static final int SHORT_TYPE_ENCODER = Util.getIntegerCodeForString("too");
     public static final int SHORT_TYPE_ALBUM = Util.getIntegerCodeForString("alb");
-    public static final int SHORT_TYPE_COMPOSER_1 = Util.getIntegerCodeForString("com");
+    public static final int SHORT_TYPE_COMPOSER_1 = Util.getIntegerCodeForString(FkApkInfoSearchRequestKt.PARAMS_KEY_COM);
     public static final int SHORT_TYPE_COMPOSER_2 = Util.getIntegerCodeForString("wrt");
     public static final int SHORT_TYPE_LYRICS = Util.getIntegerCodeForString("lyr");
     public static final int SHORT_TYPE_GENRE = Util.getIntegerCodeForString("gen");
@@ -64,7 +65,7 @@ public final class MetadataUtil {
         if (parsableByteArray.readInt() == Atom.TYPE_data) {
             int parseFullAtomFlags = Atom.parseFullAtomFlags(parsableByteArray.readInt());
             if (parseFullAtomFlags == 13) {
-                str = WordCommandManager.IMAGE_JPEG;
+                str = "image/jpeg";
             } else if (parseFullAtomFlags == 14) {
                 str = WordCommandManager.IMAGE_PNG;
             } else {

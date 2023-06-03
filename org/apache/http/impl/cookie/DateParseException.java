@@ -1,6 +1,6 @@
 package org.apache.http.impl.cookie;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DateParseException extends Exception {
     public DateParseException() {
         throw new RuntimeException("Stub!");

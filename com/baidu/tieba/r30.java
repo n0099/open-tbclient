@@ -1,91 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.database.AbstractCursor;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r30 {
+public class r30 extends AbstractCursor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public r30(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = str;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.a, "").compareTo(jSONObject2.optString(this.a, "")) : invokeLL.intValue;
-        }
+        this.a = bundle;
     }
 
-    public static JSONArray a(JSONArray jSONArray, String str) {
-        InterceptResult invokeLL;
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public String[] getColumnNames() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONArray, str)) == null) {
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return jSONArray;
-            }
-            int length = jSONArray.length();
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    arrayList.add(optJSONObject);
-                }
-            }
-            Collections.sort(arrayList, new a(str));
-            return new JSONArray((Collection) arrayList);
-        }
-        return (JSONArray) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
-    public static boolean b(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-        InterceptResult invokeLLL;
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, jSONObject2, str)) == null) {
-            String optString = jSONObject.optString(str);
-            String optString2 = jSONObject2.optString(str);
-            return TextUtils.isEmpty(optString) ? !TextUtils.isEmpty(optString2) : !optString.equals(optString2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-        InterceptResult invokeLLL;
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public double getDouble(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, jSONObject2, str)) == null) ? jSONObject.optLong(str, -1L) != jSONObject2.optLong(str, -1L) : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0.0d;
+        }
+        return invokeI.doubleValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public Bundle getExtras() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Bundle) invokeV.objValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public float getFloat(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0.0f;
+        }
+        return invokeI.floatValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public int getInt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public long getLong(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public short getShort(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return (short) 0;
+        }
+        return invokeI.shortValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public String getString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // android.database.AbstractCursor, android.database.Cursor
+    public boolean isNull(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoAsyncHostHelper {
     public static final String KEY_VIDEO_MPD_HOST = "key_video_mpd_hosts";
     public static final String SP_FILE_NAME = "com.baidu.searchbox_bdvideoplayer";

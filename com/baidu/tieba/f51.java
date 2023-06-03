@@ -1,43 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class f51 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f51 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
+    public static final f51 b = new a();
 
-    @Nullable
-    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, publicKey);
-                return cipher.doFinal(bArr);
-            } catch (Exception unused) {
-                return null;
+    void a(@NonNull Context context, @StringRes int i);
+
+    void b(@NonNull Context context, @StringRes int i, int i2);
+
+    void showToast(@NonNull Context context, String str);
+
+    /* loaded from: classes5.dex */
+    public static class a implements f51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (byte[]) invokeLL.objValue;
-    }
 
-    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        @Override // com.baidu.tieba.f51
+        public void a(@NonNull Context context, @StringRes int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+                Toast.makeText(context, i, 0).show();
+            }
         }
-        return (PublicKey) invokeL.objValue;
+
+        @Override // com.baidu.tieba.f51
+        public void showToast(@NonNull Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+                Toast.makeText(context, str, 0).show();
+            }
+        }
+
+        @Override // com.baidu.tieba.f51
+        public void b(@NonNull Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
+                Toast.makeText(context, i, i2).show();
+            }
+        }
     }
 }

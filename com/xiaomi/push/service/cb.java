@@ -26,7 +26,7 @@ public final class cb implements Runnable {
             try {
                 try {
                     File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                    com.xiaomi.push.y.m783a(file);
+                    com.xiaomi.push.y.m838a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {

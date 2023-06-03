@@ -20,7 +20,7 @@ import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static volatile b b;
     public final SparseArray<c> a;
@@ -28,7 +28,7 @@ public class b {
     public com.meizu.cloud.pushsdk.handler.a.f.a d;
     public com.meizu.cloud.pushsdk.handler.a.a.a e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends com.meizu.cloud.pushsdk.handler.a {
         public a() {
         }

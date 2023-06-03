@@ -1,180 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g0b;
-import com.baidu.tieba.k0b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q0b implements ServiceConnection {
+public class q0b extends c1b<f1b> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rza a;
-    public a b;
-    public Handler c;
-    public boolean d;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039430, "Lcom/baidu/tieba/q0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948039430, "Lcom/baidu/tieba/q0b;");
-                return;
-            }
-        }
-        e = new Object();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (e) {
-                Handler handler = this.c;
-                if (handler != null) {
-                    handler.removeMessages(1001);
-                    this.c = null;
-                }
-            }
-        }
-    }
-
-    public q0b(rza rzaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q0b(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rzaVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
-        this.a = rzaVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onNullBinding(ComponentName componentName) {
+    @Override // com.baidu.tieba.c1b
+    public void f(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onNullBinding, than unBind.");
-            if (this.d) {
-                this.d = false;
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
             }
-            c();
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                m0b m0bVar = (m0b) aVar;
-                m0bVar.a.a.set(1);
-                m0bVar.a.a(8002005);
-                m0bVar.a.b = null;
-            }
+            this.e.loadBannerExpressAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build(), new a(this, funAdSlot));
         }
     }
 
-    public final void b(int i) {
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (aVar = this.b) != null) {
-            m0b m0bVar = (m0b) aVar;
-            AtomicInteger atomicInteger = m0bVar.a.a;
-            if (i == HonorPushErrorEnum.ERROR_SERVICE_TIME_OUT.statusCode) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            atomicInteger.set(i2);
-            m0bVar.a.a(i);
-            m0bVar.a.b = null;
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ q0b b;
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceDisconnected.");
-            a aVar = this.b;
-            if (aVar != null) {
-                m0b m0bVar = (m0b) aVar;
-                m0bVar.a.a.set(1);
-                m0bVar.a.a(8002002);
-                m0bVar.a.b = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                Log.i("AIDLSrvConnection", "trying to unbind service from " + this);
-                vza.e.a().unbindService(this);
-            } catch (Exception e2) {
-                String str = "on unBind service exception:" + e2.getMessage();
-            }
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, componentName, iBinder) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceConnected.");
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                m0b m0bVar = (m0b) aVar;
-                m0bVar.a.b = IPushInvoke.Stub.asInterface(iBinder);
-                if (m0bVar.a.b == null) {
-                    m0bVar.a.d.c();
-                    m0bVar.a.a.set(1);
-                    m0bVar.a.a(8002001);
+        public a(q0b q0bVar, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q0bVar, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                m0bVar.a.a.set(3);
-                k0b.a aVar2 = m0bVar.a.c;
-                if (aVar2 != null) {
-                    g0b.a aVar3 = (g0b.a) aVar2;
-                    if (Looper.myLooper() == aVar3.f.a.getLooper()) {
-                        aVar3.d();
-                    } else {
-                        aVar3.f.a.post(new d0b(aVar3));
-                    }
-                }
+            }
+            this.b = q0bVar;
+            this.a = funAdSlot;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
         }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    q0b q0bVar = this.b;
+                    f1b f1bVar = new f1b(tTNativeExpressAd);
+                    this.a.getSid();
+                    q0bVar.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener(new t0b(q0bVar, f1bVar));
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        f1b f1bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (f1bVar = (f1b) obj) != null) {
+            ((TTNativeExpressAd) f1bVar.a).destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            f1b f1bVar = (f1b) obj;
+            onShowStart(f1bVar);
+            ((TTNativeExpressAd) f1bVar.a).setSlideIntervalTime(this.mPid.interval);
+            View expressAdView = ((TTNativeExpressAd) f1bVar.a).getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            ((TTNativeExpressAd) f1bVar.a).setDislikeCallback(activity, new u0b(this, expressAdView, f1bVar));
+            ((TTNativeExpressAd) f1bVar.a).setDownloadListener(new s0b(null));
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -53,7 +53,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static final int CONNECT_STATE_FAIL = 1;
     public static final int CONNECT_STATE_PENDING = 2;
@@ -80,7 +80,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     public int addressIndex = -1;
     public boolean isMultiConnectTriggered = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface ConnectComplete {
         void receiveConnectState(int i);
     }

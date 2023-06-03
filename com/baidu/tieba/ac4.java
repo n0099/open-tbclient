@@ -1,81 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 /* loaded from: classes4.dex */
 public class ac4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    public static boolean a(View view2, mz2 mz2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, mz2Var)) == null) {
-            xq1 X = tu2.U().X();
-            if (X != null && X.c(view2, mz2Var)) {
-                return true;
+    /* loaded from: classes4.dex */
+    public static class a implements Comparator<ac4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
 
-    public static boolean f(View view2, mz2 mz2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, mz2Var)) == null) {
-            xq1 X = tu2.U().X();
-            if (X != null && X.a(view2, mz2Var)) {
-                return true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(ac4 ac4Var, ac4 ac4Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ac4Var, ac4Var2)) == null) {
+                return (int) (ac4Var.a - ac4Var2.a);
             }
-            return false;
+            return invokeLL.intValue;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    public ac4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            xq1 X = tu2.U().X();
-            if (X != null) {
-                return X.getContext();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(fo3 fo3Var) {
-        xq1 X;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, fo3Var) == null) && (X = tu2.U().X()) != null) {
-            X.e(fo3Var);
         }
     }
 
-    public static boolean d(View view2) {
+    public static long[] a(ac4 ac4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            xq1 X = tu2.U().X();
-            if (X != null && X.removeView(view2)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ac4Var)) == null) {
+            if (ac4Var == null) {
+                return null;
+            }
+            return new long[]{ac4Var.a, ac4Var.b};
+        }
+        return (long[]) invokeL.objValue;
+    }
+
+    public boolean b(ac4 ac4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ac4Var)) == null) {
+            long j = this.a;
+            if (j <= ac4Var.b) {
+                long j2 = this.b;
+                long j3 = ac4Var.a;
+                if (j2 >= j3) {
+                    this.a = Math.min(j, j3);
+                    this.b = Math.max(this.b, ac4Var.b);
+                    return true;
+                }
+                return false;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static void e(fo3 fo3Var) {
-        xq1 X;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fo3Var) == null) && (X = tu2.U().X()) != null) {
-            X.f(fo3Var);
-        }
     }
 }

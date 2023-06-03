@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
 
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.List;
 import kotlin.Pair;
 import kotlin.reflect.jvm.internal.impl.builtins.KotlinBuiltIns;
@@ -44,7 +43,7 @@ public class JavaPropertyDescriptor extends PropertyDescriptorImpl implements Ja
                 break;
             case 3:
             case 10:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 4:
             case 11:

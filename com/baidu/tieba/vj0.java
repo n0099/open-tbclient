@@ -1,51 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class vj0 {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class vj0 implements cl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final vj0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242573, "Lcom/baidu/tieba/vj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948242573, "Lcom/baidu/tieba/vj0;");
-                return;
-            }
-        }
-        a = new vj0();
-    }
 
     public vj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.cl1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new ai0());
+            arrayList.add(new bi0());
+            arrayList.add(new ci0());
+            arrayList.add(new di0());
+            arrayList.add(new ei0());
+            arrayList.add(new fi0());
+            arrayList.add(new hi0());
+            arrayList.add(new cj0());
+            arrayList.add(new vp0());
+            arrayList.add(new wp0());
+            arrayList.add(new cq0());
+            arrayList.add(new oa1());
+            arrayList.add(new jb1());
+            arrayList.add(new q56());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

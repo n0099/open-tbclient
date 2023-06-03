@@ -15,7 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.searchbox.account.BoxAccountManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ public enum FloatingService {
                         FloatingService.this.layoutParams.x += i;
                         FloatingService.this.layoutParams.y += i2;
                         FloatingService.this.windowManager.updateViewLayout(view2, FloatingService.this.layoutParams);
-                    } else if (System.currentTimeMillis() - this.downTime > BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT) {
+                    } else if (System.currentTimeMillis() - this.downTime > 1500) {
                         FloatingService.this.movingState = true;
                         FloatingService.this.listView.setBackgroundColor(FloatingService.MOVING_BG);
                     }
@@ -128,14 +129,14 @@ public enum FloatingService {
                 linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 linearLayout2.setDividerPadding(0);
                 textView = new TextView(viewGroup.getContext());
-                textView.setTag("log");
+                textView.setTag(LocalFilesFilterKt.FILTER_NAME_LOG);
                 textView.setTextColor(-1);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 textView.setLayoutParams(layoutParams);
                 linearLayout2.addView(textView, layoutParams);
                 linearLayout = linearLayout2;
             } else {
-                textView = (TextView) view2.findViewWithTag("log");
+                textView = (TextView) view2.findViewWithTag(LocalFilesFilterKt.FILTER_NAME_LOG);
                 linearLayout = view2;
             }
             textView.setText((CharSequence) FloatingService.this.logs.get(i));
@@ -181,7 +182,7 @@ public enum FloatingService {
     }
 
     private void initView() {
-        this.windowManager = (WindowManager) this.app.getSystemService("window");
+        this.windowManager = (WindowManager) this.app.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         ListView listView = new ListView(this.app);
         listView.setAdapter((ListAdapter) this.adapter);
         listView.setBackgroundColor(DEFAULT_BG);

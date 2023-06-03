@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +104,7 @@ public interface IChatRoomEnterListener extends IMListener {
                     jSONObject3.put("character_name", this.userInfo.characterName);
                     jSONObject3.put("name", this.userInfo.name);
                     jSONObject3.put("portrait", this.userInfo.portrait);
-                    jSONObject.put("user_info", jSONObject3.toString());
+                    jSONObject.put(SourceConstant.SOURCE_USER_INFO, jSONObject3.toString());
                 } catch (Exception e) {
                     LogUtils.e("IChatRoomEnterListener", e.getMessage());
                 }

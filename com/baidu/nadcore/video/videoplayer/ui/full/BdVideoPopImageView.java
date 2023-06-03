@@ -9,15 +9,15 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d61;
+import com.baidu.tieba.m71;
 /* loaded from: classes3.dex */
 public class BdVideoPopImageView extends View {
-    public static final int l = d61.a(12.0f);
-    public static final int m = d61.d(30.0f);
-    public static final int n = d61.a(16.0f);
-    public static final int o = d61.a(9.0f) + n;
-    public static final int p = d61.b(90.0f);
-    public static final int q = d61.b(90.0f);
+    public static final int l = m71.a(12.0f);
+    public static final int m = m71.d(30.0f);
+    public static final int n = m71.a(16.0f);
+    public static final int o = m71.a(9.0f) + n;
+    public static final int p = m71.b(90.0f);
+    public static final int q = m71.b(90.0f);
     public final Context a;
     public int b;
     public int c;

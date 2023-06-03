@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h38;
+import com.baidu.tieba.ea9;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.y08;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.n68;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.w88;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgrightView extends y08 {
+public class MsgrightView extends n68 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String R = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class MsgrightView extends y08 {
     public TextView N;
     public CenterTextView O;
     public RelativeLayout P;
-    public y39 Q;
+    public ea9 Q;
 
     static {
         InterceptResult invokeClinit;
@@ -102,7 +102,7 @@ public class MsgrightView extends y08 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements h38.c {
+    public class b implements w88.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -127,14 +127,14 @@ public class MsgrightView extends y08 {
             this.a = chatMessage;
         }
 
-        @Override // com.baidu.tieba.h38.c
+        @Override // com.baidu.tieba.w88.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (str.contains(TbConfig.URL_UEG_REPORT)) {
-                    y39 y39Var = this.b.Q;
-                    if (y39Var != null) {
-                        y39Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                    ea9 ea9Var = this.b.Q;
+                    if (ea9Var != null) {
+                        ea9Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                         return;
                     }
                     return;
@@ -182,13 +182,13 @@ public class MsgrightView extends y08 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, y39 y39Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, ea9 ea9Var) {
         super(tbPageContext, R.layout.msg_msgright_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, y39Var};
+            Object[] objArr = {tbPageContext, ea9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,25 +201,25 @@ public class MsgrightView extends y08 {
             }
         }
         this.Q = null;
-        this.Q = y39Var;
+        this.Q = ea9Var;
         G();
         this.J = (TextView) u(R.id.img_msgitem_progressbar);
-        this.H = (ProgressBar) u(R.id.obfuscated_res_0x7f091c9b);
+        this.H = (ProgressBar) u(R.id.obfuscated_res_0x7f091cc9);
         this.I = (ImageView) u(R.id.btn_msgitem_resend);
         this.K = (HeadImageView) u(R.id.img_msgitem_photo);
         this.O = (CenterTextView) u(R.id.tv_msgerror);
         this.P = (RelativeLayout) u(R.id.rl_errmsg);
         this.L = (FrameLayout) u(R.id.message_text_container);
-        p45 d = p45.d(this.P);
+        m75 d = m75.d(this.P);
         d.o(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        p45 d2 = p45.d(this.O);
+        m75 d2 = m75.d(this.O);
         d2.B(R.dimen.T_X09);
         d2.C(R.string.F_X01);
         d2.w(R.color.CAM_X0101);
         this.K.setAutoChangeStyle(false);
         this.K.setDrawerType(1);
-        this.K.setRadius(ri.d(this.mContext.getContext(), 4.0f));
+        this.K.setRadius(vi.d(this.mContext.getContext(), 4.0f));
         this.K.setPlaceHolder(1);
         this.K.setOnClickListener(new a(this));
         this.M = (TextView) u(R.id.has_read);
@@ -228,7 +228,7 @@ public class MsgrightView extends y08 {
         this.n.setIsLeft(false);
     }
 
-    @Override // com.baidu.tieba.y08
+    @Override // com.baidu.tieba.n68
     public void I() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.E == TbadkCoreApplication.getInst().getSkinType()) {
@@ -249,7 +249,7 @@ public class MsgrightView extends y08 {
         this.t.d(R.drawable.icon_pic_im_bubble_share_right, false);
     }
 
-    @Override // com.baidu.tieba.y08
+    @Override // com.baidu.tieba.n68
     public void K(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {
@@ -283,7 +283,7 @@ public class MsgrightView extends y08 {
             try {
                 d0(chatMessage);
                 j0(chatMessage);
-                this.K.setDefaultResource(R.drawable.obfuscated_res_0x7f081120);
+                this.K.setDefaultResource(R.drawable.obfuscated_res_0x7f081149);
                 if (chatMessage.getUserInfo() != null) {
                     this.K.setUserId(chatMessage.getUserInfo().getUserId());
                     if (TbadkCoreApplication.isLogin()) {
@@ -365,11 +365,11 @@ public class MsgrightView extends y08 {
                         case 9:
                             this.I.setVisibility(0);
                             this.P.setVisibility(0);
-                            if (qi.isEmpty(chatMessage.getLocalData().getErrorString())) {
+                            if (ui.isEmpty(chatMessage.getLocalData().getErrorString())) {
                                 this.O.setText(R.string.message_text_error_because_network);
                                 break;
                             } else {
-                                h38 f = h38.f(TbadkCoreApplication.getInst().getContext());
+                                w88 f = w88.f(TbadkCoreApplication.getInst().getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.O);
@@ -450,7 +450,7 @@ public class MsgrightView extends y08 {
         }
     }
 
-    @Override // com.baidu.tieba.y08
+    @Override // com.baidu.tieba.n68
     public void V(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {

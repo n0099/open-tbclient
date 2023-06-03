@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
@@ -281,7 +280,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                     return;
                 }
             }
-            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0604f4));
+            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0604f9));
         }
     }
 
@@ -437,7 +436,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                 jSONObject.put("nightMode", com.baidu.ufosdk.b.m());
                 Context context = cVar.a;
                 int i = 0;
-                int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                int identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
                 if (identifier > 0) {
                     i = context.getResources().getDimensionPixelOffset(identifier);
                 }

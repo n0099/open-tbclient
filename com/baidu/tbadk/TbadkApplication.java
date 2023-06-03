@@ -11,10 +11,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.qg;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.service.SignAlertReceiver;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public qg resourcesWrapper;
+    public ug resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -180,7 +181,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            o65.m().H("account_share");
+            l95.m().H("account_share");
         }
     }
 
@@ -248,7 +249,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new qg(super.getResources());
+                    this.resourcesWrapper = new ug(super.getResources());
                 }
                 return this.resourcesWrapper;
             }
@@ -284,7 +285,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                 if (i >= signAlertHours && (i != signAlertHours || i2 >= signAlertMins)) {
                     calendar.set(6, calendar.get(6) + 1);
                 }
-                alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 134217728));
+                alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
                 BdLog.isDebugMode();
                 return;
             }

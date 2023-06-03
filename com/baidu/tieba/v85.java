@@ -1,103 +1,165 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class v85 extends s85<u85, a> {
+/* loaded from: classes8.dex */
+public class v85 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context d;
+    public u85 a;
+    public int b;
+    public int c;
+    public int d;
+    public View e;
+    public View f;
+    public Activity g;
 
-    /* loaded from: classes7.dex */
-    public class a extends BdBaseViewPagerAdapter.a {
+    /* loaded from: classes8.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView d;
+        public final /* synthetic */ v85 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(v85 v85Var, View view2) {
-            super(view2);
+        public a(v85 v85Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v85Var, view2};
+                Object[] objArr = {v85Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (view2 instanceof TbImageView) {
-                TbImageView tbImageView = (TbImageView) view2;
-                this.d = tbImageView;
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.a = v85Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
+                this.a.e();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v85(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public v85(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = context;
+        this.g = activity;
+        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.keyboard_height_popupwindow, (ViewGroup) null, false);
+        this.e = inflate;
+        setContentView(inflate);
+        GreyUtil.grey(this);
+        setSoftInputMode(21);
+        setInputMethodMode(1);
+        this.f = activity.findViewById(16908290);
+        setWidth(0);
+        setHeight(-1);
+        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s85
-    /* renamed from: f */
-    public a b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void g(u85 u85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.d);
-            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return new a(this, tbImageView);
+        if (interceptable == null || interceptable.invokeL(1048580, this, u85Var) == null) {
+            this.a = u85Var;
         }
-        return (a) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s85
-    /* renamed from: g */
-    public View d(ViewGroup viewGroup, a aVar, u85 u85Var) {
-        InterceptResult invokeLLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, u85Var)) == null) {
-            aVar.d.N(u85Var.a(), 10, false);
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            dismiss();
         }
-        return (View) invokeLLL.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g.getResources().getConfiguration().orientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
+            setBackgroundDrawable(new ColorDrawable(0));
+            showAtLocation(this.f, 0, 0, 0);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Point point = new Point();
+            this.g.getWindowManager().getDefaultDisplay().getSize(point);
+            Rect rect = new Rect();
+            this.e.getWindowVisibleDisplayFrame(rect);
+            int d = d();
+            int i = point.y - rect.bottom;
+            if (i == 0) {
+                f(0, d);
+            } else if (d == 1) {
+                this.d = i;
+                f(i, d);
+            } else {
+                this.c = i;
+                f(i, d);
+            }
+        }
+    }
+
+    public final void f(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (i <= 0) {
+                this.b = i;
+                i3 = 0;
+            } else {
+                i3 = i - this.b;
+            }
+            u85 u85Var = this.a;
+            if (u85Var != null) {
+                u85Var.onKeyboardHeightChanged(i3, i2);
+            }
+        }
     }
 }

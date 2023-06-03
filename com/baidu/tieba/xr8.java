@@ -1,47 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes8.dex */
-public class xr8 implements wr8 {
+public class xr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xr8() {
+    public static List<vn> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            List<RecommendForumInfo> list = dataRes.forum_cards;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        tr8 tr8Var = new tr8();
+                        tr8Var.k(list.get(i));
+                        tr8Var.l(true);
+                        arrayList.add(tr8Var);
+                    }
+                }
+            } else {
+                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+                if (recommendForumInfo != null) {
+                    tr8 tr8Var2 = new tr8();
+                    tr8Var2.k(recommendForumInfo);
+                    tr8Var2.l(false);
+                    arrayList.add(tr8Var2);
+                }
+            }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                ur8 ur8Var = new ur8();
+                ur8Var.h(item);
+                arrayList.add(ur8Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                vr8 vr8Var = new vr8();
+                vr8Var.m(str);
+                vr8Var.l(sugLiveInfo);
+                arrayList.add(vr8Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                wr8 wr8Var = new wr8();
+                wr8Var.f(str);
+                wr8Var.e(sugRankingInfo);
+                arrayList.add(wr8Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                sr8 sr8Var = new sr8();
+                sr8Var.c(str);
+                sr8Var.d(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, sr8Var);
+                } else {
+                    arrayList.add(sr8Var);
+                }
+            }
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.wr8
-    public sr8 get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return od9.m();
-        }
-        return (sr8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wr8
-    public tr8 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new ur8(str, str2, str3);
-        }
-        return (tr8) invokeLLL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

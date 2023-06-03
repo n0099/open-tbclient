@@ -3,7 +3,7 @@ package com.facebook.fresco.animation.drawable;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import com.facebook.fresco.animation.frame.FrameScheduler;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.DrawListener {
     public static final Class<?> TAG = AnimatedDrawable2DebugDrawListener.class;
     public int mDrawCalls;

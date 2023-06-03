@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae;
-import com.baidu.tieba.cd;
 import com.baidu.tieba.ee;
-import com.baidu.tieba.hc;
-import com.baidu.tieba.kd;
+import com.baidu.tieba.gd;
+import com.baidu.tieba.ie;
+import com.baidu.tieba.lc;
+import com.baidu.tieba.od;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class BundleDataSource implements cd {
+public class BundleDataSource implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle bundle;
@@ -52,7 +52,7 @@ public class BundleDataSource implements cd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class BundleDataSource implements cd {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                ae aeVar = new ae(type);
-                kd a = ee.a(object);
+                ee eeVar = new ee(type);
+                od a = ie.a(object);
                 if (a != null) {
-                    return a.a(aeVar);
+                    return a.a(eeVar);
                 }
                 return null;
             }
@@ -81,7 +81,7 @@ public class BundleDataSource implements cd {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
@@ -139,7 +139,7 @@ public class BundleDataSource implements cd {
                     this.bundle.putShortArray(str, (short[]) obj);
                 } else if (componentType == String.class) {
                     this.bundle.putStringArray(str, (String[]) obj);
-                } else if (hc.e(componentType, Parcelable.class)) {
+                } else if (lc.e(componentType, Parcelable.class)) {
                     this.bundle.putParcelableArray(str, (Parcelable[]) obj);
                 }
             } else if (obj instanceof CharSequence) {

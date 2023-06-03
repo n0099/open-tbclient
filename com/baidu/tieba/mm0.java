@@ -1,48 +1,171 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class mm0 {
+public class mm0 extends jm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Class<?> b;
-    public final int c;
-    public final km0<?> d;
+    public WeakReference<sm0<?>> e;
 
-    public mm0(int i, Object obj, Class<?> cls, km0<?> km0Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-599539236, "Lcom/baidu/tieba/mm0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-599539236, "Lcom/baidu/tieba/mm0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadStatus.FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mm0(@NonNull zl0 zl0Var) {
+        super(zl0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj, cls, km0Var};
+            Object[] objArr = {zl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zl0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = i;
-        this.a = obj;
-        this.b = cls;
-        this.d = km0Var;
+        this.e = null;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mm0(@NonNull zl0 zl0Var, @NonNull sm0<?> sm0Var) {
+        super(zl0Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.c + "\n    tag:" + this.a + "\n    eventClass:" + this.b + "\n    subscriber:" + this.d + "\n}";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zl0Var, sm0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zl0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.e = null;
+        t(sm0Var);
+    }
+
+    @Override // com.baidu.tieba.jm0, com.baidu.tieba.rm0
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull zl0 zl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, zl0Var) == null) {
+            super.a(adDownloadAction, zl0Var);
+            u();
+        }
+    }
+
+    public void t(sm0<?> sm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sm0Var) == null) {
+            this.e = new WeakReference<>(sm0Var);
+            u();
+        }
+    }
+
+    public void u() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
+            return;
+        }
+        Resources resources = kk0.b().getResources();
+        String string = resources.getString(R.string.nad_download_start);
+        switch (a.a[this.a.c.ordinal()]) {
+            case 1:
+                if (TextUtils.isEmpty(this.a.p.d)) {
+                    str = resources.getString(R.string.nad_download_start);
+                } else {
+                    str = this.a.p.d;
+                }
+                string = str;
+                break;
+            case 2:
+                string = new DecimalFormat("#.#%").format(this.a.i);
+                break;
+            case 3:
+                string = resources.getString(R.string.nad_download_continue);
+                break;
+            case 4:
+                string = resources.getString(R.string.nad_download_install);
+                break;
+            case 5:
+                string = resources.getString(R.string.nad_download_open);
+                break;
+            case 6:
+                string = resources.getString(R.string.nad_download_failed_retry);
+                break;
+        }
+        sm0<?> sm0Var = this.e.get();
+        if (sm0Var == null) {
+            return;
+        }
+        sm0Var.update(string, this.a);
     }
 }

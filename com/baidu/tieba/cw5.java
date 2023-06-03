@@ -1,27 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapRegionDecoder;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes5.dex */
 public class cw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public Context b;
+    public Handler a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public b h;
+    public Runnable i;
 
-    public cw5(Context context) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onCountDown(long j, long j2);
+
+        void onCountDownFinish(long j);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cw5 a;
+
+        public a(cw5 cw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cw5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.a.g > this.a.f) {
+                    cw5 cw5Var = this.a;
+                    cw5Var.f = currentTimeMillis - cw5Var.d;
+                    cw5 cw5Var2 = this.a;
+                    cw5Var2.g = cw5Var2.f;
+                }
+                long j = currentTimeMillis - this.a.f;
+                this.a.c += this.a.d;
+                if (this.a.c >= this.a.b) {
+                    cw5 cw5Var3 = this.a;
+                    cw5Var3.c = cw5Var3.b;
+                    this.a.m();
+                } else {
+                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
+                    if (this.a.h != null) {
+                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    }
+                }
+                this.a.f = currentTimeMillis;
+            }
+        }
+    }
+
+    public cw5(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,31 +95,49 @@ public class cw5 {
                 return;
             }
         }
-        this.a = new int[2];
-        this.b = context;
+        this.a = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
+        this.b = j;
+        this.d = j2;
     }
 
-    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
+    public void n(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null && bArr.length > 0) {
-                BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-                this.a[0] = newInstance.getWidth();
-                this.a[1] = newInstance.getHeight();
-                return newInstance;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.h = bVar;
+        }
+    }
+
+    public final void m() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
+            bVar.onCountDownFinish(this.b);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.e = currentTimeMillis;
+            this.f = currentTimeMillis;
+            b bVar = this.h;
+            if (bVar != null) {
+                long j = this.b;
+                bVar.onCountDown(j, j - this.c);
             }
-            return null;
+            this.a.postDelayed(this.i, this.d);
         }
-        return (BitmapRegionDecoder) invokeL.objValue;
     }
 
-    public int[] b() {
-        InterceptResult invokeV;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = this.e;
+            this.f = j;
+            this.g = j;
+            this.a.removeCallbacks(this.i);
         }
-        return (int[]) invokeV.objValue;
     }
 }

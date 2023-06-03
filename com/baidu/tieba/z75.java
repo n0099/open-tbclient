@@ -1,260 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.reflect.Field;
 /* loaded from: classes8.dex */
 public class z75 {
     public static /* synthetic */ Interceptable $ic;
-    public static z75 d;
+    public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, DownloadData> a;
-    public final HashMap<String, DownloadData> b;
-    public final HashMap<String, String> c;
 
     /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z75 a;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TiebaStaticClassesArray b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z75 z75Var, int i) {
-            super(i);
+        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z75Var, Integer.valueOf(i)};
+                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = z75Var;
+            this.a = z;
+            this.b = tiebaStaticClassesArray;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
-                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                if (ListUtils.isEmpty(data)) {
-                    return;
-                }
-                for (DownloadData downloadData : data) {
-                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
-                        int status = downloadData.getStatus();
-                        if (status != 0) {
-                            if (status != 2) {
-                                if (status == 4 && this.a.a.containsKey(str)) {
-                                    this.a.a.remove(str);
-                                    y75.a(downloadData, 400);
-                                    return;
-                                }
-                                return;
-                            }
-                            y75.a(downloadData, 600);
-                            return;
-                        } else if (this.a.a.containsKey(str)) {
-                            this.a.b.put(str, this.a.a.get(str));
-                            this.a.a.remove(str);
-                            y75.a(downloadData, 700);
-                            return;
-                        } else {
-                            return;
-                        }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a) {
+                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
+                        return;
                     }
+                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
+                    if (!this.b.loadStaticClasses()) {
+                        MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z75 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z75 z75Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312881, "Lcom/baidu/tieba/z75;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z75Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z75Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Intent) {
-                    Intent intent = (Intent) data;
-                    String g = ji5.g(intent);
-                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-                            return;
-                        }
-                        this.a.l(g);
-                    } else if (this.a.b.containsKey(g)) {
-                        y75.a((DownloadData) this.a.b.get(g), 900);
-                        this.a.b.remove(g);
-                    }
-                }
-            }
-        }
-    }
-
-    public z75() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948312881, "Lcom/baidu/tieba/z75;");
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        h();
-        i();
+        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic", "com.baidu.tieba.feed.FeedAppStatic"};
     }
 
-    public void d(DownloadData downloadData) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
+                try {
+                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
+                    Object newInstance = cls.newInstance();
+                    Field declaredField = cls.getDeclaredField("staticClassesArray");
+                    declaredField.setAccessible(true);
+                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
+                long currentTimeMillis = System.currentTimeMillis();
+                ac.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
+                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c.remove(str);
-            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-            edit.remove(str);
-            edit.commit();
-        }
-    }
-
-    public static z75 f() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new z75();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String[] strArr = a;
+            try {
+                if (strArr.length <= 0) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Class.forName(str);
+                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                return true;
+            } catch (Throwable th) {
+                BdLog.e(th, true);
+                return false;
             }
-            return d;
         }
-        return (z75) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a aVar = new a(this, 2001118);
-            aVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b bVar = new b(this, 2002504);
-            bVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(bVar);
-        }
-    }
-
-    public void e(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
-        }
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c.containsKey(str)) {
-                return this.c.get(str);
-            }
-            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
-            this.c.put(str, string);
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
-        }
-    }
-
-    public void k(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
-        }
-    }
-
-    public void m(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || StringHelper.equals(this.c.get(str), str2)) {
-            return;
-        }
-        this.c.put(str, str2);
-        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-        edit.putString(str, str2);
-        edit.commit();
+        return invokeV.booleanValue;
     }
 }

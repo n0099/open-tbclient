@@ -201,7 +201,7 @@ public class DrawablePageIndicator extends View implements PageIndicator {
     }
 
     public DrawablePageIndicator(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0407e8);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0407f2);
     }
 
     private float getMotionEventX(MotionEvent motionEvent, int i) {
@@ -234,10 +234,10 @@ public class DrawablePageIndicator extends View implements PageIndicator {
         this.mActivePointerId = -1;
         this.mTabTextWidthArray = null;
         this.mUseStandardStyle = true;
-        this.mStandardDrawableWidth = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b7);
-        this.mStandardDrawableHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b6);
+        this.mStandardDrawableWidth = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bf);
+        this.mStandardDrawableHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bd);
         this.mStandDrawable = new GradientDrawable();
-        this.mStandDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603a6));
+        this.mStandDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603aa));
         this.mStandDrawable.setCornerRadius(this.mStandardDrawableHeight / 2);
         this.mType = Type.DRAW_BOTTOM_COLOR;
         this.mIndicatorLenPercent = VALUE_NOT_SET;
@@ -289,7 +289,7 @@ public class DrawablePageIndicator extends View implements PageIndicator {
     }
 
     public void updateStandardDrawable() {
-        this.mStandDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603a6));
+        this.mStandDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603aa));
     }
 
     public float getTextWidth(int i) {

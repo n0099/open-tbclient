@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.jw6;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.k17;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(String str, jw6 jw6Var);
+        void a(String str, k17 k17Var);
 
         void onFail(int i, String str);
     }
@@ -87,7 +87,7 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                ri.Q(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                vi.Q(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
             }
             this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }

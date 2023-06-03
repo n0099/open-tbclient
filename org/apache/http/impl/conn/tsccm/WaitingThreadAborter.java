@@ -1,6 +1,6 @@
 package org.apache.http.impl.conn.tsccm;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class WaitingThreadAborter {
     public WaitingThreadAborter() {
         throw new RuntimeException("Stub!");

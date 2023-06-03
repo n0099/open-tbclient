@@ -5,7 +5,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Http2 {
     public static final byte FLAG_ACK = 1;
     public static final byte FLAG_COMPRESSED = 32;

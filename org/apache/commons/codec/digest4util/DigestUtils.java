@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DigestUtils {
     public static final int STREAM_BUFFER_LENGTH = 1024;
     public final MessageDigest messageDigest;

@@ -2,23 +2,34 @@ package com.baidu.cyberplayer.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.ab.CyberAbTestManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.cyberplayer.sdk.context.ICyberGlobalOptions;
+import com.baidu.cyberplayer.sdk.context.ICyberMediaContext;
 import com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
 import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
+import com.baidu.searchbox.playerserver.PlayerPolicyCfgManager;
 import com.baidu.searchbox.playerserver.PlayerPolicyManager;
+import com.baidu.searchbox.playerserver.PlayerPolicyRuntime;
+import com.baidu.searchbox.playerserver.ab.PlayConfigABContext;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberPlayerManager {
+    @Deprecated
     public static final int ABR_MODE = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
     public static final int COMMAND_ON_FIRST_FRAME_DRAWED = 1002;
     public static final int COMMAND_SET_STATISTIC_INFO = 1003;
     public static final int COMMAND_USER_CLICK_START = 1000;
+    public static final int CYBER_FILTER_TYPE_GAUSSFILTER = 256;
+    public static final int CYBER_FILTER_TYPE_NORMAL = 0;
     public static final int CYBER_RENDER_TYPE_GLSURFACEVIEW = 0;
+    public static final int CYBER_RENDER_TYPE_GLTEXTUREVIEW = 4;
+    public static final int CYBER_RENDER_TYPE_HDRVIEW = 3;
     public static final int CYBER_RENDER_TYPE_SURFACEVIEW = 2;
     public static final int CYBER_RENDER_TYPE_TEXTUREVIEW = 1;
     public static final int DECODE_MODE_AUTO = 0;
@@ -27,10 +38,15 @@ public class CyberPlayerManager {
     public static final int DECODE_MODE_SYS = 4;
     public static final int DELETING = -2;
     public static final int DIR_NOT_EXIST = -1;
+    public static final int DOLBY_YPTE = 2;
     public static final int DP_MSG_INFO_CACHE_DURATION = 953;
     public static final int DiskLevelCritical = 2;
     public static final int DiskLevelNormal = 0;
     public static final int DiskLevelWarning = 1;
+    public static final int HDR10P_TYPE = 16;
+    public static final int HDR10_TYPE = 4;
+    public static final int HEVC_HLG_TYPE = 1;
+    public static final int INSTALL_ERROR_CODE_INVALID_PARAM = -7;
     @Keep
     public static final int INSTALL_INFO_CRYPTO_SO_PATH_CHANGED = 102;
     @Keep
@@ -43,22 +59,33 @@ public class CyberPlayerManager {
     public static final String INSTALL_OPT_ABTEST_SWITCH_START_CODE = "cybermedia_abtest_";
     public static final String INSTALL_OPT_APP_VERSION_NAME = "app_version_name";
     public static final String INSTALL_OPT_CRASHPAD_INSTALL_TYPE = "crashpad_install_type";
+    public static final String INSTALL_OPT_CRASHPAD_MAIN_PROCESS_WORK_DIR = "crashpad_main_process_work_dir";
+    public static final String INSTALL_OPT_CRASHPAD_MEDIA_PROCESS_WORK_DIR = "crashpad_media_process_work_dir";
     public static final String INSTALL_OPT_ENABLE_SF_SWITCH = "enable_spring_festival";
     public static final String INSTALL_OPT_PIPELINE_NUM = "pipeline_count";
     public static final String INSTALL_OPT_PROCESS_TYPE = "process_type";
     @Deprecated
     public static final int INSTALL_TYPE_ALL = 7;
     public static final int INSTALL_TYPE_CYBER_MEDIA = 1;
+    public static final int LIB_ID_CRYPTO = 102;
+    public static final int LIB_ID_FFMPEG = 100;
+    public static final int LIB_ID_OPENSSL = 101;
     public static final int LIB_TYPE_CRASHPAD = 16;
     public static final int LIB_TYPE_FFMPEG_EXTEND = 4;
     public static final int LIB_TYPE_PCDN = 2;
     @Deprecated
     public static final int LIB_TYPE_RTC = 32;
+    public static final int LIB_TYPE_STRATEGY_INTELLIGENT = 128;
     public static final int LIB_TYPE_STRATEGY_OPTIMIZE = 64;
     public static final int LIB_TYPE_VIDEO_SR = 8;
+    public static final int MEDIA_COLLECT_RUNTIME_INFO = 100;
+    public static final int MEDIA_ERROR_CREATE_ASYNC_PLAYER_FAIL = -112;
     public static final int MEDIA_ERROR_FOMAT_DEMUXER_NOT_FOUND = -2006;
+    public static final int MEDIA_ERROR_INVALID_OPERATION = -38;
     public static final int MEDIA_ERROR_IO = -1004;
     public static final int MEDIA_ERROR_MALFORMED = -1007;
+    public static final int MEDIA_ERROR_NA_HTTP_FORBIDDEN = -2403;
+    public static final int MEDIA_ERROR_NA_NETWORK_HTTP_FORBIDDEN = -33403;
     public static final int MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK = 200;
     public static final int MEDIA_ERROR_OPEN_VIDEO_FAIL = -111;
     public static final int MEDIA_ERROR_REMOTE_DIED = -30001;
@@ -68,11 +95,15 @@ public class CyberPlayerManager {
     public static final int MEDIA_ERROR_STATE_EXCEPTION = -10002;
     public static final int MEDIA_ERROR_SURFACE_EXCEPTION = -10000;
     public static final int MEDIA_ERROR_TIMED_OUT = -110;
+    public static final int MEDIA_ERROR_UNDEFINE_AUDIO_NOT_PLAY = 804;
+    public static final int MEDIA_ERROR_UNDEFINE_LOWLEVEL_SYSTEM_ERROR = Integer.MIN_VALUE;
+    public static final int MEDIA_ERROR_UNDEFINE_VIDEO_NOT_PLAY = 805;
     public static final int MEDIA_ERROR_UNKNOWN = 1;
     public static final int MEDIA_ERROR_UNSUPPORTED = -1010;
     public static final int MEDIA_INFO_AUDIO_BITRATE = 938;
     public static final int MEDIA_INFO_AUDIO_RENDERING_START = 10002;
     public static final int MEDIA_INFO_BAD_INTERLEAVING = 800;
+    public static final int MEDIA_INFO_BIND_4G_SUCCESS = 12009;
     public static final int MEDIA_INFO_BUFFERING_END = 702;
     public static final int MEDIA_INFO_BUFFERING_START = 701;
     public static final int MEDIA_INFO_CONNECTED_SERVER = 10015;
@@ -90,11 +121,15 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_EXTEND_VIDEO_DOWNLOAD_SPEED = 924;
     public static final int MEDIA_INFO_EXTENT_DOWNLOAD_PERCENT = 262144;
     public static final int MEDIA_INFO_FIRST_DISP_INTERVAL = 904;
+    public static final int MEDIA_INFO_FIRST_DISP_INTERVAL_SUB_T = 905;
     public static final int MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE = 10011;
     public static final int MEDIA_INFO_HARDWARE_START_FAIL_CHANGE_MODE = 10010;
+    public static final int MEDIA_INFO_HDR_VIDEO = 11011;
+    public static final int MEDIA_INFO_HTTP_REDIECT = 12011;
     public static final int MEDIA_INFO_KERNEL_NET_TRAFFIC = 11002;
     public static final int MEDIA_INFO_KLOGID_CHANGE = 11008;
     public static final int MEDIA_INFO_LOOP_REPLAYED = 955;
+    public static final int MEDIA_INFO_META = 20500;
     public static final int MEDIA_INFO_METADATA_UPDATE = 802;
     public static final int MEDIA_INFO_NET_RECONNECTING = 923;
     public static final int MEDIA_INFO_NOT_SEEKABLE = 801;
@@ -102,6 +137,7 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_PCDN_DOWNGRADE = 11006;
     public static final int MEDIA_INFO_PCDN_TRAFFIC = 11000;
     public static final int MEDIA_INFO_PLAY_COMPLETE = 10004;
+    public static final int MEDIA_INFO_PLAY_FROM_LOCAL_CACHE = 12010;
     public static final int MEDIA_INFO_PRERENDER_COMPLETE = 12006;
     public static final int MEDIA_INFO_PROCESS = 910;
     public static final int MEDIA_INFO_QUIC_INFO = 12007;
@@ -134,9 +170,16 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_VIDEO_SIZE_CHANGE = 10006;
     public static final int MEDIA_INFO_VIDEO_TRACK_LAGGING = 700;
     public static final int MEDIA_INFO_WEAK_NETWORK_BEST_RANK = 12005;
+    public static final int MEDIA_WARNING_HDR_PLAY_EXCTION = 11012;
+    public static final int MEDIA_WARNING_HDR_TYPE_UNSUPORT = 11014;
+    public static final int MEDIA_WARNING_HDR_VIEW_UNSUPORT = 11016;
+    public static final int MEDIA_WARNING_NOT_HDR_VIDEO = 11013;
     public static final int NETWORK_STATUS_GOOD = 2;
     public static final int NETWORK_STATUS_NORMAL = 1;
     public static final int NETWORK_STATUS_POOR = 0;
+    public static final String OPT_BIND_4G = "video_bind_4g";
+    public static final String OPT_BUFFER_CONFIG_JSON = "buffer_config_json";
+    @Deprecated
     public static final String OPT_BUFFER_SIZE = "max-buffer-size";
     public static final String OPT_CHCHE_PATH = "cache-path";
     public static final String OPT_CLIENT_SET_URL_TIME = "client-set-url-time";
@@ -151,25 +194,34 @@ public class CyberPlayerManager {
     public static final String OPT_ENABLE_PCDN = "pcdn-enable";
     public static final String OPT_ENABLE_PREBUFFER = "prebuffer-enable";
     public static final String OPT_ENABLE_PRE_DECODE_ON_PREPARE = "opt-pre-decode-on-prepared";
+    public static final String OPT_ENABLE_PRE_PREPARE = "opt-pre-prepared";
     public static final String OPT_ENABLE_PRE_RENDER_ON_PREPARE = "opt-pre-render-on-prepared";
     public static final String OPT_ENABLE_SEI_DATA_NOTIFICATION = "enable-sei-data-notification";
     public static final String OPT_ENABLE_START_ON_PREPARE = "start-on-prepared";
     public static final String OPT_FEED_VIDEO = "is-feed-video";
+    public static final String OPT_FILECACHE_RESERVE_URL = "enable-filecache-reserve-url";
+    @Deprecated
     public static final String OPT_FILE_MAX_SIZE = "file-max-size";
+    @Deprecated
     public static final String OPT_FILE_MIN_SIZE = "file-min-size";
     public static final String OPT_FILE_SIZE = "file-size";
+    public static final String OPT_FIRST_DISP_NOTIFY_SUB_T = "first_disp_notify_sub_thread";
     public static final String OPT_HTTP_PROXY = "http_proxy";
     public static final String OPT_IS_LIVE_VIDEO = "is_live_video";
     public static final String OPT_KERNEL_NET_NETHANDLE = "kernel-net-nethandle";
     public static final String OPT_MAX_FRAMES = "max-frames";
+    public static final String OPT_MAX_MEMORY_BUFFER_SIZE = "max-buffer-size";
     public static final String OPT_NEED_HTTP_REFERER = "need-http-referer";
     public static final String OPT_NEED_T5_AUTH = "need-t5-auth";
+    public static final String OPT_NQE_SCORE = "nqe-score";
     public static final String OPT_PCDN_NETHANDLE = "pcdn-nethandle";
     public static final String OPT_PCDN_TYPE = "pcdn-type";
     public static final String OPT_PREPARSE_IP = "preparse_ip";
     public static final String OPT_SR_OPTION = "sr_option";
     public static final String OPT_STAGE_TYPE = "stage-type";
     public static final String OPT_SUPPORT_PROCESS = "support-process";
+    public static final String OPT_SURFACE_UPDATE_MODE = "mediacodec-surface-update-mode";
+    public static final String OPT_UPDATE_POS_INTERVAL = "update-current-position-interval";
     public static final String OPT_VIDEO_BPS = "video-bps";
     public static final String OPT_VIDEO_MOOV_SIZE = "video-moov-size";
     public static final String OPT_VIDEO_ROTATE = "video-rorate";
@@ -217,6 +269,7 @@ public class CyberPlayerManager {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_TOP = 9;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
+    public static final int VP9_HLG_TYPE = 8;
     public static boolean a = false;
     public static int appID = -1;
     public static boolean b;
@@ -225,15 +278,18 @@ public class CyberPlayerManager {
     public static OnVideoFlowListener e;
     public static HttpDNS2 f;
     public static GetNetHandleListener g;
-    public static Context j;
-    public static String k;
-    public static int l;
-    public static String m;
+    public static boolean j;
+    public static Context k;
+    public static String l;
+    public static int m;
     public static String n;
-    public static Class<?> o;
+    public static String o;
+    public static Class<?> p;
+    public static ICyberMediaContext s;
     public static final Object h = new Object();
     public static final Object i = new Object();
-    public static Map<String, String> p = new HashMap();
+    public static Map<String, String> q = new HashMap();
+    public static int r = 0;
 
     @Keep
     /* loaded from: classes3.dex */
@@ -274,6 +330,13 @@ public class CyberPlayerManager {
 
     @Keep
     /* loaded from: classes3.dex */
+    public enum MediaSourceSwitchMode {
+        MEDIASOURCE_SWITCH_ABR_MODE,
+        MEDIASOURCE_SWITCH_FORCE_MODE
+    }
+
+    @Keep
+    /* loaded from: classes3.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
@@ -304,8 +367,20 @@ public class CyberPlayerManager {
 
     @Keep
     /* loaded from: classes3.dex */
+    public interface OnMediaRuntimeInfoListener {
+        void onRuntimeInfo(String str);
+    }
+
+    @Keep
+    /* loaded from: classes3.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
+    }
+
+    @Keep
+    /* loaded from: classes3.dex */
+    public interface OnPrefetchListener {
+        void onPrefetchStatusChanged(String str, boolean z, int i, String str2);
     }
 
     @Keep
@@ -338,120 +413,168 @@ public class CyberPlayerManager {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }
 
+    public static int getNetworkStatus() {
+        return 2;
+    }
+
+    public static boolean isBuildDebugMode() {
+        return false;
+    }
+
+    @Keep
+    public static boolean isRequestForbiddenError(int i2) {
+        return i2 == -2403 || i2 == -33403;
+    }
+
     static {
         PlayerPolicyManager.getInstance().register(new CyberPlayerConfig());
-    }
-
-    public static void a(Map<String, String> map) {
-        if (map != null) {
-            String str = map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    if (Integer.parseInt(str) == 1) {
-                        CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions isSpringFestivalEnable TRUE !! ");
-                        c.a().a(true);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            String str2 = map.get(INSTALL_OPT_APP_VERSION_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions app version name:" + str2);
-            n = str2;
-        }
-    }
-
-    public static long b(int i2) {
-        CyberCfgManager cyberCfgManager;
-        long j2 = 314572800;
-        String str = STORAGE_QUOTA_NORMAL;
-        if (i2 != 0) {
-            if (i2 == 1) {
-                cyberCfgManager = CyberCfgManager.getInstance();
-                j2 = 209715200;
-                str = STORAGE_QUOTA_WARNING;
-            } else if (i2 == 2) {
-                cyberCfgManager = CyberCfgManager.getInstance();
-                j2 = 104857600;
-                str = STORAGE_QUOTA_CRITICAL;
-            }
-            return cyberCfgManager.getCfgLongValue(str, j2);
-        }
-        cyberCfgManager = CyberCfgManager.getInstance();
-        return cyberCfgManager.getCfgLongValue(str, j2);
+        PlayerPolicyManager.getInstance().register(PlayerPolicyCfgManager.getInstance());
     }
 
     public static CyberAudioRecorder createCyberAudioRecorder() {
         CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
-        return d.d();
-    }
-
-    public static PlayerProvider createCyberPlayer(int i2, HttpDNS httpDNS) {
-        CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
-        return m.a().a(i2, httpDNS, false);
-    }
-
-    public static CyberVRRenderProvider createCyberVRRender(Context context) {
-        return d.a(context);
-    }
-
-    public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (a) {
-            if (onDeleteListener != null) {
-                onDeleteListener.onDeleteComplete(-2, 0L);
-                return;
-            }
-            return;
-        }
-        a = true;
-        c = onDeleteListener;
-        CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                synchronized (CyberPlayerManager.h) {
-                    long a2 = o.a(Boolean.TRUE);
-                    if (CyberPlayerManager.c != null) {
-                        if (a2 < 0) {
-                            CyberPlayerManager.c.onDeleteComplete((int) a2, 0L);
-                        } else {
-                            CyberPlayerManager.c.onDeleteComplete(0, a2);
-                        }
-                    }
-                    boolean unused = CyberPlayerManager.a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.c = null;
-                }
-            }
-        });
-    }
-
-    public static boolean duplayerEncrypt(byte[] bArr, int i2, byte[] bArr2) {
-        return d.a(bArr, i2, bArr2);
+        return f.d();
     }
 
     public static String getAppID() {
-        return m;
-    }
-
-    public static String getAppVerionName() {
         return n;
     }
 
+    public static String getAppVerionName() {
+        return o;
+    }
+
     public static Context getApplicationContext() {
-        return j;
+        return k;
     }
 
     public static String getClientID() {
-        return k;
+        return l;
     }
 
     public static String getCoreVersion() {
         return CyberVersion.getCoreVersion();
     }
 
-    public static int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map<String, String> map) {
-        return d.a(str, i2, i3, i4, map);
+    public static ICyberMediaContext getCyberMediaContext() {
+        return s;
+    }
+
+    public static Map<String, String> getInstallOpts() {
+        return q;
+    }
+
+    public static int getInstallType() {
+        return m;
+    }
+
+    public static GetNetHandleListener getNetHandleListener() {
+        return g;
+    }
+
+    public static int getPcdnType() {
+        return r;
+    }
+
+    public static int getPrefetchUploadThres() {
+        return CyberCfgManager.getInstance().getCfgIntValue("upload_prelog_thres", -1);
+    }
+
+    public static Class<?> getRemoteServiceClass() {
+        return p;
+    }
+
+    public static String getSDKVersion() {
+        return CyberVersion.getSDKVersion();
+    }
+
+    public static HashMap<Integer, Long> getSystemInfraInfo() {
+        return f.k();
+    }
+
+    public static long getVideoCacheSize() {
+        long m2 = q.m();
+        CyberLog.d("CyberPlayerManager", "getVideoCacheSize:" + m2);
+        return m2;
+    }
+
+    public static long getVideoCacheSizeCanBeCleared() {
+        if (CyberAbTestManager.getAbSwitchInt("video_can_be_cleared_cache_size", 1) == 0) {
+            return getVideoCacheSize();
+        }
+        long i2 = f.i();
+        CyberLog.d("CyberPlayerManager", "getVideoCacheSizeExcludeIgnore:" + i2);
+        return i2;
+    }
+
+    public static boolean isAppInDebugMode() {
+        Context context = k;
+        if (context == null) {
+            return false;
+        }
+        try {
+            if ((context.getApplicationInfo().flags & 2) == 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    public static boolean isCoreLoaded() {
+        return isCoreLoaded(m);
+    }
+
+    public static boolean isMPDSupported() {
+        return CyberCfgManager.getInstance().a("enable_mpd", true);
+    }
+
+    public static void kernelNetInit() {
+        f.m();
+    }
+
+    public static void onExit() {
+        CyberLog.i("CyberPlayerManager", "onExit call by app");
+    }
+
+    public static void pcdnNetInit() {
+        f.n();
+    }
+
+    public static void saveFilecacheConfig() {
+        sendGlobalCommondToRemote("saveFilecacheConfig", 0, 0L, null, null);
+    }
+
+    public static CyberVRRenderProvider createCyberVRRender(Context context) {
+        return f.a(context);
+    }
+
+    public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
+        if (!a) {
+            a = true;
+            c = onDeleteListener;
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    synchronized (CyberPlayerManager.h) {
+                        CyberPlayerManager.sendGlobalCommondToRemote("deleteVideoCache", 0, 0L, null, null);
+                        long a2 = q.a(Boolean.TRUE);
+                        if (CyberPlayerManager.c != null) {
+                            if (a2 < 0) {
+                                CyberPlayerManager.c.onDeleteComplete((int) a2, 0L);
+                            } else {
+                                CyberPlayerManager.c.onDeleteComplete(0, a2);
+                            }
+                        }
+                        boolean unused = CyberPlayerManager.a = false;
+                        OnDeleteListener unused2 = CyberPlayerManager.c = null;
+                    }
+                }
+            });
+        } else if (onDeleteListener != null) {
+            onDeleteListener.onDeleteComplete(-2, 0L);
+        }
     }
 
     public static List<String> getIPListWithHost(String str) {
@@ -462,153 +585,17 @@ public class CyberPlayerManager {
         return httpDNS2.getIpList2(str, false);
     }
 
-    public static Map<String, String> getInstallOpts() {
-        return p;
-    }
-
-    public static int getInstallType() {
-        return l;
-    }
-
-    public static GetNetHandleListener getNetHandleListener() {
-        return g;
-    }
-
-    public static int getNetworkStatus() {
-        return 2;
-    }
-
-    public static int getPrefetchUploadThres() {
-        return CyberCfgManager.getInstance().getCfgIntValue("upload_prelog_thres", -1);
-    }
-
-    public static Class<?> getRemoteServiceClass() {
-        return o;
-    }
-
-    public static String getSDKVersion() {
-        return CyberVersion.getSDKVersion();
-    }
-
-    public static HashMap<Integer, Long> getSystemInfraInfo() {
-        return d.j();
-    }
-
-    public static long getVideoCacheSize() {
-        long k2 = o.k();
-        CyberLog.d("CyberPlayerManager", "getVideoCacheSize:" + k2);
-        return k2;
+    public static Object getLibPath(int i2) {
+        CyberCoreLoaderManager.a();
+        return CyberCoreLoaderManager.a(i2);
     }
 
     public static boolean hasCacheFile(String str) {
-        return d.c(str);
-    }
-
-    @Deprecated
-    public static synchronized void install(Context context, String str, String str2) throws Exception {
-        synchronized (CyberPlayerManager.class) {
-            install(context, str, str2, 7, (Class<?>) null, (Map<String, String>) null, (InstallListener2) null);
-        }
-    }
-
-    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2) throws Exception {
-        synchronized (CyberPlayerManager.class) {
-            try {
-                if (context == null) {
-                    throw new NullPointerException("context is null");
-                }
-                if (TextUtils.isEmpty(str)) {
-                    throw new NullPointerException("clienID is null");
-                }
-                j = context.getApplicationContext();
-                k = str;
-                l |= i2;
-                o = cls;
-                m = context.getPackageName();
-                if (map != null) {
-                    p.putAll(map);
-                    a(map);
-                }
-                CyberCoreLoaderManager.a().a(str2, i2 | 64, map, installListener2);
-            } catch (Throwable th) {
-                throw th;
-            }
-        }
-    }
-
-    @Deprecated
-    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws Exception {
-        synchronized (CyberPlayerManager.class) {
-            try {
-                if (context == null) {
-                    throw new NullPointerException("context is null");
-                }
-                if (TextUtils.isEmpty(str)) {
-                    throw new NullPointerException("clienID is null");
-                }
-                j = context.getApplicationContext();
-                k = str;
-                l |= i2;
-                o = cls;
-                m = context.getPackageName();
-                if (map != null) {
-                    p.putAll(map);
-                    a(map);
-                }
-                CyberCoreLoaderManager.a().a(str2, i2 | 64, map, installListener);
-            } catch (Throwable th) {
-                throw th;
-            }
-        }
-    }
-
-    public static boolean isCoreLoaded() {
-        return isCoreLoaded(l);
+        return f.c(str);
     }
 
     public static boolean isCoreLoaded(int i2) {
-        return d.a(i2);
-    }
-
-    public static boolean isMPDSupported() {
-        return CyberCfgManager.getInstance().a("enable_mpd", false);
-    }
-
-    public static void kernelNetInit() {
-        d.l();
-    }
-
-    public static void onDiskUsageLevelChangedCallback(int i2, final int i3, OnUpdateDiskQuotaComplete onUpdateDiskQuotaComplete) {
-        if (b) {
-            if (onUpdateDiskQuotaComplete != null) {
-                onUpdateDiskQuotaComplete.notifyCompletion();
-                return;
-            }
-            return;
-        }
-        b = true;
-        d = onUpdateDiskQuotaComplete;
-        CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.2
-            @Override // java.lang.Runnable
-            public void run() {
-                synchronized (CyberPlayerManager.i) {
-                    o.a(CyberPlayerManager.b(i3));
-                    if (CyberPlayerManager.d != null) {
-                        CyberPlayerManager.d.notifyCompletion();
-                    }
-                    boolean unused = CyberPlayerManager.b = false;
-                    OnUpdateDiskQuotaComplete unused2 = CyberPlayerManager.d = null;
-                }
-            }
-        });
-    }
-
-    public static void onExit() {
-        CyberLog.i("CyberPlayerManager", "onExit call by app");
-    }
-
-    public static void pcdnNetInit() {
-        d.l();
+        return f.a(i2);
     }
 
     public static void preResolveHosts(List<String> list) {
@@ -620,54 +607,13 @@ public class CyberPlayerManager {
         }
     }
 
-    @Deprecated
-    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
-        d.a(str, str2, str3, 2, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
-    }
-
-    @Deprecated
-    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        d.a(str, str2, str3, 2, 0, i2, httpDNS, str4 == null ? "" : str4, -1, -1, -1, -1, null);
-    }
-
-    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4, int i3, int i4, int i5, int i6) {
-        d.a(str, str2, str3, 2, 0, i2, httpDNS, str4 == null ? "" : str4, i3, i4, i5, i6, null);
-    }
-
-    @Deprecated
-    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS) {
-        l.b();
-        d.a(str, str2, str3, 1, i2, i3, httpDNS, "", -1, -1, -1, -1, null);
-    }
-
-    @Deprecated
-    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
-        String str5 = str4 == null ? "" : str4;
-        l.b();
-        d.a(str, str2, str3, 1, i2, i3, httpDNS, str5, -1, -1, -1, -1, null);
-    }
-
-    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4, int i4, int i5, int i6, int i7, PrefetchOptions prefetchOptions) {
-        String str5 = str4 == null ? "" : str4;
-        l.b();
-        d.a(str, str2, str3, 1, i2, i3, httpDNS, str5, i4, i5, i6, i7, prefetchOptions);
-    }
-
-    @Deprecated
-    public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
-        l.b();
-        d.a(str, str2, str3, 1, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
-    }
-
-    @Deprecated
-    public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        String str5 = str4 == null ? "" : str4;
-        l.b();
-        d.a(str, str2, str3, 1, 0, i2, httpDNS, str5, -1, -1, -1, -1, null);
-    }
-
     public static void setCollectVideoFlow(OnVideoFlowListener onVideoFlowListener) {
         e = onVideoFlowListener;
+    }
+
+    public static void setCyberMediaContext(ICyberMediaContext iCyberMediaContext) {
+        s = iCyberMediaContext;
+        PlayConfigABContext.setPlayConfigABTest(new com.baidu.cyberplayer.sdk.a.a());
     }
 
     public static void setHttpDNS2(HttpDNS2 httpDNS2) {
@@ -678,8 +624,12 @@ public class CyberPlayerManager {
         g = getNetHandleListener;
     }
 
+    public static void setPrefetchListener(OnPrefetchListener onPrefetchListener) {
+        f.a(onPrefetchListener);
+    }
+
     public static void stopPrefetch(String str) {
-        d.b(str);
+        f.b(str);
     }
 
     public static void videoFlowCallback(HashMap<String, String> hashMap) {
@@ -687,5 +637,348 @@ public class CyberPlayerManager {
         if (onVideoFlowListener != null) {
             onVideoFlowListener.onRecordFlow(hashMap);
         }
+    }
+
+    public static void a(int i2, final int i3) {
+        if (!j) {
+            j = true;
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    int i4 = i3;
+                    if (i4 == 2) {
+                        long cfgLongValue = CyberCfgManager.getInstance().getCfgLongValue("disk_critical_clean_max_size", 83886080L);
+                        f.b(cfgLongValue);
+                        CyberPlayerManager.sendGlobalCommondToRemote("diskAutoClean", 0, cfgLongValue, null, null);
+                    } else if (i4 == 1) {
+                        long cfgLongValue2 = CyberCfgManager.getInstance().getCfgLongValue("disk_critical_clean_max_size", 62914560L);
+                        f.b(cfgLongValue2);
+                        CyberPlayerManager.sendGlobalCommondToRemote("diskAutoClean", 0, cfgLongValue2, null, null);
+                    }
+                    boolean unused = CyberPlayerManager.j = false;
+                }
+            });
+        }
+    }
+
+    public static PlayerProvider createCyberPlayer(int i2, HttpDNS httpDNS) {
+        CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
+        return n.a().a(i2, httpDNS, false);
+    }
+
+    public static void removeVideoReserveUrl(String str, boolean z) {
+        sendGlobalCommondToRemote("removeFilecacheReserveUrl", z ? 1 : 0, 0L, str, null);
+    }
+
+    public static void a(Map<String, String> map) {
+        boolean z;
+        if (map != null) {
+            String str = map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    if (Integer.parseInt(str) == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions isSpringFestivalEnable TRUE !! ");
+                        e.a().a(true);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            String str2 = map.get(INSTALL_OPT_APP_VERSION_NAME);
+            if (!TextUtils.isEmpty(str2)) {
+                CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions app version name:" + str2);
+                o = str2;
+            }
+        }
+    }
+
+    public static long b(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    return CyberCfgManager.getInstance().getCfgLongValue(STORAGE_QUOTA_NORMAL, 314572800L);
+                }
+                return CyberCfgManager.getInstance().getCfgLongValue(STORAGE_QUOTA_CRITICAL, 104857600L);
+            }
+            return CyberCfgManager.getInstance().getCfgLongValue(STORAGE_QUOTA_WARNING, 209715200L);
+        }
+        return CyberCfgManager.getInstance().getCfgLongValue(STORAGE_QUOTA_NORMAL, 314572800L);
+    }
+
+    public static boolean duplayerEncrypt(byte[] bArr, int i2, byte[] bArr2) {
+        return f.a(bArr, i2, bArr2);
+    }
+
+    public static void onDiskUsageLevelChangedCallback(int i2, final int i3, OnUpdateDiskQuotaComplete onUpdateDiskQuotaComplete) {
+        if (!b) {
+            b = true;
+            d = onUpdateDiskQuotaComplete;
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    synchronized (CyberPlayerManager.i) {
+                        q.a(CyberPlayerManager.b(i3));
+                        if (CyberPlayerManager.d != null) {
+                            CyberPlayerManager.d.notifyCompletion();
+                        }
+                        boolean unused = CyberPlayerManager.b = false;
+                        OnUpdateDiskQuotaComplete unused2 = CyberPlayerManager.d = null;
+                    }
+                }
+            });
+        } else if (onUpdateDiskQuotaComplete != null) {
+            onUpdateDiskQuotaComplete.notifyCompletion();
+        }
+    }
+
+    public static int getDeviceHDRSupported(int i2, int i3, int i4) {
+        boolean z;
+        if (k == null) {
+            return -1;
+        }
+        if (CyberCfgManager.getInstance().isWhiteDevideForHDR() && !CyberCfgManager.getInstance().isBlackDeviceForHDR()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (!z) {
+            CyberLog.i("CyberPlayerManager", "getDeviceHDRSupported not support:not in whiteList or in blackList");
+            return 0;
+        } else if (!isCoreLoaded(1)) {
+            return -1;
+        } else {
+            return f.a(i2, i3, i4);
+        }
+    }
+
+    public static int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map<String, String> map) {
+        return f.a(str, i2, i3, i4, map);
+    }
+
+    @Deprecated
+    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
+        f.a(str, str2, str3, 2, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
+    }
+
+    @Deprecated
+    public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
+    }
+
+    public static void sendGlobalCommondToRemote(String str, int i2, long j2, String str2, PrefetchOptions prefetchOptions) {
+        com.baidu.cyberplayer.sdk.remote.h.a().a(str, i2, j2, str2, prefetchOptions);
+    }
+
+    public static synchronized void install(Context context, int i2, Class<?> cls, InstallListener2 installListener2) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            ICyberMediaContext cyberMediaContext = getCyberMediaContext();
+            if (cyberMediaContext != null) {
+                ICyberGlobalOptions cyberGlobalOptions = cyberMediaContext.getCyberGlobalOptions();
+                if (cyberGlobalOptions != null) {
+                    HashMap hashMap = new HashMap();
+                    CyberAbTestManager.parseCyberMediaAllAbs();
+                    CyberAbTestManager.collectOriginAbs(hashMap);
+                    int pcdnType = cyberGlobalOptions.getPcdnType();
+                    int crashPadInstallType = cyberGlobalOptions.getCrashPadInstallType();
+                    hashMap.put(INSTALL_OPT_CRASHPAD_INSTALL_TYPE, crashPadInstallType + "");
+                    hashMap.put("abtest_sid", cyberGlobalOptions.getAllSid());
+                    install(context, cyberGlobalOptions.getClientId(), cyberGlobalOptions.getDownloadCoreServer(), i2, cls, (Map<String, String>) hashMap, installListener2, pcdnType);
+                } else {
+                    throw new IllegalArgumentException("ICyberGlobalOptions is null");
+                }
+            } else {
+                throw new IllegalArgumentException("ICyberMediaContext is null");
+            }
+        }
+    }
+
+    public static synchronized void install(Context context, int i2, Class<?> cls, InstallListener installListener) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            ICyberMediaContext cyberMediaContext = getCyberMediaContext();
+            if (cyberMediaContext != null) {
+                ICyberGlobalOptions cyberGlobalOptions = cyberMediaContext.getCyberGlobalOptions();
+                if (cyberGlobalOptions != null) {
+                    HashMap hashMap = new HashMap();
+                    CyberAbTestManager.parseCyberMediaAllAbs();
+                    CyberAbTestManager.collectOriginAbs(hashMap);
+                    int pcdnType = cyberGlobalOptions.getPcdnType();
+                    int crashPadInstallType = cyberGlobalOptions.getCrashPadInstallType();
+                    hashMap.put(INSTALL_OPT_CRASHPAD_INSTALL_TYPE, crashPadInstallType + "");
+                    hashMap.put("abtest_sid", cyberGlobalOptions.getAllSid());
+                    install(context, cyberGlobalOptions.getClientId(), cyberGlobalOptions.getDownloadCoreServer(), i2, cls, hashMap, installListener, pcdnType);
+                } else {
+                    throw new IllegalArgumentException("ICyberGlobalOptions is null");
+                }
+            } else {
+                throw new IllegalArgumentException("ICyberMediaContext is null");
+            }
+        }
+    }
+
+    @Deprecated
+    public static synchronized void install(Context context, String str, String str2, int i2) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            install(context, str, str2, 7, (Class<?>) null, (Map<String, String>) null, (InstallListener2) null, i2);
+        }
+    }
+
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            install(context, str, str2, i2, cls, map, installListener2, r);
+        }
+    }
+
+    @Deprecated
+    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, i2, i3, httpDNS, str5, -1, -1, -1, -1, null);
+    }
+
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2, int i3) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            try {
+                if (context != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        Context applicationContext = context.getApplicationContext();
+                        k = applicationContext;
+                        PlayerPolicyRuntime.init(applicationContext);
+                        l = str;
+                        m |= i2;
+                        p = cls;
+                        n = context.getPackageName();
+                        r = i3;
+                        if (map != null) {
+                            q.putAll(map);
+                            a(map);
+                        }
+                        CyberCoreLoaderManager.a().a(str2, i2 | 64, map, installListener2);
+                    } else {
+                        throw new NullPointerException("clienID is null");
+                    }
+                } else {
+                    throw new NullPointerException("context is null");
+                }
+            } catch (Throwable th) {
+                throw th;
+            }
+        }
+    }
+
+    @Deprecated
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener, int i3) throws Exception {
+        synchronized (CyberPlayerManager.class) {
+            try {
+                if (context != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        Context applicationContext = context.getApplicationContext();
+                        k = applicationContext;
+                        PlayerPolicyRuntime.init(applicationContext);
+                        l = str;
+                        m |= i2;
+                        p = cls;
+                        n = context.getPackageName();
+                        if (map != null) {
+                            q.putAll(map);
+                            a(map);
+                        }
+                        r = i3;
+                        CyberCoreLoaderManager.a().a(str2, i2 | 64, map, installListener);
+                    } else {
+                        throw new NullPointerException("clienID is null");
+                    }
+                } else {
+                    throw new NullPointerException("context is null");
+                }
+            } catch (Throwable th) {
+                throw th;
+            }
+        }
+    }
+
+    public static void onAppDiskCacheChanged(int i2, int i3) {
+        boolean z = true;
+        if (CyberCfgManager.getInstance().getCfgIntValue("disk_auto_clean_enable", 1) == 1) {
+            long prefLong = CyberCfgManager.getInstance().getPrefLong("cyber_last_disk_auto_clean_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (prefLong > 0) {
+                if (currentTimeMillis - prefLong <= q.l()) {
+                    z = false;
+                }
+                if (z) {
+                    a(i2, i3);
+                    CyberCfgManager.getInstance().setPrefLong("cyber_last_disk_auto_clean_time", currentTimeMillis);
+                    return;
+                }
+                return;
+            }
+            a(i2, i3);
+            CyberCfgManager.getInstance().setPrefLong("cyber_last_disk_auto_clean_time", currentTimeMillis);
+        }
+    }
+
+    @Deprecated
+    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        f.a(str, str2, str3, 2, 0, i2, httpDNS, str5, -1, -1, -1, -1, null);
+    }
+
+    @Deprecated
+    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS) {
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, i2, i3, httpDNS, "", -1, -1, -1, -1, null);
+    }
+
+    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4, int i3, int i4, int i5, int i6) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        f.a(str, str2, str3, 2, 0, i2, httpDNS, str5, i3, i4, i5, i6, null);
+    }
+
+    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4, int i4, int i5, int i6, int i7, PrefetchOptions prefetchOptions) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, i2, i3, httpDNS, str5, i4, i5, i6, i7, prefetchOptions);
+    }
+
+    @Deprecated
+    public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
+        String str5;
+        if (str4 == null) {
+            str5 = "";
+        } else {
+            str5 = str4;
+        }
+        PlayerConfigManager.setRequestSource(PlayerPolicyManager.REQ_SOURCE_PREFETCH);
+        PlayerConfigManager.startRequestPlayerServerCfg();
+        f.a(str, str2, str3, 1, 0, i2, httpDNS, str5, -1, -1, -1, -1, null);
     }
 }

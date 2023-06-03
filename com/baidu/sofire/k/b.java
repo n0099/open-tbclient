@@ -30,8 +30,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
@@ -388,7 +389,7 @@ public class b {
                                 if ("provider".equals(name)) {
                                     if (openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name").equals(str4)) {
                                         String attributeValue2 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "multiprocess");
-                                        if (!TextUtils.isEmpty(attributeValue2) && "true".equals(attributeValue2.toLowerCase())) {
+                                        if (!TextUtils.isEmpty(attributeValue2) && YYOption.IsLive.VALUE_TRUE.equals(attributeValue2.toLowerCase())) {
                                             return null;
                                         }
                                         String attributeValue3 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "authorities");
@@ -1130,7 +1131,7 @@ public class b {
             if (h(context)) {
                 service = PendingIntent.getService(context, 101, intent, 201326592);
             } else {
-                service = PendingIntent.getService(context, 101, intent, 134217728);
+                service = PendingIntent.getService(context, 101, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
             try {
                 alarmManager.cancel(service);
@@ -1227,7 +1228,7 @@ public class b {
                     contentValues.put("i", (Integer) 0);
                     contentValues.put("j", (String) null);
                     try {
-                        jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
+                        jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes("utf-8")), 0);
                     } catch (Exception unused) {
                         int i2 = com.baidu.sofire.a.b.a;
                     }

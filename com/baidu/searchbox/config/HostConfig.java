@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 @SuppressLint({"BDOfflineUrl"})
 /* loaded from: classes3.dex */
 public final class HostConfig {
@@ -147,7 +148,7 @@ public final class HostConfig {
     public static String getOldSearchboxHostForHttps() {
         String str;
         if (isSearchboxUseHttps()) {
-            str = "https://m.baidu.com";
+            str = DownloadCenterFunConstants.Config.DOWNLOAD_MARKET_LINK_HOST;
         } else {
             str = DownloadConstants.REFER;
         }

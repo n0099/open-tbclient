@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.fluency.utils.Logcat;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.charset.Charset;
@@ -19,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt__MathJVMKt;
 import kotlin.text.Charsets;
 import kotlinx.coroutines.CoroutineScope;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem$saveCsv$2", f = "FpsTracer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes3.dex */
 public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {

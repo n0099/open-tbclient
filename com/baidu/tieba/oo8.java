@@ -1,178 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.graphics.Rect;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
+import com.tencent.open.SocialConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class oo8 implements ThirdPartWxRechargeService {
+/* loaded from: classes7.dex */
+public class oo8 {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948039089, "Lcom/baidu/tieba/oo8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948039089, "Lcom/baidu/tieba/oo8;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oo8 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
-
-        public a(oo8 oo8Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oo8Var, wxPayType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = oo8Var;
-            this.val$wxPayType = wxPayType;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                    str = "wx_pay_result";
-                } else {
-                    str = "yy_wx_pay_result";
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-            }
-        }
-    }
+    public String a;
+    public Rect b;
+    public String c;
+    public Rect d;
 
     public oo8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = new Rect(0, 0, 0, 0);
+        this.c = "";
+        this.d = new Rect(0, 0, 0, 0);
+    }
+
+    public oo8(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = jSONObject.optString("pic_url");
+        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
+            if (optJSONArray == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
+                if (jSONObject == null) {
+                    return;
+                }
+                this.c = jSONObject.optString("pic_url");
+                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
+    public static oo8 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new oo8();
+            }
+            try {
+                return new oo8(new JSONObject(str));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return new oo8();
+            }
+        }
+        return (oo8) invokeL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
+                return true;
             }
-            return this.a.isWXAppInstalled();
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
+                return true;
+            }
+            return false;
         }
-        return (PayReq) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
-        String str2;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!c()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
             try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                        str2 = "wx_pay_result";
-                    } else {
-                        str2 = "yy_wx_pay_result";
-                    }
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
+                jSONObject.put("pic_url", this.a);
+                jSONObject.put("rect_left", this.b.left);
+                jSONObject.put("rect_top", this.b.top);
+                jSONObject.put("rect_right", this.b.right);
+                jSONObject.put("rect_bottom", this.b.bottom);
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,311 +1,377 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.advert.sdk.data.AdType;
+import com.baidu.tieba.advert.sdk.data.RedirectType;
+import com.baidu.tieba.advert.sdk.view.SplashAdView;
+import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class k76 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long f = 604800000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<rn> b;
-    public List<rn> c;
-    public List<rn> d;
-    public List<rn> e;
+    public e a;
+    public String b;
+    public WeakReference<SplashAdView> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866047, "Lcom/baidu/tieba/k76;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements CustomMessageTask.CustomRunnable<qc5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k76 a;
+
+        public a(k76 k76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k76Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947866047, "Lcom/baidu/tieba/k76;");
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<qc5> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getCmd() == 2016310) {
+                    try {
+                        return new CustomResponsedMessage<>(2016310, this.a.f(customMessage.getData()));
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    public k76(TbPageContext tbPageContext) {
+    /* loaded from: classes6.dex */
+    public class b implements r76 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SplashAdView a;
+        public final /* synthetic */ k76 b;
+
+        @Override // com.baidu.tieba.r76
+        public void b(n76 n76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n76Var) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.r76
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.r76
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public b(k76 k76Var, SplashAdView splashAdView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var, splashAdView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k76Var;
+            this.a = splashAdView;
+        }
+
+        @Override // com.baidu.tieba.r76
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
+                statisticItem.param("obj_source", str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @Override // com.baidu.tieba.r76
+        public void d() {
+            o76 entryInfoData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                SplashAdView splashAdView = (SplashAdView) this.b.c.get();
+                if (splashAdView != null) {
+                    this.b.b = this.a.g();
+                    k76 k76Var = this.b;
+                    k76Var.h(k76Var.b);
+                }
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
+                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
+                    if (entryInfoData.d()) {
+                        statisticItem.param("obj_source", entryInfoData.e);
+                    } else {
+                        statisticItem.param("obj_source", entryInfoData.b);
+                    }
+                }
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(k76 k76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements CountDownTextView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(k76 k76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
+        public void onTimeout(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<CountDownTextView> a;
+
+        public e(CountDownTextView countDownTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {countDownTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(countDownTextView);
+        }
+
+        public /* synthetic */ e(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
+
+        public void a(String str) {
+            CountDownTextView countDownTextView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (countDownTextView = this.a.get()) != null) {
+                countDownTextView.d(str, 0);
+            }
+        }
+    }
+
+    public k76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
+        this.a = null;
+        this.b = null;
     }
 
-    public void a() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<rn> list = this.c;
-            if (list != null) {
-                list.clear();
-            }
-            List<rn> list2 = this.d;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<rn> list3 = this.e;
-            if (list3 != null) {
-                list3.clear();
-            }
-            List<rn> list4 = this.b;
-            if (list4 != null) {
-                list4.clear();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new a(this));
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 
-    public List<rn> h() {
-        InterceptResult invokeV;
+    public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<rn> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaLiveTabMyConcernResponse)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse == null) {
-                return arrayList;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus != 1) {
-                if (!ListUtils.isEmpty(this.d) && k(alaLiveTabMyConcernResponse)) {
-                    arrayList.add(new g76());
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    s86 s86Var = new s86();
-                    s86Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b6e, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
-                    arrayList.add(s86Var);
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    for (rn rnVar : this.d) {
-                        arrayList.add(rnVar);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<rn> g(List<rn> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                int size = list.size();
-                for (int i = 0; i < size; i += 3) {
-                    i76 i76Var = new i76();
-                    h66 h66Var = new h66();
-                    h66Var.d = (ThreadData) list.get(i);
-                    i76Var.a = h66Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        h66 h66Var2 = new h66();
-                        h66Var2.d = (ThreadData) list.get(i2);
-                        i76Var.b = h66Var2;
-                    }
-                    int i3 = i + 2;
-                    if (i3 < size) {
-                        h66 h66Var3 = new h66();
-                        h66Var3.d = (ThreadData) list.get(i3);
-                        i76Var.c = h66Var3;
-                    }
-                    arrayList.add(i76Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<rn> c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse == null) {
-                return arrayList;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus != 1) {
-                s86 s86Var = new s86();
-                s86Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b6f, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
-                arrayList.add(s86Var);
-            }
-            if (!ListUtils.isEmpty(this.c)) {
-                arrayList.addAll(f());
-            } else if (z) {
-                r86 r86Var = new r86();
-                r86Var.a = alaLiveTabMyConcernResponse.followStatus;
-                arrayList.add(r86Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public void e(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, alaLiveTabMyConcernResponse, z) != null) || alaLiveTabMyConcernResponse == null) {
-            return;
-        }
-        if (z) {
-            this.b.clear();
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-            this.c.addAll(alaLiveTabMyConcernResponse.followList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-            this.d.addAll(alaLiveTabMyConcernResponse.followCloseList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-            this.e.addAll(alaLiveTabMyConcernResponse.recommendList);
-        }
-        this.b = i(alaLiveTabMyConcernResponse, z);
-    }
-
-    public final List<rn> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.e)) {
-                s86 s86Var = new s86();
-                s86Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b73);
-                arrayList.add(s86Var);
-                arrayList.addAll(g(this.e));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<rn> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.c)) {
-                int size = this.c.size();
-                for (int i = 0; i < size; i += 2) {
-                    y66 y66Var = new y66();
-                    h66 h66Var = new h66();
-                    h66Var.d = (ThreadData) this.c.get(i);
-                    h66Var.f = true;
-                    y66Var.a = h66Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        h66 h66Var2 = new h66();
-                        h66Var2.d = (ThreadData) this.c.get(i2);
-                        y66Var.b = h66Var2;
-                        h66Var2.g = true;
-                    } else {
-                        h66Var.f = false;
-                        h66Var.h = true;
-                    }
-                    int i3 = size % 2;
-                    if ((i3 == 0 && i == size - 2) || (i3 != 0 && i == size - 1)) {
-                        y66Var.c = true;
-                    }
-                    arrayList.add(y66Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<rn> i(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<rn> c = c(alaLiveTabMyConcernResponse, z);
-            if (!ListUtils.isEmpty(c)) {
-                arrayList.addAll(c);
-            }
-            List<rn> b = b(alaLiveTabMyConcernResponse);
-            if (!ListUtils.isEmpty(b)) {
-                arrayList.addAll(b);
-            }
-            List<rn> d = d();
-            if (!ListUtils.isEmpty(d)) {
-                arrayList.addAll(d);
-            }
-            return arrayList;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public void j(Class<? extends BaseCardInfo> cls) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, cls) != null) || ListUtils.isEmpty(this.b)) {
-            return;
-        }
-        for (int size = this.b.size() - 1; size >= 0; size--) {
-            rn rnVar = (rn) ListUtils.getItem(this.b, size);
-            if (rnVar != null && rnVar.getClass().equals(cls)) {
-                this.b.remove(size);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.a(str);
         }
     }
 
-    public final boolean k(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
+    public final View f(qc5 qc5Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, alaLiveTabMyConcernResponse)) == null) {
-            if (alaLiveTabMyConcernResponse == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qc5Var)) == null) {
+            if (qc5Var == null || !qc5Var.c()) {
+                return null;
             }
-            if (System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L) > f) {
-                z = true;
-            } else {
+            Activity pageActivity = qc5Var.getContext().getPageActivity();
+            int a2 = qc5Var.a();
+            int b2 = qc5Var.b();
+            SplashAdView splashAdView = new SplashAdView(qc5Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
+            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
+            this.c = new WeakReference<>(splashAdView);
+            splashAdView.setBCAdCallBack(new b(this, splashAdView));
+            try {
+                z = splashAdView.f();
+            } catch (Throwable unused) {
                 z = false;
             }
-            if (alaLiveTabMyConcernResponse.followStatus == 1 || j76.a(this.a) || !z) {
-                return false;
+            if (!z) {
+                return null;
             }
-            return true;
+            try {
+                int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070393);
+                int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
+                Activity pageActivity2 = qc5Var.getContext().getPageActivity();
+                if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
+                    dimension2 += vi.u(pageActivity2);
+                }
+                int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+                int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070355);
+                int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703eb);
+                CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
+                this.a = new e(countDownTextView, null);
+                String str = this.b;
+                if (TextUtils.isEmpty(str)) {
+                    str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f13c0);
+                }
+                if (splashAdView.n) {
+                    countDownTextView.d(str, 6);
+                } else {
+                    countDownTextView.d(str, 3);
+                }
+                splashAdView.setTag(Boolean.valueOf(splashAdView.n));
+                float f = dimension;
+                countDownTextView.setTextSize(0, f);
+                countDownTextView.setTextColor(Color.parseColor("#ffffff"));
+                countDownTextView.setGravity(17);
+                countDownTextView.setAlpha(0.5f);
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(Color.parseColor("#000000"));
+                gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
+                gradientDrawable.setStroke(1, Color.parseColor("#000000"));
+                countDownTextView.setBackgroundDrawable(gradientDrawable);
+                countDownTextView.setOnClickListener(new c(this));
+                countDownTextView.setTimeoutListener(new d(this));
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
+                layoutParams.addRule(10);
+                layoutParams.addRule(11);
+                layoutParams.setMargins(0, dimension2, dimension3, 0);
+                int g = vi.g(pageActivity, R.dimen.obfuscated_res_0x7f07041b);
+                countDownTextView.setPadding(g, g, g, g);
+                splashAdView.addView(countDownTextView, layoutParams);
+                int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
+                TextView textView = new TextView(pageActivity);
+                textView.setText(R.string.advert_label);
+                textView.setTextSize(0, f);
+                textView.setAlpha(0.5f);
+                textView.setIncludeFontPadding(false);
+                textView.setGravity(17);
+                textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
+                int g2 = vi.g(pageActivity, R.dimen.obfuscated_res_0x7f0701d4);
+                textView.setPadding(g2, g2, g2, g2);
+                SkinManager.setViewTextColor(textView, (int) R.color.common_color_10013);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070261), (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070225));
+                layoutParams2.setMargins(dimension6, 0, 0, dimension6);
+                layoutParams2.addRule(9);
+                layoutParams2.addRule(12);
+                splashAdView.addView(textView, layoutParams2);
+            } catch (Exception unused2) {
+            }
+            return splashAdView;
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
     }
 }

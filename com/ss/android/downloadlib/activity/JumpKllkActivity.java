@@ -6,7 +6,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.h;
 import com.ss.android.socialbase.appdownloader.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JumpKllkActivity extends TTDelegateActivity {
     @Override // android.app.Activity
     public void onPause() {

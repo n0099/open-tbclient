@@ -1,125 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s04 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s04 {
+    String a();
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final s04 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-483979947, "Lcom/baidu/tieba/s04$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-483979947, "Lcom/baidu/tieba/s04$a;");
-                    return;
-                }
-            }
-            a = new s04();
-        }
-    }
+    String c();
 
-    public s04() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull zz3 zz3Var);
 
-    public static s04 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (s04) invokeV.objValue;
-    }
+    String e();
 
-    public void a(@NonNull JSONObject jSONObject, @NonNull z04 z04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, z04Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z04Var.a(new a14(31008, "download is not exist"));
-            } else {
-                x54.c().c(optString);
-            }
-        }
-    }
+    String f(String str);
 
-    public void c(@NonNull JSONObject jSONObject, @NonNull z04 z04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, z04Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z04Var.a(new a14(31008, "download is not exist"));
-            } else {
-                x54.c().e(optString);
-            }
-        }
-    }
+    String g();
 
-    public void e(@NonNull JSONObject jSONObject, @NonNull z04 z04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, z04Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z04Var.a(new a14(31008, "download is not exist"));
-            } else {
-                x54.c().f(optString);
-            }
-        }
-    }
+    String getAppId();
 
-    public void d(@NonNull JSONObject jSONObject, @NonNull z04 z04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, z04Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                z04Var.a(new a14(31008, "download is not exist"));
-                return;
-            }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!x54.c().a(optString3, optString, optString2, optBoolean, new u04(z04Var))) {
-                    z04Var.a(new a14(31006, "is not in main process"));
-                    return;
-                }
-                return;
-            }
-            z04Var.a(new a14(31007, "invalid params"));
-        }
-    }
+    String getAppKey();
+
+    String getScene();
+
+    String getSdkVersion();
+
+    int h();
+
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

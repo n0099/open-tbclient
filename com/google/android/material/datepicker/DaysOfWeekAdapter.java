@@ -73,11 +73,11 @@ public class DaysOfWeekAdapter extends BaseAdapter {
     public View getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
         TextView textView = (TextView) view2;
         if (view2 == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d061d, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d062b, viewGroup, false);
         }
         this.calendar.set(7, positionToDayOfWeek(i));
         textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
-        textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c6f), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
+        textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0ca8), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
         return textView;
     }
 }

@@ -15,7 +15,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public final Drawable mDelegate;
     @Nullable

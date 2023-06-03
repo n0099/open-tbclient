@@ -2,8 +2,8 @@ package com.baidu.payment;
 
 import android.app.Activity;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
-import com.baidu.tieba.ff1;
-import com.baidu.tieba.wf1;
+import com.baidu.tieba.fh1;
+import com.baidu.tieba.og1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,10 +29,10 @@ public class PaymentAliChannelAuth implements IChannelAuth {
     }
 
     @Override // com.baidu.poly.wallet.paychannel.IChannelAuth
-    public void aLiAuth(Activity activity, String str, wf1<JSONObject> wf1Var) {
+    public void aLiAuth(Activity activity, String str, fh1<JSONObject> fh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, wf1Var) == null) {
-            ff1.a().aLiAuth(activity, str, wf1Var);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, fh1Var) == null) {
+            og1.a().aLiAuth(activity, str, fh1Var);
         }
     }
 }

@@ -1,42 +1,78 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.hb2;
+import com.baidu.tieba.uu2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
+import com.tencent.open.miniapp.MiniApp;
+import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class o73 {
+/* loaded from: classes7.dex */
+public class o73 extends m73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(n73 n73Var);
+    @Override // com.baidu.tieba.m73
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class a extends ResponseCallback<n73> {
+    @Override // com.baidu.tieba.m73
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m73
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m73
+    public y32 m(i73 i73Var, kd2<j73> kd2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, i73Var, kd2Var)) == null) {
+            return null;
+        }
+        return (y32) invokeLL.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ i73 b;
+        public final /* synthetic */ hb2 c;
 
-        public a(b bVar) {
+        public a(o73 o73Var, String str, i73 i73Var, hb2 hb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {o73Var, str, i73Var, hb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,96 +82,196 @@ public class o73 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.a = str;
+            this.b = i73Var;
+            this.c = hb2Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            b bVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) || (bVar = this.a) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y13 y13Var = new y13();
+                y13Var.c = this.a;
+                y13Var.b = j73.a(this.b);
+                hb2.b i = this.c.i("navigateTo");
+                i.n(hb2.g, hb2.i);
+                i.k("pluginFunPage", y13Var).a();
             }
-            bVar.a(null);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(n73 n73Var, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, n73Var, i) != null) || (bVar = this.a) == null) {
-                return;
+    public o73() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (n73Var == null) {
-                bVar.a(null);
+        }
+    }
+
+    @Override // com.baidu.tieba.m73
+    public y32 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new y32(201, "args params is null");
+            }
+            if (jSONObject.optLong("fee") < 0) {
+                return new y32(201, "fee can't smaller than 0");
+            }
+            if (jSONObject.optJSONObject("paymentArgs") == null) {
+                return new y32(201, "paymentArgs can't be null");
+            }
+            return null;
+        }
+        return (y32) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m73
+    public h73 f(i73 i73Var) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i73Var)) == null) {
+            File file = null;
+            if (i73Var == null) {
+                return null;
+            }
+            String str = i73Var.a;
+            String str2 = i73Var.c;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            h73 h73Var = new h73();
+            h73Var.a = str;
+            h73Var.b = str2;
+            if (p92.d()) {
+                file = uu2.f.e();
+            } else if (x73.H()) {
+                file = uu2.b.e();
+            } else if (x73.D()) {
+                file = f92.d();
             } else {
-                bVar.a(n73Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public n73 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            JSONObject optJSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response == null || response.body() == null || (optJSONObject = new JSONObject(response.body().string()).optJSONObject("data")) == null) {
-                    return null;
+                if (TextUtils.equals(i73Var.d, MiniApp.MINIAPP_VERSION_DEVELOP)) {
+                    String a2 = a42.a(str);
+                    File g = uu2.g();
+                    String[] list = g.list();
+                    if (list != null && g.length() != 0) {
+                        String str3 = a2 + "_dev";
+                        int i2 = -1;
+                        for (String str4 : list) {
+                            if (!TextUtils.isEmpty(str4) && str4.startsWith(str3)) {
+                                try {
+                                    int parseInt = Integer.parseInt(str4.substring(str3.length()));
+                                    if (parseInt > i2) {
+                                        i2 = parseInt;
+                                    }
+                                } catch (NumberFormatException e) {
+                                    q73.b(Log.getStackTraceString(e));
+                                }
+                            }
+                        }
+                        if (i2 > -1) {
+                            h73Var.a = str3 + i2;
+                            h73Var.e = true;
+                            File file2 = new File(g, h73Var.a + File.separator + i2);
+                            h73Var.c = file2.getAbsolutePath();
+                            h73Var.d = i2;
+                            file = file2;
+                        } else {
+                            h73Var.e = false;
+                            h73Var.c = null;
+                        }
+                    } else {
+                        return h73Var;
+                    }
+                } else {
+                    File file3 = new File(uu2.g(), str);
+                    if (!file3.exists()) {
+                        return h73Var;
+                    }
+                    String[] list2 = file3.list();
+                    if (list2 != null && list2.length != 0) {
+                        String str5 = null;
+                        int i3 = -1;
+                        for (String str6 : list2) {
+                            if (!TextUtils.isEmpty(str6)) {
+                                try {
+                                    i = Integer.parseInt(str6);
+                                } catch (NumberFormatException e2) {
+                                    q73.b(Log.getStackTraceString(e2));
+                                    i = -1;
+                                }
+                                if (i > i3) {
+                                    str5 = str6;
+                                    i3 = i;
+                                }
+                            }
+                        }
+                        if (i3 != -1) {
+                            h73Var.d = i3;
+                            h73Var.e = true;
+                            file = new File(file3, str5);
+                            h73Var.c = file.getAbsolutePath();
+                        }
+                    }
+                    return h73Var;
                 }
-                if (o73.a) {
-                    Log.d("SwanAppRelatedSwanHelper", "parseResponse: RelateSwanData" + optJSONObject.toString());
-                }
-                return n73.a(optJSONObject);
             }
-            return (n73) invokeLI.objValue;
+            if (file == null) {
+                return h73Var;
+            }
+            File file4 = new File(file, str2);
+            if (!n(file4)) {
+                return h73Var;
+            }
+            h73Var.f = true;
+            h73Var.c = file4.getAbsolutePath();
+            return h73Var;
         }
+        return (h73) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985118, "Lcom/baidu/tieba/o73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985118, "Lcom/baidu/tieba/o73;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m73
+    public y32 j(String str, i73 i73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SwanCoreVersion M = tu2.U().M();
-            String i = oi4.i(ns2.o().L());
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("appkey", f93.K().getAppId());
-            hashMap.put("swan_core_ver", li3.i(M, f93.K().k()));
-            hashMap.put("swan_game_ver", li3.h(1));
-            hashMap.put("uid", ns2.h0().i(ns2.c()));
-            return ym3.b(i, hashMap);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, i73Var)) == null) {
+            if (i73Var == null) {
+                return new y32(201, "pay args is null");
+            }
+            SwanAppActivity w = xb3.K().w();
+            if (w == null) {
+                return new y32(1001, "runtime exception, try reopen this app");
+            }
+            hb2 Y = w.Y();
+            if (Y == null) {
+                return new y32(1001, "runtime exception, page manager breakdown");
+            }
+            q73.b("jump to fun page");
+            xb3.M().post(new a(this, str, i73Var, Y));
+            return new y32(0);
         }
-        return (String) invokeV.objValue;
+        return (y32) invokeLL.objValue;
     }
 
-    public static void c(b bVar) {
+    public final boolean n(File file) {
+        InterceptResult invokeL;
+        String[] list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
-            jg4 jg4Var = new jg4(b(), new a(bVar));
-            if (kg4.g().c()) {
-                jg4Var.f = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+            if (file == null || !file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+                return false;
             }
-            jg4Var.g = true;
-            kg4.g().d(jg4Var);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

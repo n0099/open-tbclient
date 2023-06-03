@@ -63,10 +63,10 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
     private void initView() {
         setGravity(5);
         setOrientation(0);
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d020e, this);
-        this.mWendaBarImg = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f092905);
-        this.mWendaBarTitleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092906);
-        this.mWendaBarDividingLineImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f092904);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0215, this);
+        this.mWendaBarImg = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f09293e);
+        this.mWendaBarTitleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09293f);
+        this.mWendaBarDividingLineImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09293d);
     }
 
     public TextView getWendaBarTitleTv() {
@@ -86,16 +86,16 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
         }
         if (this.mWendaBarImg != null && (i = this.mWendaBarResInt) != -1) {
             Drawable scaledDrawableRes = FontSizeHelper.getScaledDrawableRes(0, i);
-            FontSizeViewExtKt.setScaledWidthRes(this.mWendaBarImg, 0, R.dimen.dimen_ui_18);
-            FontSizeViewExtKt.setScaledHeightRes(this.mWendaBarImg, 0, R.dimen.dimen_ui_18);
+            FontSizeViewExtKt.setScaledWidthRes(this.mWendaBarImg, 0, R.dimen.obfuscated_res_0x7f0702e3);
+            FontSizeViewExtKt.setScaledHeightRes(this.mWendaBarImg, 0, R.dimen.obfuscated_res_0x7f0702e3);
             if (scaledDrawableRes != null) {
                 this.mWendaBarImg.setImageDrawable(scaledDrawableRes);
             }
         }
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mWendaBarTitleTv, 0, R.dimen.dimen_ui_14);
-        FontSizeViewExtKt.setScaledWidthRes(this.mWendaBarDividingLineImg, 0, R.dimen.dimen_ui_1);
-        FontSizeViewExtKt.setScaledHeightRes(this.mWendaBarDividingLineImg, 0, R.dimen.dimen_ui_14);
-        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mWendaBarDividingLineImg, 0, R.drawable.obfuscated_res_0x7f0814f3);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mWendaBarTitleTv, 0, R.dimen.obfuscated_res_0x7f0702df);
+        FontSizeViewExtKt.setScaledWidthRes(this.mWendaBarDividingLineImg, 0, R.dimen.obfuscated_res_0x7f0702d9);
+        FontSizeViewExtKt.setScaledHeightRes(this.mWendaBarDividingLineImg, 0, R.dimen.obfuscated_res_0x7f0702df);
+        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mWendaBarDividingLineImg, 0, R.drawable.obfuscated_res_0x7f081522);
     }
 
     public void updateWendaUI() {
@@ -104,15 +104,15 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
             return;
         }
         if (i == 0) {
-            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081467));
-            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081467;
+            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081496));
+            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081496;
         }
         if (this.mWendaBarStatus == 1) {
-            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081468));
-            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081468;
+            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081497));
+            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081497;
         }
-        this.mWendaBarTitleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603de));
-        this.mWendaBarDividingLineImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0814f3));
+        this.mWendaBarTitleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e2));
+        this.mWendaBarDividingLineImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081522));
         onFontSizeChange();
     }
 }

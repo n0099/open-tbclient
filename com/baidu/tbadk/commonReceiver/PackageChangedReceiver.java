@@ -6,9 +6,9 @@ import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.mw4;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.rr5;
+import com.baidu.tieba.ez4;
+import com.baidu.tieba.qv5;
+import com.baidu.tieba.tv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,13 +42,13 @@ public class PackageChangedReceiver extends BroadcastReceiver {
         }
         if (ACTION_INSTALL.equals(intent.getAction())) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002501, intent));
-            or5.a().b(intent);
-            mw4.c().d(intent);
+            qv5.a().b(intent);
+            ez4.c().d(intent);
             DownloadFloatBallManager.k().o(intent);
         } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002502, intent));
         }
-        rr5.r(intent);
+        tv5.r(intent);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002504, intent));
     }
 }

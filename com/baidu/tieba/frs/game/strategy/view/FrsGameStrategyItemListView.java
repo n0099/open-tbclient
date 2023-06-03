@@ -28,21 +28,21 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.ce7;
+import com.baidu.tieba.fj7;
+import com.baidu.tieba.fo;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
-import com.baidu.tieba.he7;
-import com.baidu.tieba.ie7;
-import com.baidu.tieba.if7;
-import com.baidu.tieba.le7;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.ri5;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.us9;
-import com.baidu.tieba.xn6;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.is6;
+import com.baidu.tieba.kj7;
+import com.baidu.tieba.lj7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.oj7;
+import com.baidu.tieba.q9;
+import com.baidu.tieba.rj7;
+import com.baidu.tieba.tm5;
+import com.baidu.tieba.u95;
+import com.baidu.tieba.v95;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,25 +51,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
+public class FrsGameStrategyItemListView extends FrameLayout implements lj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdUniqueId b;
-    public z65 c;
+    public v95 c;
     public BdTypeListView d;
     public NoDataView e;
-    public ri5 f;
+    public tm5 f;
     public PbListView g;
-    public oe7 h;
-    public if7 i;
-    public he7 j;
-    public List<rn> k;
+    public rj7 h;
+    public lk7 i;
+    public kj7 j;
+    public List<vn> k;
     public int l;
     public int m;
     public boolean n;
-    public bo o;
-    public y65.g p;
+    public fo o;
+    public u95.g p;
 
     public void q() {
         Interceptable interceptable = $ic;
@@ -78,19 +78,19 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements bo {
+    public class a implements fo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyItemListView a;
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0294a implements Runnable {
+        public class RunnableC0299a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0294a(a aVar, String str) {
+            public RunnableC0299a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,13 +138,13 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
             this.a = frsGameStrategyItemListView;
         }
 
-        @Override // com.baidu.tieba.bo
-        public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             ThreadData threadData;
             boolean z;
-            le7 a;
+            oj7 a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || rnVar == null || !(rnVar instanceof ce7) || (threadData = ((ce7) rnVar).getThreadData()) == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || vnVar == null || !(vnVar instanceof fj7) || (threadData = ((fj7) vnVar).getThreadData()) == null) {
                 return;
             }
             if (this.a.j != null && (a = this.a.j.a(this.a.l)) != null) {
@@ -163,14 +163,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
             if (threadData.getActInfoType() == 1 && !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                 return;
             }
-            us9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            gz9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && !readThreadHistory.d(threadData.getId())) {
                 readThreadHistory.a(threadData.getId());
                 this.a.h.b();
             }
             String ad_url = threadData.getAd_url();
             if (ad_url != null && !ad_url.equals("")) {
-                xn6.a(new RunnableC0294a(this, ad_url), "RequestAdNetwork", 3);
+                is6.a(new RunnableC0299a(this, ad_url), "RequestAdNetwork", 3);
                 z = true;
             } else {
                 z = false;
@@ -194,7 +194,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements y65.g {
+    public class b implements u95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyItemListView a;
@@ -217,7 +217,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
             this.a = frsGameStrategyItemListView;
         }
 
-        @Override // com.baidu.tieba.y65.g
+        @Override // com.baidu.tieba.u95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
@@ -353,7 +353,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         }
         this.o = new a(this);
         this.p = new b(this);
-        this.a = (TbPageContext) m9.a(context);
+        this.a = (TbPageContext) q9.a(context);
         this.b = bdUniqueId;
         n();
     }
@@ -362,9 +362,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204);
-            z65 z65Var = this.c;
-            if (z65Var != null) {
-                z65Var.H(i);
+            v95 v95Var = this.c;
+            if (v95Var != null) {
+                v95Var.H(i);
             }
             NoDataView noDataView = this.e;
             if (noDataView != null) {
@@ -373,15 +373,15 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         }
     }
 
-    public void setFrsGameTabDataLoadListener(he7 he7Var) {
+    public void setFrsGameTabDataLoadListener(kj7 kj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, he7Var) == null) {
-            this.j = he7Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, kj7Var) == null) {
+            this.j = kj7Var;
         }
     }
 
-    @Override // com.baidu.tieba.ie7
-    public void a(int i, int i2, List<rn> list, List<le7> list2, boolean z, boolean z2, int i3) {
+    @Override // com.baidu.tieba.lj7
+    public void a(int i, int i2, List<vn> list, List<oj7> list2, boolean z, boolean z2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
             if ((i == 0 && i2 == 0) || (i == this.l && i2 == this.m)) {
@@ -407,7 +407,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         }
     }
 
-    @Override // com.baidu.tieba.ie7
+    @Override // com.baidu.tieba.lj7
     public void b(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
@@ -452,10 +452,10 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
     }
 
     public final void l() {
-        ri5 ri5Var;
+        tm5 tm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ri5Var = this.f) != null) {
-            ri5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (tm5Var = this.f) != null) {
+            tm5Var.dettachView(this);
         }
     }
 
@@ -478,9 +478,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             m();
-            he7 he7Var = this.j;
-            if (he7Var != null) {
-                he7Var.b(this.l, this.m);
+            kj7 kj7Var = this.j;
+            if (kj7Var != null) {
+                kj7Var.b(this.l, this.m);
             }
         }
     }
@@ -490,7 +490,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.n = true;
             this.d.setNextPage(this.g);
-            this.g.S();
+            this.g.U();
         }
     }
 
@@ -500,7 +500,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
             this.n = false;
             this.d.setNextPage(this.g);
             this.g.g();
-            this.g.F(this.a.getResources().getString(R.string.list_no_more));
+            this.g.H(this.a.getResources().getString(R.string.list_no_more));
         }
     }
 
@@ -517,21 +517,21 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
             this.d.setOnSrollToBottomListener(new c(this));
             this.d.setOnTouchListener(new d(this));
             addView(this.d);
-            oe7 oe7Var = new oe7(this.a, this.d);
-            this.h = oe7Var;
-            oe7Var.c(this.o);
-            z65 z65Var = new z65(this.a);
-            this.c = z65Var;
-            z65Var.a0(this.b);
+            rj7 rj7Var = new rj7(this.a, this.d);
+            this.h = rj7Var;
+            rj7Var.c(this.o);
+            v95 v95Var = new v95(this.a);
+            this.c = v95Var;
+            v95Var.a0(this.b);
             this.c.f(this.p);
-            this.i = new if7(this.a.getPageActivity(), this.b, true);
+            this.i = new lk7(this.a.getPageActivity(), this.b, true);
             this.d.setPullRefresh(this.c);
             if (this.g == null) {
                 PbListView pbListView = new PbListView(this.a.getPageActivity());
                 this.g = pbListView;
                 pbListView.a();
             }
-            this.g.r(R.color.CAM_X0204);
+            this.g.s(R.color.CAM_X0204);
         }
     }
 
@@ -563,9 +563,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.f == null) {
-                ri5 ri5Var = new ri5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070353));
-                this.f = ri5Var;
-                ri5Var.onChangeSkinType();
+                tm5 tm5Var = new tm5(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035e));
+                this.f = tm5Var;
+                tm5Var.onChangeSkinType();
             }
             this.f.attachView(this, false);
         }
@@ -575,9 +575,9 @@ public class FrsGameStrategyItemListView extends FrameLayout implements ie7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             if (this.e == null) {
-                int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070353);
-                int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d5);
-                int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b7);
+                int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035e);
+                int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
+                int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c2);
                 this.e = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.c(str), NoDataViewFactory.c.b(new NoDataViewFactory.b(getContext().getString(R.string.refresh_view_button_text), new e(this)), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5)));
             }
             this.e.f(this.a, TbadkCoreApplication.getInst().getSkinType());

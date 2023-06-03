@@ -6,109 +6,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.kwad.sdk.api.KsFeedAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes6.dex */
-public final class k4b {
+public class k4b extends l5b<KsFeedAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<l4b> b;
 
-    public k4b(SpriteEntity spriteEntity) {
-        List<l4b> emptyList;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k4b(KsFeedAd ksFeedAd) {
+        super(ksFeedAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
+            Object[] objArr = {ksFeedAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            l4b l4bVar = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                l4b l4bVar2 = new l4b(it);
-                if ((!l4bVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) l4bVar2.d())).e() && l4bVar != null) {
-                    l4bVar2.f(l4bVar.d());
-                }
-                emptyList.add(l4bVar2);
-                l4bVar = l4bVar2;
-            }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
-        }
-        this.b = emptyList;
     }
 
-    public k4b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    l4b l4bVar = new l4b(optJSONObject);
-                    if ((!l4bVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) l4bVar.d())).e() && arrayList.size() > 0) {
-                        l4bVar.f(((l4b) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
-                    }
-                    arrayList.add(l4bVar);
-                }
-            }
-        }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
-    }
-
-    public final List<l4b> a() {
+    @Override // com.baidu.tieba.l5b
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
+            }
+            return ((KsFeedAd) a).getECPM();
         }
-        return (List) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l5b
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
-        return (String) invokeV.objValue;
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsFeedAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    }
+
+    @Override // com.baidu.tieba.l5b
+    public void c(long j, long j2) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        ((KsFeedAd) a).setBidEcpm((int) j);
     }
 }

@@ -122,7 +122,7 @@ public class BinaryReqTask extends AbstractTask {
                         if (this.this$0.needWriteDb) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
-                            contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
+                            contentValues.put("current_bytes", Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
                             TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
                         }
                     }
@@ -222,7 +222,7 @@ public class BinaryReqTask extends AbstractTask {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
                     if (this.this$0.mTotalLength <= 0) {
-                        contentValues.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(j));
+                        contentValues.put("total_bytes", Long.valueOf(j));
                     }
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
                 }
@@ -240,7 +240,7 @@ public class BinaryReqTask extends AbstractTask {
                 if (this.this$0.needWriteDb) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
-                    contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
+                    contentValues.put("current_bytes", Long.valueOf(this.this$0.mProgressInfo.getCurrentLength()));
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
                 }
             }
@@ -455,14 +455,14 @@ public class BinaryReqTask extends AbstractTask {
         this.mFilename = query.getString(query.getColumnIndex("name"));
         this.mFileDir = query.getString(query.getColumnIndex("path"));
         this.mFilePath = query.getString(query.getColumnIndex("data"));
-        this.mMimetype = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+        this.mMimetype = query.getString(query.getColumnIndex("mimetype"));
         this.mETag = query.getString(query.getColumnIndex("etag"));
-        long j = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
+        long j = query.getLong(query.getColumnIndex("current_bytes"));
         this.mProgressInfo = new ProgressInfo();
         if (new File(this.mFilePath).exists()) {
             this.mProgressInfo.addSegment(0L, this.mTotalLength);
             this.mProgressInfo.updateProgress(0L, j);
-            this.mTotalLength = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
+            this.mTotalLength = query.getLong(query.getColumnIndex("total_bytes"));
         }
         query.close();
     }

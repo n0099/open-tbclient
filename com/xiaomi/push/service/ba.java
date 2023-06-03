@@ -93,7 +93,7 @@ public class ba {
             String a2 = a(i);
             return this.b.contains(a2) ? this.b.getInt(a2, 0) : this.f922a.contains(a2) ? this.f922a.getInt(a2, 0) : i2;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(i + " oc int error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a(i + " oc int error " + e);
             return i2;
         }
     }
@@ -102,7 +102,7 @@ public class ba {
         try {
             return this.f922a.getInt(a(hnVar), i);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(hnVar + " version error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a(hnVar + " version error " + e);
             return i;
         }
     }
@@ -112,7 +112,7 @@ public class ba {
             String a2 = a(i);
             return this.b.contains(a2) ? this.b.getLong(a2, 0L) : this.f922a.contains(a2) ? this.f922a.getLong(a2, 0L) : j;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(i + " oc long error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a(i + " oc long error " + e);
             return j;
         }
     }
@@ -122,7 +122,7 @@ public class ba {
             String a2 = a(i);
             return this.b.contains(a2) ? this.b.getString(a2, null) : this.f922a.contains(a2) ? this.f922a.getString(a2, null) : str;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(i + " oc string error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a(i + " oc string error " + e);
             return str;
         }
     }
@@ -158,7 +158,7 @@ public class ba {
 
     public void a(List<Pair<hn, Integer>> list, List<Pair<Integer, Object>> list2) {
         if (com.xiaomi.push.ad.a(list) || com.xiaomi.push.ad.a(list2)) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("not update oc, because versions or configs are empty");
+            com.xiaomi.channel.commonutils.logger.b.m175a("not update oc, because versions or configs are empty");
             return;
         }
         SharedPreferences.Editor edit = this.f922a.edit();
@@ -183,7 +183,7 @@ public class ba {
             String a2 = a(i);
             return this.b.contains(a2) ? this.b.getBoolean(a2, false) : this.f922a.contains(a2) ? this.f922a.getBoolean(a2, false) : z;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(i + " oc boolean error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a(i + " oc boolean error " + e);
             return z;
         }
     }

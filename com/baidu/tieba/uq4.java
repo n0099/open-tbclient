@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
-/* loaded from: classes7.dex */
-public interface uq4 {
-    boolean a(MotionEvent motionEvent);
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public class uq4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
-
-    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean onDoubleTap(MotionEvent motionEvent);
-
-    boolean onDown(MotionEvent motionEvent);
+    public static boolean a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            return view2.hasOverlappingRendering();
+        }
+        return invokeL.booleanValue;
+    }
 }

@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GlobalParam {
     public static GlobalParam mInstance;
     public boolean mCheckPermission;

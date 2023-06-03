@@ -22,7 +22,7 @@ import com.kwad.sdk.utils.w;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceTextureListener, c {
     public static AtomicBoolean aea = new AtomicBoolean(false);
     public int JF;
@@ -33,7 +33,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0651c JU;
+    public c.InterfaceC0671c JU;
     public c.d JV;
     public c.a JW;
     public SurfaceTexture Kd;
@@ -96,8 +96,8 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
                 }
             }
         };
-        this.JU = new c.InterfaceC0651c() { // from class: com.kwad.sdk.core.video.videoview.a.4
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0651c
+        this.JU = new c.InterfaceC0671c() { // from class: com.kwad.sdk.core.video.videoview.a.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0671c
             public final boolean j(int i, int i2) {
                 if (i != -38) {
                     a.this.JF = -1;

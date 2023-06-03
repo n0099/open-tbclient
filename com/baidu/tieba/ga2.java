@@ -1,175 +1,399 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.ContentValues;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.o92;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ga2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o92 a;
-    public final x92 b;
-    public final l92 c;
-    public SceneType d;
-
-    /* loaded from: classes5.dex */
-    public class a implements o92.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z92 a;
-        public final /* synthetic */ n92 b;
-        public final /* synthetic */ ga2 c;
-
-        public a(ga2 ga2Var, z92 z92Var, n92 n92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ga2Var, z92Var, n92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ga2Var;
-            this.a = z92Var;
-            this.b = n92Var;
-        }
-
-        @Override // com.baidu.tieba.o92.b
-        public void a(NetworkStatus networkStatus) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                h92.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                boolean m0 = ag2.U().m0();
-                long n = ns2.g0().n();
-                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
-                    this.c.f(networkStatus, this.b, this.a);
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.c.d.getScene());
-                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
-                if (m0) {
-                    str = "框架预加载：已完成；";
-                } else {
-                    str = "框架预加载：未完成；";
-                }
-                sb.append(str);
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
-                if (ga2.e) {
-                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
-                }
-                i92.g(sb.toString());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947787121, "Lcom/baidu/tieba/ga2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947787121, "Lcom/baidu/tieba/ga2;");
-                return;
-            }
-        }
-        e = qp1.a;
-    }
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String E;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public String y;
+    public String z;
 
     public ga2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
-        this.c = l92.d();
-        this.a = new o92();
-        this.b = x92.d();
-    }
-
-    public void e(SceneType sceneType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
-            this.d = sceneType;
         }
     }
 
-    public void d(String str) {
+    public ContentValues g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (v92.b().c()) {
-                if (e) {
-                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
-                }
-                v92.b().h(t92.b(str, 3000L));
-                v92.b().f();
-                return;
-            }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
-            }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
-            }
-            x92.d().j();
-            l92.d().j();
-            v92.b().j(true);
-            n92 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 5);
+            contentValues.put("data1", this.y);
+            return contentValues;
         }
+        return (ContentValues) invokeV.objValue;
     }
 
-    public final void f(@NonNull NetworkStatus networkStatus, @NonNull n92 n92Var, @NonNull z92 z92Var) {
+    public ContentValues h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, n92Var, z92Var) == null) {
-            boolean b = n92Var.b();
-            int i = R.string.obfuscated_res_0x7f0f14e7;
-            if (b) {
-                i = R.string.obfuscated_res_0x7f0f14ec;
-            } else if (z92Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f14ea;
-            } else if (z92Var.e() != RequestStatus.STATUS_FAILED) {
-                if (z92Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f14eb : R.string.obfuscated_res_0x7f0f14e8;
-                } else if (z92Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f14e9;
-                }
-            }
-            g92.f(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.z);
+            return contentValues;
         }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 10);
+            contentValues.put("data1", this.q);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 2);
+            contentValues.put("data1", this.f);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/nickname");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.a);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/note");
+            contentValues.put("data1", this.e);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/website");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.s);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 4);
+            contentValues.put("data1", this.o);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 3);
+            contentValues.put("data1", this.p);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return !TextUtils.isEmpty(this.d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static ga2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            ga2 ga2Var = new ga2();
+            if (jSONObject != null) {
+                jSONObject.optString("photoFilePath");
+                ga2Var.a = jSONObject.optString("nickName");
+                ga2Var.b = jSONObject.optString("lastName");
+                ga2Var.c = jSONObject.optString("middleName");
+                ga2Var.d = jSONObject.optString("firstName");
+                ga2Var.e = jSONObject.optString("remark");
+                ga2Var.f = jSONObject.optString("mobilePhoneNumber");
+                ga2Var.g = jSONObject.optString("weChatNumber");
+                ga2Var.h = jSONObject.optString("addressCountry");
+                ga2Var.i = jSONObject.optString("addressState");
+                ga2Var.j = jSONObject.optString("addressCity");
+                ga2Var.k = jSONObject.optString("addressStreet");
+                ga2Var.l = jSONObject.optString("addressPostalCode");
+                ga2Var.m = jSONObject.optString("organization");
+                ga2Var.n = jSONObject.optString("title");
+                ga2Var.o = jSONObject.optString("workFaxNumber");
+                ga2Var.p = jSONObject.optString("workPhoneNumber");
+                ga2Var.q = jSONObject.optString("hostNumber");
+                ga2Var.r = jSONObject.optString("email");
+                ga2Var.s = jSONObject.optString("url");
+                ga2Var.t = jSONObject.optString("workAddressCountry");
+                ga2Var.u = jSONObject.optString("workAddressState");
+                ga2Var.v = jSONObject.optString("workAddressCity");
+                ga2Var.w = jSONObject.optString("workAddressStreet");
+                ga2Var.x = jSONObject.optString("workAddressPostalCode");
+                ga2Var.y = jSONObject.optString("homeFaxNumber");
+                ga2Var.z = jSONObject.optString("homePhoneNumber");
+                ga2Var.A = jSONObject.optString("homeAddressCountry");
+                ga2Var.B = jSONObject.optString("homeAddressState");
+                ga2Var.C = jSONObject.optString("homeAddressCity");
+                ga2Var.D = jSONObject.optString("homeAddressStreet");
+                ga2Var.E = jSONObject.optString("homeAddressPostalCode");
+            }
+            return ga2Var;
+        }
+        return (ga2) invokeL.objValue;
+    }
+
+    public ContentValues b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 3);
+            contentValues.put("data1", c());
+            contentValues.put("data9", this.l);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.b)) {
+                sb.append(this.b);
+            }
+            if (!TextUtils.isEmpty(this.c)) {
+                sb.append(this.c);
+            }
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(this.d);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ContentValues e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", f());
+            contentValues.put("data9", this.E);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/organization");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.m);
+            contentValues.put("data4", this.n);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/im");
+            contentValues.put("data5", (Integer) (-1));
+            contentValues.put("data6", AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f013f));
+            contentValues.put("data1", this.g);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 2);
+            contentValues.put("data1", q());
+            contentValues.put("data9", this.x);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.h)) {
+                sb.append(this.h);
+            }
+            if (!TextUtils.isEmpty(this.i)) {
+                sb.append(this.i);
+            }
+            if (!TextUtils.isEmpty(this.j)) {
+                sb.append(this.j);
+            }
+            if (!TextUtils.isEmpty(this.k)) {
+                sb.append(this.k);
+            }
+            if (!TextUtils.isEmpty(this.l)) {
+                sb.append(" ");
+                sb.append(this.l);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.A)) {
+                sb.append(this.A);
+            }
+            if (!TextUtils.isEmpty(this.B)) {
+                sb.append(this.B);
+            }
+            if (!TextUtils.isEmpty(this.C)) {
+                sb.append(this.C);
+            }
+            if (!TextUtils.isEmpty(this.D)) {
+                sb.append(this.D);
+            }
+            if (!TextUtils.isEmpty(this.E)) {
+                sb.append(" ");
+                sb.append(this.E);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.t)) {
+                sb.append(this.t);
+            }
+            if (!TextUtils.isEmpty(this.u)) {
+                sb.append(this.u);
+            }
+            if (!TextUtils.isEmpty(this.v)) {
+                sb.append(this.v);
+            }
+            if (!TextUtils.isEmpty(this.w)) {
+                sb.append(this.w);
+            }
+            if (!TextUtils.isEmpty(this.x)) {
+                sb.append(" ");
+                sb.append(this.x);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

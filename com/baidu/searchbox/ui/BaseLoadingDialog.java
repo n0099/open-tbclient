@@ -38,7 +38,7 @@ public abstract class BaseLoadingDialog extends Dialog {
     public abstract void setPageResources();
 
     public BaseLoadingDialog(@NonNull Context context) {
-        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100103);
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100105);
         this.mMsgText = "";
         this.mDismissType = 1;
         this.mDetached = false;

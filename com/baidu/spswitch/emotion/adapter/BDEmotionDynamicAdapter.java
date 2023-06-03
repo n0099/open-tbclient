@@ -151,9 +151,9 @@ public class BDEmotionDynamicAdapter extends RecyclerView.Adapter<BaseEmotionHol
                 }
             }
             this.image = (SimpleDraweeView) view2.findViewById(R.id.item_img);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09118c);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09119f);
             this.name = textView;
-            textView.setTextColor(ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060240));
+            textView.setTextColor(ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060244));
             this.image.getHierarchy().setPlaceholderImage(R.drawable.emotion_preview_placeholder);
         }
 
@@ -239,7 +239,7 @@ public class BDEmotionDynamicAdapter extends RecyclerView.Adapter<BaseEmotionHol
             }
             this.title = (TextView) view2.findViewById(R.id.emotion_title);
             this.vipIcon = (SimpleDraweeView) view2.findViewById(R.id.emotion_vip_icon);
-            this.title.setTextColor(ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060241));
+            this.title.setTextColor(ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f060245));
         }
 
         /* JADX DEBUG: Method merged with bridge method */

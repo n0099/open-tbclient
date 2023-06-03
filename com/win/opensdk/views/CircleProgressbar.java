@@ -23,6 +23,7 @@ import com.win.opensdk.R;
 import com.win.opensdk.r2;
 import com.win.opensdk.s2;
 import com.win.opensdk.y;
+import org.chromium.net.NetError;
 /* loaded from: classes10.dex */
 public class CircleProgressbar extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -256,7 +257,7 @@ public class CircleProgressbar extends TextView {
             int i5 = (rect.top - i3) + i2 + i;
             Rect rect2 = this.k;
             rectF.set(rect.left + i4, M.a(getContext(), 0.4f) + i5, rect2.right - i4, (((rect2.bottom + i3) - this.a) - this.e) - M.a(getContext(), 0.5f));
-            canvas.drawArc(this.g, -90.0f, (this.h * (-360)) / 100, false, this.f);
+            canvas.drawArc(this.g, -90.0f, (this.h * NetError.ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY) / 100, false, this.f);
         }
     }
 

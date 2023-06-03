@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONException;
 /* loaded from: classes10.dex */
-public final class g1 implements Runnable {
+public class g1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;

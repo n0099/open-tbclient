@@ -66,7 +66,7 @@ public final class OkUrlFactory implements URLStreamHandlerFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public OkUrlFactory m46clone() {
+    public OkUrlFactory m93clone() {
         return new OkUrlFactory(this.client);
     }
 

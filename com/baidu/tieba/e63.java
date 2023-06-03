@@ -1,384 +1,123 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.l23;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.du2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e63 {
+public class e63 implements rq3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements if2 {
+    public class a implements rq3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ f63 b;
-        public final /* synthetic */ Bundle c;
 
-        public a(Context context, f63 f63Var, Bundle bundle) {
+        public a(e63 e63Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, f63Var, bundle};
+                Object[] objArr = {e63Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = context;
-            this.b = f63Var;
-            this.c = bundle;
-        }
-
-        @Override // com.baidu.tieba.if2
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && e63.a) {
-                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
-            }
-        }
-
-        @Override // com.baidu.tieba.if2
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (e63.a) {
-                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
-                }
-                e63.i(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements i82 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ f63 b;
-        public final /* synthetic */ Bundle c;
-
-        public b(Context context, f63 f63Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, f63Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f63Var;
-            this.c = bundle;
-        }
-
-        @Override // com.baidu.tieba.i82
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            boolean unused = e63.c = true;
-            e63.h(this.a, this.b, this.c);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements zn3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ f63 b;
-        public final /* synthetic */ Bundle c;
-
-        public c(Context context, f63 f63Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, f63Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f63Var;
-            this.c = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
+        @Override // com.baidu.tieba.rq3
         /* renamed from: b */
-        public void a(Exception exc) {
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                e63.g(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686247, "Lcom/baidu/tieba/e63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686247, "Lcom/baidu/tieba/e63;");
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || e63.b(hybridUbcFlow)) {
                 return;
             }
-        }
-        a = qp1.a;
-        c = false;
-    }
-
-    public static void h(Context context, f63 f63Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, f63Var, bundle) == null) {
-            SwanLauncher.j().l(new c(context, f63Var, bundle));
-        }
-    }
-
-    public static void j(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
-            bundle.putBoolean("bundle_key_v8_ab", ns2.g0().x());
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("master", ag2.U().k0());
-                jSONObject.put("slave", ag2.U().n0());
-            } catch (JSONException e) {
-                if (a) {
-                    throw new RuntimeException(e);
-                }
+            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_first_paint", "naStart");
             }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
+            if (f <= 0) {
+                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
             }
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
+            if (f <= 0) {
+                f = hybridUbcFlow.f("fe_page_show", "naStart");
             }
-            return jSONObject2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(Context context, f63 f63Var, Bundle bundle) {
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, f63Var, bundle) == null) {
-            if (ns2.g0() != null) {
-                z = ns2.g0().t();
-            } else {
-                z = false;
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_page_show", "naStart");
             }
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            if (isMainProcess) {
-                str = "main";
-            } else {
-                str = "aiapp";
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_receive_intent", "naStart");
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (z) {
-                if (isMainProcess && TextUtils.isEmpty(b)) {
-                    try {
-                        b = new WebView(context).getSettings().getUserAgentString();
-                    } catch (Exception e) {
-                        b = "exception::" + e.toString();
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("time", currentTimeMillis);
-                    jSONObject.put("process", f63Var.b.index);
-                    jSONObject.put("ua", b);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                l23.d dVar = new l23.d("812");
-                dVar.g("swan");
-                dVar.i("launch");
-                dVar.h(str);
-                dVar.e(jSONObject);
-                l23.onEvent(dVar);
+            if (f <= 0) {
+                f = System.currentTimeMillis();
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (z) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("time", currentTimeMillis2);
-                    jSONObject2.put("process", f63Var.b.index);
-                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
-                } catch (JSONException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                l23.d dVar2 = new l23.d("812");
-                dVar2.g("swan");
-                dVar2.i("swan_updated");
-                dVar2.h(str);
-                dVar2.e(jSONObject2);
-                l23.onEvent(dVar2);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (li3.j()) {
-                ni3.e();
-            }
-            bundle.putParcelable("bundle_key_swan_core", li3.e(0));
-            bundle.putParcelable("bundle_key_extension_core", pj2.c(0));
-            bundle.putInt("bundle_key_preload_switch", ns2.g().a());
-            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
-            bundle.putBoolean("bundle_key_v8_ab", ns2.g0().x());
-            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
-            bundle.putString("bundle_key_preload_src", str);
-            bundle.putInt("bundle_key_process", f63Var.b.index);
-            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
-            f63Var.n0(context, bundle);
+            Bundle bundle = new Bundle();
+            bundle.putLong("property_launch_cost", f);
+            o83 e = o83.e();
+            q83 q83Var = new q83(20, bundle);
+            q83Var.f(true);
+            e.h(q83Var);
+            l53.h().end(f);
+            b63.e().f();
         }
     }
 
-    public static void i(Context context, f63 f63Var, Bundle bundle) {
+    public e63() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, f63Var, bundle) == null) {
-            if (kf2.a()) {
-                h(context, f63Var, bundle);
-            } else if (c) {
-                h(context, f63Var, bundle);
-            } else {
-                wv1.a().b().a().b(new b(context, f63Var, bundle));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void k(Context context, Bundle bundle) {
+    public static boolean b(HybridUbcFlow hybridUbcFlow) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
-            Intent intent = new Intent(context, SwanAppMessengerService.class);
-            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
-            if (bundle != null) {
-                intent.putExtras(bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
+            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                return true;
             }
-            try {
-                context.startService(intent);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void l(Context context, Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rq3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
-            m(context, h63.k().f(), bundle);
-        }
-    }
-
-    public static void n(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
-            ct1 g0 = ns2.g0();
-            if (!f53.Y()) {
-                g0.getSwitch("swan_preload_keep_alive", true);
-            }
-            l(context, bundle);
-        }
-    }
-
-    public static void m(Context context, f63 f63Var, Bundle bundle) {
-        String string;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, context, f63Var, bundle) == null) {
-            if (a) {
-                h63 k = h63.k();
-                k.u("b4 tryPreload client=" + f63Var);
-            }
-            if (ProcessUtils.isMainProcess() && f63Var != null && f63Var.b.isSwanAppProcess() && !f63Var.E()) {
-                if (bundle == null) {
-                    string = "";
-                } else {
-                    string = bundle.getString("bundle_key_preload_preload_scene");
-                }
-                if (TextUtils.isEmpty(string)) {
-                    string = "0";
-                }
-                if (a) {
-                    Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
-                }
-                if (ns2.w0().c()) {
-                    i(context, f63Var, bundle);
-                    return;
-                }
-                kf2 kf2Var = new kf2();
-                if (TextUtils.equals(string, "0")) {
-                    str = "by_host_launch";
-                } else {
-                    str = "by_preload";
-                }
-                kf2Var.a = str;
-                ns2.w0().b(kf2Var, new a(context, f63Var, bundle));
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("670");
+            hybridUbcFlow.D("preload_scene", "1");
+            hybridUbcFlow.E("from", "swan");
+            hybridUbcFlow.H("component_reporter", new z43());
+            hybridUbcFlow.H("component_reporter", new c43());
+            hybridUbcFlow.H("component_reporter", new w43());
+            hybridUbcFlow.H("component_reporter", new b53());
+            hybridUbcFlow.H("callback_on_submit", new du2.a());
+            hybridUbcFlow.H("fmp_callback", new h63("fmp_callback"));
+            hybridUbcFlow.H("fmp_callback", new v63());
+            hybridUbcFlow.H("callback_on_submit", new h63("callback_on_submit"));
+            hybridUbcFlow.H("callback_on_submit", new wn3());
+            hybridUbcFlow.H("callback_on_submit", new a(this));
         }
     }
 }

@@ -2,7 +2,7 @@ package protobuf.GetLivableForumList;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer filterFlag;
@@ -23,7 +23,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_PAGESIZE = 0;
     public static final Integer DEFAULT_PAGENO = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer filterFlag;
         public Integer likeForumFlag;

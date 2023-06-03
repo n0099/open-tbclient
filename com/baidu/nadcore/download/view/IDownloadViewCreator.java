@@ -3,7 +3,7 @@ package com.baidu.nadcore.download.view;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.jl0;
+import com.baidu.tieba.sm0;
 /* loaded from: classes3.dex */
 public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
@@ -17,7 +17,7 @@ public interface IDownloadViewCreator {
         DEFAULT
     }
 
-    jl0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
+    sm0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class b {
@@ -48,7 +48,7 @@ public interface IDownloadViewCreator {
     /* loaded from: classes3.dex */
     public static class a implements IDownloadViewCreator {
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public jl0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
+        public sm0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             int i = b.a[viewType.ordinal()];
             if (i != 1) {
                 if (i != 2 && i != 3) {

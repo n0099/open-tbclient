@@ -5,7 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {

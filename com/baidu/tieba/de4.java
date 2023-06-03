@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import android.animation.TypeEvaluator;
-import com.baidu.mapapi.model.LatLng;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.LinkedBlockingDeque;
+@SuppressLint({"MobilebdThread"})
 /* loaded from: classes5.dex */
-public class de4 implements TypeEvaluator<LatLng> {
+public final class de4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedBlockingDeque<ud4> a;
+    public volatile boolean b;
 
     public de4() {
         Interceptable interceptable = $ic;
@@ -22,22 +26,49 @@ public class de4 implements TypeEvaluator<LatLng> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedBlockingDeque<>(1024);
+    }
+
+    public final LinkedBlockingDeque<ud4> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (LinkedBlockingDeque) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    this.a.take().a();
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
-        InterceptResult invokeCommon;
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
-            double d = latLng.latitude;
-            double d2 = f;
-            double d3 = latLng.longitude;
-            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
-        return (LatLng) invokeCommon.objValue;
     }
 }

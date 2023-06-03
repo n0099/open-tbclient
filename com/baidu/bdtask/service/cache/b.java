@@ -9,11 +9,11 @@ import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.gs;
-import com.baidu.tieba.jr;
-import com.baidu.tieba.mt;
-import com.baidu.tieba.sv;
-import com.baidu.tieba.tv;
+import com.baidu.tieba.bs;
+import com.baidu.tieba.eu;
+import com.baidu.tieba.kw;
+import com.baidu.tieba.lw;
+import com.baidu.tieba.ys;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public final class b {
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final sv<Function0<Unit>> b;
+    public final kw<Function0<Unit>> b;
     public String c;
 
     /* loaded from: classes3.dex */
@@ -130,7 +130,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = jr.c.c().a(this.a);
+            String a2 = bs.c.c().a(this.a);
             if (a2 == null) {
                 return "";
             }
@@ -153,7 +153,7 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.b = new tv();
+        this.b = new lw();
         this.c = "";
     }
 
@@ -280,7 +280,7 @@ public final class b {
                         if (m != null) {
                             byte[] bytes = m.getBytes(charset);
                             Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                            String newFingerprint = mt.b(bytes, false);
+                            String newFingerprint = eu.b(bytes, false);
                             str = this.this$0.c;
                             if (Intrinsics.areEqual(newFingerprint, str)) {
                                 DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -335,7 +335,7 @@ public final class b {
                                     return (String) invokeV.objValue;
                                 }
                             });
-                            gs c2 = jr.c.c();
+                            ys c2 = bs.c.c();
                             str2 = this.this$0.a;
                             c2.a(m, str2);
                             return;

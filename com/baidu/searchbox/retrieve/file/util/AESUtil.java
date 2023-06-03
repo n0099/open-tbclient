@@ -22,6 +22,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
+import org.chromium.net.AndroidKeyStore;
 /* loaded from: classes4.dex */
 public class AESUtil {
     public static final String ALGORITHM_NAME = "AES";
@@ -187,7 +188,7 @@ public class AESUtil {
             KeyPairGeneratorSpec.Builder builder = new KeyPairGeneratorSpec.Builder(context);
             KeyPairGeneratorSpec.Builder alias = builder.setAlias("default" + this.nameSpace);
             KeyPairGeneratorSpec build = alias.setSubject(new X500Principal("C=CN,ST=BJ,L=BJ,O=BaiDu,OU=BaiDu,CN=default" + this.nameSpace)).setSerialNumber(BigInteger.ONE).setStartDate(gregorianCalendar.getTime()).setEndDate(gregorianCalendar2.getTime()).build();
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", AndroidKeyStore.TAG);
             keyPairGenerator.initialize(build);
             keyPairGenerator.generateKeyPair();
         }
@@ -218,7 +219,7 @@ public class AESUtil {
     }
 
     private void initKeyPair() throws Exception {
-        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+        KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
         keyStore.load(null);
         if (!keyStore.containsAlias("default" + this.nameSpace)) {
             generateKeyPair(this.context);

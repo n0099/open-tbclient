@@ -38,7 +38,7 @@ import okhttp3.internal.proxy.NullProxySelector;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
     public static int sDefaultFallbackConnectDealyMs;
     public final Authenticator authenticator;
@@ -77,7 +77,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     public static final List<Protocol> DEFAULT_PROTOCOLS = Util.immutableList(Protocol.HTTP_2, Protocol.HTTP_1_1);
     public static final List<ConnectionSpec> DEFAULT_CONNECTION_SPECS = Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.CLEARTEXT);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public Authenticator authenticator;
         @Nullable

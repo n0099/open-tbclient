@@ -15,7 +15,9 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.sra;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tieba.lza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.BuildConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.n0;
+import com.fun.j0;
 import com.fun.openid.sdk.FunOpenIDSdk;
 import com.fun.openid.sdk.OnGetOaidListener;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
@@ -128,7 +130,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.baidu.tieba.pra
+                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.baidu.tieba.kza
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -214,7 +216,7 @@ public class HostAppInfo {
             }
             str = networkInfo.getTypeName();
         } else {
-            str = "unknow";
+            str = DownloadStatisticConstants.UBC_VALUE_UNKNOW;
         }
         this.h = str;
     }
@@ -321,21 +323,27 @@ public class HostAppInfo {
         return invokeV.intValue;
     }
 
+    public static String getGaid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b != null ? b.x : "" : (String) invokeV.objValue;
+    }
+
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
     }
 
     public static int getSdkVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? BuildConfig.VERSION_CODE : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? BuildConfig.VERSION_CODE : invokeV.intValue;
     }
 
     public static void updateCfgv(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
             a = j;
         }
     }
@@ -366,7 +374,7 @@ public class HostAppInfo {
             this.j = Build.MODEL;
             this.w = Build.BRAND;
             this.k = String.valueOf(Build.VERSION.SDK_INT);
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager == null) {
                 displayMetrics = context.getResources().getDisplayMetrics();
             } else {
@@ -377,7 +385,7 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = sra.c();
+            this.o = lza.c();
         }
     }
 
@@ -394,11 +402,11 @@ public class HostAppInfo {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.ora
+            j0.b bVar = new j0.b() { // from class: com.baidu.tieba.jza
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.fun.n0.b
+                @Override // com.fun.j0.b
                 public final void a(NetworkInfo networkInfo) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, networkInfo) == null) {
@@ -406,11 +414,11 @@ public class HostAppInfo {
                     }
                 }
             };
-            HashSet<n0.b> hashSet = n0.b;
+            HashSet<j0.b> hashSet = j0.b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
-            bVar.a(n0.a);
+            bVar.a(j0.a);
         }
     }
 }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSRatingBar extends LinearLayout {
     public boolean aqM;
     public int aqN;
@@ -26,7 +26,7 @@ public class KSRatingBar extends LinearLayout {
     public boolean xE;
     public int y;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 
@@ -35,7 +35,7 @@ public class KSRatingBar extends LinearLayout {
         this.y = 1;
         this.aqW = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e28));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e4d));
         setShowDividers(2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_KSRatingBar);
         this.aqV = obtainStyledAttributes.getDrawable(5);

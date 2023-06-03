@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
+import android.net.Uri;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.txt.SelectorTextView;
-import com.baidu.tieba.kc1;
-import com.baidu.tieba.mc1;
-import com.baidu.tieba.t41;
+import com.baidu.tieba.vd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nc1 extends kc1 {
+/* loaded from: classes7.dex */
+public class nc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TextView j;
-    public SelectorTextView k;
-    public c l;
+    public CheckBox a;
+    public TextView b;
+    public String c;
+    public Context d;
+    public vd1 e;
+    public ic1 f;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes7.dex */
+    public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nc1 a;
@@ -49,17 +49,18 @@ public class nc1 extends kc1 {
             this.a = nc1Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l.k != null) {
-                this.a.l.k.onItemClick(view2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(true);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nc1 a;
@@ -82,161 +83,91 @@ public class nc1 extends kc1 {
             this.a = nc1Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l.j != null) {
-                this.a.l.j.onItemClick(view2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(false);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c extends kc1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int g;
-        public int h;
-        public int i;
-        public kc1.c j;
-        public kc1.c k;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public c A(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                super.q(i);
-                return this;
-            }
-            return (c) invokeI.objValue;
-        }
-
-        @Override // com.baidu.tieba.mc1.a
-        public mc1 f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                return new nc1(context);
-            }
-            return (mc1) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.mc1.a
-        public /* bridge */ /* synthetic */ mc1.a q(int i) {
-            A(i);
-            return this;
-        }
-
-        @Override // com.baidu.tieba.kc1.b, com.baidu.tieba.mc1.a
-        public mc1 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                nc1 nc1Var = (nc1) super.a();
-                nc1Var.p(this);
-                return nc1Var;
-            }
-            return (mc1) invokeV.objValue;
-        }
-
-        public c z(int i, kc1.c cVar) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, cVar)) == null) {
-                this.g = i;
-                this.k = cVar;
-                return this;
-            }
-            return (c) invokeIL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nc1(Context context) {
-        super(context);
+    public nc1(Context context, String str, @NonNull ic1 ic1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, str, ic1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = context;
+        this.f = ic1Var;
+        this.c = str;
+        b();
     }
 
-    public void p(c cVar) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.l = cVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091dfc);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091718);
+            this.b = textView;
+            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
+            this.b.setText(c());
+            vd1.a aVar = new vd1.a(this.d);
+            aVar.q(R.string.nad_geolocation_permissions_prompt_title);
+            aVar.s(inflate);
+            aVar.l(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
+            aVar.o(R.string.nad_geolocation_permissions_prompt_share, new a(this));
+            this.e = aVar.a();
         }
     }
 
-    @Override // com.baidu.tieba.kc1
-    public View i(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.nad_view_safe_dialog, viewGroup, false);
-            this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec2);
-            this.j = textView;
-            textView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_message));
-            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ec3);
-            this.k = selectorTextView;
-            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.nad_safe_dialog_btn_blue));
-            o();
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri parse = Uri.parse(this.c);
+            String str = this.c;
+            if ("http".equals(parse.getScheme())) {
+                str = this.c.substring(7);
+            }
+            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
         }
-        return (View) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void o() {
-        c cVar;
+    public final void d(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (cVar = this.l) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            boolean isChecked = this.a.isChecked();
+            if (isChecked) {
+                if (z) {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
+                } else {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
+                }
+                g51.a().a(this.d.getApplicationContext(), i);
+            }
+            this.f.a(this.c, z, isChecked);
         }
-        this.j.setText(this.e.getText(cVar.g));
-        this.j.setOnClickListener(new a(this));
-        if (this.l.h > 0) {
-            this.k.setVisibility(0);
-            this.k.setText(this.e.getText(this.l.h));
-            this.k.setOnClickListener(new b(this));
-        } else {
-            this.k.setVisibility(8);
-        }
-        if (this.l.i > 0) {
-            Drawable drawable = this.e.getResources().getDrawable(this.l.i);
-            jd1.c(getContext(), drawable);
-            drawable.setBounds(0, 0, t41.c.a(this.e, 12.0f), t41.c.a(this.e, 12.0f));
-            this.k.setCompoundDrawables(drawable, null, null, null);
+    }
+
+    public void e() {
+        vd1 vd1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (vd1Var = this.e) != null) {
+            u51.b(vd1Var);
         }
     }
 }

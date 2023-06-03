@@ -1,68 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qc3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class oc3 extends db3 {
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
+public class oc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public qc3.d a;
+    public qc3.d b;
+    public Map<String, qc3.d> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oc3(da3 da3Var) {
-        super(da3Var, "/swanAPI/stopPullDownRefresh");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948027402, "Lcom/baidu/tieba/oc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948027402, "Lcom/baidu/tieba/oc3;");
                 return;
             }
         }
+        d = is1.a;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public oc3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            p82 V = tu2.U().V();
-            if (V == null) {
-                g62.c("stopPullDownRefresh", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!(V.m() instanceof o82)) {
-                g62.c("stopPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                o82 o82Var = (o82) V.m();
-                if (o82Var.h0() == null) {
-                    g62.c("stopPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                o82Var.h0().w(false);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                g62.i("stopPullDownRefresh", "refresh complete");
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return qc3.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qc3.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+                this.a = null;
+            }
+            qc3.d dVar2 = this.b;
+            if (dVar2 != null) {
+                dVar2.c();
+                this.b = null;
+            }
+            y82.k("SwanAppWebSafe", "release cache done");
+        }
+    }
+
+    public static boolean a(qc3.d dVar, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, str)) == null) {
+            if (dVar != null && (list = dVar.b) != null && !list.isEmpty()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                File file = new File(str);
+                if (file.exists() && file.lastModified() == dVar.c) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public qc3.d c(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
+            qc3.d dVar = this.c.get(str2);
+            if (a(dVar, qc3.i(str))) {
+                y82.k("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.b);
+                return dVar;
+            }
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                dVar = new qc3.d();
+            }
+            qc3.h(z, str, str2, dVar);
+            this.c.put(str2, dVar);
+            return dVar;
+        }
+        return (qc3.d) invokeLLZ.objValue;
+    }
+
+    public List<String> d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (a(this.b, qc3.j())) {
+                y82.k("SwanAppWebSafe", "read from cache: webActions.data=" + this.b.b);
+                return this.b.b;
+            }
+            qc3.d dVar = this.b;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.b = new qc3.d();
+            }
+            qc3.k(z, this.b);
+            return this.b.b;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public List<String> e(@NonNull String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            if (a(this.a, qc3.m(str))) {
+                y82.k("SwanAppWebSafe", "read from cache: webDomains.data=" + this.a.b);
+                return this.a.b;
+            }
+            qc3.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.a = new qc3.d();
+            }
+            qc3.l(z, str, this.a);
+            return this.a.b;
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (!d) {
+                    return;
+                }
+                throw new RuntimeException("appId can not be empty");
+            }
+            d(true);
+            e(str, true);
+        }
     }
 }

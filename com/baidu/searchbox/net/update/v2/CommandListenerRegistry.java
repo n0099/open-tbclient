@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class CommandListenerRegistry {
     public static final String TAG = "CommandListenerRegistry";
     public final Map<Pair<String, String>, AbstractCommandListener> mListenerMap = new HashMap();

@@ -1,70 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 /* loaded from: classes8.dex */
-public class xa2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xa2 {
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948293568, "Lcom/baidu/tieba/xa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948293568, "Lcom/baidu/tieba/xa2;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    public xa2(e82 e82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e82Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void onScrollChanged(int i, int i2, int i3, int i4);
 
-    @JavascriptInterface
-    public String setData(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (a) {
-                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
-            }
-            int i = 0;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                tu2.U().y(new jj2(str, str2), false);
-            } else {
-                i = 202;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
-        }
-        return (String) invokeLL.objValue;
-    }
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

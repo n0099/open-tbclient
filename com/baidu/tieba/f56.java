@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class f56 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e56 a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized e56 a() {
-        InterceptResult invokeV;
-        e56 e56Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (f56.class) {
-                if (a == null) {
-                    a = new e56();
-                }
-                e56Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715170, "Lcom/baidu/tieba/f56;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return e56Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947715170, "Lcom/baidu/tieba/f56;");
+                return;
+            }
         }
-        return (e56) invokeV.objValue;
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/account_page";
     }
 }

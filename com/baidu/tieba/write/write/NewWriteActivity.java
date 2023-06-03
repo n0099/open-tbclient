@@ -31,18 +31,18 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.l9a;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sn6;
+import com.baidu.tieba.aga;
+import com.baidu.tieba.ds6;
+import com.baidu.tieba.h0a;
+import com.baidu.tieba.lha;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.oha;
+import com.baidu.tieba.pha;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.via;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vt9;
-import com.baidu.tieba.waa;
-import com.baidu.tieba.z25;
-import com.baidu.tieba.zaa;
+import com.baidu.tieba.w55;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 /* loaded from: classes8.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements waa, VoiceManager.j {
+public class NewWriteActivity extends BaseFragmentActivity implements lha, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -63,26 +63,26 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
     @Nullable
     public View h;
     @Nullable
-    public l9a i;
+    public aga i;
     @Nullable
-    public gca j;
+    public via j;
     @Nullable
-    public zaa k;
+    public oha k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,9 +121,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                zaa zaaVar = this.a.k;
-                if (zaaVar != null) {
-                    zaaVar.j();
+                oha ohaVar = this.a.k;
+                if (ohaVar != null) {
+                    ohaVar.j();
                 }
                 this.a.setResult(100);
                 this.a.finish();
@@ -160,9 +160,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                zaa zaaVar = this.a.k;
-                if (zaaVar != null) {
-                    zaaVar.B();
+                oha ohaVar = this.a.k;
+                if (ohaVar != null) {
+                    ohaVar.B();
                     return false;
                 }
                 return false;
@@ -199,9 +199,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                zaa zaaVar = this.a.k;
-                if (zaaVar != null) {
-                    zaaVar.s();
+                oha ohaVar = this.a.k;
+                if (ohaVar != null) {
+                    ohaVar.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -276,11 +276,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                zaa zaaVar = this.a.k;
-                if (zaaVar != null) {
-                    zaaVar.A();
+                oha ohaVar = this.a.k;
+                if (ohaVar != null) {
+                    ohaVar.A();
                 }
-                ri.z(this.a.getActivity(), this.a.getCurrentFocus());
+                vi.z(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
             }
             return invokeCommon.booleanValue;
@@ -303,7 +303,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         this.n = new a(this, 2921622);
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -312,15 +312,15 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         }
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x0().stopPlay();
+            y0().stopPlay();
         }
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -340,7 +340,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         }
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -351,7 +351,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.l) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 1);
             } else {
@@ -362,12 +362,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        zaa zaaVar;
+        oha ohaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            l9a l9aVar = this.i;
-            if ((l9aVar == null || !l9aVar.d()) && (zaaVar = this.k) != null) {
-                T0(zaaVar.onBackPressed());
+            aga agaVar = this.i;
+            if ((agaVar == null || !agaVar.d()) && (ohaVar = this.k) != null) {
+                S0(ohaVar.onBackPressed());
             }
         }
     }
@@ -377,14 +377,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroy();
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onDestroy();
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onDestroy();
             }
             N();
-            x0().onDestory(getPageContext());
+            y0().onDestory(getPageContext());
             if (!this.m) {
-                vt9.h(null);
+                h0a.h(null);
             }
         }
     }
@@ -394,14 +394,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPause();
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onPause();
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onPause();
                 this.k.h();
             }
-            x0().onPause();
-            ri.z(this, getCurrentFocus());
-            a35.n(z25.n);
+            y0().onPause();
+            vi.z(this, getCurrentFocus());
+            x55.n(w55.n);
         }
     }
 
@@ -410,12 +410,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onResume();
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onResume();
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onResume();
             }
-            x0().onResume(getPageContext());
-            a35.o(this, z25.n);
+            y0().onResume(getPageContext());
+            x55.o(this, w55.n);
         }
     }
 
@@ -424,11 +424,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStart();
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onStart();
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onStart();
             }
-            x0().onStart(getPageContext());
+            y0().onStart(getPageContext());
         }
     }
 
@@ -437,11 +437,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onStop();
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onStop();
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onStop();
             }
-            x0().onStop(getPageContext());
+            y0().onStop(getPageContext());
         }
     }
 
@@ -449,8 +449,8 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            l9a l9aVar = this.i;
-            if (l9aVar != null && l9aVar.a()) {
+            aga agaVar = this.i;
+            if (agaVar != null && agaVar.a()) {
                 return true;
             }
             return false;
@@ -459,7 +459,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
@@ -471,8 +471,8 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.waa
-    public void T0(boolean z) {
+    @Override // com.baidu.tieba.lha
+    public void S0(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !z) {
             setResult(100);
@@ -480,7 +480,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         }
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -508,9 +508,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onChangeSkinType(i);
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -524,9 +524,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.b(z);
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.b(z);
             }
         }
     }
@@ -536,9 +536,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, intent) == null) {
             super.onNewIntent(intent);
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onNewIntent(intent);
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onNewIntent(intent);
             }
         }
     }
@@ -547,16 +547,16 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onSaveInstanceState(bundle);
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onSaveInstanceState(bundle);
             }
-            x0().onSaveInstanceState(this);
+            y0().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.waa
+    @Override // com.baidu.tieba.lha
     public void U0(int i, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
@@ -564,13 +564,13 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             return;
         }
         intent.putExtra("type", i);
-        gca gcaVar = this.j;
-        if (gcaVar != null) {
-            this.k = gcaVar.a(i, z);
+        via viaVar = this.j;
+        if (viaVar != null) {
+            this.k = viaVar.a(i, z);
         }
-        zaa zaaVar = this.k;
-        if (zaaVar != null) {
-            zaaVar.onCreate(null);
+        oha ohaVar = this.k;
+        if (ohaVar != null) {
+            ohaVar.onCreate(null);
             this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -580,9 +580,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            zaa zaaVar = this.k;
-            if (zaaVar != null) {
-                zaaVar.onActivityResult(i, i2, intent);
+            oha ohaVar = this.k;
+            if (ohaVar != null) {
+                ohaVar.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -600,27 +600,27 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0062);
-            this.a = findViewById(R.id.obfuscated_res_0x7f09197e);
+            this.a = findViewById(R.id.obfuscated_res_0x7f0919a4);
             this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f09295c);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090776);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092995);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090781);
             this.e = (LinearLayout) findViewById(R.id.tool_view);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            gca gcaVar = new gca(getPageContext(), this.b, this.d, this.e, this);
-            this.j = gcaVar;
-            zaa b2 = gcaVar.b(bundle);
+            via viaVar = new via(getPageContext(), this.b, this.d, this.e, this);
+            this.j = viaVar;
+            oha b2 = viaVar.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
             }
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
-            x0().onCreate(getPageContext());
-            l9a l9aVar = new l9a(this);
-            this.i = l9aVar;
-            l9aVar.e();
+            y0().onCreate(getPageContext());
+            aga agaVar = new aga(this);
+            this.i = agaVar;
+            agaVar.e();
         }
     }
 
@@ -636,7 +636,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
                 }
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{aba.a + str2 + ("&from=" + str)});
+                urlManager.dealOneLink(pageContext, new String[]{pha.a + str2 + ("&from=" + str)});
             } catch (Exception e2) {
                 BdLog.e("openPageByUrl fail:" + e2);
             }
@@ -647,18 +647,18 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092889)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f092888);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0928c2)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f0928c1);
             }
             this.h.setVisibility(0);
-            p45 d2 = p45.d(this.h);
+            m75 d2 = m75.d(this.h);
             d2.e(R.string.A_X05);
             d2.f(R.color.CAM_X0611);
-            p45 d3 = p45.d(this.h.findViewById(R.id.obfuscated_res_0x7f092887));
+            m75 d3 = m75.d(this.h.findViewById(R.id.obfuscated_res_0x7f0928c0));
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
             TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
-            p45 d4 = p45.d(textView);
+            m75 d4 = m75.d(textView);
             d4.C(R.string.F_X01);
             d4.B(R.dimen.T_X07);
             d4.w(R.color.CAM_X0105);
@@ -668,7 +668,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             d4.k(R.string.A_X07);
             textView.setOnClickListener(new c(this));
             TextView textView2 = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_btn);
-            p45 d5 = p45.d(textView2);
+            m75 d5 = m75.d(textView2);
             d5.C(R.string.F_X01);
             d5.B(R.dimen.T_X07);
             d5.w(R.color.CAM_X0304);
@@ -677,9 +677,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements waa, Voice
             d5.l(R.color.CAM_X0304);
             d5.k(R.string.A_X07);
             textView2.setOnClickListener(new d(this));
-            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f09288b);
+            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f0928c4);
             if (findViewById instanceof ImageView) {
-                Glide.with(findViewById).load(sn6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+                Glide.with(findViewById).load(ds6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
             }
         }
     }

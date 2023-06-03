@@ -1,21 +1,14 @@
 package com.baidu.tieba;
+
+import java.nio.Buffer;
+import java.nio.IntBuffer;
 /* loaded from: classes5.dex */
-public interface f3 {
-    boolean a();
+public interface f3 extends e3 {
+    void A(int i, IntBuffer intBuffer);
 
-    int b();
+    void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer);
 
-    void c();
+    void c(int i, IntBuffer intBuffer);
 
-    int d();
-
-    int e();
-
-    int getHeight();
-
-    int getWidth();
-
-    boolean isPrepared();
-
-    void prepare();
+    void v(int i, IntBuffer intBuffer);
 }

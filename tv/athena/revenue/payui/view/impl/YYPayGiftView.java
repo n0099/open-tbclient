@@ -13,11 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.agb;
-import com.baidu.tieba.kgb;
-import com.baidu.tieba.ofb;
-import com.baidu.tieba.sgb;
-import com.baidu.tieba.xgb;
+import com.baidu.tieba.avb;
+import com.baidu.tieba.kvb;
+import com.baidu.tieba.oub;
+import com.baidu.tieba.svb;
+import com.baidu.tieba.xvb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -26,29 +26,29 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes2.dex */
-public class YYPayGiftView extends LinearLayout implements sgb {
+public class YYPayGiftView extends LinearLayout implements svb {
     public int a;
     public int b;
     public Button c;
     public GridView d;
     public View e;
     public TextView f;
-    public sgb.a g;
+    public svb.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public xgb k;
+    public xvb k;
 
-    @Override // com.baidu.tieba.pgb
+    @Override // com.baidu.tieba.pvb
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.pgb
+    @Override // com.baidu.tieba.pvb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.pgb
+    @Override // com.baidu.tieba.pvb
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -72,31 +72,31 @@ public class YYPayGiftView extends LinearLayout implements sgb {
         this.b = i2;
         this.i = payUIKitConfig;
         c(context);
-        ofb.b(this.a, this.b, "17", "", "", "");
+        oub.b(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.sgb
-    public void setCallback(sgb.a aVar) {
+    @Override // com.baidu.tieba.svb
+    public void setCallback(svb.a aVar) {
         this.g = aVar;
     }
 
-    @Override // com.baidu.tieba.sgb
+    @Override // com.baidu.tieba.svb
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         RLog.info("YYPayGiftView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
         this.h = giftBagsInfo;
     }
 
     public final void c(Context context) {
-        LayoutInflater.from(new ContextThemeWrapper(context, kgb.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(context, kvb.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
         Button button = (Button) findViewById(R.id.btn_know);
         this.c = button;
         button.setOnClickListener(new a());
         this.f = (TextView) findViewById(R.id.tv_title);
         this.e = findViewById(R.id.rl_container);
         this.d = (GridView) findViewById(R.id.grid_pay_gift);
-        xgb xgbVar = new xgb(context, this.j, this.i);
-        this.k = xgbVar;
-        this.d.setAdapter((ListAdapter) xgbVar);
+        xvb xvbVar = new xvb(context, this.j, this.i);
+        this.k = xvbVar;
+        this.d.setAdapter((ListAdapter) xvbVar);
     }
 
     public final void e() {
@@ -111,7 +111,7 @@ public class YYPayGiftView extends LinearLayout implements sgb {
         }
     }
 
-    @Override // com.baidu.tieba.pgb
+    @Override // com.baidu.tieba.pvb
     public void refreshView() {
         RLog.info("YYPayGiftView", "refreshView mGiftBagsInfo:" + this.h);
         GiftBagsInfo giftBagsInfo = this.h;
@@ -124,7 +124,7 @@ public class YYPayGiftView extends LinearLayout implements sgb {
             this.j.clear();
             this.j.addAll(this.h.giftbag);
             this.k.notifyDataSetChanged();
-            agb.a(this.j.size(), this.e, this.d);
+            avb.a(this.j.size(), this.e, this.d);
             f();
             e();
             return;

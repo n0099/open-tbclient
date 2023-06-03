@@ -3,6 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.heytap.mcssdk.constant.b;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class CloudLogUtil {
                         jSONObject.put(b.C, CloudLogUtil.mSdkVersion);
                         jSONObject.put("deviceId", CloudLogUtil.mDeviceId);
                         jSONObject.put("timestamp", System.currentTimeMillis());
-                        jSONObject.put("log", str2);
+                        jSONObject.put(LocalFilesFilterKt.FILTER_NAME_LOG, str2);
                         CloudLogUtil.addLogContent(jSONObject, false);
                     } catch (JSONException e) {
                         e.printStackTrace();

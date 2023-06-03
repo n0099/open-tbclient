@@ -3,7 +3,7 @@ package com.facebook.fresco.ui.common;
 import com.facebook.fresco.ui.common.ControllerListener2;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseControllerListener2<INFO> implements ControllerListener2<INFO> {
     public static final ControllerListener2 NO_OP_LISTENER = new BaseControllerListener2();
 

@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.collection.SimpleArrayMap;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 /* loaded from: classes.dex */
 public final class WindowInsetsControllerCompat {
     public static final int BEHAVIOR_SHOW_BARS_BY_SWIPE = 1;
@@ -216,7 +216,7 @@ public final class WindowInsetsControllerCompat {
         @Override // androidx.core.view.WindowInsetsControllerCompat.Impl
         public void setAppearanceLightStatusBars(boolean z) {
             if (z) {
-                unsetWindowFlag(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                unsetWindowFlag(67108864);
                 setWindowFlag(Integer.MIN_VALUE);
                 setSystemUiFlag(8192);
                 return;
@@ -243,7 +243,7 @@ public final class WindowInsetsControllerCompat {
         @Override // androidx.core.view.WindowInsetsControllerCompat.Impl
         public void setAppearanceLightNavigationBars(boolean z) {
             if (z) {
-                unsetWindowFlag(134217728);
+                unsetWindowFlag(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 setWindowFlag(Integer.MIN_VALUE);
                 setSystemUiFlag(16);
                 return;

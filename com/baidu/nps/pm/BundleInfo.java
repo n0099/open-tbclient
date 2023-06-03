@@ -8,7 +8,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tieba.ce1;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
+import com.baidu.tieba.lf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -171,7 +172,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ce1.b().f(this.packageName);
+            return lf1.b().f(this.packageName);
         }
         return (String) invokeV.objValue;
     }
@@ -888,13 +889,13 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
             bundleInfo.setSize(contentValues.getAsLong("size").longValue());
             bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
-            bundleInfo.setAbi(contentValues.getAsInteger(PackageTable.ABI).intValue());
+            bundleInfo.setAbi(contentValues.getAsInteger("abi").intValue());
             bundleInfo.setExt(contentValues.getAsString("ext"));
             bundleInfo.setSilence(contentValues.getAsInteger("silence").intValue());
             bundleInfo.setSilenceUpdate(contentValues.getAsInteger("silence_update").intValue());
             bundleInfo.setWifiOnly(contentValues.getAsInteger("wifionly").intValue());
-            bundleInfo.setPatchUrl(contentValues.getAsString("patch_url"));
-            bundleInfo.setPatchMD5(contentValues.getAsString("patch_md5"));
+            bundleInfo.setPatchUrl(contentValues.getAsString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL));
+            bundleInfo.setPatchMD5(contentValues.getAsString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5));
             bundleInfo.setNetworkStrategy(contentValues.getAsString("network_strategy"));
             bundleInfo.setSubBundle(parseSubBundleStr(contentValues.getAsString("sub_bundle")));
             bundleInfo.setDependency(parseDependencyStr(contentValues.getAsString("dependency")));
@@ -933,13 +934,13 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
-            contentValues.put(PackageTable.ABI, Integer.valueOf(bundleInfo.getAbi()));
+            contentValues.put("abi", Integer.valueOf(bundleInfo.getAbi()));
             contentValues.put("ext", bundleInfo.getExt());
             contentValues.put("silence", Integer.valueOf(bundleInfo.getSilence()));
             contentValues.put("silence_update", Integer.valueOf(bundleInfo.getSilenceUpdate()));
             contentValues.put("wifionly", Integer.valueOf(bundleInfo.getWifiOnly()));
-            contentValues.put("patch_url", bundleInfo.getPatchUrl());
-            contentValues.put("patch_md5", bundleInfo.getPatchMD5());
+            contentValues.put(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, bundleInfo.getPatchUrl());
+            contentValues.put(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5, bundleInfo.getPatchMD5());
             contentValues.put("network_strategy", bundleInfo.getNetworkStrategy());
             contentValues.put("sub_bundle", subBundleList2Str(bundleInfo.getSubBundle()));
             contentValues.put("dependency", dependency2Str(bundleInfo.getDependency()));
@@ -1018,13 +1019,13 @@ public class BundleInfo implements IBundleInfo {
             int columnIndex18 = cursor.getColumnIndex("removalbe");
             int columnIndex19 = cursor.getColumnIndex("size");
             int columnIndex20 = cursor.getColumnIndex("need_remove");
-            int columnIndex21 = cursor.getColumnIndex(PackageTable.ABI);
+            int columnIndex21 = cursor.getColumnIndex("abi");
             int columnIndex22 = cursor.getColumnIndex("ext");
             int columnIndex23 = cursor.getColumnIndex("silence");
             int columnIndex24 = cursor.getColumnIndex("silence_update");
             int columnIndex25 = cursor.getColumnIndex("wifionly");
-            int columnIndex26 = cursor.getColumnIndex("patch_url");
-            int columnIndex27 = cursor.getColumnIndex("patch_md5");
+            int columnIndex26 = cursor.getColumnIndex(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL);
+            int columnIndex27 = cursor.getColumnIndex(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5);
             int columnIndex28 = cursor.getColumnIndex("network_strategy");
             int columnIndex29 = cursor.getColumnIndex("sub_bundle");
             int columnIndex30 = cursor.getColumnIndex("dependency");
@@ -1207,13 +1208,13 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));
-            contentValues.put(PackageTable.ABI, Integer.valueOf(iBundleInfo.getAbi()));
+            contentValues.put("abi", Integer.valueOf(iBundleInfo.getAbi()));
             contentValues.put("ext", iBundleInfo.getExt());
             contentValues.put("silence", Integer.valueOf(iBundleInfo.getSilence()));
             contentValues.put("silence_update", Integer.valueOf(iBundleInfo.getSilenceUpdate()));
             contentValues.put("wifionly", Integer.valueOf(iBundleInfo.getWifiOnly()));
-            contentValues.put("patch_url", iBundleInfo.getPatchUrl());
-            contentValues.put("patch_md5", iBundleInfo.getPatchMD5());
+            contentValues.put(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, iBundleInfo.getPatchUrl());
+            contentValues.put(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5, iBundleInfo.getPatchMD5());
             contentValues.put("network_strategy", iBundleInfo.getNetworkStrategy());
             contentValues.put("sub_bundle", subBundleList2Str(iBundleInfo.getSubBundle()));
             contentValues.put("dependency", dependency2Str(iBundleInfo.getDependency()));

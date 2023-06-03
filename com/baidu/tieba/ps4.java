@@ -1,80 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.system.Os;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes7.dex */
-public class ps4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int A = 3;
-    public static int B = 4;
-    public static int C = 5;
-    public static int D = 6;
-    public static int E = 1;
-    public static int F = 2;
-    public static int y = 1;
-    public static int z = 2;
+public class ps4 implements ms4<String> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v;
-    public ArrayList<String> w;
-    public int x;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948072600, "Lcom/baidu/tieba/ps4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948072600, "Lcom/baidu/tieba/ps4;");
-        }
-    }
-
-    public ps4() {
+    public ps4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = new ArrayList<>();
-        this.w = new ArrayList<>();
-        this.x = 0;
+        this.a = context.getApplicationContext();
+    }
+
+    @Override // com.baidu.tieba.ms4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ms4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (!file.exists()) {
+                return null;
+            }
+            return ss4.c(file);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ms4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
+        }
+    }
+
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (Build.VERSION.SDK_INT >= 24) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            FileOutputStream fileOutputStream = null;
+            try {
+                try {
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                ss4.a(fileOutputStream);
+            }
+        }
     }
 }

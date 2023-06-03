@@ -37,7 +37,7 @@ public class PushMessageHelper {
 
     public static MiPushMessage generateMessage(ik ikVar, hu huVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ikVar.m602a());
+        miPushMessage.setMessageId(ikVar.m657a());
         if (!TextUtils.isEmpty(ikVar.d())) {
             miPushMessage.setMessageType(1);
             miPushMessage.setAlias(ikVar.d());
@@ -56,17 +56,17 @@ public class PushMessageHelper {
         }
         if (huVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(huVar.m524a());
+                miPushMessage.setMessageId(huVar.m579a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(huVar.m529b());
+                miPushMessage.setTopic(huVar.m584b());
             }
             miPushMessage.setDescription(huVar.d());
-            miPushMessage.setTitle(huVar.m532c());
+            miPushMessage.setTitle(huVar.m587c());
             miPushMessage.setNotifyType(huVar.a());
             miPushMessage.setNotifyId(huVar.c());
             miPushMessage.setPassThrough(huVar.b());
-            miPushMessage.setExtra(huVar.m525a());
+            miPushMessage.setExtra(huVar.m580a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;

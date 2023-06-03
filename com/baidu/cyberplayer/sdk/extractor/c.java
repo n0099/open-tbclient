@@ -5,15 +5,20 @@ import android.os.RemoteException;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-import com.baidu.cyberplayer.sdk.remote.a;
-import com.baidu.cyberplayer.sdk.remote.e;
+import com.baidu.cyberplayer.sdk.remote.b;
+import com.baidu.cyberplayer.sdk.remote.f;
 /* loaded from: classes3.dex */
-public class c extends a.AbstractBinderC0093a {
+public class c extends b.a {
     public CyberExtractor a;
     public RemotePlayerService b;
 
     public c(RemotePlayerService remotePlayerService) {
         this.b = remotePlayerService;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(f fVar) throws RemoteException {
+        c().setDataSource(CyberPlayerManager.getApplicationContext(), fVar.a(), fVar.b());
     }
 
     private CyberExtractor c() {
@@ -27,22 +32,12 @@ public class c extends a.AbstractBinderC0093a {
         return this.a;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.remote.a
+    @Override // com.baidu.cyberplayer.sdk.remote.b
     public Bundle a() throws RemoteException {
         return c().getMetaData();
     }
 
-    @Override // com.baidu.cyberplayer.sdk.remote.a
-    public void a(int i, String str, long j) {
-        c().setOption(i, str, j);
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.remote.a
-    public void a(e eVar) throws RemoteException {
-        c().setDataSource(CyberPlayerManager.getApplicationContext(), eVar.a(), eVar.b());
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.remote.a
+    @Override // com.baidu.cyberplayer.sdk.remote.b
     public void b() throws RemoteException {
         CyberLog.i("RemoteExtractor", "release");
         synchronized (this) {
@@ -52,5 +47,10 @@ public class c extends a.AbstractBinderC0093a {
             }
         }
         this.b = null;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(int i, String str, long j) {
+        c().setOption(i, str, j);
     }
 }

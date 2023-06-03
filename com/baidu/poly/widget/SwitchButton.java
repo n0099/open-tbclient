@@ -27,8 +27,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.di1;
-import com.baidu.tieba.vf1;
+import com.baidu.tieba.eh1;
+import com.baidu.tieba.mj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,9 @@ public class SwitchButton extends CompoundButton {
     public TextPaint Q;
     public Layout R;
     public Layout S;
-    public float T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public float f1055T;
     public float U;
     public int V;
     public int W;
@@ -828,8 +830,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = di1.b(i);
-            this.c = di1.a(this.k);
+            this.d = mj1.b(i);
+            this.c = mj1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();
@@ -909,7 +911,7 @@ public class SwitchButton extends CompoundButton {
             if (attributeSet == null) {
                 obtainStyledAttributes = null;
             } else {
-                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, vf1.SwitchButton);
+                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, eh1.SwitchButton);
             }
             if (obtainStyledAttributes != null) {
                 drawable = obtainStyledAttributes.getDrawable(11);
@@ -1018,7 +1020,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = di1.b(this.k);
+                ColorStateList b = mj1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -1033,7 +1035,7 @@ public class SwitchButton extends CompoundButton {
             }
             this.D = z3;
             if (!z3 && this.c == null) {
-                ColorStateList a2 = di1.a(this.k);
+                ColorStateList a2 = mj1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;
@@ -1234,7 +1236,7 @@ public class SwitchButton extends CompoundButton {
             if (this.l == 0 && this.C) {
                 this.l = this.a.getIntrinsicWidth();
             }
-            int c = c(this.T);
+            int c = c(this.f1055T);
             if (this.h == 0.0f) {
                 this.h = 1.8f;
             }
@@ -1534,9 +1536,9 @@ public class SwitchButton extends CompoundButton {
                 f2 = 0.0f;
             }
             if (f == 0.0f && f2 == 0.0f) {
-                this.T = 0.0f;
+                this.f1055T = 0.0f;
             } else {
-                this.T = Math.max(f, f2);
+                this.f1055T = Math.max(f, f2);
             }
             Layout layout3 = this.R;
             if (layout3 != null) {

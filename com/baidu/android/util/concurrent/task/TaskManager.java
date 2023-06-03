@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -116,7 +115,7 @@ public class TaskManager {
                 }
             }
             NEW = new State(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT, 0);
-            RUNNING = new State(TornadoLiteRuntime.STATE_RUNNING, 1);
+            RUNNING = new State("RUNNING", 1);
             PAUSED = new State("PAUSED", 2);
             FINISHED = new State("FINISHED", 3);
             State state = new State("READY", 4);

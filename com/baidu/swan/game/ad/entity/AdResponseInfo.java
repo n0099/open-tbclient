@@ -3,7 +3,6 @@ package com.baidu.swan.game.ad.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -104,7 +103,7 @@ public class AdResponseInfo implements Parcelable {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString(Constants.KEYS.RET, "");
+            String optString = jSONObject.optString("ret", "");
             this.mErrorCode = optString;
             if (!TextUtils.equals(optString, "0") || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;

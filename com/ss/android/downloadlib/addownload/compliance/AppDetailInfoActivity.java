@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppDetailInfoActivity extends Activity {
     public ImageView a;
     public TextView b;
@@ -22,7 +22,7 @@ public class AppDetailInfoActivity extends Activity {
     public long f;
     public List<Pair<String, String>> g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends RecyclerView.Adapter<Object> {
         public a() {
         }
@@ -48,7 +48,7 @@ public class AppDetailInfoActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0954);
+        setContentView(R.layout.obfuscated_res_0x7f0d096c);
         if (a()) {
             b();
         } else {
@@ -63,10 +63,10 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911b9);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925ff);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091aad);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915af);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d1);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092636);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091ada);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915d1);
         if (this.g.isEmpty()) {
             this.d.setVisibility(8);
             this.b.setVisibility(0);

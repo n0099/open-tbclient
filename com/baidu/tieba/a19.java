@@ -1,82 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a19 extends sr9 {
+public class a19<V> implements k19<V> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e1;
     public transient /* synthetic */ FieldHolder $fh;
-    public o05 b1;
-    public o05 c1;
-    public o05 d1;
+    public InterestSelectionStyleAModel a;
+    public t09 b;
+    public BaseInterestSelectionFragment c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562464, "Lcom/baidu/tieba/a19;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562464, "Lcom/baidu/tieba/a19;");
-                return;
-            }
-        }
-        e1 = BdUniqueId.gen();
-    }
-
-    public a19() {
+    public a19(BaseInterestSelectionFragment baseInterestSelectionFragment, t09 t09Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseInterestSelectionFragment, t09Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = baseInterestSelectionFragment;
+        this.b = t09Var;
+        this.a = new InterestSelectionStyleAModel(t09Var, this);
+    }
+
+    @Override // com.baidu.tieba.k19
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.I1();
         }
     }
 
-    @Override // com.baidu.tieba.sr9, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e1;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.onDestroy();
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean s1() {
-        InterceptResult invokeV;
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            o05 o05Var = this.b1;
-            if (o05Var != null && !StringUtils.isNull(o05Var.b)) {
-                return true;
-            }
-            o05 o05Var2 = this.c1;
-            if (o05Var2 != null && !StringUtils.isNull(o05Var2.b)) {
-                return true;
-            }
-            o05 o05Var3 = this.d1;
-            if (o05Var3 != null) {
-                return !StringUtils.isNull(o05Var3.b);
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.Z();
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k19
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.J1(str);
+        }
     }
 }

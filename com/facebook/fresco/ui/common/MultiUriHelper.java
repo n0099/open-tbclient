@@ -4,7 +4,7 @@ import android.net.Uri;
 import com.facebook.common.internal.Fn;
 import java.util.function.Function;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class MultiUriHelper {
     public Function<Integer, Integer> f;
 

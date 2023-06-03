@@ -1,38 +1,69 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class n3b {
+public class n3b extends l3b<UnifiedInterstitialAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n3b(UnifiedInterstitialAD unifiedInterstitialAD) {
+        super(unifiedInterstitialAD);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException unused) {
-                o3b.d("IOUtil", "closeSecure IOException");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unifiedInterstitialAD};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void b(InputStream inputStream) {
+    @Override // com.baidu.tieba.l3b
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
-            a(inputStream);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((UnifiedInterstitialAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((UnifiedInterstitialAD) this.a).sendLossNotification(map);
         }
     }
 
-    public static void c(OutputStream outputStream) {
+    @Override // com.baidu.tieba.l3b
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
-            a(outputStream);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((UnifiedInterstitialAD) this.a).sendWinNotification(map);
         }
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((UnifiedInterstitialAD) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

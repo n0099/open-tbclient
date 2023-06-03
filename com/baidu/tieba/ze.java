@@ -1,79 +1,84 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.cf;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.we;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class ze {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_CRASHTIME_LIMIT = 10;
-    public static final int OFF_TYPE = 0;
-    public static final int ON_TYPE = 1;
+public class ze<T> implements we<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mDefaultType;
-    public String[] mKey;
-    public int mMaxCrashTimes;
-    public String mName;
-    public int mOffType;
-    public cf.a mSwitchListener;
 
-    public abstract void changeSettingByType(int i);
-
-    /* renamed from: getCrashKeys */
-    public abstract String[] mo74getCrashKeys();
-
-    public abstract int getDefaultType();
-
-    public abstract int getMaxCrashTimes();
-
-    public abstract String getName();
-
-    public abstract int getOffType();
-
-    public String[] getSwitchLibs() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.we
+    public void a(String str, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, t) == null) {
         }
-        return (String[]) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements cf.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ze a;
-
-        public a(ze zeVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zeVar;
+    @Override // com.baidu.tieba.we
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
+    }
 
-        @Override // com.baidu.tieba.cf.a
-        public void a(String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.changeSettingByType(i);
-            }
+    @Override // com.baidu.tieba.we
+    public void e(String str, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.we
+    public void f(String str, we.a<T> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.we
+    public void g(String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.we
+    public T get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.we
+    public we.b<T> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return null;
+        }
+        return (we.b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.we
+    public void i(String str, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.we
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
         }
     }
 
@@ -87,35 +92,7 @@ public abstract class ze {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.mDefaultType = 0;
-        this.mOffType = 1;
-        this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new a(this);
-        initData();
-        addToManager();
-    }
-
-    public void addToManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cf cfVar = new cf(this.mName, this.mDefaultType, this.mSwitchListener);
-            cfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            cfVar.j(getSwitchLibs());
-            SwitchManager.getInstance().addSwitchData(cfVar);
-        }
-    }
-
-    public void initData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mName = getName();
-            this.mKey = mo74getCrashKeys();
-            this.mDefaultType = getDefaultType();
-            this.mOffType = getOffType();
-            this.mMaxCrashTimes = getMaxCrashTimes();
         }
     }
 }

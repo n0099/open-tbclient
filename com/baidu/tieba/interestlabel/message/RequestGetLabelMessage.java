@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ih8;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,9 +20,9 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1055common;
+    public CommonReq f1131common;
     public int from;
-    public ih8 mLabelDataSet;
+    public fn8 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -49,10 +49,10 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1251common = this.f1055common;
+            builder.f1397common = this.f1131common;
             builder.from = Integer.valueOf(this.from);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ss5.a(builder, true);
+                uw5.a(builder, true);
             }
             GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -61,19 +61,19 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public ih8 getLabelDataSet() {
+    public fn8 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLabelDataSet;
         }
-        return (ih8) invokeV.objValue;
+        return (fn8) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1055common = commonReq;
+            this.f1131common = commonReq;
         }
     }
 
@@ -84,10 +84,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(ih8 ih8Var) {
+    public void setLabelDataSet(fn8 fn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ih8Var) == null) {
-            this.mLabelDataSet = ih8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fn8Var) == null) {
+            this.mLabelDataSet = fn8Var;
         }
     }
 }

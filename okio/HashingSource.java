@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HashingSource extends ForwardingSource {
     public final Mac mac;
     public final MessageDigest messageDigest;

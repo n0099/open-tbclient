@@ -1,109 +1,63 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik3 {
+public abstract class ik3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
-                return -1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    public abstract Bundle c(hk3 hk3Var);
 
-    public static int b(ek3 ek3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ek3Var)) == null) {
-            if (ek3Var == null) {
-                return -1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856344, "Lcom/baidu/tieba/ik3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (TextUtils.isEmpty(ek3Var.c) && TextUtils.isEmpty(ek3Var.d)) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(ek3Var.c) && !TextUtils.isEmpty(ek3Var.d)) {
-                return 3;
-            }
-            if (TextUtils.isEmpty(ek3Var.d)) {
-                return -1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            if (str.contains("EAP")) {
-                return 3;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        wifiConfiguration.allowedKeyManagement.set(2);
-                        wifiConfiguration.allowedKeyManagement.set(3);
-                        return;
-                    }
-                    return;
-                }
-                wifiConfiguration.allowedKeyManagement.set(1);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947856344, "Lcom/baidu/tieba/ik3;");
                 return;
             }
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-            return;
         }
-        wifiConfiguration.allowedKeyManagement.set(0);
+        a = is1.a;
+    }
+
+    public ik3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public final Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return Bundle.EMPTY;
+            }
+            return c(hk3.b(bundle));
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

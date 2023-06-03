@@ -1,5 +1,5 @@
 package com.bytedance.pangle.res.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface h {
     int a(int i);
 

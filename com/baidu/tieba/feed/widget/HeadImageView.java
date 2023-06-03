@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy6;
-import com.baidu.tieba.p47;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.y47;
-import com.baidu.tieba.z27;
+import com.baidu.tieba.a87;
+import com.baidu.tieba.h37;
+import com.baidu.tieba.q97;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.z97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,14 +27,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000*\u0001\u000b\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0013\u001a\u00020\u0014H\u0002J\b\u0010\u0015\u001a\u00020\u0014H\u0002J\b\u0010\u0016\u001a\u00020\u0014H\u0002J\b\u0010\u0017\u001a\u00020\u0014H\u0002J\b\u0010\u0018\u001a\u00020\u0014H\u0002J\b\u0010\u0019\u001a\u00020\u0014H\u0016J\u000e\u0010\u001a\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001cJ\u000e\u0010\u001d\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001cJ\u000e\u0010\u001e\u001a\u00020\u00142\u0006\u0010\u001f\u001a\u00020\u001cJ\u000e\u0010 \u001a\u00020\u00142\u0006\u0010!\u001a\u00020\u001cJ\u000e\u0010\"\u001a\u00020\u00142\u0006\u0010#\u001a\u00020$J\u000e\u0010%\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001cJ\u000e\u0010&\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001cJ\u000e\u0010'\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001cJ\u0010\u0010(\u001a\u00020\u00142\b\u0010)\u001a\u0004\u0018\u00010*J\u0010\u0010+\u001a\u00020\u00142\b\u0010,\u001a\u0004\u0018\u00010*J\u000e\u0010-\u001a\u00020\u00142\u0006\u0010.\u001a\u00020/J\u000e\u00100\u001a\u00020\u00142\u0006\u00101\u001a\u00020/J\u0010\u00102\u001a\u00020\u00142\b\u00103\u001a\u0004\u0018\u00010*J\u000e\u00104\u001a\u00020\u00142\u0006\u00105\u001a\u000206R\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000¨\u00067"}, d2 = {"Lcom/baidu/tieba/feed/widget/HeadImageView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "bgLottieView", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "bgLottieViewStateListener", "com/baidu/tieba/feed/widget/HeadImageView$bgLottieViewStateListener$1", "Lcom/baidu/tieba/feed/widget/HeadImageView$bgLottieViewStateListener$1;", "cornerViewProxy", "Lcom/baidu/tieba/feed/widget/FeedImageViewProxy;", "imageShapeLayout", "Lcom/baidu/tieba/feed/widget/EllipseOrCircleFrameLayout;", "imageViewProxy", "pendantViewProxy", "initBgLottie", "", "initCornerView", "initImageView", "initPendantView", "initViewSize", "onChangeSkin", "setBgLottieSize", "size", "", "setCornerViewSize", "setImageDefaultResource", "defaultId", "setImagePlaceHolder", "type", "setImageScaleType", "scaleType", "Landroid/widget/ImageView$ScaleType;", "setImageViewSize", "setPendantViewSize", "setViewSize", "showCornerView", "cornerUrl", "", "showImageView", "imageUrl", "showLivingLottie", "show", "", "showOvalImage", "showOval", "showPendantView", "pendantUrl", "updateImageConfig", "config", "Lcom/baidu/tieba/feed/compat/WidgetResolver$NetImageViewConfig;", "lib-components_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class HeadImageView extends RelativeLayout implements z27 {
+public final class HeadImageView extends RelativeLayout implements a87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
     public EllipseOrCircleFrameLayout b;
-    public y47 c;
-    public y47 d;
-    public y47 e;
+    public z97 c;
+    public z97 d;
+    public z97 e;
     public final a f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -158,40 +158,40 @@ public final class HeadImageView extends RelativeLayout implements z27 {
         }
     }
 
-    public final void m(gy6.c config) {
+    public final void m(h37.c config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
-            y47 y47Var = this.c;
-            if (y47Var == null) {
+            z97 z97Var = this.c;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.g(config);
+            z97Var.g(config);
         }
     }
 
     public final void setImageDefaultResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            y47 y47Var = this.c;
-            if (y47Var == null) {
+            z97 z97Var = this.c;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.d(i);
+            z97Var.d(i);
         }
     }
 
     public final void setImagePlaceHolder(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            y47 y47Var = this.c;
-            if (y47Var == null) {
+            z97 z97Var = this.c;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.e(i);
+            z97Var.e(i);
         }
     }
 
@@ -199,12 +199,12 @@ public final class HeadImageView extends RelativeLayout implements z27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, scaleType) == null) {
             Intrinsics.checkNotNullParameter(scaleType, "scaleType");
-            y47 y47Var = this.c;
-            if (y47Var == null) {
+            z97 z97Var = this.c;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.f(scaleType);
+            z97Var.f(scaleType);
         }
     }
 
@@ -221,7 +221,7 @@ public final class HeadImageView extends RelativeLayout implements z27 {
         }
     }
 
-    @Override // com.baidu.tieba.z27
+    @Override // com.baidu.tieba.a87
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -237,7 +237,7 @@ public final class HeadImageView extends RelativeLayout implements z27 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int g = ri.g(getContext(), R.dimen.tbds148);
+            int g = vi.g(getContext(), R.dimen.tbds148);
             setLayoutParams(new ViewGroup.LayoutParams(g, g));
         }
     }
@@ -265,7 +265,7 @@ public final class HeadImageView extends RelativeLayout implements z27 {
                 tBLottieAnimationView3 = null;
             }
             tBLottieAnimationView3.loop(true);
-            int g = ri.g(getContext(), R.dimen.tbds148);
+            int g = vi.g(getContext(), R.dimen.tbds148);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
             layoutParams.addRule(13);
             View view3 = this.a;
@@ -283,24 +283,24 @@ public final class HeadImageView extends RelativeLayout implements z27 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            y47 y47Var = new y47(context);
-            this.d = y47Var;
-            y47 y47Var2 = null;
-            if (y47Var == null) {
+            z97 z97Var = new z97(context);
+            this.d = z97Var;
+            z97 z97Var2 = null;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.h().setVisibility(8);
-            int g = ri.g(getContext(), R.dimen.tbds124);
+            z97Var.h().setVisibility(8);
+            int g = vi.g(getContext(), R.dimen.tbds124);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
             layoutParams.addRule(13);
-            y47 y47Var3 = this.d;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.d;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
             } else {
-                y47Var2 = y47Var3;
+                z97Var2 = z97Var3;
             }
-            addView(y47Var2.h(), layoutParams);
+            addView(z97Var2.h(), layoutParams);
         }
     }
 
@@ -309,37 +309,37 @@ public final class HeadImageView extends RelativeLayout implements z27 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            y47 y47Var = new y47(context);
-            this.e = y47Var;
-            y47 y47Var2 = null;
-            if (y47Var == null) {
+            z97 z97Var = new z97(context);
+            this.e = z97Var;
+            z97 z97Var2 = null;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            y47Var.h().setVisibility(8);
-            y47 y47Var3 = this.e;
-            if (y47Var3 == null) {
+            z97Var.h().setVisibility(8);
+            z97 z97Var3 = this.e;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
-                y47Var3 = null;
+                z97Var3 = null;
             }
-            y47Var3.c(R.color.transparent);
-            y47 y47Var4 = this.e;
-            if (y47Var4 == null) {
+            z97Var3.c(R.color.transparent);
+            z97 z97Var4 = this.e;
+            if (z97Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
-                y47Var4 = null;
+                z97Var4 = null;
             }
-            y47Var4.d(R.color.transparent);
-            int g = ri.g(getContext(), R.dimen.tbds42);
+            z97Var4.d(R.color.transparent);
+            int g = vi.g(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f0905c6);
-            layoutParams.addRule(7, R.id.obfuscated_res_0x7f0905c6);
-            y47 y47Var5 = this.e;
-            if (y47Var5 == null) {
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f0905d0);
+            layoutParams.addRule(7, R.id.obfuscated_res_0x7f0905d0);
+            z97 z97Var5 = this.e;
+            if (z97Var5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
             } else {
-                y47Var2 = y47Var5;
+                z97Var2 = z97Var5;
             }
-            addView(y47Var2.h(), layoutParams);
+            addView(z97Var2.h(), layoutParams);
         }
     }
 
@@ -355,22 +355,22 @@ public final class HeadImageView extends RelativeLayout implements z27 {
                 Intrinsics.throwUninitializedPropertyAccessException("imageShapeLayout");
                 ellipseOrCircleFrameLayout = null;
             }
-            ellipseOrCircleFrameLayout.setId(R.id.obfuscated_res_0x7f0905c6);
+            ellipseOrCircleFrameLayout.setId(R.id.obfuscated_res_0x7f0905d0);
             Context context2 = getContext();
             Intrinsics.checkNotNullExpressionValue(context2, "context");
-            this.c = new y47(context2);
+            this.c = new z97(context2);
             EllipseOrCircleFrameLayout ellipseOrCircleFrameLayout2 = this.b;
             if (ellipseOrCircleFrameLayout2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageShapeLayout");
                 ellipseOrCircleFrameLayout2 = null;
             }
-            y47 y47Var = this.c;
-            if (y47Var == null) {
+            z97 z97Var = this.c;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            ellipseOrCircleFrameLayout2.addView(y47Var.h(), new FrameLayout.LayoutParams(-1, -1));
-            int g = ri.g(getContext(), R.dimen.tbds94);
+            ellipseOrCircleFrameLayout2.addView(z97Var.h(), new FrameLayout.LayoutParams(-1, -1));
+            int g = vi.g(getContext(), R.dimen.tbds94);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
             layoutParams.addRule(13);
             View view3 = this.b;
@@ -392,30 +392,30 @@ public final class HeadImageView extends RelativeLayout implements z27 {
             } else {
                 z = true;
             }
-            y47 y47Var = null;
+            z97 z97Var = null;
             if (z) {
-                y47 y47Var2 = this.e;
-                if (y47Var2 == null) {
+                z97 z97Var2 = this.e;
+                if (z97Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
                 } else {
-                    y47Var = y47Var2;
+                    z97Var = z97Var2;
                 }
-                y47Var.h().setVisibility(8);
+                z97Var.h().setVisibility(8);
                 return;
             }
-            y47 y47Var3 = this.e;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.e;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
-                y47Var3 = null;
+                z97Var3 = null;
             }
-            y47Var3.h().setVisibility(0);
-            y47 y47Var4 = this.e;
-            if (y47Var4 == null) {
+            z97Var3.h().setVisibility(0);
+            z97 z97Var4 = this.e;
+            if (z97Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
             } else {
-                y47Var = y47Var4;
+                z97Var = z97Var4;
             }
-            p47.a(y47Var.h(), str);
+            q97.a(z97Var.h(), str);
         }
     }
 
@@ -428,30 +428,30 @@ public final class HeadImageView extends RelativeLayout implements z27 {
             } else {
                 z = true;
             }
-            y47 y47Var = null;
+            z97 z97Var = null;
             if (z) {
-                y47 y47Var2 = this.c;
-                if (y47Var2 == null) {
+                z97 z97Var2 = this.c;
+                if (z97Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
                 } else {
-                    y47Var = y47Var2;
+                    z97Var = z97Var2;
                 }
-                y47Var.h().setVisibility(4);
+                z97Var.h().setVisibility(4);
                 return;
             }
-            y47 y47Var3 = this.c;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.c;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
-                y47Var3 = null;
+                z97Var3 = null;
             }
-            y47Var3.h().setVisibility(0);
-            y47 y47Var4 = this.c;
-            if (y47Var4 == null) {
+            z97Var3.h().setVisibility(0);
+            z97 z97Var4 = this.c;
+            if (z97Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("imageViewProxy");
             } else {
-                y47Var = y47Var4;
+                z97Var = z97Var4;
             }
-            y47Var.a(str);
+            z97Var.a(str);
         }
     }
 
@@ -512,30 +512,30 @@ public final class HeadImageView extends RelativeLayout implements z27 {
             } else {
                 z = true;
             }
-            y47 y47Var = null;
+            z97 z97Var = null;
             if (z) {
-                y47 y47Var2 = this.d;
-                if (y47Var2 == null) {
+                z97 z97Var2 = this.d;
+                if (z97Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
                 } else {
-                    y47Var = y47Var2;
+                    z97Var = z97Var2;
                 }
-                y47Var.h().setVisibility(8);
+                z97Var.h().setVisibility(8);
                 return;
             }
-            y47 y47Var3 = this.d;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.d;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
-                y47Var3 = null;
+                z97Var3 = null;
             }
-            y47Var3.h().setVisibility(0);
-            y47 y47Var4 = this.d;
-            if (y47Var4 == null) {
+            z97Var3.h().setVisibility(0);
+            z97 z97Var4 = this.d;
+            if (z97Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
             } else {
-                y47Var = y47Var4;
+                z97Var = z97Var4;
             }
-            y47Var.b(str);
+            z97Var.b(str);
         }
     }
 
@@ -567,25 +567,25 @@ public final class HeadImageView extends RelativeLayout implements z27 {
     public final void setCornerViewSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            y47 y47Var = this.e;
-            y47 y47Var2 = null;
-            if (y47Var == null) {
+            z97 z97Var = this.e;
+            z97 z97Var2 = null;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            ViewGroup.LayoutParams layoutParams = y47Var.h().getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = z97Var.h().getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new RelativeLayout.LayoutParams(i, i);
             }
             layoutParams.width = i;
             layoutParams.height = i;
-            y47 y47Var3 = this.e;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.e;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cornerViewProxy");
             } else {
-                y47Var2 = y47Var3;
+                z97Var2 = z97Var3;
             }
-            y47Var2.h().setLayoutParams(layoutParams);
+            z97Var2.h().setLayoutParams(layoutParams);
         }
     }
 
@@ -617,25 +617,25 @@ public final class HeadImageView extends RelativeLayout implements z27 {
     public final void setPendantViewSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            y47 y47Var = this.d;
-            y47 y47Var2 = null;
-            if (y47Var == null) {
+            z97 z97Var = this.d;
+            z97 z97Var2 = null;
+            if (z97Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
-                y47Var = null;
+                z97Var = null;
             }
-            ViewGroup.LayoutParams layoutParams = y47Var.h().getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = z97Var.h().getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new RelativeLayout.LayoutParams(i, i);
             }
             layoutParams.width = i;
             layoutParams.height = i;
-            y47 y47Var3 = this.d;
-            if (y47Var3 == null) {
+            z97 z97Var3 = this.d;
+            if (z97Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("pendantViewProxy");
             } else {
-                y47Var2 = y47Var3;
+                z97Var2 = z97Var3;
             }
-            y47Var2.h().setLayoutParams(layoutParams);
+            z97Var2.h().setLayoutParams(layoutParams);
         }
     }
 }

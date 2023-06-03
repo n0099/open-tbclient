@@ -2,7 +2,7 @@ package com.kwad.sdk.g.kwai;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public final List<b> amG = new ArrayList();
 

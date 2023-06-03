@@ -11,7 +11,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import org.conscrypt.Conscrypt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ConscryptPlatform extends Platform {
     public static ConscryptPlatform buildIfSupported() {
         try {

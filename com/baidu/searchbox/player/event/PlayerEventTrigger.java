@@ -1,13 +1,12 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-import com.baidu.searchbox.player.model.VideoUrlModel;
+import com.baidu.searchbox.player.model.BasicVideoSeries;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlayerEventTrigger extends SingleTargetTrigger {
-    public final ArrayList<Integer> mAttentionEventArray = new ArrayList<>(17);
+    public final ArrayList<Integer> mAttentionEventArray = new ArrayList<>(25);
     public boolean ignoreInfoEventFilter = false;
 
     public PlayerEventTrigger() {
@@ -34,7 +33,10 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SEEK_COMPLETE));
     }
 
-    @PublicMethod
+    public void sendAttachKernelLayerEvent() {
+        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_KERNEL_LAYER_ATTACH));
+    }
+
     public void updateDataSource() {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_UPDATE_DATA_SOURCE));
     }
@@ -43,7 +45,6 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         return this.mAttentionEventArray.contains(Integer.valueOf(i));
     }
 
-    @PublicMethod
     public void goBackOrForeground(boolean z) {
         VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_GO_BACK_OR_FOREGROUND);
         obtainEvent.putExtra(4, Boolean.valueOf(z));
@@ -61,9 +62,9 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         triggerEvent(obtainEvent);
     }
 
-    public void setDataSource(@NonNull VideoUrlModel videoUrlModel) {
+    public void setDataSource(@NonNull BasicVideoSeries basicVideoSeries) {
         VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE);
-        obtainEvent.putExtra(3, videoUrlModel);
+        obtainEvent.putExtra(3, basicVideoSeries);
         obtainEvent.setPriority(1);
         triggerEvent(obtainEvent);
     }
@@ -91,6 +92,16 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         this.mAttentionEventArray.add(12005);
         this.mAttentionEventArray.add(12006);
         this.mAttentionEventArray.add(10009);
+        this.mAttentionEventArray.add(11008);
+        this.mAttentionEventArray.add(11006);
+        this.mAttentionEventArray.add(10102);
+        this.mAttentionEventArray.add(11011);
+        this.mAttentionEventArray.add(11012);
+        this.mAttentionEventArray.add(11013);
+        this.mAttentionEventArray.add(11014);
+        this.mAttentionEventArray.add(11016);
+        this.mAttentionEventArray.add(12009);
+        this.mAttentionEventArray.add(12010);
     }
 
     public boolean onError(int i, int i2, Object obj) {
@@ -107,17 +118,6 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         obtainEvent.putExtra(7, Integer.valueOf(i));
         obtainEvent.putExtra(8, Integer.valueOf(i2));
         obtainEvent.putExtra(3, obj);
-        triggerEvent(obtainEvent);
-    }
-
-    public void setDataSource(String str, boolean z, int i) {
-        VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE);
-        VideoUrlModel videoUrlModel = new VideoUrlModel();
-        videoUrlModel.videoUrl = str;
-        videoUrlModel.isNeedPrepare = z;
-        videoUrlModel.playerStageType = i;
-        obtainEvent.putExtra(3, videoUrlModel);
-        obtainEvent.setPriority(1);
         triggerEvent(obtainEvent);
     }
 

@@ -1,52 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cf3 {
+public class cf3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(JSONObject jSONObject, @Nullable String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cf3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/showNavigationBarLoading");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
-            ff3.l(true, str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
-            if (optJSONObject == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            g62.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
-            ff3.n(str, optJSONObject.optInt("_SwanStartupStability_"));
-            ff3.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
-            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
-            if (optInt > 0) {
-                ff3.i(str, true);
-                ff3.j(str, optInt);
+        }
+    }
+
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (yb3Var != null && yb3Var.n0()) {
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            }
+            hb2 U = lx2.T().U();
+            if (U == null) {
+                y82.c("navigationLoading", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            eb2 m = U.m();
+            if (m == null) {
+                y82.c("navigationLoading", "swanAppFragment is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!m.P2()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                y82.c("navigationLoading", "show navigation loading progressbar fail");
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
-    }
-
-    public static void b(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            ff3.m(true, str);
-        }
-    }
-
-    public static void c(JSONObject jSONObject, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, str) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("performance_type");
-        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
-            a(jSONObject, str);
-        } else if (TextUtils.equals(optString, "stabilityProfile")) {
-            b(str);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

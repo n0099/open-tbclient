@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class nq2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,41 +19,7 @@ public class nq2 implements ZeusPluginFactory {
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                rr2 b = ns2.D().b(null, null);
-                b.m0();
-                b.T();
-                b.C();
-                xz1.e().t(b);
-                g62.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_item" : (String) invokeV.objValue;
     }
 
     public nq2(@NonNull String str) {
@@ -74,36 +40,14 @@ public class nq2 implements ZeusPluginFactory {
         this.a = str;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || ns2.D() == null) {
-            return;
-        }
-        xz1.e().c();
-        am3.k(new a(), "PreCreateVideo");
-    }
-
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
         InterceptResult invokeL;
-        rr2 b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            if (ns2.D() == null) {
-                return null;
-            }
-            if (xz1.e().f()) {
-                g62.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
-                b = xz1.e().d();
-                xz1.e().s();
-                b.N(invoker);
-            } else {
-                g62.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b = ns2.D().b(invoker, this.a);
-                b.H();
-            }
-            g62.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
-            return new lq2(b);
+            is2 d = fv2.D().d(invoker, this.a);
+            y82.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
+            return new lq2(d);
         }
         return (ZeusPlugin) invokeL.objValue;
     }

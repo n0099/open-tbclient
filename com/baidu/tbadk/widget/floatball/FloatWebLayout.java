@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv5;
-import com.baidu.tieba.ov5;
-import com.baidu.tieba.pv5;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.lz5;
+import com.baidu.tieba.pz5;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.qz5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public ov5 i;
+    public pz5 i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -159,7 +159,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     public boolean b() {
@@ -182,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            ov5 ov5Var = this.i;
-            if (ov5Var != null) {
-                ov5Var.onPause();
+            pz5 pz5Var = this.i;
+            if (pz5Var != null) {
+                pz5Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -209,7 +209,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ri.g(getContext(), R.dimen.tbds153);
+            return vi.g(getContext(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -247,9 +247,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            ov5 ov5Var = this.i;
-            if (ov5Var != null) {
-                ov5Var.onDestroy();
+            pz5 pz5Var = this.i;
+            if (pz5Var != null) {
+                pz5Var.onDestroy();
             }
         }
     }
@@ -333,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            ov5 ov5Var = this.i;
-            if (ov5Var != null) {
-                ov5Var.l1(str, false);
+            pz5 pz5Var = this.i;
+            if (pz5Var != null) {
+                pz5Var.m1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -357,7 +357,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090792);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09079d);
             h(context);
             g(context);
             f(context, str);
@@ -370,10 +370,10 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            if (yu4.b(str)) {
-                this.i = new pv5(context, this.h, this);
+            if (qx4.b(str)) {
+                this.i = new qz5(context, this.h, this);
             } else {
-                this.i = new kv5(context, this.h, this);
+                this.i = new lz5(context, this.h, this);
             }
             this.b.setContentViewTop(this.i);
         }

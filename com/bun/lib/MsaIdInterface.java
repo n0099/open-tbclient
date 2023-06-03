@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface MsaIdInterface extends IInterface {
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Default implements MsaIdInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public interface MsaIdInterface extends IInterface {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements MsaIdInterface {
         public static /* synthetic */ Interceptable $ic = null;
         @Keep
@@ -83,7 +83,7 @@ public interface MsaIdInterface extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Keep
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class Proxy implements MsaIdInterface {
             public static /* synthetic */ Interceptable $ic;
             @Keep

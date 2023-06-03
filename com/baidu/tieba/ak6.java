@@ -1,46 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import android.webkit.ConsoleMessage;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.switchs.OfflinePkgAutoCleanSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-/* loaded from: classes4.dex */
-public class ak6 extends jy4 {
+/* loaded from: classes5.dex */
+public final class ak6 extends vm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<AlaLiveInfo> b;
-    public BdUniqueId c;
+    public final boolean b;
 
-    @Override // com.baidu.tieba.jy4
-    public h05 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (h05) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak6() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,63 +29,101 @@ public class ak6 extends jy4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "recommend";
+        this.b = OfflinePkgAutoCleanSwitch.isOn();
     }
 
-    public List<AlaLiveInfo> c() {
-        InterceptResult invokeV;
+    public final String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public ak6(BdUniqueId bdUniqueId, List<AlaLiveInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, list, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = "file://" + tk6.m().l().getAbsolutePath();
+            if (str.startsWith(str2)) {
+                String[] split = str.substring(str2.length()).split("/");
+                if (!hm6.e(split)) {
+                    return split[0];
+                }
+                return null;
             }
+            return null;
         }
-        this.a = "recommend";
-        this.c = bdUniqueId;
-        this.a = str;
-        this.b = new ArrayList();
-        if (!ListUtils.isEmpty(list)) {
-            this.b.addAll(list);
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vm6, android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
+            if (this.b && consoleMessage != null && consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.ERROR && TextUtils.equals(consoleMessage.message(), "Uncaught SyntaxError: Invalid or unexpected token")) {
+                String d = d(consoleMessage.sourceId());
+                if (!TextUtils.isEmpty(d)) {
+                    tk6.m().g(d);
+                }
+            }
+            return super.onConsoleMessage(consoleMessage);
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vm6, android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
+            if (yg.e(hl6.a(webView.getContext()))) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vm6, android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (yg.e(hl6.a(webView.getContext()))) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vm6, android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (yg.e(hl6.a(webView.getContext()))) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vm6, android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (tl6.a().c(webView, str2, jsPromptResult)) {
+                fm6.b("newHybrid", "端能力执行失败：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                return true;
+            }
+            fm6.c("newHybrid", "端能力执行成功：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

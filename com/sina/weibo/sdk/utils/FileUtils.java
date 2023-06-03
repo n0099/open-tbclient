@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_FILE_START = "image/";
@@ -207,7 +207,7 @@ public class FileUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) {
-            if (getMIMEType(new File(getPath(context, uri))).startsWith(IMAGE_FILE_START)) {
+            if (getMIMEType(new File(getPath(context, uri))).startsWith("image/")) {
                 return true;
             }
             return false;

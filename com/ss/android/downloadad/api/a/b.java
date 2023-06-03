@@ -13,7 +13,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     public long A;
     public long B;
@@ -35,7 +35,9 @@ public class b implements a {
     public int Q;
     public long R;
     public long S;
-    public boolean T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1224T;
     public boolean U;
     public String V;
     public boolean W;
@@ -120,7 +122,7 @@ public class b implements a {
         this.c = new AtomicBoolean(false);
         this.d = new AtomicBoolean(false);
         this.Q = 1;
-        this.T = true;
+        this.f1224T = true;
         this.Z = -1L;
     }
 
@@ -258,7 +260,7 @@ public class b implements a {
     }
 
     public AdDownloadController ah() {
-        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.b).build();
+        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.f1224T).setEnableAH(this.a).setEnableAM(this.b).build();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -372,7 +374,7 @@ public class b implements a {
         this.c = new AtomicBoolean(false);
         this.d = new AtomicBoolean(false);
         this.Q = 1;
-        this.T = true;
+        this.f1224T = true;
         this.Z = -1L;
         this.e = downloadModel.getId();
         this.f = downloadModel.getExtraValue();
@@ -397,7 +399,7 @@ public class b implements a {
         this.x = downloadController.isEnableBackDialog();
         this.n = downloadController.getLinkMode();
         this.o = downloadController.getDownloadMode();
-        this.T = downloadController.enableShowComplianceDialog();
+        this.f1224T = downloadController.enableShowComplianceDialog();
         this.U = downloadController.isAutoDownloadOnCardShow();
         this.J = downloadController.enableNewActivity();
         this.a = downloadController.enableAH();
@@ -552,7 +554,7 @@ public class b implements a {
     }
 
     public void p(boolean z) {
-        this.T = z;
+        this.f1224T = z;
     }
 
     public void q(boolean z) {
@@ -771,7 +773,7 @@ public class b implements a {
             jSONObject.put("installAfterCleanSpace", this.O);
             jSONObject.put("funnelType", this.Q);
             jSONObject.put(DeepLinkItem.DEEPLINK_WEBURL_KEY, this.l);
-            jSONObject.put("enableShowComplianceDialog", this.T);
+            jSONObject.put("enableShowComplianceDialog", this.f1224T);
             jSONObject.put("isAutoDownloadOnCardShow", this.U);
             int i4 = 1;
             if (this.J) {

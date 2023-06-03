@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.io;
+import com.baidu.tieba.mo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class IndicatorView extends View {
     public float d;
     public Drawable e;
     public Drawable f;
-    public final io g;
+    public final mo g;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -45,7 +45,7 @@ public class IndicatorView extends View {
     }
 
     /* loaded from: classes.dex */
-    public class b implements io {
+    public class b implements mo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -56,7 +56,7 @@ public class IndicatorView extends View {
         public final a f;
         public final /* synthetic */ IndicatorView g;
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public boolean a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class IndicatorView extends View {
             this.a = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -164,7 +164,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -178,7 +178,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.mo
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {

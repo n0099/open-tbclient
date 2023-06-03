@@ -2,7 +2,7 @@ package com.baidu.searchbox.perfframe.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IPerfFrameCallBack {
     void onPerfFrameCallBack(Context context, PerfExpInfo perfExpInfo);
 }

@@ -13,7 +13,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CertificatePinner {
     public static final CertificatePinner DEFAULT = new Builder().build();
     @Nullable

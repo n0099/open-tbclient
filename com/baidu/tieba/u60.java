@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.n30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
-public class u60 {
+/* loaded from: classes8.dex */
+public class u60 implements n30.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,28 +25,13 @@ public class u60 {
         }
     }
 
-    public static boolean a() {
+    @Override // com.baidu.tieba.n30.a
+    public m30 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, u60.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
-                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, u60.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                if (!booleanValue) {
-                    return false;
-                }
-                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new p30(true);
         }
-        return invokeV.booleanValue;
+        return (m30) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,42 +11,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class sz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Activity b;
+    public int a;
+    public String b;
+    public String c;
+    public long d;
+    public boolean e;
 
-    public sz5(Object obj) {
+    public sz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = obj;
     }
 
-    public Object a() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof sz5)) {
+                return false;
+            }
+            sz5 sz5Var = (sz5) obj;
+            if (sz5Var.d == this.d && sz5Var.c.equals(this.c) && sz5Var.b.equals(this.b) && sz5Var.e == this.e && sz5Var.a == this.a) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public Activity getActivity() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
-        return (Activity) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

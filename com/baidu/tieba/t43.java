@@ -1,183 +1,68 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class t43 extends u43 {
+public class t43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.u43
-    public p43 f(q43 q43Var) {
+    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
+            String b = b(unitedSchemeEntity);
+            if (TextUtils.isEmpty(b)) {
+                y82.i("WxWebViewPayment", "wxPay: url is empty");
+                y82.k("WxWebViewPayment", "param check error - src" + b);
+                ri3.H(false, "wechatH5Action", ri3.m(b, "param check error - src"));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else if (!og1.a().b(context)) {
+                qb3.g(context, context.getText(R.string.obfuscated_res_0x7f0f0214)).G();
+                y82.k("WxWebViewPayment", "Error: wechat not install. " + b);
+                ri3.H(false, "wechatH5Action", ri3.m(b, "Error: wechat not install. "));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
+                return false;
+            } else {
+                y13 d = y13.d(b, b);
+                y82.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
+                if (!mb2.f3("wxPay", d)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    y82.k("WxWebViewPayment", "Error: webview fragment not opened.");
+                    return false;
+                }
+                y82.k("WxWebViewPayment", "Success:open wxPay page success");
+                y82.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(m43.c(b), 0));
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q43Var)) == null) {
-            return null;
-        }
-        return (p43) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u43
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract void p(SwanAppActivity swanAppActivity, String str, q43 q43Var, se3 se3Var, sa2<r43> sa2Var);
-
-    /* loaded from: classes7.dex */
-    public class a implements sp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q43 a;
-        public final /* synthetic */ sa2 b;
-        public final /* synthetic */ t43 c;
-
-        public a(t43 t43Var, q43 q43Var, sa2 sa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t43Var, q43Var, sa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            this.c = t43Var;
-            this.a = q43Var;
-            this.b = sa2Var;
-        }
-
-        @Override // com.baidu.tieba.sp1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.c.o(this.a, this.b);
-                    return;
-                }
-                r43 r43Var = new r43(this.a.f);
-                r43Var.a = this.a.e;
-                this.b.a(r43Var);
+            try {
+                return new JSONObject(str).optString("src");
+            } catch (JSONException unused) {
+                return null;
             }
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements zn3<se3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g93 a;
-        public final /* synthetic */ SwanAppActivity b;
-        public final /* synthetic */ q43 c;
-        public final /* synthetic */ sa2 d;
-        public final /* synthetic */ t43 e;
-
-        public b(t43 t43Var, g93 g93Var, SwanAppActivity swanAppActivity, q43 q43Var, sa2 sa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t43Var, g93Var, swanAppActivity, q43Var, sa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = t43Var;
-            this.a = g93Var;
-            this.b = swanAppActivity;
-            this.c = q43Var;
-            this.d = sa2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(se3 se3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se3Var) == null) {
-                this.e.p(this.b, this.a.O(), this.c, se3Var, this.d);
-            }
-        }
-    }
-
-    public t43() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u43
-    public g12 j(String str, q43 q43Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, q43Var)) == null) {
-            return new g12(0);
-        }
-        return (g12) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u43
-    public g12 m(q43 q43Var, sa2<r43> sa2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, q43Var, sa2Var)) == null) {
-            if (q43Var != null && !TextUtils.isEmpty(q43Var.a)) {
-                if (sa2Var == null) {
-                    return new g12(1001, "get fun page info, cb is null");
-                }
-                g93 q = f93.K().q();
-                SwanAppActivity w = q.w();
-                if (w != null && !w.isFinishing()) {
-                    if (!q.N().e(q)) {
-                        q.N().f(w, null, new a(this, q43Var, sa2Var));
-                        return new g12(1001, "not login");
-                    }
-                    o(q43Var, sa2Var);
-                    return new g12(0);
-                }
-                return new g12(1001, "get fun page info, master has dead");
-            }
-            return new g12(1001, "get fun page info, provider appKey is empty");
-        }
-        return (g12) invokeLL.objValue;
-    }
-
-    public final void o(q43 q43Var, sa2<r43> sa2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, q43Var, sa2Var) == null) {
-            y43.b("start get open data");
-            g93 q = f93.K().q();
-            SwanAppActivity w = q.w();
-            se3.B(w, g(), q43Var.a, true, h(), new b(this, q, w, q43Var, sa2Var));
-        }
+        return (String) invokeL.objValue;
     }
 }

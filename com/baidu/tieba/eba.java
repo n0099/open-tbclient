@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eba {
+public abstract class eba extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    public abstract void a(TextPaint textPaint, boolean z);
 
     public eba() {
         Interceptable interceptable = $ic;
@@ -20,6 +26,17 @@ public class eba {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            super.updateDrawState(textPaint);
+            a(textPaint, this.a);
+            textPaint.setUnderlineText(false);
+            textPaint.clearShadowLayer();
         }
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b48;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.q98;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b48 a;
+    public q98 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -156,7 +156,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         }
     }
 
-    public void B1(boolean z) {
+    public void A1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.mHandler.postDelayed(new c(this, z), 500L);
@@ -168,9 +168,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            b48 b48Var = this.a;
-            if (b48Var != null) {
-                b48Var.j(i);
+            q98 q98Var = this.a;
+            if (q98Var != null) {
+                q98Var.j(i);
             }
         }
     }
@@ -195,16 +195,16 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void P(UserInfoBigVip userInfoBigVip, boolean z) {
-        b48 b48Var;
+        q98 q98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userInfoBigVip, z) == null) && (b48Var = this.a) != null && userInfoBigVip != null) {
-            b48Var.g();
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userInfoBigVip, z) == null) && (q98Var = this.a) != null && userInfoBigVip != null) {
+            q98Var.g();
             this.a.p(userInfoBigVip, z);
         }
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
-    public void U0(boolean z) {
+    public void T0(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == null) {
             return;
@@ -222,7 +222,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new b48(this);
+            this.a = new q98(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             y1(bundle);
             this.a.a();
@@ -264,11 +264,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {
-        b48 b48Var;
+        q98 q98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (b48Var = this.a) != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, switchState) == null) && (q98Var = this.a) != null && this.b != null) {
             boolean z = false;
-            if (view2 == b48Var.c()) {
+            if (view2 == q98Var.c()) {
                 RecommendDetailModel recommendDetailModel = this.b;
                 if (switchState != BdSwitchView.SwitchState.OFF) {
                     z = true;
@@ -287,15 +287,15 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        b48 b48Var;
+        q98 q98Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (!StringUtils.isNull(str) && (b48Var = this.a) != null) {
-                b48Var.g();
+            if (!StringUtils.isNull(str) && (q98Var = this.a) != null) {
+                q98Var.g();
                 this.a.b();
             }
             if (this.a != null && (recommendDetailModel = this.b) != null && recommendDetailModel.d0() && !this.b.b0() && StringUtils.isNull(str)) {
-                if (ri.F()) {
+                if (vi.F()) {
                     this.a.o(R.string.no_data_text);
                 } else {
                     this.a.o(R.string.game_index_no_network_text);

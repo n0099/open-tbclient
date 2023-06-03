@@ -1,164 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.immessagecenter.mention.FeedData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class gd8 implements mm5, jm5 {
+public class gd8 extends tc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public final boolean a;
+    public final String b;
     public String c;
+    public List<tc8> d;
+    public RecyclerView.Adapter e;
+    public boolean f;
 
-    @Override // com.baidu.tieba.jm5
-    public boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lm5
-    public HashMap<String, String> S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jm5
-    public String T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.im5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jm5
-    public boolean isNeedUid() {
+    @Override // com.baidu.tieba.tc8
+    public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
+            return 1;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public gd8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public gd8(List<hd8> list, String str, String str2, boolean z, boolean z2, @NonNull TbPageContext tbPageContext, yc8 yc8Var) {
+        this(list, str, str2, z, false, z2, tbPageContext, yc8Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, yc8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue(), (TbPageContext) objArr2[6], (yc8) objArr2[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1;
     }
 
-    public int a() {
+    public gd8(List<hd8> list, String str, String str2, boolean z, boolean z2, boolean z3, @NonNull TbPageContext tbPageContext, yc8 yc8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), tbPageContext, yc8Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = z2;
+        this.b = str;
+        this.c = str2;
+        this.f = z;
+        rc8 rc8Var = new rc8(tbPageContext, -1L, !z2, z3);
+        this.d = new ArrayList();
+        if (!ListUtils.isEmpty(list)) {
+            this.d.addAll(list);
+        }
+        this.e = new ChatRoomRecycleAdapter(new sc8(yc8Var), rc8Var, tbPageContext);
+        rc8Var.h(getSubItems());
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<tc8> list = this.d;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public void b() {
+    public void f() {
+        RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 1;
-            this.a = 1;
-            this.c = null;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (adapter = this.e) != null) {
+            adapter.notifyItemRangeChanged(0, c());
         }
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b++;
-            this.a = 4;
-        }
-    }
-
-    @Override // com.baidu.tieba.lm5
-    public HashMap<String, Object> O() {
+    public RecyclerView.Adapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put("pn", String.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(rx4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
-            hashMap.put("scr_h", Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp())));
-            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
-                hashMap.put("ids", this.c);
-            }
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
         }
-        return (HashMap) invokeV.objValue;
+        return (RecyclerView.Adapter) invokeV.objValue;
     }
 
-    public void c(FeedData feedData) {
+    public List<tc8> getSubItems() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, feedData) != null) || feedData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Collections.unmodifiableList(this.d);
         }
-        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.om5
-    public Object p(boolean z) {
-        InterceptResult invokeZ;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.b);
-                builder.ids = this.c;
-                builder.q_type = Integer.valueOf(rx4.c().e());
-                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp()));
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ss5.a(builder, true);
-                }
-                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
-        return invokeZ.objValue;
     }
 }

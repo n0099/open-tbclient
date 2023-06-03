@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Downsampler {
     public static final String TAG = "Downsampler";
     public final BitmapPool bitmapPool;
@@ -65,7 +65,7 @@ public final class Downsampler {
     public static final Set<ImageHeaderParser.ImageType> TYPES_THAT_USE_POOL_PRE_KITKAT = Collections.unmodifiableSet(EnumSet.of(ImageHeaderParser.ImageType.JPEG, ImageHeaderParser.ImageType.PNG_A, ImageHeaderParser.ImageType.PNG));
     public static final Queue<BitmapFactory.Options> OPTIONS_QUEUE = Util.createQueue(0);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 

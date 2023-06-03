@@ -2,7 +2,8 @@ package com.baidu.tbadk.core.dialog.yun;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b35;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\f\b&\u0018\u00002\u00020\u0001:\u0002()B\u0005¢\u0006\u0002\u0010\u0002J\u0015\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0000¢\u0006\u0002\b\u001fJ\u0006\u0010 \u001a\u00020\u001eJ\r\u0010!\u001a\u00020\u001eH\u0000¢\u0006\u0002\b\"J\u0006\u0010#\u001a\u00020\u001eJ\b\u0010$\u001a\u00020\u001eH\u0016J\b\u0010%\u001a\u00020\u001eH\u0016J\b\u0010&\u001a\u00020\u001eH&J\b\u0010'\u001a\u00020\u001eH\u0016R\u001c\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0011\u001a\u00020\u0012X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001a\u0010\u0017\u001a\u00020\u0018X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006*"}, d2 = {"Lcom/baidu/tbadk/core/dialog/yun/YunTask;", "", "()V", "name", "", "getName", "()Ljava/lang/String;", "setName", "(Ljava/lang/String;)V", "priority", "", "getPriority", "()I", "setPriority", "(I)V", "queue", "Lcom/baidu/tbadk/core/dialog/yun/YunPriorityQueue;", "status", "Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;", "getStatus$tbadkcore_release", "()Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;", "setStatus$tbadkcore_release", "(Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;)V", "type", "Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;", "getType", "()Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;", "setType", "(Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;)V", "attachQueue", "", "attachQueue$tbadkcore_release", "cancel", "execute", "execute$tbadkcore_release", "finish", "onCancel", "onDiscard", "onExecute", "onFinish", "Status", "Type", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\f\b&\u0018\u00002\u00020\u0001:\u0002()B\u0005¢\u0006\u0002\u0010\u0002J\u0015\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0000¢\u0006\u0002\b\u001fJ\u0006\u0010 \u001a\u00020\u001eJ\r\u0010!\u001a\u00020\u001eH\u0000¢\u0006\u0002\b\"J\u0006\u0010#\u001a\u00020\u001eJ\b\u0010$\u001a\u00020\u001eH\u0016J\b\u0010%\u001a\u00020\u001eH\u0016J\b\u0010&\u001a\u00020\u001eH&J\b\u0010'\u001a\u00020\u001eH\u0016R\u001c\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001a\u0010\t\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0011\u001a\u00020\u0012X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001a\u0010\u0017\u001a\u00020\u0018X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006*"}, d2 = {"Lcom/baidu/tbadk/core/dialog/yun/YunTask;", "", "()V", "name", "", "getName", "()Ljava/lang/String;", "setName", "(Ljava/lang/String;)V", "priority", "", "getPriority", "()I", "setPriority", "(I)V", "queue", "Lcom/baidu/tbadk/core/dialog/yun/YunPriorityQueue;", "status", "Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;", "getStatus$tbadkcore_release", "()Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;", "setStatus$tbadkcore_release", "(Lcom/baidu/tbadk/core/dialog/yun/YunTask$Status;)V", "type", "Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;", "getType", "()Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;", "setType", "(Lcom/baidu/tbadk/core/dialog/yun/YunTask$Type;)V", "attachQueue", "", "attachQueue$tbadkcore_release", "cancel", "execute", "execute$tbadkcore_release", "finish", GameAssistConstKt.TYPE_CALLBACK_CANCEL, "onDiscard", "onExecute", "onFinish", "Status", "Type", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
 public abstract class YunTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public Type b;
-    public b35 c;
+    public y55 c;
     public Status d;
 
     public void g() {
@@ -254,9 +255,9 @@ public abstract class YunTask {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = Status.FINISHED;
             i();
-            b35 b35Var = this.c;
-            if (b35Var != null) {
-                b35Var.e(this);
+            y55 y55Var = this.c;
+            if (y55Var != null) {
+                y55Var.e(this);
             }
         }
     }
@@ -288,7 +289,7 @@ public abstract class YunTask {
         return (Type) invokeV.objValue;
     }
 
-    public final void b(b35 queue) {
+    public final void b(y55 queue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
             Intrinsics.checkNotNullParameter(queue, "queue");

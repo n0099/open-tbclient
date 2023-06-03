@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.j15;
+import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.tieba.b25;
+import com.baidu.tieba.g45;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ public class SignData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public BlockPopInfoData blockPopInfoData;
     public int cashBalance;
-    public fz4 chatRoomGuideData;
+    public b25 chatRoomGuideData;
     public int contDays;
     public int count_sign_num;
     public int count_total_sign_num;
@@ -31,7 +32,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public j15 mSignStampInfoData;
+    public g45 mSignStampInfoData;
     public int miss_sign_num;
     public boolean showGuideToChatRoom;
     public int sign_bonus_point;
@@ -63,7 +64,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new j15();
+        this.mSignStampInfoData = new g45();
     }
 
     public void parserJson(String str) {
@@ -80,7 +81,7 @@ public class SignData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            JSONObject optJSONObject = jSONObject.optJSONObject(SourceConstant.SOURCE_USER_INFO);
             if (optJSONObject != null) {
                 this.userInfoJson = optJSONObject.toString();
                 this.is_signed = optJSONObject.optInt("is_sign_in");

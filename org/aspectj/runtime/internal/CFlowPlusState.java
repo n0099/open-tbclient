@@ -1,7 +1,7 @@
 package org.aspectj.runtime.internal;
 
 import org.aspectj.runtime.CFlow;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CFlowPlusState extends CFlow {
     public Object[] state;
 

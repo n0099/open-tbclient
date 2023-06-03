@@ -1,76 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final class vf1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeight = 0;
-    public static final int MaxHeightScrollView_maxHeightRatio = 1;
-    public static final int MaxHeightScrollView_minHeightRatio = 2;
-    public static final int[] PolyVerificationCodeView;
-    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
-    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
-    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
-    public static final int PolyVerificationCodeView_vcv_et_number = 3;
-    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
-    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
-    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
-    public static final int PolyVerificationCodeView_vcv_et_width = 7;
-    public static final int[] PopupWindow;
-    public static final int PopupWindow_android_popupAnimationStyle = 1;
-    public static final int PopupWindow_android_popupBackground = 0;
-    public static final int PopupWindow_overlapAnchor = 2;
-    public static final int PopupWindow_popupAnimationStyle = 3;
-    public static final int PopupWindow_popupBackground = 4;
-    public static final int[] ProgressButton;
-    public static final int ProgressButton_textColor = 0;
-    public static final int[] SwitchButton;
-    public static final int SwitchButton_kswAnimationDuration = 0;
-    public static final int SwitchButton_kswBackColor = 1;
-    public static final int SwitchButton_kswBackDrawable = 2;
-    public static final int SwitchButton_kswBackRadius = 3;
-    public static final int SwitchButton_kswFadeBack = 4;
-    public static final int SwitchButton_kswTextAdjust = 5;
-    public static final int SwitchButton_kswTextExtra = 6;
-    public static final int SwitchButton_kswTextOff = 7;
-    public static final int SwitchButton_kswTextOn = 8;
-    public static final int SwitchButton_kswTextThumbInset = 9;
-    public static final int SwitchButton_kswThumbColor = 10;
-    public static final int SwitchButton_kswThumbDrawable = 11;
-    public static final int SwitchButton_kswThumbHeight = 12;
-    public static final int SwitchButton_kswThumbMargin = 13;
-    public static final int SwitchButton_kswThumbMarginBottom = 14;
-    public static final int SwitchButton_kswThumbMarginLeft = 15;
-    public static final int SwitchButton_kswThumbMarginRight = 16;
-    public static final int SwitchButton_kswThumbMarginTop = 17;
-    public static final int SwitchButton_kswThumbRadius = 18;
-    public static final int SwitchButton_kswThumbRangeRatio = 19;
-    public static final int SwitchButton_kswThumbWidth = 20;
-    public static final int SwitchButton_kswTintColor = 21;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import dalvik.system.BaseDexClassLoader;
+import dalvik.system.PathClassLoader;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Enumeration;
+/* loaded from: classes8.dex */
+public class vf1 extends BaseDexClassLoader {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClassLoader a;
+    public ClassLoader b;
+    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948238760, "Lcom/baidu/tieba/vf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948238760, "Lcom/baidu/tieba/vf1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vf1(String str, String str2, String str3, Context context) {
+        super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (File) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404fa};
-        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f0407d3, R.attr.obfuscated_res_0x7f0407d4, R.attr.obfuscated_res_0x7f0407d5, R.attr.obfuscated_res_0x7f0407d6, R.attr.obfuscated_res_0x7f0407d7, R.attr.obfuscated_res_0x7f0407d8, R.attr.obfuscated_res_0x7f0407d9, R.attr.obfuscated_res_0x7f0407da};
-        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040594, R.attr.obfuscated_res_0x7f040595};
-        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f04074c};
-        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f040405, R.attr.obfuscated_res_0x7f040406, R.attr.obfuscated_res_0x7f040407, R.attr.obfuscated_res_0x7f040408, R.attr.obfuscated_res_0x7f040409, R.attr.obfuscated_res_0x7f04040a, R.attr.obfuscated_res_0x7f04040b, R.attr.obfuscated_res_0x7f04040c, R.attr.obfuscated_res_0x7f04040d, R.attr.obfuscated_res_0x7f04040e, R.attr.obfuscated_res_0x7f04040f, R.attr.obfuscated_res_0x7f040410, R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040412, R.attr.obfuscated_res_0x7f040413, R.attr.obfuscated_res_0x7f040414, R.attr.obfuscated_res_0x7f040415, R.attr.obfuscated_res_0x7f040416, R.attr.obfuscated_res_0x7f040417, R.attr.obfuscated_res_0x7f040418, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f04041a};
+        this.c = context;
+        this.a = context.getClass().getClassLoader();
+        this.b = ClassLoader.getSystemClassLoader();
+    }
+
+    public final Class<?> a(String str) throws ClassNotFoundException {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                cls = this.b.loadClass(str);
+            } catch (ClassNotFoundException unused) {
+                cls = null;
+            }
+            if (cls != null) {
+                return cls;
+            }
+            try {
+                cls = super.findClass(str);
+            } catch (ClassNotFoundException unused2) {
+            }
+            if (cls != null) {
+                return cls;
+            }
+            throw new ClassNotFoundException("Didn't find class: " + str + " in own classloader.");
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public String findLibrary(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String findLibrary = super.findLibrary(str);
+            if (findLibrary != null) {
+                return findLibrary;
+            }
+            return ((PathClassLoader) this.a).findLibrary(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public URL findResource(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            URL findResource = super.findResource(str);
+            if (findResource != null) {
+                return findResource;
+            }
+            return this.a.getResource(str);
+        }
+        return (URL) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Enumeration<URL> findResources(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Enumeration<URL> findResources = super.findResources(str);
+            if (findResources != null) {
+                return findResources;
+            }
+            try {
+                return this.a.getResources(str);
+            } catch (IOException unused) {
+                return findResources;
+            }
+        }
+        return (Enumeration) invokeL.objValue;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            Class<?> findLoadedClass = findLoadedClass(str);
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            try {
+                findLoadedClass = a(str);
+            } catch (ClassNotFoundException unused) {
+            }
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            try {
+                findLoadedClass = this.a.loadClass(str);
+            } catch (ClassNotFoundException unused2) {
+            }
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            throw new ClassNotFoundException("Didn't find class \"" + str + "\"");
+        }
+        return (Class) invokeLZ.objValue;
     }
 }

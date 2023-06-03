@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mv6;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dba;
+import com.baidu.tieba.m07;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonHeaderAttentionView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,18 +41,18 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public o4a l;
+    public dba l;
     public UserData m;
     public View n;
     public View o;
     public View p;
     public View.OnClickListener q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public mv6 a;
+        public m07 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new mv6();
+            this.a = new m07();
         }
 
         @Override // android.view.View.OnClickListener
@@ -218,10 +218,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         m(0);
     }
 
-    public void setOnViewResponseListener(o4a o4aVar) {
+    public void setOnViewResponseListener(dba dbaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, o4aVar) == null) {
-            this.l = o4aVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dbaVar) == null) {
+            this.l = dbaVar;
         }
     }
 
@@ -245,23 +245,23 @@ public class PersonHeaderAttentionView extends LinearLayout {
             this.a = context;
             setOrientation(0);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0452, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b2b);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b28);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b2c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b23);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b20);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b26);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b25);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b39);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d045e, (ViewGroup) this, true);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b58);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b55);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b59);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4d);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b53);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b52);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b66);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b38);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091b65);
             this.j = textView2;
             textView2.setVisibility(8);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0908e1);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0908df);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908e0);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0908f2);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0908f0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908f1);
             this.p = findViewById;
             findViewById.setVisibility(8);
         }
@@ -292,16 +292,16 @@ public class PersonHeaderAttentionView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
             this.m = userData;
             if (userData.getConcernNum() >= 9999000) {
-                this.b.setTextSize(0, ri.g(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.b.setTextSize(0, vi.g(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getFansNum() >= 9999000) {
-                this.d.setTextSize(0, ri.g(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.d.setTextSize(0, vi.g(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getLike_bars() >= 9999000) {
-                this.g.setTextSize(0, ri.g(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.g.setTextSize(0, vi.g(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getPosts_num() >= 9999000) {
-                this.i.setTextSize(0, ri.g(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.i.setTextSize(0, vi.g(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             o(StringHelper.numFormatOverWanNa(this.m.getConcernNum()), StringHelper.numFormatOverWanNa(this.m.getFansNum()), StringHelper.numFormatOverWanNa(this.m.getPosts_num()), StringHelper.numFormatOverWanNa(this.m.getLike_bars()));
         }

@@ -24,9 +24,9 @@ import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac5;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.w26;
+import com.baidu.tieba.cf5;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,20 +35,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w26 a;
+    public z66 a;
     public NavigationBar b;
     public View c;
     public View d;
-    public w26.c e;
+    public z66.c e;
     public CustomMessageListener f;
     public final HttpMessageListener g;
 
-    /* loaded from: classes4.dex */
-    public class a implements w26.c {
+    /* loaded from: classes5.dex */
+    public class a implements z66.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // com.baidu.tieba.w26.c
+        @Override // com.baidu.tieba.z66.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +82,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
-                    if ((next instanceof ac5) && userInfo.getUserId() == ((ac5) next).d()) {
+                    if ((next instanceof cf5) && userInfo.getUserId() == ((cf5) next).d()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
@@ -138,7 +138,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,17 +184,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                         if (userInfo2 == null) {
                             SearchFriendActivity searchFriendActivity = this.a;
-                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0db6));
+                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0def));
                             return;
                         }
                         this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                         return;
                     }
                     SearchFriendActivity searchFriendActivity2 = this.a;
-                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0db6));
+                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0def));
                 } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     SearchFriendActivity searchFriendActivity3 = this.a;
-                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0db6));
+                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0def));
                 } else {
                     this.a.showToast(httpResponsedMessage.getErrorString());
                 }
@@ -202,7 +202,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +235,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,13 +298,13 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public gg<TbImageView> J() {
+    public kg<TbImageView> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return UserIconBox.c(getPageContext().getPageActivity(), 8);
         }
-        return (gg) invokeV.objValue;
+        return (kg) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -334,15 +334,15 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0053);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09187d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0918a3);
             d dVar = new d(this);
             this.c.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09187c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918a2);
             this.b = navigationBar;
             navigationBar.setTitleText(R.string.find_new_friend);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.d = findViewById(R.id.obfuscated_res_0x7f09187f);
-            this.a = new w26(getPageContext(), this.d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0918a5);
+            this.a = new z66(getPageContext(), this.d);
             this.d.setOnClickListener(dVar);
             this.a.l(this.e);
             TiebaStatic.log("add_new");

@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,17 +12,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t33 implements r33 {
+public class t33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public s33 a;
-    public long b;
-    public long c;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnLongClickListener {
+    public interface b {
+        void onFail(String str);
+
+        void onSuccess(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t33 a;
@@ -44,19 +65,52 @@ public class t33 implements r33 {
             this.a = t33Var;
         }
 
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.a.j()) {
-                    this.a.k();
-                    return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f == null) {
+                    y82.i("IsBlockDomainRequest", "IsBlockDomainRequestCallback is empty and isblockdomain request failed : \n" + Log.getStackTraceString(exc));
+                    return;
                 }
-                this.a.l();
-                return true;
+                this.a.f.onFail(exc.getMessage());
             }
-            return invokeL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    y82.i("IsBlockDomainRequest", "isblockdomain request success, but IsBlockDomainRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) != 0) {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                } else {
+                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return yo3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
@@ -73,7 +127,24 @@ public class t33 implements r33 {
                 return;
             }
         }
-        d = qp1.a;
+        boolean z = is1.a;
+        h = String.format("%s/ma/isblockdomain", s82.b());
+        i = f33.a;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = gl4.i(h);
+            this.a = i2;
+            this.a = u82.b(i2);
+            String O = xb3.K().q().O();
+            String str = this.a;
+            if (TextUtils.isEmpty(O)) {
+                O = "";
+            }
+            this.a = u82.a(str, "src_app", O);
+        }
     }
 
     public t33() {
@@ -81,115 +152,73 @@ public class t33 implements r33 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (j()) {
-            this.a = new s33();
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+    }
+
+    public void d(@NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
         }
     }
 
-    public final boolean j() {
-        InterceptResult invokeV;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!d) {
-                return false;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            this.e.put("url", str);
+            this.d = true;
+        } catch (JSONException unused) {
+            y82.i("IsBlockDomainRequest", "set url need to check failed");
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
             }
-            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-            s33 s33Var = this.a;
-            if (s33Var != null) {
-                s33Var.c();
-            }
+            this.a = qp3.b(this.a, this.c);
+            bj4 bj4Var = new bj4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            bj4Var.c = this.b;
+            bj4Var.g = true;
+            y82.b("IsBlockDomainRequest", "start isblockdomain request : " + this.e);
+            cj4.g().e(bj4Var);
         }
     }
 
-    @Override // com.baidu.tieba.r33
-    public void a(long j) {
-        s33 s33Var;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (s33Var = this.a) != null) {
-            s33Var.f(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.r33
-    public void c(long j) {
-        s33 s33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (s33Var = this.a) != null) {
-            s33Var.h(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.r33
-    public void d(long j) {
-        s33 s33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (s33Var = this.a) != null) {
-            s33Var.i(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.r33
-    public void e(long j) {
-        s33 s33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (s33Var = this.a) != null) {
-            s33Var.g(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.s23
-    public void end(long j) {
-        s33 s33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (s33Var = this.a) != null) {
-            this.c = j;
-            s33Var.l(this.b, j);
-            this.a.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.r33
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
-            view2.setOnLongClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.s23
-    public void start(long j) {
-        s33 s33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (s33Var = this.a) != null) {
-            this.b = j;
-            s33Var.e();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-            if (this.a == null) {
-                this.a = new s33();
-            }
-            this.a.k();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", fp3.b());
         }
     }
 }

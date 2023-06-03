@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,21 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class hr2 extends an2<rr2> {
+/* loaded from: classes6.dex */
+public class hr2 extends sp2<js2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public int c;
 
-    @Override // com.baidu.tieba.an2
+    @Override // com.baidu.tieba.sp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enterRoom" : (String) invokeV.objValue;
     }
 
     public hr2() {
@@ -38,66 +33,42 @@ public class hr2 extends an2<rr2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        this.c = 3;
+    }
+
+    @Override // com.baidu.tieba.sp2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                command.ret = new ms2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token")).a() ? 1 : 0;
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    @SuppressLint({"BDThrowableCheck"})
+    @Override // com.baidu.tieba.sp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull js2 js2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
-            Object obj = command.obj;
-            boolean z = false;
-            if (!(obj instanceof String)) {
-                if (an2.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("setZeusVideoExt with a illegal obj ");
-                    if (obj == null) {
-                        z = true;
-                    }
-                    sb.append(z);
-                    throw new RuntimeException(sb.toString());
-                }
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, js2Var) == null) {
             String str = command.what;
-            d(rr2Var, str, "setZeusVideoExt:" + obj, false);
-            try {
-                JSONObject jSONObject = new JSONObject((String) obj);
-                if (jSONObject.has("instance-error")) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
-                    rr2Var.S(hashMap);
+            d(js2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                ms2 ms2Var = new ms2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
+                boolean a = ms2Var.a();
+                if (a) {
+                    js2Var.u(ms2Var);
                 }
-                String optString = jSONObject.optString("firstPlayStatus");
-                if (!TextUtils.isEmpty(optString)) {
-                    rr2Var.a0(optString);
-                }
-                this.b = jSONObject.optInt("min-cache", this.b);
-                int optInt = jSONObject.optInt("max-cache", this.c);
-                this.c = optInt;
-                if (this.b <= optInt) {
-                    if (jSONObject.has("min-cache")) {
-                        rr2Var.G(this.b);
-                    }
-                    if (jSONObject.has("max-cache")) {
-                        rr2Var.f0(this.c);
-                    }
-                } else if (an2.a) {
-                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
-                }
-            } catch (Exception e) {
-                if (!an2.a) {
-                    return;
-                }
-                throw new RuntimeException("setZeusVideoExt with a illegal str", e);
+                command.ret = a ? 1 : 0;
             }
+            String str2 = command.what;
+            d(js2Var, str2, "result: " + command.ret, true);
         }
     }
 }

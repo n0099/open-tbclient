@@ -1,100 +1,56 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class jz0 {
+public class jz0 extends qz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jz0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900457, "Lcom/baidu/tieba/jz0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947900457, "Lcom/baidu/tieba/jz0;");
-                return;
-            }
-        }
-        a = new jz0();
-    }
+    public rv0 o;
 
     public jz0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @JvmStatic
-    public static final JSONArray b(String str) {
-        InterceptResult invokeL;
+    public void o0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            pz0 c = a.c(str);
-            if (c != null) {
-                JSONArray jSONArray = new JSONArray();
-                kz0.a(c, jSONArray);
-                iz0.a(c, jSONArray);
-                return jSONArray;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            M(new qv0());
         }
-        return (JSONArray) invokeL.objValue;
     }
 
-    public final pz0 c(String str) {
-        InterceptResult invokeL;
+    public void p0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("version", -1);
-                if (!a.a(optInt)) {
-                    return null;
-                }
-                pz0 pz0Var = new pz0();
-                pz0Var.e(optInt);
-                pz0Var.d(jSONObject.optString("mode"));
-                kz0.b(pz0Var, jSONObject);
-                iz0.b(pz0Var, jSONObject);
-                Unit unit = Unit.INSTANCE;
-                return pz0Var;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            rv0 rv0Var = new rv0();
+            this.o = rv0Var;
+            M(rv0Var);
         }
-        return (pz0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.qz0, com.baidu.tieba.rz0
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            M(new zv0());
+            M(new bw0());
+            M(new aw0());
+            M(new cw0());
+            p0();
+            o0();
+        }
     }
 }

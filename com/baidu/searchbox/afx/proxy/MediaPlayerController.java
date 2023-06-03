@@ -22,7 +22,9 @@ import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.MediaPlayerController;
 import com.baidu.searchbox.afx.proxy.PlayerProxy;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -33,7 +35,7 @@ import java.lang.ref.WeakReference;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\b\u0007\u0018\u0000 M2\u00020\u00012\u00020\u0002:\u0005MNOPQB\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u0015\u001a\u00020\u0016H\u0003J\b\u0010\u0017\u001a\u00020\u0016H\u0016J\b\u0010\u0018\u001a\u00020\u0019H\u0016J\b\u0010\u001a\u001a\u00020\u0005H\u0016J\b\u0010\u001b\u001a\u00020\u0019H\u0016J\n\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0002J\u001a\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u00192\b\u0010!\u001a\u0004\u0018\u00010\"H\u0002J\b\u0010#\u001a\u00020\u0016H\u0003J\u0010\u0010$\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\u001fH\u0016J\b\u0010&\u001a\u00020\u0016H\u0003J\b\u0010'\u001a\u00020\u0016H\u0003J\b\u0010(\u001a\u00020\u0016H\u0002J\b\u0010)\u001a\u00020\u0016H\u0003J\b\u0010*\u001a\u00020\u0016H\u0016J\b\u0010+\u001a\u00020\u0016H\u0016J\b\u0010,\u001a\u00020\u0016H\u0003J\b\u0010-\u001a\u00020\u0016H\u0016J\u0010\u0010.\u001a\u00020\u00162\u0006\u0010%\u001a\u00020\u001fH\u0002J\u0012\u0010/\u001a\u00020\u00162\b\u00100\u001a\u0004\u0018\u00010\u000bH\u0016J\u0010\u00101\u001a\u00020\u00162\u0006\u00102\u001a\u00020\u0007H\u0016J\u0012\u00103\u001a\u00020\u00162\b\u00104\u001a\u0004\u0018\u000105H\u0014J\u001c\u00106\u001a\u00020\u00162\b\u00107\u001a\u0004\u0018\u0001082\b\u00109\u001a\u0004\u0018\u00010\u001dH\u0016J\u0012\u0010:\u001a\u00020\u00162\b\u0010;\u001a\u0004\u0018\u00010<H\u0014J\"\u0010:\u001a\u00020\u00162\b\u0010;\u001a\u0004\u0018\u00010<2\u0006\u0010=\u001a\u00020\u00052\u0006\u0010>\u001a\u00020\u0005H\u0014J\u0012\u0010?\u001a\u00020\u00162\b\u0010@\u001a\u0004\u0018\u00010AH\u0016J\u0012\u0010B\u001a\u00020\u00162\b\u0010C\u001a\u0004\u0018\u00010DH\u0016J\u0010\u0010E\u001a\u00020\u00162\u0006\u0010F\u001a\u000205H\u0003J\u0010\u0010E\u001a\u00020\u00162\u0006\u0010F\u001a\u00020<H\u0003J\u0010\u0010G\u001a\u00020\u00162\u0006\u0010H\u001a\u00020AH\u0003J\u0010\u0010I\u001a\u00020\u00162\u0006\u0010J\u001a\u00020\u001dH\u0003J\b\u0010K\u001a\u00020\u0016H\u0003J\b\u0010L\u001a\u00020\u0016H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006R"}, d2 = {"Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;", "Lcom/baidu/searchbox/afx/proxy/PlayerProxy;", "Landroid/os/Handler$Callback;", "()V", "duration", "", "isLooping", "", "isSurfaceCreated", "mCompletion", "mGLTextureView", "Lcom/baidu/searchbox/afx/gl/GLTextureView;", "mMediaPlayer", "Landroid/media/MediaPlayer;", "mPrepareTime", "mStartTimeMs", "mainHandler", "Landroid/os/Handler;", "playThread", "Landroid/os/HandlerThread;", "workHandler", "checkLooping", "", "destroy", "getCurrentPosition", "", "getDuration", "getFps", "getGlVersion", "", "getMessage", "Landroid/os/Message;", "what", "obj", "", "handleDestroy", "handleMessage", "msg", "handlePause", "handleStop", "initMediaPlayer", "initPlayer", "pause", "play", "prepareAsync", "reset", "sendMessage", "setGLTextureView", "glTextureView", "setLooping", "looping", "setSourceAfd", "afd", "Landroid/content/res/AssetFileDescriptor;", "setSourceAssets", "context", "Landroid/content/Context;", "assetsFileName", "setSourceFD", "fd", "Ljava/io/FileDescriptor;", "offset", "length", "setSourceFile", "srcFile", "Ljava/io/File;", "setSurface", "surface", "Landroid/view/Surface;", "setVideoFD", "fileDescriptor", "setVideoFile", "file", "setVideoPath", "path", "startPlay", "stop", "Companion", "OnCompletionListener", "OnErrorListener", "OnInfoListener", "OnPrepareListener", "library_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\b\u0007\u0018\u0000 M2\u00020\u00012\u00020\u0002:\u0005MNOPQB\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u0015\u001a\u00020\u0016H\u0003J\b\u0010\u0017\u001a\u00020\u0016H\u0016J\b\u0010\u0018\u001a\u00020\u0019H\u0016J\b\u0010\u001a\u001a\u00020\u0005H\u0016J\b\u0010\u001b\u001a\u00020\u0019H\u0016J\n\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0002J\u001a\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u00192\b\u0010!\u001a\u0004\u0018\u00010\"H\u0002J\b\u0010#\u001a\u00020\u0016H\u0003J\u0010\u0010$\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\u001fH\u0016J\b\u0010&\u001a\u00020\u0016H\u0003J\b\u0010'\u001a\u00020\u0016H\u0003J\b\u0010(\u001a\u00020\u0016H\u0002J\b\u0010)\u001a\u00020\u0016H\u0003J\b\u0010*\u001a\u00020\u0016H\u0016J\b\u0010+\u001a\u00020\u0016H\u0016J\b\u0010,\u001a\u00020\u0016H\u0003J\b\u0010-\u001a\u00020\u0016H\u0016J\u0010\u0010.\u001a\u00020\u00162\u0006\u0010%\u001a\u00020\u001fH\u0002J\u0012\u0010/\u001a\u00020\u00162\b\u00100\u001a\u0004\u0018\u00010\u000bH\u0016J\u0010\u00101\u001a\u00020\u00162\u0006\u00102\u001a\u00020\u0007H\u0016J\u0012\u00103\u001a\u00020\u00162\b\u00104\u001a\u0004\u0018\u000105H\u0014J\u001c\u00106\u001a\u00020\u00162\b\u00107\u001a\u0004\u0018\u0001082\b\u00109\u001a\u0004\u0018\u00010\u001dH\u0016J\u0012\u0010:\u001a\u00020\u00162\b\u0010;\u001a\u0004\u0018\u00010<H\u0014J\"\u0010:\u001a\u00020\u00162\b\u0010;\u001a\u0004\u0018\u00010<2\u0006\u0010=\u001a\u00020\u00052\u0006\u0010>\u001a\u00020\u0005H\u0014J\u0012\u0010?\u001a\u00020\u00162\b\u0010@\u001a\u0004\u0018\u00010AH\u0016J\u0012\u0010B\u001a\u00020\u00162\b\u0010C\u001a\u0004\u0018\u00010DH\u0016J\u0010\u0010E\u001a\u00020\u00162\u0006\u0010F\u001a\u000205H\u0003J\u0010\u0010E\u001a\u00020\u00162\u0006\u0010F\u001a\u00020<H\u0003J\u0010\u0010G\u001a\u00020\u00162\u0006\u0010H\u001a\u00020AH\u0003J\u0010\u0010I\u001a\u00020\u00162\u0006\u0010J\u001a\u00020\u001dH\u0003J\b\u0010K\u001a\u00020\u0016H\u0003J\b\u0010L\u001a\u00020\u0016H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006R"}, d2 = {"Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;", "Lcom/baidu/searchbox/afx/proxy/PlayerProxy;", "Landroid/os/Handler$Callback;", "()V", "duration", "", "isLooping", "", "isSurfaceCreated", "mCompletion", "mGLTextureView", "Lcom/baidu/searchbox/afx/gl/GLTextureView;", "mMediaPlayer", "Landroid/media/MediaPlayer;", "mPrepareTime", "mStartTimeMs", "mainHandler", "Landroid/os/Handler;", "playThread", "Landroid/os/HandlerThread;", "workHandler", "checkLooping", "", "destroy", "getCurrentPosition", "", "getDuration", "getFps", "getGlVersion", "", "getMessage", "Landroid/os/Message;", "what", "obj", "", "handleDestroy", "handleMessage", "msg", "handlePause", "handleStop", "initMediaPlayer", "initPlayer", DownloadStatisticConstants.UBC_TYPE_PAUSE, "play", "prepareAsync", "reset", "sendMessage", "setGLTextureView", "glTextureView", "setLooping", "looping", "setSourceAfd", "afd", "Landroid/content/res/AssetFileDescriptor;", "setSourceAssets", "context", "Landroid/content/Context;", "assetsFileName", "setSourceFD", "fd", "Ljava/io/FileDescriptor;", "offset", "length", "setSourceFile", "srcFile", "Ljava/io/File;", "setSurface", "surface", "Landroid/view/Surface;", "setVideoFD", "fileDescriptor", "setVideoFile", "file", "setVideoPath", "path", "startPlay", "stop", "Companion", "OnCompletionListener", "OnErrorListener", "OnInfoListener", "OnPrepareListener", "library_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public final class MediaPlayerController extends PlayerProxy implements Handler.Callback {
     public static final Companion Companion = new Companion(null);
@@ -110,7 +112,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onCompletion$lambda-0  reason: not valid java name */
-        public static final void m42onCompletion$lambda0(MediaPlayerController playerController, String timeStamp, String prepareTime) {
+        public static final void m56onCompletion$lambda0(MediaPlayerController playerController, String timeStamp, String prepareTime) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             Intrinsics.checkNotNullParameter(timeStamp, "$timeStamp");
             Intrinsics.checkNotNullParameter(prepareTime, "$prepareTime");
@@ -139,7 +141,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     long j = 1000;
                     final String valueOf = String.valueOf(System.currentTimeMillis() / j);
                     final String valueOf2 = String.valueOf(mediaPlayerController.mPrepareTime / j);
-                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.wl1
+                    mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.fn1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +149,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                         public final void run() {
                             Interceptable interceptable = $ic;
                             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                                MediaPlayerController.OnCompletionListener.m42onCompletion$lambda0(MediaPlayerController.this, valueOf, valueOf2);
+                                MediaPlayerController.OnCompletionListener.m56onCompletion$lambda0(MediaPlayerController.this, valueOf, valueOf2);
                             }
                         }
                     });
@@ -156,7 +158,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
     }
 
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u000f\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\"\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\fH\u0016R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00030\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/afx/proxy/MediaPlayerController$OnErrorListener;", "Landroid/media/MediaPlayer$OnErrorListener;", "controller", "Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;", "(Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;)V", "controllerRef", "Ljava/lang/ref/WeakReference;", "onError", "", "mp", "Landroid/media/MediaPlayer;", "what", "", "extra", "library_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u000f\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\"\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\fH\u0016R\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00030\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/afx/proxy/MediaPlayerController$OnErrorListener;", "Landroid/media/MediaPlayer$OnErrorListener;", "controller", "Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;", "(Lcom/baidu/searchbox/afx/proxy/MediaPlayerController;)V", "controllerRef", "Ljava/lang/ref/WeakReference;", GameAssistConstKt.TYPE_CALLBACK_ERROR, "", "mp", "Landroid/media/MediaPlayer;", "what", "", "extra", "library_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class OnErrorListener implements MediaPlayer.OnErrorListener {
         public WeakReference<MediaPlayerController> controllerRef;
@@ -167,7 +169,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onError$lambda-0  reason: not valid java name */
-        public static final void m43onError$lambda0(MediaPlayerController playerController, RuntimeException exception, String endTime, String glVersion, String filePath, String timeStamp) {
+        public static final void m57onError$lambda0(MediaPlayerController playerController, RuntimeException exception, String endTime, String glVersion, String filePath, String timeStamp) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             Intrinsics.checkNotNullParameter(exception, "$exception");
             Intrinsics.checkNotNullParameter(endTime, "$endTime");
@@ -207,7 +209,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
             final String str4 = str3;
             final String str5 = str;
             final String str6 = str2;
-            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.xl1
+            mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.gn1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,7 +217,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MediaPlayerController.OnErrorListener.m43onError$lambda0(MediaPlayerController.this, runtimeException, str4, str5, str6, valueOf);
+                        MediaPlayerController.OnErrorListener.m57onError$lambda0(MediaPlayerController.this, runtimeException, str4, str5, str6, valueOf);
                     }
                 }
             });
@@ -238,7 +240,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
         }
 
         /* renamed from: onInfo$lambda-0  reason: not valid java name */
-        public static final void m44onInfo$lambda0(MediaPlayerController playerController) {
+        public static final void m58onInfo$lambda0(MediaPlayerController playerController) {
             Intrinsics.checkNotNullParameter(playerController, "$playerController");
             OnVideoStartedListener onVideoStartedListener = playerController.mOnVideoStartedListener;
             if (onVideoStartedListener != null) {
@@ -254,7 +256,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                 return true;
             }
             if (i == 3) {
-                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.vl1
+                mediaPlayerController.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.en1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -262,7 +264,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     public final void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            MediaPlayerController.OnInfoListener.m44onInfo$lambda0(MediaPlayerController.this);
+                            MediaPlayerController.OnInfoListener.m58onInfo$lambda0(MediaPlayerController.this);
                         }
                     }
                 });
@@ -594,7 +596,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                     LogUtilKt.logD(TAG, "prepareAsync-IllegalStateException:" + e.getLocalizedMessage());
                     LogUtilKt.printException(e);
                     final String valueOf = String.valueOf(System.currentTimeMillis() / ((long) 1000));
-                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.yl1
+                    this.mainHandler.post(new Runnable() { // from class: com.baidu.tieba.hn1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -602,7 +604,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
                         public final void run() {
                             Interceptable interceptable = $ic;
                             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                                MediaPlayerController.m41prepareAsync$lambda2(MediaPlayerController.this, e, valueOf);
+                                MediaPlayerController.m55prepareAsync$lambda2(MediaPlayerController.this, e, valueOf);
                             }
                         }
                     });
@@ -612,7 +614,7 @@ public final class MediaPlayerController extends PlayerProxy implements Handler.
     }
 
     /* renamed from: prepareAsync$lambda-2  reason: not valid java name */
-    public static final void m41prepareAsync$lambda2(MediaPlayerController this$0, IllegalStateException e, String timeStamp) {
+    public static final void m55prepareAsync$lambda2(MediaPlayerController this$0, IllegalStateException e, String timeStamp) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(e, "$e");
         Intrinsics.checkNotNullParameter(timeStamp, "$timeStamp");

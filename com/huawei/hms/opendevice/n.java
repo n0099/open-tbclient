@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.i1b;
+import com.baidu.tieba.s9b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,6 @@ import com.huawei.hms.android.SystemUtils;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.PackageManagerHelper;
 import com.huawei.hms.utils.Util;
-import com.qq.e.comm.constants.Constants;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.TimeZone;
 import java.util.UUID;
@@ -231,7 +230,7 @@ public class n {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(Constants.KEYS.RET, 256);
+                int optInt = jSONObject.optInt("ret", 256);
                 if (optInt == 0) {
                     boolean saveString = i.a(context).saveString("reportAaidAndToken", r.a(str3 + str2, "SHA-256"));
                     StringBuilder sb = new StringBuilder();
@@ -296,8 +295,8 @@ public class n {
                 jSONObject.put(HttpConstants.HTTP_HARDWARE, jSONObject4);
                 jSONObject.put("aaid", str);
                 jSONObject.put("token", str2);
-                jSONObject.put("app_id", i1b.c(context).a("client/app_id"));
-                jSONObject.put("region", i1b.c(context).a("region"));
+                jSONObject.put("app_id", s9b.c(context).a("client/app_id"));
+                jSONObject.put("region", s9b.c(context).a("region"));
                 return jSONObject.toString();
             } catch (JSONException unused) {
                 HMSLog.e("ReportAaidToken", "Catch JSONException.");

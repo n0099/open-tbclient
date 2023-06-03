@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import javax.security.auth.x500.X500Principal;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DistinguishedNameParser {
     public int beg;
     public char[] chars;

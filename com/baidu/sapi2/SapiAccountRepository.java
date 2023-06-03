@@ -88,11 +88,12 @@ import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.ym1;
+import com.baidu.tieba.qp1;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.ss.android.download.api.constant.BaseConstants;
+import com.yy.sdk.crashreportbaidu.ActivityHistory;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
 import java.net.URL;
@@ -786,7 +787,7 @@ public final class SapiAccountRepository {
         OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
         OneKeyLoginStat.CheckAbility.statExtMap.put("scene", "api");
         OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", ym1.d().c(this.configuration.context));
+        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", qp1.d().c(this.configuration.context));
         new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.17
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str2) {
@@ -796,7 +797,7 @@ public final class SapiAccountRepository {
                 OneKeyLoginStat.CheckAbility.upload();
                 String str3 = SapiAccountRepository.TAG;
                 Log.d(str3, "onFailure, error = " + th + ", errorCode = " + i2 + ", responseBody = " + str2);
-                SapiStatUtil.statOneKeyCheckAbility(i2, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NET_ERROR, false, OneKeyLoginSdkCall.getInstance().getOperatorType());
+                SapiStatUtil.statOneKeyCheckAbility(i2, -114, false, OneKeyLoginSdkCall.getInstance().getOperatorType());
                 new OneKeyLoginSdkCall().preGetPhoneFail(oneKeyLoginCallback, i2, null);
             }
 
@@ -870,9 +871,9 @@ public final class SapiAccountRepository {
         }
         final OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
         if (jSONObject == null) {
-            SapiStatUtil.statOneKeyCheckAbility(i, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR, false, OneKeyLoginSdkCall.getInstance().getOperatorType());
+            SapiStatUtil.statOneKeyCheckAbility(i, -113, false, OneKeyLoginSdkCall.getInstance().getOperatorType());
             new OneKeyLoginSdkCall().preGetPhoneFail(oneKeyLoginCallback, -100, null);
-            OneKeyLoginStat.CheckAbility.statExtMap.put("code", Integer.valueOf((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR));
+            OneKeyLoginStat.CheckAbility.statExtMap.put("code", -113);
             OneKeyLoginStat.CheckAbility.sValue = "0";
             OneKeyLoginStat.CheckAbility.upload();
             return;
@@ -990,7 +991,7 @@ public final class SapiAccountRepository {
         new HttpClientWrap().post(getCheckAvailableLoginHistoryUrl(), ReqPriority.IMMEDIATE, httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.25
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str2) {
-                Log.d("History", "checkAvailableLoginHistory onFailure errorCode=" + i + ", responseBody=" + str2);
+                Log.d(ActivityHistory.TAG, "checkAvailableLoginHistory onFailure errorCode=" + i + ", responseBody=" + str2);
                 loginHistoryCallback.onFailure();
             }
 
@@ -998,7 +999,7 @@ public final class SapiAccountRepository {
             public void onSuccess(int i, String str2, HashMap<String, String> hashMap) {
                 JSONObject jSONObject;
                 JSONObject optJSONObject;
-                Log.d("History", "checkAvailableLoginHistory onSuccess statusCode=" + i + ", responseBody=" + str2);
+                Log.d(ActivityHistory.TAG, "checkAvailableLoginHistory onSuccess statusCode=" + i + ", responseBody=" + str2);
                 JSONArray jSONArray = null;
                 try {
                     jSONObject = new JSONObject(str2);
@@ -2003,7 +2004,7 @@ public final class SapiAccountRepository {
         String str3 = OneKeyLoginResult.secondJsCode;
         final long currentTimeMillis = System.currentTimeMillis();
         OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", ym1.d().c(this.configuration.context));
+        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", qp1.d().c(this.configuration.context));
         SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.19
             @Override // com.baidu.sapi2.callback.inner.ExecuteJsCallback
             public void jsExecuteCompleted(String str4) {
@@ -2046,8 +2047,8 @@ public final class SapiAccountRepository {
                             SapiStatUtil.statOneKeyLoginPassAction(0, "-114", "net error");
                         }
 
-                        /* JADX WARN: Removed duplicated region for block: B:43:0x012a A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:3:0x0040, B:6:0x006b, B:8:0x0078, B:10:0x009b, B:9:0x008f, B:12:0x009f, B:15:0x00a9, B:17:0x00b1, B:20:0x00ba, B:22:0x00c2, B:25:0x00cb, B:27:0x00d3, B:29:0x00d9, B:30:0x00df, B:32:0x00f3, B:34:0x0107, B:36:0x010d, B:41:0x0124, B:43:0x012a, B:45:0x015a, B:44:0x0143, B:38:0x0117, B:40:0x011d), top: B:50:0x0040 }] */
-                        /* JADX WARN: Removed duplicated region for block: B:44:0x0143 A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:3:0x0040, B:6:0x006b, B:8:0x0078, B:10:0x009b, B:9:0x008f, B:12:0x009f, B:15:0x00a9, B:17:0x00b1, B:20:0x00ba, B:22:0x00c2, B:25:0x00cb, B:27:0x00d3, B:29:0x00d9, B:30:0x00df, B:32:0x00f3, B:34:0x0107, B:36:0x010d, B:41:0x0124, B:43:0x012a, B:45:0x015a, B:44:0x0143, B:38:0x0117, B:40:0x011d), top: B:50:0x0040 }] */
+                        /* JADX WARN: Removed duplicated region for block: B:43:0x0128 A[Catch: Exception -> 0x015c, TryCatch #0 {Exception -> 0x015c, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0122, B:43:0x0128, B:45:0x0158, B:44:0x0141, B:38:0x0115, B:40:0x011b), top: B:50:0x003f }] */
+                        /* JADX WARN: Removed duplicated region for block: B:44:0x0141 A[Catch: Exception -> 0x015c, TryCatch #0 {Exception -> 0x015c, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0122, B:43:0x0128, B:45:0x0158, B:44:0x0141, B:38:0x0115, B:40:0x011b), top: B:50:0x003f }] */
                         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface nx2 {
-    Bitmap decode(Context context, Uri uri) throws Exception;
+    void a(gy1 gy1Var);
+
+    void b(gy1 gy1Var);
+
+    void c(gy1 gy1Var);
+
+    void d(gy1 gy1Var);
 }

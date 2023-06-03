@@ -1,101 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import tbclient.FeedVideoComponent;
-import tbclient.ThumbnailInfo;
-import tbclient.VideoField;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public final class t17 {
+public class t17 implements nh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String schema, i07 feedExtraData) {
-        InterceptResult invokeLL;
-        boolean z;
+    public t17() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String a = p27.a(schema, "author_is_living", feedExtraData.a().a().get("author_is_living"));
-            String str = feedExtraData.a().a().get("yy_ext");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (z) {
-                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
-                return a;
-            }
-            String a2 = p27.a(a, "yy_ext", str);
-            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
-            return a2;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final lz6 b(VideoField videoField, c17 videoSchemaData, i07 feedExtraData) {
-        InterceptResult invokeLLL;
-        String str;
-        boolean z;
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(videoField, "videoField");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            b17 b17Var = new b17();
-            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
-            if (thumbnailInfo != null) {
-                str = thumbnailInfo.url;
-            } else {
-                str = null;
+        if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && i != 3) {
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            b17Var.a = str;
-            Integer num = videoField.is_vertical;
-            if (num != null && num.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            b17Var.b = z;
-            Integer num2 = videoField.width;
-            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
-            num2.intValue();
-            Integer num3 = videoField.height;
-            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
-            num3.intValue();
-            StringBuilder sb = new StringBuilder();
-            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = dy6.a.getString(R.string.play_count_new);
-            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
-            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
-            sb.append(format);
-            b17Var.c = sb.toString();
-            return new lz6(b17Var, videoSchemaData, j07.b(feedExtraData, "video_click"), null, 8, null);
         }
-        return (lz6) invokeLLL.objValue;
     }
 
-    public static final void c(FeedVideoComponent feedVideoComponent, List<g37<?>> dataList, c17 videoSchemaData, i07 feedExtraData) {
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadSucceed(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoComponent.video_info;
-            if (videoField != null) {
-                dataList.add(new h37(b(videoField, videoSchemaData, feedExtraData), "video"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        u17.f().i(downloadData);
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(downloadData.getPath());
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                int g = n17.c().g(downloadData.getId(), fileInputStream);
+                EmotionGroupData n = v17.o().n(downloadData.getId());
+                if (n == null) {
+                    if (g == 0) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e2) {
+                            BdLog.detailException(e2);
+                        }
+                        return false;
+                    }
+                    n = new EmotionGroupData();
+                    n.setBytesLength((int) downloadData.getSize());
+                    n.setBytesReceived((int) downloadData.getLength());
+                    n.setDownloadUrl(downloadData.getUrl());
+                    n.setGroupId(downloadData.getId());
+                    n.setEmotionsCount(g);
+                    n.setHeight(downloadData.getHeight());
+                    n.setWidth(downloadData.getWidth());
+                    n.setDownloadTime(System.currentTimeMillis());
+                    n.setGroupDesc(downloadData.getDescription());
+                    n.setGroupName(downloadData.getName());
+                    n.setStatus(1);
+                    v17.o().g(n);
+                }
+                v17.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                try {
+                    fileInputStream.close();
+                } catch (IOException e3) {
+                    BdLog.detailException(e3);
+                }
+                return true;
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                BdLog.detailException(e);
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e5) {
+                        BdLog.detailException(e5);
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e6) {
+                        BdLog.detailException(e6);
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            EmotionGroupData n = v17.o().n(downloadData.getId());
+            if (n != null && o17.d(downloadData.getId())) {
+                v17.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

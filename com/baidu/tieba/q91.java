@@ -1,32 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.webkit.JavascriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class q91 {
+public class q91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public abstract void a(AbsNadBrowserView absNadBrowserView, int i);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+    }
 
-    public abstract void b(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void c(AbsNadBrowserView absNadBrowserView);
-
-    public q91() {
+    public q91(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = aVar;
+    }
+
+    @JavascriptInterface
+    public void onGoBack() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
+            aVar.a();
         }
     }
 }

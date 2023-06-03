@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q33;
+import com.baidu.tieba.i63;
 /* loaded from: classes4.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public LoadingAnimView e;
@@ -22,10 +22,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091cdf);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091cde);
+        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091d0d);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d0c);
         this.f = textView;
-        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060447));
+        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06044b));
         setState(ILoadingLayout$State.RESET);
     }
 
@@ -44,8 +44,8 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View b = q33.a().b(R.layout.obfuscated_res_0x7f0d00c9, viewGroup, false);
-        b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f06044f));
+        View b = i63.a().b(R.layout.obfuscated_res_0x7f0d00c9, viewGroup, false);
+        b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f060453));
         return b;
     }
 
@@ -63,7 +63,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091cdd);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091d0b);
         if (findViewById != null) {
             return findViewById.getHeight();
         }

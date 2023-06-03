@@ -1,22 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.perf.signal.register.NativeSignalCapture;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bh1 {
+public class bh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,131 +26,32 @@ public final class bh1 {
                 return;
             }
         }
-        b = new JSONObject();
+        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
     }
 
-    public static final void a(String str, long j) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
-            try {
-                if (b == null) {
-                    b = new JSONObject();
-                }
-                JSONObject jSONObject = b;
-                if (jSONObject != null) {
-                    jSONObject.put(str, j);
-                }
-            } catch (Exception unused) {
-                oh1.g("add panelShow json error");
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            NativeSignalCapture.clearANRListener();
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.unRegisterANR();
             }
         }
     }
 
-    public static final void b(String str, String str2, String str3) {
+    public static void a(zg1 zg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 3);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("errno", str2);
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("errmsg", str3);
-                }
-            } catch (Exception unused) {
-            }
-            ch1 ch1Var = new ch1(str);
-            ch1Var.c(jSONObject);
-            fh1.e(ch1Var);
+        if (interceptable == null || interceptable.invokeL(65537, null, zg1Var) == null) {
+            NativeSignalCapture.addANRListener(zg1Var);
         }
     }
 
-    public static final void c(String str, HashMap<String, String> hashMap) {
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
-            if (hashMap != null) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-                ch1 ch1Var = new ch1(str);
-                ch1Var.c(jSONObject);
-                fh1.e(ch1Var);
-                return;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.registerANR(i);
             }
-            fh1.e(new ch1(str));
-        }
-    }
-
-    public static final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("3", a);
-                jSONObject.put("4", System.currentTimeMillis());
-            } catch (Exception unused) {
-            }
-            ch1 ch1Var = new ch1(Constants.DEFAULT_UIN);
-            ch1Var.c(jSONObject);
-            fh1.e(ch1Var);
-            a = 0L;
-        }
-    }
-
-    public static final void e() {
-        JSONObject jSONObject;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
-            if (jSONObject != null) {
-                i = jSONObject.length();
-            } else {
-                i = 0;
-            }
-            if (i > 0) {
-                a("2", System.currentTimeMillis());
-                ch1 ch1Var = new ch1(Constants.DEFAULT_UIN);
-                ch1Var.c(b);
-                fh1.e(ch1Var);
-                b = null;
-            }
-        }
-    }
-
-    public static final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            a = j;
-        }
-    }
-
-    public static final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 0);
-            } catch (Exception unused) {
-            }
-            ch1 ch1Var = new ch1(str);
-            ch1Var.c(jSONObject);
-            fh1.e(ch1Var);
-        }
-    }
-
-    public static final void g(int i, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exceptionType", i);
-            jSONObject.put("payChannel", str2);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
-            ch1 ch1Var = new ch1(str);
-            ch1Var.c(jSONObject);
-            fh1.e(ch1Var);
         }
     }
 }

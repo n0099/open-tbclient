@@ -21,7 +21,6 @@ import com.baidu.down.request.task.BinaryReqTask;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.NamingThreadFactory;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -177,7 +176,7 @@ public final class DownloadManager {
                     }
                     if (download != null && download.getNotificationNeeded()) {
                         Intent intent = new Intent(DownloadManager.ACTION_WEBSUITE_PROGRESS_CHANGE);
-                        intent.putExtra("downloadid", this.this$0.mProgressNotifyDownloadId);
+                        intent.putExtra(com.baidu.searchbox.downloads.DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.this$0.mProgressNotifyDownloadId);
                         intent.putExtra("progress", this.this$0.mProgressNotifyPercentage);
                         this.this$0.mContext.sendBroadcast(intent);
                     }
@@ -975,7 +974,7 @@ public final class DownloadManager {
                     }
                     if (this.val$download.getNotificationNeeded()) {
                         Intent intent = new Intent(DownloadManager.ACTION_WEBSUITE_STATE_CHANGE);
-                        intent.putExtra("downloadid", this.val$downloadId);
+                        intent.putExtra(com.baidu.searchbox.downloads.DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.val$downloadId);
                         intent.putExtra("state", this.val$download.getState());
                         intent.putExtra("savepath", this.val$download.getDownloadFileName());
                         intent.putExtra("error", this.val$download.getFailedReason());
@@ -1061,7 +1060,7 @@ public final class DownloadManager {
                 }
                 download.setDownDir(savedPathForUser);
                 HashMap hashMap = new HashMap();
-                hashMap.put(Config.LAUNCH_REFERER, DownloadConstants.REFER);
+                hashMap.put("referer", DownloadConstants.REFER);
                 if (!TextUtils.isEmpty(download.getUrihost())) {
                     hashMap.put("host", download.getUrihost());
                 }
@@ -1070,11 +1069,11 @@ public final class DownloadManager {
                     Log.d("DownloadManager", "host:" + download.getUrihost());
                 }
                 if (download.getUrl().contains(BAIDU_DOMAIN_KEYWORD)) {
-                    if (hashMap.get(Config.LAUNCH_REFERER) == null) {
-                        hashMap.put(Config.LAUNCH_REFERER, DownloadConstants.REFER);
+                    if (hashMap.get("referer") == null) {
+                        hashMap.put("referer", DownloadConstants.REFER);
                     }
-                } else if (hashMap.get(Config.LAUNCH_REFERER) != null) {
-                    hashMap.remove(Config.LAUNCH_REFERER);
+                } else if (hashMap.get("referer") != null) {
+                    hashMap.remove("referer");
                 }
                 FileMsg fileMsg = new FileMsg(download.getUrl(), download.getId().longValue(), savedPathForUser, download.getFileName(), download.getMimetype(), Boolean.TRUE, hashMap, j2, j, download.getEtag());
                 fileMsg.mPattern = 0;

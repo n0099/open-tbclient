@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.c.g;
 
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c extends l {
     long a(m mVar) throws IOException;
 

@@ -1,56 +1,76 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.RelativeLayout;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface m61 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
-    public static final m61 b = new a();
+public class m61 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
+    public interface a {
+        void a(int i);
     }
 
-    void a(Object obj, b bVar);
-
-    void b(Context context, RelativeLayout relativeLayout, String str);
-
-    void release();
+    public static boolean a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static class a implements m61 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public PhoneStateListener a;
 
-        @Override // com.baidu.tieba.m61
-        public void a(Object obj, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
+        /* loaded from: classes6.dex */
+        public class a extends PhoneStateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public a(b bVar, a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.telephony.PhoneStateListener
+            public void onCallStateChanged(int i, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                    this.a.a(i);
+                }
             }
         }
 
-        @Override // com.baidu.tieba.m61
-        public void b(Context context, RelativeLayout relativeLayout, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.m61
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public a() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,5 +83,42 @@ public interface m61 {
                 }
             }
         }
+
+        @Nullable
+        public PhoneStateListener a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (PhoneStateListener) invokeV.objValue;
+        }
+
+        public void b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                this.a = new a(this, aVar);
+            }
+        }
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 32);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

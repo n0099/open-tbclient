@@ -1,31 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipTaskItem;
+import tbclient.GetVipInfo.VipTaskList;
 /* loaded from: classes6.dex */
-public class kv8 {
+public class kv8 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumInfo a;
+    public xu8 a;
+    public List<lv8> b;
 
-    public kv8(RecommendForumInfo recommendForumInfo, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926652, "Lcom/baidu/tieba/kv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926652, "Lcom/baidu/tieba/kv8;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public kv8(VipTaskList vipTaskList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recommendForumInfo, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipTaskList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = recommendForumInfo;
+        if (vipTaskList != null && vipTaskList.item != null) {
+            String str = vipTaskList.card_id;
+            xu8 xu8Var = new xu8();
+            this.a = xu8Var;
+            xu8Var.e(3);
+            this.a.d(vipTaskList.class_name);
+            this.a.f(vipTaskList.class_url_name);
+            this.a.g(vipTaskList.class_url);
+            this.b = new ArrayList();
+            for (VipTaskItem vipTaskItem : vipTaskList.item) {
+                this.b.add(new lv8(vipTaskItem));
+            }
+        }
     }
 }

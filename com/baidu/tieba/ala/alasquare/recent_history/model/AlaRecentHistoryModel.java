@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.recent_history.message.AlaRecentHistoryResponseMessage;
-import com.baidu.tieba.k86;
-import com.baidu.tieba.l86;
+import com.baidu.tieba.oc6;
+import com.baidu.tieba.pc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<l86> a;
+    public List<pc6> a;
     public b b;
     public int c;
     public int d;
@@ -37,9 +37,9 @@ public class AlaRecentHistoryModel extends BdBaseModel {
     public BdUniqueId g;
     public HttpMessageListener h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, List<l86> list);
+        void a(boolean z, List<pc6> list);
 
         void b(int i, String str, boolean z);
     }
@@ -64,7 +64,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,12 +98,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.g) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (alaRecentHistoryResponseMessage.isSuccess()) {
-                    k86 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    oc6 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<l86> list = recentHistoryData.b;
+                    List<pc6> list = recentHistoryData.b;
                     if (this.a.f) {
                         if (!ListUtils.isEmpty(list)) {
                             AlaRecentHistoryModel.Z(this.a);
@@ -168,7 +168,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         }
     }
 
-    public List<l86> getData() {
+    public List<pc6> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -11,7 +11,9 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.constants.EnqueueType;
@@ -174,7 +176,9 @@ public class DownloadInfo implements Parcelable {
         public JSONObject P;
         public String R;
         public int[] S;
-        public int T;
+
+        /* renamed from: T  reason: collision with root package name */
+        public int f1227T;
         public boolean U;
         public boolean V;
         public long W;
@@ -389,7 +393,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a f(int i) {
-            this.T = i;
+            this.f1227T = i;
             return this;
         }
 
@@ -619,7 +623,7 @@ public class DownloadInfo implements Parcelable {
             if (columnIndex15 != -1) {
                 this.extra = cursor.getString(columnIndex15);
             }
-            int columnIndex16 = cursor.getColumnIndex("mimeType");
+            int columnIndex16 = cursor.getColumnIndex(DownloadCenterFunConstants.MIME_TYPE);
             if (columnIndex16 != -1) {
                 this.mimeType = cursor.getString(columnIndex16);
             }
@@ -711,7 +715,7 @@ public class DownloadInfo implements Parcelable {
             if (columnIndex37 != -1) {
                 this.dbJsonDataString = cursor.getString(columnIndex37);
             }
-            int columnIndex38 = cursor.getColumnIndex("iconUrl");
+            int columnIndex38 = cursor.getColumnIndex(GameAssistConstKt.KEY_ICONURL);
             if (columnIndex38 != -1) {
                 this.iconUrl = cursor.getString(columnIndex38);
             }
@@ -833,7 +837,7 @@ public class DownloadInfo implements Parcelable {
             safePutToDBJsonData("download_setting", jSONObject.toString());
         }
         safePutToDBJsonData("dbjson_key_expect_file_length", Long.valueOf(aVar.C));
-        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.T));
+        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.f1227T));
         safePutToDBJsonData("auto_install", Integer.valueOf(aVar.t ? 1 : 0));
         this.needSDKMonitor = aVar.Q;
         this.monitorScene = aVar.R;
@@ -2737,7 +2741,7 @@ public class DownloadInfo implements Parcelable {
         contentValues.put(TTDownloadField.TT_FORCE, Integer.valueOf(this.force ? 1 : 0));
         contentValues.put("retryCount", Integer.valueOf(this.retryCount));
         contentValues.put("extra", this.extra);
-        contentValues.put("mimeType", this.mimeType);
+        contentValues.put(DownloadCenterFunConstants.MIME_TYPE, this.mimeType);
         contentValues.put("title", this.title);
         contentValues.put("notificationEnable", Integer.valueOf(this.showNotification ? 1 : 0));
         contentValues.put("notificationVisibility", Integer.valueOf(this.notificationVisibility));
@@ -2760,7 +2764,7 @@ public class DownloadInfo implements Parcelable {
         contentValues.put("retryScheduleMinutes", Integer.valueOf(this.retryScheduleMinutes));
         contentValues.put("independentProcess", Integer.valueOf(this.needIndependentProcess ? 1 : 0));
         contentValues.put("auxiliaryJsonobjectString", getDBJsonDataString());
-        contentValues.put("iconUrl", this.iconUrl);
+        contentValues.put(GameAssistConstKt.KEY_ICONURL, this.iconUrl);
         contentValues.put("appVersionCode", Integer.valueOf(this.appVersionCode));
         contentValues.put("taskId", this.taskId);
         return contentValues;

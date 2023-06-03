@@ -93,7 +93,7 @@ public class BdVideo implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BdVideo m39clone() {
+    public BdVideo m53clone() {
         try {
             return (BdVideo) super.clone();
         } catch (CloneNotSupportedException e) {

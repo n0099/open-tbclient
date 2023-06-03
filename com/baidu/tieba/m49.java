@@ -1,105 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class m49 implements n49 {
+public final class m49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public String b;
-    public TbPageContext<?> c;
+    @Inject
+    public final fl1<uo5> a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.n49
-    public boolean a() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o49
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m49 a;
-
-        public b(m49 m49Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m49Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m49Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        public /* synthetic */ b(m49 m49Var, a aVar) {
-            this(m49Var);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            dl1 b = dl1.b();
+            this.a = b;
+            b.a(new vo5());
         }
     }
 
-    public m49(TbPageContext<?> tbPageContext, ExcContent excContent) {
+    public m49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,22 +40,90 @@ public class m49 implements n49 {
                 return;
             }
         }
-        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
-            return;
-        }
-        this.c = tbPageContext;
-        this.a = new SpannableString(excContent.text);
-        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
-        this.b = excContent.link;
+        f();
     }
 
-    @Override // com.baidu.tieba.n49
-    public CharSequence b() {
+    public final uo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            fl1<uo5> fl1Var = this.a;
+            if (fl1Var != null) {
+                return fl1Var.get();
+            }
+            return null;
+        }
+        return (uo5) invokeV.objValue;
+    }
+
+    public final BaseFragment b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            uo5 a = a();
+            if (a != null) {
+                return a.s();
+            }
+            return null;
         }
-        return (CharSequence) invokeV.objValue;
+        return (BaseFragment) invokeV.objValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            uo5 a = a();
+            if (a != null) {
+                return a.m();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            uo5 a = a();
+            if (a != null && a.r()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        uo5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
+            a.p(i, i2, intent);
+        }
+    }
+
+    public final void g(boolean z) {
+        uo5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
+            a.t(z);
+        }
+    }
+
+    public final void h(BdUniqueId bdUniqueId) {
+        uo5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
+            a.setUniqueId(bdUniqueId);
+        }
+    }
+
+    public final void i(boolean z) {
+        uo5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
+            a.setUserVisibleHint(z);
+        }
     }
 }

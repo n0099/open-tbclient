@@ -1,7 +1,6 @@
 package com.cmic.sso.sdk.e;
 
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +8,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +21,7 @@ public class a {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(1, secretKeySpec, new IvParameterSpec(bArr2));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 0);
+                return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 0);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -40,7 +39,7 @@ public class a {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, new IvParameterSpec(bArr2));
-                return new String(cipher.doFinal(decode), IMAudioTransRequest.CHARSET);
+                return new String(cipher.doFinal(decode), "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

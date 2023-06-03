@@ -3,7 +3,6 @@ package com.baidu.tbadk.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ public class UserGrowthTaskListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("daily_task")
     public List<UserGrowthTaskData> dailyTask;
-    @SerializedName(SetImageWatermarkTypeReqMsg.SWITCH)
+    @SerializedName("switch")
     public int growthSwitch;
     @SerializedName("icon_task")
     public List<UserGrowthTaskData> iconTask;

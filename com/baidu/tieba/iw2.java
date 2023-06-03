@@ -1,308 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Message;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.media.audio.SwanAppAudioClient;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.du2;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class iw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static mf3 j;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppAudioClient a;
-    public Context b;
-    public gw2 c;
-    public mw2 d;
-    public int e;
-    public int f;
-    public boolean g;
-    @Nullable
-    public ou2 h;
-
-    /* loaded from: classes6.dex */
-    public class a extends ou2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw2 a;
-
-        public a(iw2 iw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iw2Var;
-        }
-
-        @Override // com.baidu.tieba.ou2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, activity) != null) {
-                return;
-            }
-            this.a.g = false;
-            if (this.a.x()) {
-                return;
-            }
-            this.a.p();
-        }
-
-        @Override // com.baidu.tieba.ou2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) {
-                return;
-            }
-            this.a.g = true;
-            if (this.a.w()) {
-                if (!this.a.x()) {
-                    if (iw2.j != null) {
-                        return;
-                    }
-                    mf3 unused = iw2.j = zf3.c("1044");
-                    return;
-                }
-                mf3 unused2 = iw2.j = null;
-                return;
-            }
-            super.onActivityStopped(activity);
-            this.a.L();
-            g62.o("SwanAppBGAudioPlayer", "stop player without requiredBackgroundModes");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements zn3<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw2 a;
-
-        public b(iw2 iw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iw2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.a.v().v(this.a.c.c(str), str);
-                } else if (TextUtils.isEmpty(str)) {
-                    mg3.b("audio", 3001, "cloud url is null", -1, "");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements SwanAppAudioClient.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ iw2 b;
-
-        public c(iw2 iw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = iw2Var;
-        }
-
-        public /* synthetic */ c(iw2 iw2Var, a aVar) {
-            this(iw2Var);
-        }
-
-        @Override // com.baidu.swan.apps.media.audio.SwanAppAudioClient.c
-        public boolean a(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                int i2 = message.arg1;
-                int i3 = message.arg2;
-                JSONObject jSONObject = new JSONObject();
-                this.b.H(message, i3, this.b.u() / 1000);
-                switch (i) {
-                    case 1001:
-                        jw2.b("SwanAppBGAudioPlayer", "#onHandleMessage [onCanPlay]");
-                        g62.i("backgroundAudio", "event onCanPlay");
-                        if (this.b.d != null) {
-                            this.b.d.a("onCanplay");
-                        }
-                        this.a = true;
-                        return true;
-                    case 1002:
-                        jw2.b("SwanAppBGAudioPlayer", "#onHandleMessage [onPlay]");
-                        g62.i("backgroundAudio", "event onPlay");
-                        if (this.b.d != null) {
-                            this.b.d.a("onPlay");
-                        }
-                        if (this.b.g) {
-                            mf3 unused = iw2.j = zf3.c("1044");
-                        }
-                        return true;
-                    case 1003:
-                        jw2.b("SwanAppBGAudioPlayer", "#onHandleMessage [onPause]");
-                        g62.i("backgroundAudio", "event onPause");
-                        if (this.b.d != null) {
-                            this.b.d.a(MissionEvent.MESSAGE_PAUSE);
-                        }
-                        if (this.b.g) {
-                            this.b.p();
-                        }
-                        return true;
-                    case 1004:
-                        jw2.b("SwanAppBGAudioPlayer", "#onHandleMessage [onStop]");
-                        g62.i("backgroundAudio", "event onStop");
-                        if (this.b.d != null) {
-                            this.b.d.a(MissionEvent.MESSAGE_STOP);
-                        }
-                        this.a = true;
-                        if (this.b.g) {
-                            this.b.p();
-                        }
-                        return true;
-                    case 1005:
-                        g62.i("backgroundAudio", "event onEnd");
-                        if (this.b.d != null) {
-                            this.b.d.a("onEnded");
-                        }
-                        if (this.b.g) {
-                            this.b.p();
-                        }
-                        return true;
-                    case 1006:
-                        this.b.e = i3;
-                        try {
-                            jSONObject.putOpt("currentTime", Integer.valueOf(this.b.r()));
-                            jSONObject.putOpt("duration", Integer.valueOf(this.b.u() / 1000));
-                        } catch (JSONException e) {
-                            if (iw2.i) {
-                                e.printStackTrace();
-                            }
-                        }
-                        g62.i("backgroundAudio", "event onTimeUpdate " + jSONObject.toString());
-                        if (this.b.d != null) {
-                            this.b.d.b("onTimeUpdate", jSONObject);
-                        }
-                        if (this.a) {
-                            if (this.b.c.k > 0) {
-                                iw2 iw2Var = this.b;
-                                iw2Var.G(iw2Var.c.k);
-                            }
-                            this.a = false;
-                        }
-                        return true;
-                    case 1007:
-                        try {
-                            mg3.b("audio", 4000, "audio fail, src: " + this.b.v().q(), i2, "");
-                            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
-                        } catch (JSONException e2) {
-                            if (iw2.i) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        g62.i("backgroundAudio", "event onError code:" + i2);
-                        if (this.b.d != null) {
-                            this.b.d.b("onError", jSONObject);
-                        }
-                        return true;
-                    case 1008:
-                        int s = this.b.s();
-                        this.b.f = i2;
-                        g62.i("backgroundAudio", "event onDownloadProgress " + this.b.f);
-                        if (this.b.d != null && s >= this.b.f) {
-                            this.b.d.a("onWaiting");
-                        }
-                        return true;
-                    case 1009:
-                        g62.i("backgroundAudio", "event onPrev");
-                        if (this.b.d != null) {
-                            this.b.d.a("onPrev");
-                        }
-                        return true;
-                    case 1010:
-                        g62.i("backgroundAudio", "event onNext");
-                        if (this.b.d != null) {
-                            this.b.d.a("onNext");
-                        }
-                        return true;
-                    case 1011:
-                        g62.i("backgroundAudio", "event onSeekEnd");
-                        if (this.b.d != null) {
-                            this.b.d.a("onSeeked");
-                        }
-                        return true;
-                    case 1012:
-                        g62.i("backgroundAudio", "event onSeeking");
-                        if (this.b.d != null) {
-                            this.b.d.a("onSeeking");
-                        }
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -317,446 +38,77 @@ public class iw2 {
                 return;
             }
         }
-        i = qp1.a;
+        a = is1.a;
     }
 
-    public void A() {
-        SwanAppAudioClient swanAppAudioClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (swanAppAudioClient = this.a) != null) {
-            swanAppAudioClient.u();
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g62.i("backgroundAudio", "release ");
-            if (this.a != null && !w()) {
-                this.a.w();
-                I("#release");
-                this.a = null;
-                j = null;
-            }
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (i) {
-                Log.d("SwanAppBGAudioPlayer", "play");
-            }
-            SwanAppAudioClient swanAppAudioClient = this.a;
-            if (swanAppAudioClient != null) {
-                swanAppAudioClient.y();
-            }
-        }
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.h != null) {
-                ns2.c().unregisterActivityLifecycleCallbacks(this.h);
-            }
-            this.h = new a(this);
-            ns2.c().registerActivityLifecycleCallbacks(this.h);
-        }
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SwanAppAudioClient swanAppAudioClient = this.a;
-            if (swanAppAudioClient != null) {
-                swanAppAudioClient.B();
-            }
-            if (this.h != null) {
-                ns2.c().unregisterActivityLifecycleCallbacks(this.h);
-                this.h = null;
-            }
-        }
-    }
-
-    public gw2 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.c;
-        }
-        return (gw2) invokeV.objValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int u = u();
-            if (u <= 0) {
-                return 0;
-            }
-            return (int) ((r() / u) * 100.0f);
-        }
-        return invokeV.intValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            SwanAppAudioClient swanAppAudioClient = this.a;
-            if (swanAppAudioClient != null) {
-                return swanAppAudioClient.r();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final SwanAppAudioClient v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.a == null) {
-                this.a = new SwanAppAudioClient(this.b);
-                this.a.A(new c(this, null));
-            }
-            return this.a;
-        }
-        return (SwanAppAudioClient) invokeV.objValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            SwanAppAudioClient swanAppAudioClient = this.a;
-            if (swanAppAudioClient == null) {
-                return true;
-            }
-            return !swanAppAudioClient.s();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public iw2(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = new gw2();
-        this.e = 0;
-        this.f = 0;
-        this.b = context;
-    }
-
-    public void G(int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048582, this, i2) != null) || i2 < 0) {
-            return;
-        }
-        SwanAppAudioClient swanAppAudioClient = this.a;
-        if (swanAppAudioClient != null) {
-            swanAppAudioClient.z(i2 * 1000);
-        }
-        g62.i("backgroundAudio", "seekTo " + i2);
-        mw2 mw2Var = this.d;
-        if (mw2Var != null) {
-            mw2Var.a("onSeeking");
-        }
-    }
-
-    public void update(gw2 gw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, gw2Var) == null) {
-            if (i) {
-                Log.d("SwanAppBGAudioPlayer", "Audio Update : " + gw2Var);
-            }
-            this.c = gw2Var;
-            mw2 mw2Var = this.d;
-            if (mw2Var != null) {
-                mw2Var.d(gw2Var.p);
-            }
-            B();
-        }
-    }
-
-    public final void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            ns2.l().b(this.b, str, new b(this));
-        }
-    }
-
-    public final void I(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            jw2.c("SwanAppBGAudioPlayer", "#policyContinueFlag", new Exception(str));
-            tu2.U().c();
-        }
-    }
-
-    public final void J(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            jw2.c("SwanAppBGAudioPlayer", "#setPolicyStopFlag", new Exception(str));
-            tu2.U().p();
-        }
-    }
-
-    public void y(boolean z) {
-        SwanAppAudioClient swanAppAudioClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && (swanAppAudioClient = this.a) != null) {
-            swanAppAudioClient.t(z);
-            J("#onForegroundChanged foreground=" + z);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (i) {
-                Log.d("SwanAppBGAudioPlayer", "play");
-            }
-            if (this.c.a()) {
-                return;
-            }
-            K();
-            String str = this.c.c;
-            g93 M = g93.M();
-            if (og3.s(str) == PathType.CLOUD) {
-                C(str);
-            } else {
-                D(str, M);
-            }
-            J("#play");
-        }
-    }
-
-    public final boolean w() {
-        InterceptResult invokeV;
-        SwanAppConfigData swanAppConfigData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (g93.M() != null) {
-                swanAppConfigData = g93.M().Q();
-            } else {
-                swanAppConfigData = null;
-            }
-            if (swanAppConfigData != null && swanAppConfigData.q.contains(SwanAppConfigData.RequiredBackgroundModeItem.AUDIO.mMode)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void D(String str, g93 g93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, g93Var) == null) {
-            if (this.c.q && g93Var != null) {
-                vq1 m = os2.m();
-                if (this.d.c()) {
-                    if (m == null) {
-                        str = null;
-                    } else {
-                        str = m.a(str);
-                    }
-                } else {
-                    str = og3.H(str, g93Var);
-                }
-            }
-            v().v(this.c.c(str), str);
-        }
-    }
-
-    public final void H(Message message, int i2, int i3) {
-        gw2 gw2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048583, this, message, i2, i3) == null) && (gw2Var = this.c) != null && gw2Var.i) {
-            gw2Var.n = i2;
-            gw2Var.o = i3;
-            ns2.o().x(message, this.c);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (g93.M() != null && g93.M().Y() != null && j != null) {
-                du2.a Y = g93.M().Y();
-                jg3 jg3Var = new jg3();
-                jg3Var.a = zf3.n(Y.G());
-                jg3Var.f = Y.H();
-                jg3Var.c = Y.T();
-                jg3Var.a("appid", Y.H());
-                jg3Var.a("cuid", ns2.h0().i(ns2.c()));
-                JSONObject k = zf3.k(Y.W());
-                if (k != null) {
-                    jg3Var.a("keyfeed", k.optString("keyfeed"));
-                }
-                zf3.i(j, jg3Var);
-            }
-            j = null;
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public Object t(String str) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(wa2 wa2Var) {
         InterceptResult invokeL;
-        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            switch (str.hashCode()) {
-                case -2129294769:
-                    if (str.equals("startTime")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1992012396:
-                    if (str.equals("duration")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1522036513:
-                    if (str.equals("buffered")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1296614986:
-                    if (str.equals("epname")) {
-                        c2 = 7;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -1094703982:
-                    if (str.equals("lrcURL")) {
-                        c2 = '\n';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -995321554:
-                    if (str.equals("paused")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -902265988:
-                    if (str.equals("singer")) {
-                        c2 = '\b';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -453814973:
-                    if (str.equals("coverImgUrl")) {
-                        c2 = '\t';
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 114148:
-                    if (str.equals("src")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 110371416:
-                    if (str.equals("title")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 601235430:
-                    if (str.equals("currentTime")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    return Integer.valueOf(u() / 1000);
-                case 1:
-                    return Integer.valueOf(this.e);
-                case 2:
-                    return Boolean.valueOf(x());
-                case 3:
-                    return this.c.c;
-                case 4:
-                    return Integer.valueOf(this.c.k);
-                case 5:
-                    return Integer.valueOf(this.f);
-                case 6:
-                    return this.c.d;
-                case 7:
-                    return this.c.e;
-                case '\b':
-                    return this.c.f;
-                case '\t':
-                    return this.c.g;
-                case '\n':
-                    return this.c.h;
-                default:
-                    return "";
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public void z(gw2 gw2Var, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, gw2Var, callbackHandler) == null) {
-            jw2.b("SwanAppBGAudioPlayer", "#openPlayer params=" + gw2Var);
-            this.c = gw2Var;
-            if (gw2Var.p != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wa2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (wa2Var != null) {
                 try {
-                    this.d = new mw2(callbackHandler, new JSONObject(this.c.p));
+                    jSONObject.put("containerId", wa2Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
                 } catch (JSONException e) {
-                    mg3.b("audio", 2009, "open audio fail", -1, "");
-                    g62.c("backgroundAudio", e.toString());
-                    if (i) {
-                        Log.e("SwanAppBGAudioPlayer", "Audio callback is not jsonObject");
+                    if (!a) {
+                        e.printStackTrace();
+                    } else {
+                        throw new RuntimeException(e);
                     }
                 }
             }
-            B();
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(si2.U().T());
+            y82.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + ln2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(gv2.i().s()));
+            jSONObject.put("isDebugSdk", a);
+            if ((wa2Var instanceof NgWebView) && ((NgWebView) wa2Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", mk3.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = mk3.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && x73.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = fv2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = el3.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", vn2.USER_DATA_PATH);
+            jSONObject.put("preloadId", si2.U().a0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", ho4.b().a());
+            jSONObject.put("coreJSPath", si2.U().c0());
+            if (i12.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) t32.d()));
+            }
+            jSONObject.put("swanNativeVersion", js1.a());
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
+            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
+                return extensionCore.extensionCorePath;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

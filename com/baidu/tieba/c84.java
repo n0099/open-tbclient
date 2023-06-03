@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class c84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
-    @V8JavascriptField
-    public long totalBytesExpectedToSend;
-    @V8JavascriptField
-    public long totalBytesSent;
 
-    public c84(int i, long j, long j2) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File b = b();
+            if (b.exists()) {
+                cs4.j(b);
             }
         }
-        this.progress = i;
-        this.totalBytesExpectedToSend = j;
-        this.totalBytesSent = j2;
     }
 
-    public String toString() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TaskProgressData{progress=" + this.progress + ", fileTotalBytes=" + this.totalBytesExpectedToSend + ", totalBytesExpectedToSend=" + this.totalBytesSent + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return o84.e("aigames_debug_game_core");
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File b = b();
+            if (!b.exists()) {
+                b.mkdirs();
+            }
+            return new File(b, "debugGameCore.zip");
+        }
+        return (File) invokeV.objValue;
     }
 }

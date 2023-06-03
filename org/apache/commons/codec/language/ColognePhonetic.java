@@ -6,11 +6,11 @@ import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ColognePhonetic implements StringEncoder {
     public static final char[][] PREPROCESS_MAP = {new char[]{196, 'A'}, new char[]{220, 'U'}, new char[]{214, 'O'}, new char[]{223, 'S'}};
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public abstract class CologneBuffer {
         public final char[] data;
         public int length;
@@ -38,7 +38,7 @@ public class ColognePhonetic implements StringEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class CologneInputBuffer extends CologneBuffer {
         public CologneInputBuffer(char[] cArr) {
             super(cArr);
@@ -71,7 +71,7 @@ public class ColognePhonetic implements StringEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class CologneOutputBuffer extends CologneBuffer {
         public CologneOutputBuffer(int i) {
             super(i);

@@ -1,7 +1,7 @@
 package org.apache.commons.codec.digest4util;
 
 import org.apache.commons.base.Charsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Crypt {
     public static String crypt(String str) {
         return crypt(str, (String) null);

@@ -4,7 +4,7 @@ import com.kwad.sdk.core.videocache.ProxyCacheException;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.kwad.sdk.core.videocache.a {
     public RandomAccessFile aeX;
     public final a aej;

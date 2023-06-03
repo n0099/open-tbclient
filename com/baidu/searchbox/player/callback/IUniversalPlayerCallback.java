@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IUniversalPlayerCallback {
     void onBeforeSwitchToFull();
 
@@ -20,6 +20,8 @@ public interface IUniversalPlayerCallback {
     void onReplayBtnClick();
 
     void onStartBtnClick();
+
+    void onVideoSwitchToFloating(String str);
 
     void onVideoSwitchToFull();
 

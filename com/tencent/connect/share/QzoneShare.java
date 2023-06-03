@@ -9,7 +9,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.IntentConstants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -360,7 +359,7 @@ public class QzoneShare extends BaseApi {
                 StringBuilder sb = new StringBuilder();
                 str2 = "summary";
                 sb.append(a.substring(0, 20));
-                sb.append(StringHelper.STRING_MORE);
+                sb.append("...");
                 a = sb.toString();
                 i = bundle.getInt("req_type");
                 SLog.e("openSDK_LOG.QzoneShare", "shareToQzone() get SHARE_TO_QZONE_KEY_TYPE: " + i);

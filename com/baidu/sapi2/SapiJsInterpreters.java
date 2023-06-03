@@ -57,7 +57,8 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.searchbox.net.update.UpdateConstants;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -272,12 +273,11 @@ public class SapiJsInterpreters {
                 jSONObject.put("icon", pkgIconAndName[0]);
                 jSONObject.put("name", pkgIconAndName[1]);
                 List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-                SapiWebView.ShareAccountClickCallback shareAccountClickCallback = SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback;
-                Object obj = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
-                if (shareAccountClickCallback != null && shareStorageModel.size() > 0) {
-                    jSONObject.put("openShareLogin", "true");
+                Object obj = "false";
+                if (SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback != null && shareStorageModel.size() > 0) {
+                    jSONObject.put("openShareLogin", YYOption.IsLive.VALUE_TRUE);
                 } else {
-                    jSONObject.put("openShareLogin", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                    jSONObject.put("openShareLogin", "false");
                 }
                 if (SapiJsInterpreters.this.jsCallBacks.joinLoginParams != null) {
                     obj = SapiJsInterpreters.this.jsCallBacks.joinLoginParams.hasThirdAccount + "";
@@ -512,7 +512,7 @@ public class SapiJsInterpreters {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x007c, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x007b, code lost:
             if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L8;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1195,7 +1195,7 @@ public class SapiJsInterpreters {
                     SapiAccountResponse parseAuthorizedResult = SapiJsInterpreters.this.sapiWebView.parseAuthorizedResult(jSONObject.optString("xml"), SapiJsInterpreters.this.context);
                     if (parseAuthorizedResult == null) {
                         if (SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback != null) {
-                            SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(NormalizeGuestAccountResult.ERROR_CODE_PARSE_XML, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
+                            SapiJsInterpreters.this.jsCallBacks.normalizeGuestAccountCallback.onFailure(-601, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
                         }
                     } else {
                         SapiAccount sapiAccountResponseToAccount = SapiJsInterpreters.this.sapiWebView.sapiAccountResponseToAccount(parseAuthorizedResult);
@@ -1466,16 +1466,16 @@ public class SapiJsInterpreters {
             super();
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0033, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x0032, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0035, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0034, code lost:
             r0 = true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x0065, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x0060, code lost:
             if (r4.this$0.jsCallBacks.invokeScAppCallback != null) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x007a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x0075, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1575,7 +1575,7 @@ public class SapiJsInterpreters {
                     SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
                 } else if (LoginConstants.SMS_LOGIN.equals(str)) {
                     SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SMS;
-                } else if ("face".equals(str)) {
+                } else if (UgcTranscoderConstant.URL_GET_FACE.equals(str)) {
                     SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.FACE;
                 }
             }
@@ -2767,7 +2767,7 @@ public class SapiJsInterpreters {
             super();
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:36:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -2842,7 +2842,7 @@ public class SapiJsInterpreters {
                     } else {
                         optString = jSONObject.optString("url");
                     }
-                    String optString4 = jSONObject.optString(UpdateConstants.TRACE_ID);
+                    String optString4 = jSONObject.optString("trace_id");
                     String optString5 = jSONObject.optString("session_id");
                     SapiJsInterpreters.this.jsCallBacks.promptResult.confirm("finish");
                     ShareLoginStat.MakeShareLoginStat.sValueSence = "in";
@@ -3000,8 +3000,8 @@ public class SapiJsInterpreters {
             super();
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:16:0x0055  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
+        /* JADX WARN: Removed duplicated region for block: B:16:0x0052  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0077  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -3108,7 +3108,7 @@ public class SapiJsInterpreters {
                 jSONObject.put("errno", 0);
                 jSONObject.put("guide", i);
                 if (TextUtils.isEmpty(optString)) {
-                    str = "100";
+                    str = YYOption.UrlProtocol.USER;
                 } else if (fingerPrintState != 101 && fingerPrintState != 102) {
                     if (contains) {
                         str = "103";

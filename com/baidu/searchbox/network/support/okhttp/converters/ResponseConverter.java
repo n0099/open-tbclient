@@ -5,7 +5,7 @@ import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 import okhttp3.Protocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseConverter {
     public static Response fromOks(@NonNull Request request, @NonNull okhttp3.Response response) {
         Response.Builder builder = new Response.Builder();

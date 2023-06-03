@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.chromium.net.NetError;
 /* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +38,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends a.AbstractBinderC0172a {
+    public static class a extends a.AbstractBinderC0186a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +309,7 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0172a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0186a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }
@@ -334,7 +335,7 @@ public class b {
             } else if (!TextUtils.isEmpty(str) && str.contains("call_main_plugin")) {
                 return a(bundle);
             } else {
-                return a(-300);
+                return a((int) NetError.ERR_INVALID_URL);
             }
         }
         return (Bundle) invokeLL.objValue;

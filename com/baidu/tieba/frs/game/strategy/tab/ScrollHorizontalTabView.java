@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.le7;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.oj7;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.List;
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<le7> a;
+    public final List<oj7> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -50,9 +50,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes5.dex */
     public interface f {
-        boolean a(int i, le7 le7Var);
+        boolean a(int i, oj7 oj7Var);
 
-        void b(int i, le7 le7Var);
+        void b(int i, oj7 oj7Var);
     }
 
     /* loaded from: classes5.dex */
@@ -205,7 +205,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ScrollHorizontalTabView scrollHorizontalTabView = this.a;
-                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369), 0);
+                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374), 0);
             }
         }
     }
@@ -268,12 +268,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                le7 le7Var = (le7) ListUtils.getItem(this.a.a, i);
-                if (this.a.o != null && !this.a.o.a(i, le7Var)) {
+                oj7 oj7Var = (oj7) ListUtils.getItem(this.a.a, i);
+                if (this.a.o != null && !this.a.o.a(i, oj7Var)) {
                     return;
                 }
                 if (this.a.o != null) {
-                    this.a.o.b(i, le7Var);
+                    this.a.o.b(i, oj7Var);
                 }
                 if (this.a.e) {
                     if (this.a.f != i) {
@@ -309,8 +309,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -343,8 +343,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -362,8 +362,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
-                int l = ri.l(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369);
+                int l = vi.l(getContext()) - iArr[0];
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
                 } else if (l < dimensionPixelSize) {
@@ -399,8 +399,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -519,10 +519,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                le7 le7Var = this.a.get(i);
+                oj7 oj7Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (le7Var != null && textView != null) {
-                    textView.setText(le7Var.b);
+                if (oj7Var != null && textView != null) {
+                    textView.setText(oj7Var.b);
                 }
             }
         }
@@ -591,7 +591,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<le7> list) {
+    public void setData(List<oj7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.a.clear();

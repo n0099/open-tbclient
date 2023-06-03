@@ -3,7 +3,7 @@ package com.baidu.searchbox.looper.impl;
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LooperBlock {
     public String mCpuRateInfo;
     public String mCurrentPage;

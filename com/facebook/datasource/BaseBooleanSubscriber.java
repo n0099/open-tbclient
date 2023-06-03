@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseBooleanSubscriber implements DataSubscriber<Boolean> {
     @Override // com.facebook.datasource.DataSubscriber
     public void onCancellation(DataSource<Boolean> dataSource) {

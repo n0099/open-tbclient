@@ -11,7 +11,6 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.common.AppTools;
@@ -200,7 +199,7 @@ public class b {
             try {
                 jSONObject.put("viaPoints", wayPoint);
                 try {
-                    o = URLEncoder.encode(jSONObject.toString(), IMAudioTransRequest.CHARSET);
+                    o = URLEncoder.encode(jSONObject.toString(), "utf-8");
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
@@ -538,7 +537,7 @@ public class b {
             try {
                 jSONObject.put("viaPoints", wayPoint);
                 try {
-                    o = URLEncoder.encode(jSONObject.toString(), IMAudioTransRequest.CHARSET);
+                    o = URLEncoder.encode(jSONObject.toString(), "utf-8");
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }

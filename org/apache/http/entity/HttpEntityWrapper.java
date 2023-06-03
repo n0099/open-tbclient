@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpEntityWrapper implements HttpEntity {
     public HttpEntity wrappedEntity;
 

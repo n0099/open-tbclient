@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
+import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.o92;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,100 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class fa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o92 a;
-    public final x92 b;
-    public final l92 c;
-    public String d;
+    public int a;
+    public InputStream b;
+    public OutputStream c;
+    public a d;
+    public WebSocketFrame.OpCode e;
+    public final List<WebSocketFrame> f;
 
     /* loaded from: classes5.dex */
-    public class a implements o92.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SceneType a;
-        public final /* synthetic */ z92 b;
-        public final /* synthetic */ n92 c;
-        public final /* synthetic */ fa2 d;
+    public interface a {
+        void a(WebSocketFrame webSocketFrame);
 
-        public a(fa2 fa2Var, SceneType sceneType, z92 z92Var, n92 n92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fa2Var, sceneType, z92Var, n92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = fa2Var;
-            this.a = sceneType;
-            this.b = z92Var;
-            this.c = n92Var;
-        }
+        void b(IOException iOException);
 
-        @Override // com.baidu.tieba.o92.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                f92.b(this.d.d);
-                i92.i(1);
-                h92.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getScene());
-                sb.append(this.c.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                i92.g(sb.toString());
-                if (fa2.e) {
-                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
-                }
-                this.d.h(networkStatus, this.c, this.b);
-            }
-        }
-    }
+        void onClose();
 
-    /* loaded from: classes5.dex */
-    public class b implements o92.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(fa2 fa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o92.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                x92.d().j();
-                l92.d().j();
-                f92.c();
-                i92.i(0);
-                h92.c("exit_skeleton", networkStatus.getStatus());
-            }
-        }
+        void onOpen();
     }
 
     static {
@@ -123,24 +59,7 @@ public class fa2 {
                 return;
             }
         }
-        e = qp1.a;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
-            }
-            this.a.a(new b(this));
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f(SceneType.SCENE_SKELETON_TIMEOUT);
-        }
+        g = is1.a;
     }
 
     public fa2() {
@@ -156,52 +75,186 @@ public class fa2 {
                 return;
             }
         }
-        this.c = l92.d();
-        this.a = new o92();
-        this.b = x92.d();
+        this.a = 1;
+        this.e = null;
+        this.f = new LinkedList();
     }
 
-    public void g(String str) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == 4) {
+            return;
         }
+        cs4.d(this.b);
+        cs4.d(this.c);
+        this.a = 4;
+        this.d.onClose();
     }
 
-    public void f(SceneType sceneType) {
+    public static boolean f(Map<String, String> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (an3.I(this.d) && an3.H()) {
-                if (e) {
-                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
-                }
-                x92.d().j();
-                l92.d().j();
-                n92 f = this.c.f();
-                this.a.a(new a(this, sceneType, this.b.f(), f));
-            } else if (e) {
-                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            String str = map.get("Upgrade".toLowerCase());
+            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
+            if (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ("websocket".equalsIgnoreCase(str) && z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String g(String str) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
+            return Base64.encodeToString(messageDigest.digest(), 2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
+            int i = this.a;
+            this.a = 3;
+            if (i == 2) {
+                j(new WebSocketFrame.b(closeCode, str));
+            } else {
+                b();
             }
         }
     }
 
-    public final void h(@NonNull NetworkStatus networkStatus, @NonNull n92 n92Var, @NonNull z92 z92Var) {
+    public void h(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, n92Var, z92Var) == null) {
-            boolean b2 = n92Var.b();
-            int i = R.string.obfuscated_res_0x7f0f14e7;
-            if (b2) {
-                i = R.string.obfuscated_res_0x7f0f14ec;
-            } else if (z92Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f14ea;
-            } else if (z92Var.e() != RequestStatus.STATUS_FAILED) {
-                if (z92Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f14eb : R.string.obfuscated_res_0x7f0f14e8;
-                } else if (z92Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f14e9;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
+            this.b = inputStream;
+            this.c = outputStream;
+            this.a = 2;
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.onOpen();
+            }
+            i();
+        }
+    }
+
+    public final void c(WebSocketFrame webSocketFrame) throws IOException {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
+            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
+            if (webSocketFrame instanceof WebSocketFrame.b) {
+                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
+                closeCode = bVar.v();
+                str = bVar.w();
+            } else {
+                str = "";
+            }
+            if (this.a == 3) {
+                b();
+            } else {
+                a(closeCode, str);
+            }
+        }
+    }
+
+    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
+            synchronized (this) {
+                webSocketFrame.t(this.c);
+            }
+        }
+    }
+
+    public void k(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public final void d(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e != null && g) {
+                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
+                }
+                this.e = webSocketFrame.f();
+                this.f.clear();
+                this.f.add(webSocketFrame);
+            } else if (webSocketFrame.h()) {
+                if (this.e != null) {
+                    this.f.add(webSocketFrame);
+                    this.d.a(new WebSocketFrame(this.e, this.f));
+                    this.e = null;
+                    this.f.clear();
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            } else if (this.e != null) {
+                this.f.add(webSocketFrame);
+            } else {
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            }
+        }
+    }
+
+    public final void e(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
+                c(webSocketFrame);
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
+                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
+                if (g) {
+                    Log.i("V8WebSocket", "A pong request has received.");
+                }
+            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e == null) {
+                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
+                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
+                    }
+                    this.d.a(webSocketFrame);
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
+            } else {
+                d(webSocketFrame);
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            while (this.a == 2) {
+                try {
+                    try {
+                        e(WebSocketFrame.k(this.b));
+                    } catch (IOException e) {
+                        if (this.d != null) {
+                            this.d.b(e);
+                        }
+                        y82.d("V8WebSocket", "parse web socket frame fail", e);
+                    }
+                } finally {
+                    b();
                 }
             }
-            g92.f(i);
         }
     }
 }

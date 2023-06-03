@@ -1,213 +1,252 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressAD2;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-import com.qq.e.ads.nativ.express2.VideoOption2;
-import com.qq.e.comm.util.AdError;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class uua extends ReporterPidLoader<NativeExpressADData2> {
+import com.baidu.ugc.utils.FileUtils;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+/* loaded from: classes8.dex */
+public class uua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<NativeExpressADData2, ExpressAdListenerWrapper<AdEventListener>> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uua(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new HashMap<>();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    public static Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new kva(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (nva.a(str)) {
+                return null;
+            }
+            byte[] decode = Base64.decode(str, 0);
+            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
+        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            NativeExpressAD2 nativeExpressAD2 = new NativeExpressAD2(context.getApplicationContext(), this.mPid.pid, new a(this, funAdSlot));
-            onLoadStart(funAdSlot);
-            nativeExpressAD2.setAdSize(expressWidth, expressHeight);
-            VideoOption2.Builder builder = new VideoOption2.Builder();
-            builder.setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? VideoOption2.AutoPlayPolicy.ALWAYS : VideoOption2.AutoPlayPolicy.WIFI).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setMaxVideoDuration(0).setMinVideoDuration(0);
-            nativeExpressAD2.setVideoOption2(builder.build());
-            nativeExpressAD2.loadAd(1);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements NativeExpressAD2.AdLoadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ uua b;
-
-        public a(uua uuaVar, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uuaVar, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uuaVar;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
-                LogPrinter.e("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.b.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: com.qq.e.ads.nativ.express2.NativeExpressADData2 */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r3v1, types: [A, com.qq.e.ads.nativ.express2.AdEventListener, com.baidu.tieba.vua] */
-        @Override // com.qq.e.ads.nativ.express2.NativeExpressAD2.AdLoadListener
-        public void onLoadSuccess(List<NativeExpressADData2> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list != null && !list.isEmpty()) {
-                    NativeExpressADData2 nativeExpressADData2 = list.get(0);
-                    uua uuaVar = this.b;
-                    String sid = this.a.getSid();
-                    uuaVar.getClass();
-                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
-                    ?? vuaVar = new vua(uuaVar, nativeExpressADData2, expressAdListenerWrapper, sid);
-                    expressAdListenerWrapper.listener = vuaVar;
-                    nativeExpressADData2.setAdEventListener(vuaVar);
-                    nativeExpressADData2.render();
-                    return;
-                }
-                this.b.onError(0, "NoFill");
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            this.e.remove(nativeExpressADData2);
-            if (nativeExpressADData2 != null) {
-                nativeExpressADData2.destroy();
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
+    public static Bitmap f(String str) {
+        FileInputStream fileInputStream;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((NativeExpressADData2) obj).getECPM() / 100.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                fileInputStream = new FileInputStream(str);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                fileInputStream = null;
+            }
+            return BitmapFactory.decodeStream(fileInputStream);
         }
-        return invokeL.doubleValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
+    public static int b(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (NativeExpressADData2) obj, new wua(this, this));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 > i2 && i7 / i5 > i) {
+                    i5 *= 2;
+                }
+            }
+            return i5;
         }
-        return (FunNativeAd2) invokeLLL.objValue;
+        return invokeLII.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                nativeExpressADData2.sendWinNotification((int) d3);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
-            }
-            nativeExpressADData2.sendLossNotification((int) d3, i2, "");
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(compressFormat, i, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         }
+        return (Bitmap) invokeLLI.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, obj)) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            onShowStart(nativeExpressADData2);
-            View adView = nativeExpressADData2.getAdView();
-            if (adView.getParent() != null) {
-                ((ViewGroup) adView.getParent()).removeView(adView);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
+            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
+                bitmap.recycle();
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(adView);
-            return true;
+            return createBitmap;
         }
-        return invokeLLLL.booleanValue;
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap e(String str, int i, int i2, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            if (!FileUtils.isExists(str)) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            options.inSampleSize = b(options, i, i2);
+            options.inJustDecodeBounds = false;
+            Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
+            if (f % 360.0f == 0.0f) {
+                return decodeFile;
+            }
+            if (decodeFile == null) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postRotate(f);
+            Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
+            decodeFile.recycle();
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i > 0 && i2 > 0 && bitmap != null && !bitmap.isRecycled()) {
+                boolean z3 = true;
+                if (bitmap.getWidth() > bitmap.getHeight()) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (i <= i2) {
+                    z3 = false;
+                }
+                if (z2 != z3) {
+                    i2 = i;
+                    i = i2;
+                }
+                if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
+                    return i(bitmap, i, i2, z);
+                }
+                return bitmap;
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                Matrix matrix = new Matrix();
+                matrix.postScale(i / width, i2 / height);
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                    bitmap.recycle();
+                }
+                return createBitmap;
+            }
+            return null;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                if (width == 0 || height == 0 || i == 0 || i2 == 0) {
+                    return bitmap;
+                }
+                float f = width;
+                float f2 = height;
+                float f3 = (f * 1.0f) / f2;
+                float f4 = i * 1.0f;
+                float f5 = i2;
+                float f6 = f4 / f5;
+                if (Math.abs(f3 - f6) < 0.01d) {
+                    i4 = width;
+                } else if (f3 > f6) {
+                    i4 = (i * height) / i2;
+                } else {
+                    i3 = (i2 * width) / i;
+                    i4 = width;
+                    if (width <= i4) {
+                        i5 = (width - i4) / 2;
+                    } else {
+                        i5 = 0;
+                    }
+                    if (height <= i3) {
+                        i6 = (height - i3) / 2;
+                    } else {
+                        i6 = 0;
+                    }
+                    Matrix matrix = new Matrix();
+                    matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
+                    if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                        bitmap.recycle();
+                    }
+                    return createBitmap;
+                }
+                i3 = height;
+                if (width <= i4) {
+                }
+                if (height <= i3) {
+                }
+                Matrix matrix2 = new Matrix();
+                matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
+                Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
+                if (z) {
+                    bitmap.recycle();
+                }
+                return createBitmap2;
+            }
+            return null;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return wqa.c().getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

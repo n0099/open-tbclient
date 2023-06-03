@@ -1,157 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ts5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] b;
-    public static ts5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
+    public vs5 a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ts5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ts5 ts5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ts5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.a.d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191795, "Lcom/baidu/tieba/ts5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191795, "Lcom/baidu/tieba/ts5;");
-                return;
-            }
-        }
-        b = new byte[1];
-    }
-
-    public ts5() {
+    public ts5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        BdNetTypeUtil.init();
+        this.b = str;
     }
 
-    public static ts5 b() {
-        InterceptResult invokeV;
+    public final void a(String str, int i) {
+        int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (b) {
-                    if (c == null) {
-                        c = new ts5();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || ui.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
+            return;
         }
-        return (ts5) invokeV.objValue;
-    }
-
-    public final CustomMessageListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this, 2000994);
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
         }
-        return (CustomMessageListener) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = c();
-                    MessageManager.getInstance().registerListener(this.a);
-                }
-            } catch (Exception e) {
-                this.a = null;
-                BdLog.e(e.getMessage());
-            }
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            us5.a();
         }
     }
 
-    public final void d() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
-                if (isNetWorkAvailable) {
-                    if (BdNetTypeUtil.isWifiNet()) {
-                        TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        hh9.e().f();
-                    } else if (BdNetTypeUtil.isMobileNet()) {
-                        TbImageHelper.getInstance().setNetworkIsWifi(false);
-                    }
-                }
-                NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
-                CompatibleUtile.dealWebView(null);
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
+            if (this.a == null) {
+                this.a = new vs5();
             }
+            this.a.c();
+        }
+    }
+
+    public void c() {
+        vs5 vs5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (vs5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
+            vs5Var.d();
+            a(this.b, this.a.b());
         }
     }
 }

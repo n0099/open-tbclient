@@ -6,7 +6,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpRequestExecutor {
     public HttpRequestExecutor() {
         throw new RuntimeException("Stub!");

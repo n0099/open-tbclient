@@ -148,7 +148,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                                 stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
                                                 stringBuffer.append(entry.getValue());
                                                 stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                                dataOutputStream.write(stringBuffer.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                                dataOutputStream.write(stringBuffer.toString().getBytes("utf-8"));
                                             }
                                             StringBuffer stringBuffer2 = new StringBuffer();
                                             stringBuffer2.append("--");
@@ -160,7 +160,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                             sb.append(IMAudioTransRequest.FORM_LINEEND);
                                             stringBuffer2.append(sb.toString());
                                             stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
-                                            dataOutputStream.write(stringBuffer2.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                            dataOutputStream.write(stringBuffer2.toString().getBytes("utf-8"));
                                             fileInputStream = new FileInputStream(file);
                                             try {
                                                 byte[] bArr = new byte[1024];
@@ -171,8 +171,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                                     }
                                                     dataOutputStream.write(bArr, 0, read);
                                                 }
-                                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes(IMAudioTransRequest.CHARSET));
-                                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes(IMAudioTransRequest.CHARSET));
+                                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes("utf-8"));
+                                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes("utf-8"));
                                                 dataOutputStream.flush();
                                                 int responseCode = httpURLConnection.getResponseCode();
                                                 if (responseCode == 200) {

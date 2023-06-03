@@ -8,7 +8,7 @@ import com.qq.e.comm.managers.setting.GlobalSetting;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DoubleMetaphone implements StringEncoder {
     public static final String VOWELS = "AEIOUY";
     public int maxCodeLen = 4;
@@ -17,7 +17,7 @@ public class DoubleMetaphone implements StringEncoder {
     public static final String[] ES_EP_EB_EL_EY_IB_IL_IN_IE_EI_ER = {"ES", "EP", "EB", "EL", "EY", "IB", "IL", "IN", "IE", "EI", "ER"};
     public static final String[] L_T_K_S_N_M_B_Z = {"L", ExifInterface.GPS_DIRECTION_TRUE, "K", ExifInterface.LATITUDE_SOUTH, "N", "M", "B", "Z"};
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class DoubleMetaphoneResult {
         public final StringBuffer alternate;
         public final int maxLength;

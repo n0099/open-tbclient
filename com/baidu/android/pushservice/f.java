@@ -16,6 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.util.Utility;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -469,7 +470,7 @@ public class f {
     public final PendingIntent f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? PendingIntent.getBroadcast(this.e.getApplicationContext(), 0, e.j(this.e), Utility.a(134217728)) : (PendingIntent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? PendingIntent.getBroadcast(this.e.getApplicationContext(), 0, e.j(this.e), Utility.a((int) SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION)) : (PendingIntent) invokeV.objValue;
     }
 
     public Context g() {

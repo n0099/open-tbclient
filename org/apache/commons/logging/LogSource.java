@@ -3,7 +3,7 @@ package org.apache.commons.logging;
 import java.lang.reflect.Constructor;
 import java.util.Hashtable;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class LogSource {
     public static boolean jdk14IsAvailable;
     public static boolean log4jIsAvailable;

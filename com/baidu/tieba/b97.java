@@ -1,67 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes4.dex */
-public class b97 {
+/* loaded from: classes5.dex */
+public class b97 extends r77<CardVideoView, m47> {
     public static /* synthetic */ Interceptable $ic;
-    public static final b97 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947599881, "Lcom/baidu/tieba/b97;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947599881, "Lcom/baidu/tieba/b97;");
-                return;
-            }
-        }
-        b = new b97();
-    }
-
-    public b97() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b97(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LongSparseArray<>();
     }
 
-    public static b97 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            o97.j(a);
+            return a;
         }
-        return (b97) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void b(long j) {
-        LinkedList<String> linkedList;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g87
+    /* renamed from: e */
+    public void b(@NonNull CardVideoView cardVideoView, @NonNull m47 m47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (linkedList = this.a.get(j)) != null) {
-            linkedList.clear();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, m47Var) == null) {
+            cardVideoView.f(m47Var);
         }
     }
 }

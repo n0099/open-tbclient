@@ -22,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.ui.SafeIntent;
@@ -308,7 +307,7 @@ public class BridgeActivity extends Activity {
             }
             Window window = getWindow();
             if (b >= 9) {
-                window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                window.addFlags(67108864);
                 a(window, true);
             }
             window.getDecorView().setSystemUiVisibility(0);

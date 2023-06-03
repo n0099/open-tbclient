@@ -1,173 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.aj2;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.webkit.internal.GlobalConstants;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 /* loaded from: classes8.dex */
 public class yh2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final int b;
-    public static final int c;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ zk4 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ aj2.b e;
-        public final /* synthetic */ yh2 f;
-
-        public a(yh2 yh2Var, Set set, boolean z, zk4 zk4Var, long j, aj2.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh2Var, set, Boolean.valueOf(z), zk4Var, Long.valueOf(j), bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = yh2Var;
-            this.a = set;
-            this.b = z;
-            this.c = zk4Var;
-            this.d = j;
-            this.e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashSet hashSet = new HashSet();
-                Set set = this.a;
-                if (set != null) {
-                    hashSet.addAll(set);
-                }
-                Set<String> f = cs2.f();
-                hashSet.addAll(f);
-                g62.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
-                Set<String> b = vh2.b();
-                hashSet.addAll(b);
-                g62.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
-                Map<String, PMSAppInfo> v = dh4.i().v();
-                if (!sh2.c().d().n(v)) {
-                    g62.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
-                    return;
-                }
-                if (yh2.a) {
-                    Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
-                }
-                cs2.d(hashSet, v);
-                Map m = this.f.m(86400000L, v);
-                if (m.isEmpty()) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList(m.keySet());
-                yh2.k(hashSet, arrayList);
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                yh2.l(arrayList, arrayList2, arrayList3);
-                ArrayList arrayList4 = new ArrayList();
-                if (this.b) {
-                    i = yh2.b;
-                } else {
-                    i = this.c.d;
-                }
-                int max = Math.max(10, i);
-                yh2.r(arrayList3, max, arrayList4);
-                long j = this.c.e;
-                yh2.q(arrayList3, j * 3600000, arrayList4, m);
-                if (this.b) {
-                    i2 = yh2.c;
-                } else {
-                    i2 = this.c.b;
-                }
-                int max2 = Math.max(40, i2);
-                yh2.r(arrayList2, max2, arrayList4);
-                long j2 = this.c.c;
-                yh2.q(arrayList2, 3600000 * j2, arrayList4, m);
-                g62.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
-                sh2.c().d().g(arrayList4, false, false, this.e);
-                yc2.c();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements Comparator<PMSAppInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) {
-                return Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime);
-            }
-            return invokeLL.intValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -182,183 +42,228 @@ public class yh2 {
                 return;
             }
         }
-        a = qp1.a;
-        ns2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        b = 0;
-        ns2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        c = 0;
+        a = is1.a;
+        b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        StringBuilder sb = new StringBuilder();
+        sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
+        sb.append(File.separator);
+        sb.append("libs");
+        c = sb.toString();
+        d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
-    public yh2() {
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0173 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a() {
+        FileLock fileLock;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: start");
+            }
+            File file = new File(b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+            if (file.exists() && file.length() > 0) {
+                File file2 = new File(c);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
+                long j = mk3.a().getLong("zeus_v8_modified_time", -1L);
+                if (file.lastModified() == j && file.length() == file3.length()) {
+                    if (a) {
+                        Log.d("SwanSailorHelper", "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length());
+                        return;
+                    }
+                    return;
+                }
+                if (a) {
+                    Log.d("SwanSailorHelper", "fixSoLoadCrash: start copy");
+                }
+                FileInputStream fileInputStream = null;
+                try {
+                    File file4 = new File(file2, "libzeusv8.so.lock");
+                    if (!file4.exists()) {
+                        try {
+                            file4.createNewFile();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    FileChannel channel = new RandomAccessFile(file4, "rw").getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (fileLock != null) {
+                            try {
+                                if (fileLock.isValid()) {
+                                    long lastModified = file.lastModified();
+                                    FileInputStream fileInputStream2 = new FileInputStream(file);
+                                    try {
+                                        fileOutputStream = new FileOutputStream(file3);
+                                        try {
+                                            byte[] bArr = new byte[8192];
+                                            while (true) {
+                                                int read = fileInputStream2.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            mk3.a().putLong("zeus_v8_modified_time", lastModified);
+                                            fileInputStream = fileInputStream2;
+                                            cs4.d(fileInputStream);
+                                            cs4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                                try {
+                                                    fileLock.release();
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                            cs4.d(channel);
+                                        } catch (Exception e2) {
+                                            fileChannel = channel;
+                                            e = e2;
+                                            fileInputStream = fileInputStream2;
+                                            try {
+                                                e.printStackTrace();
+                                                cs4.d(fileInputStream);
+                                                cs4.d(fileOutputStream);
+                                                if (fileLock != null) {
+                                                    try {
+                                                        fileLock.release();
+                                                    } catch (IOException e3) {
+                                                        e3.printStackTrace();
+                                                    }
+                                                }
+                                                cs4.d(fileChannel);
+                                                return;
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                cs4.d(fileInputStream);
+                                                cs4.d(fileOutputStream);
+                                                if (fileLock != null) {
+                                                    try {
+                                                        fileLock.release();
+                                                    } catch (IOException e4) {
+                                                        e4.printStackTrace();
+                                                    }
+                                                }
+                                                cs4.d(fileChannel);
+                                                throw th;
+                                            }
+                                        } catch (Throwable th2) {
+                                            fileChannel = channel;
+                                            th = th2;
+                                            fileInputStream = fileInputStream2;
+                                            cs4.d(fileInputStream);
+                                            cs4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                            }
+                                            cs4.d(fileChannel);
+                                            throw th;
+                                        }
+                                    } catch (Exception e5) {
+                                        fileChannel = channel;
+                                        e = e5;
+                                        fileOutputStream = null;
+                                    } catch (Throwable th3) {
+                                        fileChannel = channel;
+                                        th = th3;
+                                        fileOutputStream = null;
+                                    }
+                                }
+                            } catch (Exception e6) {
+                                fileChannel = channel;
+                                e = e6;
+                                fileOutputStream = null;
+                            } catch (Throwable th4) {
+                                fileChannel = channel;
+                                th = th4;
+                                fileOutputStream = null;
+                            }
+                        }
+                        fileOutputStream = null;
+                        cs4.d(fileInputStream);
+                        cs4.d(fileOutputStream);
+                        if (fileLock != null) {
+                        }
+                        cs4.d(channel);
+                    } catch (Exception e7) {
+                        fileChannel = channel;
+                        fileOutputStream = null;
+                        e = e7;
+                        fileLock = null;
+                    } catch (Throwable th5) {
+                        fileChannel = channel;
+                        fileOutputStream = null;
+                        th = th5;
+                        fileLock = null;
+                    }
+                } catch (Exception e8) {
+                    e = e8;
+                    fileLock = null;
+                    fileOutputStream = null;
+                    fileChannel = null;
+                } catch (Throwable th6) {
+                    th = th6;
+                    fileLock = null;
+                    fileOutputStream = null;
+                    fileChannel = null;
+                }
+            } else if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: srcFile is not exist");
             }
         }
     }
 
-    public static boolean n() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return uh3.a().getBoolean("key_disk_force_clean", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
         }
         return invokeV.booleanValue;
     }
 
-    @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, aj2.b bVar) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                j(set, z, bVar);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            mk3.a().putLong("zeus_v8_modified_time", -1L);
+            if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: resetZeusV8ModifiedTime");
             }
         }
     }
 
-    public static void k(Set<String> set, List<String> list) {
+    public static th3 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
-            if (set != null) {
-                Iterator<String> it = list.iterator();
-                while (it.hasNext()) {
-                    if (set.contains(it.next())) {
-                        it.remove();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+            if (z) {
+                return th3.c(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
+            }
+            boolean z2 = true;
+            if (b()) {
+                a();
+                bi2.g(AppRuntime.getAppContext(), b);
+                boolean h = bi2.h("zeusv8", c, true);
+                if (new File(b + File.separator + "libv8.engine.so").exists()) {
+                    if (!bi2.h("arcore_sdk_c", b, false) || !bi2.h("arcore_sdk_jni", b, false) || !bi2.h(SwanKV.LIB_CPP_SHARED, b, false) || !bi2.h("v8.engine", b, false)) {
+                        z2 = false;
                     }
-                }
-            }
-            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        }
-    }
-
-    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
-            Set<String> i = jg2.i(AppRuntime.getAppContext().getContentResolver());
-            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
-            HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : i2) {
-                hashSet.add(swanFavorItemData.getAppKey());
-            }
-            for (String str : list) {
-                if (!i.contains(str) && !hashSet.contains(str)) {
-                    list3.add(str);
                 } else {
-                    list2.add(str);
+                    z2 = SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
                 }
+                return th3.d(h, z2);
             }
+            bi2.h("zeusv8", d, true);
+            return th3.c(bi2.h("v8.engine", d, true));
         }
-    }
-
-    @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, aj2.b bVar) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    if (a) {
-                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
-                    }
-                    return;
-                }
-                g62.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                zk4 a2 = al4.b().a();
-                if (z && wh2.a()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                long j = a2.a;
-                if (!z2 && o(3600000 * j)) {
-                    return;
-                }
-                uh3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
-            }
-        }
-    }
-
-    public static boolean o(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (System.currentTimeMillis() - uh3.a().getLong("clean_disk_check_time", 0L) < j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public static void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            uh3.a().putBoolean("key_disk_force_clean", z);
-        }
-    }
-
-    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
-            Iterator<String> it = list.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
-                    list2.add(next);
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public static void r(List<String> list, int i, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) && list != null && !list.isEmpty() && i >= 0 && i < list.size()) {
-            Iterator<String> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next)) {
-                    int i3 = i2 + 1;
-                    if (i2 >= i) {
-                        list2.add(next);
-                        it.remove();
-                    }
-                    i2 = i3;
-                }
-            }
-        }
-    }
-
-    @NonNull
-    @WorkerThread
-    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
-                Collections.sort(arrayList, new b(null));
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (PMSAppInfo pMSAppInfo : arrayList) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = pMSAppInfo.createTime;
-                    if (currentTimeMillis - j2 > j) {
-                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
-                    }
-                }
-                return linkedHashMap;
-            }
-            return Collections.emptyMap();
-        }
-        return (Map) invokeJL.objValue;
+        return (th3) invokeZ.objValue;
     }
 }

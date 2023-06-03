@@ -2,200 +2,174 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dq1 extends db3 {
+public class dq1 extends cq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq1 c;
 
     /* loaded from: classes5.dex */
-    public class a implements aq1 {
+    public class a extends cr1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final UnitedSchemeEntity a;
-        public final CallbackHandler b;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ dq1 c;
 
-        public a(dq1 dq1Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public a(dq1 dq1Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dq1Var, unitedSchemeEntity, callbackHandler};
+                Object[] objArr = {dq1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
+            this.c = dq1Var;
+            this.b = i;
         }
 
-        @Override // com.baidu.tieba.aq1
-        public void a(int i) {
+        @Override // com.baidu.tieba.cr1
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                UnitedSchemeUtility.callCallback(this.b, this.a, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    hr1.d(th);
+                    dq1 dq1Var = this.c;
+                    dq1Var.d(this.b, 3, 2009, dq1Var.c, "cu on getToken unknown error.");
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements cq1 {
+    public class b extends cr1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final CallbackHandler a;
-        public final String b;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ dq1 c;
 
-        public b(dq1 dq1Var, CallbackHandler callbackHandler, String str) {
+        public b(dq1 dq1Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dq1Var, callbackHandler, str};
+                Object[] objArr = {dq1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
+            this.c = dq1Var;
+            this.b = i;
         }
 
-        @Override // com.baidu.tieba.cq1
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", jSONObject.toString());
-                    tu2.U().u(new hj2("rewardedVideoAdClose", hashMap));
-                    return;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("event", "close");
-                    jSONObject2.put("result", jSONObject);
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cq1
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", jSONObject.toString());
-                    tu2.U().u(new hj2("rewardedVideoAdError", hashMap));
-                    return;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("event", "error");
-                    jSONObject2.put("result", jSONObject);
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cq1
+        @Override // com.baidu.tieba.cr1
         public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    tu2.U().u(new hj2("rewardedVideoAdLoad", new HashMap()));
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    jSONObject.put("event", "load");
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    hr1.d(th);
+                    dq1 dq1Var = this.c;
+                    dq1Var.n(this.b, 3, 2009, dq1Var.c, "cu on getToken unknown error.");
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq1(da3 da3Var) {
-        super(da3Var, "/swanAPI/rewardedVideoAd");
+    public dq1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.cq1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = a2.optString("cb");
-            String optString2 = a2.optString("action");
-            b bVar = new b(this, callbackHandler, optString);
-            a aVar = new a(this, unitedSchemeEntity, callbackHandler);
-            if (this.c == null) {
-                this.c = new fq1(a2, bVar, aVar);
-            }
-            if (TextUtils.equals(optString2, "show")) {
-                this.c.a(a2, aVar);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            er1.c().b(new a(this, i));
+        }
+    }
+
+    @Override // com.baidu.tieba.cq1
+    public void p(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            er1.c().b(new b(this, i));
+        }
+    }
+
+    @Override // com.baidu.tieba.cq1
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
                 return true;
-            } else if (TextUtils.equals(optString2, "load")) {
-                this.c.b(a2, aVar, bVar);
+            } else if (this.f - System.currentTimeMillis() < gr1.a) {
+                this.g = null;
+                this.f = 0L;
                 return true;
             } else {
-                return true;
+                return false;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cq1
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < gr1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

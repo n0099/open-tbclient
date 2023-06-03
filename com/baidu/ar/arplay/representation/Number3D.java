@@ -166,7 +166,7 @@ public class Number3D {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Number3D m30clone() {
+    public Number3D m44clone() {
         return new Number3D(this.x, this.y, this.z);
     }
 

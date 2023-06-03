@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static void a(final InputStream inputStream) {
         e.a.execute(new Runnable() { // from class: com.bytedance.pangle.d.a.1

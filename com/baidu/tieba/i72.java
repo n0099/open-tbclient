@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.graphics.Paint;
+import android.text.style.LineHeightSpan;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,26 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class i72 {
+/* loaded from: classes6.dex */
+public class i72 implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @SuppressLint({"BDOfflineUrl"})
-    public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,17 +30,15 @@ public class i72 {
                 return;
             }
         }
-        h = qp1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        b = is1.a;
     }
 
-    public i72() {
+    public i72(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -65,45 +48,32 @@ public class i72 {
                 return;
             }
         }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
+        this.a = i;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // android.text.style.LineHeightSpan
+    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", li3.h(0));
-                jSONObject.putOpt("appVersion", an3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
+            }
+            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
+                }
+                int i6 = (this.a - i5) / 2;
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
+                }
+                fontMetricsInt.descent += i6;
+                fontMetricsInt.ascent -= i6;
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
                 }
             }
-            return jSONArray.toString();
         }
-        return (String) invokeV.objValue;
     }
 }

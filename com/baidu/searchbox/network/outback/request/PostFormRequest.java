@@ -5,10 +5,10 @@ import com.baidu.searchbox.network.outback.core.FormBody;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostFormRequest extends Request {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostFormRequestBuilder extends Request.Builder<PostFormRequestBuilder> {
         public FormBody.Builder bodyBuilder;
 

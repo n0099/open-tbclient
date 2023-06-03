@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSettingEx;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public Context a;
     public List<Intent> b;

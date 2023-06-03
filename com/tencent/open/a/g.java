@@ -15,7 +15,7 @@ import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.huawei.hms.adapter.internal.CommonCode;
-import com.qq.e.comm.constants.Constants;
+import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
@@ -260,7 +260,7 @@ public class g {
                                 try {
                                     l.a openUrl2 = HttpUtils.openUrl2(com.tencent.open.utils.f.a(), "https://appsupport.qq.com/cgi-bin/appstage/mstats_batch_report", "POST", d);
                                     try {
-                                        i = l.d(openUrl2.a).getInt(Constants.KEYS.RET);
+                                        i = l.d(openUrl2.a).getInt("ret");
                                     } catch (JSONException unused) {
                                         i = -4;
                                     }
@@ -381,12 +381,12 @@ public class g {
                     String k3 = l.k(c.a());
                     String k4 = l.k(c.d(com.tencent.open.utils.f.a()));
                     Bundle bundle2 = new Bundle();
-                    bundle2.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
+                    bundle2.putString("uin", Constants.DEFAULT_UIN);
                     bundle2.putString("imei", k);
                     bundle2.putString(BaseStatisContent.IMSI, k2);
                     bundle2.putString(HttpRequest.ANDROID_ID, k4);
                     bundle2.putString("mac", k3);
-                    bundle2.putString(com.tencent.connect.common.Constants.PARAM_PLATFORM, "1");
+                    bundle2.putString(Constants.PARAM_PLATFORM, "1");
                     bundle2.putString("os_ver", Build.VERSION.RELEASE);
                     bundle2.putString(CriusAttrConstants.POSITION, "");
                     bundle2.putString("network", a.a(com.tencent.open.utils.f.a()));
@@ -395,8 +395,8 @@ public class g {
                     bundle2.putString("apn", a.b(com.tencent.open.utils.f.a()));
                     bundle2.putString("model_name", Build.MODEL);
                     bundle2.putString(BaseStatisContent.TIMEZONE, TimeZone.getDefault().getID());
-                    bundle2.putString("sdk_ver", com.tencent.connect.common.Constants.SDK_VERSION);
-                    bundle2.putString("qz_ver", l.d(com.tencent.open.utils.f.a(), com.tencent.connect.common.Constants.PACKAGE_QZONE));
+                    bundle2.putString("sdk_ver", Constants.SDK_VERSION);
+                    bundle2.putString("qz_ver", l.d(com.tencent.open.utils.f.a(), Constants.PACKAGE_QZONE));
                     bundle2.putString("qq_ver", l.c(com.tencent.open.utils.f.a(), "com.tencent.mobileqq"));
                     bundle2.putString("qua", l.e(com.tencent.open.utils.f.a(), com.tencent.open.utils.f.b()));
                     bundle2.putString("packagename", com.tencent.open.utils.f.b());
@@ -478,7 +478,7 @@ public class g {
                     bundle.putString("resultCode", i + "");
                     bundle.putString("rspSize", j3 + "");
                     bundle.putString("timeCost", elapsedRealtime + "");
-                    bundle.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
+                    bundle.putString("uin", Constants.DEFAULT_UIN);
                     g.this.c.add(new b(bundle));
                     int size = g.this.c.size();
                     int a4 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
@@ -786,9 +786,9 @@ public class g {
         Bundle bundle = new Bundle();
         try {
             bundle.putString("appid", str);
-            bundle.putString("releaseversion", com.tencent.connect.common.Constants.SDK_VERSION_REPORT);
+            bundle.putString("releaseversion", Constants.SDK_VERSION_REPORT);
             bundle.putString(Config.DEVICE_PART, Build.DEVICE);
-            bundle.putString("qua", com.tencent.connect.common.Constants.SDK_QUA);
+            bundle.putString("qua", Constants.SDK_QUA);
             bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
             for (int i = 0; i < this.c.size(); i++) {
                 b bVar2 = (b) this.c.get(i);

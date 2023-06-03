@@ -1,6 +1,7 @@
 package com.baidu.cyberplayer.sdk.loader;
 
 import android.os.Build;
+import android.system.Os;
 import android.util.AndroidRuntimeException;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
@@ -73,11 +74,18 @@ public class CyberClassLoader extends BaseDexClassLoader {
 
     public CyberClassLoader(String str, File file, String str2, ClassLoader classLoader) {
         super(a(str, "super()"), file, str2, classLoader);
-        if (Build.VERSION.SDK_INT >= 21 || !str.endsWith(".so")) {
-            return;
+        if (Build.VERSION.SDK_INT < 21 && str.endsWith(".so")) {
+            CyberLog.d("CyberClassLoader", "makeDexElements for our package. < L");
+            a(str, file, str2, classLoader);
         }
-        CyberLog.d("CyberClassLoader", "makeDexElements for our package. < L");
-        a(str, file, str2, classLoader);
+    }
+
+    public static void a(Class cls, Object obj, String str, Object obj2) throws Exception {
+        Field declaredField = cls.getDeclaredField(str);
+        boolean isAccessible = declaredField.isAccessible();
+        declaredField.setAccessible(true);
+        declaredField.set(obj, obj2);
+        declaredField.setAccessible(isAccessible);
     }
 
     public static Object a(Class cls, Object obj, String str) throws Exception {
@@ -87,6 +95,15 @@ public class CyberClassLoader extends BaseDexClassLoader {
         Object obj2 = declaredField.get(obj);
         declaredField.setAccessible(isAccessible);
         return obj2;
+    }
+
+    public static void b(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+        Field b2 = b(obj, str);
+        Object[] objArr2 = (Object[]) b2.get(obj);
+        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
+        System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
+        System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
+        b2.set(obj, objArr3);
     }
 
     public static String a(String str, String str2) {
@@ -112,44 +129,43 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 }
                 i++;
             }
-            if (b == null) {
-                throw new AndroidRuntimeException("DexPathList$Element not found!");
+            if (b != null) {
+                return;
             }
+            throw new AndroidRuntimeException("DexPathList$Element not found!");
         }
-    }
-
-    public static void a(Class cls, Object obj, String str, Object obj2) throws Exception {
-        Field declaredField = cls.getDeclaredField(str);
-        boolean isAccessible = declaredField.isAccessible();
-        declaredField.setAccessible(true);
-        declaredField.set(obj, obj2);
-        declaredField.setAccessible(isAccessible);
     }
 
     public static void a(ClassLoader classLoader, File file) throws Throwable {
         int i;
-        if (file == null || !file.exists()) {
-            CyberLog.e("CyberClassLoader", "installNativeLibraryPath, folder (" + file + ") is illegal");
-        } else if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || (i = Build.VERSION.SDK_INT) > 25) {
-            try {
-                c.b(classLoader, file);
-            } catch (Throwable th) {
-                CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v25 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th.getMessage() + ", try to fallback to V23");
-            }
-        } else {
-            if (i >= 23) {
+        if (file != null && file.exists()) {
+            if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || (i = Build.VERSION.SDK_INT) > 25) {
+                try {
+                    c.b(classLoader, file);
+                    return;
+                } catch (Throwable th) {
+                    CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v25 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th.getMessage() + ", try to fallback to V23");
+                    b.b(classLoader, file);
+                    return;
+                }
+            } else if (i >= 23) {
                 try {
                     b.b(classLoader, file);
                     return;
                 } catch (Throwable th2) {
                     CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v23 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th2.getMessage() + ", try to fallback to V14");
+                    a.b(classLoader, file);
+                    return;
                 }
-            } else if (i < 14) {
+            } else if (i >= 14) {
+                a.b(classLoader, file);
+                return;
+            } else {
                 d.b(classLoader, file);
                 return;
             }
-            a.b(classLoader, file);
         }
+        CyberLog.e("CyberClassLoader", "installNativeLibraryPath, folder (" + file + ") is illegal");
     }
 
     private void a(String str, File file, String str2, ClassLoader classLoader) {
@@ -162,10 +178,10 @@ public class CyberClassLoader extends BaseDexClassLoader {
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
                 newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
-            } else if (length != 3) {
-                throw new Exception("Unsupported:" + constructor.toGenericString());
-            } else {
+            } else if (length == 3) {
                 newInstance = constructor.newInstance(new File(str), null, loadDex);
+            } else {
+                throw new Exception("Unsupported:" + constructor.toGenericString());
             }
             Object newInstance2 = Array.newInstance(b, 1);
             Array.set(newInstance2, 0, newInstance);
@@ -181,26 +197,15 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     public static void addNativeLibraryDirectories(ClassLoader classLoader, String[] strArr) {
-        StringBuilder sb;
-        String th;
-        if (strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            try {
-                a(classLoader, new File(str));
-            } catch (Exception e) {
-                sb = new StringBuilder();
-                sb.append("addNativeLibraryDirectories:");
-                th = e.toString();
-                sb.append(th);
-                CyberLog.e("CyberClassLoader", sb.toString());
-            } catch (Throwable th2) {
-                sb = new StringBuilder();
-                sb.append("addNativeLibraryDirectories:");
-                th = th2.toString();
-                sb.append(th);
-                CyberLog.e("CyberClassLoader", sb.toString());
+        if (strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                try {
+                    a(classLoader, new File(str));
+                } catch (Exception e) {
+                    CyberLog.e("CyberClassLoader", "addNativeLibraryDirectories:" + e.toString());
+                } catch (Throwable th) {
+                    CyberLog.e("CyberClassLoader", "addNativeLibraryDirectories:" + th.toString());
+                }
             }
         }
     }
@@ -233,13 +238,31 @@ public class CyberClassLoader extends BaseDexClassLoader {
         throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
     }
 
-    public static void b(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Field b2 = b(obj, str);
-        Object[] objArr2 = (Object[]) b2.get(obj);
-        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-        System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-        System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-        b2.set(obj, objArr3);
+    public static CyberClassLoader createClassLoader(String str, File file, String str2, ClassLoader classLoader) {
+        CyberLog.d("CyberClassLoader", "dexPath:" + str);
+        if (Build.VERSION.SDK_INT >= 31) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (!new File(str).exists()) {
+                CyberLog.e("CyberClassLoader", "Failed to found dexFile:" + str);
+            } else if (lastIndexOf >= 0 && lastIndexOf < str.length() - 1) {
+                try {
+                    String substring = str.substring(0, lastIndexOf);
+                    String replace = str.substring(lastIndexOf + 1).replace(".", "_");
+                    File file2 = new File(substring, replace);
+                    if (!file2.exists()) {
+                        CyberLog.d("CyberClassLoader", "SymLink not exists");
+                        Os.symlink(str, substring + File.separator + replace);
+                    }
+                    str = file2.getAbsolutePath();
+                    CyberLog.d("CyberClassLoader", "SymLink path:" + str);
+                } catch (Exception e) {
+                    CyberLog.e("CyberClassLoader", "Failed to create symlink:" + e.toString());
+                }
+            } else {
+                CyberLog.e("CyberClassLoader", "Failed to found '/' in:" + str);
+            }
+        }
+        return new CyberClassLoader(str, file, str2, classLoader);
     }
 
     @Override // java.lang.ClassLoader

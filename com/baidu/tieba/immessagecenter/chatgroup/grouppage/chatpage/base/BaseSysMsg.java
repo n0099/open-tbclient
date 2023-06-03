@@ -9,7 +9,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.vn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {
@@ -347,7 +347,7 @@ public abstract class BaseSysMsg extends BaseMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return pg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
+                return tg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
             }
             return invokeV.longValue;
         }

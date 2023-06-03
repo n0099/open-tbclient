@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i2b;
+import com.baidu.tieba.sab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,27 +49,27 @@ public class k extends TaskApiCall<PushClient, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
     /* renamed from: a */
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, i2b<Void> i2bVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, sab<Void> sabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, i2bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, sabVar) == null) {
             if (responseErrorCode.getErrorCode() != 0) {
                 String str2 = HmsInstanceId.TAG;
                 HMSLog.e(str2, "DeleteTokenTask failed, ErrorCode: " + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    i2bVar.c(fromCode.toApiException());
+                    sabVar.c(fromCode.toApiException());
                     return;
                 } else {
-                    i2bVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    sabVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                     return;
                 }
             }
             ErrorEnum fromCode2 = ErrorEnum.fromCode(((DeleteTokenResp) JsonUtil.jsonToEntity(str, new DeleteTokenResp())).getRetCode());
             if (fromCode2 != ErrorEnum.SUCCESS) {
-                i2bVar.c(fromCode2.toApiException());
+                sabVar.c(fromCode2.toApiException());
                 return;
             }
-            i2bVar.setResult(null);
+            sabVar.setResult(null);
             q.a(pushClient.getContext(), getUri(), responseErrorCode);
         }
     }

@@ -1,6 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.util;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
@@ -109,7 +109,7 @@ public final class OperatorNameConventions {
         Name identifier6 = Name.identifier("contains");
         Intrinsics.checkExpressionValueIsNotNull(identifier6, "Name.identifier(\"contains\")");
         CONTAINS = identifier6;
-        Name identifier7 = Name.identifier("invoke");
+        Name identifier7 = Name.identifier(DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST);
         Intrinsics.checkExpressionValueIsNotNull(identifier7, "Name.identifier(\"invoke\")");
         INVOKE = identifier7;
         Name identifier8 = Name.identifier("iterator");
@@ -121,7 +121,7 @@ public final class OperatorNameConventions {
         Name identifier10 = Name.identifier("set");
         Intrinsics.checkExpressionValueIsNotNull(identifier10, "Name.identifier(\"set\")");
         SET = identifier10;
-        Name identifier11 = Name.identifier(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+        Name identifier11 = Name.identifier("next");
         Intrinsics.checkExpressionValueIsNotNull(identifier11, "Name.identifier(\"next\")");
         NEXT = identifier11;
         Name identifier12 = Name.identifier("hasNext");

@@ -4,7 +4,7 @@ import org.apache.http.cookie.CookieSpec;
 import org.apache.http.cookie.CookieSpecFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NetscapeDraftSpecFactory implements CookieSpecFactory {
     public NetscapeDraftSpecFactory() {
         throw new RuntimeException("Stub!");

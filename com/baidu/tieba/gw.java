@@ -1,76 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public final class gw {
+/* loaded from: classes6.dex */
+public class gw {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, fw> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305853, "Lcom/baidu/tieba/gw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448305853, "Lcom/baidu/tieba/gw;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public static synchronized fw a(String str) {
-        InterceptResult invokeL;
-        fw b;
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (gw.class) {
-                b = b(str, 0);
-            }
-            return b;
-        }
-        return (fw) invokeL.objValue;
-    }
-
-    public static synchronized void c(fw fwVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, fwVar) == null) {
-            synchronized (gw.class) {
-                if (fwVar != null) {
-                    fwVar.a();
-                    a.values().remove(fwVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
         }
     }
 
-    public static synchronized fw b(String str, int i) {
-        InterceptResult invokeLI;
-        fw fwVar;
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            synchronized (gw.class) {
-                if (a.containsKey(str) && (fwVar = a.get(str)) != null) {
-                    return fwVar;
-                }
-                fw fwVar2 = new fw(str, i);
-                try {
-                    fwVar2.start();
-                } catch (Exception unused) {
-                }
-                a.put(str, fwVar2);
-                return fwVar2;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
+            if (view2.getTouchDelegate() instanceof ew) {
+                ((ew) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
+            } else {
+                view2.setTouchDelegate(new ew(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
             }
         }
-        return (fw) invokeLI.objValue;
     }
 }

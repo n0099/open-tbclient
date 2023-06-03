@@ -1,77 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.Date;
-import java.util.LinkedList;
-import protobuf.QueryHistoryMsg.MsgInfo;
-import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
-public class g58 implements CustomMessageTask.CustomRunnable<String> {
+public class g58 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745023, "Lcom/baidu/tieba/g58;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947745023, "Lcom/baidu/tieba/g58;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public g58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
-                c25.d();
-                se<byte[]> b = c25.b("tb.im_official_history");
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                byte[] bArr = b.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
-                if (bArr == null) {
-                    return null;
-                }
-                LinkedList linkedList = new LinkedList();
-                try {
-                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
-                    if (queryHistoryMsgResIdl.data.res != null) {
-                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
-                            if (msgInfo != null) {
-                                Date date = new Date();
-                                date.setTime(msgInfo.sendTime.longValue() * 1000);
-                                qi.getDateStringMouth(date);
-                                msgInfo.type.intValue();
-                                String str = msgInfo.content;
-                                msgInfo.id.intValue();
-                                linkedList.add(aVar);
-                            }
-                        }
-                    }
-                    return new ResponseLocalHistoryMessage(linkedList);
-                } catch (Exception unused) {
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicList topicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
+            topicList.topic_id.longValue();
+            String str = topicList.topic_name;
+            topicList.tag.intValue();
+            topicList.discuss_num.longValue();
+            String str2 = topicList.topic_desc;
+            String str3 = topicList.topic_pic;
+        }
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

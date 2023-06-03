@@ -1,98 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
-public class u1b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+/* loaded from: classes8.dex */
+public class u1b extends n1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeCommon;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u1b(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
-            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
-                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(k1b.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        return (SecretKey) invokeCommon.objValue;
     }
 
-    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.n1b
+    public AdSlot i(FunAdSlot funAdSlot) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
-            if (secretKey == null || bArr == null) {
-                throw new NullPointerException("key or cipherText must not be null.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, funAdSlot)) == null) {
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
             }
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
-            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setExpressViewAcceptedSize(expressWidth, expressHeight).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            if (bArr != null) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (i < 0) {
-                        bArr[i2] = (byte) (bArr[i2] << (-i));
-                    } else {
-                        bArr[i2] = (byte) (bArr[i2] >> i);
-                    }
-                }
-                return bArr;
-            }
-            throw new NullPointerException("bytes must not be null.");
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                throw new NullPointerException("left or right must not be null.");
-            }
-            if (bArr.length == bArr2.length) {
-                byte[] bArr3 = new byte[bArr.length];
-                for (int i = 0; i < bArr.length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
-                }
-                return bArr3;
-            }
-            throw new IllegalArgumentException("left and right must be the same length.");
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
-            c(bArr, -4);
-            byte[] d = d(bArr, bArr2);
-            c(d, 6);
-            return d(d, bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
+        return (AdSlot) invokeL.objValue;
     }
 }

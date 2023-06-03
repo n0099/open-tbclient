@@ -1,172 +1,257 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bi6 {
+public class bi6 implements ai6, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public TbPageContext b;
+    public LinearLayout c;
+    public ImageView d;
+    public ImageView e;
+    public ImageView f;
+    public ImageView g;
+    public ImageView h;
+    public RelativeLayout i;
+    public RelativeLayout j;
+    public RelativeLayout k;
+    public RelativeLayout l;
+    public RelativeLayout m;
+    public zh6 n;
+    public float o;
+    public float p;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && (!file.exists() ? file.mkdirs() : file.isDirectory())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bi6 a;
 
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file != null && (!file.exists() || (file.isFile() && file.delete()))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null) {
-                return false;
-            }
-            if (!file.exists()) {
-                return true;
-            }
-            if (!file.isDirectory()) {
-                return false;
-            }
-            File[] listFiles = file.listFiles();
-            if (!zh6.e(listFiles)) {
-                for (File file2 : listFiles) {
-                    if (file2 != null) {
-                        if (file2.isFile()) {
-                            if (!file2.delete()) {
-                                return false;
-                            }
-                        } else if (file2.isDirectory() && !b(file2)) {
-                            return false;
-                        }
-                    }
+        public a(bi6 bi6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bi6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return file.delete();
+            this.a = bi6Var;
         }
-        return invokeL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.p = 0.0f;
+                bi6 bi6Var = this.a;
+                bi6Var.i(bi6Var.a);
+            }
+        }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0074 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r6v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6 */
-    /* JADX WARN: Type inference failed for: r6v7, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v8 */
-    /* JADX WARN: Type inference failed for: r7v0 */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v5 */
-    /* JADX WARN: Type inference failed for: r7v7 */
-    /* JADX WARN: Type inference failed for: r7v9 */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r9v2 */
-    /* JADX WARN: Type inference failed for: r9v4 */
-    /* JADX WARN: Type inference failed for: r9v5 */
-    /* JADX WARN: Type inference failed for: r9v6 */
-    /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.Reader, java.io.InputStreamReader] */
-    public static String d(File file) {
-        ?? r6;
-        ?? r7;
-        BufferedReader bufferedReader;
+    public bi6(TbPageContext tbPageContext, int i, int i2, zh6 zh6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r6 = interceptable;
-            r7 = 65539;
-            InterceptResult invokeL = r6.invokeL(65539, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), zh6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        if (file == 0 || !file.exists() || !file.canRead()) {
-            return null;
+        this.b = tbPageContext;
+        this.n = zh6Var;
+        if (i2 > 0) {
+            this.a = (i * 1.0f) / i2;
+        } else {
+            this.a = 1.7777778f;
         }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r6 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
+        this.o = this.a;
+        this.p = 0.0f;
+        h();
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            i(this.a);
+            if (i > 0) {
+                this.a = (i2 * 1.0f) / i;
             }
-            try {
-                file = new InputStreamReader(r6);
-            } catch (Exception e) {
-                e = e;
-                file = 0;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                r7 = 0;
-                r6 = r6;
-                th = th;
-                file = r7;
-                di6.a(new Closeable[]{r6, file, r7});
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            file = 0;
-            r6 = 0;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            th = th3;
-            r6 = 0;
-            r7 = 0;
+            wg.a().post(new a(this));
         }
-        try {
-            bufferedReader = new BufferedReader(file);
-            try {
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    sb.append(readLine);
-                }
-                String sb2 = sb.toString();
-                di6.a(new Closeable[]{r6, file, bufferedReader});
-                return sb2;
-            } catch (Exception e3) {
-                e = e3;
-                e.printStackTrace();
-                di6.a(new Closeable[]{r6, file, bufferedReader});
-                return null;
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.c.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.i.setVisibility(i);
+            if (i == 8) {
+                this.p = 1.7777778f;
+                i(1.7777778f);
             }
-        } catch (Exception e4) {
-            e = e4;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            r7 = 0;
-            th = th4;
-            di6.a(new Closeable[]{r6, file, r7});
-            throw th;
+        }
+    }
+
+    public void i(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.o = f;
+            zh6 zh6Var = this.n;
+            if (zh6Var != null) {
+                zh6Var.a(f);
+            }
+            j();
+        }
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.getVisibility();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.p;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public float getRatio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.o;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.ai6
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.p = 0.0f;
+            i(this.a);
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09054b);
+            this.c = linearLayout;
+            m75 d = m75.d(linearLayout);
+            d.o(R.string.J_X05);
+            d.f(R.color.CAM_X0214);
+            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d82);
+            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d83);
+            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d80);
+            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d81);
+            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7e);
+            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7f);
+            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7a);
+            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7b);
+            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7c);
+            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d7d);
+            j();
+            this.i.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.j.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bb0));
+            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080baf));
+            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bae));
+            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bac));
+            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bad));
+            float f = this.p;
+            if (f == 0.0f) {
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bb0, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            } else if (f == 1.7777778f) {
+                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080baf, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            } else if (f == 1.3333334f) {
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bae, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            } else if (f == 0.5625f) {
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bac, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            } else if (f == 1.0f) {
+                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bad, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d83) {
+                this.p = 0.0f;
+                i(this.a);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d81) {
+                this.p = 1.7777778f;
+                i(1.7777778f);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d7f) {
+                this.p = 1.3333334f;
+                i(1.3333334f);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d7b) {
+                this.p = 0.5625f;
+                i(0.5625f);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d7d) {
+                this.p = 1.0f;
+                i(1.0f);
+            }
         }
     }
 }

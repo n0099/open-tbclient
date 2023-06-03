@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af9;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.pn7;
+import com.baidu.tieba.hl9;
+import com.baidu.tieba.ss7;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +111,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 return null;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
-            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091034)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091047)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.o);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.d);
@@ -352,7 +352,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             } else {
                 str = null;
             }
-            if (StringUtils.isNull(str) || af9.j(str) || pn7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
+            if (StringUtils.isNull(str) || hl9.j(str) || ss7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -392,7 +392,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 if (imageUrlData2 != null && !StringUtils.isNull(imageUrlData2.imageUrl)) {
                     urlDragImageView.setAssistUrl(d(imageUrlData2.imageUrl));
                 }
-                String str = (String) ListUtils.getItem(this.c, pg.e(String.valueOf(urlDragImageView.getTag()), -1));
+                String str = (String) ListUtils.getItem(this.c, tg.e(String.valueOf(urlDragImageView.getTag()), -1));
                 if (imageUrlData2 != null && str != null && (imageUrlData = this.b.get(str)) != null && (imageUrlData == imageUrlData2 || Objects.equals(imageUrlData.imageUrl, imageUrlData2.imageUrl))) {
                     return super.getItemPosition(obj);
                 }

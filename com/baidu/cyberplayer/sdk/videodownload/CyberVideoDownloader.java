@@ -1,7 +1,7 @@
 package com.baidu.cyberplayer.sdk.videodownload;
 
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.d;
+import com.baidu.cyberplayer.sdk.f;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberVideoDownloader {
@@ -70,26 +70,30 @@ public class CyberVideoDownloader {
     }
 
     public static void cancelDownload(String str) {
-        d.f(str);
+        f.f(str);
     }
 
     public static void deleteDownload(String str) {
-        d.g(str);
+        f.g(str);
     }
 
     public static void pauseDownload(String str) {
-        d.e(str);
+        f.e(str);
     }
 
     public static void setDownloadListener(DownloadListener downloadListener) {
-        d.a(downloadListener);
+        f.a(downloadListener);
     }
 
     public static void setWorkDir(String str) {
-        d.d(str);
+        f.d(str);
+    }
+
+    public static void setOption(String str, String str2) {
+        f.a(str, str2);
     }
 
     public static String startDownload(String str, VideoSourceBean videoSourceBean) {
-        return d.a(str, videoSourceBean);
+        return f.a(str, videoSourceBean);
     }
 }

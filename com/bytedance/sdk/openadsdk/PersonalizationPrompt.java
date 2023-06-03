@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface PersonalizationPrompt {
     String getName();
 

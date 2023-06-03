@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class y52 {
+public class y52 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x52 a;
+    public float a;
 
     public y52() {
         Interceptable interceptable = $ic;
@@ -22,43 +23,28 @@ public class y52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new x52(501);
     }
 
-    public y52(boolean z) {
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) {
+            if (f52Var.a() == 0) {
+                f52Var.b(canvas.save());
             }
+            canvas.rotate(this.a);
         }
-        this.a = new x52(501, z);
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.d(i);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            float optDouble = (float) jSONArray.optDouble(0);
+            this.a = optDouble;
+            this.a = (float) Math.toDegrees(optDouble);
         }
     }
 }

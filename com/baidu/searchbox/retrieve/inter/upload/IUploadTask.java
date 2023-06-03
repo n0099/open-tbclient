@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface IUploadTask {
-    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(StatConstants.VALUE_FROM_RETRIEVE, StatConstants.VALUE_TYPE_UPLOAD);
+    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(StatConstants.VALUE_FROM_RETRIEVE, "upload");
 
     void activeUpload(String str, String str2, List<String> list, long j, long j2, long j3, IActiveUploadListener iActiveUploadListener);
 

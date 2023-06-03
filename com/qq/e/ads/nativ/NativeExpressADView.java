@@ -6,18 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.pi.AdData;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes9.dex */
-public abstract class NativeExpressADView extends FrameLayout implements DownloadConfirmListener, ApkDownloadComplianceInterface {
+import com.qq.e.comm.pi.LADI;
+import com.qq.e.comm.pi.NFBI;
+/* loaded from: classes10.dex */
+public abstract class NativeExpressADView extends FrameLayout implements DownloadConfirmListener, LADI, NFBI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> ext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ViewBindStatusListener {
         void onAttachedToWindow();
 
@@ -46,16 +44,11 @@ public abstract class NativeExpressADView extends FrameLayout implements Downloa
                 return;
             }
         }
-        this.ext = new HashMap();
     }
 
     public abstract void destroy();
 
     public abstract AdData getBoundData();
-
-    public abstract int getECPM();
-
-    public abstract String getECPMLevel();
 
     public abstract void negativeFeedback();
 
@@ -63,14 +56,8 @@ public abstract class NativeExpressADView extends FrameLayout implements Downloa
 
     public abstract void render();
 
-    public abstract void sendLossNotification(int i, int i2, String str);
-
-    public abstract void sendWinNotification(int i);
-
     @Deprecated
     public abstract void setAdSize(ADSize aDSize);
-
-    public abstract void setBidECPM(int i);
 
     public abstract void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener);
 

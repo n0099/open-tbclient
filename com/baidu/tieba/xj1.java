@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public interface xj1<T> {
-    void a(tj1<List<T>> tj1Var);
+public interface xj1 {
+    public static final AtomicReference<xj1> a = new AtomicReference<>();
 
-    List<T> getList();
+    boolean a();
 }

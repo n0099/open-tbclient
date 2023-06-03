@@ -3,7 +3,7 @@ package okhttp3.internal.http2;
 import java.io.IOException;
 import java.util.List;
 import okio.BufferedSource;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface PushObserver {
     public static final PushObserver CANCEL = new PushObserver() { // from class: okhttp3.internal.http2.PushObserver.1
         @Override // okhttp3.internal.http2.PushObserver

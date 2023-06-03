@@ -14,7 +14,7 @@ import com.meizu.cloud.pushsdk.handler.a.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public com.meizu.cloud.pushsdk.handler.a a;
     public Context b;

@@ -2,61 +2,16 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public class fe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-
-    /* loaded from: classes5.dex */
-    public static class a extends PrefetchEvent.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,88 +26,56 @@ public class fe2 {
                 return;
             }
         }
-        l = qp1.a;
+        a = is1.a;
     }
 
-    public fe2() {
+    public static boolean a(wa2 wa2Var, String str) {
+        InterceptResult invokeLL;
+        yb3 b0;
+        ae2 a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, wa2Var, str)) == null) {
+            if (a) {
+                Log.d("MasterIsolationHelper", "JS CALL - " + str);
             }
+            boolean z = false;
+            if (x73.D()) {
+                return false;
+            }
+            if (wa2Var != null && !TextUtils.isEmpty(wa2Var.getContainerId())) {
+                if (ne2.i().k(wa2Var.getContainerId())) {
+                    return true;
+                }
+                if (!yf2.h()) {
+                    return false;
+                }
+                String containerId = wa2Var.getContainerId();
+                if (!ee2.a(containerId) || (b0 = yb3.b0()) == null || !b(wa2Var) || (a2 = he2.b().a()) == null) {
+                    return false;
+                }
+                String h = a2.h();
+                if (TextUtils.isEmpty(h)) {
+                    return false;
+                }
+                z = (TextUtils.equals(a2.i().a(), wa2Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
+                if (a && z) {
+                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
+                }
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static fe2 a(mv1<?> mv1Var, PrefetchEvent prefetchEvent, g93 g93Var) {
-        InterceptResult invokeLLL;
-        long j;
+    public static boolean b(wa2 wa2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, mv1Var, prefetchEvent, g93Var)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, wa2Var)) == null) {
+            if ((wa2Var instanceof gj2) && ((gj2) wa2Var).getInvokeSourceType() == 0) {
+                return true;
             }
-            fe2 fe2Var = new fe2();
-            fe2Var.h = mv1Var.a();
-            fe2Var.a = prefetchEvent.appPath;
-            fe2Var.b = prefetchEvent.pageUrl;
-            fe2Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData Q = g93Var.Q();
-            fe2Var.c = prefetchEvent.pageType;
-            String c = q93.c(prefetchEvent.appPath, ym3.f(yc3.b(prefetchEvent.pageUrl)));
-            fe2Var.g = c;
-            v93 b = v93.b(c, Q.e);
-            fe2Var.k = b.r;
-            fe2Var.d = b.g;
-            fe2Var.e = prefetchEvent.isT7Available;
-            fe2Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                fe2Var.j = prefetchEvent.userActionApis;
-            }
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return fe2Var;
+            return false;
         }
-        return (fe2) invokeLLL.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            e53.a(treeMap, "slave preload ready event");
-            yc3.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return new a(treeMap, "preload");
-        }
-        return (a) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

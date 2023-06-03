@@ -68,7 +68,9 @@ public class BaiduMap {
     public MyLocationData Q;
     public MyLocationConfiguration R;
     public boolean S;
-    public boolean T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1049T;
     public boolean U;
     public boolean V;
     public Point W;
@@ -607,7 +609,7 @@ public class BaiduMap {
         com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
         if (dVar != null) {
             dVar.D(z);
-            this.T = z;
+            this.f1049T = z;
         }
     }
 
@@ -728,13 +730,13 @@ public class BaiduMap {
             } else {
                 dVar.a(true);
                 this.j.C(this.S);
-                this.j.D(this.T);
+                this.j.D(this.f1049T);
                 this.j.j(true);
             }
         } else {
             dVar.a(false);
             this.j.C(this.S);
-            this.j.D(this.T);
+            this.j.D(this.f1049T);
             this.j.j(true);
             this.j.o(this.U);
         }
@@ -944,9 +946,9 @@ public class BaiduMap {
         return arrayList;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x014c  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0161  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x01ae  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0149  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x015e  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01ab  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1080,7 +1082,7 @@ public class BaiduMap {
         this.j.a(new f(this));
         this.j.a(new g(this));
         this.S = this.j.B();
-        this.T = this.j.C();
+        this.f1049T = this.j.C();
     }
 
     public void hideInfoWindow() {

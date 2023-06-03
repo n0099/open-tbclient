@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t4b;
-import com.baidu.tieba.u4b;
-import com.baidu.tieba.y4b;
+import com.baidu.tieba.ddb;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.idb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<SpriteEntity> ADAPTER;
@@ -30,7 +30,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = y4b.i();
+            this.frames = idb.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                y4b.a(list);
+                idb.a(list);
                 this.frames = list;
                 return this;
             }
@@ -87,7 +87,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,27 +114,27 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(t4b t4bVar) throws IOException {
+        public SpriteEntity decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
                 Builder builder = new Builder();
-                long c = t4bVar.c();
+                long c = ddbVar.c();
                 while (true) {
-                    int f = t4bVar.f();
+                    int f = ddbVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
-                                FieldEncoding g = t4bVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(t4bVar));
+                                FieldEncoding g = ddbVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ddbVar));
                             } else {
-                                builder.frames.add(FrameEntity.ADAPTER.decode(t4bVar));
+                                builder.frames.add(FrameEntity.ADAPTER.decode(ddbVar));
                             }
                         } else {
-                            builder.imageKey(ProtoAdapter.STRING.decode(t4bVar));
+                            builder.imageKey(ProtoAdapter.STRING.decode(ddbVar));
                         }
                     } else {
-                        t4bVar.d(c);
+                        ddbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -151,7 +151,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                y4b.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                idb.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -160,15 +160,15 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(u4b u4bVar, SpriteEntity spriteEntity) throws IOException {
+        public void encode(edb edbVar, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, edbVar, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(u4bVar, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(edbVar, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(u4bVar, 2, spriteEntity.frames);
-                u4bVar.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(edbVar, 2, spriteEntity.frames);
+                edbVar.k(spriteEntity.unknownFields());
             }
         }
 
@@ -217,7 +217,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = y4b.c("frames", this.frames);
+            builder.frames = idb.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -265,7 +265,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = y4b.g("frames", list);
+        this.frames = idb.g("frames", list);
     }
 
     public boolean equals(Object obj) {
@@ -279,7 +279,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 return false;
             }
             SpriteEntity spriteEntity = (SpriteEntity) obj;
-            if (unknownFields().equals(spriteEntity.unknownFields()) && y4b.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
+            if (unknownFields().equals(spriteEntity.unknownFields()) && idb.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
                 return true;
             }
             return false;

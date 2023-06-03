@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.c.f;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Serializable {
     public long a;
     public long b;

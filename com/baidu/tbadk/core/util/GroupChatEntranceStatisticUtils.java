@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +70,7 @@ public class GroupChatEntranceStatisticUtils {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
             if (z) {
                 try {
-                    str2 = URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
+                    str2 = URLDecoder.decode(str, "utf-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                     str2 = null;
@@ -94,7 +93,7 @@ public class GroupChatEntranceStatisticUtils {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             if (z) {
                 try {
-                    str2 = URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
+                    str2 = URLDecoder.decode(str, "utf-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                     str2 = null;
@@ -110,8 +109,8 @@ public class GroupChatEntranceStatisticUtils {
         return (String) invokeLZ.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0030 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0033  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0033 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0036  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -121,7 +120,7 @@ public class GroupChatEntranceStatisticUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                jSONObject = new JSONObject(Uri.parse(URLDecoder.decode(Uri.parse(str).getQueryParameter("url"), IMAudioTransRequest.CHARSET)).getQueryParameter("params"));
+                jSONObject = new JSONObject(Uri.parse(URLDecoder.decode(Uri.parse(str).getQueryParameter("url"), "utf-8")).getQueryParameter("params"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 jSONObject = null;

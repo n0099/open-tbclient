@@ -11,7 +11,7 @@ import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetworkParam {
     public static final String LAST_NETWORK_TYPE = "last network type";
     public static final String NET_TYPE_ID_DISCONNECT = "5_0";

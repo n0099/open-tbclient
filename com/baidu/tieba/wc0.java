@@ -1,139 +1,190 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.collection.SimpleArrayMap;
+import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes8.dex */
-public class wc0 {
+public final class wc0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Pools.Pool<ArrayList<T>> a;
+    public final SimpleArrayMap<T, ArrayList<T>> b;
+    public final ArrayList<T> c;
+    public final HashSet<T> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948265637, "Lcom/baidu/tieba/wc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948265637, "Lcom/baidu/tieba/wc0;");
+    public wc0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        this.a = new Pools.SimplePool(10);
+        this.b = new SimpleArrayMap<>();
+        this.c = new ArrayList<>();
+        this.d = new HashSet<>();
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    @NonNull
+    public ArrayList<T> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String c = c(map);
-                if (!TextUtils.isEmpty(c)) {
-                    if (str.contains("?")) {
-                        return str + "&" + c;
-                    }
-                    return str + "?" + c;
-                }
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            this.c.clear();
+            this.d.clear();
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                e(this.b.keyAt(i), this.c, this.d);
             }
-            return str;
+            return this.c;
         }
-        return (String) invokeLL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static String b(String str) {
+    public void a(@NonNull T t, @NonNull T t2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) && this.b.containsKey(t) && this.b.containsKey(t2)) {
+            ArrayList<T> arrayList = this.b.get(t);
+            if (arrayList == null) {
+                arrayList = f();
+                this.b.put(t, arrayList);
+            }
+            arrayList.add(t2);
+        }
+    }
+
+    public void b(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !this.b.containsKey(t)) {
+            this.b.put(t, null);
+        }
+    }
+
+    public boolean d(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf <= 0) {
-                return null;
-            }
-            return str.substring(indexOf + 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            return this.b.containsKey(t);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String c(Map<String, String> map) {
+    @Nullable
+    public List g(@NonNull T t) {
         InterceptResult invokeL;
-        String encode;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str3 = map.get(str2);
-                if (str2 == null) {
-                    encode = "";
-                } else {
-                    try {
-                        encode = URLEncoder.encode(str2, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (uc0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                }
-                sb.append(encode);
-                sb.append("=");
-                if (str3 == null) {
-                    str = "";
-                } else {
-                    str = URLEncoder.encode(str3, "UTF-8");
-                }
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
+            return this.b.get(t);
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static Map<String, String> d(String str) {
+    public boolean j(@NonNull T t) {
         InterceptResult invokeL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str3 : str.split("&")) {
-                String[] split = str3.split("=");
-                try {
-                    String decode = URLDecoder.decode(split[0], "UTF-8");
-                    if (split.length > 1) {
-                        str2 = URLDecoder.decode(split[1], "UTF-8");
-                    } else {
-                        str2 = "";
-                    }
-                    hashMap.put(decode, str2);
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    return true;
                 }
             }
-            return hashMap;
+            return false;
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final void k(@NonNull ArrayList<T> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+            arrayList.clear();
+            this.a.release(arrayList);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null) {
+                    k(valueAt);
+                }
+            }
+            this.b.clear();
+        }
+    }
+
+    @NonNull
+    public final ArrayList<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<T> acquire = this.a.acquire();
+            if (acquire == null) {
+                return new ArrayList<>();
+            }
+            return acquire;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final void e(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048580, this, t, arrayList, hashSet) != null) || arrayList.contains(t) || hashSet.contains(t)) {
+            return;
+        }
+        hashSet.add(t);
+        ArrayList<T> arrayList2 = this.b.get(t);
+        if (arrayList2 != null) {
+            int size = arrayList2.size();
+            for (int i = 0; i < size; i++) {
+                e(arrayList2.get(i), arrayList, hashSet);
+            }
+        }
+        hashSet.remove(t);
+        arrayList.add(t);
+    }
+
+    @Nullable
+    public List<T> h(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
+            int size = this.b.size();
+            ArrayList arrayList = null;
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    if (arrayList == null) {
+                        arrayList = new ArrayList();
+                    }
+                    arrayList.add(this.b.keyAt(i));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,11 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.ColorInt;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ko3 {
-    boolean a(View view2, mz2 mz2Var);
+public class ko3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean c(View view2, mz2 mz2Var);
+    public static boolean a(@ColorInt int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
+    }
 
-    boolean removeView(View view2);
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return V8Engine.toColorRGBA(str);
+        }
+        return (String) invokeL.objValue;
+    }
 }

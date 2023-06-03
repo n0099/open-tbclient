@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MalformedChunkCodingException extends IOException {
     public MalformedChunkCodingException() {
         throw new RuntimeException("Stub!");

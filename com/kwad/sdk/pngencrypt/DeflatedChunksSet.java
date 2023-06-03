@@ -2,7 +2,7 @@ package com.kwad.sdk.pngencrypt;
 
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DeflatedChunksSet {
     public final boolean ajQ;
     public byte[] akg;
@@ -19,7 +19,7 @@ public class DeflatedChunksSet {
     public final String akr;
     public Inflater inf;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum State {
         WAITING_FOR_INPUT,
         ROW_READY,

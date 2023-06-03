@@ -16,7 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import org.chromium.net.NetError;
+/* loaded from: classes5.dex */
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public static int e;
@@ -158,7 +159,7 @@ public class RoundProgressBar extends View {
             int i = f;
             rectF.set(width - i, width - i, width + i, width + i);
             this.a.setStyle(Paint.Style.STROKE);
-            canvas.drawArc(this.d, -90.0f, (this.c * (-360)) / this.b, false, this.a);
+            canvas.drawArc(this.d, -90.0f, (this.c * NetError.ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY) / this.b, false, this.a);
         }
     }
 

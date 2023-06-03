@@ -1,162 +1,79 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ManagerElection;
 /* loaded from: classes8.dex */
-public class wx8 {
+public class wx8 extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public View a;
     public int b;
-    public List<String> c;
-    public List<String> d;
-    public String e;
-    public boolean f;
-    public int g;
-    public int h;
+    public int c;
+    public FrameLayout.LayoutParams d;
 
-    public wx8() {
+    public wx8(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (view2 == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        this.a = view2;
+        if (view2.getVisibility() == 8 && i2 > 0) {
+            this.b = i2;
+        } else {
+            this.b = this.a.getMeasuredHeight();
         }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+        this.d = layoutParams;
+        this.c = i;
+        if (i == 0) {
+            layoutParams.bottomMargin = -this.b;
+        } else {
+            layoutParams.bottomMargin = 0;
         }
-        return invokeV.intValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    @Override // android.view.animation.Animation
+    public void applyTransformation(float f, Transformation transformation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static wx8 i(ManagerElection managerElection) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, managerElection)) == null) {
-            if (managerElection == null) {
-                return null;
-            }
-            wx8 wx8Var = new wx8();
-            boolean z2 = false;
-            if (managerElection.can_vote.intValue() == 1) {
-                z = true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+            super.applyTransformation(f, transformation);
+            if (f < 1.0f) {
+                if (this.c == 0) {
+                    FrameLayout.LayoutParams layoutParams = this.d;
+                    int i = this.b;
+                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
+                } else {
+                    this.d.bottomMargin = -((int) (this.b * f));
+                }
+                this.a.requestLayout();
+            } else if (this.c == 0) {
+                this.d.bottomMargin = 0;
+                this.a.requestLayout();
+                this.b = this.a.getMeasuredHeight();
             } else {
-                z = false;
+                this.d.bottomMargin = -this.b;
+                this.a.setVisibility(8);
+                this.a.requestLayout();
             }
-            wx8Var.a = z;
-            wx8Var.b = managerElection.vote_num.intValue();
-            if (managerElection.is_show_distribute.intValue() == 1) {
-                z2 = true;
-            }
-            wx8Var.f = z2;
-            wx8Var.g = managerElection.remainder_time.intValue();
-            wx8Var.h = managerElection.status.intValue();
-            wx8Var.e = managerElection.tail_text;
-            wx8Var.c = managerElection.vote_condition_title;
-            wx8Var.d = managerElection.vote_condition;
-            return wx8Var;
-        }
-        return (wx8) invokeL.objValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.b = i;
         }
     }
 }

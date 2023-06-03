@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -77,7 +76,7 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.recommendTopicId = jSONObject.optLong("topic_id");
                 this.jumpLink = jSONObject.optString("jump_link");
                 this.businessType = jSONObject.optInt("business_type");
-                this.businessId = jSONObject.optString(SmartLaunchStats.UBC_BUSINESS_ID_KEY);
+                this.businessId = jSONObject.optString("business_id");
                 this.jumpIcon = jSONObject.optString("jump_icon");
                 this.jumpText = jSONObject.optString("jump_text");
             } catch (Exception e) {

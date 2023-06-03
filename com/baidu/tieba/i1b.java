@@ -1,87 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 import java.util.Map;
-@Deprecated
-/* loaded from: classes5.dex */
-public abstract class i1b implements f1b {
+/* loaded from: classes6.dex */
+public class i1b extends b1b<TTNativeAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, i1b> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802063, "Lcom/baidu/tieba/i1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802063, "Lcom/baidu/tieba/i1b;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public i1b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i1b(TTNativeAd tTNativeAd) {
+        super(tTNativeAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static i1b c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b1b
+    public double a() {
+        InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
-        }
-        return (i1b) invokeL.objValue;
-    }
-
-    public static i1b d(Context context, String str) {
-        InterceptResult invokeLL;
-        i1b i1bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                i1bVar = a.get(str);
-                if (i1bVar == null) {
-                    i1bVar = new o1b(context, str);
-                    a.put(str, i1bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTNativeAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
                 }
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
             }
-            return i1bVar;
         }
-        return (i1b) invokeLL.objValue;
+        return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.f1b
-    public abstract /* synthetic */ Context getContext();
+    @Override // com.baidu.tieba.b1b
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        TTNativeAd tTNativeAd = (TTNativeAd) a;
+        if (z) {
+            tTNativeAd.win(Double.valueOf(d2));
+        } else {
+            tTNativeAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        }
+    }
 
-    @Override // com.baidu.tieba.f1b
-    public abstract /* synthetic */ String getIdentifier();
+    @Override // com.baidu.tieba.b1b
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTNativeAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
 }

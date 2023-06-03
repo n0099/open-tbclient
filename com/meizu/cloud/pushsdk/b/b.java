@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements f {
     public ThreadPoolExecutor j;
     public long d = 60;
@@ -27,7 +27,7 @@ public class b implements f {
     public final e f = new e();
     public final String h = String.valueOf(Process.myPid());
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public final String a;
         public final String b;

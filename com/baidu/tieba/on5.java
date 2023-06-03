@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
-import java.util.List;
-/* loaded from: classes6.dex */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+/* loaded from: classes7.dex */
 public interface on5 {
-    String getCurrentPageKey();
+    BroadcastReceiver a(@NonNull Context context, @NonNull qn5 qn5Var);
 
-    List<String> getCurrentPageSourceKeyList();
+    void b(@NonNull Context context, long j, long j2, int i, long j3, pn5 pn5Var);
 
-    List<String> getNextPageSourceKeyList();
+    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
 
-    pn5 getPageStayFilter();
+    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull rn5 rn5Var);
 }

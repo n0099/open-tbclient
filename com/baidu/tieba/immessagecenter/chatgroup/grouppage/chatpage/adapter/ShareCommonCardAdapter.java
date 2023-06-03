@@ -29,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCardSysMsg, BaseViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
+    public static final int l;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
                 return;
             }
         }
-        j = UtilHelper.getDimenPixelSize(R.dimen.tbds666);
+        l = UtilHelper.getDimenPixelSize(R.dimen.tbds666);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,39 +72,39 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder J(ViewGroup parent) {
+    public BaseViewHolder M(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             Context context = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            return W(context);
+            return Y(context);
         }
         return (BaseViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder M(ViewGroup parent) {
+    public BaseViewHolder O(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             Context context = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            return W(context);
+            return Y(context);
         }
         return (BaseViewHolder) invokeL.objValue;
     }
 
-    public final BaseViewHolder W(Context context) {
+    public final BaseViewHolder Y(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e71);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090e83);
             chatShareCommonCard.setScene(1);
-            chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(j, -2));
+            chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(l, -2));
             return new BaseViewHolder(chatShareCommonCard) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareCommonCardAdapter$createViewHolder$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -143,8 +143,8 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: X */
-    public void R(int i, ViewGroup directParent, ShareCommonCardSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    /* renamed from: Z */
+    public void T(int i, ViewGroup directParent, ShareCommonCardSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {

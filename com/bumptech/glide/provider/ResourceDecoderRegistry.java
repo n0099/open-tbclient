@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResourceDecoderRegistry {
     public final List<String> bucketPriorityList = new ArrayList();
     public final Map<String, List<Entry<?, ?>>> decoders = new HashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Entry<T, R> {
         public final Class<T> dataClass;
         public final ResourceDecoder<T, R> decoder;

@@ -1,9 +1,9 @@
 package tv.athena.revenue;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.kcb;
-import com.baidu.tieba.lcb;
-import com.baidu.tieba.mhb;
+import com.baidu.tieba.krb;
+import com.baidu.tieba.lrb;
+import com.baidu.tieba.mwb;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -12,9 +12,9 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
 /* loaded from: classes2.dex */
-public class RevenueManager implements kcb {
+public class RevenueManager implements krb {
     public final String TAG;
-    public kcb revenueService;
+    public krb revenueService;
 
     /* loaded from: classes2.dex */
     public static class b {
@@ -24,26 +24,26 @@ public class RevenueManager implements kcb {
     public RevenueManager() {
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new mhb();
+        this.revenueService = new mwb();
     }
 
     public static RevenueManager instance() {
         return b.a;
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public List<IRevenue> getAllRevenue() {
         RLog.debug("RevenueManager", "getAllRevenue");
         return this.revenueService.getAllRevenue();
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         RLog.info("RevenueManager", "addLogDelegate");
         this.revenueService.addLogDelegate(iRLogDelegate);
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         String str;
         if (middleRevenueConfig != null) {
@@ -55,29 +55,29 @@ public class RevenueManager implements kcb {
         this.revenueService.addRevenueConfig(middleRevenueConfig);
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public IMiddleRevenue getMiddleRevenue(int i, int i2) {
         RLog.debug("RevenueManager", "getMiddleRevenue");
         return this.revenueService.getMiddleRevenue(i, i2);
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public IRevenue getRevenue(int i, int i2) {
         return this.revenueService.getRevenue(i, i2);
     }
 
-    @Override // com.baidu.tieba.kcb
-    public lcb getYYPayMiddleService(int i, int i2) {
+    @Override // com.baidu.tieba.krb
+    public lrb getYYPayMiddleService(int i, int i2) {
         return this.revenueService.getYYPayMiddleService(i, i2);
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public void removeRevenueConfig(int i, int i2) {
         RLog.info("RevenueManager", "removeRevenueConfig appId=" + i + " useChannel=" + i2);
         this.revenueService.removeRevenueConfig(i, i2);
     }
 
-    @Override // com.baidu.tieba.kcb
+    @Override // com.baidu.tieba.krb
     public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
         RLog.info("RevenueManager", "updateMiddleRevenueConfig");
         this.revenueService.updateMiddleRevenueConfig(i, i2, l, str);

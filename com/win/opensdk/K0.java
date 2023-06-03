@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class K0 implements ViewTreeObserver.OnDrawListener {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +34,7 @@ public class K0 implements ViewTreeObserver.OnDrawListener {
     public void onDraw() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onDraw:" + this.a.isAlive());
+            Log.e("register", "onDraw:" + this.a.isAlive());
         }
     }
 }

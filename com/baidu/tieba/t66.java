@@ -1,69 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class t66 extends BaseCardInfo {
+public class t66 extends hb {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public g66 a;
-    public g66 b;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133205, "Lcom/baidu/tieba/t66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133205, "Lcom/baidu/tieba/t66;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = BdUniqueId.gen();
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t66() {
+        super(304001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        SdkLiveInfoData.YYExt yYExt;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.eb
+    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        c(socketResponsedMessage2);
+        return socketResponsedMessage2;
+    }
+
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g66 g66Var = this.a;
-            if (g66Var != null && (sdkLiveInfoData = g66Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
-                return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                b76 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                if (addressListData != null) {
+                    for (f76 f76Var : addressListData.a()) {
+                        List<cf5> a = f76Var.a();
+                        ArrayList arrayList = new ArrayList();
+                        for (cf5 cf5Var : a) {
+                            if (!this.a && cf5Var.h() == 1) {
+                                arrayList.add(cf5Var);
+                            }
+                        }
+                        a.removeAll(arrayList);
+                    }
+                }
             }
-            return c;
+            return socketResponsedMessage;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

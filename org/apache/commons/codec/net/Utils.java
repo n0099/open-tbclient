@@ -1,7 +1,7 @@
 package org.apache.commons.codec.net;
 
 import org.apache.commons.codec.DecoderException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static int digit16(byte b) throws DecoderException {
         int digit = Character.digit((char) b, 16);

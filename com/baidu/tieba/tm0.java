@@ -1,142 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.util.NetUtil;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class tm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static um0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public int c;
-    public BroadcastReceiver d;
-    public qm0 e;
 
-    /* loaded from: classes7.dex */
-    public class a implements xm0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tm0 a;
-
-        /* renamed from: com.baidu.tieba.tm0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0459a extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-
-            public C0459a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = aVar;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && NetworkMonitor.NET_CHANGE_ACTION.equals(intent.getAction()) && NetUtil.a(bj0.b())) {
-                    sm0.c().b();
-                    try {
-                        bj0.b().unregisterReceiver(this);
-                    } catch (Exception unused) {
-                    }
-                    this.this$1.a.d = null;
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948185874, "Lcom/baidu/tieba/tm0;")) == null) {
+            return;
         }
-
-        public a(tm0 tm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tm0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tm0Var;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.xm0
-        public void a(ADConfigError aDConfigError) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) && this.a.e != null && !this.a.e.j() && aDConfigError != null && !TextUtils.isEmpty(aDConfigError.reason)) {
-                if (NetUtil.a(bj0.b())) {
-                    sm0.c().b();
-                } else if (this.a.d == null) {
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                    this.a.d = new C0459a(this);
-                    bj0.b().registerReceiver(this.a.d, intentFilter);
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948185874, "Lcom/baidu/tieba/tm0;");
         }
     }
 
-    public tm0(int i, int i2, boolean z) {
+    public tm0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = i;
-        this.c = i2;
-        this.b = z;
     }
 
-    public void d() {
-        qm0 qm0Var;
+    public static um0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qm0Var = this.e) != null) {
-            qm0Var.m(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (tm0.class) {
+                    if (a == null) {
+                        a = (um0) ServiceManager.getService(um0.a);
+                    }
+                }
+            }
+            return a;
         }
+        return (um0) invokeV.objValue;
     }
 
-    public void e() {
+    public static IAdDownloader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qm0 qm0Var = new qm0(this.a, this.b, this.c);
-            this.e = qm0Var;
-            qm0Var.m(new a(this));
-            f31.c(this.e, "adc_async_request", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            um0 a2 = a();
+            if (a2 == null) {
+                return q51.a;
+            }
+            return a2.a();
         }
+        return (IAdDownloader) invokeV.objValue;
     }
 }

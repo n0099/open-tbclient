@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class VideoRedIconRequest extends NetMessage {
                 builder.call_from = this.callFrom;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ss5.a(builder, true);
+                uw5.a(builder, true);
             }
             VideoRedIconReqIdl.Builder builder2 = new VideoRedIconReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -1,28 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class us9 {
+/* loaded from: classes8.dex */
+public class us9 implements qs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile HashMap<Long, Integer> c;
+    @NonNull
+    public final BaseFragmentActivity a;
+    @NonNull
+    public final ViewGroup b;
+    public int c;
+    public boolean d;
+    public int e;
+    public boolean f;
+    public long g;
 
-    public us9(int i) {
+    @Override // com.baidu.tieba.qs9
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public us9(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {baseFragmentActivity, viewGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,82 +47,129 @@ public class us9 {
                 return;
             }
         }
-        this.c = new HashMap<>();
-        this.a = 0;
-        this.b = i;
+        this.c = -1;
+        this.d = true;
+        this.e = 0;
+        this.f = false;
+        this.b = viewGroup;
+        this.c = i;
+        this.g = System.currentTimeMillis();
+        this.a = baseFragmentActivity;
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.qs9
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    if (this.c.size() >= this.b) {
-                        c();
-                    }
-                    this.a++;
-                    this.c.put(valueOf, Integer.valueOf(this.a));
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.d = z;
         }
     }
 
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qs9
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    if (this.c.get(valueOf) == null) {
-                        return false;
-                    }
-                    return true;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qs9
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                return this.c.containsKey(Long.valueOf(Long.parseLong(str)));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.qs9
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Long l = null;
-                int i = 134217727;
-                for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
-                    if (entry.getValue().intValue() < i) {
-                        int intValue = entry.getValue().intValue();
-                        i = intValue;
-                        l = entry.getKey();
-                    }
-                }
-                if (l != null) {
-                    this.c.remove(l);
-                } else {
-                    this.c.clear();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = true;
         }
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    @NonNull
+    public BaseFragmentActivity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (BaseFragmentActivity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public int getAdSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    @NonNull
+    public ViewGroup getRootView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.b;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public BdUniqueId getUniqueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.getUniqueId();
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return ss9.a(this.a.getIntent());
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qs9
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.g;
+        }
+        return invokeV.longValue;
     }
 }

@@ -10,24 +10,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s86;
-import com.baidu.tieba.xi6;
+import com.baidu.tieba.gn6;
+import com.baidu.tieba.wc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class LiveTabConcernTitleView extends xi6<s86> {
+/* loaded from: classes5.dex */
+public class LiveTabConcernTitleView extends gn6<wc6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
-    @Override // com.baidu.tieba.xi6
+    @Override // com.baidu.tieba.gn6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08fd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0916 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,7 +37,7 @@ public class LiveTabConcernTitleView extends xi6<s86> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class LiveTabConcernTitleView extends xi6<s86> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09226b);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09229e);
         }
     }
 
@@ -94,17 +94,17 @@ public class LiveTabConcernTitleView extends xi6<s86> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi6
+    @Override // com.baidu.tieba.gn6
     /* renamed from: r */
-    public void i(s86 s86Var) {
+    public void i(wc6 wc6Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, s86Var) == null) && s86Var != null && !StringUtils.isNull(s86Var.a) && (viewHolder = this.i) != null) {
-            viewHolder.c.setText(s86Var.a);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, wc6Var) == null) && wc6Var != null && !StringUtils.isNull(wc6Var.a) && (viewHolder = this.i) != null) {
+            viewHolder.c.setText(wc6Var.a);
         }
     }
 
-    @Override // com.baidu.tieba.xi6
+    @Override // com.baidu.tieba.gn6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

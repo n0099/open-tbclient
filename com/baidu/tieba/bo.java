@@ -1,9 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface bo {
-    void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+public interface bo<V extends ViewGroup> {
+    void addAdapters(List<in> list);
+
+    List<vn> getData();
+
+    wn getListAdapter();
+
+    V getListView();
+
+    void setData(List<? extends vn> list);
 }

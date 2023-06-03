@@ -1,61 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.g37;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public class aq6 implements zp6 {
+/* loaded from: classes5.dex */
+public final class aq6 implements g37.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.zp6
-    public void a(lo6 item, long j, lq6 displayer, fo6 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-        }
-    }
-
-    @Override // com.baidu.tieba.zp6
-    public void b(lo6 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-        }
-    }
-
-    @Override // com.baidu.tieba.zp6
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zp6
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zp6
-    public boolean d(lo6 item, long j, lq6 displayer, fo6 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
 
     public aq6() {
         Interceptable interceptable = $ic;
@@ -67,6 +27,48 @@ public class aq6 implements zp6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g37.l
+    public void a(ViewGroup view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof PlayVoiceBntNew) {
+                ((PlayVoiceBntNew) view2).e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g37.h
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.g37.h
+    public void update(ViewGroup view2, Object data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if ((view2 instanceof PlayVoiceBntNew) && (data instanceof VoiceData.VoiceModel)) {
+                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
+                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) data;
+                playVoiceBntNew.setVoiceModel(voiceModel);
+                playVoiceBntNew.setTag(data);
+                playVoiceBntNew.e();
+                Integer num = voiceModel.voice_status;
+                Intrinsics.checkNotNullExpressionValue(num, "data.voice_status");
+                playVoiceBntNew.m(num.intValue());
+                playVoiceBntNew.o();
             }
         }
     }

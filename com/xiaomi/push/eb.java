@@ -14,7 +14,7 @@ public class eb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m387a() {
+    public String m442a() {
         return this.f304a;
     }
 

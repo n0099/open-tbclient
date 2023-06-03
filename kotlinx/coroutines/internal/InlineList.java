@@ -1,57 +1,69 @@
 package kotlinx.coroutines.internal;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.Unit;
+import kotlin.jvm.JvmInline;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.DebugKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0007\b\u0080@\u0018\u0000*\u0004\b\u0000\u0010\u0001B\u0016\u0012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u0002ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001aJ\u001a\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002HÖ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J$\u0010\f\u001a\u00020\b2\u0012\u0010\t\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\b0\u0007H\u0086\b¢\u0006\u0004\b\n\u0010\u000bJ\u0010\u0010\u000e\u001a\u00020\rHÖ\u0001¢\u0006\u0004\b\u000e\u0010\u000fJ!\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u00002\u0006\u0010\u0010\u001a\u00028\u0000H\u0086\u0002ø\u0001\u0000¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0015\u001a\u00020\u0014HÖ\u0001¢\u0006\u0004\b\u0015\u0010\u0016R\u0018\u0010\u0017\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018ø\u0001\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001b"}, d2 = {"Lkotlinx/coroutines/internal/InlineList;", ExifInterface.LONGITUDE_EAST, "", "other", "", "equals", "(Ljava/lang/Object;)Z", "Lkotlin/Function1;", "", "action", "forEachReversed-impl", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V", "forEachReversed", "", TTDownloadField.TT_HASHCODE, "()I", "element", "plus-impl", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "plus", "", "toString", "()Ljava/lang/String;", "holder", "Ljava/lang/Object;", "constructor-impl", "(Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\u0003\b\u0081@\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u0016\u0012\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005J\u001a\u0010\u0006\u001a\u00020\u00072\b\u0010\b\u001a\u0004\u0018\u00010\u0002HÖ\u0003¢\u0006\u0004\b\t\u0010\nJ$\u0010\u000b\u001a\u00020\f2\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\f0\u000eH\u0086\b¢\u0006\u0004\b\u000f\u0010\u0010J\u0010\u0010\u0011\u001a\u00020\u0012HÖ\u0001¢\u0006\u0004\b\u0013\u0010\u0014J'\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u00002\u0006\u0010\u0016\u001a\u00028\u0000H\u0086\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0010\u0010\u0019\u001a\u00020\u001aHÖ\u0001¢\u0006\u0004\b\u001b\u0010\u001cR\u0010\u0010\u0003\u001a\u0004\u0018\u00010\u0002X\u0082\u0004¢\u0006\u0002\n\u0000\u0088\u0001\u0003\u0092\u0001\u0004\u0018\u00010\u0002ø\u0001\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b¡\u001e0\u0001¨\u0006\u001d"}, d2 = {"Lkotlinx/coroutines/internal/InlineList;", ExifInterface.LONGITUDE_EAST, "", "holder", "constructor-impl", "(Ljava/lang/Object;)Ljava/lang/Object;", "equals", "", "other", "equals-impl", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "forEachReversed", "", "action", "Lkotlin/Function1;", "forEachReversed-impl", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V", TTDownloadField.TT_HASHCODE, "", "hashCode-impl", "(Ljava/lang/Object;)I", "plus", "element", "plus-FjFbRPM", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "toString", "", "toString-impl", "(Ljava/lang/Object;)Ljava/lang/String;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@JvmInline
 /* loaded from: classes10.dex */
 public final class InlineList<E> {
     public final Object holder;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ InlineList m2248boximpl(Object obj) {
+    public static final /* synthetic */ InlineList m2328boximpl(Object obj) {
         return new InlineList(obj);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m2249constructorimpl(Object obj) {
+    public static <E> Object m2329constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m2251equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m2257unboximpl());
+    public static boolean m2331equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m2337unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m2252equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m2332equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m2254hashCodeimpl(Object obj) {
-        if (obj != null) {
-            return obj.hashCode();
+    public static int m2334hashCodeimpl(Object obj) {
+        if (obj == null) {
+            return 0;
         }
-        return 0;
+        return obj.hashCode();
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m2256toStringimpl(Object obj) {
-        return "InlineList(holder=" + obj + SmallTailInfo.EMOTION_SUFFIX;
+    public static String m2336toStringimpl(Object obj) {
+        return "InlineList(holder=" + obj + ')';
+    }
+
+    public boolean equals(Object obj) {
+        return m2331equalsimpl(this.holder, obj);
+    }
+
+    public int hashCode() {
+        return m2334hashCodeimpl(this.holder);
+    }
+
+    public String toString() {
+        return m2336toStringimpl(this.holder);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m2257unboximpl() {
+    public final /* synthetic */ Object m2337unboximpl() {
         return this.holder;
     }
 
@@ -61,20 +73,16 @@ public final class InlineList<E> {
         this.holder = obj;
     }
 
-    public boolean equals(Object obj) {
-        return m2251equalsimpl(this.holder, obj);
-    }
-
     /* renamed from: constructor-impl$default  reason: not valid java name */
-    public static /* synthetic */ Object m2250constructorimpl$default(Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
+    public static /* synthetic */ Object m2330constructorimpl$default(Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
         if ((i & 1) != 0) {
             obj = null;
         }
-        return m2249constructorimpl(obj);
+        return m2329constructorimpl(obj);
     }
 
     /* renamed from: forEachReversed-impl  reason: not valid java name */
-    public static final void m2253forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
+    public static final void m2333forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
         if (obj == null) {
             return;
         }
@@ -82,40 +90,42 @@ public final class InlineList<E> {
             function1.invoke(obj);
         } else if (obj != null) {
             ArrayList arrayList = (ArrayList) obj;
-            for (int size = arrayList.size() - 1; size >= 0; size--) {
+            int size = arrayList.size() - 1;
+            if (size < 0) {
+                return;
+            }
+            while (true) {
+                int i = size - 1;
                 function1.invoke((Object) arrayList.get(size));
+                if (i >= 0) {
+                    size = i;
+                } else {
+                    return;
+                }
             }
         } else {
-            throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<E> /* = java.util.ArrayList<E> */");
+            throw new NullPointerException("null cannot be cast to non-null type java.util.ArrayList<E of kotlinx.coroutines.internal.InlineList>{ kotlin.collections.TypeAliasesKt.ArrayList<E of kotlinx.coroutines.internal.InlineList> }");
         }
     }
 
-    /* renamed from: plus-impl  reason: not valid java name */
-    public static final Object m2255plusimpl(Object obj, E e) {
+    /* renamed from: plus-FjFbRPM  reason: not valid java name */
+    public static final Object m2335plusFjFbRPM(Object obj, E e) {
         if (DebugKt.getASSERTIONS_ENABLED() && !(!(e instanceof List))) {
             throw new AssertionError();
         }
         if (obj == null) {
-            return m2249constructorimpl(e);
+            return m2329constructorimpl(e);
         }
         if (obj instanceof ArrayList) {
             if (obj != null) {
                 ((ArrayList) obj).add(e);
-                return m2249constructorimpl(obj);
+                return m2329constructorimpl(obj);
             }
-            throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<E> /* = java.util.ArrayList<E> */");
+            throw new NullPointerException("null cannot be cast to non-null type java.util.ArrayList<E of kotlinx.coroutines.internal.InlineList>{ kotlin.collections.TypeAliasesKt.ArrayList<E of kotlinx.coroutines.internal.InlineList> }");
         }
         ArrayList arrayList = new ArrayList(4);
         arrayList.add(obj);
         arrayList.add(e);
-        return m2249constructorimpl(arrayList);
-    }
-
-    public int hashCode() {
-        return m2254hashCodeimpl(this.holder);
-    }
-
-    public String toString() {
-        return m2256toStringimpl(this.holder);
+        return m2329constructorimpl(arrayList);
     }
 }

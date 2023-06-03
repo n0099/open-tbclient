@@ -1,83 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc6 {
+public class fc6 implements ILiveFeedPageInvoke {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public b b;
-    public HttpMessageListener c;
+    public AccountManagerService a;
+    public AppInfoService b;
+    public ToastService c;
+    public RouterService d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, String str);
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getIID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fc6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fc6 fc6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fc6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fc6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
-                return;
-            }
-            AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
-            if (alaTDouBuyPrivilegeResponsedMessage.getError() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-            if (this.a.b != null) {
-                this.a.b.a(z, errorString);
-            }
-        }
-    }
-
-    public fc6(TbPageContext tbPageContext, b bVar) {
+    public fc6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,32 +44,67 @@ public class fc6 {
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.c = aVar;
-        this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
+        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
-    public void b(String str, int i) {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getCuid() {
+        InterceptResult invokeV;
+        AppInfoService appInfoService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i);
-            httpMessage.addParam("effect_id", str);
-            httpMessage.addParam("buy_action", 0);
-            this.a.sendMessage(httpMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null && (appInfoService = this.b) != null) {
+                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUIMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                return "dark";
+            }
+            return "day";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUK() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AccountManagerService accountManagerService = this.a;
+            if (accountManagerService != null) {
+                return accountManagerService.getAccount().getUk();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void invokeScheme(Context context, String str) {
+        RouterService routerService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
+            routerService.invokeScheme(context, str);
         }
     }
 
-    public void c(int i, int i2, boolean z) {
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void showToast(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-            httpMessage.addParam("props_id", i2);
-            httpMessage.addParam("mark_id", i);
-            httpMessage.addParam("buy_action", z ? 1 : 0);
-            this.a.sendMessage(httpMessage);
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
+            this.c.showNormal(context, str, 0);
         }
     }
 }

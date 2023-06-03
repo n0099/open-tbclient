@@ -1,81 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class lh {
     public static /* synthetic */ Interceptable $ic;
-    public static lh b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310193, "Lcom/baidu/tieba/lh;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448310193, "Lcom/baidu/tieba/lh;");
+    public static void a(ArrayList<String> arrayList, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
+            kc kcVar = new kc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+            kcVar.setSdCard(z);
+            kcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ec.f().a(kcVar);
         }
     }
 
-    public lh() {
+    public static File[] b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        File[] fileArr;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
+            diskFileOperate.setSdCard(z);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ec.f().call(diskFileOperate);
+            File fileInfo = diskFileOperate.getFileInfo();
+            if (fileInfo != null) {
+                fileArr = fileInfo.listFiles();
+            } else {
+                fileArr = null;
             }
+            if (z2) {
+                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
+                diskFileOperate2.setSdCard(z);
+                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                ec.f().call(diskFileOperate2);
+                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
+                    if (fileArr != null && fileArr.length != 0) {
+                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
+                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
+                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
+                        return fileArr2;
+                    }
+                    return listFiles;
+                }
+            }
+            return fileArr;
         }
-        this.a = 0L;
+        return (File[]) invokeCommon.objValue;
     }
 
-    public static lh b() {
-        InterceptResult invokeV;
+    public static ArrayList<nh> c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (lh.class) {
-                    if (b == null) {
-                        b = new lh();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            ArrayList<nh> arrayList = new ArrayList<>();
+            File[] b = b(z, true);
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            arrayList.add(new nh(name, file.length(), file.lastModified()));
+                        }
                     }
                 }
             }
-            return b;
+            return arrayList;
         }
-        return (lh) invokeV.objValue;
-    }
-
-    public synchronized long a() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a > 0) {
-                    this.a++;
-                } else {
-                    this.a = System.currentTimeMillis();
-                }
-                j = this.a;
-            }
-            return j;
-        }
-        return invokeV.longValue;
+        return (ArrayList) invokeZ.objValue;
     }
 }

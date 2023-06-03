@@ -1,6 +1,7 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +63,7 @@ public class DownloadParams {
             jSONObject.put("name", this.b);
             jSONObject.put(TTDownloadField.TT_USERAGENT, this.c);
             jSONObject.put("contentDisposition", this.d);
-            jSONObject.put("mimeType", this.e);
+            jSONObject.put(DownloadCenterFunConstants.MIME_TYPE, this.e);
             jSONObject.put("contentLength", this.f);
         } catch (JSONException unused) {
         }

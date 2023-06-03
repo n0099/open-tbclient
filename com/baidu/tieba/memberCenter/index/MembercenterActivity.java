@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.rn5;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.tr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public FragmentManager b;
     public FragmentTransaction c;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,17 +50,17 @@ public class MembercenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public rn5 getPageStayDurationItem() {
+    public tr5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            rn5 pageStayDurationItem = super.getPageStayDurationItem();
+            tr5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (rn5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -104,7 +104,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
             String stringExtra = getIntent().getStringExtra("key_url");
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_url", stringExtra);
-            if (yu4.b("https://unknown-tmp/")) {
+            if (qx4.b("https://unknown-tmp/")) {
                 this.a = new NewMemberCenterFragment();
             } else {
                 this.a = new MemberCenterFragment();

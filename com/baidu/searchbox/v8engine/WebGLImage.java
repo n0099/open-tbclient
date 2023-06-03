@@ -7,9 +7,7 @@ import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.smallgame.sdk.Log;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -96,7 +94,7 @@ public class WebGLImage {
         String str2 = "jpg";
         if (!"jpg".equalsIgnoreCase(str) && !"image/jpg".equalsIgnoreCase(str)) {
             str2 = "jpeg";
-            if (!"jpeg".equalsIgnoreCase(str) && !WordCommandManager.IMAGE_JPEG.equalsIgnoreCase(str)) {
+            if (!"jpeg".equalsIgnoreCase(str) && !"image/jpeg".equalsIgnoreCase(str)) {
                 return "png";
             }
         }
@@ -234,7 +232,7 @@ public class WebGLImage {
                 f = 0.92f;
             }
             String validFileType = getValidFileType(str);
-            String str2 = FileUtils.IMAGE_FILE_START + validFileType;
+            String str2 = "image/" + validFileType;
             byte[] compressCanvas = compressCanvas(readCanvas, i, i2, validFileType, f);
             return WebGLImageLoader.DATA_URL + str2 + ";base64," + Base64.encodeToString(compressCanvas, 2);
         } catch (Throwable th) {

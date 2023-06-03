@@ -317,10 +317,10 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY /* 5050 */:
                 this.mPersonalizeFragmentOnCreateViewStartTimeStamp = j;
                 return;
-            case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5051 */:
+            case 5051:
                 this.mPersonalizeFragmentOnCreateViewEndTimeStamp = j;
                 return;
-            case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY /* 5052 */:
+            case 5052:
                 this.mPersonalizeFragmentOnResumeStartTimeStamp = j;
                 return;
             case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY /* 5053 */:

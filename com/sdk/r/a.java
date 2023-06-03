@@ -1,6 +1,5 @@
 package com.sdk.r;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.sdk.i.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.r.a";
@@ -65,8 +64,8 @@ public class a extends com.sdk.i.a {
                                 if (str3.length() == 16) {
                                     byte[] a2 = c.a(str);
                                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                                    cipher.init(2, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
-                                    return new String(cipher.doFinal(a2), IMAudioTransRequest.CHARSET);
+                                    cipher.init(2, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
+                                    return new String(cipher.doFinal(a2), "utf-8");
                                 }
                                 throw new Exception(" iv decrypt key length error");
                             }
@@ -102,8 +101,8 @@ public class a extends com.sdk.i.a {
                             return null;
                         } else {
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                            cipher.init(1, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
-                            return c.a(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)));
+                            cipher.init(1, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
+                            return c.a(cipher.doFinal(str.getBytes("utf-8")));
                         }
                     }
                 } catch (Exception e) {

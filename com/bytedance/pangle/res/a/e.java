@@ -1,7 +1,7 @@
 package com.bytedance.pangle.res.a;
 
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends j {
     public long a;
 

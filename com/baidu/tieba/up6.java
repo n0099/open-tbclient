@@ -1,82 +1,137 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.compact.SocialBarImpl;
+import com.baidu.tieba.g37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class up6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class up6 extends sl1<g37.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends so6> T a(to6 to6Var, Class<T> type, c0 entity, lo6 item) {
-        InterceptResult invokeLLLL;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, to6Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(to6Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            b0 f = to6Var.f();
-            if (f != null && (t = (T) f.h(type)) != null) {
-                entity.a(t);
-                t.b(item);
-                return t;
+    /* loaded from: classes8.dex */
+    public class a implements g37.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(up6 up6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {up6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return null;
         }
-        return (T) invokeLLLL.objValue;
-    }
 
-    public static final long b(to6 to6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, to6Var)) == null) {
-            Intrinsics.checkNotNullParameter(to6Var, "<this>");
-            return d(to6Var).a();
-        }
-        return invokeL.longValue;
-    }
-
-    public static final lq6 c(to6 to6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, to6Var)) == null) {
-            Intrinsics.checkNotNullParameter(to6Var, "<this>");
-            return to6Var.i().d();
-        }
-        return (lq6) invokeL.objValue;
-    }
-
-    public static final oq6 d(to6 to6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, to6Var)) == null) {
-            Intrinsics.checkNotNullParameter(to6Var, "<this>");
-            return to6Var.i().f();
-        }
-        return (oq6) invokeL.objValue;
-    }
-
-    public static final boolean e(to6 to6Var) {
-        InterceptResult invokeL;
-        ro6 ro6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, to6Var)) == null) {
-            Intrinsics.checkNotNullParameter(to6Var, "<this>");
-            b0 f = to6Var.f();
-            if (f instanceof ro6) {
-                ro6Var = (ro6) f;
-            } else {
-                ro6Var = null;
+        @Override // com.baidu.tieba.g37.b
+        @NonNull
+        public g37.j a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new SocialBarImpl();
             }
-            if (ro6Var != null) {
-                return ro6Var.x();
-            }
-            return true;
+            return (g37.j) invokeV.objValue;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.g37.b
+        public g37.f b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new xp6();
+            }
+            return (g37.f) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g37.b
+        public g37.k c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new fq6();
+            }
+            return (g37.k) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g37.b
+        public g37.g d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new yp6();
+            }
+            return (g37.g) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g37.b
+        public g37.i e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return new eq6();
+            }
+            return (g37.i) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g37.b
+        @NonNull
+        public g37.h f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return new aq6();
+            }
+            return (g37.h) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g37.b
+        public g37.e g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new wp6();
+            }
+            return (g37.e) invokeV.objValue;
+        }
+    }
+
+    public up6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public g37.b createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (g37.b) invokeV.objValue;
     }
 }

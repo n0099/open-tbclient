@@ -7,7 +7,6 @@ import android.os.HandlerThread;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -15,8 +14,8 @@ import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.vk9;
-import com.baidu.tieba.yj1;
+import com.baidu.tieba.cr9;
+import com.baidu.tieba.hl1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedInputStream;
@@ -272,7 +271,7 @@ public final class DeviceInfoManager {
 
     @Inject(force = false)
     private final IDeviceInfoAppHost getAppHost() {
-        return vk9.a();
+        return cr9.a();
     }
 
     public final Context getContext$lib_security_framework_release() {
@@ -315,7 +314,7 @@ public final class DeviceInfoManager {
     public final void setContextAndIPC(Context appContext, boolean z) {
         Intrinsics.checkNotNullParameter(appContext, "appContext");
         mContext = appContext;
-        if (yj1.g() && z) {
+        if (hl1.g() && z) {
             DeviceInfoIPCServiceManager.Companion.addIPCService();
         }
     }
@@ -346,7 +345,7 @@ public final class DeviceInfoManager {
 
     private final String getEncodeValue(String str) {
         try {
-            String encode = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            String encode = URLEncoder.encode(str, "utf-8");
             Intrinsics.checkNotNullExpressionValue(encode, "encode(value, \"utf-8\")");
             return encode;
         } catch (UnsupportedEncodingException unused) {
@@ -393,7 +392,7 @@ public final class DeviceInfoManager {
             Handler handler = new Handler(mHandlerThread.getLooper());
             mHandler = handler;
             Intrinsics.checkNotNull(handler);
-            handler.post(new Runnable() { // from class: com.baidu.tieba.zl1
+            handler.post(new Runnable() { // from class: com.baidu.tieba.in1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -401,7 +400,7 @@ public final class DeviceInfoManager {
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        DeviceInfoManager.m45init$lambda1(i);
+                        DeviceInfoManager.m59init$lambda1(i);
                     }
                 }
             });
@@ -438,7 +437,7 @@ public final class DeviceInfoManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void m45init$lambda1(int i) {
+    public static final void m59init$lambda1(int i) {
         boolean z;
         final Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = i;
@@ -652,7 +651,7 @@ public final class DeviceInfoManager {
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00f5, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0109, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0108, code lost:
         if (0 != 0) goto L33;
      */
     /*
@@ -832,7 +831,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -940,7 +939,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getManufacturer(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -971,7 +970,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getModel(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1002,7 +1001,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getOAID(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1033,7 +1032,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getOsVersion(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1104,7 +1103,7 @@ public final class DeviceInfoManager {
     public final void readMappingCache(Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
         mContext = context;
-        if (yj1.g() && getAppHost().useMapping()) {
+        if (hl1.g() && getAppHost().useMapping()) {
             Context context2 = mContext;
             if (context2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
@@ -1197,7 +1196,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1229,7 +1228,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1261,7 +1260,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1435,7 +1434,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1476,7 +1475,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1515,7 +1514,7 @@ public final class DeviceInfoManager {
     public final void preInit(Context appContext, boolean z) {
         Intrinsics.checkNotNullParameter(appContext, "appContext");
         mContext = appContext;
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             return;
         }
         if (z) {

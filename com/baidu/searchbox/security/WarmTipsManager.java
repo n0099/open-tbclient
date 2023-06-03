@@ -9,8 +9,8 @@ import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.i20;
-import com.baidu.tieba.tga;
+import com.baidu.tieba.goa;
+import com.baidu.tieba.j30;
 import com.baidu.ubc.UBCManager;
 import java.util.UUID;
 import org.json.JSONException;
@@ -31,6 +31,7 @@ public class WarmTipsManager {
     public static final String HAS_NOT_MAIN = "has_not_main";
     public static final String LAUNCHER_SOURCE_VALUE = "launcher";
     public static final String LAUNCHER_UBC_ID = "3145";
+    public static final String PUSH_SOURCE_VALUE = "push";
     public static final String SCHEME_SOURCE_VALUE = "scheme";
     public static final String SHARE_IMAGESEARCH_EXT_VALUE = "imagesearch";
     public static final String SHARE_SOURCE_VALUE = "share";
@@ -185,13 +186,13 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.1
             @Override // java.lang.Runnable
             public void run() {
-                tga tgaVar = (tga) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                goa goaVar = (goa) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
                     jSONObject.put("type", str2);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("iid", i20.f(AppRuntime.getAppContext()).e());
+                    jSONObject2.put("iid", j30.f(AppRuntime.getAppContext()).e());
                     jSONObject2.put("randid", WarmTipsManager.getUUID());
                     if (!TextUtils.isEmpty(WarmTipsManager.mExtData)) {
                         jSONObject2.put("data", WarmTipsManager.mExtData);
@@ -203,7 +204,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                tgaVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                goaVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_EXTERNAL_INVOKE, 3);
     }
@@ -212,13 +213,13 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.2
             @Override // java.lang.Runnable
             public void run() {
-                tga tgaVar = (tga) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                goa goaVar = (goa) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
                     jSONObject.put("value", str2);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("iid", i20.f(AppRuntime.getAppContext()).e());
+                    jSONObject2.put("iid", j30.f(AppRuntime.getAppContext()).e());
                     jSONObject2.put("randid", WarmTipsManager.getUUID());
                     jSONObject.put("ext", jSONObject2);
                 } catch (JSONException e) {
@@ -226,7 +227,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                tgaVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                goaVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_WIDGET_SCHEME_INVOKE, 3);
     }

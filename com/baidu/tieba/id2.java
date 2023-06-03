@@ -1,54 +1,18 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class id2 implements pd2 {
+public class id2 extends zc2<JSONObject, y32> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<ud2> b;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final id2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-722307916, "Lcom/baidu/tieba/id2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-722307916, "Lcom/baidu/tieba/id2$b;");
-                    return;
-                }
-            }
-            a = new id2(null);
-        }
-    }
 
     public id2() {
         Interceptable interceptable = $ic;
@@ -60,55 +24,40 @@ public class id2 implements pd2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
     }
 
-    public static id2 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dd2
+    @NonNull
+    /* renamed from: c */
+    public y32 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (id2) invokeV.objValue;
-    }
-
-    public /* synthetic */ id2(a aVar) {
-        this();
-    }
-
-    public void a(ud2 ud2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ud2Var) == null) && ud2Var != null && !this.b.contains(ud2Var)) {
-            this.b.add(ud2Var);
-        }
-    }
-
-    @RequiresApi(api = 21)
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (zc2.a) {
+                    y82.b("Api-HandleException", "has triggered fmp before remove skeleton");
+                }
+                return new y32(0);
+            } else if (jSONObject == null) {
+                return new y32(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new y32(202, "data is required");
+                }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new y32(202, "path is required");
+                }
+                xc2 xc2Var = new xc2();
+                xc2Var.g(optString);
+                xc2Var.e();
+                return new y32(0);
             }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
         }
-        return (WebResourceResponse) invokeLZ.objValue;
-    }
-
-    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
-            }
-            return new xd2(this.b, str, map, 0, z).b(str, map, z);
-        }
-        return (WebResourceResponse) invokeLLZ.objValue;
+        return (y32) invokeL.objValue;
     }
 }

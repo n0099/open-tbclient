@@ -73,12 +73,12 @@ public final class IndexedParametersSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2049get(KotlinType kotlinType) {
-        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
-        if (!(mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-            mo2044getDeclarationDescriptor = null;
+    public TypeProjection mo2104get(KotlinType kotlinType) {
+        ClassifierDescriptor mo2099getDeclarationDescriptor = kotlinType.getConstructor().mo2099getDeclarationDescriptor();
+        if (!(mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            mo2099getDeclarationDescriptor = null;
         }
-        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2044getDeclarationDescriptor;
+        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2099getDeclarationDescriptor;
         if (typeParameterDescriptor != null) {
             int index = typeParameterDescriptor.getIndex();
             TypeParameterDescriptor[] typeParameterDescriptorArr = this.parameters;

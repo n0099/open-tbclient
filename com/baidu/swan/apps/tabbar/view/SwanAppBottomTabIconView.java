@@ -20,10 +20,10 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     public SwanAppBottomTabIconView(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09046b);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09046d);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09046c);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09046a);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090470);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090472);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090471);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09046f);
     }
 
     public boolean a() {

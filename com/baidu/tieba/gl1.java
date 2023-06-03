@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface gl1 {
-    @Nullable
-    fj1 a();
+public interface gl1<T> {
+    void a(cl1<List<T>> cl1Var);
 
-    JSONObject b();
+    List<T> getList();
 }

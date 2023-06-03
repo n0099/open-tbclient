@@ -1,7 +1,7 @@
 package org.aspectj.runtime.internal;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AroundClosure {
     public int bitflags = 1048576;
     public Object[] preInitializationState;

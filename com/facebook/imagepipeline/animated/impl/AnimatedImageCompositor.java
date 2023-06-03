@@ -10,20 +10,20 @@ import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatedImageCompositor {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
     public final Callback mCallback;
     public final Paint mTransparentFillPaint;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         CloseableReference<Bitmap> getCachedBitmap(int i);
 
         void onIntermediateResult(int i, Bitmap bitmap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum FrameNeededResult {
         REQUIRED,
         NOT_REQUIRED,
@@ -32,7 +32,7 @@ public class AnimatedImageCompositor {
     }
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
 

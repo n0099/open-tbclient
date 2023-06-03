@@ -12,15 +12,15 @@ public class BdLoadingDialog extends Dialog {
     public String mMessage;
 
     public BdLoadingDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1000f8);
+        super(context, R.style.obfuscated_res_0x7f1000fa);
         this.mContext = context;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d06fc);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f0916e1)).setText(this.mMessage);
+        setContentView(R.layout.obfuscated_res_0x7f0d070b);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091705)).setText(this.mMessage);
     }
 
     public void setMessage(int i) {

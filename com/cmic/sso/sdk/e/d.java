@@ -1,13 +1,12 @@
 package com.cmic.sso.sdk.e;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +19,7 @@ public class d {
                 return "";
             }
             try {
-                return a(str.getBytes(IMAudioTransRequest.CHARSET));
+                return a(str.getBytes("utf-8"));
             } catch (UnsupportedEncodingException unused) {
                 return "";
             }

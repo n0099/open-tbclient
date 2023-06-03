@@ -1,73 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e02 extends a02 {
+public class e02 extends d02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public e02() {
+    @Override // com.baidu.tieba.b02
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e02(@NonNull zz1 zz1Var) {
+        super(zz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.a02
-    public g12 c(@NonNull m82 m82Var) {
+    public static boolean y(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m82Var)) == null) {
-            View q = os2.i().q(m82Var);
-            if (q == null) {
-                return new g12(1001);
-            }
-            return e(q);
-        }
-        return (g12) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.a02
-    public g12 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return new g12(1001);
-        }
-        return (g12) invokeI.objValue;
-    }
-
-    public final g12 e(@NonNull View view2) {
-        InterceptResult invokeL;
-        g12 g12Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            try {
-                g12Var = new g12(0, b((int) (xm3.P(view2.getLeft()) + 0.5f), (int) (xm3.P(view2.getTop()) + 0.5f), (int) (xm3.P(view2.getRight()) + 0.5f), (int) (xm3.P(view2.getBottom()) + 0.5f)));
-            } catch (JSONException e) {
-                if (a02.a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean h = SwanAppAllianceLoginHelper.d.h();
+            if (!h) {
+                vv1 h0 = fv2.h0();
+                if (h0 instanceof yt1) {
+                    return ((yt1) h0).k(context);
                 }
-                g12Var = new g12(1001, "result JSONException");
+                return h;
             }
-            g62.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + g12Var);
-            return g12Var;
+            return h;
         }
-        return (g12) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public y32 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isBaiduAccountSync", false);
+            if (yb3.b0() == null) {
+                return new y32(1001, "swan app is null");
+            }
+            boolean y = y(getContext());
+            JSONObject jSONObject = new JSONObject();
+            yo3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(y));
+            return new y32(0, jSONObject);
+        }
+        return (y32) invokeV.objValue;
     }
 }

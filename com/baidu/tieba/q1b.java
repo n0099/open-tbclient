@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class q1b implements s1b {
+public class q1b implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p1b a;
-    public SecretKey b;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ l1b c;
+    public final /* synthetic */ n1b d;
 
-    public q1b(p1b p1bVar) {
+    public q1b(n1b n1bVar, l1b l1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p1bVar};
+            Object[] objArr = {n1bVar, l1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +31,52 @@ public class q1b implements s1b {
                 return;
             }
         }
-        this.a = p1bVar;
-        b();
+        this.d = n1bVar;
+        this.c = l1bVar;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClose() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s1b
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(u1b.b(this.b, k1b.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
-                }
-            }
-            Log.e("ExclamationMark", str3);
-            return str2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((n1b) this.c, this.a, new String[0]);
+            this.a = true;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public final SecretKey b() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdVideoBarClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = u1b.a(k1b.b(a), k1b.b(a2), k1b.b(a3), k1b.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((n1b) this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (SecretKey) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+        }
     }
 }

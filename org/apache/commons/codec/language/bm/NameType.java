@@ -1,5 +1,5 @@
 package org.apache.commons.codec.language.bm;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum NameType {
     ASHKENAZI("ash"),
     GENERIC("gen"),

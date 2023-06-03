@@ -7,7 +7,7 @@ import com.baidu.searchbox.network.support.cookie.Cookie;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CookieJarImpl implements CookieJar {
     public CookieManager cookieManager;
 

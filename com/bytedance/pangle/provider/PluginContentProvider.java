@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PluginContentProvider extends ContentProvider {
     public Uri pluginUri;
 

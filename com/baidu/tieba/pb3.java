@@ -1,221 +1,318 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Process;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.os.Binder;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.AnyThread;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
-import com.baidu.tieba.tx1;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
+import androidx.annotation.StyleRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.ext.widget.toast.ToastUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public class pb3 extends db3 implements tx1.j {
+public class pb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public CallbackHandler d;
-    public long e;
-    public long f;
-    public long g;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ g93 d;
-        public final /* synthetic */ pb3 e;
 
-        /* renamed from: com.baidu.tieba.pb3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0428a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
-
-            public RunnableC0428a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, guideType, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = guideType;
-                this.b = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    tx1 l = tx1.l();
-                    a aVar = this.c;
-                    g93 g93Var = aVar.d;
-                    l.p(aVar.e, (Activity) aVar.b, g93Var, this.a, this.b, g93Var.W().Q(), this.c.e.e);
-                }
-            }
-        }
-
-        public a(pb3 pb3Var, String str, Context context, JSONObject jSONObject, g93 g93Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb3Var, str, context, jSONObject, g93Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = pb3Var;
-            this.a = str;
-            this.b = context;
-            this.c = jSONObject;
-            this.d = g93Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oh3 a = uh3.a();
-                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.a);
-                String string = this.b.getString(parse.defaultText);
-                this.e.c = this.c.optString("cb");
-                String str = this.d.b;
-                String str2 = "favorite_guide_count_" + str;
-                if (eg2.n(str)) {
-                    g62.i("ShowFavoriteGuideAction", "favorite already");
-                    uh3.a().putString(str2, "-1");
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 2) {
+                        view2.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
                 }
-                String string2 = uh3.a().getString(str2, "");
-                if (TextUtils.equals("-1", string2)) {
-                    g62.i("ShowFavoriteGuideAction", "favorite at one time");
-                    return;
-                }
-                String[] split = string2.split("#");
-                long j = 0;
-                int i = 0;
-                if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
-                    i = Integer.parseInt(split[0]);
-                    j = Long.parseLong(split[1]);
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                int i2 = i;
-                this.e.e = a.getLong("swan_favorite_guide_duration", 3L);
-                this.e.f = a.getLong("swan_favorite_guide_intervalDays", 3L);
-                this.e.g = a.getLong("swan_favorite_guide_maxTimes", 3L);
-                g62.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
-                if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
-                    uh3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    an3.e0(new RunnableC0428a(this, parse, string));
-                    return;
-                }
-                g62.i("ShowFavoriteGuideAction", "Not satisfying display conditions");
+                view2.setAlpha(0.2f);
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pb3(da3 da3Var) {
-        super(da3Var, "/swanAPI/showFavoriteGuide");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056232, "Lcom/baidu/tieba/pb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948056232, "Lcom/baidu/tieba/pb3;");
                 return;
             }
         }
+        a = is1.a;
+        String str = gq3.c;
+        b = null;
+        c = null;
     }
 
-    @Override // com.baidu.tieba.tx1.j
-    @AnyThread
-    public void e(boolean z) {
-        int i;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.c != null && this.d != null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                i = 1;
-            } else {
-                i = 0;
-            }
-            try {
-                jSONObject.put("action", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.d.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            g62.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
-            if (!an3.G()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
-                g62.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
-                return false;
-            }
-            this.d = callbackHandler;
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 != null && g93Var != null && (context instanceof Activity)) {
-                String optString = a2.optString("type");
-                if (tx1.l().n(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                am3.g().execute(new a(this, optString, context, a2, g93Var), "ShowFavoriteGuideAction");
-                JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                unitedSchemeEntity.result = wrapCallbackParams;
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 25) {
                 return true;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-            g62.i("ShowFavoriteGuideAction", "params parse error");
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!Build.FINGERPRINT.contains(ToastUtils.MEIZU_ROM) && !Pattern.compile(ToastUtils.MEIZU_ROM, 2).matcher(Build.DISPLAY).find()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = f("ro.miui.ui.version.name");
+            }
+            if (a) {
+                Log.d(ToastUtils.TAG, "OsName = " + b);
+            }
+            return !TextUtils.isEmpty(b);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                c = f("ro.build.version.incremental");
+            }
+            if (a) {
+                Log.d(ToastUtils.TAG, "sMiuiVersion = " + c);
+            }
+            if (!TextUtils.isEmpty(c) && (split = c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+                String substring = split[0].substring(1);
+                if (!TextUtils.isEmpty(substring)) {
+                    try {
+                        if (Integer.parseInt(substring) < 9) {
+                            return true;
+                        }
+                    } catch (NumberFormatException unused) {
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Object e(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeLL;
+        Field declaredField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
+            if (obj == null || (declaredField = obj.getClass().getDeclaredField(str)) == null) {
+                return null;
+            }
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        }
+        return invokeLL.objValue;
+    }
+
+    public static void k(Toast toast, @StyleRes int i) {
+        Object e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, toast, i) == null) {
+            try {
+                Object e2 = e(toast, "mTN");
+                if (e2 != null && (e = e(e2, "mParams")) != null && (e instanceof WindowManager.LayoutParams)) {
+                    ((WindowManager.LayoutParams) e).windowAnimations = i;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                try {
+                    Runtime runtime = Runtime.getRuntime();
+                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 1024);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException unused) {
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                cs4.d(bufferedReader);
+                if (readLine == null) {
+                    return "";
+                }
+                return readLine;
+            } catch (IOException unused2) {
+                bufferedReader2 = bufferedReader;
+                cs4.d(bufferedReader2);
+                cs4.d(bufferedReader2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                cs4.d(bufferedReader2);
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Method method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (context != null && Build.VERSION.SDK_INT >= 19) {
+                try {
+                    Object systemService = context.getSystemService("appops");
+                    if (systemService == null || (method = systemService.getClass().getMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class)) == null) {
+                        return false;
+                    }
+                    if (((Integer) method.invoke(systemService, 24, Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() != 0) {
+                        return false;
+                    }
+                    return true;
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && a) {
+            Log.d(ToastUtils.TAG, Log.getStackTraceString(new Throwable(str)));
+        }
+    }
+
+    public static void i(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, view2) == null) && view2 != null) {
+            view2.setOnTouchListener(new a());
+        }
+    }
+
+    public static void j(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, drawable) != null) || drawable == null) {
+            return;
+        }
+        drawable.setColorFilter(fv2.c().getResources().getColor(R.color.obfuscated_res_0x7f060468), PorterDuff.Mode.SRC_ATOP);
+    }
+
+    public static boolean l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (!a() || g(context) || Build.VERSION.SDK_INT < 23) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (!b()) {
+                return false;
+            }
+            if (c() && g(context)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean n(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            if (!m(context) && !d()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && !l(context)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

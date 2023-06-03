@@ -16,7 +16,6 @@ import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.huawei.hms.adapter.internal.CommonCode;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 @SafeParcelable.Class(creator = "ConnectionResultCreator")
 /* loaded from: classes9.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
@@ -217,7 +216,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     @NonNull
     public String toString() {
         Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-        stringHelper.add(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, zza(this.zzb));
+        stringHelper.add("statusCode", zza(this.zzb));
         stringHelper.add(CommonCode.MapKey.HAS_RESOLUTION, this.zzc);
         stringHelper.add("message", this.zzd);
         return stringHelper.toString();

@@ -56,12 +56,14 @@ public class DuplayerHandlerThreadPool {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i = message.what;
-            if (i == 100) {
-                DuplayerHandlerThreadPool.getInstance().checkIdlePoolLongTimeNoUse();
-            } else if (i != 101) {
-            } else {
+            if (i != 100) {
+                if (i != 101) {
+                    return;
+                }
                 DuplayerHandlerThreadPool.getInstance().b();
+                return;
             }
+            DuplayerHandlerThreadPool.getInstance().checkIdlePoolLongTimeNoUse();
         }
     }
 
@@ -78,18 +80,24 @@ public class DuplayerHandlerThreadPool {
         return a2;
     }
 
+    public static DuplayerHandlerThreadPool getInstance() {
+        return b.a;
+    }
+
     private void a(DuplayerHandlerThread duplayerHandlerThread) {
         CyberLog.d(TAG, " quitHandlerThread handlerThread:" + duplayerHandlerThread);
         if (duplayerHandlerThread != null) {
             if (Build.VERSION.SDK_INT >= 18) {
-                if (duplayerHandlerThread == null) {
-                    return;
+                if (duplayerHandlerThread != null) {
+                    try {
+                        duplayerHandlerThread.getLooper().quitSafely();
+                        return;
+                    } catch (NoSuchMethodError unused) {
+                        duplayerHandlerThread.getLooper().quit();
+                        return;
+                    }
                 }
-                try {
-                    duplayerHandlerThread.getLooper().quitSafely();
-                    return;
-                } catch (NoSuchMethodError unused) {
-                }
+                return;
             }
             duplayerHandlerThread.getLooper().quit();
         }
@@ -121,10 +129,6 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    public static DuplayerHandlerThreadPool getInstance() {
-        return b.a;
-    }
-
     public void checkIdlePoolLongTimeNoUse() {
         synchronized (b) {
             if (this.c.size() <= 0) {
@@ -149,40 +153,29 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x003e A[Catch: all -> 0x0070, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000c, B:11:0x0029, B:13:0x003e, B:14:0x0045, B:16:0x004e, B:17:0x0055, B:18:0x006e, B:7:0x0011), top: B:23:0x0003 }] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x004e A[Catch: all -> 0x0070, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000c, B:11:0x0029, B:13:0x003e, B:14:0x0045, B:16:0x004e, B:17:0x0055, B:18:0x006e, B:7:0x0011), top: B:23:0x0003 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public DuplayerHandlerThread obtain() {
         DuplayerHandlerThread duplayerHandlerThread;
         synchronized (b) {
-            if (this.c.size() != 0) {
+            if (this.c.size() == 0) {
+                duplayerHandlerThread = a();
+            } else {
                 int size = this.c.size() - 1;
                 DuplayerHandlerThread duplayerHandlerThread2 = this.c.get(size);
                 this.c.remove(size);
-                if (duplayerHandlerThread2 != null) {
+                if (duplayerHandlerThread2 == null) {
+                    duplayerHandlerThread = a();
+                } else {
                     duplayerHandlerThread = duplayerHandlerThread2;
-                    duplayerHandlerThread.setRunState(1);
-                    duplayerHandlerThread.setIdleBeginTime(-1L);
-                    this.d.add(duplayerHandlerThread);
-                    if (this.c.size() <= 0) {
-                        this.e.removeMessages(100);
-                    }
-                    if (this.c.size() <= 3) {
-                        this.e.removeMessages(101);
-                    }
-                    CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
-                    print();
                 }
             }
-            duplayerHandlerThread = a();
             duplayerHandlerThread.setRunState(1);
             duplayerHandlerThread.setIdleBeginTime(-1L);
             this.d.add(duplayerHandlerThread);
             if (this.c.size() <= 0) {
+                this.e.removeMessages(100);
             }
             if (this.c.size() <= 3) {
+                this.e.removeMessages(101);
             }
             CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
             print();

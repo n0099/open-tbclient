@@ -1,216 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kw2 extends db3 {
+public class kw2 extends jw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kw2(da3 da3Var) {
-        super(da3Var, "/swanAPI/backgroundAudio");
+    @Override // com.baidu.tieba.nw2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
+    }
+
+    public kw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.nw2
+    public boolean enable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                jw2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return i12.h();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
+                return true;
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.db3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, g93 g93Var) {
-        InterceptResult invokeLLLLL;
-        gw2 b;
-        char c;
-        boolean z;
+    @Override // com.baidu.tieba.nw2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, g93Var)) == null) {
-            if (g93Var == null) {
-                mg3.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            jw2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                mg3.b("audio", 2001, "param is null", 201, "param is null");
-                g62.c("backgroundAudio", "param is null!");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            iw2 P = g93Var.P();
-            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-                b = gw2.b(j, new gw2());
-            } else {
-                b = gw2.b(j, P.q());
-            }
-            jw2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
-            JSONObject jSONObject = null;
-            switch (str.hashCode()) {
-                case 312101659:
-                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
-                        c = 6;
-                        break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            try {
+                jSONObject.put(DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "swan.method.v8BindingObject");
+                jSONObject.put("method", "_naSwan.naRequest");
+                JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
+                if (optJSONArray != null) {
+                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
+                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
+                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
+                            optJSONArray.remove(length);
+                        }
                     }
-                    c = 65535;
-                    break;
-                case 335869926:
-                    if (str.equals("/swanAPI/backgroundAudio/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335895760:
-                    if (str.equals("/swanAPI/backgroundAudio/play")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335978516:
-                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335993246:
-                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 820188005:
-                    if (str.equals("/swanAPI/backgroundAudio/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822525402:
-                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    g62.i("backgroundAudio", "open, audioId " + b.a);
-                    P.z(b, callbackHandler);
-                    z = true;
-                    break;
-                case 1:
-                    g62.i("backgroundAudio", "update, audioId " + b.a);
-                    P.update(b);
-                    z = true;
-                    break;
-                case 2:
-                    g62.i("backgroundAudio", "play, audioId " + b.a);
-                    P.F();
-                    z = true;
-                    break;
-                case 3:
-                    g62.i("backgroundAudio", "pause, audioId " + b.a);
-                    P.A();
-                    z = true;
-                    break;
-                case 4:
-                    g62.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
-                    P.G(b.l);
-                    z = true;
-                    break;
-                case 5:
-                    g62.i("backgroundAudio", "stop, audioId " + b.a);
-                    P.L();
-                    z = true;
-                    break;
-                case 6:
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt(b.m, P.t(b.m));
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException e) {
-                        mg3.b("audio", 2009, "json exception", -1, "");
-                        g62.c("backgroundAudio", "getParams error " + e.toString());
-                        jw2.c("backgroundAudio", "getParamsSync error", e);
-                        break;
-                    }
-                default:
-                    z = false;
-                    break;
-            }
-            jw2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
-            if (z) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, g93Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final JSONObject j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (db3.b) {
-                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
-                    }
+                    optJSONArray.put(d("success", "function="));
+                    optJSONArray.put(d("fail", "function="));
+                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return null;
+            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

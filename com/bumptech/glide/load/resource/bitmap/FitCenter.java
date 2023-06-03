@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FitCenter extends BitmapTransformation {
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.FitCenter";
     public static final byte[] ID_BYTES = ID.getBytes(Key.CHARSET);

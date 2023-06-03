@@ -1,5 +1,5 @@
 package okhttp3.internal;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class NamedRunnable implements Runnable {
     public final String name;
 

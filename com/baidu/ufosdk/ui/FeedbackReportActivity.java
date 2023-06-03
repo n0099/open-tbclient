@@ -102,7 +102,9 @@ public class FeedbackReportActivity extends Activity {
     public String Q;
     public String R;
     public h0 S;
-    public byte[] T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public byte[] f1196T;
     public e0 U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -747,7 +749,7 @@ public class FeedbackReportActivity extends Activity {
                     if (this.a.G != null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("result", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                            jSONObject2.put("result", "fail");
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -1731,7 +1733,7 @@ public class FeedbackReportActivity extends Activity {
             this.d = getIntent().getStringExtra("faq_id");
             this.y = getIntent().getStringExtra("msgid");
             getIntent().getIntExtra("product_type", -1);
-            this.T = getIntent().getByteArrayExtra("shot");
+            this.f1196T = getIntent().getByteArrayExtra("shot");
             if (TextUtils.isEmpty(this.y)) {
                 this.y = "newMessage";
             }
@@ -1916,7 +1918,7 @@ public class FeedbackReportActivity extends Activity {
             this.F = new j1(this, this.e);
             ArrayList arrayList = new ArrayList();
             this.w = arrayList;
-            byte[] bArr = this.T;
+            byte[] bArr = this.f1196T;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(bArr);
             }

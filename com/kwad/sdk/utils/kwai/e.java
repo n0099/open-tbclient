@@ -5,7 +5,7 @@ import android.util.Log;
 import com.kwad.sdk.utils.kwai.c;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static ExecutorService aql = Executors.newSingleThreadExecutor();
     public static final String aqm = Environment.getDataDirectory().getPath() + "/data/com.kwad.kwadsdk/ks_union/";

@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
+import android.view.KeyEvent;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class yo2 extends an2<rp2> {
+public class yo2 implements wo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.an2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onRoomRelease" : (String) invokeV.objValue;
-    }
+    public List<wo2> a;
 
     public yo2() {
         Interceptable interceptable = $ic;
@@ -31,18 +27,125 @@ public class yo2 extends an2<rp2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new CopyOnWriteArrayList();
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void b() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.b();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+    @Override // com.baidu.tieba.wo2
+    public void c() {
+        List<wo2> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rp2Var) == null) {
-            d(rp2Var, command.what, null, true);
-            rp2Var.onRelease();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.c();
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void d() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void e() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void f() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void g() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                wo2Var.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public void a() {
+        List<wo2> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (wo2 wo2Var : this.a) {
+                if (wo2Var != null) {
+                    wo2Var.a();
+                }
+            }
+        }
+    }
+
+    public void h(@NonNull wo2 wo2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wo2Var) == null) {
+            this.a.add(wo2Var);
+        }
+    }
+
+    public void i(@NonNull wo2 wo2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wo2Var) == null) {
+            this.a.remove(wo2Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.wo2
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+            List<wo2> list = this.a;
+            if (list == null || list.size() <= 0) {
+                return false;
+            }
+            while (true) {
+                boolean z = false;
+                for (wo2 wo2Var : this.a) {
+                    boolean onKeyDown = wo2Var.onKeyDown(i, keyEvent);
+                    if (z || onKeyDown) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeIL.booleanValue;
     }
 }

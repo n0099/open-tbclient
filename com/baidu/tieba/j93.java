@@ -1,53 +1,147 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.k93;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.swan.apps.publisher.draft.DraftData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public interface j93 {
-    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+public final class j93 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void A(k93.a aVar);
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File file = new File(b(), "publisher_draft");
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
 
-    qb3 B();
+    public static final String b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yb3 M = yb3.M();
+            if (M != null) {
+                str = M.b;
+            } else {
+                str = null;
+            }
+            String v = gj3.v(str);
+            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
+            return v;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    boolean E();
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DraftData c() {
+        InterceptResult invokeV;
+        ObjectInputStream objectInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b(), "publisher_draft");
+            ObjectInputStream objectInputStream2 = null;
+            try {
+                try {
+                    if (file.exists()) {
+                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
+                        try {
+                            Object readObject = objectInputStream.readObject();
+                            if (readObject != null) {
+                                DraftData draftData = (DraftData) readObject;
+                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
+                                    objectInputStream.close();
+                                    return null;
+                                }
+                                objectInputStream.close();
+                                return draftData;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (objectInputStream != null) {
+                                objectInputStream.close();
+                            }
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    objectInputStream2 = "publisher_draft";
+                    if (objectInputStream2 != null) {
+                        objectInputStream2.close();
+                    }
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                objectInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (objectInputStream2 != null) {
+                }
+                throw th;
+            }
+            return null;
+        }
+        return (DraftData) invokeV.objValue;
+    }
 
-    void G();
-
-    String getAppId();
-
-    int k();
-
-    void l(Bundle bundle, String str);
-
-    SwanAppCores m();
-
-    String n(String... strArr);
-
-    void o(zn3<k93.a> zn3Var);
-
-    void p(String str);
-
-    g93 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(zn3<k93.a> zn3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    jq1 x();
-
-    b63 y();
+    public static final void d(DraftData draftData) {
+        ObjectOutputStream objectOutputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, draftData) == null) && draftData != null) {
+            File file = new File(b(), "publisher_draft");
+            try {
+                if (file.exists()) {
+                    file.delete();
+                    file.createNewFile();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                objectOutputStream.writeObject(draftData);
+                objectOutputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+                if (objectOutputStream2 != null) {
+                    objectOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                if (objectOutputStream2 != null) {
+                    objectOutputStream2.close();
+                }
+                throw th;
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.s;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements h {
     public s a;
 

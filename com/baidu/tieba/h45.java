@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class h45 implements y35 {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
+import tbclient.ThemeColorInfo;
+/* loaded from: classes6.dex */
+public class h45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public l25 h;
+    public n25 i;
+    public int j;
+    public int k;
+    public String l;
+    public String m;
+    public List<String> n;
 
     public h45() {
         Interceptable interceptable = $ic;
@@ -34,43 +46,207 @@ public final class h45 implements y35 {
         }
     }
 
-    @Override // com.baidu.tieba.y35
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userGrowth");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (Map) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y35
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            if (levePopData.isHadShow() || StringUtils.isNull(levePopData.getTitle()) || StringUtils.isNull(levePopData.getDesc()) || StringUtils.isNull(levePopData.getBtn_scheme()) || levePopData.getLevel() <= 0 || levePopData.getLevel() > 10) {
-                return false;
-            }
-            Long uid = levePopData.getUid();
-            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-            if (uid == null || uid.longValue() != currentAccountId) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public n25 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (n25) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.n;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k(JSONObject jSONObject) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = String.valueOf(jSONObject.optLong("id", 0L));
+        this.b = jSONObject.optString("name");
+        this.c = jSONObject.optString("avatar");
+        boolean z2 = true;
+        if (jSONObject.optInt("is_liked", 0) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
+        if (jSONObject.optInt("is_liked", 0) == 2) {
+            z2 = false;
+        }
+        this.e = z2;
+        this.f = false;
+        this.g = jSONObject.optInt("level_id");
+        this.m = jSONObject.optString("recommend_tip");
+        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
+        if (optJSONObject != null) {
+            l25 l25Var = new l25();
+            this.h = l25Var;
+            l25Var.a(optJSONObject);
+        }
+        int optInt = jSONObject.optInt("memberNum", 0);
+        this.k = optInt;
+        if (optInt == 0) {
+            this.k = jSONObject.optInt("member_num", 0);
+        }
+        this.j = jSONObject.optInt("post_num", 0);
+        JSONArray optJSONArray = jSONObject.optJSONArray("pendants");
+        if (optJSONArray != null) {
+            this.n = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                this.n.add(optJSONArray.optString(i));
+            }
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("show_info");
+        if (optJSONObject2 != null) {
+            n25 n25Var = new n25();
+            this.i = n25Var;
+            n25Var.e(optJSONObject2);
+        }
+    }
+
+    public void l(SimpleForum simpleForum) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, simpleForum) != null) || simpleForum == null) {
+            return;
+        }
+        this.a = String.valueOf(simpleForum.id);
+        this.b = simpleForum.name;
+        this.c = simpleForum.avatar;
+        if (simpleForum.is_liked.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
+        if (simpleForum.is_liked.intValue() != 2) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.e = z2;
+        this.f = false;
+        this.g = simpleForum.level_id.intValue();
+        this.m = simpleForum.recommend_tip;
+        if (simpleForum.multi_forum_perm != null) {
+            l25 l25Var = new l25();
+            this.h = l25Var;
+            l25Var.b(simpleForum.multi_forum_perm);
+        }
+        simpleForum.is_brand_forum.intValue();
+        this.k = simpleForum.member_num.intValue();
+        this.j = simpleForum.post_num.intValue();
+        this.l = simpleForum.first_class;
+        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
+        this.n = simpleForum.pendants;
+        if (simpleForum.show_info != null) {
+            n25 n25Var = new n25();
+            this.i = n25Var;
+            n25Var.f(simpleForum.show_info);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.f = z;
+        }
     }
 }

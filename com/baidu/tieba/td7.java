@@ -1,86 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class td7 {
+public class td7 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public EMTextView c;
+    public int a;
+    public List<MetaData> b;
+    public String c;
+    public boolean d;
 
-    public td7(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177442, "Lcom/baidu/tieba/td7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948177442, "Lcom/baidu/tieba/td7;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public td7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        b(context);
+        this.a = 0;
+        this.c = "本吧都在关注";
+        this.d = false;
     }
 
-    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(FeatureCardGod featureCardGod) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, featureCardGod) == null) && featureCardGod != null && !ListUtils.isEmpty(featureCardGod.sub_nodes)) {
+            this.a = featureCardGod.floor.intValue();
+            this.b = featureCardGod.sub_nodes;
+            this.c = featureCardGod.title;
         }
     }
 
-    public void c(int i) {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p45 d = p45.d(this.c);
-            d.C(R.string.F_X02);
-            d.w(R.color.CAM_X0105);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.d = z;
         }
     }
 
-    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+    public void f(FrsPageUserExtend frsPageUserExtend) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, frsPageUserExtend) == null) && frsPageUserExtend != null && !ListUtils.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.a = frsPageUserExtend.user_extend_storey.intValue();
+            this.b = new ArrayList(list.size());
+            for (int i = 0; i < list.size(); i++) {
+                User user = list.get(i);
+                if (user != null && user.id.longValue() != 0) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(list.get(i));
+                    this.b.add(metaData);
+                }
+            }
+            this.c = frsPageUserExtend.tips;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f7, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bdf);
-        c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

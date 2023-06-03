@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PluginUtils {
     public static final String NPS_PLUGIN_PKG_NAME = "com.baidu.searchbox.livenps";
 

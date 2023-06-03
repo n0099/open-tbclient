@@ -31,7 +31,6 @@ import com.baidu.sapi2.views.logindialog.view.OneKeyLoginView;
 import com.baidu.sapi2.views.logindialog.view.SendSmsView;
 import com.baidu.sapi2.views.logindialog.view.ShareLoginView;
 import com.baidu.sapi2.views.logindialog.view.ThirdPartyView;
-import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.tieba.R;
 import java.util.List;
 import org.json.JSONArray;
@@ -75,14 +74,14 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void available(OneKeyLoginResult oneKeyLoginResult) {
-            Log.e(QuickLoginDialog.STAG, "one key login is available, enable = " + oneKeyLoginResult.enable + ", hasHistory is " + oneKeyLoginResult.hasHistory + ", encryptPhoneNum is " + oneKeyLoginResult.encryptPhoneNum);
+        public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
+            Log.e(QuickLoginDialog.STAG, "one key login is unAvailable, code is " + oneKeyLoginResult.getResultCode() + ", msg is " + oneKeyLoginResult.getResultMsg());
             LoginPager.this.a(oneKeyLoginResult);
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-            Log.e(QuickLoginDialog.STAG, "one key login is unAvailable, code is " + oneKeyLoginResult.getResultCode() + ", msg is " + oneKeyLoginResult.getResultMsg());
+        public void available(OneKeyLoginResult oneKeyLoginResult) {
+            Log.e(QuickLoginDialog.STAG, "one key login is available, enable = " + oneKeyLoginResult.enable + ", hasHistory is " + oneKeyLoginResult.hasHistory + ", encryptPhoneNum is " + oneKeyLoginResult.encryptPhoneNum);
             LoginPager.this.a(oneKeyLoginResult);
         }
     }
@@ -231,7 +230,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     private void f() {
-        SapiAccountManager.getInstance().getShareModels(BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT, new a());
+        SapiAccountManager.getInstance().getShareModels(1500L, new a());
     }
 
     public void hideSendMsgErrorTip() {

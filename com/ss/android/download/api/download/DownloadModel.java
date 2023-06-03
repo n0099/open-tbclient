@@ -6,7 +6,7 @@ import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DownloadModel {
     boolean autoInstallWithoutNotification();
 

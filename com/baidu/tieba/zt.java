@@ -1,79 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.meter.TaskMeterData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.ui.TaskUIData;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class zt extends st<TaskMeterData> {
+public class zt {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ut a;
 
-    public String b() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt(ut utVar) {
-        super(utVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {utVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ut) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = bs.c.h().getAppContext().getPackageName();
             }
+            return b;
         }
-        this.a = utVar;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.st
-    /* renamed from: c */
-    public TaskMeterData a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                st a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                try {
+                    Context appContext = bs.c.h().getAppContext();
+                    PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+                    a = packageInfo.versionName + "";
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
-                return new TaskMeterData(optInt, taskUIData);
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return new TaskMeterData(0, null, 3, null);
             }
+            return a;
         }
-        return (TaskMeterData) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -15,29 +15,30 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-import com.baidu.tieba.l20;
-import com.baidu.tieba.p20;
-import com.baidu.tieba.u40;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.tieba.m30;
+import com.baidu.tieba.q30;
+import com.baidu.tieba.v50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class g extends l20 implements IBinder.DeathRecipient {
+public class g extends m30 implements IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ContentProviderClient c;
     public e d;
-    public p20 e;
+    public q30 e;
     public String f;
 
-    public g(p20 p20Var, String str) {
+    public g(q30 q30Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p20Var, str};
+            Object[] objArr = {q30Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,26 +48,26 @@ public class g extends l20 implements IBinder.DeathRecipient {
                 return;
             }
         }
-        this.e = p20Var;
+        this.e = q30Var;
         this.f = str;
     }
 
-    public static Bundle k(l20.d dVar) {
+    public static Bundle k(m30.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("errcode", dVar.b);
+            bundle.putInt(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, dVar.b);
             bundle.putString("id", dVar.a);
             return bundle;
         }
         return (Bundle) invokeL.objValue;
     }
 
-    public static l20.d l(Bundle bundle) {
+    public static m30.d l(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new l20.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (l20.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new m30.d(bundle.getInt(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE), bundle.getString("id"), null) : (m30.d) invokeL.objValue;
     }
 
     public static void n(Bundle bundle, IBinder iBinder) {
@@ -98,15 +99,15 @@ public class g extends l20 implements IBinder.DeathRecipient {
         return (IBinder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l20
-    public void a(String str, Bundle bundle, l20.c<String> cVar) {
+    @Override // com.baidu.tieba.m30
+    public void a(String str, Bundle bundle, m30.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
                 this.d.a(str, bundle, new f.b(this, cVar) { // from class: com.baidu.helios.bridge.multiprocess.g.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ l20.c c;
+                    public final /* synthetic */ m30.c c;
                     public final /* synthetic */ g d;
 
                     {
@@ -158,7 +159,7 @@ public class g extends l20 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.baidu.tieba.l20
+    @Override // com.baidu.tieba.m30
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -171,7 +172,7 @@ public class g extends l20 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.baidu.tieba.l20
+    @Override // com.baidu.tieba.m30
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -185,16 +186,16 @@ public class g extends l20 implements IBinder.DeathRecipient {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l20
-    public void f(l20.b bVar) {
+    @Override // com.baidu.tieba.m30
+    public void f(m30.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.d = q(this.a.c);
         }
     }
 
-    @Override // com.baidu.tieba.l20
-    public l20.d g(String str, Bundle bundle) {
+    @Override // com.baidu.tieba.m30
+    public m30.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
@@ -205,9 +206,9 @@ public class g extends l20 implements IBinder.DeathRecipient {
                 }
             } catch (RemoteException unused) {
             }
-            return l20.d.a(-1, null);
+            return m30.d.a(-1, null);
         }
-        return (l20.d) invokeLL.objValue;
+        return (m30.d) invokeLL.objValue;
     }
 
     public final Bundle h(ContentProviderClient contentProviderClient, Uri uri) {
@@ -222,15 +223,15 @@ public class g extends l20 implements IBinder.DeathRecipient {
             cursor = contentProviderClient.query(Uri.withAppendedPath(uri, "ipc/method/get_bridge"), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
-                u40.a(cursor);
+                v50.a(cursor);
                 return extras;
             } catch (Exception unused) {
-                u40.a(cursor);
+                v50.a(cursor);
                 return null;
             } catch (Throwable th) {
                 th = th;
                 cursor2 = cursor;
-                u40.a(cursor2);
+                v50.a(cursor2);
                 throw th;
             }
         } catch (Exception unused2) {
@@ -305,7 +306,7 @@ public class g extends l20 implements IBinder.DeathRecipient {
         IBinder p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            Bundle j = j(context, false, Uri.parse("content://" + m(context)), "_method_get_bridge");
+            Bundle j = j(context, false, Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + m(context)), "_method_get_bridge");
             StringBuilder sb = new StringBuilder();
             sb.append("remote bridge bundle result is ");
             sb.append(j);

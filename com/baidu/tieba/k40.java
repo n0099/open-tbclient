@@ -1,200 +1,160 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k40 {
+public class k40 implements g40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public m40 c;
-    public byte[] d;
-    public int e;
-    public r40 f;
+    public m40 a;
+    public r40 b;
+    public l40 c;
+    public JSONObject d;
+    public Context e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862978, "Lcom/baidu/tieba/k40;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947862978, "Lcom/baidu/tieba/k40;");
-        }
-    }
-
-    public k40() {
+    public k40(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 2;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 1;
-            if (i != 1) {
-                i2 = 2;
-                if (i != 2) {
-                    throw new NoSuchPaddingException("Padding " + i + " not supported");
-                }
-            }
-            this.b = i2;
+        this.a = new j40();
+        this.b = new v40();
+        this.c = new i40();
+        if (this.d == null) {
+            c(context);
         }
     }
 
-    public void b(int i, r40 r40Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, r40Var) == null) {
-            try {
-                c(i, r40Var, null);
-            } catch (InvalidAlgorithmParameterException e) {
-                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
-                invalidKeyException.initCause(e);
-                throw invalidKeyException;
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void c(int i, r40 r40Var, AlgorithmParameterSpec algorithmParameterSpec) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, r40Var, algorithmParameterSpec) != null) {
-            return;
-        }
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        throw new InvalidKeyException("Unknown mode: " + i);
-                    }
-                }
-            }
-            z = false;
-            if (r40Var instanceof r40) {
-                throw new InvalidKeyException("only support helios key");
-            }
-            this.a = z ? 1 : 4;
-            this.f = r40Var;
-            int a = j40.a(r40Var.b());
-            this.e = 0;
-            int i2 = this.b;
-            if (i2 == 1) {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                this.c = m40.b(3, a);
-                this.d = new byte[a];
-                return;
-            } else if (i2 != 2) {
-                throw new InvalidKeyException("PEAO not supported");
-            } else {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                m40 b = m40.b(this.a > 2 ? 1 : 2, a);
-                this.c = b;
-                if (z) {
-                    this.d = new byte[b.a()];
-                    return;
-                } else {
-                    this.d = new byte[a];
-                    return;
-                }
-            }
-        }
-        z = true;
-        if (r40Var instanceof r40) {
-        }
-    }
-
-    public final byte[] d() {
+    @Override // com.baidu.tieba.g40
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.e;
-            byte[] bArr = this.d;
-            if (i > bArr.length) {
-                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d == null) {
+                c(this.e);
+            }
+            return this.d;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ver", 2);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             try {
-                int i2 = this.a;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 == 4) {
-                                return this.c.c(j40.e(j40.d(bArr, 0, i), this.f));
-                            }
-                            throw new AssertionError("Internal error");
-                        }
-                        throw new UnsupportedOperationException("only verify supported");
-                    }
-                    throw new UnsupportedOperationException("only verify supported");
-                }
-                throw new UnsupportedOperationException("only verify supported");
-            } finally {
-                this.e = 0;
+                jSONObject.put("aid", this.a.a(this.e));
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
+            try {
+                jSONObject.put("uid", this.c.a(this.e));
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+            try {
+                jSONObject.put("adrid", this.b.c(this.e));
+            } catch (Exception e4) {
+                e4.printStackTrace();
+            }
+            try {
+                jSONObject.put("network", this.b.d(this.e));
+            } catch (Exception e5) {
+                e5.printStackTrace();
+            }
+            try {
+                jSONObject.put("pkg", this.b.b(this.e));
+            } catch (Exception e6) {
+                e6.printStackTrace();
+            }
+            try {
+                jSONObject.put("ctime", this.b.b());
+            } catch (Exception e7) {
+                e7.printStackTrace();
+            }
+            try {
+                jSONObject.put("ua", this.b.a(this.e));
+            } catch (Exception e8) {
+                e8.printStackTrace();
+            }
+            try {
+                jSONObject.put("ut", this.b.a());
+            } catch (Exception e9) {
+                e9.printStackTrace();
+            }
+            try {
+                jSONObject.put("iid", this.a.e(this.e));
+            } catch (Exception e10) {
+                e10.printStackTrace();
+            }
+            try {
+                jSONObject.put(Config.SID, this.a.b(this.e));
+            } catch (Exception e11) {
+                e11.printStackTrace();
+            }
+            try {
+                jSONObject.put("oid", this.a.c(this.e));
+            } catch (Exception e12) {
+                e12.printStackTrace();
+            }
+            try {
+                jSONObject.put(Config.GAID, this.a.d(this.e));
+            } catch (Exception e13) {
+                e13.printStackTrace();
+            }
+            try {
+                jSONObject.put("cver", this.a.a());
+            } catch (Exception e14) {
+                e14.printStackTrace();
+            }
+            try {
+                jSONObject.put("sappinfos", this.a.f(this.e).toString());
+            } catch (Exception e15) {
+                e15.printStackTrace();
+            }
+            try {
+                jSONObject.put("cstoreext", this.a.g(this.e).toString());
+            } catch (Exception e16) {
+                e16.printStackTrace();
+            }
+            return jSONObject;
         }
-        return (byte[]) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public byte[] e(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            f(bArr, i, i2);
-            return d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            if (context == null) {
+                throw new NullPointerException("ctx should not be null");
+            }
+            if (this.e == null) {
+                this.e = context.getApplicationContext();
+            }
+            this.d = b();
         }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public final void f(byte[] bArr, int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
-            return;
-        }
-        int i4 = this.e;
-        int i5 = i4 + i2;
-        byte[] bArr2 = this.d;
-        if (i5 > bArr2.length) {
-            i3 = bArr2.length + 1;
-        } else {
-            System.arraycopy(bArr, i, bArr2, i4, i2);
-            i3 = this.e + i2;
-        }
-        this.e = i3;
     }
 }

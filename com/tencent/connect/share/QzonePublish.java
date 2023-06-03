@@ -10,7 +10,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.IntentConstants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -321,7 +320,7 @@ public class QzonePublish extends BaseApi {
             if (a == null) {
                 a = bundle.getString("appName");
             } else if (a.length() > 20) {
-                a = a.substring(0, 20) + StringHelper.STRING_MORE;
+                a = a.substring(0, 20) + "...";
             }
             if (!TextUtils.isEmpty(a)) {
                 bundle.putString("appName", a);

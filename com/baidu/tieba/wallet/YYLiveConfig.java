@@ -1,8 +1,8 @@
 package com.baidu.tieba.wallet;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,18 +71,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                o65.m().B("key_extra_yy_config", jSONObject.toString());
+                l95.m().B("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String s = o65.m().s("key_extra_yy_config", "");
-            if (!qi.isEmpty(s)) {
+            String s = l95.m().s("key_extra_yy_config", "");
+            if (!ui.isEmpty(s)) {
                 try {
                     parse(new JSONObject(s));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            o65.m().B("key_extra_yy_config", "");
+            l95.m().B("key_extra_yy_config", "");
         }
     }
 
@@ -97,7 +97,7 @@ public class YYLiveConfig {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            o65.m().B("key_extra_yy_config", jSONObject.toString());
+            l95.m().B("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

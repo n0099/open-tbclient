@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ZipUtils {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ZipSrc {
         @NonNull
         public File mFile;

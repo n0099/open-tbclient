@@ -1,7 +1,6 @@
 package com.baidu.down.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,7 +187,7 @@ public class HttpUrlHelperUtil {
                 j >>>= 4;
             }
             try {
-                return URLEncoder.encode(new String(bArr), IMAudioTransRequest.CHARSET);
+                return URLEncoder.encode(new String(bArr), "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return "";

@@ -1,73 +1,38 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "FestivalTipViewHelper")
-/* loaded from: classes7.dex */
-public final class u5a {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class u5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+    public final String b;
 
-    public static final void a(String str, String str2, TbRichTextView.Position position) {
-        boolean z;
+    public u5a(List<String> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                statisticItem.addParam("tid", str);
-            }
-            if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                statisticItem.addParam("pid", str2);
-            }
-            if (position != null) {
-                statisticItem.addParam("obj_locate", position.getIndex());
-            }
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static final void b(sr9 postData, TbRichTextView richTextView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            if (postData.z() != null) {
-                if (z) {
-                    richTextView.getLayoutStrategy().m(-1);
-                } else {
-                    richTextView.getLayoutStrategy().m(ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static final void c(sr9 postData, TbRichTextView richTextView) {
-        Rect rect;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            jx5 layoutStrategy = richTextView.getLayoutStrategy();
-            if (postData.z() != null) {
-                rect = new Rect(-1, -1, -1, ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
-            } else {
-                rect = null;
-            }
-            layoutStrategy.s(rect);
+        if (list != null) {
+            this.a = new ArrayList(list);
+        } else {
+            this.a = new ArrayList();
         }
+        this.b = str;
     }
 }

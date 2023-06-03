@@ -1,48 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class qi2 extends ni2 {
+public final class qi2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qi2(@NonNull mi2 mi2Var) {
-        super(mi2Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092719, "Lcom/baidu/tieba/qi2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948092719, "Lcom/baidu/tieba/qi2;");
+                return;
+            }
+        }
+        b = is1.a;
+        fv2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
+    }
+
+    public qi2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mi2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mi2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ni2
-    public void e() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f(dh4.i().v().keySet());
-            d();
-            ArraySet<String> a = a();
-            vq1 vq1Var = this.b;
-            if (vq1Var != null) {
-                vq1Var.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
             }
-            c(a);
+            return c;
         }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static zl2 a(qi2 qi2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qi2Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + qi2Var);
+            }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("slaveId", qi2Var.a);
+            return new zl2("SlaveReady", treeMap);
+        }
+        return (zl2) invokeL.objValue;
     }
 }

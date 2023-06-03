@@ -28,11 +28,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.x28;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.ka5;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.m88;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0334a implements View.OnClickListener {
+        public class View$OnClickListenerC0343a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0334a(a aVar) {
+            public View$OnClickListenerC0343a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
                 tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confirm_order);
-                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f057a, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0334a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f058f, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0343a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
                 tBAlertBuilder.z();
@@ -200,7 +200,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
                 tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confuse_order);
-                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f057a, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f058f, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
                 tBAlertBuilder.z();
@@ -673,7 +673,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
     private void setStrokeWith(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, tbImageView) == null) {
-            tbImageView.setBorderWidth(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            tbImageView.setBorderWidth(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
             tbImageView.setDrawBorder(true);
@@ -815,7 +815,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            p45.d(this.a).w(R.color.CAM_X0105);
+            m75.d(this.a).w(R.color.CAM_X0105);
         }
     }
 
@@ -895,7 +895,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return x28.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return m88.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -916,7 +916,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.g = (EMTextView) findViewById(R.id.msg_card_inner_order_num);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.msg_card_inner_ll);
             this.h = linearLayout;
-            p45 d2 = p45.d(linearLayout);
+            m75 d2 = m75.d(linearLayout);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0204);
             this.l = (LinearLayout) findViewById(R.id.msg_card_bottom_ll);
@@ -924,14 +924,14 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
             this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
             this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
-            n75 n75Var = new n75();
-            n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(n75Var);
+            ja5 ja5Var = new ja5();
+            ja5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(ja5Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            o75 o75Var = new o75();
-            o75Var.s(R.color.CAM_X0105);
-            this.k.setConfig(o75Var);
+            ka5 ka5Var = new ka5();
+            ka5Var.s(R.color.CAM_X0105);
+            this.k.setConfig(ka5Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");

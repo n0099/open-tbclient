@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.event;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InternalSyncControlEvent extends ControlEvent {
     public static final String INTERNAL_ACTION_PAUSE = "internal_sync_control_event_pause";
     public static final String INTERNAL_ACTION_PREPARE = "internal_sync_control_event_prepare";

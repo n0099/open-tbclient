@@ -1,61 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-/* loaded from: classes4.dex */
-public final class b50 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes5.dex */
+public class b50 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int b = 5;
+    public static int c = 40;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
+    public com.baidu.helios.common.cc.a a;
 
-    public b50(Context context, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947595820, "Lcom/baidu/tieba/b50;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947595820, "Lcom/baidu/tieba/b50;");
+        }
+    }
+
+    public b50() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = x40.c(packageInfo.signatures[i3].toByteArray());
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
+        this.a = aVar;
+        aVar.a(0, c, true);
+    }
+
+    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
+            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
+            if (i3 != 0) {
+                if (i3 != 1) {
+                    if (i3 == 2) {
+                        d.e(aVar);
+                    } else if (i3 == 3) {
+                        d.c(aVar);
+                    }
+                }
+                d.d(aVar);
+            } else {
+                d.b(aVar);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            for (int i4 = 0; i4 < i2; i4++) {
+                this.a.a(i + i4, d.d(i4));
+            }
         }
     }
 
-    public String toString() {
+    public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
     }
 }

@@ -12,7 +12,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

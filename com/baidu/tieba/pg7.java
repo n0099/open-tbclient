@@ -1,67 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class pg7 extends ax<jy4> {
+public class pg7 implements ai7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardItemHotVideoLayout f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pg7(Context context) {
-        super(context);
+    @Override // com.baidu.tieba.ai7
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public pg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = new CardItemHotVideoLayout(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: s */
-    public void a(jy4 jy4Var) {
+    @Override // com.baidu.tieba.ai7
+    public void a(nr7 nr7Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) {
-            this.f.setData((wg7) jy4Var);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, nr7Var, frsViewData) == null) && nr7Var != null && frsViewData != null) {
+            ArrayList<vn> threadList = frsViewData.getThreadList();
+            if (ListUtils.isEmpty(threadList)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            Iterator<vn> it = threadList.iterator();
+            while (it.hasNext()) {
+                vn next = it.next();
+                if (next.getType() == ThreadData.TYPE_TOP) {
+                    arrayList.add(next);
+                }
+            }
+            frsViewData.setTopThreadList(arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.ax
-    public View k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ai7
+    public void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.setVisibility(8);
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.ai7
+    public void c(nr7 nr7Var, md7 md7Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, nr7Var, md7Var, frsViewData) == null) && nr7Var != null && md7Var != null && frsViewData != null) {
+            nr7Var.K();
+            if (frsViewData != null && frsViewData.getForum() != null) {
+                md7Var.g1(frsViewData.getForum().getFrsBannerData());
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.ai7
+    public int d(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
+            return br7.e(i, frsRequestData);
+        }
+        return invokeIL.intValue;
     }
 }

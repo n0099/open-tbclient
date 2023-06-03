@@ -8,7 +8,7 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 @RequiresApi(19)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SizeStrategy implements LruPoolStrategy {
     public static final int MAX_SIZE_MULTIPLE = 8;
     public final KeyPool keyPool = new KeyPool();
@@ -16,7 +16,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     public final NavigableMap<Integer, Integer> sortedSizes = new PrettyPrintTreeMap();
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Key implements Poolable {
         public final KeyPool pool;
         public int size;
@@ -65,7 +65,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool

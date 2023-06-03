@@ -18,6 +18,7 @@ import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.x.k;
 import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -491,7 +492,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             Intent intent = new Intent();
             intent.setClassName(str, PushNotifyDispatchActivity.class.getName());
             intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");
-            intent.setData(Uri.parse("content://" + publicMsg.mMsgId));
+            intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
             intent.putExtra("public_msg", publicMsg);
             intent.putExtra("app_id", publicMsg.mAppId);
             intent.putExtra("msg_id", publicMsg.mMsgId);
@@ -510,7 +511,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             Intent intent = new Intent();
             intent.setClassName(str, str2);
             intent.setAction("com.baidu.android.pushservice.action.privatenotification.DELETE");
-            intent.setData(Uri.parse("content://" + publicMsg.mMsgId));
+            intent.setData(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + publicMsg.mMsgId));
             intent.putExtra("public_msg", publicMsg);
             intent.putExtra("app_id", publicMsg.mAppId);
             intent.putExtra("msg_id", publicMsg.mMsgId);

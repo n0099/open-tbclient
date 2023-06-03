@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.coremedia.iso.boxes.sampleentry.SubtitleSampleEntry;
@@ -686,7 +687,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         int parseInt = parseInt(xmlPullParser3, "id", -1);
         int parseContentType = parseContentType(xmlPullParser);
         String str6 = null;
-        String attributeValue = xmlPullParser3.getAttributeValue(null, "mimeType");
+        String attributeValue = xmlPullParser3.getAttributeValue(null, DownloadCenterFunConstants.MIME_TYPE);
         String attributeValue2 = xmlPullParser3.getAttributeValue(null, "codecs");
         int parseInt2 = parseInt(xmlPullParser3, "width", -1);
         int parseInt3 = parseInt(xmlPullParser3, "height", -1);
@@ -932,7 +933,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                     }
                 } while (!XmlPullParserUtil.isEndTag(xmlPullParser, "ContentProtection"));
                 if (uuid != null) {
-                    schemeData = new DrmInitData.SchemeData(uuid, MimeTypes.VIDEO_MP4, bArr2, z);
+                    schemeData = new DrmInitData.SchemeData(uuid, "video/mp4", bArr2, z);
                 }
                 return Pair.create(bArr, schemeData);
             }
@@ -1139,7 +1140,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         SegmentBase singleSegmentBase;
         String attributeValue = xmlPullParser.getAttributeValue(null, "id");
         int parseInt = parseInt(xmlPullParser, "bandwidth", -1);
-        String parseString = parseString(xmlPullParser, "mimeType", str2);
+        String parseString = parseString(xmlPullParser, DownloadCenterFunConstants.MIME_TYPE, str2);
         String parseString2 = parseString(xmlPullParser, "codecs", str3);
         int parseInt2 = parseInt(xmlPullParser, "width", i);
         int parseInt3 = parseInt(xmlPullParser, "height", i2);

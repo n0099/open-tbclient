@@ -1,8 +1,9 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.download.model.Downloads;
 import com.baidubce.http.Headers;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class dk implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {
@@ -24,7 +25,7 @@ public final class dk implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.
         }
         com.kwad.components.a.kwai.a aVar = new com.kwad.components.a.kwai.a();
         bVar.PX = aVar;
-        aVar.parseJson(jSONObject.optJSONObject("headers"));
+        aVar.parseJson(jSONObject.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -48,7 +49,7 @@ public final class dk implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.
         if (str3 != null && !str3.equals("")) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "Content-Type", bVar.PU);
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "headers", bVar.PX);
+        com.kwad.sdk.utils.r.a(jSONObject, Downloads.Impl.RequestHeaders.URI_SEGMENT, bVar.PX);
         return jSONObject;
     }
 

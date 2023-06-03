@@ -19,7 +19,7 @@ import com.baidu.searchbox.wordscommand.runtime.WordCommandRuntime;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.searchbox.wordscommand.util.InvokeParamsSpUtil;
 import com.baidu.searchbox.wordscommand.util.WordCommandNetRequest;
-import com.baidu.tieba.a80;
+import com.baidu.tieba.j90;
 import java.util.HashMap;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -112,8 +112,8 @@ public class WordCommandRequest {
                     Log.d(WordCommandRequest.TAG, "WordCommandRequest getWordCommandContent() Fail, Exception: " + exc.toString());
                 }
                 BdEventBus.Companion.getDefault().post(new WordCommandEvent(201));
-                a80.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
-                a80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
+                j90.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
+                j90.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -147,7 +147,7 @@ public class WordCommandRequest {
                     if (!TextUtils.isEmpty(string2)) {
                         JSONObject jSONObject = new JSONObject(string2);
                         if (!jSONObject.has("errno")) {
-                            CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE, null);
+                            CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "false", null);
                             return null;
                         }
                         CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.valueOf(jSONObject.optInt("errno")), null);
@@ -156,9 +156,9 @@ public class WordCommandRequest {
                         }
                         return new CommandContent(optJSONObject);
                     }
-                    CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE, null);
+                    CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "false", null);
                 } else {
-                    CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE, null);
+                    CommandUBCHelper.ubcStatistics(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, CommandUBCHelper.COMMAND_UBC_TYPE_CODE_LOG, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "false", null);
                 }
                 return null;
             }

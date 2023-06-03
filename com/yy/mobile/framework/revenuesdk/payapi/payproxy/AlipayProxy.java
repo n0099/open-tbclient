@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payapi.payproxy;
 import android.app.Activity;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
@@ -230,7 +229,7 @@ public final class AlipayProxy extends DefaultPayMethod {
         if (activity == null) {
             RLog.error(this.TAG, "pay failed params activity null", new Object[0]);
             if (iPayCallback != null) {
-                iPayCallback.onFail(DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
+                iPayCallback.onFail(-1009, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
                 return;
             }
             return;

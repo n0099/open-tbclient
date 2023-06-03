@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.IntentFilter;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.of3;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,34 +17,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class j33 implements ku2 {
+public class j33 extends zb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, SwanAppConfigData> c;
-    public boolean d;
+    public NetworkBroadcastReceiver a;
+    public TelephonyManager b;
+    public a c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends PhoneStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j33 a;
+        public WeakReference<CallbackHandler> a;
+        public String b;
+        public String c;
+        public final /* synthetic */ j33 d;
 
-        public a(j33 j33Var) {
+        public a(j33 j33Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j33Var};
+                Object[] objArr = {j33Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,96 +51,35 @@ public class j33 implements ku2 {
                     return;
                 }
             }
-            this.a = j33Var;
+            this.d = j33Var;
+            this.c = "";
+            this.a = new WeakReference<>(callbackHandler);
+            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void a(CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.a.b();
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (ku2.a) {
-                    Log.d("SwanPerformance", "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
+            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+                this.a = new WeakReference<>(callbackHandler);
+                this.b = str;
             }
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(j33 j33Var) {
+        @Override // android.telephony.PhoneStateListener
+        public void onDataConnectionStateChanged(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j33Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                if (j33.d) {
+                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
+                }
+                if (2 == i) {
+                    String d = SwanAppNetworkUtils.d(i2, null);
+                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
+                        this.c = d;
+                        SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+                    }
                 }
             }
-        }
-
-        public final long b(@NonNull File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-                return file.lastModified();
-            }
-            return invokeL.longValue;
-        }
-
-        public /* synthetic */ b(j33 j33Var, a aVar) {
-            this(j33Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                if (file == null) {
-                    return 1;
-                }
-                if (file2 == null) {
-                    return -1;
-                }
-                return (int) ((b(file) - b(file2)) * (-1));
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final j33 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-738901472, "Lcom/baidu/tieba/j33$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-738901472, "Lcom/baidu/tieba/j33$c;");
-                    return;
-                }
-            }
-            a = new j33(null);
         }
     }
 
@@ -158,185 +96,59 @@ public class j33 implements ku2 {
                 return;
             }
         }
-        e = new HashSet();
+        d = is1.a;
     }
 
-    public j33() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j33(yb3 yb3Var) {
+        super(yb3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yb3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((yb3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
-        this.d = false;
-        h();
     }
 
-    public static j33 e() {
-        InterceptResult invokeV;
+    public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c.a;
-        }
-        return (j33) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.c;
-            if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
-                this.c.clear();
-            }
-            this.d = false;
-            if (ku2.a) {
-                Log.d("SwanPerformance", "release app.json batch cache");
-            }
-        }
-    }
-
-    public /* synthetic */ j33(a aVar) {
-        this();
-    }
-
-    public final void b() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            File g = cs2.g();
-            if (g.exists() && (listFiles = g.listFiles()) != null && listFiles.length != 0) {
-                for (String str : e) {
-                    c(new File(g, str));
-                }
-            }
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
-            e.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
-            e.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
-            e.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
-            e.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
-        }
-    }
-
-    public final void c(File file) {
-        File d;
-        SwanAppConfigData a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && file != null && file.exists() && file.isDirectory() && (d = d(file)) != null && (a2 = yt2.a(d)) != null) {
-            this.c.put(d.getAbsolutePath(), a2);
-        }
-    }
-
-    public final File d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && !file.isFile()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    if (listFiles.length > 1) {
-                        Arrays.sort(listFiles, new b(this, null));
-                    }
-                    return listFiles[0];
-                }
-                of3.b bVar = new of3.b(10012);
-                bVar.h(file.getAbsolutePath());
-                bVar.k("async parse swanApp");
-                bVar.m();
-                if (ku2.a) {
-                    Log.d("SwanPerformance", file.getAbsolutePath() + " is an empty folder");
-                }
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null && !concurrentHashMap.isEmpty()) {
-            Iterator<Map.Entry<String, SwanAppConfigData>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                Map.Entry<String, SwanAppConfigData> next = it.next();
-                if (next != null) {
-                    String key = next.getKey();
-                    if (!TextUtils.isEmpty(key) && key.contains(str)) {
-                        this.c.remove(key);
-                        break;
-                    }
-                }
-            }
-            if (ku2.a) {
-                Log.d("SwanPerformance", "release app.json appId = " + str);
-            }
-        }
-    }
-
-    @AnyThread
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.d) {
-                if (ku2.a) {
-                    Log.d("SwanPerformance", "has batch parse app.json, size = " + this.c.size());
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+            if (this.b == null) {
+                this.b = (TelephonyManager) getSystemService("phone");
+                a aVar = new a(this, callbackHandler, str);
+                this.c = aVar;
+                this.b.listen(aVar, 64);
                 return;
             }
-            this.d = true;
-            try {
-                am3.k(new a(this), "startAsyncBatchParseAppJson");
-            } catch (Throwable th) {
-                if (ku2.a) {
-                    Log.e("SwanPerformance", "batch parse app.json exception");
-                    th.printStackTrace();
-                }
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                aVar2.a(callbackHandler, str);
             }
         }
     }
 
-    public SwanAppConfigData j(File file) {
-        InterceptResult invokeL;
-        boolean z;
+    public void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
+            if (networkBroadcastReceiver == null) {
+                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                registerReceiver(this.a, intentFilter);
+            } else if (networkBroadcastReceiver != null) {
+                networkBroadcastReceiver.updateCallback(callbackHandler, str);
             }
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
-                return null;
-            }
-            SwanAppConfigData swanAppConfigData = this.c.get(absolutePath);
-            if (ku2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("try obtain config data success = ");
-                if (swanAppConfigData != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                sb.append(z);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return swanAppConfigData;
+            a(callbackHandler, str);
         }
-        return (SwanAppConfigData) invokeL.objValue;
     }
 }

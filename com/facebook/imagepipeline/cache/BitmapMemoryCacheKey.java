@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapMemoryCacheKey implements CacheKey {
     public final long mCacheTime;
     public final Object mCallerContext;

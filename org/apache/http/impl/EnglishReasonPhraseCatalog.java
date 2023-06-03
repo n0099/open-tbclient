@@ -3,7 +3,7 @@ package org.apache.http.impl;
 import java.util.Locale;
 import org.apache.http.ReasonPhraseCatalog;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EnglishReasonPhraseCatalog implements ReasonPhraseCatalog {
     public static final EnglishReasonPhraseCatalog INSTANCE = null;
 

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface gt1 {
-    ss1 a();
 
-    zs1 b();
+import java.io.File;
+/* loaded from: classes6.dex */
+public interface gt1 {
+    File a(String str, String str2);
+
+    File b();
+
+    String c();
 }

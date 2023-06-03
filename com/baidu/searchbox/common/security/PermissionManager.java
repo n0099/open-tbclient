@@ -15,7 +15,6 @@ import com.baidu.android.ext.widget.dialog.BoxAlertDialog;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.common.security.PermissionStorage;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import java.io.File;
 import java.util.ArrayList;
@@ -132,13 +131,13 @@ public class PermissionManager {
                         if (urlCheckContext.urlCheckRes == PermissionManager.URL_PRE_CHECK_RES_LOCAL) {
                             String path = urlCheckContext.uri.getPath();
                             if (path.length() > 60) {
-                                path = path.substring(0, 60) + StringHelper.STRING_MORE;
+                                path = path.substring(0, 60) + "...";
                             }
                             format = String.format("“%s”%s", path, urlCheckContext.op.getActionName());
                         } else {
                             format = String.format("“%s”%s", urlCheckContext.uri.getHost(), urlCheckContext.op.getActionName());
                         }
-                        new BoxAlertDialog.Builder(onGetActivity).setCancelable(false).setTitle(R.string.sec_tip_title).setMessage(format).setPositiveButton(R.string.sec_tip_btn_allow, onClickListener).setNegativeButton(R.string.sec_tip_btn_refuse, onClickListener).create().show();
+                        new BoxAlertDialog.Builder(onGetActivity).setCancelable(false).setTitle(R.string.obfuscated_res_0x7f0f12de).setMessage(format).setPositiveButton(R.string.obfuscated_res_0x7f0f12dc, onClickListener).setNegativeButton(R.string.obfuscated_res_0x7f0f12dd, onClickListener).create().show();
                         return;
                     }
                     urlCheckContext.lastMode = 0;

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 /* loaded from: classes4.dex */
 public interface IUbcPlayerStatusFetcher {
@@ -9,6 +10,9 @@ public interface IUbcPlayerStatusFetcher {
     String getKernelLogId();
 
     float getLaunchSpeedScore();
+
+    @NonNull
+    String getPlayErrorPart();
 
     int getPlayType();
 
@@ -22,4 +26,7 @@ public interface IUbcPlayerStatusFetcher {
 
     @Nullable
     String getTraceId();
+
+    @NonNull
+    String getVideoInfoEnterFlag();
 }

@@ -1,187 +1,222 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class c73 {
+public final class c73 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile c73 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<a> a;
+    public Set<String> b;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void onClickSwitch(View view2, boolean z);
+    public interface a {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627626, "Lcom/baidu/tieba/c73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947627626, "Lcom/baidu/tieba/c73;");
+                return;
+            }
+        }
+        c = is1.a;
+    }
+
+    public c73() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new SparseArray<>();
+        this.b = new HashSet();
     }
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ c c;
-
-        public a(View view2, View view3, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static c73 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (c73.class) {
+                    if (d == null) {
+                        d = new c73();
+                    }
                 }
             }
-            this.a = view2;
-            this.b = view3;
-            this.c = cVar;
+            return d;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && t63.c().e()) {
-                boolean c = c73.c(this.a, this.b);
-                c cVar = this.c;
-                if (cVar != null) {
-                    cVar.onClickSwitch(view2, c);
-                }
-            }
-        }
+        return (c73) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.setVisibility(4);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static boolean c(View view2, View view3) {
+    @NonNull
+    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
         InterceptResult invokeLL;
-        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
-            if (view2.getVisibility() != 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                int[] iArr = new int[strArr.length];
+                for (int i2 = 0; i2 < strArr.length; i2++) {
+                    if (us4.a(activity, strArr[i2])) {
+                        i = 0;
+                    } else {
+                        i = -1;
+                    }
+                    iArr[i2] = i;
+                }
+                return iArr;
             }
-            if (!z) {
-                h(view2, view3);
-            } else {
-                g(view2, view3);
-            }
-            return z;
+            return new int[0];
         }
-        return invokeLL.booleanValue;
+        return (int[]) invokeLL.objValue;
     }
 
-    public static void d(View view2, View view3) {
+    @Nullable
+    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            if (view3 != null) {
-                f73.k(view3);
-                view3.clearFocus();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
+            for (String str : strArr) {
+                if (!us4.a(activity, str)) {
+                    if (ip4.f(activity, str)) {
+                        return str;
+                    }
+                    if (!e(str)) {
+                        return str;
+                    }
+                }
             }
-            view2.setVisibility(8);
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void g(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
-            view2.setVisibility(0);
-            if (view3 != null) {
-                f73.k(view3);
-            }
-        }
-    }
-
-    public static void h(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
-            f73.m(view3);
-            if (e(view2.getContext())) {
-                view2.setVisibility(4);
-            }
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public static void b(View view2, View view3, View view4, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
-            if (view3 != null) {
-                view3.setOnClickListener(new a(view2, view4, cVar));
-            }
-            if (e(view2.getContext())) {
-                view4.setOnTouchListener(new b(view2));
-            }
-        }
-    }
-
-    public static boolean e(Context context) {
+    public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context instanceof Activity) {
-                boolean d = h73.d((Activity) context);
-                f(d);
-                return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            gk3 a2 = mk3.a();
+            return a2.getBoolean("first#" + str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            gk3 a2 = mk3.a();
+            a2.putBoolean("first#" + str, true);
+        }
+    }
+
+    public final boolean a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (strArr == null || strArr.length <= 0) {
+                return true;
+            }
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
+            boolean z = !a(strArr);
+            if (Build.VERSION.SDK_INT >= 23) {
+                h(activity, strArr, iArr);
+            }
+            a aVar = this.a.get(i);
+            if (aVar != null) {
+                this.a.remove(i);
+                if ((aVar instanceof x63) && z) {
+                    aVar = ((x63) aVar).s();
+                }
+                aVar.onRequestPermissionsResult(i, strArr, iArr);
+            }
+            if (c) {
+                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+                StringBuilder sb = new StringBuilder();
+                sb.append("onRequestPermissionsResult grantResults: ");
+                sb.append(Arrays.toString(iArr));
+                Log.d("SwanAppPermission", sb.toString());
+            }
+        }
+    }
+
+    @RequiresApi(api = 23)
+    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
+            for (int i = 0; i < length; i++) {
+                int i2 = iArr[i];
+                String str = strArr[i];
+                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
+                    this.b.add(str);
+                }
+            }
+        }
+    }
+
+    @TargetApi(23)
+    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
+            String d2 = d(activity, strArr);
+            if (d2 != null) {
+                this.a.put(i, aVar);
+                activity.requestPermissions(strArr, i);
+                g(d2);
+            } else {
+                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
+            }
+            if (c) {
+                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+            }
+        }
     }
 }

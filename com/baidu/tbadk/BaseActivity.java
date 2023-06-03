@@ -67,46 +67,46 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.aj5;
-import com.baidu.tieba.bs4;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.c15;
+import com.baidu.tieba.c55;
+import com.baidu.tieba.cn5;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ct5;
-import com.baidu.tieba.d25;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.el5;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.fl5;
-import com.baidu.tieba.ft5;
-import com.baidu.tieba.fx4;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.in5;
-import com.baidu.tieba.j25;
-import com.baidu.tieba.kx4;
-import com.baidu.tieba.ln5;
-import com.baidu.tieba.mn5;
-import com.baidu.tieba.n26;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ri5;
-import com.baidu.tieba.rn5;
-import com.baidu.tieba.s65;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.si5;
-import com.baidu.tieba.sn5;
+import com.baidu.tieba.ex5;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.g05;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.gp5;
+import com.baidu.tieba.hp5;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.nr5;
+import com.baidu.tieba.o66;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.or5;
+import com.baidu.tieba.pr5;
+import com.baidu.tieba.qr5;
+import com.baidu.tieba.qu4;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.s3a;
+import com.baidu.tieba.tm5;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.tu4;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.vn;
-import com.baidu.tieba.xk5;
-import com.baidu.tieba.yr4;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.um5;
+import com.baidu.tieba.ur5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wq8;
+import com.baidu.tieba.x55;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zn;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +121,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, on5, IVideoNeedPreload, yr4, Object, ln5 {
+public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, qr5, IVideoNeedPreload, qu4, Object, nr5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHOW_SOFT_KEYBOARD_DELAY = 150;
     public static final String TAG = "BaseActivity";
@@ -138,45 +138,45 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public long lastResumeTime;
     public final Animator.AnimatorListener loadViewAnimListener;
     public View loadingRootView;
-    public ri5 loadingView;
+    public tm5 loadingView;
     public int mAboveKeyboardHeight;
     public BuoyComponent mBuoyTaskComponent;
-    public j25 mClickableTextToast;
+    public g55 mClickableTextToast;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public final GuidPageView mGuidPage;
     public boolean mIsHasScreenShotListener;
     public boolean mIsLogin;
-    public v65 mKeyboardAdjust;
+    public r95 mKeyboardAdjust;
     public int mLastOrientation;
     public int mLastScreenHeight;
     public int mLastScreenWidth;
     public boolean mLayoutHasInit;
-    public fx4 mLayoutInflateFactory;
-    public hx4 mLayoutMode;
-    public f25 mListMenu;
+    public b05 mLayoutInflateFactory;
+    public d05 mLayoutMode;
+    public c55 mListMenu;
     public int mMaxHeight;
-    public kx4 mPermissionCallback;
+    public g05 mPermissionCallback;
     public int mPreHeight;
     public ContinuousAnimationView mProgressBar;
-    public si5 mRefreshView;
+    public um5 mRefreshView;
     public final Handler mSafeHandler;
-    public ct5 mScreenShotListenManager;
+    public ex5 mScreenShotListenManager;
     public int mSkinType;
     public SwipeBackLayout mSwipeBackLayout;
-    public in5 mTbPageExtra;
+    public kr5 mTbPageExtra;
     public TbPageTag mTbPageTag;
     public boolean mUseStyleImmersiveSticky;
-    public s65 mWaitingDialog;
+    public o95 mWaitingDialog;
     public BaseActivity<T>.NetRefreshListener netRefreshListener;
     public final CustomMessageListener nightResourcesChangeListener;
     public TbPageContext<T> pageContext;
-    public rn5 pageStayDurationItem;
+    public tr5 pageStayDurationItem;
     public List<PopupWindow> popupWindowList;
-    public qg resourcesWrapper;
+    public ug resourcesWrapper;
     public Runnable setNoTranslucentRunnable;
     public final CustomMessageListener skinTypeChangeListener;
 
-    @Override // com.baidu.tieba.on5
+    @Override // com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -195,14 +195,14 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.on5
-    public pn5 getPageStayFilter() {
+    @Override // com.baidu.tieba.qr5
+    public rr5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return null;
         }
-        return (pn5) invokeV.objValue;
+        return (rr5) invokeV.objValue;
     }
 
     public void onKeyboardHeightChanged(int i) {
@@ -377,10 +377,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void adjustResizeForSoftInputOnDestory() {
-        v65 v65Var;
+        r95 r95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (v65Var = this.mKeyboardAdjust) != null) {
-            v65Var.k();
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (r95Var = this.mKeyboardAdjust) != null) {
+            r95Var.k();
             this.mKeyboardAdjust = null;
         }
     }
@@ -413,18 +413,18 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void hideClickableTextToast() {
-        j25 j25Var;
+        g55 g55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && (j25Var = this.mClickableTextToast) != null) {
-            j25Var.e();
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && (g55Var = this.mClickableTextToast) != null) {
+            g55Var.e();
         }
     }
 
     private void startScreenShotListen() {
-        ct5 ct5Var;
+        ex5 ex5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && !this.mIsHasScreenShotListener && (ct5Var = this.mScreenShotListenManager) != null) {
-            ct5Var.m(new ct5.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
+        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && !this.mIsHasScreenShotListener && (ex5Var = this.mScreenShotListenManager) != null) {
+            ex5Var.m(new ex5.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseActivity this$0;
@@ -447,7 +447,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.ct5.b
+                @Override // com.baidu.tieba.ex5.b
                 public void onShot(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -464,10 +464,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void stopScreenShotListen() {
-        ct5 ct5Var;
+        ex5 ex5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (ct5Var = this.mScreenShotListenManager) != null) {
-            ct5Var.o();
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (ex5Var = this.mScreenShotListenManager) != null) {
+            ex5Var.o();
             this.mIsHasScreenShotListener = false;
         }
     }
@@ -476,7 +476,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = v65.d(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = r95.d(getPageContext().getPageActivity());
         }
     }
 
@@ -504,11 +504,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void closeLoadingDialog() {
-        s65 s65Var;
+        o95 o95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (s65Var = this.mWaitingDialog) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (o95Var = this.mWaitingDialog) != null) {
             try {
-                if (s65Var.c()) {
+                if (o95Var.c()) {
                     this.mWaitingDialog.h(false);
                 }
             } catch (Exception e) {
@@ -538,7 +538,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (list = this.dialogList) != null) {
             for (Dialog dialog : list) {
-                ug.b(dialog, getPageContext());
+                yg.b(dialog, getPageContext());
             }
             this.dialogList.clear();
         }
@@ -551,7 +551,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    @Override // com.baidu.tieba.on5
+    @Override // com.baidu.tieba.qr5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -586,49 +586,49 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return invokeV.booleanValue;
     }
 
-    public fx4 getLayoutInflate() {
+    public b05 getLayoutInflate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.mLayoutInflateFactory;
         }
-        return (fx4) invokeV.objValue;
+        return (b05) invokeV.objValue;
     }
 
-    public hx4 getLayoutMode() {
+    public d05 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.mLayoutMode;
         }
-        return (hx4) invokeV.objValue;
+        return (d05) invokeV.objValue;
     }
 
-    public f25 getListMenu() {
+    public c55 getListMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.mListMenu;
         }
-        return (f25) invokeV.objValue;
+        return (c55) invokeV.objValue;
     }
 
-    public s65 getLoadingDialog() {
+    public o95 getLoadingDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.mWaitingDialog;
         }
-        return (s65) invokeV.objValue;
+        return (o95) invokeV.objValue;
     }
 
-    public ri5 getLoadingView() {
+    public tm5 getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.loadingView;
         }
-        return (ri5) invokeV.objValue;
+        return (tm5) invokeV.objValue;
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -656,26 +656,26 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return invokeV.intValue;
     }
 
-    public rn5 getPageStayDurationItem() {
+    public tr5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             if (this.pageStayDurationItem == null) {
-                rn5 rn5Var = new rn5();
-                this.pageStayDurationItem = rn5Var;
-                rn5Var.x(getCurrentPageSourceKeyList());
+                tr5 tr5Var = new tr5();
+                this.pageStayDurationItem = tr5Var;
+                tr5Var.x(getCurrentPageSourceKeyList());
                 this.pageStayDurationItem.s(getCurrentPageKey());
             }
             return this.pageStayDurationItem;
         }
-        return (rn5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     public String getPreExtraPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            in5 tbPageExtra = getTbPageExtra();
+            kr5 tbPageExtra = getTbPageExtra();
             if (tbPageExtra != null) {
                 return tbPageExtra.e();
             }
@@ -688,21 +688,21 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return nn5.m(getIntent());
+            return pr5.m(getIntent());
         }
         return (TbPageTag) invokeV.objValue;
     }
 
-    public si5 getRefreshView() {
+    public um5 getRefreshView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new si5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
             }
             return this.mRefreshView;
         }
-        return (si5) invokeV.objValue;
+        return (um5) invokeV.objValue;
     }
 
     public Handler getSafeHandler() {
@@ -714,26 +714,26 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return (Handler) invokeV.objValue;
     }
 
-    public in5 getTbPageExtra() {
+    public kr5 getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             if (this.mTbPageExtra == null) {
-                this.mTbPageExtra = new in5(getUniqueId(), getCurrentExtraPageKey(), "", getIntent());
+                this.mTbPageExtra = new kr5(getUniqueId(), getCurrentExtraPageKey(), "", getIntent());
             }
             return this.mTbPageExtra;
         }
-        return (in5) invokeV.objValue;
+        return (kr5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ln5
-    public final mn5 getTbPageInfo() {
+    @Override // com.baidu.tieba.nr5
+    public final or5 getTbPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return new mn5(getUniqueId(), getTbPageTag(), getIntent());
+            return new or5(getUniqueId(), getTbPageTag(), getIntent());
         }
-        return (mn5) invokeV.objValue;
+        return (or5) invokeV.objValue;
     }
 
     public TbPageTag getTbPageTag() {
@@ -758,10 +758,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void hideListMenu() {
-        f25 f25Var;
+        c55 c55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048633, this) == null) && (f25Var = this.mListMenu) != null) {
-            f25Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048633, this) == null) && (c55Var = this.mListMenu) != null) {
+            c55Var.e();
         }
     }
 
@@ -787,11 +787,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
-            ri5 ri5Var = this.loadingView;
-            if (ri5Var == null) {
+            tm5 tm5Var = this.loadingView;
+            if (tm5Var == null) {
                 return false;
             }
-            return ri5Var.isViewAttached();
+            return tm5Var.isViewAttached();
         }
         return invokeV.booleanValue;
     }
@@ -809,11 +809,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            si5 si5Var = this.mRefreshView;
-            if (si5Var == null) {
+            um5 um5Var = this.mRefreshView;
+            if (um5Var == null) {
                 return false;
             }
-            return si5Var.isViewAttached();
+            return um5Var.isViewAttached();
         }
         return invokeV.booleanValue;
     }
@@ -858,7 +858,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
             super.onAttachedToWindow();
-            n26.K().Q();
+            o66.K().Q();
         }
     }
 
@@ -884,7 +884,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048665, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onStart:" + this);
             super.onStart();
             flog = 0;
@@ -909,21 +909,21 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void setCurrentActivityTid() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048674, this) == null) {
-            bs4.h(getPageId(), getMissionTid());
+            tu4.h(getPageId(), getMissionTid());
         }
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048684, this) == null) {
-            setNetRefreshViewEmotionMarginTop(ri.g(getApplicationContext(), R.dimen.obfuscated_res_0x7f0703a6));
+            setNetRefreshViewEmotionMarginTop(vi.g(getApplicationContext(), R.dimen.obfuscated_res_0x7f0703b1));
         }
     }
 
     public void showFloatingWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048694, this) == null) {
-            grantWindowPermission(new kx4(this) { // from class: com.baidu.tbadk.BaseActivity.10
+            grantWindowPermission(new g05(this) { // from class: com.baidu.tbadk.BaseActivity.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseActivity this$0;
@@ -946,7 +946,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.kx4
+                @Override // com.baidu.tieba.g05
                 public void onPermissionResult(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) && z) {
@@ -962,10 +962,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void showListMenu() {
-        f25 f25Var;
+        c55 c55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048695, this) == null) && (f25Var = this.mListMenu) != null) {
-            f25Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048695, this) == null) && (c55Var = this.mListMenu) != null) {
+            c55Var.m();
         }
     }
 
@@ -997,7 +997,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void unRegisterResponsedEventListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048725, this) == null) {
-            el5.f().o(getUniqueId());
+            gp5.f().o(getUniqueId());
         }
     }
 
@@ -1114,7 +1114,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.isFinishing()) {
-                    ft5.a(this.this$0);
+                    hx5.a(this.this$0);
                 }
             }
         };
@@ -1195,7 +1195,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     z = false;
                 }
                 UtilHelper.changeStatusBarIconAndTextColor(z, this.this$0);
-                n26.K().R(TbadkCoreApplication.getInst().getSkinType());
+                o66.K().R(TbadkCoreApplication.getInst().getSkinType());
                 EdgeFloatLifecycle.c().e(TbadkCoreApplication.getInst().getSkinType());
             }
         };
@@ -1215,7 +1215,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 return resources;
             }
             if (this.resourcesWrapper == null) {
-                this.resourcesWrapper = new qg(super.getResources());
+                this.resourcesWrapper = new ug(super.getResources());
             }
             return this.resourcesWrapper;
         }
@@ -1226,16 +1226,16 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onDestroy:" + this);
             closeLoadingDialog();
             GuidPageView guidPageView = this.mGuidPage;
             if (guidPageView != null) {
                 guidPageView.b();
             }
-            hx4 hx4Var = this.mLayoutMode;
-            if (hx4Var != null) {
-                hx4Var.c();
+            d05 d05Var = this.mLayoutMode;
+            if (d05Var != null) {
+                d05Var.c();
             }
             View view2 = this.loadingRootView;
             if (view2 != null) {
@@ -1253,9 +1253,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mPermissionCallback = null;
             super.onDestroy();
             this.mSafeHandler.removeCallbacksAndMessages(null);
-            sg.a().removeCallbacks(this.setNoTranslucentRunnable);
-            aj5.e().b();
-            gy4.c().d(getUniqueId());
+            wg.a().removeCallbacks(this.setNoTranslucentRunnable);
+            cn5.e().b();
+            c15.c().d(getUniqueId());
         }
     }
 
@@ -1277,7 +1277,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = v65.f(getPageContext().getPageActivity(), z);
+            this.mKeyboardAdjust = r95.f(getPageContext().getPageActivity(), z);
         }
     }
 
@@ -1320,7 +1320,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (list != null) {
                 list.remove(dialog);
             }
-            ug.b(dialog, getPageContext());
+            yg.b(dialog, getPageContext());
         }
     }
 
@@ -1334,7 +1334,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void dismissPopupWindow(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, popupWindow) == null) {
-            ug.d(popupWindow, getPageContext().getPageActivity());
+            yg.d(popupWindow, getPageContext().getPageActivity());
             List<PopupWindow> list = this.popupWindowList;
             if (list != null) {
                 list.remove(popupWindow);
@@ -1343,18 +1343,18 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void hideLoadingView(View view2) {
-        ri5 ri5Var;
+        tm5 tm5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048634, this, view2) == null) && (ri5Var = this.loadingView) != null) {
-            ri5Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048634, this, view2) == null) && (tm5Var = this.loadingView) != null) {
+            tm5Var.dettachView(view2);
         }
     }
 
     public void hideNetRefreshView(View view2) {
-        si5 si5Var;
+        um5 um5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048635, this, view2) == null) && (si5Var = this.mRefreshView) != null) {
-            si5Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048635, this, view2) == null) && (um5Var = this.mRefreshView) != null) {
+            um5Var.dettachView(view2);
         }
     }
 
@@ -1365,25 +1365,25 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    @Override // com.baidu.tieba.yr4
+    @Override // com.baidu.tieba.qu4
     public boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, completeTaskToastData)) == null) {
             hideClickableTextToast();
-            this.mClickableTextToast = bs4.i(completeTaskToastData);
+            this.mClickableTextToast = tu4.i(completeTaskToastData);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.l9
-    public void onPreLoad(vn vnVar) {
+    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.p9
+    public void onPreLoad(zn znVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048659, this, vnVar) == null) {
-            super.onPreLoad(vnVar);
-            PreLoadImageHelper.load(vnVar, getUniqueId());
-            PreLoadVideoHelper.load(vnVar, getUniqueId(), this);
+        if (interceptable == null || interceptable.invokeL(1048659, this, znVar) == null) {
+            super.onPreLoad(znVar);
+            PreLoadImageHelper.load(znVar, getUniqueId());
+            PreLoadVideoHelper.load(znVar, getUniqueId(), this);
         }
     }
 
@@ -1398,15 +1398,15 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    public void publishEvent(xk5 xk5Var) {
+    public void publishEvent(zo5 zo5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048669, this, xk5Var) != null) || xk5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048669, this, zo5Var) != null) || zo5Var == null) {
             return;
         }
-        if (xk5Var.getTag() == 0) {
-            xk5Var.setTag(getUniqueId());
+        if (zo5Var.getTag() == 0) {
+            zo5Var.setTag(getUniqueId());
         }
-        el5.i(xk5Var);
+        gp5.i(zo5Var);
     }
 
     public void setCurrentPermissionJudgePolicy(PermissionJudgePolicy permissionJudgePolicy) {
@@ -1417,10 +1417,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setExcludeHeight(int i) {
-        v65 v65Var;
+        r95 r95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048676, this, i) == null) && (v65Var = this.mKeyboardAdjust) != null) {
-            v65Var.o(i);
+        if ((interceptable == null || interceptable.invokeI(1048676, this, i) == null) && (r95Var = this.mKeyboardAdjust) != null) {
+            r95Var.o(i);
         }
     }
 
@@ -1445,42 +1445,42 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    public void setLayoutInflate(fx4 fx4Var) {
+    public void setLayoutInflate(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048680, this, fx4Var) == null) {
-            this.mLayoutInflateFactory = fx4Var;
+        if (interceptable == null || interceptable.invokeL(1048680, this, b05Var) == null) {
+            this.mLayoutInflateFactory = b05Var;
         }
     }
 
-    public void setLayoutMode(hx4 hx4Var) {
+    public void setLayoutMode(d05 d05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048681, this, hx4Var) == null) {
-            this.mLayoutMode = hx4Var;
+        if (interceptable == null || interceptable.invokeL(1048681, this, d05Var) == null) {
+            this.mLayoutMode = d05Var;
         }
     }
 
     public void setNetRefreshViewEmotionMarginTop(int i) {
-        si5 si5Var;
+        um5 um5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048685, this, i) == null) && (si5Var = this.mRefreshView) != null && si5Var.isViewAttached()) {
+        if ((interceptable == null || interceptable.invokeI(1048685, this, i) == null) && (um5Var = this.mRefreshView) != null && um5Var.isViewAttached()) {
             this.mRefreshView.k(i);
         }
     }
 
     public void setNetRefreshViewPicResId(int i) {
-        si5 si5Var;
+        um5 um5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048686, this, i) != null) || (si5Var = this.mRefreshView) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048686, this, i) != null) || (um5Var = this.mRefreshView) == null) {
             return;
         }
-        si5Var.h(i);
+        um5Var.h(i);
     }
 
     public void setNetRefreshViewTopMargin(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048687, this, i) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new si5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.k(i);
         }
@@ -1520,7 +1520,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, dialog)) == null) {
-            if (ug.j(dialog, getPageContext())) {
+            if (yg.j(dialog, getPageContext())) {
                 if (this.dialogList == null) {
                     this.dialogList = new LinkedList();
                 }
@@ -1549,7 +1549,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void showToast(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
-            ri.P(getPageContext().getContext(), i);
+            vi.P(getPageContext().getContext(), i);
         }
     }
 
@@ -1623,10 +1623,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return invokeIL.booleanValue;
     }
 
-    public void registerResponsedEventListener(Class<? extends xk5> cls, fl5 fl5Var) {
+    public void registerResponsedEventListener(Class<? extends zo5> cls, hp5 hp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048671, this, cls, fl5Var) == null) {
-            el5.f().m(cls, fl5Var, getUniqueId());
+        if (interceptable == null || interceptable.invokeLL(1048671, this, cls, hp5Var) == null) {
+            gp5.f().m(cls, hp5Var, getUniqueId());
         }
     }
 
@@ -1662,7 +1662,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048708, this, popupWindow, view2)) == null) {
-            if (ug.k(popupWindow, view2)) {
+            if (yg.k(popupWindow, view2)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1846,7 +1846,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (list = this.popupWindowList) != null) {
             for (PopupWindow popupWindow : list) {
-                ug.d(popupWindow, getPageContext().getPageActivity());
+                yg.d(popupWindow, getPageContext().getPageActivity());
             }
             this.popupWindowList.clear();
         }
@@ -1856,9 +1856,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "finish:" + this);
-            ri.z(getApplicationContext(), getWindow().getDecorView());
+            vi.z(getApplicationContext(), getWindow().getDecorView());
             dismissAllDialog();
             dismissAllPopupWindow();
             super.finish();
@@ -1890,7 +1890,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.h9
+    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.l9
     public TbPageContext<T> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1911,7 +1911,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onStop:" + this);
             super.onStop();
             if (this == TbadkCoreApplication.getInst().getCurrentActivity()) {
@@ -1925,7 +1925,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = v65.e(getPageContext().getPageActivity(), i, z);
+            this.mKeyboardAdjust = r95.e(getPageContext().getPageActivity(), i, z);
         }
     }
 
@@ -1935,22 +1935,22 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (z) {
                 showToast(i);
             } else {
-                ri.P(getPageContext().getContext(), i);
+                vi.P(getPageContext().getContext(), i);
             }
         }
     }
 
-    public f25 createListMenu(String[] strArr, f25.c cVar, boolean z) {
+    public c55 createListMenu(String[] strArr, c55.c cVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048593, this, strArr, cVar, z)) == null) {
-            f25 f25Var = this.mListMenu;
-            if (f25Var != null) {
-                return f25Var;
+            c55 c55Var = this.mListMenu;
+            if (c55Var != null) {
+                return c55Var;
             }
             return newListMenu(strArr, cVar, z);
         }
-        return (f25) invokeLLZ.objValue;
+        return (c55) invokeLLZ.objValue;
     }
 
     public void showNetRefreshView(View view2, String str, boolean z) {
@@ -1965,10 +1965,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
-            a35.l(false);
-            bs4.a(motionEvent, getPageId(), getMissionTid());
-            gx9.getInstance().behaviorRecordEvent(motionEvent, this);
-            n26.K().H();
+            x55.l(false);
+            tu4.a(motionEvent, getPageId(), getMissionTid());
+            s3a.getInstance().behaviorRecordEvent(motionEvent, this);
+            o66.K().H();
             EdgeFloatLifecycle.c().b(motionEvent);
             try {
                 if (this.mProgressBar != null && this.mProgressBar.isShown()) {
@@ -2004,37 +2004,37 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
-            ri5 ri5Var = this.loadingView;
-            if (ri5Var != null) {
-                ri5Var.onChangeSkinType();
+            tm5 tm5Var = this.loadingView;
+            if (tm5Var != null) {
+                tm5Var.onChangeSkinType();
             }
-            si5 si5Var = this.mRefreshView;
-            if (si5Var != null) {
-                si5Var.onChangeSkinType();
+            um5 um5Var = this.mRefreshView;
+            if (um5Var != null) {
+                um5Var.onChangeSkinType();
             }
             SwipeBackLayout swipeBackLayout = this.mSwipeBackLayout;
             if (swipeBackLayout != null) {
                 swipeBackLayout.onChangeSkinType(i);
             }
-            v65 v65Var = this.mKeyboardAdjust;
-            if (v65Var != null) {
-                v65Var.l(i);
+            r95 r95Var = this.mKeyboardAdjust;
+            if (r95Var != null) {
+                r95Var.l(i);
             }
             if (this.mUseStyleImmersiveSticky) {
                 this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
             }
-            f25 f25Var = this.mListMenu;
-            if (f25Var != null) {
-                f25Var.b(getPageContext());
+            c55 c55Var = this.mListMenu;
+            if (c55Var != null) {
+                c55Var.b(getPageContext());
             }
         }
     }
 
     public void setNetRefreshLayoutMarginTop(boolean z) {
-        si5 si5Var;
+        um5 um5Var;
         int a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048682, this, z) == null) && (si5Var = this.mRefreshView) != null && si5Var.isViewAttached() && this.mRefreshView.b() != null && (this.mRefreshView.b().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeZ(1048682, this, z) == null) && (um5Var = this.mRefreshView) != null && um5Var.isViewAttached() && this.mRefreshView.b() != null && (this.mRefreshView.b().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             if (z) {
                 a = BdListViewHelper.b(BdListViewHelper.HeadType.DEFAULT, false);
             } else {
@@ -2044,7 +2044,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    @Override // com.baidu.tieba.on5
+    @Override // com.baidu.tieba.qr5
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -2072,23 +2072,23 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return (List) invokeV.objValue;
     }
 
-    public boolean grantWindowPermission(kx4 kx4Var) {
+    public boolean grantWindowPermission(g05 g05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, kx4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, g05Var)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 if (Settings.canDrawOverlays(getBaseContext())) {
-                    if (kx4Var != null) {
-                        kx4Var.onPermissionResult(true);
+                    if (g05Var != null) {
+                        g05Var.onPermissionResult(true);
                     }
                 } else {
-                    this.mPermissionCallback = kx4Var;
-                    if (!o65.m().i("key_is_window_permission_dialog_shown", false)) {
-                        d25 d25Var = new d25(this);
-                        d25Var.setCanceledOnTouchOutside(false);
-                        d25Var.setTitle(R.string.request_permission_default_title);
-                        d25Var.setMessageId(R.string.request_window_permission_default_text);
-                        d25Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ad0, new d25.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
+                    this.mPermissionCallback = g05Var;
+                    if (!l95.m().i("key_is_window_permission_dialog_shown", false)) {
+                        a55 a55Var = new a55(this);
+                        a55Var.setCanceledOnTouchOutside(false);
+                        a55Var.setTitle(R.string.request_permission_default_title);
+                        a55Var.setMessageId(R.string.request_window_permission_default_text);
+                        a55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b08, new a55.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ BaseActivity this$0;
@@ -2111,11 +2111,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                 this.this$0 = this;
                             }
 
-                            @Override // com.baidu.tieba.d25.e
-                            public void onClick(d25 d25Var2) {
+                            @Override // com.baidu.tieba.a55.e
+                            public void onClick(a55 a55Var2) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, d25Var2) == null) {
-                                    d25Var2.dismiss();
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, a55Var2) == null) {
+                                    a55Var2.dismiss();
                                     try {
                                         Intent intent = new Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION");
                                         intent.setData(Uri.parse("package:" + this.this$0.getPackageName()));
@@ -2128,7 +2128,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                     }
                                 }
                             }
-                        }).setNegativeButton(R.string.obfuscated_res_0x7f0f03c3, new d25.e(this) { // from class: com.baidu.tbadk.BaseActivity.7
+                        }).setNegativeButton(R.string.obfuscated_res_0x7f0f03c9, new a55.e(this) { // from class: com.baidu.tbadk.BaseActivity.7
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ BaseActivity this$0;
@@ -2151,29 +2151,29 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                 this.this$0 = this;
                             }
 
-                            @Override // com.baidu.tieba.d25.e
-                            public void onClick(d25 d25Var2) {
+                            @Override // com.baidu.tieba.a55.e
+                            public void onClick(a55 a55Var2) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, d25Var2) == null) {
-                                    d25Var2.dismiss();
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, a55Var2) == null) {
+                                    a55Var2.dismiss();
                                     if (this.this$0.mPermissionCallback != null) {
                                         this.this$0.mPermissionCallback.onPermissionResult(false);
                                     }
                                 }
                             }
                         }).create(getPageContext());
-                        d25Var.show();
-                        o65.m().w("key_is_window_permission_dialog_shown", true);
+                        a55Var.show();
+                        l95.m().w("key_is_window_permission_dialog_shown", true);
                     } else {
-                        kx4 kx4Var2 = this.mPermissionCallback;
-                        if (kx4Var2 != null) {
-                            kx4Var2.onPermissionResult(false);
+                        g05 g05Var2 = this.mPermissionCallback;
+                        if (g05Var2 != null) {
+                            g05Var2.onPermissionResult(false);
                         }
                     }
                     return false;
                 }
-            } else if (kx4Var != null) {
-                kx4Var.onPermissionResult(true);
+            } else if (g05Var != null) {
+                g05Var.onPermissionResult(true);
             }
             return true;
         }
@@ -2193,7 +2193,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                     this.mLastScreenWidth = configuration.screenWidthDp;
                     this.mLastScreenHeight = configuration.screenHeightDp;
-                    ri.a = false;
+                    vi.a = false;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
                 }
             } else {
@@ -2202,7 +2202,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new ConfigChangeMessage(Boolean.valueOf(KuangFloatingWindowController.currentStatus)));
             }
-            EdgeFloatLifecycle.c().g(ri.m(this, UtilHelper.isFoldScreen()), ri.k(this, UtilHelper.isFoldScreen()));
+            EdgeFloatLifecycle.c().g(vi.m(this, UtilHelper.isFoldScreen()), vi.k(this, UtilHelper.isFoldScreen()));
         }
     }
 
@@ -2213,39 +2213,39 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             String name = getClass().getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-                ri.Q(getPageContext().getContext(), str);
+                vi.Q(getPageContext().getContext(), str);
             } else {
                 this.customToast.showToast(str, 2000);
             }
         }
     }
 
-    public f25 newListMenu(String[] strArr, f25.c cVar, boolean z) {
+    public c55 newListMenu(String[] strArr, c55.c cVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048644, this, strArr, cVar, z)) == null) {
-            f25 f25Var = new f25(getPageContext().getPageActivity());
-            this.mListMenu = f25Var;
+            c55 c55Var = new c55(getPageContext().getPageActivity());
+            this.mListMenu = c55Var;
             if (!z) {
-                f25Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e8b));
+                c55Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ec6));
             }
             this.mListMenu.j(strArr, cVar);
             this.mListMenu.c(getPageContext());
             return this.mListMenu;
         }
-        return (f25) invokeLLZ.objValue;
+        return (c55) invokeLLZ.objValue;
     }
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        kx4 kx4Var;
+        g05 g05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048645, this, i, i2, intent) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onActivityResult:" + this + " requestCode:" + i + " resultCode:" + i2);
             super.onActivityResult(i, i2, intent);
-            if (!eu5.c(i, i2, intent) && (kx4Var = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i == 12016) {
-                kx4Var.onPermissionResult(Settings.canDrawOverlays(getBaseContext()));
+            if (!fy5.c(i, i2, intent) && (g05Var = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i == 12016) {
+                g05Var.onPermissionResult(Settings.canDrawOverlays(getBaseContext()));
                 this.mPermissionCallback = null;
             }
         }
@@ -2253,15 +2253,15 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048698, this, str, onCancelListener, z) != null) || isFinishing() || !ug.f(getPageContext())) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048698, this, str, onCancelListener, z) != null) || isFinishing() || !yg.f(getPageContext())) {
             return;
         }
         if (str == null) {
             str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0038);
         }
-        s65 s65Var = new s65((TbPageContext<?>) getPageContext());
-        this.mWaitingDialog = s65Var;
-        s65Var.j(str);
+        o95 o95Var = new o95((TbPageContext<?>) getPageContext());
+        this.mWaitingDialog = o95Var;
+        o95Var.j(str);
         this.mWaitingDialog.e(onCancelListener);
         this.mWaitingDialog.d(false);
         this.mWaitingDialog.f(z);
@@ -2274,11 +2274,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.loadingRootView = view2;
             if (this.loadingView == null) {
                 if (i < 0) {
-                    this.loadingView = new ri5(getPageContext().getContext());
+                    this.loadingView = new tm5(getPageContext().getContext());
                 } else {
-                    ri5 ri5Var = new ri5(getPageContext().getContext(), i);
-                    this.loadingView = ri5Var;
-                    ri5Var.i();
+                    tm5 tm5Var = new tm5(getPageContext().getContext(), i);
+                    this.loadingView = tm5Var;
+                    tm5Var.i();
                 }
                 this.loadingView.onChangeSkinType();
             }
@@ -2290,7 +2290,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048650, this, bundle) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onCreate:" + this);
             if (this.isAddSwipeBackLayout) {
                 SwipeBackLayout swipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
@@ -2309,10 +2309,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
             this.customToast = CustomToast.newInstance();
             super.onCreate(bundle);
-            this.mLayoutMode = new hx4();
-            fx4 fx4Var = new fx4();
-            this.mLayoutInflateFactory = fx4Var;
-            fx4Var.a(this.mLayoutMode);
+            this.mLayoutMode = new d05();
+            b05 b05Var = new b05();
+            this.mLayoutInflateFactory = b05Var;
+            b05Var.a(this.mLayoutMode);
             getLayoutInflater().setFactory(this.mLayoutInflateFactory);
             if (this.mUseStyleImmersiveSticky) {
                 this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
@@ -2325,7 +2325,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             registerListener(this.skinTypeChangeListener);
             enterExitAnimation();
             this.mIsLogin = TbadkCoreApplication.isLogin();
-            this.mScreenShotListenManager = new ct5(this);
+            this.mScreenShotListenManager = new ex5(this);
             SpeedStats.getInstance().onBaseActivityCreate(this);
         }
     }
@@ -2334,18 +2334,18 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onPause:" + this);
-            gx9.getInstance().onPause(this);
+            s3a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
             }
             if (this.lastResumeTime != 0 && !this.isInterceptStimeStat && !this.isForceInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-                rn5 pageStayDurationItem = getPageStayDurationItem();
+                tr5 pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.y(currentTimeMillis);
-                sn5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+                ur5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             }
             this.customToast.onPause();
             stopScreenShotListen();
@@ -2353,8 +2353,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             TbadkCoreApplication.getInst().setCurrentActivity(null);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
             if (this.isAddSwipeBackLayout) {
-                sg.a().removeCallbacks(this.setNoTranslucentRunnable);
-                sg.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
+                wg.a().removeCallbacks(this.setNoTranslucentRunnable);
+                wg.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
             }
         }
     }
@@ -2394,7 +2394,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048707, this, view2, str, z) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new si5(getPageContext().getContext(), getNetRefreshListener());
+                this.mRefreshView = new um5(getPageContext().getContext(), getNetRefreshListener());
             }
             this.mRefreshView.m(str);
             this.mRefreshView.attachView(view2, z);
@@ -2483,11 +2483,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onResume:" + this);
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            gx9.getInstance().onResume(this);
+            s3a.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {
@@ -2520,19 +2520,19 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 showFloatingWindow();
             }
             if (this.isAddSwipeBackLayout) {
-                sg.a().removeCallbacks(this.setNoTranslucentRunnable);
-                ft5.b(this);
+                wg.a().removeCallbacks(this.setNoTranslucentRunnable);
+                hx5.b(this);
             }
-            n26.K().c0(this);
+            o66.K().c0(this);
             EdgeFloatLifecycle.c().k(this);
         }
     }
 
     @Deprecated
     public void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        si5 si5Var;
+        um5 um5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048683, this, z) == null) && (si5Var = this.mRefreshView) != null && si5Var.isViewAttached() && this.mRefreshView.b() != null && (this.mRefreshView.b().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeZ(1048683, this, z) == null) && (um5Var = this.mRefreshView) != null && um5Var.isViewAttached() && this.mRefreshView.b() != null && (this.mRefreshView.b().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ((ViewGroup.MarginLayoutParams) this.mRefreshView.b().getLayoutParams()).topMargin = BdListViewHelper.b(BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
@@ -2572,7 +2572,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048704, this, new Object[]{view2, str, str2, str3, Boolean.valueOf(z), onClickListener}) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new si5(getPageContext().getContext(), onClickListener);
+                this.mRefreshView = new um5(getPageContext().getContext(), onClickListener);
             }
             this.mRefreshView.n(str);
             this.mRefreshView.m(str2);
@@ -2586,7 +2586,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048709, this, popupWindow, view2, i, i2)) == null) {
-            if (ug.l(popupWindow, view2, i, i2)) {
+            if (yg.l(popupWindow, view2, i, i2)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -2602,7 +2602,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048710, this, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (ug.m(popupWindow, view2, i, i2, i3)) {
+            if (yg.m(popupWindow, view2, i, i2, i3)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -2622,7 +2622,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 try {
                     this.mProgressBar = new ContinuousAnimationView(getPageContext().getPageActivity());
                     FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
-                    int g = ri.g(getPageContext().getPageActivity(), R.dimen.tbds200);
+                    int g = vi.g(getPageContext().getPageActivity(), R.dimen.tbds200);
                     frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(g, g, 17));
                     this.mProgressBar.setRepeatMode(1);
                     this.mProgressBar.addAnimatorListener(this.loadViewAnimListener);
@@ -2635,7 +2635,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             }
             ContinuousAnimationView continuousAnimationView2 = this.mProgressBar;
             if (continuousAnimationView2 != null) {
-                continuousAnimationView2.setPadding(ri.d(getPageContext().getPageActivity(), i), ri.d(getPageContext().getPageActivity(), i2), 0, 0);
+                continuousAnimationView2.setPadding(vi.d(getPageContext().getPageActivity(), i), vi.d(getPageContext().getPageActivity(), i2), 0, 0);
                 this.mProgressBar.setVisibility(0);
                 this.mProgressBar.setSpeed(1.3f);
                 this.mProgressBar.setMinAndMaxProgress(0.0f, 1.0f);
@@ -2650,7 +2650,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (z) {
                 showToast(str);
             } else {
-                ri.Q(getPageContext().getContext(), str);
+                vi.Q(getPageContext().getContext(), str);
             }
         }
     }

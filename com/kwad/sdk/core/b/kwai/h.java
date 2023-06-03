@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.components.ad.adbit.AdBid;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h implements com.kwad.sdk.core.d<AdBid> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdBid adBid, JSONObject jSONObject) {

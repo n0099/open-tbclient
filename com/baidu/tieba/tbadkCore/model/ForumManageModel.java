@@ -7,6 +7,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.u25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -146,7 +147,7 @@ public class ForumManageModel extends BdBaseModel {
                 NetWork netWork = new NetWork(str);
                 this.a = netWork;
                 netWork.addPostData("fid", this.b);
-                this.a.addPostData("word", this.c);
+                this.a.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.c);
                 this.a.addPostData("z", this.d);
                 String str3 = this.i;
                 if (str3 != null) {
@@ -313,7 +314,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<xz4> f;
+        public ArrayList<u25> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -353,7 +354,7 @@ public class ForumManageModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 NetWork netWork = new NetWork(strArr[0]);
                 this.a = netWork;
-                netWork.addPostData("word", this.c);
+                netWork.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.c);
                 if (this.e != 6) {
                     this.a.addPostData("fid", this.b);
                     this.a.addPostData("z", this.d);
@@ -377,9 +378,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                xz4 xz4Var = new xz4();
-                                xz4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(xz4Var);
+                                u25 u25Var = new u25();
+                                u25Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(u25Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -438,7 +439,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<xz4> c;
+        public ArrayList<u25> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -538,7 +539,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -562,7 +563,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

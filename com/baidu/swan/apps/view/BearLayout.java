@@ -18,14 +18,14 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do3;
-import com.baidu.tieba.qp1;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.vq3;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class BearLayout extends LinearLayout {
-    public static final boolean j = qp1.a;
+    public static final boolean j = is1.a;
     public TextView a;
     public SimpleDraweeView b;
     public BdBaseImageView c;
@@ -59,11 +59,11 @@ public class BearLayout extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
-        public final /* synthetic */ do3 a;
+        public final /* synthetic */ vq3 a;
         public final /* synthetic */ SwanAppBearInfo b;
 
-        public b(do3 do3Var, SwanAppBearInfo swanAppBearInfo) {
-            this.a = do3Var;
+        public b(vq3 vq3Var, SwanAppBearInfo swanAppBearInfo) {
+            this.a = vq3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -212,23 +212,23 @@ public class BearLayout extends LinearLayout {
         SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, do3 do3Var) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, vq3 vq3Var) {
         this.i = context;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009c, this);
         linearLayout.setOnClickListener(new a(swanAppBearInfo));
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c6);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c9);
         this.a = textView;
         textView.setText(swanAppBearInfo.bearName);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c5);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c8);
         this.b = simpleDraweeView;
         simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-        this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c7);
+        this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903ca);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c0);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c1);
+        this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c3);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c4);
         this.e = textView2;
-        textView2.setOnClickListener(new b(do3Var, swanAppBearInfo));
-        BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c4);
+        textView2.setOnClickListener(new b(vq3Var, swanAppBearInfo));
+        BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c7);
         this.f = bdBaseImageView;
         bdBaseImageView.setVisibility(8);
         this.h = new c();

@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public interface qx3 {
-    void b(CommandType commandType, Uri uri);
+    void a(vc3 vc3Var);
+
+    @Nullable
+    Map<String, Object> b(@NonNull zz1 zz1Var);
+
+    @Nullable
+    Map<String, Object> c(@NonNull zz1 zz1Var);
 }

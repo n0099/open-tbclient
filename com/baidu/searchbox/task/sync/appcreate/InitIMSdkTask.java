@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.ij5;
+import com.baidu.tieba.kn5;
 /* loaded from: classes4.dex */
 public class InitIMSdkTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -16,6 +16,6 @@ public class InitIMSdkTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        ij5.b();
+        kn5.b();
     }
 }

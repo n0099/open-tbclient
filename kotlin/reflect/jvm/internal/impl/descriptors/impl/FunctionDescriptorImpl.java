@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -141,7 +140,7 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
                 break;
             case 7:
             case 9:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 8:
             case 12:
@@ -461,7 +460,7 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
                     objArr[0] = "modality";
                     break;
                 case 11:
-                    objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                    objArr[0] = "visibility";
                     break;
                 case 16:
                     objArr[0] = "name";

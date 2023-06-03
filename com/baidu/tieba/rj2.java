@@ -1,27 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pk2;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class rj2<T extends pk2> {
+public class rj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public T a;
+    public V8Engine a;
 
-    public rj2(@NonNull T t) {
+    public rj2(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {v8Engine};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +27,27 @@ public abstract class rj2<T extends pk2> {
                 return;
             }
         }
-        this.a = t;
+        this.a = v8Engine;
     }
 
-    @NonNull
-    public File b(long j) {
-        InterceptResult invokeJ;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return new File(a(), String.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(4, str);
         }
-        return (File) invokeJ.objValue;
     }
 
-    public File a() {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.f();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            c(1, str);
         }
-        return (File) invokeV.objValue;
+    }
+
+    public final void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.a.onConsoleCallBack(i, str);
+        }
     }
 }

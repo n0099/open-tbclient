@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.util.Map;
 /* loaded from: classes9.dex */
 public class DefultCallBackAware implements CallBackAware {
     public static /* synthetic */ Interceptable $ic;
@@ -38,25 +39,33 @@ public class DefultCallBackAware implements CallBackAware {
     }
 
     @Override // com.fun.ad.sdk.internal.api.flavor.CallBackAware
-    public void onAdClicked(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, String... strArr) {
+    public void onAdClicked(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, RippedAd rippedAd, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdInteractionListener, str, str2, str3, strArr) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{funAdInteractionListener, str, str2, str3, rippedAd, map}) == null) {
             funAdInteractionListener.onAdClicked(str, str2, str3);
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.flavor.CallBackAware
-    public void onRewardedVideo(FunAdInteractionListener funAdInteractionListener, String str, boolean z, String str2, int i, String str3, String... strArr) {
+    public void onAdClose(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{funAdInteractionListener, str, Boolean.valueOf(z), str2, Integer.valueOf(i), str3, strArr}) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, funAdInteractionListener, str, str2, str3, map) == null) {
+            funAdInteractionListener.onAdClose(str);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.flavor.CallBackAware
+    public void onRewardedVideo(FunAdInteractionListener funAdInteractionListener, String str, boolean z, String str2, int i, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{funAdInteractionListener, str, Boolean.valueOf(z), str2, Integer.valueOf(i), str3, map}) == null) {
             funAdInteractionListener.onRewardedVideo(str, str2, str3);
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.flavor.CallBackAware
-    public void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, RippedAd rippedAd, String... strArr) {
+    public void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, RippedAd rippedAd, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{funAdInteractionListener, str, str2, str3, rippedAd, strArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{funAdInteractionListener, str, str2, str3, rippedAd, map}) == null) {
             funAdInteractionListener.onAdShow(str, str2, str3);
         }
     }

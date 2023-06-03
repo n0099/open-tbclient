@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class kl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jl9 a;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized jl9 a() {
-        InterceptResult invokeV;
-        jl9 jl9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (kl9.class) {
-                if (a == null) {
-                    a = new jl9();
-                }
-                jl9Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917073, "Lcom/baidu/tieba/kl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return jl9Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947917073, "Lcom/baidu/tieba/kl9;");
+                return;
+            }
         }
-        return (jl9) invokeV.objValue;
+        TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        TimeUnit.MINUTES.toMillis(1L);
+        a = TimeUnit.SECONDS.toMillis(1L);
     }
 }

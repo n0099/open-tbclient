@@ -1,96 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.searchbox.security.WarmTipsManager;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.RequestBody;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.Cookie;
+import com.baidu.searchbox.network.support.cookie.CookieHandler;
+import com.baidu.searchbox.network.support.cookie.CookieJar;
+import com.baidu.tieba.n70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class b80 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.List;
+/* loaded from: classes5.dex */
+public final class b80 implements n70 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static long c;
-    public static volatile String d;
-    public static volatile long e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CookieJar a;
+    public s70 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598703, "Lcom/baidu/tieba/b80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947598703, "Lcom/baidu/tieba/b80;");
+    public b80(CookieJar cookieJar, s70 s70Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cookieJar, s70Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = AppConfig.isDebug();
-        b = -1L;
-        c = -1L;
-        d = "";
-        e = -1L;
+        this.a = cookieJar;
+        this.b = s70Var;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n70
+    public Response a(n70.a aVar) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return invokeV.longValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
-            if (System.currentTimeMillis() - e < 10000) {
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            Request.Builder newBuilder = request.newBuilder();
+            newBuilder.removeHeader("bdapp-support-brotli");
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
                 }
-            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
-                }
-            } else {
-                e = System.currentTimeMillis();
-                d = str;
-                if (!TextUtils.equals(a80.e(), str)) {
-                    a80.g(str);
-                }
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
+                } else {
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
                 }
             }
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            if (request.header("User-Agent") == null && this.b.C() != null) {
+                newBuilder.header("User-Agent", this.b.C());
+            }
+            Response a = aVar.a(newBuilder.build());
+            CookieHandler.receiveHeaders(this.a, request, a.headers());
+            return a.newBuilder().request(request).build();
         }
+        return (Response) invokeL.objValue;
+    }
+
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
+                }
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

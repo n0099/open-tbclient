@@ -15,7 +15,7 @@ public class CommonOverflowMenu extends BdMenu {
 
     public CommonOverflowMenu(View view2) {
         super(view2);
-        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07033e));
+        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070349));
     }
 
     @Override // com.baidu.android.ext.widget.menu.BdMenu
@@ -42,7 +42,7 @@ public class CommonOverflowMenu extends BdMenu {
     public void showMenu(PopupWindow popupWindow) {
         popupWindow.showAtLocation(this.mViewToAttach, this.mGravity, this.mDelatX, this.mDelatY);
         if (popupWindow.isShowing()) {
-            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f1003b8);
+            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f1003ba);
             popupWindow.update(this.mDelatX, this.mDelatY, -1, -1, true);
         }
     }

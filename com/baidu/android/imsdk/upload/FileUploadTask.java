@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
@@ -108,7 +107,7 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
                     httpURLConnection.setRequestProperty("Content-type", this.mContentType);
                     httpURLConnection.setRequestProperty("Authorization", this.mAuthorization);
                     httpURLConnection.setRequestProperty(Headers.BCE_DATE, this.mXbcs);

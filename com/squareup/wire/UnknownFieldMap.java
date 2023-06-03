@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UnknownFieldMap {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, List<FieldValue>> fieldMap;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Fixed32FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Fixed64FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LengthDelimitedFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +309,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class UnknownFieldType {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ UnknownFieldType[] ENUM$VALUES;
@@ -403,7 +403,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class VarintFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

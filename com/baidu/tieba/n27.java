@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,15 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedKV;
 /* loaded from: classes6.dex */
-public final class n27 {
+public class n27 implements vn {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,51 +27,30 @@ public final class n27 {
                 return;
             }
         }
-        a = new a(null);
+        a = BdUniqueId.gen();
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public n27() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
 
-        public final HashMap<String, String> a(List<FeedKV> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Intrinsics.checkNotNullParameter(list, "list");
-                HashMap<String, String> hashMap = new HashMap<>();
-                if (list.isEmpty()) {
-                    return hashMap;
-                }
-                for (FeedKV feedKV : list) {
-                    String str = feedKV.key;
-                    Intrinsics.checkNotNullExpressionValue(str, "feedKV.key");
-                    String str2 = feedKV.value;
-                    Intrinsics.checkNotNullExpressionValue(str2, "feedKV.value");
-                    hashMap.put(str, str2);
-                }
-                return hashMap;
-            }
-            return (HashMap) invokeL.objValue;
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

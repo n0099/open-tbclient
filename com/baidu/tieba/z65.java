@@ -1,233 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PullViewHelper;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class z65 extends y65 {
+public final class z65 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public boolean B;
-    public boolean C;
-    public CustomMessageListener D;
-    public CustomMessageListener E;
 
-    /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z65 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z65 z65Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z65Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z65Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948311920, "Lcom/baidu/tieba/z65;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                z65 z65Var = this.a;
-                if (z65Var.B) {
-                    z65Var.H(TbadkCoreApplication.getInst().getSkinType());
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948311920, "Lcom/baidu/tieba/z65;");
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z65 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z65 z65Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z65Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z65Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.h.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z65(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public z65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.B = true;
-        this.C = false;
-        this.D = new a(this, 2016203);
-        this.E = new b(this, 2016204);
-        X(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.y65
-    public void H(int i) {
+    @Override // com.baidu.tieba.v65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.H(i);
-            if (this.h != null && this.i != null) {
-                this.A = false;
-                if (!M()) {
-                    AnimationDrawable animationDrawable = PullViewHelper.getInstance().getAnimationDrawable(i);
-                    this.n = animationDrawable;
-                    if (animationDrawable != null) {
-                        this.A = true;
-                    } else {
-                        this.n = new AnimationDrawable();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialog_url", dialogData.getDialogUrl());
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v65
+    public boolean b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Object obj = map.get("dialog_url");
+            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
+                Object obj2 = map.get("check_preheat");
+                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !ky5.b().e((String) obj)) {
+                    YunDialogLog.getInstance().b("HybridCheckStrategy", "H5弹窗未预热完成");
+                    return false;
+                }
+                try {
+                    Object obj3 = map.get("init_offline_module");
+                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
+                        wq8 yunDialogLog = YunDialogLog.getInstance();
+                        yunDialogLog.c("HybridCheckStrategy", "主动初始化离线包:" + obj3);
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(obj3);
+                        jz4.d(hashSet);
+                        wq8 yunDialogLog2 = YunDialogLog.getInstance();
+                        yunDialogLog2.c("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
                     }
-                    if (!this.A) {
-                        this.n = PullViewHelper.getInstance().getDefaultAnimationDrawable(i);
-                    }
-                    this.n.setOneShot(false);
-                    this.i.setBackgroundDrawable(this.n);
+                } catch (Exception e) {
+                    wq8 yunDialogLog3 = YunDialogLog.getInstance();
+                    yunDialogLog3.b("HybridCheckStrategy", "离线包手动初始化异常:" + e);
                 }
-                if (this.C) {
-                    this.h.setBackgroundColor(0);
+                Object obj4 = map.get("check_offline");
+                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !jz4.c((String) obj)) {
+                    YunDialogLog.getInstance().b("HybridCheckStrategy", "离线包不可用");
+                    return false;
                 }
+                return true;
             }
+            YunDialogLog.getInstance().b("HybridCheckStrategy", "未下发待检测的H5弹窗url");
+            return false;
         }
-    }
-
-    public final void X(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.D.setTag(tbPageContext.getUniqueId());
-            this.E.setTag(tbPageContext.getUniqueId());
-            tbPageContext.registerListener(this.D);
-            tbPageContext.registerListener(this.E);
-        }
-    }
-
-    public void Z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.C = z;
-        }
-    }
-
-    public void a0(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            CustomMessageListener customMessageListener = this.D;
-            if (customMessageListener != null) {
-                customMessageListener.setTag(bdUniqueId);
-            }
-            CustomMessageListener customMessageListener2 = this.E;
-            if (customMessageListener2 != null) {
-                customMessageListener2.setTag(bdUniqueId);
-            }
-            MessageManager.getInstance().registerListener(this.D);
-            MessageManager.getInstance().registerListener(this.E);
-        }
-    }
-
-    @Override // com.baidu.tieba.y65, com.baidu.tieba.gn
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i.setBackgroundDrawable(null);
-            super.o(z);
-            this.B = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.y65, com.baidu.tieba.gn
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            super.w(z);
-            this.B = false;
-            if (!this.A) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                int i = this.p;
-                if (i != Integer.MIN_VALUE) {
-                    skinType = i;
-                }
-                H(skinType);
-            }
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.D);
-            MessageManager.getInstance().unRegisterListener(this.E);
-        }
-    }
-
-    @Override // com.baidu.tieba.y65, com.baidu.tieba.gn
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.x();
-            this.B = false;
-        }
+        return invokeL.booleanValue;
     }
 }

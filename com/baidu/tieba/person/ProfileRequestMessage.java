@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.s59;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.n05;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public s59 mPersonCenterData;
+    public yb9 mPersonCenterData;
     public Integer needUsergrowthTask;
     public Integer need_post_count;
     public Integer page;
@@ -80,18 +80,18 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int l = ri.l(TbadkCoreApplication.getInst().getApp());
-                int j = ri.j(TbadkCoreApplication.getInst().getApp());
-                int e = rx4.c().e();
+                int l = vi.l(TbadkCoreApplication.getInst().getApp());
+                int j = vi.j(TbadkCoreApplication.getInst().getApp());
+                int e = n05.c().e();
                 builder.scr_w = Integer.valueOf(l);
                 builder.scr_h = Integer.valueOf(j);
-                builder.scr_dip = Double.valueOf(ri.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_dip = Double.valueOf(vi.i(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e);
                 builder.history_forum_ids = this.historyForumIds;
                 builder.history_forum_names = this.historyForumNames;
                 builder.need_usergrowth_task = this.needUsergrowthTask;
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ss5.a(builder, true);
+                    uw5.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -112,13 +112,13 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public s59 getPersonCenterData() {
+    public yb9 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mPersonCenterData;
         }
-        return (s59) invokeV.objValue;
+        return (yb9) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -273,10 +273,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(s59 s59Var) {
+    public void setPersonCenterData(yb9 yb9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, s59Var) == null) {
-            this.mPersonCenterData = s59Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, yb9Var) == null) {
+            this.mPersonCenterData = yb9Var;
         }
     }
 

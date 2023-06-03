@@ -1,22 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
-/* loaded from: classes7.dex */
-public final /* synthetic */ class vh6 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public class vh6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 1;
+    public static int c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(wh6 wh6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{wh6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948240837, "Lcom/baidu/tieba/vh6;")) == null) {
+            return;
         }
-    }
-
-    public static void b(wh6 wh6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{wh6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948240837, "Lcom/baidu/tieba/vh6;");
         }
     }
 }

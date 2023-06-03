@@ -1,12 +1,12 @@
 package com.google.gson.stream;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Arrays;
 /* loaded from: classes9.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -57,14 +57,12 @@ public class JsonWriter implements Closeable, Flushable {
         int i2 = this.stackSize;
         int[] iArr = this.stack;
         if (i2 == iArr.length) {
-            int[] iArr2 = new int[i2 * 2];
-            System.arraycopy(iArr, 0, iArr2, 0, i2);
-            this.stack = iArr2;
+            this.stack = Arrays.copyOf(iArr, i2 * 2);
         }
-        int[] iArr3 = this.stack;
+        int[] iArr2 = this.stack;
         int i3 = this.stackSize;
         this.stackSize = i3 + 1;
-        iArr3[i3] = i;
+        iArr2[i3] = i;
     }
 
     private void replaceTop(int i) {
@@ -139,7 +137,7 @@ public class JsonWriter implements Closeable, Flushable {
         if (this.indent == null) {
             return;
         }
-        this.out.write("\n");
+        this.out.write(10);
         int i = this.stackSize;
         for (int i2 = 1; i2 < i; i2++) {
             this.out.write(this.indent);
@@ -164,12 +162,12 @@ public class JsonWriter implements Closeable, Flushable {
 
     public JsonWriter beginArray() throws IOException {
         writeDeferredName();
-        return open(1, PreferencesUtil.LEFT_MOUNT);
+        return open(1, '[');
     }
 
     public JsonWriter beginObject() throws IOException {
         writeDeferredName();
-        return open(3, "{");
+        return open(3, '{');
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -184,11 +182,11 @@ public class JsonWriter implements Closeable, Flushable {
     }
 
     public JsonWriter endArray() throws IOException {
-        return close(1, 2, PreferencesUtil.RIGHT_MOUNT);
+        return close(1, 2, ']');
     }
 
     public JsonWriter endObject() throws IOException {
-        return close(3, 5, "}");
+        return close(3, 5, '}');
     }
 
     public void flush() throws IOException {
@@ -254,7 +252,7 @@ public class JsonWriter implements Closeable, Flushable {
         newline();
     }
 
-    private JsonWriter close(int i, int i2, String str) throws IOException {
+    private JsonWriter close(int i, int i2, char c) throws IOException {
         int peek = peek();
         if (peek != i2 && peek != i) {
             throw new IllegalStateException("Nesting problem.");
@@ -264,16 +262,16 @@ public class JsonWriter implements Closeable, Flushable {
             if (peek == i2) {
                 newline();
             }
-            this.out.write(str);
+            this.out.write(c);
             return this;
         }
         throw new IllegalStateException("Dangling name: " + this.deferredName);
     }
 
-    private JsonWriter open(int i, String str) throws IOException {
+    private JsonWriter open(int i, char c) throws IOException {
         beforeValue();
         push(i);
-        this.out.write(str);
+        this.out.write(c);
         return this;
     }
 
@@ -289,7 +287,7 @@ public class JsonWriter implements Closeable, Flushable {
         } else {
             strArr = REPLACEMENT_CHARS;
         }
-        this.out.write("\"");
+        this.out.write(34);
         int length = str.length();
         int i = 0;
         for (int i2 = 0; i2 < length; i2++) {
@@ -318,7 +316,7 @@ public class JsonWriter implements Closeable, Flushable {
         if (i < length) {
             this.out.write(str, i, length - i);
         }
-        this.out.write("\"");
+        this.out.write(34);
     }
 
     public JsonWriter value(Number number) throws IOException {
@@ -354,9 +352,9 @@ public class JsonWriter implements Closeable, Flushable {
         beforeValue();
         Writer writer = this.out;
         if (bool.booleanValue()) {
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
         } else {
-            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            str = "false";
         }
         writer.write(str);
         return this;
@@ -378,9 +376,9 @@ public class JsonWriter implements Closeable, Flushable {
         beforeValue();
         Writer writer = this.out;
         if (z) {
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
         } else {
-            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            str = "false";
         }
         writer.write(str);
         return this;

@@ -1,75 +1,63 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class o48 extends Dialog {
+import java.util.HashMap;
+import java.util.List;
+import tbclient.RecomVideo.DislikeReason;
+import tbclient.RecomVideo.ThreadPersonalized;
+/* loaded from: classes7.dex */
+public class o48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onClick();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o48(@NonNull Context context, int i) {
-        super(context, i);
+    public static void a(List<ThreadPersonalized> list, List<vn> list2) {
+        mo6 mo6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getWindow().setSoftInputMode(32);
-        GreyUtil.grey(this);
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                Rect rect = new Rect();
-                getWindow().getDecorView().getGlobalVisibleRect(rect);
-                if (!rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) && (aVar = this.a) != null) {
-                    aVar.onClick();
-                    return true;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) && list != null && list2 != null) {
+            HashMap hashMap = new HashMap();
+            for (ThreadPersonalized threadPersonalized2 : list) {
+                if (threadPersonalized2 != null) {
+                    hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
                 }
-                return true;
             }
-            return true;
+            int count = ListUtils.getCount(list2);
+            for (int i = 0; i < count; i++) {
+                vn vnVar = (vn) ListUtils.getItem(list2, i);
+                if ((vnVar instanceof mo6) && (threadData = (mo6Var = (mo6) vnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
+                    mo6Var.D(threadPersonalized.source);
+                    mo6Var.I(threadPersonalized.weight);
+                    mo6Var.y(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        mo6Var.A(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list3 = threadPersonalized.dislike_resource;
+                    if (list3 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list3) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        mo6Var.feedBackReasonMap = sparseArray;
+                        mo6Var.z(threadPersonalized.extra);
+                    }
+                }
+            }
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void b(List<ThreadPersonalized> list, List<vn> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            a(list, list2);
+        }
     }
 }

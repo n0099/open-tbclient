@@ -1,51 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class p98 {
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
+/* loaded from: classes7.dex */
+public class p98 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static final p98 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016986, "Lcom/baidu/tieba/p98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016986, "Lcom/baidu/tieba/p98;");
-                return;
-            }
-        }
-        a = new p98();
-    }
-
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 || i == 10001 : invokeI.booleanValue;
-    }
 
     public p98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                z45.d();
+                we<byte[]> b = z45.b("tb.im_recommend_detail");
+                if (b == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                byte[] bArr = b.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+            }
+            return new CustomResponsedMessage<>(2001306, null);
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

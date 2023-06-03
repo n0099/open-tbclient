@@ -1,7 +1,7 @@
 package com.facebook.common.disk;
 
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NoOpDiskTrimmableRegistry implements DiskTrimmableRegistry {
     @Nullable
     public static NoOpDiskTrimmableRegistry sInstance;

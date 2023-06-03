@@ -1,6 +1,6 @@
 package com.yy.gslbsdk.control;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public class NetworkStatus {
@@ -22,7 +22,7 @@ public class NetworkStatus {
     }
 
     public static NetworkStatus getInstanceClone() {
-        return getInstance().m784clone();
+        return getInstance().m839clone();
     }
 
     public boolean canV4() {
@@ -68,7 +68,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m784clone() {
+    public NetworkStatus m839clone() {
         NetworkStatus networkStatus = new NetworkStatus();
         networkStatus.mEnableV6 = this.mEnableV6;
         networkStatus.mStatus = this.mStatus;
@@ -88,9 +88,9 @@ public class NetworkStatus {
         Locale locale = Locale.US;
         Object[] objArr = new Object[2];
         if (this.mEnableV6) {
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
         } else {
-            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            str = "false";
         }
         objArr[0] = str;
         objArr[1] = Integer.valueOf(this.mStatus);

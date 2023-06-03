@@ -1,48 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public k61() {
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | 67108864);
             }
+            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-    }
-
-    @Nullable
-    public static k61 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            k61 k61Var = new k61();
-            k61Var.a = jSONObject.optString("icon");
-            k61Var.b = jSONObject.optString("text");
-            k61Var.c = jSONObject.optString("cmd");
-            return k61Var;
-        }
-        return (k61) invokeL.objValue;
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

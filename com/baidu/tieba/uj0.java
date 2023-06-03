@@ -1,16 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uj0 {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public abstract class uj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static pj0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String a();
 
     public uj0() {
         Interceptable interceptable = $ic;
@@ -26,22 +32,28 @@ public class uj0 {
         }
     }
 
-    public static pj0 a() {
-        InterceptResult invokeV;
+    @CallSuper
+    public boolean b(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (uj0.class) {
-                    if (a == null) {
-                        a = (pj0) ServiceManager.getService(pj0.a);
-                    }
-                    if (a == null) {
-                        a = pj0.b;
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yj0Var, map, ck0Var)) == null) {
+            o31.b((String) z21.b(yj0Var.d(), "charge_url"));
+            return true;
         }
-        return (pj0) invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public void c(ck0 ck0Var, @Nullable yj0 yj0Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ck0Var, yj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            hk0.b(ck0Var, yj0Var, i, z);
+        }
+    }
+
+    public void d(ck0 ck0Var, @Nullable yj0 yj0Var, @Nullable String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{ck0Var, yj0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            hk0.c(ck0Var, yj0Var, str, i, z);
+        }
     }
 }

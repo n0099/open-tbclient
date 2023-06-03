@@ -1,7 +1,6 @@
 package com.baidu.android.ext.widget.dialog;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
@@ -15,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 \u00192\u00020\u0001:\u0001\u0019B\u0013\b\u0016\u0012\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010¢\u0006\u0004\b\u0012\u0010\u0013B\u001d\b\u0016\u0012\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010\u0012\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0012\u0010\u0016B%\b\u0016\u0012\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010\u0012\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014\u0012\u0006\u0010\u0017\u001a\u00020\u0002¢\u0006\u0004\b\u0012\u0010\u0018J\u001f\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0004\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\t\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0002¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\r\u001a\u00020\u00028B@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u000b\u0010\fR\u0016\u0010\u000e\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u001a"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/DialogScrollView;", "Landroid/widget/ScrollView;", "", "widthMeasureSpec", "heightMeasureSpec", "", "onMeasure", "(II)V", "height", "setMaxHeight", "(I)V", "getLimitHeight", "()I", "limitHeight", "mMaxHeight", "I", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyle", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0006\b\u0007\u0018\u0000 \u00152\u00020\u0001:\u0001\u0015B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0018\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0012\u001a\u00020\tH\u0014J\u000e\u0010\u0013\u001a\u00020\u00102\u0006\u0010\u0014\u001a\u00020\tR\u0014\u0010\u000b\u001a\u00020\t8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\f\u0010\rR\u000e\u0010\u000e\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0016"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/DialogScrollView;", "Landroid/widget/ScrollView;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyle", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "limitHeight", "getLimitHeight", "()I", "mMaxHeight", "onMeasure", "", "widthMeasureSpec", "heightMeasureSpec", "setMaxHeight", "height", "Companion", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes.dex */
 public final class DialogScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,7 +26,7 @@ public final class DialogScrollView extends ScrollView {
     public static final boolean DEBUG = false;
     public static final String TAG = "DialogScrollView";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap _$_findViewCache;
+    public Map<Integer, View> _$_findViewCache;
     public int mMaxHeight;
 
     static {
@@ -47,37 +46,40 @@ public final class DialogScrollView extends ScrollView {
     }
 
     public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this._$_findViewCache.clear();
         }
-        hashMap.clear();
     }
 
     public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+            Map<Integer, View> map = this._$_findViewCache;
+            View view2 = map.get(Integer.valueOf(i));
             if (view2 == null) {
                 View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
+                if (findViewById != null) {
+                    map.put(Integer.valueOf(i), findViewById);
+                    return findViewById;
+                }
+                return null;
             }
             return view2;
         }
         return (View) invokeI.objValue;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/DialogScrollView$Companion;", "", "DEBUG", "Z", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0007"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/DialogScrollView$Companion;", "", "()V", "DEBUG", "", "TAG", "", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -91,10 +93,6 @@ public final class DialogScrollView extends ScrollView {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -116,6 +114,7 @@ public final class DialogScrollView extends ScrollView {
                 return;
             }
         }
+        this._$_findViewCache = new LinkedHashMap();
         this.mMaxHeight = -1;
     }
 
@@ -138,7 +137,35 @@ public final class DialogScrollView extends ScrollView {
                 return;
             }
         }
+        this._$_findViewCache = new LinkedHashMap();
         this.mMaxHeight = -1;
+    }
+
+    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int size = View.MeasureSpec.getSize(i2);
+            int size2 = View.MeasureSpec.getSize(i);
+            int i3 = this.mMaxHeight;
+            if (i3 > 0) {
+                size = Math.min(size, i3);
+            }
+            measureChildren(i, i2);
+            int measuredHeight = getChildAt(0).getMeasuredHeight();
+            int measuredWidth = getChildAt(0).getMeasuredWidth();
+            if (measuredHeight > 0) {
+                size = Math.min(measuredHeight, size);
+            }
+            if (measuredWidth > 0) {
+                size2 = Math.min(measuredWidth, size2);
+            }
+            if (getLimitHeight() < size) {
+                size = getLimitHeight();
+            }
+            setMeasuredDimension(size2, size);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -160,6 +187,7 @@ public final class DialogScrollView extends ScrollView {
                 return;
             }
         }
+        this._$_findViewCache = new LinkedHashMap();
         this.mMaxHeight = -1;
     }
 
@@ -167,64 +195,13 @@ public final class DialogScrollView extends ScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            Context context = getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            Resources resources = context.getResources();
-            Intrinsics.checkNotNullExpressionValue(resources, "context.resources");
-            int i = resources.getDisplayMetrics().heightPixels;
-            Context context2 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context2, "context");
-            Resources resources2 = context2.getResources();
-            Intrinsics.checkNotNullExpressionValue(resources2, "context.resources");
-            if (2 == resources2.getConfiguration().orientation) {
-                Context context3 = getContext();
-                Intrinsics.checkNotNullExpressionValue(context3, "context");
-                Resources resources3 = context3.getResources();
-                Intrinsics.checkNotNullExpressionValue(resources3, "context.resources");
-                i = resources3.getDisplayMetrics().widthPixels;
+            int i = getContext().getResources().getDisplayMetrics().heightPixels;
+            if (2 == getContext().getResources().getConfiguration().orientation) {
+                i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            Context context4 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context4, "context");
-            int dimensionPixelSize = context4.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ad);
-            Context context5 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context5, "context");
-            int dimensionPixelSize2 = context5.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b1);
-            Context context6 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context6, "context");
-            return ((i - (dimensionPixelSize * 2)) - dimensionPixelSize2) - context6.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701a9);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b1) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b9)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ae);
         }
         return invokeV.intValue;
-    }
-
-    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i);
-            int i3 = this.mMaxHeight;
-            if (i3 > 0) {
-                size = Math.min(size, i3);
-            }
-            measureChildren(i, i2);
-            View childAt = getChildAt(0);
-            Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(0)");
-            int measuredHeight = childAt.getMeasuredHeight();
-            View childAt2 = getChildAt(0);
-            Intrinsics.checkNotNullExpressionValue(childAt2, "getChildAt(0)");
-            int measuredWidth = childAt2.getMeasuredWidth();
-            if (measuredHeight > 0) {
-                size = Math.min(measuredHeight, size);
-            }
-            if (measuredWidth > 0) {
-                size2 = Math.min(measuredWidth, size2);
-            }
-            if (getLimitHeight() < size) {
-                size = getLimitHeight();
-            }
-            setMeasuredDimension(size2, size);
-        }
     }
 
     public final void setMaxHeight(int i) {

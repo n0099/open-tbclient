@@ -4,7 +4,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class InflaterSource implements Source {
     public int bufferBytesHeldByInflater;
     public boolean closed;

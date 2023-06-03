@@ -1,7 +1,7 @@
 package okhttp3.internal.http2;
 
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Settings {
     public static final int COUNT = 10;
     public static final int DEFAULT_INITIAL_WINDOW_SIZE = 65535;

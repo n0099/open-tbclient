@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.a.d;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
@@ -140,7 +139,7 @@ public final class ClientUpdater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x01b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x01b3, code lost:
         if (r0 != null) goto L36;
      */
     /*
@@ -182,7 +181,7 @@ public final class ClientUpdater {
                 if (read == -1) {
                     break;
                 }
-                sb.append(new String(bArr, 0, read, IMAudioTransRequest.CHARSET));
+                sb.append(new String(bArr, 0, read, "utf-8"));
             }
             inputStream2.close();
             LogUtil.logD("ClientUpdater", "更新请求后的返回结果: " + sb.toString());

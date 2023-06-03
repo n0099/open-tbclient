@@ -76,6 +76,7 @@ import androidx.multidex.MultiDex;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.live.interfaces.DI;
 import java.io.File;
 import java.util.HashMap;
@@ -154,7 +155,7 @@ public class ContextCompat {
             SERVICES.put(WallpaperManager.class, "wallpaper");
             SERVICES.put(WifiP2pManager.class, "wifip2p");
             SERVICES.put(WifiManager.class, "wifi");
-            SERVICES.put(WindowManager.class, "window");
+            SERVICES.put(WindowManager.class, ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
     }
 

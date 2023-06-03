@@ -10,7 +10,7 @@ import com.bytedance.pangle.util.i;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginResources extends Resources {
     public String pluginPkg;
 

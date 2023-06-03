@@ -3,7 +3,6 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -153,13 +152,13 @@ public class CloudSettings implements INoProGuard, INetListener {
             if (decode == null) {
                 return;
             }
-            sLastGetTime = reverseString(new String(decode, IMAudioTransRequest.CHARSET));
+            sLastGetTime = reverseString(new String(decode, "utf-8"));
             b.b();
             String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
             if (str2 == null) {
                 Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
             } else {
-                WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
+                WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes("utf-8"), "utf-8"));
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -173,7 +172,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             if (str == null) {
                 return;
             }
-            WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
+            WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes("utf-8"), "utf-8"));
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -191,10 +190,10 @@ public class CloudSettings implements INoProGuard, INetListener {
             sLastGetTime = refFormatNowDate;
             byte[] encode = Base64.encode(reverseString(refFormatNowDate).getBytes(), 0);
             if (encode != null) {
-                String str = new String(encode, IMAudioTransRequest.CHARSET);
+                String str = new String(encode, "utf-8");
                 b.b();
                 ZeusInitConfigUtils.set("engineCloudSettingsTime", str);
-                ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, IMAudioTransRequest.CHARSET));
+                ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, "utf-8"));
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -316,7 +315,7 @@ public class CloudSettings implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
             byteArray = new RC4(WebSettingsGlobalBlink.getRc4SecrectKey()).decrypt(byteArray);
-            WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, IMAudioTransRequest.CHARSET));
+            WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, "utf-8"));
             VideoCloudSetting.saveVideoSettingToCfg();
         } catch (Exception e) {
             e.printStackTrace();

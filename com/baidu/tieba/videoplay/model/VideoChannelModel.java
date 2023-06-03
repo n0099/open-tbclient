@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoChannelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
@@ -42,7 +42,7 @@ public class VideoChannelModel extends BdBaseModel {
     public HttpMessageListener f;
     public final CustomMessageListener g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(List<VideoItemData> list, boolean z);
 
@@ -75,7 +75,7 @@ public class VideoChannelModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class VideoChannelModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ri.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0db6));
+                vi.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0def));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -198,7 +198,7 @@ public class VideoChannelModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -260,9 +260,9 @@ public class VideoChannelModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", ri.l(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", ri.j(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(ri.i(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("scr_w", vi.l(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", vi.j(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(vi.i(TbadkCoreApplication.getInst())));
             httpMessage.addParam("new_net_type", BdNetTypeUtil.netType());
             httpMessage.addParam("load_type", i);
             return httpMessage;

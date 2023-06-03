@@ -1,6 +1,6 @@
 package org.apache.http.conn.routing;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface HttpRouteDirector {
     public static final int COMPLETE = 0;
     public static final int CONNECT_PROXY = 2;

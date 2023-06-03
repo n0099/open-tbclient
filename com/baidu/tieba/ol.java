@@ -1,104 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.pm.Signature;
-import android.util.Base64;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
-public final class ol {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
+/* loaded from: classes7.dex */
+public class ol implements IAlertManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448313200, "Lcom/baidu/tieba/ol;")) == null) {
-            return;
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, onClickListener, str3) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+        }
+    }
+
+    public ol() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448313200, "Lcom/baidu/tieba/ol;");
-        }
-    }
-
-    public static byte[] a(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
-            if (signatureArr != null) {
-                int i = 0;
-                for (Signature signature : signatureArr) {
-                    i += signature.toByteArray().length;
-                }
-                byte[] bArr = new byte[i];
-                int i2 = 0;
-                for (Signature signature2 : signatureArr) {
-                    byte[] byteArray = signature2.toByteArray();
-                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
-                    i2 += byteArray.length;
-                }
-                return bArr;
-            }
-            return null;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        NoSuchAlgorithmException e;
-        String str;
-        byte[] digest;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                digest = MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (NoSuchAlgorithmException e2) {
-                e = e2;
-                str = null;
-            }
-            if (digest == null) {
-                return null;
-            }
-            str = Base64.encodeToString(digest, 0);
-            if (str != null) {
-                try {
-                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
-                } catch (NoSuchAlgorithmException e3) {
-                    e = e3;
-                    if (BdLog.isDebugMode()) {
-                        e.printStackTrace();
-                    }
-                    return str;
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
-            if (signatureArr != null && (a = a(signatureArr)) != null) {
-                return b(a);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 }

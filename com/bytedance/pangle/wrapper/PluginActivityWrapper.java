@@ -8,7 +8,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginActivityWrapper extends GenerateActivityWrapper {
     public PluginActivityWrapper(Activity activity, PluginContext pluginContext) {
         this.mOriginActivity = activity;

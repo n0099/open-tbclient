@@ -1,23 +1,69 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.w91;
+import com.baidu.tieba.x71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public final class l91 implements View.OnClickListener {
+public final class l91 extends i91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AbsNadBrowserView a;
+    public final ck0 a;
+    public final m91 b;
 
-    public l91(AbsNadBrowserView absNadBrowserView) {
+    /* loaded from: classes6.dex */
+    public static final class a implements ck0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l91 a;
+
+        public a(l91 l91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l91Var;
+        }
+
+        @Override // com.baidu.tieba.ck0
+        public final void a(boolean z, Map<String, String> map) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
+                String p = hk0.p(map);
+                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
+                    AbsNadBrowserView.B(m, p, null, 2, null);
+                }
+            }
+        }
+    }
+
+    public l91(m91 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absNadBrowserView};
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,14 +73,68 @@ public final class l91 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = absNadBrowserView;
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.b = container;
+        this.a = new a(this);
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    @Override // com.baidu.tieba.i91
+    public boolean f(AbsNadBrowserView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a.M();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            String d = sa1.d(str);
+            Intrinsics.checkNotNullExpressionValue(d, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
+            if (!TextUtils.isEmpty(d) && (StringsKt__StringsJVMKt.startsWith$default(d, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "ftps://", false, 2, null))) {
+                return false;
+            }
+            if (str != null && this.b.a(str)) {
+                return true;
+            }
+            o(webView, str);
+            if (this.b.l() != null) {
+                w91.d l = this.b.l();
+                Intrinsics.checkNotNull(l);
+                if (!l.a()) {
+                    return true;
+                }
+            }
+            if (!fk0.a(this.b.c(), str) || rj0.b(this.b.c(), str, false) || x71.b.a().a(this.b.c(), str, webView.getUrl(), this.a) || tj0.c(str, this.b.c())) {
+                return true;
+            }
+            AbsNadBrowserView m = this.b.m();
+            if (m != null) {
+                m.T();
+            }
+            return super.f(webView, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
+            String str3 = null;
+            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.c() != null) {
+                w91.d l = this.b.l();
+                if (l != null) {
+                    str2 = l.f();
+                } else {
+                    str2 = null;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    re1 re1Var = new re1();
+                    Activity c = this.b.c();
+                    Intrinsics.checkNotNull(c);
+                    w91.d l2 = this.b.l();
+                    if (l2 != null) {
+                        str3 = l2.f();
+                    }
+                    re1Var.p(c, str3, "tel");
+                }
+            }
         }
     }
 }

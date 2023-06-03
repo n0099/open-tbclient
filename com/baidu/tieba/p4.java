@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class p4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public p6<String, Matrix4> c;
+    public short[] b;
+    public int c;
 
     public p4() {
         Interceptable interceptable = $ic;

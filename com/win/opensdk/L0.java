@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class L0 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +34,7 @@ public class L0 implements ViewTreeObserver.OnGlobalLayoutListener {
     public void onGlobalLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onGlobalLayout:" + this.a.isAlive());
+            Log.e("register", "onGlobalLayout:" + this.a.isAlive());
         }
     }
 }

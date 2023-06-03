@@ -11,6 +11,7 @@ import com.baidu.android.imrtc.send.BIMUser;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
+import com.baidu.searchbox.download.manager.DownloadManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +73,7 @@ public class BIMRtcNotifyMsg {
                         String optString8 = jSONObject2.optString("rtc_room_desc");
                         RtcUtility.setRtcRoomDes(context, optString8);
                         int optInt4 = jSONObject2.optInt("rtc_room_type");
-                        int optInt5 = jSONObject2.optInt("media_type");
+                        int optInt5 = jSONObject2.optInt(DownloadManager.COLUMN_MEDIA_TYPE);
                         long optLong3 = jSONObject2.optLong("rtc_userid");
                         RtcUtility.setRtcUserId(context, optLong3);
                         BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo = new BIMInviteSyncRtcInfo();

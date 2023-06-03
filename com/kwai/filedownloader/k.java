@@ -12,21 +12,21 @@ import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.x;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class k implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0661a ato;
+    public a.InterfaceC0681a ato;
     public a.c atp;
     public Queue<MessageSnapshot> atq;
     public boolean atr;
 
-    public k(a.InterfaceC0661a interfaceC0661a, a.c cVar) {
+    public k(a.InterfaceC0681a interfaceC0681a, a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0661a, cVar};
+            Object[] objArr = {interfaceC0681a, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,13 +37,13 @@ public final class k implements t {
             }
         }
         this.atr = false;
-        a(interfaceC0661a, cVar);
+        a(interfaceC0681a, cVar);
     }
 
-    private void a(a.InterfaceC0661a interfaceC0661a, a.c cVar) {
+    private void a(a.InterfaceC0681a interfaceC0681a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0661a, cVar) == null) {
-            this.ato = interfaceC0661a;
+        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0681a, cVar) == null) {
+            this.ato = interfaceC0681a;
             this.atp = cVar;
             this.atq = new LinkedBlockingQueue();
         }
@@ -74,12 +74,12 @@ public final class k implements t {
     private void p(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, messageSnapshot) == null) {
-            a.InterfaceC0661a interfaceC0661a = this.ato;
-            if (interfaceC0661a == null) {
+            a.InterfaceC0681a interfaceC0681a = this.ato;
+            if (interfaceC0681a == null) {
                 if (com.kwai.filedownloader.e.d.awL) {
                     com.kwai.filedownloader.e.d.e(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(messageSnapshot.Ca()));
                 }
-            } else if (!this.atr && interfaceC0661a.Ci().BX() != null) {
+            } else if (!this.atr && interfaceC0681a.Ci().BX() != null) {
                 this.atq.offer(messageSnapshot);
                 j.CI().a(this);
             } else {
@@ -117,13 +117,13 @@ public final class k implements t {
         }
         MessageSnapshot poll = this.atq.poll();
         byte Ca = poll.Ca();
-        a.InterfaceC0661a interfaceC0661a = this.ato;
-        if (interfaceC0661a == null) {
+        a.InterfaceC0681a interfaceC0681a = this.ato;
+        if (interfaceC0681a == null) {
             return;
         }
-        a Ci = interfaceC0661a.Ci();
+        a Ci = interfaceC0681a.Ci();
         i BX = Ci.BX();
-        x.a Cj = interfaceC0661a.Cj();
+        x.a Cj = interfaceC0681a.Cj();
         bV(Ca);
         if (BX == null) {
             return;
@@ -212,13 +212,13 @@ public final class k implements t {
     }
 
     @Override // com.kwai.filedownloader.t
-    public final void b(a.InterfaceC0661a interfaceC0661a, a.c cVar) {
+    public final void b(a.InterfaceC0681a interfaceC0681a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0661a, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0681a, cVar) == null) {
             if (this.ato != null) {
-                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0661a));
+                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0681a));
             }
-            a(interfaceC0661a, cVar);
+            a(interfaceC0681a, cVar);
         }
     }
 
@@ -311,8 +311,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, messageSnapshot) == null) {
             if (com.kwai.filedownloader.e.d.awL) {
-                a.InterfaceC0661a interfaceC0661a = this.ato;
-                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0661a, interfaceC0661a.Ci().Cc());
+                a.InterfaceC0681a interfaceC0681a = this.ato;
+                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0681a, interfaceC0681a.Ci().Cc());
             }
             this.atp.Cr();
             p(messageSnapshot);
@@ -336,8 +336,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Object[] objArr = new Object[2];
-            a.InterfaceC0661a interfaceC0661a = this.ato;
-            objArr[0] = Integer.valueOf(interfaceC0661a == null ? -1 : interfaceC0661a.Ci().getId());
+            a.InterfaceC0681a interfaceC0681a = this.ato;
+            objArr[0] = Integer.valueOf(interfaceC0681a == null ? -1 : interfaceC0681a.Ci().getId());
             objArr[1] = super.toString();
             return com.kwai.filedownloader.e.f.h("%d:%s", objArr);
         }

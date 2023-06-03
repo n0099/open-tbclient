@@ -1,24 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTagList.DataRes;
-import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes6.dex */
 public class ih8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hh8> a;
-    public List<hh8> b;
-    public List<Integer> c;
+
+    /* loaded from: classes6.dex */
+    public class a extends og<gn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ih8 ih8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.og
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.og
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.og
+        public void onLoaded(gn gnVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar, str, i) == null) {
+                super.onLoaded((a) gnVar, str, i);
+            }
+        }
+    }
 
     public ih8() {
         Interceptable interceptable = $ic;
@@ -34,55 +74,21 @@ public class ih8 {
         }
     }
 
-    public List<hh8> a() {
-        InterceptResult invokeV;
+    public void a(ChatEggRainData chatEggRainData, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<hh8> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            d(arrayList, dataRes.sex_taglist);
-        }
-        if (!ListUtils.isEmpty(dataRes.taglist)) {
-            this.b = new ArrayList();
-            this.c = new ArrayList();
-            d(this.b, dataRes.taglist);
-        }
-    }
-
-    public final void d(List<hh8> list, List<ResponseTagInfo> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) && list != null && list2 != null) {
-            for (ResponseTagInfo responseTagInfo : list2) {
-                if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
-                    hh8 hh8Var = new hh8();
-                    hh8Var.a(responseTagInfo);
-                    list.add(hh8Var);
-                    List<Integer> list3 = this.c;
-                    if (list3 != null && hh8Var.c) {
-                        list3.add(Integer.valueOf(hh8Var.a));
-                    }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, chatEggRainData, tbPageContext) == null) && chatEggRainData != null && chatEggRainData.getEggRainList() != null && !ListUtils.isEmpty(chatEggRainData.getEggRainList()) && tbPageContext != null) {
+            for (ChatEggRainData.EggRain eggRain : chatEggRainData.getEggRainList()) {
+                if (!ui.isEmpty(eggRain.getPic())) {
+                    b(eggRain.getPic(), tbPageContext);
                 }
             }
+        }
+    }
+
+    public void b(String str, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) == null) && !ui.isEmpty(str) && tbPageContext != null) {
+            pg.h().m(str, 10, new a(this), tbPageContext.getUniqueId());
         }
     }
 }

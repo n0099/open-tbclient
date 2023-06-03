@@ -16,7 +16,7 @@ import com.baidu.searchbox.network.outback.request.PostFormRequest;
 import com.baidu.searchbox.network.outback.request.PostStringRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractHttpManager {
     public static final String TAG = "Outback";
     public CallFactory callFactory;

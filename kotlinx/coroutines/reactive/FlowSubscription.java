@@ -4,107 +4,99 @@ import androidx.exifinterface.media.ExifInterface;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import kotlin.ExceptionsKt__ExceptionsKt;
 import kotlin.Metadata;
+import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.Unit;
+import kotlin._Assertions;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.jvm.JvmField;
 import kotlinx.coroutines.AbstractCoroutine;
-import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CoroutineExceptionHandlerKt;
-import kotlinx.coroutines.Dispatchers;
+import kotlinx.coroutines.DebugKt;
 import kotlinx.coroutines.InternalCoroutinesApi;
 import kotlinx.coroutines.flow.Flow;
+import kotlinx.coroutines.internal.StackTraceRecoveryKt;
 import kotlinx.coroutines.intrinsics.CancellableKt;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @InternalCoroutinesApi
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u0003B%\u0012\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u0012\u0012\u000e\u0010\u0016\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u0015¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0013\u0010\u0007\u001a\u00020\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\bJ\u0013\u0010\t\u001a\u00020\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\t\u0010\bJ\u000f\u0010\n\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\n\u0010\u0006J\u0017\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0010\u001a\u00020\u0004*\b\u0012\u0004\u0012\u00020\u00040\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011R\u001c\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u00128\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u001e\u0010\u0016\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u00158\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001a"}, d2 = {"Lkotlinx/coroutines/reactive/FlowSubscription;", ExifInterface.GPS_DIRECTION_TRUE, "Lorg/reactivestreams/Subscription;", "Lkotlinx/coroutines/AbstractCoroutine;", "", "cancel", "()V", "consumeFlow", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "flowProcessing", "onStart", "", "n", "request", "(J)V", "Lkotlinx/coroutines/CancellableContinuation;", "resumeSafely", "(Lkotlinx/coroutines/CancellableContinuation;)V", "Lkotlinx/coroutines/flow/Flow;", "flow", "Lkotlinx/coroutines/flow/Flow;", "Lorg/reactivestreams/Subscriber;", "subscriber", "Lorg/reactivestreams/Subscriber;", "<init>", "(Lkotlinx/coroutines/flow/Flow;Lorg/reactivestreams/Subscriber;)V", "kotlinx-coroutines-reactive"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u001d2\b\u0012\u0004\u0012\u00020\n0\u001eB-\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\u0012\u000e\u0010\u0005\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u0004\u0012\u0006\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0013\u0010\r\u001a\u00020\nH\u0082@ø\u0001\u0000¢\u0006\u0004\b\r\u0010\u000eJ\u0015\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\n0\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0013\u0010\u0012\u001a\u00020\nH\u0082@ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u000eJ\u0017\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0018\u001a\u00020\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019R\u001a\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u00028\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010\u001aR\u001c\u0010\u0005\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u00048\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0005\u0010\u001b\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001c"}, d2 = {"Lkotlinx/coroutines/reactive/FlowSubscription;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/Flow;", "flow", "Lorg/reactivestreams/Subscriber;", "subscriber", "Lkotlin/coroutines/CoroutineContext;", "context", "<init>", "(Lkotlinx/coroutines/flow/Flow;Lorg/reactivestreams/Subscriber;Lkotlin/coroutines/CoroutineContext;)V", "", "cancel", "()V", "consumeFlow", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlin/coroutines/Continuation;", "createInitialContinuation", "()Lkotlin/coroutines/Continuation;", "flowProcessing", "", "n", "request", "(J)V", "", "cancellationRequested", "Z", "Lkotlinx/coroutines/flow/Flow;", "Lorg/reactivestreams/Subscriber;", "kotlinx-coroutines-reactive", "Lorg/reactivestreams/Subscription;", "Lkotlinx/coroutines/AbstractCoroutine;"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implements Subscription {
+    public volatile boolean cancellationRequested;
     @JvmField
     public final Flow<T> flow;
-    public volatile Object producer;
-    public volatile long requested;
+    public volatile /* synthetic */ Object producer;
+    public volatile /* synthetic */ long requested;
     @JvmField
     public final Subscriber<? super T> subscriber;
-    public static final AtomicLongFieldUpdater requested$FU = AtomicLongFieldUpdater.newUpdater(FlowSubscription.class, "requested");
-    public static final AtomicReferenceFieldUpdater producer$FU = AtomicReferenceFieldUpdater.newUpdater(FlowSubscription.class, Object.class, "producer");
+    public static final /* synthetic */ AtomicLongFieldUpdater requested$FU = AtomicLongFieldUpdater.newUpdater(FlowSubscription.class, "requested");
+    public static final /* synthetic */ AtomicReferenceFieldUpdater producer$FU = AtomicReferenceFieldUpdater.newUpdater(FlowSubscription.class, Object.class, "producer");
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlinx.coroutines.flow.Flow<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public FlowSubscription(Flow<? extends T> flow, Subscriber<? super T> subscriber) {
-        super(Dispatchers.getUnconfined(), false);
+    public FlowSubscription(Flow<? extends T> flow, Subscriber<? super T> subscriber, CoroutineContext coroutineContext) {
+        super(coroutineContext, false, true);
         this.flow = flow;
         this.subscriber = subscriber;
         this.requested = 0L;
-        this.producer = null;
+        this.producer = createInitialContinuation();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void resumeSafely(CancellableContinuation<? super Unit> cancellableContinuation) {
-        Object tryResume$default = CancellableContinuation.DefaultImpls.tryResume$default(cancellableContinuation, Unit.INSTANCE, null, 2, null);
-        if (tryResume$default != null) {
-            cancellableContinuation.completeResume(tryResume$default);
-        }
-    }
-
-    public final /* synthetic */ Object consumeFlow(Continuation<? super Unit> continuation) {
-        Object collect = this.flow.collect(new FlowSubscription$consumeFlow$$inlined$collect$1(this), continuation);
+    public final Object consumeFlow(Continuation<? super Unit> continuation) {
+        Object collect = this.flow.collect(new FlowSubscription$consumeFlow$2(this), continuation);
         if (collect == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             return collect;
         }
         return Unit.INSTANCE;
     }
 
-    @Override // org.reactivestreams.Subscription
-    public void request(long j) {
-        long j2;
-        long j3;
-        if (j <= 0) {
-            return;
-        }
-        start();
-        do {
-            j2 = this.requested;
-            j3 = j2 + j;
-            if (j3 <= 0) {
-                j3 = Long.MAX_VALUE;
+    private final Continuation<Unit> createInitialContinuation() {
+        final CoroutineContext coroutineContext = getCoroutineContext();
+        return new Continuation<Unit>() { // from class: kotlinx.coroutines.reactive.FlowSubscription$createInitialContinuation$$inlined$Continuation$1
+            @Override // kotlin.coroutines.Continuation
+            public CoroutineContext getContext() {
+                return CoroutineContext.this;
             }
-        } while (!requested$FU.compareAndSet(this, j2, j3));
-        CancellableContinuation<? super Unit> cancellableContinuation = (CancellableContinuation) producer$FU.getAndSet(this, null);
-        if (cancellableContinuation != null) {
-            resumeSafely(cancellableContinuation);
-        }
+
+            @Override // kotlin.coroutines.Continuation
+            public void resumeWith(Object obj) {
+                CancellableKt.startCoroutineCancellable(new FlowSubscription$createInitialContinuation$1$1(this), this);
+            }
+        };
     }
 
     @Override // kotlinx.coroutines.JobSupport, kotlinx.coroutines.Job
     public void cancel() {
+        this.cancellationRequested = true;
         cancel((CancellationException) null);
     }
 
-    @Override // kotlinx.coroutines.AbstractCoroutine
-    public void onStart() {
-        CancellableKt.startCoroutineCancellable(new FlowSubscription$onStart$1(this), this);
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x002d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x004e */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Can't wrap try/catch for region: R(10:1|(2:3|(7:5|6|(1:(3:9|10|11)(2:39|40))(4:41|42|43|(1:45)(1:46))|12|13|14|15))|50|6|(0)(0)|12|13|14|15|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x004c, code lost:
+        r5 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x004d, code lost:
+        kotlinx.coroutines.CoroutineExceptionHandlerKt.handleCoroutineException(r0.getCoroutineContext(), r5);
+     */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0052 A[Catch: all -> 0x005e, TryCatch #2 {all -> 0x005e, blocks: (B:27:0x004e, B:29:0x0052, B:30:0x0058), top: B:41:0x004e }] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0058 A[Catch: all -> 0x005e, TRY_LEAVE, TryCatch #2 {all -> 0x005e, blocks: (B:27:0x004e, B:29:0x0052, B:30:0x0058), top: B:41:0x004e }] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:33:0x005f -> B:40:0x0066). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x005f  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0061  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final /* synthetic */ Object flowProcessing(Continuation<? super Unit> continuation) {
+    public final Object flowProcessing(Continuation<? super Unit> continuation) {
         FlowSubscription$flowProcessing$1 flowSubscription$flowProcessing$1;
         int i;
         FlowSubscription<T> flowSubscription;
+        Throwable unwrapImpl;
         if (continuation instanceof FlowSubscription$flowProcessing$1) {
             flowSubscription$flowProcessing$1 = (FlowSubscription$flowProcessing$1) continuation;
             int i2 = flowSubscription$flowProcessing$1.label;
@@ -118,16 +110,17 @@ public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implement
                         flowSubscription = (FlowSubscription) flowSubscription$flowProcessing$1.L$0;
                         try {
                             ResultKt.throwOnFailure(obj);
-                            flowSubscription = flowSubscription;
                         } catch (Throwable th) {
                             th = th;
+                            if (DebugKt.getRECOVER_STACK_TRACES()) {
+                            }
+                            if (flowSubscription.cancellationRequested) {
+                            }
                             try {
-                                if (!(th instanceof CancellationException)) {
-                                }
+                                flowSubscription.subscriber.onError(th);
                             } catch (Throwable th2) {
-                                CoroutineContext coroutineContext = flowSubscription.getCoroutineContext();
-                                CoroutineExceptionHandlerKt.handleCoroutineException(coroutineContext, th2);
-                                flowSubscription = coroutineContext;
+                                ExceptionsKt__ExceptionsKt.addSuppressed(th, th2);
+                                CoroutineExceptionHandlerKt.handleCoroutineException(flowSubscription.getCoroutineContext(), th);
                             }
                             return Unit.INSTANCE;
                         }
@@ -146,12 +139,13 @@ public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implement
                     } catch (Throwable th3) {
                         th = th3;
                         flowSubscription = this;
-                        if (!(th instanceof CancellationException)) {
-                            flowSubscription.subscriber.onComplete();
-                            flowSubscription = flowSubscription;
+                        if (DebugKt.getRECOVER_STACK_TRACES()) {
+                            unwrapImpl = th;
                         } else {
+                            unwrapImpl = StackTraceRecoveryKt.unwrapImpl(th);
+                        }
+                        if (flowSubscription.cancellationRequested || flowSubscription.isActive() || unwrapImpl != flowSubscription.getCancellationException()) {
                             flowSubscription.subscriber.onError(th);
-                            flowSubscription = flowSubscription;
                         }
                         return Unit.INSTANCE;
                     }
@@ -168,5 +162,39 @@ public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implement
         }
         flowSubscription.subscriber.onComplete();
         return Unit.INSTANCE;
+    }
+
+    @Override // org.reactivestreams.Subscription
+    public void request(long j) {
+        long j2;
+        long j3;
+        boolean z;
+        Continuation continuation;
+        if (j <= 0) {
+            return;
+        }
+        do {
+            j2 = this.requested;
+            j3 = j2 + j;
+            if (j3 <= 0) {
+                j3 = Long.MAX_VALUE;
+            }
+        } while (!requested$FU.compareAndSet(this, j2, j3));
+        int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i <= 0) {
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (_Assertions.ENABLED && !z) {
+                throw new AssertionError("Assertion failed");
+            }
+            do {
+                continuation = (Continuation) producer$FU.getAndSet(this, null);
+            } while (continuation == null);
+            Result.Companion companion = Result.Companion;
+            continuation.resumeWith(Result.m844constructorimpl(Unit.INSTANCE));
+        }
     }
 }

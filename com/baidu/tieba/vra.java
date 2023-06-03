@@ -1,37 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.VisibleForTesting;
-import androidx.exifinterface.media.ExifInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.asa;
-import com.baidu.tieba.csa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vra {
+public class vra implements bsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public yra d;
-    public final Set<Ssp> e;
-    public final Set<csa> f;
-    public final Set<asa> g;
+    public float a;
+    public byte[] b;
+    public boolean c;
 
     public vra() {
         Interceptable interceptable = $ic;
@@ -43,161 +25,126 @@ public final class vra {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bsa
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                c(str);
-                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
-                if (d()) {
-                    a();
-                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
-                    return true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            float f = this.a;
+            if (f != 1.0d) {
+                if (bArr != null) {
+                    this.b = c(bArr, f);
                 }
-            } catch (JSONException e) {
-                LogPrinter.e(e);
+                return i;
             }
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
-            return false;
+            this.b = bArr;
+            this.c = true;
+            return i;
         }
-        return invokeL.booleanValue;
+        return invokeLI.intValue;
     }
 
-    @VisibleForTesting
-    public boolean d() {
+    @Override // com.baidu.tieba.bsa
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.e) {
-                if (hashSet.contains(ssp.type)) {
-                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
-                    return false;
-                }
-                hashSet.add(ssp.type);
-                for (Ssp.Pid pid : ssp.pids) {
-                    if (hashSet2.contains(Long.valueOf(pid.id))) {
-                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(pid.id));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            float f = this.a;
+            return f >= 0.0f && f <= 1.0f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bsa
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bsa
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.c) {
+                this.c = false;
+                return this.b;
             }
-            HashSet hashSet3 = new HashSet();
-            for (csa csaVar : this.f) {
-                if (hashSet3.contains(csaVar.a)) {
-                    LogPrinter.e("Duplicate sid(%s) found in SlotId", csaVar.a);
-                    return false;
-                }
-                hashSet3.add(csaVar.a);
-                for (csa.c cVar : csaVar.e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (csa.b bVar : cVar.b) {
-                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), csaVar.a);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(bVar.a));
-                        }
-                    }
-                }
-            }
-            if (this.c == 2) {
-                for (asa asaVar : this.g) {
-                    if (hashSet3.contains(asaVar.a)) {
-                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", asaVar.a);
-                        return false;
-                    }
-                    hashSet3.add(asaVar.a);
-                    for (asa.b bVar2 : asaVar.b) {
-                        for (asa.a aVar : bVar2.b) {
-                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
-                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
+            return null;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.a = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.bsa
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void a() {
-        int length;
+    @Override // com.baidu.tieba.bsa
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            int i = this.b;
-            int i2 = this.c;
-            mra mraVar = new mra(this.e, this.f, this.g);
-            yra yraVar = this.d;
-            Object obj = jsa.a;
-            String d = sra.d(mraVar);
-            Object[] objArr = new Object[1];
-            if (d == null) {
-                length = -1;
-            } else {
-                length = d.length();
-            }
-            objArr[0] = Integer.valueOf(length);
-            LogPrinter.v("sspsUTF len:%d", objArr);
-            jsa.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", sra.d(yraVar)).apply();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = false;
+            this.b = null;
         }
     }
 
-    @VisibleForTesting
-    public void c(String str) {
-        JSONArray optJSONArray;
+    public final byte[] c(byte[] bArr, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
-            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
-                for (Ssp.Pid pid : ssp.pids) {
-                    hashMap.put(Long.valueOf(pid.id), pid);
-                }
-                this.e.add(ssp);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, bArr, f)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                return null;
             }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                this.f.add(new csa(jSONArray2.getJSONObject(i2), hashMap));
+            int length = bArr.length / 2;
+            short[] sArr = new short[length];
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                sArr[i] = (short) (((short) (((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255))) * f);
             }
-            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    this.g.add(new asa(optJSONArray.getJSONObject(i3), hashMap));
-                }
+            for (int i3 = 0; i3 < length; i3++) {
+                int i4 = i3 * 2;
+                bArr[i4] = (byte) (sArr[i3] & 255);
+                bArr[i4 + 1] = (byte) ((sArr[i3] & 65280) >> 8);
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
-            if (optJSONObject != null) {
-                this.d = new yra(optJSONObject);
-            }
+            return bArr;
+        }
+        return (byte[]) invokeLF.objValue;
+    }
+
+    @Override // com.baidu.tieba.bsa
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c = false;
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.bsa
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 }

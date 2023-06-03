@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface wn5 {
-    void a();
-
-    void b();
-
-    void onError(String str);
+    void onResult(int i);
 }

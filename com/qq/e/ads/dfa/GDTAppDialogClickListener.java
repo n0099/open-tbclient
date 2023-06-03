@@ -1,5 +1,5 @@
 package com.qq.e.ads.dfa;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface GDTAppDialogClickListener {
     public static final int CANCEL_BUTTON = 2;
     public static final int CONFIRM_BUTTON = 1;

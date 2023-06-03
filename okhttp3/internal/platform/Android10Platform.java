@@ -9,7 +9,7 @@ import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Android10Platform extends AndroidPlatform {
     public Android10Platform(Class<?> cls) {
         super(cls, null, null, null, null);

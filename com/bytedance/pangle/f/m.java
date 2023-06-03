@@ -1,7 +1,7 @@
 package com.bytedance.pangle.f;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class m {
     public final ByteBuffer a;
     public final long b;

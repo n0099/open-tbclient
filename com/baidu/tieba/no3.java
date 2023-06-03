@@ -1,76 +1,41 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.tieba.mp3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.io.File;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class no3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Nullable
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("slaveId", str);
-                jSONObject.put("type", str2);
-            } catch (JSONException e) {
-                if (qp1.a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<mp3.a> d = qw2.d();
+            if (d != null && d.size() > 0) {
+                File file = new File(d.get(0).a, "/debug/");
+                if (!file.exists()) {
+                    file.mkdirs();
                 }
+                return file;
             }
-            return jSONObject;
+            return null;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("id", str2);
-                jSONObject3.put("action", str4);
-                jSONObject3.put("e", jSONObject);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("type", str3);
-                jSONObject4.put("params", jSONObject3);
-                jSONObject2.put("slaveId", str);
-                jSONObject2.put("type", "abilityMessage");
-                jSONObject2.put("value", jSONObject4);
-            } catch (JSONException e) {
-                if (qp1.a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(qw2.d().get(0).a, "/debug/").getAbsolutePath();
         }
-        return (JSONObject) invokeLLLLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
-    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
-            mj2 mj2Var = new mj2();
-            mj2Var.c = b(str, str2, str3, str4, jSONObject);
-            tu2.U().u(mj2Var);
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
-    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
-            mj2 mj2Var = new mj2();
-            mj2Var.c = b(str, str2, str3, str4, jSONObject);
-            tu2.U().m(str, mj2Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

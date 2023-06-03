@@ -1,88 +1,129 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e96 extends xi6<y86> {
+public class e96 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public f96 i;
-    public f96 j;
 
-    @Override // com.baidu.tieba.xi6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0108 : invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements d96 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e96 a;
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        public a(e96 e96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e96Var;
+        }
+
+        @Override // com.baidu.tieba.d96
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.a.mResult.putString("params", bundle.getString("result_msg"));
+                this.a.finish();
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e96(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689223, "Lcom/baidu/tieba/e96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689223, "Lcom/baidu/tieba/e96;");
                 return;
             }
         }
-        this.i = new f96(g(), z);
-        this.j = new f96(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.g());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds4), -1));
-        viewGroup.addView(this.j.g());
+        a = is1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi6
-    /* renamed from: r */
-    public void i(y86 y86Var) {
+    public e96() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, y86Var) == null) && y86Var != null) {
-            this.i.h(y86Var.a);
-            this.j.h(y86Var.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public void s(g96 g96Var) {
+    public static Bundle d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, g96Var) == null) {
-            this.i.j(g96Var);
-            this.j.j(g96Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("order_info", str);
+            return bundle;
         }
+        return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.i(tbPageContext, i);
-            this.j.i(tbPageContext, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mParams.isEmpty()) {
+                if (a) {
+                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
+                }
+                return false;
+            }
+            if (a) {
+                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            }
+            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            if (!bs5.c().d()) {
+                vi.P(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
+                return false;
+            } else if (!(getAgent() instanceof Activity)) {
+                return false;
+            } else {
+                a96 a96Var = new a96();
+                a96Var.mParams.putInt("type", 1);
+                a96Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
+                a96Var.d(getAgent());
+                a96Var.e(new a(this));
+                a96Var.onExec();
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 }

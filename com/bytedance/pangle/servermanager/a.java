@@ -3,7 +3,7 @@ package com.bytedance.pangle.servermanager;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.bytedance.pangle.servermanager.a.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */

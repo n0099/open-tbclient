@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.l;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +46,7 @@ public class b {
                 try {
                     byte[] decode = Base64.decode(b.getBytes(), 2);
                     if (decode != null && decode.length > 0) {
-                        this.b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), IMAudioTransRequest.CHARSET);
+                        this.b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                     }
                 } catch (Exception | UnsatisfiedLinkError unused) {
                 }

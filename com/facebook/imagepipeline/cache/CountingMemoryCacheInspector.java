@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CountingMemoryCacheInspector<K, V> {
     public final CountingMemoryCache<K, V> mCountingBitmapCache;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DumpInfo<K, V> {
         public final int lruSize;
         public final int maxEntriesCount;
@@ -41,7 +41,7 @@ public class CountingMemoryCacheInspector<K, V> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DumpInfoEntry<K, V> {
         public final K key;
         public final CloseableReference<V> value;

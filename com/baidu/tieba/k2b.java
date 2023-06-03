@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.q2b;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class k2b {
+public class k2b implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
-    public static q2b a;
+    public static final k2b b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -27,35 +34,34 @@ public class k2b {
                 return;
             }
         }
-        a = new q2b();
+        b = new k2b();
     }
 
-    public static <TResult> TResult a(h2b<TResult> h2bVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public k2b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, h2bVar)) == null) {
-            q2b.c("await must not be called on the UI thread");
-            if (h2bVar.g()) {
-                return (TResult) q2b.b(h2bVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            q2b.b bVar = new q2b.b();
-            h2bVar.c(bVar);
-            h2bVar.b(bVar);
-            bVar.a.await();
-            return (TResult) q2b.b(h2bVar);
         }
-        return (TResult) invokeL.objValue;
+        this.a = new HashSet();
     }
 
-    public static <TResult> h2b<TResult> b(Callable<TResult> callable) {
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(j2b.a(), callable) : (h2b) invokeL.objValue;
-    }
-
-    public static <TResult> h2b<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(j2b.b(), callable) : (h2b) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
+        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

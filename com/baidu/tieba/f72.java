@@ -1,169 +1,140 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f72 {
+public class f72 extends k72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public String I;
+    public boolean J;
+    public int K;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716968, "Lcom/baidu/tieba/f72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716968, "Lcom/baidu/tieba/f72;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f72(String str, @NonNull String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
+        this.I = "";
     }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        IOException e;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (f72.class) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "start cpu monitor thread");
-                }
-                try {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                    try {
-                        String c = c(bufferedReader);
-                        if (a) {
-                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                        }
-                        kp4.d(bufferedReader);
-                        return c;
-                    } catch (IOException e2) {
-                        e = e2;
-                        if (a) {
-                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                        }
-                        kp4.d(bufferedReader);
-                        return "";
-                    }
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                    e = e3;
-                } catch (Throwable th2) {
-                    th = th2;
-                    kp4.d(null);
-                    throw th;
-                }
-            }
-        } else {
-            return (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            this.u = SwanAppConfigData.t(jSONObject.optString("color"));
+            this.v = true;
         }
     }
 
-    public static float b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k72, com.baidu.tieba.m72, com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.floatValue;
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("maxLength");
+        this.E = k(jSONObject);
+        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.G = jSONObject.optInt("selectionStart");
+        this.H = jSONObject.optInt("selectionEnd");
+        this.I = jSONObject.optString("confirmType");
+        boolean z = true;
+        if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) != 1) {
+            z = false;
+        }
+        this.J = z;
+        i();
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.baidu.tieba.f72.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
+    @Override // com.baidu.tieba.k72, com.baidu.tieba.m72, com.baidu.tieba.o72
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
+                this.E = k(jSONObject);
+            }
+            this.D = jSONObject.optInt("maxLength", this.D);
+            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
+            this.G = jSONObject.optInt("selectionStart", this.G);
+            this.H = jSONObject.optInt("selectionEnd", this.H);
+            this.I = jSONObject.optString("confirmType", this.I);
+            boolean z = true;
+            if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) != 1) {
+                z = false;
+            }
+            this.J = z;
+            this.t = jSONObject.optString("value", this.t);
+            i();
+        }
+    }
+
+    public final int k(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
-        char read;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT >= 26) {
-                boolean z2 = true;
-                int i2 = 0;
-                int i3 = 0;
-                while (true) {
-                    char read2 = (char) bufferedReader.read();
-                    if (z2 && read2 != ' ') {
-                        i2++;
-                    }
-                    if (i2 == 9) {
-                        if (read2 != '.' && read2 != ' ') {
-                            cArr[i3] = read2;
-                            i3++;
-                        }
-                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                        return i + "%";
-                    }
-                    if (read2 == ' ') {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
-                        z2 = z;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("cursorSpacing");
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
+            }
+            if (optString.endsWith("rpx")) {
+                try {
+                    return pp3.g(Integer.parseInt(optString.replace("rpx", "")));
+                } catch (NumberFormatException unused) {
+                    return 0;
                 }
             }
-            int i4 = 0;
-            do {
-                read = (char) bufferedReader.read();
-                if (read != ' ' && i4 != 4) {
-                    cArr[i4] = read;
-                    i4++;
-                } else {
-                    i4 = 0;
-                }
-                if (read == '%') {
-                    break;
-                }
-            } while (read != 65535);
-            return String.valueOf(cArr, 0, i4);
+            try {
+                return Integer.parseInt(optString.replace("px", ""));
+            } catch (NumberFormatException unused2) {
+                return 0;
+            }
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.G = i;
+            this.H = i2;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.K = i;
+        }
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,9 +109,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = ri.l(TbadkCoreApplication.getInst());
-            int j = ri.j(TbadkCoreApplication.getInst());
-            float i = ri.i(TbadkCoreApplication.getInst());
+            int l = vi.l(TbadkCoreApplication.getInst());
+            int j = vi.j(TbadkCoreApplication.getInst());
+            float i = vi.i(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);

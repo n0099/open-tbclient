@@ -5,7 +5,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Business extends Message {
     public static final String DEFAULT_BUSINESS = "";
     public static final List<GroupInfo> DEFAULT_GROUPS = Collections.emptyList();
@@ -14,7 +14,7 @@ public final class Business extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<GroupInfo> groups;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<Business> {
         public String business;
         public List<GroupInfo> groups;

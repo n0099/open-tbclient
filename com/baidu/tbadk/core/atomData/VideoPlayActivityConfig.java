@@ -44,6 +44,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String KEY_FPS_VIDEO_HOME_TAB = "HomeToTab_video_tran";
     public static final String KEY_FPS_VIDEO_PAGE = "video";
     public static final String KEY_FPS_VIDEO_TYPE = "tran";
+    public static final String KEY_LIVE_CONFIG = "live_config";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";

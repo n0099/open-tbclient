@@ -1,213 +1,100 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
-/* loaded from: classes7.dex */
-public final class uy3 {
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+@Service
+/* loaded from: classes8.dex */
+public class uy3 implements wx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d a;
-    public static final w7b b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public interface c extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements w7b<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                try {
-                    ((Runnable) pair.first).run();
-                } catch (Throwable unused) {
-                }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements a8b<Pair<Runnable, String>, i7b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return m7b.g(pair).h(Schedulers.io()).f(uy3.b).l();
-            }
-            return (i7b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d extends ccb<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(dcb dcbVar) {
-            super(dcbVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dcbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((dcb) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
-            }
-        }
-
-        @Override // com.baidu.tieba.uy3.c
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, uy3.c(str)));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227290, "Lcom/baidu/tieba/uy3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227290, "Lcom/baidu/tieba/uy3;");
-                return;
-            }
-        }
-        b = new a();
-    }
 
     public uy3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static c b() {
+    @Override // com.baidu.tieba.wx1
+    public xo4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (uy3.class) {
-                    if (a == null) {
-                        a = new d(PublishSubject.H());
-                        a.p().f(new b()).u().v();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ty3.b().a();
         }
-        return (c) invokeV.objValue;
+        return (xo4) invokeV.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wx1
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                if (!str.startsWith("SwanAppExecutorUtils_")) {
-                    str = "SwanAppExecutorUtils_" + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !ty3.b().c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wx1
+    public void b(ci2 ci2Var, ai2 ai2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ci2Var, ai2Var) != null) || ai2Var == null) {
+            return;
+        }
+        if (ci2Var != null && !TextUtils.isEmpty(ci2Var.a)) {
+            String str = ci2Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
                 }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    ai2Var.onFail();
+                    return;
+                } else {
+                    ty3.b().b(true, ai2Var);
+                    return;
+                }
+            } else if (ci2Var.b) {
+                ty3.b().b(false, ai2Var);
+                return;
             } else {
-                str = null;
+                ty3.b().b(true, ai2Var);
+                return;
             }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
-            }
-            if (str.length() > 256) {
-                return str.substring(0, 255);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+        ai2Var.onFail();
     }
 
-    public static void d(@NonNull Runnable runnable, @NonNull String str) {
+    @Override // com.baidu.tieba.wx1
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
-            b().execute(runnable, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!d() && !nl2.d.w() && (!nl2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) || !si2.U().s0())) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

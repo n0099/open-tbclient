@@ -1,199 +1,198 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class u54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.a = z;
-            this.b = str;
-        }
-
-        public static a c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a(false, "未启用真机调试");
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
+    public static boolean b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
     }
 
-    public u54(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161973, "Lcom/baidu/tieba/u54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948161973, "Lcom/baidu/tieba/u54;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.a = optJSONObject.optString("hostname", null);
-            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.c = optJSONObject.optBoolean("breakOnStart", false);
-        }
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        this.f = z;
-        if (z) {
-            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
-            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
-            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
-            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
-        }
-        String str = this.a;
-        if (str != null && !str.trim().equals("")) {
-            this.e = true;
-        }
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("494433", ".mp3");
+        a.put("524946", ".wav");
     }
 
-    public static a f(u54 u54Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, u54Var)) == null) {
-            if (u54Var == null) {
-                return a.c();
-            }
-            return u54Var.e();
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public String a() {
+    public static String g() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            if (this.b != null) {
-                str = ":" + this.b;
-            } else {
-                str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String e = e();
+            if (j() && !TextUtils.isEmpty(e)) {
+                return e;
             }
-            sb.append(str);
-            return sb.toString();
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
         return (String) invokeV.objValue;
     }
 
-    public a e() {
-        InterceptResult invokeV;
-        String str;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f && c()) {
-                return new a(false, "线上包禁用真机调试");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (bArr != null && bArr.length > 0) {
+                for (byte b : bArr) {
+                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                    if (upperCase.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(upperCase);
+                }
+                String sb2 = sb.toString();
+                if (is1.a) {
+                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
+                }
+                return sb2;
             }
-            boolean z = this.e;
-            if (!z) {
-                str = "未启用真机调试";
-            } else if (this.f) {
-                str = "使用了 debug 面板配置";
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf != -1) {
+                str2 = str.substring(lastIndexOf);
             } else {
-                str = "启用了真机调试";
+                str2 = "";
             }
-            return new a(z, str);
+            return "/" + yb3.g0() + "/" + str.hashCode() + str2;
         }
-        return (a) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean b() {
+    public static s54 c(v54 v54Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, v54Var)) == null) {
+            s54 s54Var = new s54();
+            s54Var.a = v54Var.b;
+            s54Var.e = v54Var.autoplay;
+            s54Var.f = v54Var.loop;
+            s54Var.c = v54Var.src;
+            s54Var.d = v54Var.startTime;
+            s54Var.g = v54Var.obeyMuteSwitch;
+            s54Var.i = v54Var.volume;
+            s54Var.j = i().toString();
+            return s54Var;
+        }
+        return (s54) invokeL.objValue;
+    }
+
+    public static String h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr != null && 3 <= bArr.length) {
+                byte[] bArr2 = new byte[3];
+                for (int i = 0; i < 3; i++) {
+                    bArr2[i] = bArr[i];
+                }
+                return a.get(a(bArr2));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = io2.p() + "/usr";
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return File.separator + "bdata" + File.separator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return "mounted".equals(Environment.getExternalStorageState());
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean c() {
+    public static JSONObject i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return i12.f(g93.g0());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("onCanplay", "canplay");
+                jSONObject.put("onPlay", "play");
+                jSONObject.put("onEnded", "ended");
+                jSONObject.put(MissionEvent.MESSAGE_PAUSE, DownloadStatisticConstants.UBC_TYPE_PAUSE);
+                jSONObject.put("onSeeking", "seeking");
+                jSONObject.put("onSeeked", "seeked");
+                jSONObject.put(MissionEvent.MESSAGE_STOP, "stop");
+                jSONObject.put(GameAssistConstKt.TYPE_CALLBACK_ERROR, "error");
+                jSONObject.put("onTimeUpdate", "timeupdate");
+                jSONObject.put("onBufferingUpdate", "buffered");
+                jSONObject.put("onWaiting", "waiting");
+            } catch (Exception e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

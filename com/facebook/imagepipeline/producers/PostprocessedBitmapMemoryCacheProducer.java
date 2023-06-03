@@ -1,6 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.VisibleForTesting;
@@ -87,7 +87,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
             if (closeableReference != null) {
                 String producerName = getProducerName();
                 if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                    map = ImmutableMap.of("cached_value_found", "true");
+                    map = ImmutableMap.of("cached_value_found", YYOption.IsLive.VALUE_TRUE);
                 }
                 producerListener.onProducerFinishWithSuccess(producerContext, producerName, map);
                 producerListener.onUltimateProducerReached(producerContext, PRODUCER_NAME, true);
@@ -100,7 +100,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
             CachedPostprocessorConsumer cachedPostprocessorConsumer = new CachedPostprocessorConsumer(consumer, postprocessedBitmapCacheKey, postprocessor instanceof RepeatedPostprocessor, this.mMemoryCache, producerContext.getImageRequest().isMemoryCacheEnabled());
             String producerName2 = getProducerName();
             if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                map = ImmutableMap.of("cached_value_found", "false");
             }
             producerListener.onProducerFinishWithSuccess(producerContext, producerName2, map);
             this.mInputProducer.produceResults(cachedPostprocessorConsumer, producerContext);

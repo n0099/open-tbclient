@@ -2,7 +2,6 @@ package com.baidu.down.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -172,21 +171,6 @@ public final class HttpUrlHelper {
                 }
                 this.encodedPathSegments.add("");
             }
-        }
-
-        public HttpUrlHelper build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.scheme != null) {
-                    if (this.host != null) {
-                        return new HttpUrlHelper(this, null);
-                    }
-                    throw new IllegalStateException("host == null");
-                }
-                throw new IllegalStateException("scheme == null");
-            }
-            return (HttpUrlHelper) invokeV.objValue;
         }
 
         private Builder addPathSegments(String str, boolean z) {
@@ -849,6 +833,21 @@ public final class HttpUrlHelper {
             return invokeLII.intValue;
         }
 
+        public HttpUrlHelper build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.scheme != null) {
+                    if (this.host != null) {
+                        return new HttpUrlHelper(this, null);
+                    }
+                    throw new IllegalStateException("host == null");
+                }
+                throw new IllegalStateException("scheme == null");
+            }
+            return (HttpUrlHelper) invokeV.objValue;
+        }
+
         public int effectivePort() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1431,12 +1430,12 @@ public final class HttpUrlHelper {
                             i3 += Character.charCount(codePointAt);
                         }
                     } else {
-                        sb.append(URLEncoder.encode(str.substring(i, i3), IMAudioTransRequest.CHARSET));
+                        sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
                         sb.append(canonicalize2(str, i3, i2, str2, z, z2, z3, z4));
                         return sb.toString();
                     }
                 }
-                sb.append(URLEncoder.encode(str.substring(i, i3), IMAudioTransRequest.CHARSET));
+                sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
                 sb.append(canonicalize2(str, i3, i2, str2, z, z2, z3, z4));
                 return sb.toString();
             }
@@ -1470,7 +1469,7 @@ public final class HttpUrlHelper {
                             str3 = "%2B";
                         }
                         try {
-                            sb.append(URLEncoder.encode(str3, IMAudioTransRequest.CHARSET));
+                            sb.append(URLEncoder.encode(str3, "utf-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }
@@ -1548,7 +1547,7 @@ public final class HttpUrlHelper {
                 char charAt = str.charAt(i3);
                 if (charAt == '%' || (charAt == '+' && z)) {
                     try {
-                        sb.append(URLEncoder.encode(str.substring(i, i3), IMAudioTransRequest.CHARSET));
+                        sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }

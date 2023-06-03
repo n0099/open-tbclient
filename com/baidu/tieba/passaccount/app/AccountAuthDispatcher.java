@@ -9,18 +9,18 @@ import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.hi9;
+import com.baidu.tieba.oo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class AccountAuthDispatcher implements hi9 {
+/* loaded from: classes7.dex */
+public class AccountAuthDispatcher implements oo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends AccountRealNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class AccountAuthDispatcher implements hi9 {
         }
     }
 
-    @Override // com.baidu.tieba.hi9
+    @Override // com.baidu.tieba.oo9
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         Interceptable interceptable = $ic;

@@ -3,7 +3,6 @@ package com.fun.openid.sdk;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
@@ -18,6 +17,9 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes9.dex */
 public class DeviceUtils {
     public static /* synthetic */ Interceptable $ic;
+    public static String ANDROID_ID;
+    public static String IMEI;
+    public static String IMEI_NEW;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DeviceUtils() {
@@ -59,15 +61,21 @@ public class DeviceUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = ANDROID_ID;
+            if (str != null) {
+                return str;
+            }
             if (context != null) {
                 try {
-                    return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                    ANDROID_ID = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return null;
                 }
             }
-            return null;
+            if (FunOpenIDSdk.isIsRPSPermissionGranted() && ANDROID_ID == null) {
+                ANDROID_ID = "";
+            }
+            return ANDROID_ID;
         }
         return (String) invokeL.objValue;
     }
@@ -110,53 +118,65 @@ public class DeviceUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            String str = IMEI;
+            if (str != null) {
+                return str;
+            }
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
-                        return null;
+                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
+                        IMEI = ApiReplaceUtil.getDeviceId(telephonyManager);
                     }
-                    return ApiReplaceUtil.getDeviceId(telephonyManager);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return null;
                 }
             }
-            return null;
+            if (FunOpenIDSdk.isIsRPSPermissionGranted() && IMEI == null) {
+                IMEI = "";
+            }
+            return IMEI;
         }
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0049, code lost:
+        if (android.text.TextUtils.isEmpty(com.fun.openid.sdk.DeviceUtils.IMEI_NEW) != false) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String getImeiNew(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = null;
+            String str = IMEI_NEW;
+            if (str != null) {
+                return str;
+            }
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
-                        return null;
-                    }
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        try {
-                            Method method = telephonyManager.getClass().getMethod("getImei", new Class[0]);
-                            method.setAccessible(true);
-                            str = (String) method.invoke(telephonyManager, new Object[0]);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    if (telephonyManager != null && checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
+                        if (Build.VERSION.SDK_INT >= 26) {
+                            try {
+                                Method method = telephonyManager.getClass().getMethod("getImei", new Class[0]);
+                                method.setAccessible(true);
+                                IMEI_NEW = (String) method.invoke(telephonyManager, new Object[0]);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
-                        if (!TextUtils.isEmpty(str)) {
-                            return str;
-                        }
+                        IMEI_NEW = ApiReplaceUtil.getDeviceId(telephonyManager);
                     }
-                    return ApiReplaceUtil.getDeviceId(telephonyManager);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    return null;
                 }
             }
-            return null;
+            if (FunOpenIDSdk.isIsRPSPermissionGranted() && IMEI_NEW == null) {
+                IMEI_NEW = "";
+            }
+            return IMEI_NEW;
         }
         return (String) invokeL.objValue;
     }

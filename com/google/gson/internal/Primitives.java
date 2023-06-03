@@ -1,59 +1,80 @@
 package com.google.gson.internal;
 
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes9.dex */
 public final class Primitives {
-    public static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;
-    public static final Map<Class<?>, Class<?>> WRAPPER_TO_PRIMITIVE_TYPE;
-
-    static {
-        HashMap hashMap = new HashMap(16);
-        HashMap hashMap2 = new HashMap(16);
-        add(hashMap, hashMap2, Boolean.TYPE, Boolean.class);
-        add(hashMap, hashMap2, Byte.TYPE, Byte.class);
-        add(hashMap, hashMap2, Character.TYPE, Character.class);
-        add(hashMap, hashMap2, Double.TYPE, Double.class);
-        add(hashMap, hashMap2, Float.TYPE, Float.class);
-        add(hashMap, hashMap2, Integer.TYPE, Integer.class);
-        add(hashMap, hashMap2, Long.TYPE, Long.class);
-        add(hashMap, hashMap2, Short.TYPE, Short.class);
-        add(hashMap, hashMap2, Void.TYPE, Void.class);
-        PRIMITIVE_TO_WRAPPER_TYPE = Collections.unmodifiableMap(hashMap);
-        WRAPPER_TO_PRIMITIVE_TYPE = Collections.unmodifiableMap(hashMap2);
-    }
-
-    public Primitives() {
-        throw new UnsupportedOperationException();
-    }
-
-    public static void add(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
-        map.put(cls, cls2);
-        map2.put(cls2, cls);
-    }
-
     public static boolean isPrimitive(Type type) {
-        return PRIMITIVE_TO_WRAPPER_TYPE.containsKey(type);
+        if ((type instanceof Class) && ((Class) type).isPrimitive()) {
+            return true;
+        }
+        return false;
     }
 
     public static boolean isWrapperType(Type type) {
-        return WRAPPER_TO_PRIMITIVE_TYPE.containsKey(C$Gson$Preconditions.checkNotNull(type));
+        if (type != Integer.class && type != Float.class && type != Byte.class && type != Double.class && type != Long.class && type != Character.class && type != Boolean.class && type != Short.class && type != Void.class) {
+            return false;
+        }
+        return true;
     }
 
     public static <T> Class<T> unwrap(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) WRAPPER_TO_PRIMITIVE_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
-        if (cls2 != null) {
-            return cls2;
+        if (cls == Integer.class) {
+            return Integer.TYPE;
+        }
+        if (cls == Float.class) {
+            return Float.TYPE;
+        }
+        if (cls == Byte.class) {
+            return Byte.TYPE;
+        }
+        if (cls == Double.class) {
+            return Double.TYPE;
+        }
+        if (cls == Long.class) {
+            return Long.TYPE;
+        }
+        if (cls == Character.class) {
+            return Character.TYPE;
+        }
+        if (cls == Boolean.class) {
+            return Boolean.TYPE;
+        }
+        if (cls == Short.class) {
+            return Short.TYPE;
+        }
+        if (cls == Void.class) {
+            return Void.TYPE;
         }
         return cls;
     }
 
     public static <T> Class<T> wrap(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) PRIMITIVE_TO_WRAPPER_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
-        if (cls2 != null) {
-            return cls2;
+        if (cls == Integer.TYPE) {
+            return Integer.class;
+        }
+        if (cls == Float.TYPE) {
+            return Float.class;
+        }
+        if (cls == Byte.TYPE) {
+            return Byte.class;
+        }
+        if (cls == Double.TYPE) {
+            return Double.class;
+        }
+        if (cls == Long.TYPE) {
+            return Long.class;
+        }
+        if (cls == Character.TYPE) {
+            return Character.class;
+        }
+        if (cls == Boolean.TYPE) {
+            return Boolean.class;
+        }
+        if (cls == Short.TYPE) {
+            return Short.class;
+        }
+        if (cls == Void.TYPE) {
+            return Void.class;
         }
         return cls;
     }

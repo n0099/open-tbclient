@@ -14,7 +14,9 @@ import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.o;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
+import com.baidu.cyberplayer.sdk.q;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +42,9 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public int Q;
     public int R;
     public int S;
-    public i T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public i f1040T;
     public String U;
     public boolean V;
     public int W;
@@ -126,6 +130,78 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         RESUMED
     }
 
+    public void a(int i2, String str) {
+    }
+
+    public boolean a(int i2) {
+        return false;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void debugShowOptions(View view2) {
+    }
+
+    public void destroyRender() {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public View getView() {
+        return this;
+    }
+
+    public void pauseRender() {
+    }
+
+    public void resumeRender() {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setClarityInfo(String str) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setExternalSurface(Surface surface) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean setFilterRegion(float f2, float f3, float f4, float f5) {
+        return false;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoRotation(int i2) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoScalingMode(int i2) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void stepToNextFrame() {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void switchMediaSource(int i2) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void switchMediaSource(int i2, CyberPlayerManager.MediaSourceSwitchMode mediaSourceSwitchMode) {
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener) {
+        return true;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f2, int i2, int i3) {
+        return true;
+    }
+
     public MovieView(Context context) {
         super(context);
         this.e = true;
@@ -148,11 +224,10 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.T = i.PAUSED;
-        if (isInEditMode()) {
-            return;
+        this.f1040T = i.PAUSED;
+        if (!isInEditMode()) {
+            a(context);
         }
-        a(context);
     }
 
     public MovieView(Context context, AttributeSet attributeSet) {
@@ -177,8 +252,27 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.T = i.PAUSED;
+        this.f1040T = i.PAUSED;
         a(context);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOption(String str, String str2) {
+        if (this.G == h.IDLE) {
+            HashMap<String, String> hashMap = this.ae;
+            if (hashMap != null) {
+                hashMap.put(str, str2);
+            }
+            if (this.h != null) {
+                if (str != null && str.equals(CyberPlayerManager.OPT_HTTP_PROXY) && !TextUtils.isEmpty(q.c())) {
+                    return;
+                }
+                this.h.setOption(str, str2);
+                return;
+            }
+            return;
+        }
+        a(1, "Do not set option when the video player playing");
     }
 
     public MovieView(Context context, AttributeSet attributeSet, int i2) {
@@ -203,8 +297,33 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.T = i.PAUSED;
+        this.f1040T = i.PAUSED;
         a(context);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void seekTo(int i2, int i3) {
+        if (i2 >= 0 && getDuration() != 0) {
+            a(1, "seekTo");
+            f fVar = this.u;
+            if (fVar != null) {
+                fVar.a();
+            }
+            b(i2, i3);
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setExternalInfo(String str, Object obj) {
+        CyberPlayer cyberPlayer;
+        if (!TextUtils.isEmpty(str) && (cyberPlayer = this.h) != null) {
+            cyberPlayer.setExternalInfo(str, obj);
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoURI(Uri uri, Map<String, String> map) {
+        setVideoURI(uri, map, null);
     }
 
     public void a(int i2, int i3) {
@@ -216,14 +335,21 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         }
     }
 
-    public void a(int i2, int i3, int i4, int i5) {
-        if (i2 == 0 || i3 == 0 || this.d == null) {
+    public void b(int i2, int i3) {
+        if (isInPlaybackState()) {
+            this.h.seekTo(i2, i3);
+            this.I = 0;
+            this.J = 3;
             return;
         }
-        a(1, "on23DVideoSizeChanged w:" + i2 + " h:" + i3);
+        this.I = i2;
+        this.J = i3;
     }
 
-    public void a(int i2, String str) {
+    public void a(int i2, int i3, int i4, int i5) {
+        if (i2 != 0 && i3 != 0 && this.d != null) {
+            a(1, "on23DVideoSizeChanged w:" + i2 + " h:" + i3);
+        }
     }
 
     public void a(Context context) {
@@ -231,6 +357,235 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             this.b = context.getApplicationContext();
         } else {
             CyberLog.e("VrMovieView", "Context not be null");
+        }
+    }
+
+    public void b(int i2) {
+        int hashCode;
+        f();
+        a(i2);
+        Object[] objArr = new Object[1];
+        View view2 = this.d;
+        if (view2 == null) {
+            hashCode = 0;
+        } else {
+            hashCode = view2.hashCode();
+        }
+        objArr[0] = Integer.valueOf(hashCode);
+        a(1, String.format("rendView hashCode = %d", objArr));
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+    }
+
+    public CyberPlayer d(int i2) {
+        int i3 = this.W;
+        if (i3 == 3 || i3 < 0 || i3 > 4) {
+            this.W = 0;
+        }
+        a(1, "createplayer : " + i2);
+        return new CyberPlayer(this.W, null);
+    }
+
+    public void e(int i2) {
+        if (isInPlaybackState()) {
+            this.h.seekTo(i2);
+            this.I = 0;
+            return;
+        }
+        this.I = i2;
+    }
+
+    public void enableCache(String str) {
+        this.g = str;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void getMediaRuntimeInfo(CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener) {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.getMediaRuntimeInfo(onMediaRuntimeInfoListener);
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void muteOrUnmuteAudio(boolean z) {
+        this.ac = z;
+        a(1, "muteOrUnmuteAudio flag:" + z);
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.muteOrUnmuteAudio(z);
+        } else {
+            a(1, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void seekTo(int i2) {
+        if (i2 >= 0 && getDuration() != 0) {
+            a(1, "seekTo");
+            f fVar = this.u;
+            if (fVar != null) {
+                fVar.a();
+            }
+            e(i2);
+        }
+    }
+
+    public void setCurPlayerState(h hVar) {
+        this.G = hVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setDecodeMode(int i2) {
+        this.W = i2;
+    }
+
+    public void setEnableDetachedSurfaceTextureView(boolean z) {
+        this.e = z;
+    }
+
+    public void setEnableMediaCodec(boolean z) {
+        this.j = z;
+    }
+
+    public void setHttpProxy(String str) {
+        this.q = str;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setLooping(boolean z) {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null && this.G != h.ERROR) {
+            cyberPlayer.setLooping(z);
+        }
+        this.K = z;
+    }
+
+    public void setOnBufferingEndListener(a aVar) {
+        this.y = aVar;
+    }
+
+    public void setOnBufferingStartListener(b bVar) {
+        this.x = bVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
+        this.t = onBufferingUpdateListener;
+    }
+
+    public void setOnClickListener(c cVar) {
+        this.D = cVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
+        this.r = onCompletionListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
+        this.C = onErrorListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
+        this.w = onInfoListener;
+    }
+
+    public void setOnPitchYawRollListener(d dVar) {
+        this.F = dVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
+        this.s = onPreparedListener;
+    }
+
+    public void setOnRenderStartListener(e eVar) {
+        this.z = eVar;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
+        this.v = onSeekCompleteListener;
+    }
+
+    public void setOnSeekStartListener(f fVar) {
+        this.u = fVar;
+    }
+
+    public void setOnSurfaceReadyListener(g gVar) {
+        this.A = gVar;
+    }
+
+    @Override // android.view.View
+    public void setOnTouchListener(View.OnTouchListener onTouchListener) {
+        super.setOnTouchListener(onTouchListener);
+        this.E = onTouchListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
+        this.B = onVideoSizeChangedListener;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setPlayJson(String str) {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.setPlayJson(str);
+        }
+    }
+
+    public void setPlayerType(int i2) {
+        this.i = i2;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setRemote(boolean z) {
+        this.V = z;
+    }
+
+    public void setScaleType(int i2) {
+        this.a = i2;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setSpeed(float f2) {
+        a(1, "setSpeed()");
+        this.ad = f2;
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.setSpeed(f2);
+        } else {
+            a(1, "setSpeed must call after setVideoPath or setVideoURI");
+        }
+    }
+
+    public void setVideoName(String str) {
+        a(1, "videoName:" + str);
+        this.l = this.k;
+        this.k = str;
+    }
+
+    public void setVideoPath(String str) {
+        setVideoURI(Uri.parse(str));
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoURI(Uri uri) {
+        setVideoURI(uri, null);
+    }
+
+    public void setViewType(int i2) {
+        this.P = i2;
+    }
+
+    public void setVolume(float f2) {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.setVolume(f2, f2);
         }
     }
 
@@ -252,32 +607,6 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         ((AudioManager) this.b.getSystemService("audio")).abandonAudioFocus(null);
     }
 
-    public boolean a(int i2) {
-        return false;
-    }
-
-    public void b(int i2) {
-        f();
-        a(i2);
-        Object[] objArr = new Object[1];
-        View view2 = this.d;
-        objArr[0] = Integer.valueOf(view2 == null ? 0 : view2.hashCode());
-        a(1, String.format("rendView hashCode = %d", objArr));
-        setFocusable(true);
-        setFocusableInTouchMode(true);
-    }
-
-    public void b(int i2, int i3) {
-        if (!isInPlaybackState()) {
-            this.I = i2;
-            this.J = i3;
-            return;
-        }
-        this.h.seekTo(i2, i3);
-        this.I = 0;
-        this.J = 3;
-    }
-
     public boolean b() {
         return this.f;
     }
@@ -288,8 +617,223 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.L = false;
     }
 
+    public boolean d() {
+        if (!this.f && this.c != null) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void destory() {
+        destroy();
+    }
+
+    public void f() {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.setDisplay(null);
+        }
+        View view2 = this.d;
+        if (view2 != null) {
+            removeView(view2);
+            this.d = null;
+        }
+    }
+
+    public void g() {
+        if (isInPlaybackState() && (this.h.isPlaying() || this.G == h.PREPARED)) {
+            a(1, "pausePlayer");
+            this.h.pause();
+            setCurPlayerState(h.PAUSED);
+        }
+        this.H = h.PAUSED;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getCurrentPosition() {
+        if (isInPlaybackState()) {
+            return this.h.getCurrentPosition();
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getDecodeMode() {
+        return this.W;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getDuration() {
+        if (isInPlaybackState()) {
+            return this.h.getDuration();
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public MediaInfo getMediaInfo() {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer == null) {
+            return null;
+        }
+        return cyberPlayer.getMediaInfo();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public long getPlayedTime() {
+        h hVar;
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null && (hVar = this.G) != h.IDLE && hVar != h.PREPARING) {
+            return cyberPlayer.getPlayedTime();
+        }
+        return -1L;
+    }
+
+    public int getPlayerType() {
+        return this.i;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getVideoHeight() {
+        return this.ab;
+    }
+
+    public Uri getVideoUri() {
+        return this.m;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public int getVideoWidth() {
+        return this.aa;
+    }
+
+    public int getViewType() {
+        return this.P;
+    }
+
+    public boolean isAllReady() {
+        if (this.d != null && this.h != null && b()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEnableDetachedSurfaceTextureView() {
+        return this.e;
+    }
+
+    public boolean isEnableMediaCodec() {
+        return this.j;
+    }
+
+    public boolean isInPlaybackState() {
+        h hVar;
+        if (this.h != null && (hVar = this.G) != h.ERROR && hVar != h.IDLE && hVar != h.PREPARING) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isLooping() {
+        return this.K;
+    }
+
+    public boolean isPlayerIdle() {
+        if (this.h != null && this.G == h.IDLE) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public boolean isPlaying() {
+        if (isInPlaybackState() && this.h.isPlaying()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void pause() {
+        a(1, DownloadStatisticConstants.UBC_TYPE_PAUSE);
+        g();
+    }
+
+    public void pauseBuffering() {
+        a(1, "pauseBuffering");
+        if (isInPlaybackState()) {
+            a(1, "current state is in playback state ");
+        } else {
+            this.L = true;
+        }
+    }
+
+    public void reStart() {
+        this.p = true;
+        setVideoName(this.k);
+        setVideoURI(this.m);
+        start();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void reset() {
+        this.ac = false;
+        this.ad = 1.0f;
+        resetPlayer();
+    }
+
+    public void resetPlayer() {
+        CyberPlayer cyberPlayer = this.h;
+        if (cyberPlayer != null) {
+            cyberPlayer.reset();
+            this.h.setSurface(this.c);
+        }
+        setCurPlayerState(h.IDLE);
+        this.H = h.IDLE;
+        this.aa = 0;
+        this.ab = 0;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void start() {
+        a(1, "start");
+        startPlayer();
+        resumeRender();
+    }
+
+    public void startPlayer() {
+        if (isInPlaybackState()) {
+            this.h.start();
+            setCurPlayerState(h.PLAYING);
+        }
+        this.H = h.PLAYING;
+        a(1, "startPlayer");
+    }
+
+    public void stop() {
+        a(1, "stop");
+        a(false);
+        pauseRender();
+        HashMap<String, String> hashMap = this.ae;
+        if (hashMap != null) {
+            hashMap.clear();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void stopPlayback() {
+        stop();
+    }
+
     public void c(int i2) {
-        a(this.n != null, false);
+        boolean z;
+        if (this.n != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        a(z, false);
         ((AudioManager) this.b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
         this.h = d(i2);
         HashMap<String, String> hashMap = this.ae;
@@ -330,16 +874,15 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
             public void onVideoSizeChanged(int i3, int i4, int i5, int i6) {
                 MovieView.this.a(1, String.format("onVideoSizeChanged,w=%d,h=%d", Integer.valueOf(i3), Integer.valueOf(i4)));
-                if (i3 == 0 || i4 == 0) {
-                    return;
-                }
-                MovieView.this.a(i3, i4, i5, i6);
-                MovieView.this.requestLayout();
-                MovieView.this.aa = i3;
-                MovieView.this.ab = i4;
-                CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = MovieView.this.B;
-                if (onVideoSizeChangedListener != null) {
-                    onVideoSizeChangedListener.onVideoSizeChanged(i3, i4, i5, i6);
+                if (i3 != 0 && i4 != 0) {
+                    MovieView.this.a(i3, i4, i5, i6);
+                    MovieView.this.requestLayout();
+                    MovieView.this.aa = i3;
+                    MovieView.this.ab = i4;
+                    CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = MovieView.this.B;
+                    if (onVideoSizeChangedListener != null) {
+                        onVideoSizeChangedListener.onVideoSizeChanged(i3, i4, i5, i6);
+                    }
                 }
             }
         });
@@ -421,43 +964,31 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void changeProxyDynamic(String str) {
-        if (this.h != null && TextUtils.isEmpty(o.c())) {
-            HashMap<String, String> hashMap = this.ae;
-            String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
-            if (TextUtils.isEmpty(str)) {
-                if (TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.h.changeProxyDynamic(null, false);
-            } else if (str.equals(str2)) {
+        String str2;
+        if (this.h == null || !TextUtils.isEmpty(q.c())) {
+            return;
+        }
+        HashMap<String, String> hashMap = this.ae;
+        if (hashMap != null) {
+            str2 = hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY);
+        } else {
+            str2 = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            if (str.equals(str2)) {
                 return;
-            } else {
-                this.h.changeProxyDynamic(str, true);
             }
-            this.h.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
-            HashMap<String, String> hashMap2 = this.ae;
-            if (hashMap2 != null) {
-                hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
-            }
+            this.h.changeProxyDynamic(str, true);
+        } else if (TextUtils.isEmpty(str2)) {
+            return;
+        } else {
+            this.h.changeProxyDynamic(null, false);
         }
-    }
-
-    public CyberPlayer d(int i2) {
-        int i3 = this.W;
-        if (i3 == 3 || i3 < 0 || i3 > 4) {
-            this.W = 0;
+        this.h.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
+        HashMap<String, String> hashMap2 = this.ae;
+        if (hashMap2 != null) {
+            hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
         }
-        a(1, "createplayer : " + i2);
-        return new CyberPlayer(this.W, null);
-    }
-
-    public boolean d() {
-        return (this.f || this.c == null) ? false : true;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void destory() {
-        destroy();
     }
 
     public void destroy() {
@@ -485,127 +1016,33 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.D = null;
     }
 
-    public void destroyRender() {
-    }
-
     public void e() {
-        if (this.m == null || !d()) {
-            return;
-        }
-        a(1, String.format("uri:%s ", this.m));
-        c(this.i);
-        c();
-        try {
-            if (Build.VERSION.SDK_INT >= 14) {
-                this.h.setDataSource(this.b, this.m, this.o);
-            } else {
-                this.h.setDataSource(this.m.toString());
+        if (this.m != null && d()) {
+            a(1, String.format("uri:%s ", this.m));
+            c(this.i);
+            c();
+            try {
+                if (Build.VERSION.SDK_INT >= 14) {
+                    this.h.setDataSource(this.b, this.m, this.o);
+                } else {
+                    this.h.setDataSource(this.m.toString());
+                }
+                if (this.f) {
+                    a(1, "video is 2d");
+                } else {
+                    this.h.setSurface(this.c);
+                }
+                this.h.prepareAsync();
+                if (this.ac) {
+                    muteOrUnmuteAudio(this.ac);
+                }
+                setCurPlayerState(h.PREPARING);
+            } catch (Exception unused) {
+                a(1, 0);
             }
-            if (this.f) {
-                a(1, "video is 2d");
-            } else {
-                this.h.setSurface(this.c);
-            }
-            this.h.prepareAsync();
-            if (this.ac) {
-                muteOrUnmuteAudio(this.ac);
-            }
-            setCurPlayerState(h.PREPARING);
-        } catch (Exception unused) {
-            a(1, 0);
+            requestLayout();
+            invalidate();
         }
-        requestLayout();
-        invalidate();
-    }
-
-    public void e(int i2) {
-        if (isInPlaybackState()) {
-            this.h.seekTo(i2);
-            i2 = 0;
-        }
-        this.I = i2;
-    }
-
-    public void enableCache(String str) {
-        this.g = str;
-    }
-
-    public void f() {
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.setDisplay(null);
-        }
-        View view2 = this.d;
-        if (view2 != null) {
-            removeView(view2);
-            this.d = null;
-        }
-    }
-
-    public void g() {
-        if (isInPlaybackState() && (this.h.isPlaying() || this.G == h.PREPARED)) {
-            a(1, "pausePlayer");
-            this.h.pause();
-            setCurPlayerState(h.PAUSED);
-        }
-        this.H = h.PAUSED;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public int getCurrentPosition() {
-        if (isInPlaybackState()) {
-            return this.h.getCurrentPosition();
-        }
-        return 0;
-    }
-
-    public int getDecodeMode() {
-        return this.W;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public int getDuration() {
-        if (isInPlaybackState()) {
-            return this.h.getDuration();
-        }
-        return -1;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public long getPlayedTime() {
-        h hVar;
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer == null || (hVar = this.G) == h.IDLE || hVar == h.PREPARING) {
-            return -1L;
-        }
-        return cyberPlayer.getPlayedTime();
-    }
-
-    public int getPlayerType() {
-        return this.i;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public int getVideoHeight() {
-        return this.ab;
-    }
-
-    public Uri getVideoUri() {
-        return this.m;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public int getVideoWidth() {
-        return this.aa;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public View getView() {
-        return this;
-    }
-
-    public int getViewType() {
-        return this.P;
     }
 
     public boolean init2D() {
@@ -621,372 +1058,15 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         return true;
     }
 
-    public boolean isAllReady() {
-        return (this.d == null || this.h == null || !b()) ? false : true;
-    }
-
-    public boolean isEnableDetachedSurfaceTextureView() {
-        return this.e;
-    }
-
-    public boolean isEnableMediaCodec() {
-        return this.j;
-    }
-
-    public boolean isInPlaybackState() {
-        h hVar;
-        return (this.h == null || (hVar = this.G) == h.ERROR || hVar == h.IDLE || hVar == h.PREPARING) ? false : true;
-    }
-
-    public boolean isLooping() {
-        return this.K;
-    }
-
-    public boolean isPlayerIdle() {
-        return this.h != null && this.G == h.IDLE;
-    }
-
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public boolean isPlaying() {
-        return isInPlaybackState() && this.h.isPlaying();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void muteOrUnmuteAudio(boolean z) {
-        this.ac = z;
-        a(1, "muteOrUnmuteAudio flag:" + z);
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.muteOrUnmuteAudio(z);
-        } else {
-            a(1, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void pause() {
-        a(1, "pause");
-        g();
-    }
-
-    public void pauseBuffering() {
-        a(1, "pauseBuffering");
-        if (isInPlaybackState()) {
-            a(1, "current state is in playback state ");
-        } else {
-            this.L = true;
-        }
-    }
-
-    public void pauseRender() {
-    }
-
-    public void reStart() {
-        this.p = true;
-        setVideoName(this.k);
-        setVideoURI(this.m);
-        start();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void reset() {
-        this.ac = false;
-        this.ad = 1.0f;
-        resetPlayer();
-    }
-
-    public void resetPlayer() {
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.reset();
-            this.h.setSurface(this.c);
-        }
-        setCurPlayerState(h.IDLE);
-        this.H = h.IDLE;
-        this.aa = 0;
-        this.ab = 0;
-    }
-
-    public void resumeRender() {
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void seekTo(int i2) {
-        if (i2 < 0 || getDuration() == 0) {
-            return;
-        }
-        a(1, "seekTo");
-        f fVar = this.u;
-        if (fVar != null) {
-            fVar.a();
-        }
-        e(i2);
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void seekTo(int i2, int i3) {
-        if (i2 < 0 || getDuration() == 0) {
-            return;
-        }
-        a(1, "seekTo");
-        f fVar = this.u;
-        if (fVar != null) {
-            fVar.a();
-        }
-        b(i2, i3);
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setClarityInfo(String str) {
-    }
-
-    public void setCurPlayerState(h hVar) {
-        this.G = hVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setDecodeMode(int i2) {
-        this.W = i2;
-    }
-
-    public void setEnableDetachedSurfaceTextureView(boolean z) {
-        this.e = z;
-    }
-
-    public void setEnableMediaCodec(boolean z) {
-        this.j = z;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setExternalInfo(String str, Object obj) {
-        CyberPlayer cyberPlayer;
-        if (TextUtils.isEmpty(str) || (cyberPlayer = this.h) == null) {
-            return;
-        }
-        cyberPlayer.setExternalInfo(str, obj);
-    }
-
-    public void setHttpProxy(String str) {
-        this.q = str;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setLooping(boolean z) {
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null && this.G != h.ERROR) {
-            cyberPlayer.setLooping(z);
-        }
-        this.K = z;
-    }
-
-    public void setOnBufferingEndListener(a aVar) {
-        this.y = aVar;
-    }
-
-    public void setOnBufferingStartListener(b bVar) {
-        this.x = bVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.t = onBufferingUpdateListener;
-    }
-
-    public void setOnClickListener(c cVar) {
-        this.D = cVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.r = onCompletionListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
-        this.C = onErrorListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        this.w = onInfoListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-    }
-
-    public void setOnPitchYawRollListener(d dVar) {
-        this.F = dVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.s = onPreparedListener;
-    }
-
-    public void setOnRenderStartListener(e eVar) {
-        this.z = eVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        this.v = onSeekCompleteListener;
-    }
-
-    public void setOnSeekStartListener(f fVar) {
-        this.u = fVar;
-    }
-
-    public void setOnSurfaceReadyListener(g gVar) {
-        this.A = gVar;
-    }
-
-    @Override // android.view.View
-    public void setOnTouchListener(View.OnTouchListener onTouchListener) {
-        super.setOnTouchListener(onTouchListener);
-        this.E = onTouchListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        this.B = onVideoSizeChangedListener;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setOption(String str, String str2) {
-        if (this.G != h.IDLE) {
-            a(1, "Do not set option when the video player playing");
-            return;
-        }
-        HashMap<String, String> hashMap = this.ae;
-        if (hashMap != null) {
-            hashMap.put(str, str2);
-        }
-        if (this.h != null) {
-            if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(o.c())) {
-                this.h.setOption(str, str2);
-            }
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setPlayJson(String str) {
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.setPlayJson(str);
-        }
-    }
-
-    public void setPlayerType(int i2) {
-        this.i = i2;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setRemote(boolean z) {
-        this.V = z;
-    }
-
-    public void setScaleType(int i2) {
-        this.a = i2;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setSpeed(float f2) {
-        a(1, "setSpeed()");
-        this.ad = f2;
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.setSpeed(f2);
-        } else {
-            a(1, "setSpeed must call after setVideoPath or setVideoURI");
-        }
-    }
-
-    public void setVideoName(String str) {
-        a(1, "videoName:" + str);
-        this.l = this.k;
-        this.k = str;
-    }
-
-    public void setVideoPath(String str) {
-        setVideoURI(Uri.parse(str));
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoRotation(int i2) {
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoScalingMode(int i2) {
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri) {
-        setVideoURI(uri, null);
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map<String, String> map) {
+    public void setVideoURI(Uri uri, Map<String, String> map, Map<String, String> map2) {
         a(1, "videoURI:" + uri.toString());
+        if (map2 != null) {
+            this.ae.putAll(map2);
+        }
         this.n = this.m;
         this.m = uri;
         this.o = map;
         e();
-    }
-
-    public void setViewType(int i2) {
-        this.P = i2;
-    }
-
-    public void setVolume(float f2) {
-        CyberPlayer cyberPlayer = this.h;
-        if (cyberPlayer != null) {
-            cyberPlayer.setVolume(f2, f2);
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void start() {
-        a(1, "start");
-        startPlayer();
-        resumeRender();
-    }
-
-    public void startPlayer() {
-        if (isInPlaybackState()) {
-            this.h.start();
-            setCurPlayerState(h.PLAYING);
-        }
-        this.H = h.PLAYING;
-        a(1, "startPlayer");
-    }
-
-    public void stop() {
-        a(1, "stop");
-        a(false);
-        pauseRender();
-        HashMap<String, String> hashMap = this.ae;
-        if (hashMap != null) {
-            hashMap.clear();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void stopPlayback() {
-        stop();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void switchMediaSource(int i2) {
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener) {
-        return true;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f2, int i2, int i3) {
-        return true;
     }
 }

@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.player.utils.BasicVideoParserKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -928,6 +929,26 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return invokeV.booleanValue;
     }
 
+    public boolean isStarMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+            if (!TextUtils.isEmpty(this.mExtJson)) {
+                try {
+                    if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4) {
+                        return true;
+                    }
+                    return false;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean isZhida() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1028,8 +1049,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         this.mExtJson = optJSONObject.toString();
                         if (optJSONObject.has("push_exts")) {
                             JSONObject jSONObject2 = optJSONObject.getJSONObject("push_exts");
-                            if (jSONObject2.has("ext_log")) {
-                                setExtLog(jSONObject2.optString("ext_log"));
+                            if (jSONObject2.has(BasicVideoParserKt.EXT_LOG)) {
+                                setExtLog(jSONObject2.optString(BasicVideoParserKt.EXT_LOG));
                             }
                         }
                         this.mBlockType = optJSONObject.optInt("block_type");
@@ -1040,8 +1061,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     if (jSONObject.has("stargroupext")) {
                         this.mjsonStarExtra = jSONObject.optString("stargroupext");
                     }
-                    if (jSONObject.has("ext_log")) {
-                        setExtLog(jSONObject.optString("ext_log"));
+                    if (jSONObject.has(BasicVideoParserKt.EXT_LOG)) {
+                        setExtLog(jSONObject.optString(BasicVideoParserKt.EXT_LOG));
                     }
                     setSenderUid(jSONObject.optString("buid"));
                     return true;
@@ -1067,8 +1088,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext");
                         if (optJSONObject2 != null) {
                             this.mExtJson = optJSONObject2.toString();
-                            if (optJSONObject2.has("push_exts") && (optJSONObject = optJSONObject2.optJSONObject("push_exts")) != null && optJSONObject.has("ext_log")) {
-                                setExtLog(optJSONObject.optString("ext_log"));
+                            if (optJSONObject2.has("push_exts") && (optJSONObject = optJSONObject2.optJSONObject("push_exts")) != null && optJSONObject.has(BasicVideoParserKt.EXT_LOG)) {
+                                setExtLog(optJSONObject.optString(BasicVideoParserKt.EXT_LOG));
                             }
                             this.mExtTransInfo = optJSONObject2.optString(IMConstants.SHARE_EXT_TRANS_INFO);
                             this.mBlockType = optJSONObject2.optInt("block_type");
@@ -1085,8 +1106,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     if (jSONObject.has("stargroupext")) {
                         this.mjsonStarExtra = jSONObject.optString("stargroupext");
                     }
-                    if (jSONObject.has("ext_log")) {
-                        setExtLog(jSONObject.optString("ext_log"));
+                    if (jSONObject.has(BasicVideoParserKt.EXT_LOG)) {
+                        setExtLog(jSONObject.optString(BasicVideoParserKt.EXT_LOG));
                     }
                     if (jSONObject.has(Constants.EXTRA_TRIGGER_REASON)) {
                         setTriggerReasonn(jSONObject.optLong(Constants.EXTRA_TRIGGER_REASON));
@@ -1410,26 +1431,6 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         return false;
                     }
                     return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isStarMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
-            if (!TextUtils.isEmpty(this.mExtJson)) {
-                try {
-                    if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4) {
-                        return true;
-                    }
-                    return false;
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return false;
@@ -2096,21 +2097,6 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void createMsgKey(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
-            return;
-        }
-        if (mRandom == null) {
-            synchronized (ChatMsg.class) {
-                if (mRandom == null) {
-                    mRandom = new Random(System.currentTimeMillis());
-                }
-            }
-        }
-        this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & 1023), 5));
-    }
-
     public boolean shouldAbandonMsg(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2139,6 +2125,21 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void createMsgKey(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
+            return;
+        }
+        if (mRandom == null) {
+            synchronized (ChatMsg.class) {
+                if (mRandom == null) {
+                    mRandom = new Random(System.currentTimeMillis());
+                }
+            }
+        }
+        this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & 1023), 5));
     }
 
     public JSONObject getMsgString() {
@@ -2172,8 +2173,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00c6 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00c7  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00c3 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00c4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

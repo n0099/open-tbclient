@@ -1,208 +1,187 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class o11 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public final class o11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static void n(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
-        }
-    }
-
-    public static <T> void a(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
-            return;
-        }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            n(e);
-        }
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
-            collection.addAll(collection2);
-        }
-    }
-
     @Nullable
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public b01 a;
+    public PlayerStatus b;
+    public StringBuilder c;
+
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (T) invokeLI.objValue;
     }
 
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public o11() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                if (i >= list.size()) {
-                    return false;
+        }
+        this.b = PlayerStatus.IDLE;
+        d();
+    }
+
+    @NonNull
+    public PlayerStatus c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (PlayerStatus) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            h();
+            this.b = PlayerStatus.IDLE;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void a(uw0 uw0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uw0Var) == null) {
+            if (uw0Var.getType() != 4 && uw0Var.getType() != 2) {
+                return;
+            }
+            String c = uw0Var.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -525235558:
+                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case -461848373:
+                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 1370689931:
+                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 == 3) {
+                            g(PlayerStatus.ERROR);
+                            return;
+                        }
+                        return;
+                    }
+                    g(PlayerStatus.PREPARED);
+                    return;
                 }
-                return true;
-            } catch (Exception e) {
-                n(e);
-                return false;
+                g(PlayerStatus.COMPLETE);
+                return;
+            }
+            int g = uw0Var.g(1);
+            if (904 == g || 956 == g) {
+                g(PlayerStatus.PLAYING);
             }
         }
-        return invokeLI.booleanValue;
     }
 
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public void b(@NonNull b01 b01Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.remove(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b01Var) == null) {
+            this.a = b01Var;
         }
-        return (T) invokeLI.objValue;
     }
 
-    public static <T> boolean j(List<T> list, T t) {
-        InterceptResult invokeLL;
+    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
+            for (PlayerStatus playerStatus : playerStatusArr) {
+                if (playerStatus == c()) {
+                    return true;
+                }
             }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
-        InterceptResult invokeLL;
+    public void g(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void m(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65548, null, list, comparator) != null) || f(list)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
             return;
         }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            n(e);
+        this.b = playerStatus;
+        b01 b01Var = this.a;
+        if (b01Var != null) {
+            b01Var.d(pw0.w(playerStatus2, playerStatus));
         }
     }
 
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (zt0.f()) {
+                StringBuilder sb = this.c;
+                if (sb == null) {
+                    this.c = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    StringBuilder sb2 = this.c;
+                    sb2.delete(0, sb2.length());
+                }
+                StringBuilder sb3 = this.c;
+                sb3.append("，Courier :");
+                sb3.append(this.a);
+                sb3.append("，status :");
+                sb3.append(this.b);
+                sb3.append("，hash :");
+                sb3.append(hashCode());
+                sb3.append("】");
+                return this.c.toString();
             }
-            return true;
+            return super.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 }

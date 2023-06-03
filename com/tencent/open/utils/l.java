@@ -31,7 +31,7 @@ import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.sapi2.result.GetCertStatusResult;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import com.tencent.tauth.IUiListener;
@@ -1215,10 +1215,10 @@ public class l {
     }
 
     public static JSONObject d(String str) throws JSONException {
-        if (str.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (str.equals("false")) {
             str = "{value : false}";
         }
-        if (str.equals("true")) {
+        if (str.equals(YYOption.IsLive.VALUE_TRUE)) {
             str = "{value : true}";
         }
         if (str.contains("allback(")) {

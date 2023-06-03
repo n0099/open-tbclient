@@ -1,46 +1,50 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface a91 {
-    public static final a91 a = new a();
+public class a91 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    WebView a(@NonNull Context context);
-
-    /* loaded from: classes4.dex */
-    public static class a implements a91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static void a(Context context, PopupWindow popupWindow) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
+            return;
         }
+        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
+    }
 
-        @Override // com.baidu.tieba.a91
-        public WebView a(@NonNull Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new WebView(context);
+    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
+            if (!(context instanceof Activity)) {
+                return null;
             }
-            return (WebView) invokeL.objValue;
+            if (viewGroup == null) {
+                viewGroup = new FrameLayout(context);
+                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+                colorDrawable.setAlpha(86);
+                viewGroup.setBackground(colorDrawable);
+            }
+            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (viewGroup.getParent() != null) {
+                viewGroup2.removeView(viewGroup);
+            }
+            if (z) {
+                viewGroup2.addView(viewGroup);
+            }
+            return viewGroup;
         }
+        return (ViewGroup) invokeLLZ.objValue;
     }
 }

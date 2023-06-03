@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.DuMixARConfig;
 import com.baidu.ar.constants.HttpConstants;
@@ -53,7 +52,7 @@ public class b implements k {
 
     private String T(String str) {
         try {
-            return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException unused) {
             return str;
         }

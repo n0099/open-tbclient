@@ -3,7 +3,7 @@ package okhttp3.internal.connection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import okhttp3.Route;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RouteDatabase {
     public final Set<Route> failedRoutes = new LinkedHashSet();
 

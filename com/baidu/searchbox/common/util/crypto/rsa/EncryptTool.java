@@ -20,6 +20,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
+import org.chromium.net.AndroidKeyStore;
 @Deprecated
 /* loaded from: classes3.dex */
 public class EncryptTool {
@@ -70,7 +71,7 @@ public class EncryptTool {
     }
 
     private void initKeyPair() throws Exception {
-        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+        KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
         keyStore.load(null);
         if (!keyStore.containsAlias("default")) {
             generateKeyPair(this.mContext);
@@ -120,7 +121,7 @@ public class EncryptTool {
         gregorianCalendar2.add(1, 100);
         if (Build.VERSION.SDK_INT >= 18) {
             KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context).setAlias("default").setSubject(new X500Principal("C=CN,ST=BJ,L=BJ,O=BaiDu,OU=BaiDu,CN=default")).setSerialNumber(BigInteger.ONE).setStartDate(gregorianCalendar.getTime()).setEndDate(gregorianCalendar2.getTime()).build();
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", AndroidKeyStore.TAG);
             keyPairGenerator.initialize(build);
             keyPairGenerator.generateKeyPair();
         }

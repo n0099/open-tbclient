@@ -64,7 +64,7 @@ public class AcceleratorActivity extends BaseFragmentActivity {
             if (getIntent() != null) {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
-                acceleratorFragment.n2(intent);
+                acceleratorFragment.o2(intent);
                 getSupportFragmentManager().beginTransaction().add(R.id.main_container, acceleratorFragment).commit();
                 return;
             }

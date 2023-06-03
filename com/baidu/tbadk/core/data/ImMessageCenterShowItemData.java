@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.v25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public yz4 atInfoData;
+    public v25 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -79,7 +79,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m64clone() {
+    public ImMessageCenterShowItemData m119clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -93,13 +93,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public yz4 getAtInfoData() {
+    public v25 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (yz4) invokeV.objValue;
+        return (v25) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -417,10 +417,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(yz4 yz4Var) {
+    public void setAtInfoData(v25 v25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, yz4Var) == null) {
-            this.atInfoData = yz4Var;
+        if (interceptable == null || interceptable.invokeL(1048613, this, v25Var) == null) {
+            this.atInfoData = v25Var;
         }
     }
 

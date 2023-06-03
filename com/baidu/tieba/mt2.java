@@ -1,94 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public interface mt2 {
+public class mt2 extends sp2<ju2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void b(mt2 mt2Var);
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goBackground" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        boolean f(mt2 mt2Var, int i, int i2);
+    public mt2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void c(mt2 mt2Var);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) == null) {
+            ju2Var.V();
+            d(ju2Var, command.what, null, false);
+        }
     }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void e(mt2 mt2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(mt2 mt2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void d(mt2 mt2Var);
-    }
-
-    void a(FrameLayout frameLayout);
-
-    void b();
-
-    void c();
-
-    void d(boolean z);
-
-    mt2 e(Context context, @NonNull ay2 ay2Var);
-
-    void f();
-
-    void g(a aVar);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(ay2 ay2Var, boolean z);
-
-    void i(String str);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void j(e eVar);
-
-    void k(f fVar);
-
-    void l(boolean z, int i);
-
-    void m(d dVar);
-
-    void mute(boolean z);
-
-    void n(ay2 ay2Var);
-
-    void o(ay2 ay2Var);
-
-    boolean onBackPressed();
-
-    void p(b bVar);
-
-    void pause();
-
-    int q(String str);
-
-    void r(c cVar);
-
-    void resume();
-
-    void seekTo(int i);
-
-    void stop();
 }

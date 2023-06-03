@@ -5,6 +5,12 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberVersion {
+    public static final int LATER_DOWN_COMPILE_START = 1000;
+
+    public static String getSDKVersionInternal() {
+        return SDKVersion.VERSION;
+    }
+
     public static String getCoreVersion() {
         String coreVersionInternal = getCoreVersionInternal();
         if (CyberCfgManager.getInstance().a("enable_version_for_short", true)) {
@@ -19,15 +25,34 @@ public class CyberVersion {
     }
 
     public static String getCoreVersionInternal() {
-        String a = d.a();
-        return TextUtils.isEmpty(a) ? "0.0.0.0" : a;
+        String a = f.a();
+        if (TextUtils.isEmpty(a)) {
+            return "0.0.0.0";
+        }
+        return a;
     }
 
     public static String getSDKVersion() {
-        return CyberCfgManager.getInstance().a("enable_version_for_short", true) ? "7.32.10" : SDKVersion.VERSION;
+        if (CyberCfgManager.getInstance().a("enable_version_for_short", true)) {
+            return "7.39.93";
+        }
+        return SDKVersion.VERSION;
     }
 
-    public static String getSDKVersionInternal() {
-        return SDKVersion.VERSION;
+    public static boolean isLaterDownCyber() {
+        int i;
+        String[] split = getCoreVersionInternal().split("\\.");
+        if (split.length < 4) {
+            return false;
+        }
+        try {
+            i = Integer.parseInt(split[3]);
+        } catch (NumberFormatException unused) {
+            i = 0;
+        }
+        if (i < 1000) {
+            return false;
+        }
+        return true;
     }
 }

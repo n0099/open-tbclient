@@ -1,7 +1,7 @@
 package com.facebook.common.activitylistener;
 
 import android.app.Activity;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseActivityListener implements ActivityListener {
     @Override // com.facebook.common.activitylistener.ActivityListener
     public int getPriority() {

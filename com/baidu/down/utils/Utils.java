@@ -13,9 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.wordscommand.WordCommandManager;
@@ -74,9 +72,9 @@ public class Utils {
         extMimeMap.put(".dv", "video/x-dv");
         extMimeMap.put(".gif", "image/gif");
         extMimeMap.put(".jp2", "image/jp2");
-        extMimeMap.put(".jpe", WordCommandManager.IMAGE_JPEG);
-        extMimeMap.put(".jpeg", WordCommandManager.IMAGE_JPEG);
-        extMimeMap.put(".jpg", WordCommandManager.IMAGE_JPEG);
+        extMimeMap.put(".jpe", "image/jpeg");
+        extMimeMap.put(".jpeg", "image/jpeg");
+        extMimeMap.put(".jpg", "image/jpeg");
         extMimeMap.put(".kar", "audio/midi");
         extMimeMap.put(".m3u", "audio/x-mpegurl");
         extMimeMap.put(".m4a", "audio/mp4a-latm");
@@ -91,7 +89,7 @@ public class Utils {
         extMimeMap.put(".movie", "video/x-sgi-movie");
         extMimeMap.put(".mp2", MimeTypes.AUDIO_MPEG);
         extMimeMap.put(".mp3", MimeTypes.AUDIO_MPEG);
-        extMimeMap.put(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, MimeTypes.VIDEO_MP4);
+        extMimeMap.put(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, "video/mp4");
         extMimeMap.put(".mpe", "video/mpeg");
         extMimeMap.put(".mpeg", "video/mpeg");
         extMimeMap.put(".mpg", "video/mpeg");
@@ -120,7 +118,7 @@ public class Utils {
         extMimeMap.put(Constant.FILE.SUFFIX.BUNDLE_SUFFIX, "application/apk");
         extMimeMap.put(".rtf", "text/rtf");
         extMimeMap.put(".rtx", "text/richtext");
-        extMimeMap.put(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "text/plain");
+        extMimeMap.put(".txt", "text/plain");
         extMimeMap.put(".pdf", DocumentOpenUtil.PDF_TYPE);
         extMimeMap.put(".doc", DocumentOpenUtil.WORD_TYPE);
         extMimeMap.put(".ppt", DocumentOpenUtil.PPT_TYPE);
@@ -175,11 +173,11 @@ public class Utils {
                             str4 = "." + str4;
                         } else if (str3.toLowerCase().startsWith("text/")) {
                             if (str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE)) {
-                                str4 = DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
+                                str4 = ".html";
                             } else if (str3.equalsIgnoreCase("text/bin")) {
-                                str4 = DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                                str4 = ".bin";
                             } else {
-                                str4 = DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
+                                str4 = ".txt";
                             }
                         } else if (str3.toLowerCase().startsWith("audio/")) {
                             str4 = "." + str3.substring(6);
@@ -194,7 +192,7 @@ public class Utils {
                         }
                     }
                     if (str4 != null) {
-                        return DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                        return ".bin";
                     }
                     return str4;
                 }
@@ -227,7 +225,7 @@ public class Utils {
                 str2 = decode.substring(lastIndexOf);
             }
             if (str2 == null) {
-                str2 = DEFAULT_DL_FILENAME;
+                str2 = "downloadfile";
             } else {
                 int lastIndexOf3 = str2.lastIndexOf(46);
                 if (lastIndexOf3 > 0) {
@@ -236,7 +234,7 @@ public class Utils {
             }
             String replaceAll = str2.replaceAll("[()（）.,：:\\-|^$#_，。：=、/+《》<>*?？‘“”''\"\"]", "_");
             try {
-                return URLEncoder.encode(replaceAll, IMAudioTransRequest.CHARSET);
+                return URLEncoder.encode(replaceAll, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return replaceAll;
@@ -256,7 +254,7 @@ public class Utils {
                     str = str.substring(0, 243 - length2);
                 } else {
                     str = "" + System.currentTimeMillis();
-                    str2 = DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                    str2 = ".bin";
                 }
             }
             String str3 = str + str2;
@@ -451,7 +449,7 @@ public class Utils {
                 if (TextUtils.isEmpty(str)) {
                     return "";
                 }
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                return URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return "";

@@ -1,75 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-/* loaded from: classes6.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class o54 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o54 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983227, "Lcom/baidu/tieba/o54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947983227, "Lcom/baidu/tieba/o54;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
+    public int a;
+    public String b;
+    public int c;
+    public long d;
 
     public o54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new ArrayDeque();
     }
 
-    public static o54 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (o54.class) {
-                    if (a == null) {
-                        a = new o54();
-                    }
-                }
-            }
-            return a;
-        }
-        return (o54) invokeV.objValue;
-    }
-
-    public DuMixGameSurfaceView a(Context context) {
+    public static o54 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return new DuMixGameSurfaceView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            o54 o54Var = new o54();
+            o54Var.a = jSONObject.optInt("state");
+            o54Var.b = jSONObject.optString("msg");
+            o54Var.c = jSONObject.optInt("switch_open");
+            o54Var.d = jSONObject.optLong("heartbeat_time");
+            return o54Var;
         }
-        return (DuMixGameSurfaceView) invokeL.objValue;
+        return (o54) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -13,13 +13,13 @@ public class cs extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo695a() {
+    public String mo750a() {
         return "prepare the mi push account.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo412a() {
+    public void mo467a() {
         ah.a(this.a);
         if (com.xiaomi.push.bi.b(this.a)) {
             this.a.a(true);

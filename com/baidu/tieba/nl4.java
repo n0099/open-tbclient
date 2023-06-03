@@ -1,53 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class nl4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class nl4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006291, "Lcom/baidu/tieba/nl4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public nl4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948006291, "Lcom/baidu/tieba/nl4;");
-        }
+        this.a = new ArrayList();
     }
 
-    public static String a() {
+    public synchronized T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            pg4 b = rg4.b();
-            if (b == null) {
-                return "0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
             }
-            return b.i().getString("key_online_description_fix_version", "0");
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @NonNull
+    public Iterator<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.iterator();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public T e(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
+            synchronized (this) {
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
+            }
+            return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

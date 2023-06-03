@@ -13,7 +13,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PublicSuffixDatabase {
     public static final String BAIDU_TLD_PLUS_ONE = "baidu.com";
     public static final byte EXCEPTION_MARKER = 33;

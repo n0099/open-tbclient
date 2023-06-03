@@ -3,7 +3,6 @@ package com.baidu.ugc.editvideo.player;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -100,7 +99,7 @@ public class VideoPlayData implements Parcelable, Serializable {
             this.offset = jSONObject.optInt("offset");
             this.start = jSONObject.optInt("start");
             this.end = jSONObject.optInt("end");
-            String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+            String optString = jSONObject.optString("next");
             if (!TextUtils.isEmpty(optString)) {
                 VideoPlayData videoPlayData = new VideoPlayData();
                 videoPlayData.parse(optString);
@@ -133,7 +132,7 @@ public class VideoPlayData implements Parcelable, Serializable {
             jSONObject.put("offset", this.offset);
             jSONObject.put("start", this.start);
             jSONObject.put("end", this.end);
-            jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_NEXT, this.next.toJson().toString());
+            jSONObject.put("next", this.next.toJson().toString());
             jSONObject.put("isOriginal", this.isOriginal);
             jSONObject.put("insertIndex", this.insertIndex);
             jSONObject.put("rotation", this.rotation);

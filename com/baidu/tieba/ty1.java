@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,118 +10,95 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ty1 extends my1 {
+/* loaded from: classes8.dex */
+public class ty1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NetworkApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g93 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ty1 c;
-
-        public a(ty1 ty1Var, g93 g93Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197437, "Lcom/baidu/tieba/ty1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ty1Var, g93Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = ty1Var;
-            this.a = g93Var;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a0().b(this.c.a().g(), this.b);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197437, "Lcom/baidu/tieba/ty1;");
+                return;
             }
         }
+        boolean z = is1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ty1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    public ty1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = i2;
+        this.f = i3;
+        this.g = z;
     }
 
-    public g12 x() {
+    public s03 a() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getNetworkType", false);
-            String e = SwanAppNetworkUtils.e();
-            if (TextUtils.isEmpty(e)) {
-                e = "unknown";
-            } else if ("no".equals(e)) {
-                e = "none";
-            }
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                jSONObject.put("networkType", e);
-                return new g12(0, jSONObject);
-            } catch (JSONException unused) {
-                return new g12(202);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                s03 s03Var = new s03();
+                s03Var.j = "SwanAdPlayer";
+                s03Var.b = "SwanAdPlayer";
+                s03Var.o = true;
+                s03Var.k = false;
+                if (!this.g) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                s03Var.x = z;
+                s03Var.I = false;
+                s03Var.l = this.a;
+                s03Var.y = this.b;
+                s03Var.c = this.c;
+                e23 e23Var = new e23(0, 0, this.d, this.e);
+                s03Var.h = e23Var;
+                e23Var.i(true);
+                s03Var.m = this.f;
+                if (this.g) {
+                    s03Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+                }
+                return s03.h(jSONObject, s03Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        return (g12) invokeV.objValue;
-    }
-
-    public g12 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#networkStatusChange", false);
-            g93 b0 = g93.b0();
-            if (b0 == null) {
-                return new g12(202, "swan app is null");
-            }
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new g12(1001, "cb is empty");
-            }
-            f93.M().post(new a(this, b0, optString));
-            return g12.f();
-        }
-        return (g12) invokeL.objValue;
+        return (s03) invokeV.objValue;
     }
 }

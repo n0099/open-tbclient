@@ -1,26 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import android.view.ViewGroup;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes8.dex */
-public interface w49 {
-    PbModel.h L0();
+public interface w49<D extends IBaseDialogData> {
+    int a();
 
-    AbsVideoPbFragment M();
+    void b();
 
-    PbModel P();
+    void c(D d);
 
-    AbsPbActivity R();
-
-    void finish();
-
-    TbPageContext getPageContext();
-
-    void registerListener(MessageListener<?> messageListener);
-
-    PbFragment y1();
+    ViewGroup getViewGroup();
 }

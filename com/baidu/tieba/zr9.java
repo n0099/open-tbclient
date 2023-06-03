@@ -1,162 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBC;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zr9 {
+public class zr9 implements NetworkInfoRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xg a;
-    public String b;
-    public boolean c;
+    public cs9 a;
+    public cs9 b;
 
-    public zr9(String str) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public boolean shouldRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public zr9() {
+        this(new as9(10, 100));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((cs9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
     }
 
-    public void a() {
-        cs9 c;
+    public zr9(cs9 cs9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long e = this.a.e();
-            if (e > 3000) {
-                bs9 bs9Var = c.f;
-                bs9Var.a += e;
-                bs9Var.b++;
-                as9.b(c, 10);
-            }
-        }
-    }
-
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        cs9 c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            bs9 bs9Var = c.d;
-            if (bs9Var == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cs9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            bs9Var.b++;
-            if (z2) {
-                bs9Var.a += j2;
-                bs9Var.d += j;
-            } else {
-                bs9Var.c++;
-            }
-        } else {
-            bs9 bs9Var2 = c.e;
-            if (bs9Var2 == null) {
-                return;
-            }
-            bs9Var2.b++;
-            if (z2) {
-                bs9Var2.a += j3;
-                bs9Var2.d += j;
-            } else {
-                bs9Var2.c++;
-            }
-            j2 = j3;
         }
-        this.a = null;
-        if (z2) {
-            as9.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                xg xgVar = new xg("dbg");
-                xgVar.b("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
+        this.a = cs9Var;
+        this.b = new bs9();
+    }
+
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public void doRecord(NetworkStatRecord networkStatRecord) {
+        JSONObject uBCJson;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
+            String jSONObject = uBCJson.toString();
+            yr9 a = yr9.a();
+            if (a.g()) {
+                a.c(jSONObject);
+            }
+            if (a.f(networkStatRecord)) {
+                a.b(jSONObject);
+            }
+            cs9 cs9Var = this.a;
+            if (cs9Var != null && cs9Var.a(networkStatRecord)) {
+                int i = 0;
+                if (nr9.a) {
+                    i = 64;
                 }
-                xgVar.b("result", str2);
-                if (z) {
-                    str3 = "1";
-                }
-                xgVar.b("isHttp", str3);
-                xgVar.b("timeCost", String.valueOf(j2));
-                xgVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                xgVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                xgVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", xgVar);
+                UBC.onEvent(b(), jSONObject, i);
             }
-        }
-    }
-
-    public final cs9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return as9.e(this.b, d(), this.c);
-        }
-        return (cs9) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
+            if (nr9.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
+                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
             }
-            if (netType == 1) {
-                return "WIFI";
+            cs9 cs9Var2 = this.b;
+            if (cs9Var2 != null && cs9Var2.a(networkStatRecord)) {
+                UBC.onEvent(a(), jSONObject);
             }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
-        }
-    }
-
-    public void e(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new xg("dbg");
-            as9.c(str, d(), z);
         }
     }
 }

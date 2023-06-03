@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class CustomTarget<T> implements Target<T> {
     public final int height;
     @Nullable

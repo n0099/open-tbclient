@@ -1,82 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.util.io.AssetUtils;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class rl3 {
+public class rl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                kp4.d(context.getAssets().open(str, 0));
-                return true;
-            } catch (IOException unused) {
-                kp4.d(null);
-                return false;
-            } catch (Throwable th) {
-                kp4.d(null);
-                throw th;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public boolean b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
+    @Nullable
+    public static a a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream inputStream2 = null;
-            r0 = null;
-            String str2 = null;
-            try {
-                inputStream = context.getAssets().open(str);
-            } catch (IOException e) {
-                e = e;
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                kp4.d(inputStream2);
-                throw th;
-            }
-            if (inputStream == null) {
-                kp4.d(inputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            if (registerReceiver == null) {
                 return null;
             }
-            try {
-                try {
-                    str2 = np4.b(inputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    if (qp1.a) {
-                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
-                    }
-                    kp4.d(inputStream);
-                    return str2;
-                }
-                kp4.d(inputStream);
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                kp4.d(inputStream2);
-                throw th;
+            a aVar = new a();
+            aVar.a = registerReceiver.getIntExtra("level", -1);
+            boolean z = false;
+            if (registerReceiver.getIntExtra("plugged", 0) != 0) {
+                z = true;
             }
+            aVar.b = z;
+            return aVar;
         }
-        return (String) invokeLL.objValue;
+        return (a) invokeL.objValue;
     }
 }

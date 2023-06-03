@@ -1,124 +1,225 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.novel.ReadRecordsData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class en5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public String b;
+    public boolean c;
+    public String d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public fn5 j;
+    public gn5 k;
+    public og<gn> l;
 
-    public static String a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
-            JSONObject params = SchemeActionHelper.getParams(Uri.parse(str), "data");
-            String str3 = null;
-            try {
-                params.put(str2, i);
-                int indexOf = str.indexOf("data");
-                if (indexOf > 0) {
-                    str3 = str.substring(0, indexOf) + "data=" + params;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                return str3;
-            }
-            return str;
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    public static String b() {
+    public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 45;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends og<gn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ en5 a;
+
+        public a(en5 en5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {en5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = en5Var;
+        }
+
+        @Override // com.baidu.tieba.og
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.og
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.og
+        public void onLoaded(gn gnVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar, str, i) == null) {
+                if (gnVar != null && str != null) {
+                    if (this.a.w()) {
+                        if (str.equals(this.a.j.b())) {
+                            this.a.f = true;
+                        }
+                        if (str.equals(this.a.j.c())) {
+                            this.a.g = true;
+                        }
+                        if (str.equals(this.a.j.a())) {
+                            this.a.h = true;
+                        }
+                        if (this.a.f && this.a.g && this.a.h) {
+                            this.a.i = true;
+                        }
+                    } else {
+                        if (str.equals(this.a.b)) {
+                            this.a.c = true;
+                        }
+                        if (str.equals(this.a.d)) {
+                            this.a.e = true;
+                        }
+                        if (this.a.c && this.a.e) {
+                            this.a.i = true;
+                        }
+                    }
+                }
+                if (this.a.k != null && this.a.i) {
+                    this.a.k.a();
+                }
+            }
+        }
+    }
+
+    public en5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = new a(this);
+    }
+
+    public fn5 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return (fn5) invokeV.objValue;
+    }
+
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        se<String> g;
+    public String u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || !TextUtils.equals(b(), str2) || (g = c25.g("tb.novel_thread_read_record", b(), str)) == null || StringUtils.isNull(g.get(str))) {
-                return null;
-            }
-            return g.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void d() {
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void e(String str, ReadRecordsData readRecordsData) {
-        se<String> g;
+    public void A(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, readRecordsData) == null) {
-            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && (g = c25.g("tb.novel_thread_read_record", b(), str)) != null && readRecordsData != null) {
-                g.g(str, OrmObject.jsonStrWithObject(readRecordsData));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
         }
     }
 
-    public static String f(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
+    public void y(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, str2, str3, str4)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return str;
-            }
-            String queryParameter = parse.getQueryParameter(str2);
-            if (qi.isEmpty(queryParameter)) {
-                return str;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(queryParameter);
-                jSONObject.put(str3, str4);
-                int indexOf = str.indexOf("&data");
-                if (indexOf > 0) {
-                    String substring = str.substring(0, indexOf);
-                    return substring + "&data=" + jSONObject.toString();
-                }
-                return null;
-            } catch (Exception e) {
-                gna.g(e);
-                return str;
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            this.b = jSONObject.optString("pic_before");
+            this.d = jSONObject.optString("pic_after");
+            fn5 fn5Var = new fn5();
+            this.j = fn5Var;
+            fn5Var.h(jSONObject);
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static String g(String str) {
-        InterceptResult invokeL;
+    public void z(gn5 gn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
+        if (interceptable == null || interceptable.invokeL(1048585, this, gn5Var) == null) {
+            this.k = gn5Var;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            fn5 fn5Var = this.j;
+            if (fn5Var != null && StringUtils.isNotNull(fn5Var.b()) && StringUtils.isNotNull(this.j.c()) && StringUtils.isNotNull(this.j.a())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            String str = this.b;
+            if (str != null && !ui.isEmpty(str)) {
+                pg.h().k(this.b, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            String str2 = this.d;
+            if (str2 != null && !ui.isEmpty(str2)) {
+                pg.h().k(this.d, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            if (w()) {
+                pg.h().k(this.j.b(), s(), this.l, 0, 0, this.a, new Object[0]);
+                pg.h().k(this.j.c(), s(), this.l, 0, 0, this.a, new Object[0]);
+                pg.h().k(this.j.a(), s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+        }
     }
 }

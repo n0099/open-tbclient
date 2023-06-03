@@ -16,7 +16,6 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.android.PkgUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.io.Closeables;
@@ -29,8 +28,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.g10;
-import com.baidu.tieba.i20;
+import com.baidu.tieba.b20;
+import com.baidu.tieba.j30;
 import com.baidu.util.Base64Encoder;
 import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import java.io.ByteArrayOutputStream;
@@ -208,7 +207,7 @@ public final class BaiduActiveManager {
             str = sharedPreferences.getString("time", "0");
         }
         try {
-            return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return str;
@@ -248,7 +247,7 @@ public final class BaiduActiveManager {
 
     private String encrypt(String str) {
         try {
-            return URLEncoder.encode(new String(Base64.encode(this.mIdentityContextImpl.encryptByNativeBds(BaiduIdentityManager.getInstance().getUid(), str), 0)), IMAudioTransRequest.CHARSET);
+            return URLEncoder.encode(new String(Base64.encode(this.mIdentityContextImpl.encryptByNativeBds(BaiduIdentityManager.getInstance().getUid(), str), 0)), "utf-8");
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e(TAG, "encrypt error!", e);
@@ -286,8 +285,8 @@ public final class BaiduActiveManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00e7  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x015e  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00e6  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x015d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -322,7 +321,7 @@ public final class BaiduActiveManager {
                 e = e3;
                 e.printStackTrace();
                 String encode = encode(getRandId(), "none");
-                String encode2 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
+                String encode2 = encode(j30.f(AppRuntime.getAppContext()).e(), "none");
                 String encode3 = encode(this.mInvokeSource, "none");
                 String encode4 = encode(this.mLauncherSource, "none");
                 String encode5 = encode(this.mLauncherExt, "none");
@@ -356,7 +355,7 @@ public final class BaiduActiveManager {
                 e = e4;
                 e.printStackTrace();
                 String encode10 = encode(getRandId(), "none");
-                String encode22 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
+                String encode22 = encode(j30.f(AppRuntime.getAppContext()).e(), "none");
                 String encode32 = encode(this.mInvokeSource, "none");
                 String encode42 = encode(this.mLauncherSource, "none");
                 String encode52 = encode(this.mLauncherExt, "none");
@@ -397,7 +396,7 @@ public final class BaiduActiveManager {
             str2 = str;
         }
         String encode102 = encode(getRandId(), "none");
-        String encode222 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
+        String encode222 = encode(j30.f(AppRuntime.getAppContext()).e(), "none");
         String encode322 = encode(this.mInvokeSource, "none");
         String encode422 = encode(this.mLauncherSource, "none");
         String encode522 = encode(this.mLauncherExt, "none");
@@ -450,10 +449,10 @@ public final class BaiduActiveManager {
         String ipInfo = getIpInfo();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ac", URLEncoder.encode(md5, IMAudioTransRequest.CHARSET));
-            jSONObject.put("apn", URLEncoder.encode(localPhotoInfo, IMAudioTransRequest.CHARSET));
-            jSONObject.put("afn", URLEncoder.encode(localFileSystemInfo, IMAudioTransRequest.CHARSET));
-            jSONObject.put(AdvertisementOption.AD_INSTALL_PACKAGE, URLEncoder.encode(ipInfo, IMAudioTransRequest.CHARSET));
+            jSONObject.put("ac", URLEncoder.encode(md5, "utf-8"));
+            jSONObject.put("apn", URLEncoder.encode(localPhotoInfo, "utf-8"));
+            jSONObject.put("afn", URLEncoder.encode(localFileSystemInfo, "utf-8"));
+            jSONObject.put(AdvertisementOption.AD_INSTALL_PACKAGE, URLEncoder.encode(ipInfo, "utf-8"));
             return jSONObject.toString();
         } catch (Exception e) {
             e.printStackTrace();
@@ -564,7 +563,7 @@ public final class BaiduActiveManager {
         arrayList.add(new BasicNameValuePair("data", jSONObject.toString()));
         UrlEncodedFormEntity urlEncodedFormEntity2 = null;
         try {
-            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, IMAudioTransRequest.CHARSET);
+            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
         } catch (UnsupportedEncodingException e2) {
             e = e2;
         }
@@ -776,23 +775,23 @@ public final class BaiduActiveManager {
         } else {
             mStartRequest = true;
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.util.BaiduActiveManager.1
-                /* JADX WARN: Code restructure failed: missing block: B:47:0x01c9, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:47:0x01c8, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:53:0x01d9, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:53:0x01d8, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:59:0x01eb, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:59:0x01ea, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:60:0x01ed, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:60:0x01ec, code lost:
                     com.baidu.android.common.logging.Log.d(com.baidu.searchbox.util.BaiduActiveManager.TAG, "active request finished");
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:61:0x01f0, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:61:0x01ef, code lost:
                     r0 = com.baidu.searchbox.util.BaiduActiveManager.mStartRequest = false;
                     r14.this$0.sendActiveUBCEvent(-1, r6);
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:62:0x01f8, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:62:0x01f7, code lost:
                     return;
                  */
                 @Override // java.lang.Runnable
@@ -825,7 +824,7 @@ public final class BaiduActiveManager {
                             }
                             appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
                             if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + g10.b().h());
+                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + b20.b().h());
                                 Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
                             }
                             activePostData = BaiduActiveManager.this.getActivePostData();

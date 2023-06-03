@@ -1,112 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
 /* loaded from: classes5.dex */
-public class eo7 implements rn {
+public class eo7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<do7> b;
-    public String c;
-    public String d;
+    public final FrsFragment a;
+    public df7 b;
+    public TextView c;
+    public boolean d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741148, "Lcom/baidu/tieba/eo7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947741148, "Lcom/baidu/tieba/eo7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public eo7() {
+    public eo7(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = -1;
+        if (frsFragment != null) {
+            this.a = frsFragment;
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                UtilHelper.getStatusBarHeight();
+                return;
+            }
+            return;
+        }
+        throw new NullPointerException("FrsFragment is null");
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i >= 0) {
+                d(true);
+                e(i);
+                return;
+            }
+            d(false);
+            e(i);
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
         }
-        return invokeV.intValue;
     }
 
-    public List<do7> b() {
-        InterceptResult invokeV;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d && (i = this.e) >= 0) {
+                f(i);
+            }
+            this.d = false;
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(Esport esport) {
+    public void c() {
+        df7 df7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) && esport != null) {
-            this.a = esport.floor_no.intValue();
-            EsportStatic esportStatic = esport._static;
-            if (esportStatic != null) {
-                this.c = esportStatic.img;
-                this.d = esportStatic.url;
-            }
-            this.b = new ArrayList();
-            if (!StringUtils.isNull(this.c)) {
-                do7 do7Var = new do7();
-                do7Var.i(this.c);
-                do7Var.j(this.d);
-                this.b.add(do7Var);
-            }
-            if (!ListUtils.isEmpty(esport.billboard)) {
-                for (EsportRank esportRank : esport.billboard) {
-                    do7 do7Var2 = new do7();
-                    do7Var2.h(esportRank);
-                    this.b.add(do7Var2);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (df7Var = this.b) != null) {
+            df7Var.e();
         }
+    }
+
+    public final void f(int i) {
+        md7 y1;
+        FrameLayout v0;
+        String string;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (y1 = this.a.y1()) == null || y1.g0() == null || (v0 = y1.v0()) == null) {
+            return;
+        }
+        if (this.c == null && this.a.getPageContext() != null) {
+            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
+            this.c = textView;
+            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
+            this.c.setGravity(17);
+        }
+        if (this.c != null) {
+            if (i > 0) {
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13ca);
+            }
+            this.c.setText(string);
+        }
+        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703f1));
+        if (this.b == null) {
+            this.b = new df7();
+        }
+        this.b.h(this.c, v0, layoutParams, 2000);
+        this.e = -1;
     }
 }

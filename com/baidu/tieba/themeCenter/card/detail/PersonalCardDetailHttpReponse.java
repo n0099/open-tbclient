@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jx9;
+import com.baidu.tieba.v3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jx9 cardData;
+    public v3a cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -57,10 +57,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        jx9 jx9Var = new jx9();
-        this.cardData = jx9Var;
+        v3a v3aVar = new v3a();
+        this.cardData = v3aVar;
         if (personalCardDetailRequest != null) {
-            jx9Var.m(personalCardDetailRequest.getCardId());
+            v3aVar.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);
@@ -74,12 +74,12 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
     }
 
-    public jx9 getCardData() {
+    public v3a getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.cardData;
         }
-        return (jx9) invokeV.objValue;
+        return (v3a) invokeV.objValue;
     }
 }

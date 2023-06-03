@@ -2,218 +2,177 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fm4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ir4 implements fm4 {
+public class ir4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<fm4.a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
+    public int c;
+    public String d;
+    public JSONObject e;
+    public long f;
+    public int g;
+    public String h;
+    public String i;
+    public boolean j;
+    public String k;
 
-    /* loaded from: classes6.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ ir4 c;
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ir4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0344a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0344a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ir4 ir4Var = this.a.c;
-                    ir4Var.j(ir4Var.b);
-                }
-            }
-        }
-
-        public a(ir4 ir4Var, String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ir4Var, str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ir4Var;
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (kp4.B(this.a, str)) {
-                    synchronized (ir4.d) {
-                        this.c.i(true);
-                    }
-                    return;
-                }
-                if (ir4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        ir4 ir4Var = this.c;
-                        ir4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (kp4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && f93.M().postDelayed(new RunnableC0344a(this), 1000L)) {
-                        return;
-                    }
-                }
-                if (8 == i) {
-                    kp4.k(this.a);
-                }
-                synchronized (ir4.d) {
-                    this.c.i(false);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863102, "Lcom/baidu/tieba/ir4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863102, "Lcom/baidu/tieba/ir4;");
-                return;
-            }
-        }
-        d = new HashSet();
-    }
-
-    public ir4() {
+    public ir4(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.d = str2;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public ir4(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
     }
 
-    @Override // com.baidu.tieba.fm4
-    public void a(String str, fm4.a aVar) {
+    public ir4(String str, String str2, int i, String str3, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            if (j > 0) {
+                this.f = j;
+            } else {
+                this.f = System.currentTimeMillis();
+            }
+        }
+        if (!TextUtils.isEmpty(this.d)) {
+            try {
+                this.e = new JSONObject(this.d);
+            } catch (JSONException unused) {
             }
         }
     }
 
-    public static /* synthetic */ int e(ir4 ir4Var) {
-        int i = ir4Var.a + 1;
-        ir4Var.a = i;
-        return i;
-    }
-
-    public final void i(boolean z) {
+    public ir4(String str, JSONObject jSONObject, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (fm4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
-                    }
-                }
-                d.clear();
-                c = false;
-                this.a = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.e = jSONObject;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
         }
     }
 
-    public final void j(String str) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = this.e;
+            if (jSONObject != null) {
+                return jSONObject.optString("bizId");
             }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.b) && dr4.g().a(this.a)) {
+            this.h = er4.g().h();
         }
     }
 }

@@ -5,7 +5,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebPFrame implements AnimatedImageFrame {
     @DoNotStrip
     public long mNativeContext;

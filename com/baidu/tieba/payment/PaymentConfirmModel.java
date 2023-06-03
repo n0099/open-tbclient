@@ -8,9 +8,8 @@ import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.k9;
 import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9<T> a;
+    public k9<T> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -46,12 +45,12 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public PaymentConfirmModel(g9<T> g9Var) {
+    public PaymentConfirmModel(k9<T> k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,7 +60,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.a = g9Var;
+        this.a = k9Var;
     }
 
     public void U(PayRequestData payRequestData) {
@@ -73,7 +72,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("order_id", payRequestData.getOrderId());
         httpMessage.addParam(MemberPayActivityConfig.SCENE_ID, String.valueOf(payRequestData.getSceneId()));
         httpMessage.addParam("open_id", payRequestData.getOpenId());
-        httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
+        httpMessage.addParam("tbs", payRequestData.getTbs());
         httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
         httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
         httpMessage.addParam(a.m, payRequestData.getPassword());

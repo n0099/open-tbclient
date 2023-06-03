@@ -17,14 +17,16 @@ import android.widget.Toast;
 import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.download.statistics.ApkStaticNetService;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dqa;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.vpa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.qxa;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -599,13 +601,13 @@ public class DebugYaLogActivity extends Activity {
             } else {
                 obj = "1";
             }
-            jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, obj);
+            jSONObject.put("switch", obj);
             if (!this.mCheckClear.isChecked()) {
                 obj2 = "0";
             } else {
                 obj2 = "1";
             }
-            jSONObject.put("clear", obj2);
+            jSONObject.put(DownloadStatisticConstants.UBC_VALUE_CLEAR, obj2);
             String str2 = ((Object) this.mEditSingleSize.getText()) + "";
             if (TextUtils.isEmpty(str2)) {
                 str2 = "2";
@@ -613,9 +615,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject.put("singlesize", str2);
             String str3 = ((Object) this.mEditTotalSize.getText()) + "";
             if (TextUtils.isEmpty(str3)) {
-                str3 = "100";
+                str3 = YYOption.UrlProtocol.USER;
             }
-            jSONObject.put("totalsize", str3);
+            jSONObject.put(ApkStaticNetService.STATIC_DOWNLOAD_SIZE, str3);
             String str4 = ((Object) this.mEditSpaceSize.getText()) + "";
             boolean isEmpty = TextUtils.isEmpty(str4);
             Object obj5 = PayUVEventType.PAY_WALLET_BANNER_SHOW;
@@ -643,7 +645,7 @@ public class DebugYaLogActivity extends Activity {
                     obj4 = "1";
                 }
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(SetImageWatermarkTypeReqMsg.SWITCH, obj4);
+                jSONObject4.put("switch", obj4);
                 jSONObject4.put("size", ((Object) this.mEditSpaceSize1.getText()) + "");
                 jSONObject4.put("time", ((Object) this.mEditSpaceTime1.getText()) + "");
                 jSONObject3.put("data", jSONObject4);
@@ -658,7 +660,7 @@ public class DebugYaLogActivity extends Activity {
                     obj3 = "1";
                 }
                 JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put(SetImageWatermarkTypeReqMsg.SWITCH, obj3);
+                jSONObject6.put("switch", obj3);
                 jSONObject6.put("size", ((Object) this.mEditSpaceSize2.getText()) + "");
                 jSONObject6.put("time", ((Object) this.mEditSpaceTime2.getText()) + "");
                 jSONObject5.put("data", jSONObject6);
@@ -671,7 +673,7 @@ public class DebugYaLogActivity extends Activity {
                     str = "1";
                 }
                 JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put(SetImageWatermarkTypeReqMsg.SWITCH, str);
+                jSONObject8.put("switch", str);
                 jSONObject8.put("size", ((Object) this.mEditSpaceSize3.getText()) + "");
                 jSONObject8.put("time", ((Object) this.mEditSpaceTime3.getText()) + "");
                 jSONObject7.put("data", jSONObject8);
@@ -680,9 +682,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            dqa dqaVar = (dqa) ServiceManager.getService(dqa.a);
-            if (dqaVar != null) {
-                dqaVar.a(jSONObject);
+            qxa qxaVar = (qxa) ServiceManager.getService(qxa.a);
+            if (qxaVar != null) {
+                qxaVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -708,13 +710,13 @@ public class DebugYaLogActivity extends Activity {
             } else {
                 obj = "0";
             }
-            jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, obj);
+            jSONObject.put("switch", obj);
             if (this.mCheckVoyagerClear.isChecked()) {
                 obj2 = "1";
             } else {
                 obj2 = "0";
             }
-            jSONObject.put("clear", obj2);
+            jSONObject.put(DownloadStatisticConstants.UBC_VALUE_CLEAR, obj2);
             String str3 = ((Object) this.mEditVoyagerUploadInterval.getText()) + "";
             if (TextUtils.isEmpty(str3)) {
                 str3 = "5";
@@ -745,12 +747,12 @@ public class DebugYaLogActivity extends Activity {
             jSONObject.put("single_max_size", str8);
             String str10 = ((Object) this.mEditTotalMaxCount.getText()) + "";
             if (TextUtils.isEmpty(str10)) {
-                str10 = "100";
+                str10 = YYOption.UrlProtocol.USER;
             }
             jSONObject.put("total_max_count", str10);
             String str11 = ((Object) this.mEditTotalMaxSize.getText()) + "";
             if (TextUtils.isEmpty(str11)) {
-                str11 = "100";
+                str11 = YYOption.UrlProtocol.USER;
             }
             jSONObject.put("total_max_size", str11);
             String str12 = ((Object) this.mEditHistoryMaxCount.getText()) + "";
@@ -779,7 +781,7 @@ public class DebugYaLogActivity extends Activity {
             } else {
                 obj3 = "0";
             }
-            jSONObject3.put(SetImageWatermarkTypeReqMsg.SWITCH, obj3);
+            jSONObject3.put("switch", obj3);
             String str16 = ((Object) this.mEditBizExpiredTime1.getText()) + "";
             if (TextUtils.isEmpty(str16)) {
                 str16 = "7";
@@ -811,7 +813,7 @@ public class DebugYaLogActivity extends Activity {
             } else {
                 obj4 = "0";
             }
-            jSONObject4.put(SetImageWatermarkTypeReqMsg.SWITCH, obj4);
+            jSONObject4.put("switch", obj4);
             String str21 = ((Object) this.mEditBizExpiredTime2.getText()) + "";
             if (!TextUtils.isEmpty(str21)) {
                 str6 = str21;
@@ -838,9 +840,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            vpa vpaVar = (vpa) ServiceManager.getService(vpa.a);
-            if (vpaVar != null) {
-                vpaVar.d(jSONObject);
+            ixa ixaVar = (ixa) ServiceManager.getService(ixa.a);
+            if (ixaVar != null) {
+                ixaVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -907,9 +909,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            dqa dqaVar = (dqa) ServiceManager.getService(dqa.a);
-            if (dqaVar != null) {
-                dqaVar.b(jSONObject, true);
+            qxa qxaVar = (qxa) ServiceManager.getService(qxa.a);
+            if (qxaVar != null) {
+                qxaVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -935,7 +937,7 @@ public class DebugYaLogActivity extends Activity {
             @Override // java.lang.Runnable
             public void run() {
                 for (int i2 = 0; i2 < i; i2++) {
-                    logger.d("100", "YaLogTestDebug", str);
+                    logger.d(YYOption.UrlProtocol.USER, "YaLogTestDebug", str);
                     logger.v(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, "YaLogTestVerbose", str);
                     logger.i(WorkPostNotifyFlutterData.FAIL_POST, "YaLogTestInfo", str);
                     logger.w("103", "YaLogTestWarn", str);

@@ -8,13 +8,13 @@ import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FormBody extends RequestBody {
     public static final MediaType CONTENT_TYPE = MediaType.get("application/x-www-form-urlencoded");
     public final List<String> encodedNames;
     public final List<String> encodedValues;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public final Charset charset;
         public final List<String> names;

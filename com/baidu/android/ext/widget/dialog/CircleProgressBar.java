@@ -18,16 +18,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b¢\u0006\u0004\b:\u0010;B\u001b\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\n¢\u0006\u0004\b:\u0010\rB#\b\u0016\u0012\u0006\u0010\t\u001a\u00020\b\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\n\u0012\u0006\u0010<\u001a\u00020\u0010¢\u0006\u0004\b:\u0010=J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J!\u0010\f\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0003¢\u0006\u0004\b\f\u0010\rJ7\u0010\u0015\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u00102\u0006\u0010\u0013\u001a\u00020\u00102\u0006\u0010\u0014\u001a\u00020\u0010H\u0014¢\u0006\u0004\b\u0015\u0010\u0016J\u0015\u0010\u0018\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\u0010¢\u0006\u0004\b\u0018\u0010\u0019J\u0015\u0010\u001c\u001a\u00020\u00052\u0006\u0010\u001b\u001a\u00020\u001a¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010\u001f\u001a\u00020\u00052\u0006\u0010\u001e\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u001f\u0010\u0019J\u0015\u0010!\u001a\u00020\u00052\u0006\u0010 \u001a\u00020\u0010¢\u0006\u0004\b!\u0010\u0019J\u0017\u0010$\u001a\u00020\u00052\b\u0010#\u001a\u0004\u0018\u00010\"¢\u0006\u0004\b$\u0010%J\u0015\u0010'\u001a\u00020\u00052\u0006\u0010&\u001a\u00020\u0010¢\u0006\u0004\b'\u0010\u0019J\u0015\u0010)\u001a\u00020\u00052\u0006\u0010(\u001a\u00020\u001a¢\u0006\u0004\b)\u0010\u001dR\u0016\u0010*\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010+R\u0016\u0010-\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u0010+R\u0016\u00101\u001a\u0002008\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b1\u00102R\u0016\u00103\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b3\u0010.R\u0016\u00104\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010.R\u0016\u00105\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u0010+R\u0018\u00106\u001a\u0004\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u0010.R\u0016\u00109\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010+¨\u0006>"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/CircleProgressBar;", "com/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar", "Landroid/view/View;", "Landroid/graphics/Canvas;", "canvas", "", "draw", "(Landroid/graphics/Canvas;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "init", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "", "changed", "", "left", "top", "right", "bottom", "onLayout", "(ZIIII)V", "circleColor", "setCircleColor", "(I)V", "", "circleWidth", "setCircleWidth", "(F)V", "progress", "setProgress", WBConstants.TRANS_PROGRESS_COLOR, "setProgressColor", "", "text", "setText", "(Ljava/lang/String;)V", "textColor", "setTextColor", "textSize", "setTextSize", "mCenterX", "F", "mCenterY", "mCircleColor", "I", "mCircleWidth", "Landroid/graphics/Paint;", "mPaint", "Landroid/graphics/Paint;", "mProgress", "mProgressColor", "mRadius", "mText", "Ljava/lang/String;", "mTextColor", "mTextSize", "<init>", "(Landroid/content/Context;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0013\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0019\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bB!\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001dH\u0016J\u001a\u0010\u001e\u001a\u00020\u001b2\u0006\u0010\u0003\u001a\u00020\u00042\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u0003J0\u0010\u001f\u001a\u00020\u001b2\u0006\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020\n2\u0006\u0010#\u001a\u00020\n2\u0006\u0010$\u001a\u00020\n2\u0006\u0010%\u001a\u00020\nH\u0014J\u000e\u0010&\u001a\u00020\u001b2\u0006\u0010'\u001a\u00020\nJ\u000e\u0010(\u001a\u00020\u001b2\u0006\u0010)\u001a\u00020\rJ\u0010\u0010*\u001a\u00020\u001b2\u0006\u0010+\u001a\u00020\nH\u0016J\u000e\u0010,\u001a\u00020\u001b2\u0006\u0010-\u001a\u00020\nJ\u0010\u0010.\u001a\u00020\u001b2\b\u0010/\u001a\u0004\u0018\u00010\u0017J\u000e\u00100\u001a\u00020\u001b2\u0006\u00101\u001a\u00020\nJ\u000e\u00102\u001a\u00020\u001b2\u0006\u00103\u001a\u00020\rR\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/CircleProgressBar;", "Landroid/view/View;", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mCenterX", "", "mCenterY", "mCircleColor", "mCircleWidth", "mPaint", "Landroid/graphics/Paint;", "mProgress", "mProgressColor", "mRadius", "mText", "", "mTextColor", "mTextSize", "draw", "", "canvas", "Landroid/graphics/Canvas;", "init", "onLayout", "changed", "", "left", "top", "right", "bottom", "setCircleColor", "circleColor", "setCircleWidth", "circleWidth", "setProgress", "progress", "setProgressColor", WBConstants.TRANS_PROGRESS_COLOR, "setText", "text", "setTextColor", "textColor", "setTextSize", "textSize", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes.dex */
 public final class CircleProgressBar extends View implements LoadingDialog.IProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap _$_findViewCache;
+    public Map<Integer, View> _$_findViewCache;
     public float mCenterX;
     public float mCenterY;
     public int mCircleColor;
@@ -41,26 +42,25 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
     public float mTextSize;
 
     public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this._$_findViewCache.clear();
         }
-        hashMap.clear();
     }
 
     public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+            Map<Integer, View> map = this._$_findViewCache;
+            View view2 = map.get(Integer.valueOf(i));
             if (view2 == null) {
                 View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
+                if (findViewById != null) {
+                    map.put(Integer.valueOf(i), findViewById);
+                    return findViewById;
+                }
+                return null;
             }
             return view2;
         }
@@ -86,6 +86,7 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
+        this._$_findViewCache = new LinkedHashMap();
         this.mPaint = new Paint();
         this.mTextColor = -65536;
         init(context, null);
@@ -111,6 +112,7 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
+        this._$_findViewCache = new LinkedHashMap();
         this.mPaint = new Paint();
         this.mTextColor = -65536;
         init(context, attributeSet);
@@ -136,6 +138,7 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
+        this._$_findViewCache = new LinkedHashMap();
         this.mPaint = new Paint();
         this.mTextColor = -65536;
         init(context, attributeSet);
@@ -151,21 +154,19 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.circle_progressbar);
                 Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…eable.circle_progressbar)");
-                this.mCircleWidth = obtainStyledAttributes.getDimension(4, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070212));
-                this.mCircleColor = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ad));
-                this.mProgressColor = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ae));
+                this.mCircleWidth = obtainStyledAttributes.getDimension(4, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07021f));
+                this.mCircleColor = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b1));
+                this.mProgressColor = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b2));
                 this.mText = obtainStyledAttributes.getString(1);
-                this.mTextSize = obtainStyledAttributes.getDimension(3, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070213));
-                this.mTextColor = obtainStyledAttributes.getColor(2, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ae));
-                if (obtainStyledAttributes != null) {
-                    obtainStyledAttributes.recycle();
-                }
+                this.mTextSize = obtainStyledAttributes.getDimension(3, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070220));
+                this.mTextColor = obtainStyledAttributes.getColor(2, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b2));
+                obtainStyledAttributes.recycle();
             } else {
-                this.mCircleWidth = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070212);
-                this.mCircleColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ad);
-                this.mProgressColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ae);
-                this.mTextSize = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070213);
-                this.mTextColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ae);
+                this.mCircleWidth = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07021f);
+                this.mCircleColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b1);
+                this.mProgressColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b2);
+                this.mTextSize = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070220);
+                this.mTextColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603b2);
             }
             this.mPaint.setStrokeWidth(this.mCircleWidth);
         }

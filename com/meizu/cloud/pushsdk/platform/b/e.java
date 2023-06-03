@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends c<SubTagsStatus> {
     public String h;
     public int i;

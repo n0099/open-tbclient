@@ -1,77 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.operators.NotificationLite;
-import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
 /* loaded from: classes5.dex */
-public final class g8b<T, R> extends o7b<T> {
+public class g8b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
-    public final int f;
-    public boolean g;
+    public final /* synthetic */ r8b a;
+    public final /* synthetic */ i8b b;
 
-    public g8b(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
+    public g8b(i8b i8bVar, r8b r8bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
+            Object[] objArr = {i8bVar, r8bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f = i;
-        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
+        this.b = i8bVar;
+        this.a = r8bVar;
     }
 
-    public void g(long j) {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            e(j);
-        }
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.g) {
-                sbb.j(th);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                h9b h9bVar = this.b.a;
+                if (h9bVar != null) {
+                    this.a.c();
+                    ((v8b) h9bVar).a.countDown();
+                }
             }
-            this.e.onError(th);
-            this.g = true;
-            this.e.combine(null, this.f);
         }
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.g) {
-            return;
-        }
-        this.e.combine(NotificationLite.h(t), this.f);
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        this.g = true;
-        this.e.combine(null, this.f);
     }
 }

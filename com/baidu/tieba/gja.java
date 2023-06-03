@@ -1,201 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class gja {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static boolean b = true;
+public class gja extends zia {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947797227, "Lcom/baidu/tieba/gja;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gja a;
+
+        public a(gja gjaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gjaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gjaVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.o0()) {
+                    this.a.e.U0(9, false);
+                    this.a.p0(1);
+                    return;
+                }
+                gja gjaVar = this.a;
+                gjaVar.e.c(gjaVar.a.getString(R.string.obfuscated_res_0x7f0f0609));
+                this.a.p0(0);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull lha lhaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, z);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947797227, "Lcom/baidu/tieba/gja;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
-            c(2, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
-            c(5, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
-            c(2, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
-            c(4, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            b = z;
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (!TextUtils.isEmpty(str2)) {
-                int length = str2.length();
-                int i2 = a;
-                if (length >= i2) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i == 5) {
-                                        Log.e(str, str2.substring(0, i2));
-                                    }
-                                } else {
-                                    Log.w(str, str2.substring(0, i2));
-                                }
-                            } else {
-                                Log.i(str, str2.substring(0, i2));
-                            }
-                        } else {
-                            Log.d(str, str2.substring(0, i2));
-                        }
-                    } else {
-                        Log.v(str, str2.substring(0, i2));
-                    }
-                } else if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    Log.d(str, str2);
-                                } else {
-                                    Log.e(str, str2);
-                                }
-                            } else {
-                                Log.w(str, str2);
-                            }
-                        } else {
-                            Log.i(str, str2);
-                        }
-                    } else {
-                        Log.d(str, str2);
-                    }
-                } else {
-                    Log.v(str, str2);
-                }
-            }
-            if (th != null) {
-                String f = f(th);
-                if (!TextUtils.isEmpty(f)) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i != 5) {
-                                        Log.d(str, str2);
-                                        return;
-                                    } else {
-                                        Log.e(str, f);
-                                        return;
-                                    }
-                                }
-                                Log.w(str, f);
-                                return;
-                            }
-                            Log.i(str, f);
-                            return;
-                        }
-                        Log.d(str, f);
-                        return;
-                    }
-                    Log.v(str, f);
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (lha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static String f(Throwable th) {
-        InterceptResult invokeL;
-        PrintWriter printWriter;
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void M(@NonNull List<mha<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            StringWriter stringWriter = null;
-            try {
-                StringWriter stringWriter2 = new StringWriter();
-                try {
-                    printWriter = new PrintWriter(stringWriter2);
-                    try {
-                        th.printStackTrace(printWriter);
-                        printWriter.flush();
-                        stringWriter2.flush();
-                        String stringWriter3 = stringWriter2.toString();
-                        try {
-                            stringWriter2.close();
-                        } catch (Throwable th2) {
-                            th2.printStackTrace();
-                        }
-                        printWriter.close();
-                        return stringWriter3;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        stringWriter = stringWriter2;
-                        try {
-                            th.printStackTrace();
-                            return "";
-                        } finally {
-                            if (stringWriter != null) {
-                                try {
-                                    stringWriter.close();
-                                } catch (Throwable th4) {
-                                    th4.printStackTrace();
-                                }
-                            }
-                            if (printWriter != null) {
-                                printWriter.close();
-                            }
-                        }
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    printWriter = null;
-                }
-            } catch (Throwable th6) {
-                th = th6;
-                printWriter = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            uga f = pia.f(this.a);
+            list.add(f);
+            vga g = pia.g(this.a);
+            f.w(g);
+            list.add(g);
+            list.add(pia.o(this.a));
+            cha n = pia.n(this.a, this, this.s, this.J);
+            this.D = n;
+            list.add(n);
+            bha m = pia.m(this.a, this, this.d, this.C, this.s, this.J);
+            this.F = m;
+            f.w(m);
+            list.add(this.F);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(3);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setMoreVipIcon(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            ria.h(this.a, editorTools, this);
+            ria.d(editorTools, this);
+            ria.a(this.a, editorTools, this);
+            ria.b(this.a, editorTools, this);
+            ria.i(this.a, editorTools);
+            ria.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            if (this.q) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f121e));
+                r0(0, 0);
+                s0(R.drawable.obfuscated_res_0x7f080b83, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                this.j.setOnClickListener(new a(this));
+                return;
             }
-        } else {
-            return (String) invokeL.objValue;
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10cf));
         }
     }
 }

@@ -34,7 +34,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RequestManager implements ComponentCallbacks2, LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static final RequestOptions DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
     public static final RequestOptions DECODE_TYPE_GIF = RequestOptions.decodeTypeOf(GifDrawable.class).lock();
@@ -63,7 +63,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     public void onLowMemory() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ClearTarget extends CustomViewTarget<View, Object> {
         @Override // com.bumptech.glide.request.target.Target
         public void onLoadFailed(@Nullable Drawable drawable) {
@@ -82,7 +82,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         @GuardedBy("RequestManager.this")
         public final RequestTracker requestTracker;
@@ -217,7 +217,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     public synchronized void setRequestOptions(@NonNull RequestOptions requestOptions) {
-        this.requestOptions = requestOptions.mo104clone().autoClone();
+        this.requestOptions = requestOptions.mo159clone().autoClone();
     }
 
     public synchronized boolean untrack(@NonNull Target<?> target) {

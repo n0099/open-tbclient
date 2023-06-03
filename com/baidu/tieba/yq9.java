@@ -1,36 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class yq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xq9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public zq9 f;
-    public String g;
-    public int h;
-    public List<String> i;
-    public String j;
 
-    public yq9() {
+    public static synchronized xq9 a() {
+        InterceptResult invokeV;
+        xq9 xq9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (yq9.class) {
+                if (a == null) {
+                    a = new xq9();
+                }
+                xq9Var = a;
             }
+            return xq9Var;
         }
+        return (xq9) invokeV.objValue;
     }
 }

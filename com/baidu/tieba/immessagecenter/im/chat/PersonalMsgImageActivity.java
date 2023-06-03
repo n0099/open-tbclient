@@ -1,8 +1,8 @@
 package com.baidu.tieba.immessagecenter.im.chat;
 
-import com.baidu.tieba.c48;
-import com.baidu.tieba.e48;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
+import com.baidu.tieba.r98;
+import com.baidu.tieba.t98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,10 +27,10 @@ public class PersonalMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void s2(String str, e48 e48Var) {
+    public void s2(String str, t98 t98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, e48Var) == null) {
-            c48.k().p(str, e48Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, t98Var) == null) {
+            r98.k().p(str, t98Var);
         }
     }
 }

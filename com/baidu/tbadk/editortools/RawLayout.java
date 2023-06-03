@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,7 +153,7 @@ public class RawLayout extends ViewGroup {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.RawLayout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
             if (((LinearLayout.LayoutParams) this).gravity == -1) {
@@ -486,7 +487,7 @@ public class RawLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if ("vertical".equals(str)) {
+            if (LiveConfig.CUT_LIST_VERTICAL_KEY.equals(str)) {
                 return 1;
             }
             return 0;
@@ -524,10 +525,10 @@ public class RawLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.RawLayout);
             String string = obtainStyledAttributes.getString(1);
             if (string == null) {
-                string = "horizontal";
+                string = LiveConfig.CUT_LIST_HORIZONTAL_KEY;
             }
             if (h.matcher(string).matches()) {
                 this.d = new int[3];

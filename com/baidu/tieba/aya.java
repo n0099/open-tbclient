@@ -1,147 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-/* loaded from: classes4.dex */
-public class aya {
+/* loaded from: classes5.dex */
+public class aya extends sl1<qxa> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SimpleDateFormat b;
-    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] f = xxa.f();
-                if (f != null && f.length > 0) {
-                    synchronized (aya.a) {
-                        for (File file : f) {
-                            if (currentTimeMillis - file.lastModified() > 172800000) {
-                                file.delete();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632896, "Lcom/baidu/tieba/aya;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947632896, "Lcom/baidu/tieba/aya;");
-                return;
-            }
-        }
-        a = new Object();
-        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
-    }
-
-    public static void b() {
+    public aya() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            zxa.b().post(new a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String d;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public qxa createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (a) {
-                d = d("looper", str);
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new rxa();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
-            try {
-                File c2 = xxa.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    try {
-                        Log.e("LogWriter", "save: ", th);
-                        return str3;
-                    } finally {
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (Exception e) {
-                                Log.e("LogWriter", "save: ", e);
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
+        return (qxa) invokeV.objValue;
     }
 }

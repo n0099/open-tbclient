@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ElementLayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsElement implements IElement {
     public ElementLayer mParent;
 

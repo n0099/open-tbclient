@@ -124,7 +124,7 @@ public class PackageControl {
             contentValues.put(PackageTable.UPDATE_SIGN, packageInfo.updateSign);
         }
         if (!TextUtils.isEmpty(packageInfo.abi)) {
-            contentValues.put(PackageTable.ABI, packageInfo.abi);
+            contentValues.put("abi", packageInfo.abi);
         }
         return contentValues;
     }
@@ -219,7 +219,7 @@ public class PackageControl {
             int columnIndex26 = cursor2.getColumnIndex(PackageTable.IS_MAIN_ENTRANCE);
             int i17 = columnIndex13;
             int columnIndex27 = cursor2.getColumnIndex(PackageTable.DEPENDENCY_PACKAGE);
-            int columnIndex28 = cursor2.getColumnIndex(PackageTable.ABI);
+            int columnIndex28 = cursor2.getColumnIndex("abi");
             if (!cursor.moveToFirst()) {
                 return arrayList3;
             }
@@ -376,9 +376,9 @@ public class PackageControl {
             arrayList.add(new Pair<>("channel_id", packageInfo.channelId));
             arrayList.add(new Pair<>("package_name", packageInfo.packageName));
             if (ABIUtils.checkCpuAbiIs64()) {
-                arrayList.add(new Pair<>(PackageTable.ABI, "1"));
+                arrayList.add(new Pair<>("abi", "1"));
             } else {
-                arrayList.add(new Pair<>(PackageTable.ABI, "2"));
+                arrayList.add(new Pair<>("abi", "2"));
             }
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(new Pair<>("update_time", "" + packageInfo.updateTime));

@@ -763,22 +763,22 @@ public class NetworkUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             if (context == null) {
-                return INVALID_RSSI;
+                return -127;
             }
             Object systemService = ContextCompat.getSystemService(context.getApplicationContext(), "wifi");
             if (!(systemService instanceof WifiManager)) {
-                return INVALID_RSSI;
+                return -127;
             }
             try {
                 WifiInfo connectionInfo = ((WifiManager) systemService).getConnectionInfo();
                 if (connectionInfo == null || connectionInfo.getBSSID() == null) {
-                    return INVALID_RSSI;
+                    return -127;
                 }
                 return connectionInfo.getRssi();
             } catch (RuntimeException e) {
                 String str = TAG;
                 Logger.i(str, "getWifiRssiLevel did not has permission!" + e.getClass().getSimpleName() + e.getMessage());
-                return INVALID_RSSI;
+                return -127;
             }
         }
         return invokeL.intValue;

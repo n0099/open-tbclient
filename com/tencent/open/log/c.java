@@ -1,5 +1,6 @@
 package com.tencent.open.log;
 
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 /* loaded from: classes10.dex */
@@ -7,7 +8,7 @@ public class c {
     public static int a = 60;
     public static int b = 60;
     public static String c = "OpenSDK.Client.File.Tracer";
-    public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+    public static String d = "Tencent" + File.separator + "msflogs" + File.separator + FkApkInfoSearchRequestKt.PARAMS_KEY_COM + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
     public static String e = ".log";
     public static long f = 8388608;
     public static int g = 262144;

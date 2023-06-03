@@ -2,12 +2,18 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class gn9 extends rp9 {
+public class gn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public gn9() {
         Interceptable interceptable = $ic;
@@ -21,5 +27,22 @@ public final class gn9 extends rp9 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static gn9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            gn9 gn9Var = new gn9();
+            gn9Var.a = jSONObject.optInt("agree_num", -1);
+            gn9Var.b = jSONObject.optInt("share_num", -1);
+            gn9Var.c = jSONObject.optInt("reply_num", -1);
+            gn9Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return gn9Var;
+        }
+        return (gn9) invokeL.objValue;
     }
 }

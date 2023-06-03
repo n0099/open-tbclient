@@ -3,7 +3,7 @@ package com.facebook.common.streams;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TailAppendingInputStream extends FilterInputStream {
     public int mMarkedTailOffset;
     public final byte[] mTail;

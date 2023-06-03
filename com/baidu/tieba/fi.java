@@ -1,65 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class fi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (File file2 : listFiles) {
-                        a(file2);
-                    }
-                    return;
-                }
-                return;
-            }
-            String absolutePath = file.getAbsolutePath();
-            if (file.delete()) {
-                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
-                return;
-            }
-            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
-        }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static void b(@NonNull Context context) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || Build.VERSION.SDK_INT < 24) {
-            return;
+    /* loaded from: classes5.dex */
+    public static class b extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        try {
-            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null && filesDir.getParent() != null) {
-                File file = new File(filesDir.getParent());
-                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                    for (File file2 : listFiles) {
-                        String absolutePath = file2.getAbsolutePath();
-                        if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                            a(file2);
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public final void b() {
+            ArrayList<nh> c;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c = lh.c(true)) != null && c.size() != 0) {
+                int i = 0;
+                Iterator<nh> it = c.iterator();
+                while (it.hasNext()) {
+                    i = (int) (i + it.next().a);
+                }
+                int i2 = i - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
+                ArrayList arrayList = new ArrayList();
+                if (i2 > 0) {
+                    Collections.sort(c, new oh());
+                    Iterator<nh> it2 = c.iterator();
+                    while (it2.hasNext()) {
+                        nh next = it2.next();
+                        arrayList.add(next.b);
+                        i2 = (int) (i2 - next.a);
+                        if (i2 <= 0) {
+                            break;
                         }
                     }
                 }
+                long currentTimeMillis = System.currentTimeMillis();
+                Iterator<nh> it3 = c.iterator();
+                while (it3.hasNext()) {
+                    nh next2 = it3.next();
+                    if (next2 != null) {
+                        long j = next2.c;
+                        if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.b)) {
+                            arrayList.add(next2.b);
+                        }
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    lh.a(arrayList, true);
+                }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                b();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public fi() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new b(null).execute(new String[0]);
         }
     }
 }

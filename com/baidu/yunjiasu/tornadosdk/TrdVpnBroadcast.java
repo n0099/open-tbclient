@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.tornadosdk.IAction;
 import com.tencent.open.SocialConstants;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -42,7 +41,7 @@ public final class TrdVpnBroadcast extends BroadcastReceiver {
         Companion = new Companion(null);
     }
 
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0016\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nJ\u0016\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\f"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TrdVpnBroadcast$Companion;", "", "()V", "TAG", "", MiPushClient.COMMAND_REGISTER, "", "context", "Landroid/content/Context;", SocialConstants.PARAM_RECEIVER, "Landroid/content/BroadcastReceiver;", "unRegister", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0016\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nJ\u0016\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\f"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TrdVpnBroadcast$Companion;", "", "()V", "TAG", "", "register", "", "context", "Landroid/content/Context;", SocialConstants.PARAM_RECEIVER, "Landroid/content/BroadcastReceiver;", "unRegister", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes8.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;

@@ -2,7 +2,6 @@ package com.kwad.sdk.collector.model.jni;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.r;
@@ -87,7 +86,7 @@ public class UploadEntryNative extends NativeObject implements e {
             JSONObject jSONObject = new JSONObject();
             r.putValue(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
             r.putValue(jSONObject, "content", com.kwad.sdk.collector.e.bi(AppStatusNative.uploadEntryGetOriginFilePath(this)));
-            r.putValue(jSONObject, CommonTbJsBridge.FILE_DOWNLOAD_FILE_NAME, rx());
+            r.putValue(jSONObject, "fileName", rx());
             return jSONObject;
         } catch (Throwable unused) {
             return null;

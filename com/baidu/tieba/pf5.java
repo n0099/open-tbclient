@@ -1,136 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pf5 extends df5 {
+public final class pf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
+    public final HashSet<String> a;
+    public a b;
+    public int c;
+    public final og<gn> d;
+    public final Runnable e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060138, "Lcom/baidu/tieba/pf5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b extends og<gn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pf5 a;
+
+        public b(pf5 pf5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948060138, "Lcom/baidu/tieba/pf5;");
-                return;
+            this.a = pf5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.og
+        public void onLoaded(gn gnVar, String key, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, gnVar, key, i) == null) {
+                Intrinsics.checkNotNullParameter(key, "key");
+                if (gnVar != null && !TextUtils.isEmpty(key)) {
+                    this.a.a.remove(key);
+                }
+                this.a.f();
             }
         }
-        u = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf5(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public pf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i(context, z);
+        this.a = new HashSet<>();
+        this.c = 10;
+        this.d = new b(this);
+        this.e = new Runnable() { // from class: com.baidu.tieba.mf5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    pf5.e(pf5.this);
+                }
+            }
+        };
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf5(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
+    public static final void e(pf5 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            HashSet<String> hashSet = new HashSet<>();
+            hashSet.addAll(this$0.a);
+            this$0.d(hashSet);
+        }
+    }
+
+    @JvmOverloads
+    public final void c(List<String> list, a aVar, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        HashSet<String> hashSet = new HashSet<>();
+        Intrinsics.checkNotNull(list);
+        hashSet.addAll(list);
+        this.b = aVar;
+        this.c = i;
+        d(hashSet);
+    }
+
+    public final void d(HashSet<String> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
+            return;
+        }
+        this.a.clear();
+        Iterator<String> it = hashSet.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            if (!ui.isEmpty(next) && ((gn) pg.h().n(next, this.c, new Object[0])) == null) {
+                this.a.add(next);
+                pg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
             }
         }
-        i(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
-        }
+        f();
     }
 
-    public SpanGroupEditText g() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
-        }
-        return (SpanGroupEditText) invokeV.objValue;
-    }
-
-    public List<AtSelectData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.t.getSpanGroupManager().w();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void i(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
+            wg.a().removeCallbacks(this.e);
+            a aVar = this.b;
+            if (aVar != null) {
+                Intrinsics.checkNotNull(aVar);
+                aVar.a();
+            }
         }
     }
 }

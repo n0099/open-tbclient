@@ -1,105 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.opengl.GLES20;
+import android.opengl.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kh0 implements mn0 {
+public class kh0 extends ih0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public int B;
 
-    /* loaded from: classes6.dex */
-    public class a extends cs0<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh0 a;
-
-        @Override // com.baidu.tieba.as0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-            }
-        }
-
-        public a(kh0 kh0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kh0Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bs0
-        /* renamed from: e */
-        public void b(Headers headers, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLLI(1048579, this, headers, jSONObject, i) != null) {
-                return;
-            }
-            this.a.i(jSONObject);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bs0
-        /* renamed from: f */
-        public JSONObject d(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
-                if (i != 200 || TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return new JSONObject(str);
-            }
-            return (JSONObject) invokeLLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kh0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-661415112, "Lcom/baidu/tieba/kh0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-661415112, "Lcom/baidu/tieba/kh0$b;");
-                    return;
-                }
-            }
-            a = new kh0(null);
-        }
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public kh0() {
+        this("attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nuniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nvarying vec2 textureCoordinate;\n \nvoid main()\n{\n    gl_Position = uMVPMatrix * position;\n    textureCoordinate = (uTexMatrix * inputTextureCoordinate).xy;\n}", "precision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform sampler2D inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     vec4 inputColor = texture2D(inputImageTexture, textureCoordinate);\n     gl_FragColor = vec4(inputColor.rgb, inputColor.a * alpha);\n}");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,138 +25,84 @@ public class kh0 implements mn0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static kh0 c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kh0(String str, String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (kh0) invokeV.objValue;
+        float[] fArr = new float[16];
+        this.y = fArr;
+        this.z = new float[16];
+        Matrix.setIdentityM(fArr, 0);
+        Matrix.setIdentityM(this.z, 0);
     }
 
-    @Override // com.baidu.tieba.mn0
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
+    public void U(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f();
+        if (interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) {
+            this.y = fArr;
+            S(this.A, fArr, true);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final long d() {
-        InterceptResult invokeV;
+    public void V(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b21.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr) == null) {
+            this.z = fArr;
+            S(this.B, fArr, true);
         }
-        return invokeV.longValue;
     }
 
-    public final long e() {
+    @Override // com.baidu.tieba.ih0
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b21.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
+            return this.A;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ih0
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b21.a().b("nad_app_quick_config").getString("ip_dx_data", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (System.currentTimeMillis() / 1000 <= d()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (System.currentTimeMillis() - e() > 21600000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mn0
-    public void request() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            m();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.t();
+            this.A = GLES20.glGetUniformLocation(j(), "uMVPMatrix");
+            this.B = GLES20.glGetUniformLocation(j(), "uTexMatrix");
         }
     }
 
-    public /* synthetic */ kh0(a aVar) {
-        this();
-    }
-
-    public final void i(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ih0
+    public void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        k(jSONObject);
-        j(jSONObject.optLong("exptime"));
-    }
-
-    public final void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            b21.a().b("nad_app_quick_config").h("ip_dx_expire_time", j);
-        }
-    }
-
-    public final void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            b21.a().b("nad_app_quick_config").i("ip_dx_data", jSONObject.toString());
-        }
-    }
-
-    public final void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            b21.a().b("nad_app_quick_config").h("request_ip_dx_time", j);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && h() && !g()) {
-            l(System.currentTimeMillis());
-            ij0 a2 = bj0.c().a();
-            String g = a2.g();
-            String packageName = a2.packageName();
-            String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, packageName);
-            ur0 a3 = qr0.b().a();
-            js0 js0Var = new js0();
-            js0Var.l(str);
-            js0Var.c();
-            a3.a(js0Var, new a(this));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.u();
+            U(this.y);
+            V(this.z);
         }
     }
 }

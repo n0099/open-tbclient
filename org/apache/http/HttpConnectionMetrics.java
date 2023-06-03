@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface HttpConnectionMetrics {
     Object getMetric(String str);
 

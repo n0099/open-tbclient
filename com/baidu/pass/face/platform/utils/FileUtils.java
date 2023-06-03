@@ -4,7 +4,6 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.aperf.bosuploader.FileUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
@@ -580,7 +579,7 @@ public final class FileUtils {
     }
 
     public static void writeToFile(File file, String str) {
-        writeToFile(file, str, false, IMAudioTransRequest.CHARSET);
+        writeToFile(file, str, false, "utf-8");
     }
 
     public static void writeToFile(File file, String str, String str2) {
@@ -588,7 +587,7 @@ public final class FileUtils {
     }
 
     public static void writeToFile(File file, String str, boolean z) {
-        writeToFile(file, str, z, IMAudioTransRequest.CHARSET);
+        writeToFile(file, str, z, "utf-8");
     }
 
     public static void writeToFile(File file, String str, boolean z, String str2) {

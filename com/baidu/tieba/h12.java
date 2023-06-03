@@ -1,113 +1,80 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.SchemeCheckerHelperImpl;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestParam;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class h12 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class h12 implements NetRequest.RequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770784, "Lcom/baidu/tieba/h12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947770784, "Lcom/baidu/tieba/h12;");
-                return;
+    public h12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = qp1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    @NonNull
-    public static Pair<Boolean, f12> a(gx1 gx1Var, String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
+    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
+    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gx1Var, str)) == null) {
-            g12 g12Var = new g12();
-            boolean b2 = b(str, gx1Var.a().g());
-            if (b2) {
-                g12Var.b = 402;
-            }
-            return new Pair<>(Boolean.valueOf(b2), g12Var);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof ov1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
+            if (netRequestParam == null) {
                 return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
-            } else {
-                String b0 = ((ov1) callbackHandler).b0();
-                if (SchemeCheckerHelperImpl.FRAME_WHITE_LIST_SWAN_APP_WIDGET.equals(b0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(b0)) {
-                    z = !x93.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
-                }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
             }
+            String url = netRequestParam.getUrl();
+            if (TextUtils.isEmpty(url)) {
+                if (netRequestResult != null) {
+                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
+                }
+                return true;
+            }
+            String str = null;
+            JsObject jsObject = netRequestParam.getJsObject();
+            if (jsObject != null) {
+                try {
+                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
+                    if (propertyIndex > 0) {
+                        str = jsObject.toString(propertyIndex);
+                    }
+                    int c = pc3.c("request", url, str);
+                    if (c != 0) {
+                        y32 Y = m12.Y(c);
+                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
+                        return true;
+                    }
+                } finally {
+                    if (i12.e() && jsObject != null) {
+                        jsObject.release();
+                    }
+                }
+            }
+            if (i12.e() && jsObject != null) {
+                jsObject.release();
+            }
+            if (!TextUtils.isEmpty(str)) {
+                netRequestParam.addHeader("X-SWAN-HOSTSIGN", v73.b(w73.h(str)));
+            }
+            netRequestParam.addHeader("Referer", n12.d());
+            netRequestParam.addHeader("User-Agent", qi4.b().getUserAgent());
+            return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
-            }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (x93.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !x93.g(str);
-        }
-        return invokeL.booleanValue;
     }
 }

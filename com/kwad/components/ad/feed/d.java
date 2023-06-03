@@ -89,15 +89,15 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         if (bVar == null) {
             return;
         }
-        bVar.setInnerAdInteractionListener(new b.InterfaceC0634b() { // from class: com.kwad.components.ad.feed.d.2
-            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
+        bVar.setInnerAdInteractionListener(new b.InterfaceC0654b() { // from class: com.kwad.components.ad.feed.d.2
+            @Override // com.kwad.components.core.widget.b.InterfaceC0654b
             public final void onAdClicked() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0654b
             public final void onAdShow() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onAdShow();
@@ -115,7 +115,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0654b
             public final void onDislikeClicked() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onDislikeClicked();
@@ -129,7 +129,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0654b
             public final void onDownloadTipsDialogDismiss() {
                 if (d.this.cJ != null) {
                     try {
@@ -139,7 +139,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0654b
             public final void onDownloadTipsDialogShow() {
                 if (d.this.cJ != null) {
                     try {

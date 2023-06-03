@@ -1,15 +1,39 @@
 package com.baidu.tieba;
+
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface zx2 {
-    void a(mt2 mt2Var);
+public class zx2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public gl1<xx2> a;
 
-    void b(mt2 mt2Var);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            el1 b = el1.b();
+            this.a = b;
+            b.a(new yx2());
+        }
+    }
 
-    void c(mt2 mt2Var);
-
-    void d(mt2 mt2Var);
-
-    void e(mt2 mt2Var);
-
-    boolean f(mt2 mt2Var, int i, int i2);
+    public zx2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
 }

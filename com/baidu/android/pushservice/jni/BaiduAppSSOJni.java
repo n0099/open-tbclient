@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +41,7 @@ public class BaiduAppSSOJni {
                 if (a == null || a.length <= 0) {
                     return null;
                 }
-                return new String(a, IMAudioTransRequest.CHARSET);
+                return new String(a, "utf-8");
             } catch (Exception unused) {
                 return null;
             }
@@ -62,7 +61,7 @@ public class BaiduAppSSOJni {
                 if (key == null) {
                     return null;
                 }
-                String str2 = new String(key, IMAudioTransRequest.CHARSET);
+                String str2 = new String(key, "utf-8");
                 if (str2.length() > 0) {
                     return decryptAESwithKey(str2.substring(16), str2.substring(0, 16), bArr, bArr.length);
                 }
@@ -102,9 +101,9 @@ public class BaiduAppSSOJni {
             if (key == null) {
                 return null;
             }
-            String str2 = new String(key, IMAudioTransRequest.CHARSET);
+            String str2 = new String(key, "utf-8");
             if (str2.length() > 0) {
-                return encryptAESwithKey(str2.substring(16), str2.substring(0, 16), new String(bArr, IMAudioTransRequest.CHARSET));
+                return encryptAESwithKey(str2.substring(16), str2.substring(0, 16), new String(bArr, "utf-8"));
             }
             return null;
         }

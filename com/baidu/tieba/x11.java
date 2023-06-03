@@ -1,59 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public interface x11 {
-    public static final ServiceReference a = new ServiceReference("nad.core", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
-    public static final x11 b = new a();
+public final class x11 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    y11 a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948247409, "Lcom/baidu/tieba/x11;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948247409, "Lcom/baidu/tieba/x11;");
+        }
+    }
 
-    y11 b(String str);
-
-    /* loaded from: classes8.dex */
-    public static class a implements x11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
+                } else {
+                    cVar = null;
+                    break;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.x11
-        public y11 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new z11();
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
             }
-            return (y11) invokeV.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.x11
-        public y11 b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                return new z11(str);
-            }
-            return (y11) invokeL.objValue;
+    public static k01 b(ClarityUrlList clarityUrlList, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = l21.f(a);
+            a = f;
+            return l21.g(clarityUrlList, f, d, false);
         }
+        return (k01) invokeCommon.objValue;
     }
 }

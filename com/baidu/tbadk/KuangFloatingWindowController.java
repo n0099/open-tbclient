@@ -13,14 +13,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tz9;
+import com.baidu.tieba.f6a;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,9 +258,9 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
             }
-            WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
+            WindowManager windowManager = (WindowManager) currentActivity.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
@@ -274,7 +275,7 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.manager == null) {
-                this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+                this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             }
             View view2 = this.mFloatingView;
             if (view2 != null && view2.getParent() != null) {
@@ -310,16 +311,16 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = tz9.a(2002);
+            layoutParams.type = f6a.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
-                this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+                this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             }
             try {
                 if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {

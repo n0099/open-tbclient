@@ -26,6 +26,7 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -273,7 +274,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, context)) == null) {
             if (b == 0) {
                 if (a == null) {
-                    a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+                    a = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
                 }
                 Point point = new Point();
                 a.getSize(point);

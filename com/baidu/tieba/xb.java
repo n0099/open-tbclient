@@ -1,7 +1,20 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 /* loaded from: classes8.dex */
 public interface xb {
-    boolean compare(File file);
+    boolean a(Bitmap bitmap, Canvas canvas);
+
+    int b(int i);
+
+    boolean c(int i);
+
+    void close();
+
+    int getFrameCount();
+
+    int getHeight();
+
+    int getWidth();
 }

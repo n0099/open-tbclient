@@ -39,8 +39,8 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
 
     public CommonOverflowMenuView(Context context) {
         super(context);
-        this.mItemBgRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f080596;
-        this.mDividerRes = com.baidu.tieba.R.color.obfuscated_res_0x7f06075d;
+        this.mItemBgRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805ab;
+        this.mDividerRes = com.baidu.tieba.R.color.obfuscated_res_0x7f060766;
         this.mDividerHeight = 1;
         this.mDividerList = new ArrayList();
         this.mBdMenuItemTexList = new ArrayList();
@@ -53,8 +53,8 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
 
     public CommonOverflowMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mItemBgRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f080596;
-        this.mDividerRes = com.baidu.tieba.R.color.obfuscated_res_0x7f06075d;
+        this.mItemBgRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805ab;
+        this.mDividerRes = com.baidu.tieba.R.color.obfuscated_res_0x7f060766;
         this.mDividerHeight = 1;
         this.mDividerList = new ArrayList();
         this.mBdMenuItemTexList = new ArrayList();
@@ -71,10 +71,10 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05f9, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0607, (ViewGroup) this, true);
         this.mContentView = inflate;
-        this.mLinearContent = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0916d6);
-        this.mScrollView = (BoxScrollView) this.mContentView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0916d9);
+        this.mLinearContent = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0916fa);
+        this.mScrollView = (BoxScrollView) this.mContentView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0916fd);
         setFocusable(true);
         setFocusableInTouchMode(true);
         updateUI();
@@ -106,8 +106,8 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateUI() {
-        this.mItemTextColor = getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f06071b);
-        setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080595));
+        this.mItemTextColor = getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f060720);
+        setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805aa));
         for (ImageView imageView : this.mDividerList) {
             imageView.setBackgroundColor(getResources().getColor(this.mDividerRes));
         }
@@ -156,23 +156,23 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
 
     public View getMenuItemView(Context context, BdMenuItem bdMenuItem) {
         if (bdMenuItem instanceof BdMenuItemCheck) {
-            View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d07e7, (ViewGroup) this.mLinearContent, false);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091144).setBackgroundResource(this.mItemBgRes);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09118f);
+            View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d07fb, (ViewGroup) this.mLinearContent, false);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091157).setBackgroundResource(this.mItemBgRes);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911a2);
             this.mBdMenuItemTexList.add(textView);
             textView.setText(bdMenuItem.getTitle());
-            ((CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906ce)).setChecked(bdMenuItem.isChecked());
+            ((CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906d8)).setChecked(bdMenuItem.isChecked());
             textView.setTextColor(this.mItemTextColor);
             inflate.setEnabled(bdMenuItem.isEnabled());
             textView.setEnabled(bdMenuItem.isEnabled());
             return inflate;
         }
-        View inflate2 = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) this.mLinearContent, false);
-        inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091144).setBackgroundResource(this.mItemBgRes);
-        ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091489);
+        View inflate2 = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d07fa, (ViewGroup) this.mLinearContent, false);
+        inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091157).setBackgroundResource(this.mItemBgRes);
+        ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914a1);
         this.mBdMenuItemIconMap.put(bdMenuItem, imageView);
         imageView.setImageDrawable(bdMenuItem.getIcon());
-        TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e4e);
+        TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e7c);
         this.mBdMenuItemTexList.add(textView2);
         textView2.setText(bdMenuItem.getTitle());
         textView2.setTextColor(this.mItemTextColor);
@@ -190,7 +190,7 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
         this.mChildView.clear();
         Context context = getContext();
         if (this.mDividerHeight < 0) {
-            this.mDividerHeight = context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07076f);
+            this.mDividerHeight = context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070781);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.mDividerHeight);
         int i = 0;
@@ -221,10 +221,10 @@ public class CommonOverflowMenuView extends LinearLayout implements BdMenu.OnMen
     public void onMenuItemUpdated(BdMenuItem bdMenuItem) {
         View view2;
         if (bdMenuItem != null && (bdMenuItem instanceof BdMenuItemCheck) && (view2 = this.mChildView.get(bdMenuItem.getItemId())) != null) {
-            view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091144).setBackgroundResource(this.mItemBgRes);
-            TextView textView = (TextView) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09118f);
+            view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091157).setBackgroundResource(this.mItemBgRes);
+            TextView textView = (TextView) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911a2);
             textView.setText(bdMenuItem.getTitle());
-            ((CheckBox) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906ce)).setChecked(bdMenuItem.isChecked());
+            ((CheckBox) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906d8)).setChecked(bdMenuItem.isChecked());
             textView.setTextColor(this.mItemTextColor);
             view2.setEnabled(bdMenuItem.isEnabled());
             textView.setEnabled(bdMenuItem.isEnabled());

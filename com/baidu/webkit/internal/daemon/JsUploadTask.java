@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -226,7 +227,7 @@ public class JsUploadTask implements INoProGuard {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     String GetCloudSettingsValue2 = WebSettingsGlobalBlink.GetCloudSettingsValue("page_feature_switch");
-                    if (GetCloudSettingsValue2 == null || GetCloudSettingsValue2.equals("true")) {
+                    if (GetCloudSettingsValue2 == null || GetCloudSettingsValue2.equals(YYOption.IsLive.VALUE_TRUE)) {
                         String pageFeature = WebSettingsGlobalBlink.getPageFeature("HasOpacity");
                         String str = pageFeature.length() > 0 ? new String(Base64.encode(pageFeature.getBytes(), 0)) : "";
                         String pageFeature2 = WebSettingsGlobalBlink.getPageFeature("NoneDisplay");

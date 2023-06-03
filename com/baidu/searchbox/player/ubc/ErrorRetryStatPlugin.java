@@ -12,8 +12,8 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u001b\u0010\u000eJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\nH\u0002¢\u0006\u0004\b\r\u0010\u000eR\u0016\u0010\u0010\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011R\u0016\u0010\u0012\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0012\u0010\u0013R\u001e\u0010\u0016\u001a\n \u0015*\u0004\u0018\u00010\u00140\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017R\u001e\u0010\u0019\u001a\n \u0015*\u0004\u0018\u00010\u00180\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0019\u0010\u001a¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/player/ubc/ErrorRetryStatPlugin;", "Lcom/baidu/searchbox/player/plugin/AbsPlugin;", "", "checkData", "()Z", "", "getSubscribeEvent", "()[I", "Lcom/baidu/searchbox/player/event/VideoEvent;", "event", "", "onVideoEventNotify", "(Lcom/baidu/searchbox/player/event/VideoEvent;)V", "uploadRetryError", "()V", "", "errorCode", "I", "isErrorRetry", "Z", "Lcom/baidu/searchbox/player/ubc/BDVideoPlayerUbcContent;", "kotlin.jvm.PlatformType", "ubcContent", "Lcom/baidu/searchbox/player/ubc/BDVideoPlayerUbcContent;", "Lcom/baidu/ubc/UBCManager;", "ubcService", "Lcom/baidu/ubc/UBCManager;", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+@Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\f\u001a\u00020\u0006H\u0002J\b\u0010\r\u001a\u00020\u000eH\u0016J\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\b\u0010\u0013\u001a\u00020\u0010H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n \t*\u0004\u0018\u00010\b0\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \t*\u0004\u0018\u00010\u000b0\u000bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0014"}, d2 = {"Lcom/baidu/searchbox/player/ubc/ErrorRetryStatPlugin;", "Lcom/baidu/searchbox/player/plugin/AbsPlugin;", "()V", "errorCode", "", "isErrorRetry", "", "ubcContent", "Lcom/baidu/searchbox/player/ubc/BDVideoPlayerUbcContent;", "kotlin.jvm.PlatformType", "ubcService", "Lcom/baidu/ubc/UBCManager;", "checkData", "getSubscribeEvent", "", "onVideoEventNotify", "", "event", "Lcom/baidu/searchbox/player/event/VideoEvent;", "uploadRetryError", "bdvideoplayer-stat-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes4.dex */
 public final class ErrorRetryStatPlugin extends AbsPlugin {
     public int errorCode;
     public boolean isErrorRetry;
@@ -37,16 +37,14 @@ public final class ErrorRetryStatPlugin extends AbsPlugin {
             return;
         }
         try {
-            BDVideoPlayerUbcContent ubcContent = this.ubcContent;
-            Intrinsics.checkNotNullExpressionValue(ubcContent, "ubcContent");
-            JSONObject extStatisticsLogClone = ubcContent.getExtStatisticsLogClone();
+            JSONObject extStatisticsLogClone = this.ubcContent.getExtStatisticsLogClone();
             Intrinsics.checkNotNullExpressionValue(extStatisticsLogClone, "ubcContent.extStatisticsLogClone");
             extStatisticsLogClone.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, this.errorCode);
             extStatisticsLogClone.put("sub_errorNo", this.errorCode);
             extStatisticsLogClone.put("isRetryError", 1);
-            String ubcContent2 = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
-            Intrinsics.checkNotNullExpressionValue(ubcContent2, "BDVideoPlayerUbcHelper.g…extLog, ubcContent, null)");
-            this.ubcService.onEvent("36", ubcContent2);
+            String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
+            Intrinsics.checkNotNullExpressionValue(ubcContent, "getUbcContent(extLog, ubcContent, null)");
+            this.ubcService.onEvent("36", ubcContent);
         } catch (JSONException e) {
             if (BDPlayerConfig.isDebug()) {
                 e.printStackTrace();

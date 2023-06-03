@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FileUtils {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CreateDirectoryException extends IOException {
         public CreateDirectoryException(String str) {
             super(str);
@@ -20,21 +20,21 @@ public class FileUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FileDeleteException extends IOException {
         public FileDeleteException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ParentDirNotFoundException extends FileNotFoundException {
         public ParentDirNotFoundException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class RenameException extends IOException {
         public RenameException(String str) {
             super(str);

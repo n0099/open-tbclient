@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.player.model.YYOption;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.a.a> {
@@ -14,7 +15,7 @@ public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.
         com.kwad.sdk.core.webview.a.a.c cVar = new com.kwad.sdk.core.webview.a.a.c();
         aVar.My = cVar;
         cVar.parseJson(jSONObject.optJSONObject("logParam"));
-        aVar.DZ = jSONObject.optBoolean("needReport", new Boolean("true").booleanValue());
+        aVar.DZ = jSONObject.optBoolean("needReport", new Boolean(YYOption.IsLive.VALUE_TRUE).booleanValue());
         aVar.creativeId = jSONObject.optLong("creativeId", new Long("-1").longValue());
         aVar.adStyle = jSONObject.optInt("adStyle", new Integer("-1").intValue());
     }

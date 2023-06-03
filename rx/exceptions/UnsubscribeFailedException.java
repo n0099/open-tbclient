@@ -1,5 +1,5 @@
 package rx.exceptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UnsubscribeFailedException extends RuntimeException {
     public static final long serialVersionUID = 4594672310593167598L;
 

@@ -1,22 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
-import com.baidu.tieba.fy6;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tl6 implements fy6.i {
+public final class tl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ql6 a;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tl6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399879923, "Lcom/baidu/tieba/tl6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-399879923, "Lcom/baidu/tieba/tl6$b;");
+                    return;
+                }
+            }
+            a = new tl6(null);
+        }
+    }
 
     public tl6() {
         Interceptable interceptable = $ic;
@@ -28,57 +54,23 @@ public class tl6 implements fy6.i {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6.l
-    public void a(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            ((SingleLinkCardView) viewGroup).d();
-        }
-    }
-
-    @Override // com.baidu.tieba.fy6.i
-    @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SingleLinkCardView(context);
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fy6.i
-    public void update(@NonNull ViewGroup viewGroup, @NonNull iz6 iz6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, iz6Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            o07 d = iz6Var.d();
-            if (d.i() == 6) {
-                PbGoodsData pbGoodsData = new PbGoodsData();
-                pbGoodsData.title = d.h();
-                pbGoodsData.picUrl = d.f();
-                pbGoodsData.price = d.c();
-                pbGoodsData.linkUrl = d.e();
-                pbGoodsData.sort = d.g();
-                pbGoodsData.linkFrom = d.d();
-                pbGoodsData.goodsUrlH5 = d.a();
-                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
                 return;
             }
-            PbLinkData pbLinkData = new PbLinkData();
-            pbLinkData.title = d.h();
-            pbLinkData.linkUrl = d.e();
-            pbLinkData.picUrl = d.f();
-            pbLinkData.linkFrom = d.d();
-            pbLinkData.extTxt = d.c();
-            pbLinkData.sort = d.g();
-            pbLinkData.urlType = d.i();
-            pbLinkData.content1 = d.a();
-            pbLinkData.content2 = d.b();
-            ((SingleLinkCardView) viewGroup).a(pbLinkData);
         }
+        this.a = (ql6) ServiceManager.getService(ql6.a);
+    }
+
+    @NonNull
+    public static ql6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a.a;
+        }
+        return (ql6) invokeV.objValue;
+    }
+
+    public /* synthetic */ tl6(a aVar) {
+        this();
     }
 }

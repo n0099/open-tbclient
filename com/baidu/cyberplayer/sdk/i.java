@@ -16,6 +16,8 @@ public interface i {
         void a(long j);
 
         boolean a(int i);
+
+        void b(int i);
     }
 
     Bitmap a(float f, int i, int i2);
@@ -23,6 +25,8 @@ public interface i {
     void a();
 
     void a(int i, int i2, int i3, int i4);
+
+    boolean a(int i, float f, float f2, float f3, float f4);
 
     void b();
 

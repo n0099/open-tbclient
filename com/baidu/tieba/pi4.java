@@ -1,22 +1,33 @@
 package com.baidu.tieba;
 
-import java.util.Map;
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
 /* loaded from: classes7.dex */
 public interface pi4 {
+    CookieManager f();
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void b(String str, String str2, JSONObject jSONObject);
+    int g();
 
-        void onFail(Exception exc);
+    Context getAppContext();
 
-        void onStart();
+    int getReadTimeout();
 
-        void onSuccess(String str, int i);
-    }
+    String getUserAgent();
 
-    void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
+    boolean h();
 
-    void z(String str, Map<String, String> map, Map<String, String> map2, a aVar);
+    boolean i();
+
+    boolean isDebug();
+
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
+
+    int k();
+
+    List<Interceptor> l();
+
+    int m();
 }

@@ -1,210 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.InputFilter;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-import protobuf.NewpushGroupRepair;
-/* loaded from: classes7.dex */
-public class u38 {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class u38 extends uh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static u38 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public Handler b;
-    public ConcurrentHashMap<Long, GroupMsgData> c;
-    public ConcurrentHashMap<Long, NewpushGroupRepair> d;
-    public ConcurrentHashMap<Long, Runnable> e;
-    public Vector<Long> f;
-    public final CustomMessageListener g;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948160175, "Lcom/baidu/tieba/u38;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948160175, "Lcom/baidu/tieba/u38;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    /* loaded from: classes8.dex */
+    public class a implements th5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u38 a;
+        public final /* synthetic */ t38 a;
+        public final /* synthetic */ u38 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(u38 u38Var, int i) {
-            super(i);
+        public a(u38 u38Var, t38 t38Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u38Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u38Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u38 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(u38 u38Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u38Var, looper};
+                Object[] objArr = {u38Var, t38Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = u38Var;
+            this.b = u38Var;
+            this.a = t38Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // com.baidu.tieba.th5
+        public void C(sh5 sh5Var) {
+            int size;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                switch (message.what) {
-                    case 10001:
-                        MessageUtils.updateGroupNotExist(message.getData());
-                        return;
-                    case 10002:
-                        MessageManager.getInstance().registerListener(this.a.g);
-                        return;
-                    case 10003:
-                        if (message.getData() != null && message.getData().containsKey(TbEnum.SystemMessage.KEY_GROUP_ID)) {
-                            this.a.f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, sh5Var) != null) || sh5Var == null) {
+                return;
+            }
+            int i = sh5Var.a;
+            if (i != 4 && i != 6) {
+                if (i != 7) {
+                    if (i != 8) {
+                        if (i != 14) {
+                            if (i == 15) {
+                                int intValue = ((Integer) sh5Var.c).intValue();
+                                if (this.a.r() != null && this.a.r().getChosedFiles() != null && (size = this.a.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.r(), intValue)));
+                                    return;
+                                }
+                                return;
+                            }
                             return;
                         }
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ u38 e;
-
-        public c(u38 u38Var, long j, long j2, int i, long j3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u38Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = u38Var;
-            this.a = j;
-            this.b = j2;
-            this.c = i;
-            this.d = j3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GroupMsgData groupMsgData = (GroupMsgData) this.e.c.get(Long.valueOf(this.a));
-                if (groupMsgData != null) {
-                    LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
-                    long j = -1;
-                    if (listMessage != null && listMessage.size() > 0) {
-                        for (int i = 0; i < listMessage.size(); i++) {
-                            if (j < listMessage.get(i).getSid()) {
-                                j = listMessage.get(i).getSid();
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getContext().getPageActivity(), this.a.r().toJsonString(), true, true);
+                        albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                        if (rj5.a().b() == 1) {
+                            albumActivityConfig.setRequestFrom(4);
+                            if (this.a.r() != null) {
+                                this.a.r().setMaxImagesAllowed(1);
                             }
+                        } else if (this.a.r() != null) {
+                            this.a.r().setMaxImagesAllowed(10);
                         }
-                        listMessage.clear();
-                    }
-                    long j2 = j;
-                    this.e.q(this.a);
-                    if (j2 > this.b) {
-                        this.e.d.put(Long.valueOf(this.a), MessageUtils.makeNewpushGroupRepair(this.a, this.c, this.b, j2, this.d));
-                        r38.n().v(this.a, 1L, 0L, true);
-                        this.e.f.add(Long.valueOf(this.a));
-                        this.e.o(this.a);
+                        vi.z(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
+                        return;
+                    } else if (!this.b.g(this.a.getContext(), 11001)) {
+                        return;
+                    } else {
+                        this.a.y();
+                        TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.a.s())));
                         return;
                     }
-                    return;
                 }
-                this.e.q(this.a);
+                this.a.getContext().showToast((int) R.string.over_limit_tip);
+                this.b.a = true;
+                return;
             }
+            this.a.H((String) sh5Var.c);
+            this.b.a = false;
         }
     }
 
@@ -212,281 +108,89 @@ public class u38 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = new a(this, 2005016);
-        this.a = new b(this, Looper.getMainLooper());
-        this.b = new Handler(Looper.myLooper());
-        this.c = new ConcurrentHashMap<>();
-        this.d = new ConcurrentHashMap<>();
-        this.e = new ConcurrentHashMap<>();
-        this.f = new Vector<>();
-        this.a.sendEmptyMessage(10002);
     }
 
-    public NewpushGroupRepair j(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.uh5
+    public wh5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (this.d.containsKey(Long.valueOf(j))) {
-                return this.d.remove(Long.valueOf(j));
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(false);
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarLauncherType(2);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.F(false);
+            return new t38(editorTools);
         }
-        return (NewpushGroupRepair) invokeJ.objValue;
+        return (wh5) invokeL.objValue;
     }
 
-    public final void o(long j) {
+    @Override // com.baidu.tieba.uh5
+    public void c(wh5 wh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            Message message = new Message();
-            message.what = 10003;
-            Bundle bundle = new Bundle();
-            bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
-            message.setData(bundle);
-            this.a.sendMessageDelayed(message, 3000L);
-        }
-    }
-
-    public final void q(long j) {
-        Runnable remove;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && (remove = this.e.remove(Long.valueOf(j))) != null) {
-            this.b.removeCallbacks(remove);
-        }
-    }
-
-    public static u38 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (h == null) {
-                synchronized (u38.class) {
-                    if (h == null) {
-                        h = new u38();
-                    }
-                }
-            }
-            return h;
-        }
-        return (u38) invokeV.objValue;
-    }
-
-    public final void g(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)}) != null) || (groupMsgData = this.c.get(Long.valueOf(j2))) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wh5Var) != null) || wh5Var == null) {
             return;
         }
-        LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
-        if (listMessage != null && listMessage.size() != 0) {
-            if (!this.e.containsKey(Long.valueOf(j2))) {
-                p(j, j2, i, j3);
-                return;
-            }
-            return;
-        }
-        q(j2);
+        EditorTools b = wh5Var.b();
+        a aVar = new a(this, (t38) wh5Var);
+        b.setActionListener(5, aVar);
+        b.setActionListener(4, aVar);
+        b.setActionListener(6, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(16, aVar);
+        b.setActionListener(14, aVar);
+        b.setActionListener(15, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(32, aVar);
+        b.setActionListener(45, aVar);
     }
 
-    public final void p(long j, long j2, int i, long j3) {
+    @Override // com.baidu.tieba.uh5
+    public void d(wh5 wh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)}) == null) {
-            c cVar = new c(this, j2, j, i, j3);
-            this.b.postDelayed(cVar, v38.a().b().b());
-            this.e.put(Long.valueOf(j2), cVar);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Handler handler = this.a;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wh5Var) == null) {
+            EditorTools b = wh5Var.b();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            ei5 p = b.p(5);
+            if (p != null) {
+                p.e(false);
+                p.l = 1;
             }
-            Handler handler2 = this.b;
-            if (handler2 != null) {
-                handler2.removeCallbacksAndMessages(null);
+            b.d(new pi5(b.getContext(), 3));
+            v38 v38Var = new v38(b.getContext());
+            if (v38Var.g() != null) {
+                v38Var.g().setFilters(new InputFilter[]{new InputFilter.LengthFilter(14000)});
             }
-            ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.e;
-            if (concurrentHashMap != null) {
-                for (Map.Entry<Long, Runnable> entry : concurrentHashMap.entrySet()) {
-                    q(entry.getKey().longValue());
-                }
-                this.e.clear();
-            }
-            ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.c;
-            if (concurrentHashMap2 != null) {
-                concurrentHashMap2.clear();
-            }
-            Vector<Long> vector = this.f;
-            if (vector != null) {
-                vector.clear();
-            }
+            b.d(v38Var);
+            b.f();
+            b.C(new sh5(35, 5, Boolean.FALSE));
+            b.s();
         }
     }
 
-    public final List<ChatMessage> k(long j) {
-        InterceptResult invokeJ;
+    public final boolean g(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            GroupMsgData groupMsgData = this.c.get(Long.valueOf(j));
-            LinkedList linkedList = null;
-            if (groupMsgData == null) {
-                return null;
-            }
-            LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
-            if (listMessage != null && listMessage.size() != 0) {
-                linkedList = new LinkedList();
-                Iterator<ChatMessage> it = listMessage.iterator();
-                long sid = listMessage.get(0).getSid() - 1;
-                while (it.hasNext()) {
-                    ChatMessage next = it.next();
-                    sid++;
-                    if (next.getSid() != sid) {
-                        break;
-                    }
-                    it.remove();
-                    linkedList.add(next);
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeJ.objValue;
-    }
-
-    public final boolean l(ChatMessage chatMessage, GroupMsgData groupMsgData) {
-        InterceptResult invokeLL;
-        LinkedList<ChatMessage> listMessage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, chatMessage, groupMsgData)) == null) {
-            int i = 0;
-            if (chatMessage == null || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
-                return false;
-            }
-            if (listMessage.contains(chatMessage)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
                 return true;
             }
-            int size = listMessage.size();
-            while (i < size) {
-                ChatMessage chatMessage2 = listMessage.get(i);
-                if (chatMessage2 != null) {
-                    if (chatMessage.getSid() == chatMessage2.getSid()) {
-                        return true;
-                    }
-                    if (chatMessage.getSid() < chatMessage2.getSid()) {
-                        break;
-                    }
-                }
-                i++;
-            }
-            listMessage.add(i, chatMessage);
-            return true;
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void m(GroupMsgData groupMsgData, boolean z) {
-        LinkedList<ChatMessage> listMessage;
-        boolean z2;
-        long j;
-        long j2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, groupMsgData, z) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
-            long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo g = u28.f().g(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (g != null) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z2) {
-                if (!this.f.contains(Long.valueOf(groupId))) {
-                    n(groupMsgData, listMessage, groupId);
-                    return;
-                }
-                return;
-            }
-            long sid = g.getSid();
-            long c2 = s58.c(g.getPulled_msgId());
-            GroupMsgData groupMsgData2 = this.c.get(Long.valueOf(groupId));
-            if (groupMsgData2 == null) {
-                groupMsgData2 = new GroupMsgData(groupMsgData.getCmd());
-                this.c.put(Long.valueOf(groupId), groupMsgData2);
-            }
-            Iterator<ChatMessage> it = listMessage.iterator();
-            while (it.hasNext()) {
-                ChatMessage next = it.next();
-                if (next.getSid() > sid) {
-                    l(next, groupMsgData2);
-                }
-            }
-            listMessage.clear();
-            List<ChatMessage> k = k(groupId);
-            if (k != null && k.size() > 0) {
-                if (!z && sid > 0 && k.get(0).getSid() != 1 + sid) {
-                    groupMsgData2.getListMessage().addAll(k);
-                } else {
-                    listMessage.addAll(k);
-                    long sid2 = listMessage.get(listMessage.size() - 1).getSid();
-                    j2 = listMessage.get(listMessage.size() - 1).getMsgId();
-                    j = sid2;
-                    if (z) {
-                        this.f.remove(Long.valueOf(groupId));
-                    }
-                    if (this.f.contains(Long.valueOf(groupId))) {
-                        g(j, groupId, groupMsgData.getGroupInfo().getUserType(), j2);
-                        return;
-                    }
-                    return;
-                }
-            }
-            j = sid;
-            j2 = c2;
-            if (z) {
-            }
-            if (this.f.contains(Long.valueOf(groupId))) {
-            }
-        }
-    }
-
-    public final void n(GroupMsgData groupMsgData, LinkedList<ChatMessage> linkedList, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{groupMsgData, linkedList, Long.valueOf(j)}) == null) && groupMsgData != null && linkedList != null && linkedList.size() != 0) {
-            Bundle bundle = new Bundle();
-            bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
-            bundle.putLong("lastMid", linkedList.get(0).getMsgId());
-            if (linkedList.get(0).getSid() > 0) {
-                this.d.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
-            }
-            bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
-            Message message = new Message();
-            message.what = 10001;
-            message.setData(bundle);
-            this.a.sendMessage(message);
-            linkedList.clear();
-            this.f.add(Long.valueOf(j));
-            o(j);
-        }
+        return invokeLI.booleanValue;
     }
 }

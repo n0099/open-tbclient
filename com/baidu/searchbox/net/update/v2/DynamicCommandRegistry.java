@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DynamicCommandRegistry {
     public static final String TAG = "DynamicCommandRegistry";
     public static volatile DynamicCommandRegistry mInstance;

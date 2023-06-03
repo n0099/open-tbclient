@@ -18,13 +18,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.baidu.pass.biometrics.base.utils.Base64Utils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.callback.IdCardOcrCallback;
 import com.baidu.sapi2.result.IdCardOcrResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.a;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
@@ -146,7 +146,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         int i;
         try {
             int[] iArr = new int[2];
-            int identifier = getApplicationContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = getApplicationContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 i = getApplicationContext().getResources().getDimensionPixelSize(identifier);
             } else {
@@ -182,7 +182,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     }
 
     private void a() {
-        WindowManager windowManager = (WindowManager) getSystemService("window");
+        WindowManager windowManager = (WindowManager) getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         this.n = windowManager.getDefaultDisplay().getWidth();
         int height = windowManager.getDefaultDisplay().getHeight();
         this.m = height;
@@ -251,7 +251,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             this.g.setVisibility(8);
             this.e.setText("请将二代身份证的人像页放入识别框内");
         } else {
-            a(true, IdCardOcrResult.CODE_PAGE_PARAMS_ERROR, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
+            a(true, -405, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
         }
         ((FrameLayout) findViewById(R.id.sapi_sdk_fl_take_photo)).setOnClickListener(this);
     }

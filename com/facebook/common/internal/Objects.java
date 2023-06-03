@@ -6,17 +6,17 @@ import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Objects {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ToStringHelper {
         public final String className;
         public final ValueHolder holderHead;
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class ValueHolder {
             @Nullable
             public String name;

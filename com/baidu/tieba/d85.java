@@ -1,108 +1,227 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d85 extends ReplacementSpan {
+public class d85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public boolean a;
+    public boolean b;
     public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public String d;
+    public boolean e;
+    public Handler f;
 
-    public d85(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    /* loaded from: classes5.dex */
+    public class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+
+        public a(d85 d85Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d85Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (d85.a().c == 1) {
+                    i = 8;
+                } else {
+                    i = -1;
+                }
+                if (d85.a().c == 2) {
+                    i = 9;
+                }
+                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
+                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, d85.a().d);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MessageQueue.IdleHandler a;
+        public final /* synthetic */ d85 b;
+
+        public b(d85 d85Var, MessageQueue.IdleHandler idleHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d85Var, idleHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d85Var;
+            this.a = idleHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final d85 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905999191, "Lcom/baidu/tieba/d85$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-905999191, "Lcom/baidu/tieba/d85$c;");
+                    return;
+                }
+            }
+            a = new d85();
+        }
+    }
+
+    public d85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-        this.e = i4;
-        this.f = i5;
-        this.g = i6;
-        this.h = i7;
+        this.c = 0;
+        this.e = false;
     }
 
-    public void a(int i) {
+    public static d85 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.j = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c.a;
+        }
+        return (d85) invokeV.objValue;
+    }
+
+    public final Handler b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                this.f = new Handler(Looper.getMainLooper());
+            }
+            return this.f;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            int i = 0;
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
+                String dataString = intent.getDataString();
+                String className = intent.getComponent().getClassName();
+                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
+                    this.c = !ui.isEmpty(dataString) ? 1 : 0;
+                    this.d = dataString;
+                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
+                    if (!ui.isEmpty(dataString)) {
+                        i = 2;
+                    }
+                    this.c = i;
+                    this.d = dataString;
+                } else {
+                    this.c = 0;
+                }
+            }
         }
     }
 
-    public void b(int i) {
+    public void d(MessageQueue.IdleHandler idleHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.i = i;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
+            return;
         }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            b().post(new b(this, idleHandler));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(idleHandler);
+        this.e = true;
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            float textSize = paint.getTextSize();
-            int color = paint.getColor();
-            float f2 = f + this.h;
-            paint.setTextSize(this.d);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(true);
-            int i6 = i3 + i5;
-            int i7 = this.d;
-            int i8 = this.c;
-            int i9 = this.g;
-            int i10 = this.i;
-            RectF rectF = new RectF(f2, ((((i6 - i7) - i8) - i9) / 2) + i10, (this.a + f2) - this.j, ((((i6 + i7) + i8) + i9) / 2) + i10);
-            int i11 = this.c;
-            canvas.drawRoundRect(rectF, i11, i11, paint);
-            paint.setColor(SkinManager.getColor(this.e));
-            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            canvas.drawText(charSequence, i, i2, f2 + this.c + this.f, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
-            paint.setTextSize(textSize);
-            paint.setColor(color);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
+            return;
         }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            float textSize = paint.getTextSize();
-            paint.setTextSize(this.d);
-            this.a = (int) (paint.measureText(charSequence, i, i2) + (this.c * 2) + (this.f * 2) + this.j);
-            paint.setTextSize(textSize);
-            return this.a;
+        if (a().c != 1 && a().c != 2) {
+            return;
         }
-        return invokeCommon.intValue;
+        String name = activity.getClass().getName();
+        if (e85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                return;
+            }
+            a().d(new a(this, activity));
+        }
     }
 }

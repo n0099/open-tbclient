@@ -21,7 +21,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "trun";
@@ -50,7 +50,7 @@ public class TrackRunBox extends AbstractFullBox {
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

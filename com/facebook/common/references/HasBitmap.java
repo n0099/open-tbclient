@@ -1,4 +1,4 @@
 package com.facebook.common.references;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface HasBitmap {
 }

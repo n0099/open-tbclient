@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Handshake {
     public final CipherSuite cipherSuite;
     public final List<Certificate> localCertificates;

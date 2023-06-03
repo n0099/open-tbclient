@@ -1,363 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
-import com.baidu.tieba.fn6;
-import com.baidu.tieba.view.widget.TbGLMediaPreviewView;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
-import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaPreparedListener;
-import com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol;
-import com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager;
-import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.google.gson.Gson;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class gn6 implements fn6 {
+public abstract class gn6<T extends BaseCardInfo> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public VlogEditManager b;
-    public MultiMediaDataSourceViewAdapter c;
-    public TbGLMediaPreviewView d;
-    public nv6 e;
-    public boolean f;
-    public List<MultiMediaData> g;
-    public float h;
-    public int i;
-    public int j;
+    public int a;
+    public TbPageContext<?> b;
+    public Context c;
+    public View d;
+    public eo6<T> e;
+    public BdUniqueId f;
+    public String g;
+    public int h;
 
-    @Override // com.baidu.tieba.fn6
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
+    public abstract int d();
 
-    @Override // com.baidu.tieba.fn6
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public abstract void i(T t);
 
-    @Override // com.baidu.tieba.fn6
-    public long getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
+    public abstract void j(TbPageContext<?> tbPageContext, int i);
 
-    @Override // com.baidu.tieba.fn6
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements IMultiMediaPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn6 a;
-
-        public a(gn6 gn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gn6Var;
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaPreparedListener
-        public void onPrepared() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.start();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements kja {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn6 a;
-
-        @Override // com.baidu.tieba.kja
-        public rka c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (rka) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.kja
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tieba_unknown" : (String) invokeV.objValue;
-        }
-
-        public b(gn6 gn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gn6Var;
-        }
-
-        @Override // com.baidu.tieba.kja
-        public IMediaPlayer a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new d6a(this.a.a.getPageActivity());
-            }
-            return (IMediaPlayer) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.kja
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.f) {
-                    return n0a.c;
-                }
-                return n0a.d;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(gn6 gn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(".png");
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends IVLogPlayControlProtocol.OnPlayStateListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn6.a a;
-
-        public d(gn6 gn6Var, fn6.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn6Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onPause() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.onPause();
-                fn6.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onStart();
-                fn6.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.c();
-                }
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSeek(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                super.onSeek(j);
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSetIsLoop(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                super.onSetIsLoop(z);
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSpeedChanged(float f, MultiMediaData multiMediaData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), multiMediaData}) == null) {
-                super.onSpeedChanged(f, multiMediaData);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements MultiMediaStateEventListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn6.a a;
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
-        public void onIndexChanged(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
-        public void onPlayEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
-        public void onRepeatIndexEnd(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
-        public void onRepeatIndexLoop(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            }
-        }
-
-        public e(gn6 gn6Var, fn6.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn6Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
-        public void onLoop() {
-            fn6.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.a) != null) {
-                aVar.b();
-            }
-        }
-    }
-
-    public gn6(TbPageContext tbPageContext, TbGLMediaPreviewView tbGLMediaPreviewView, TbMultiMediaData tbMultiMediaData, nv6 nv6Var, boolean z) {
+    public gn6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tbGLMediaPreviewView, tbMultiMediaData, nv6Var, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -367,304 +47,115 @@ public class gn6 implements fn6 {
                 return;
             }
         }
-        this.f = false;
-        this.a = tbPageContext;
-        this.d = tbGLMediaPreviewView;
-        ArrayList arrayList = new ArrayList();
-        this.g = arrayList;
-        arrayList.add(tbMultiMediaData);
-        this.e = nv6Var;
-        this.f = z;
-        m();
+        this.a = 3;
+        this.f = null;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.d = LayoutInflater.from(getContext()).inflate(d(), (ViewGroup) null, false);
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void b(fn6.a aVar) {
-        VlogEditManager vlogEditManager;
+    public gn6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (vlogEditManager = this.b) != null) {
-            vlogEditManager.setOnPlayStateListener(null);
-            this.b.setOnPlayStateListener(new d(this, aVar));
-            this.b.setMultiMediaStateEventListener(null);
-            this.b.setMultiMediaStateEventListener(new e(this, aVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.fn6
-    public void c(TbMultiMediaData tbMultiMediaData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMultiMediaData) != null) || tbMultiMediaData == null) {
-            return;
-        }
-        this.g.clear();
-        this.g.add(tbMultiMediaData);
-        q();
-    }
-
-    @Override // com.baidu.tieba.fn6
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeF(1048581, this, f) != null) || this.h == f) {
-            return;
-        }
-        this.h = f;
-        l();
-        VlogEditManager vlogEditManager = this.b;
-        if (vlogEditManager != null && !vlogEditManager.isPlaying()) {
-            VlogEditManager vlogEditManager2 = this.b;
-            vlogEditManager2.seek(vlogEditManager2.getCurrentPlayTime());
-        }
-    }
-
-    @Override // com.baidu.tieba.fn6
-    public boolean a(QmFilterItem qmFilterItem) {
-        InterceptResult invokeL;
-        float f;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qmFilterItem)) == null) {
-            String str = IVlogEditManager.FILTER_ORIGINAL;
-            if (qmFilterItem != null && !StringUtils.isNull(qmFilterItem.localPath) && !"origin".equals(qmFilterItem.localPath)) {
-                f = pg.d(qmFilterItem.effect, 100.0f) / 100.0f;
-                File file = new File(qmFilterItem.localPath);
-                if (file.isDirectory() && (listFiles = file.listFiles(new c(this))) != null && listFiles.length > 0) {
-                    str = listFiles[0].getAbsolutePath();
-                }
-            } else {
-                f = 0.0f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                try {
-                    vlogEditManager.setFilter(f, str);
-                    return true;
-                } catch (Exception e2) {
-                    BdLog.e(e2);
-                }
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = 3;
+        this.f = null;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.d = LayoutInflater.from(getContext()).inflate(d(), viewGroup, false);
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            jja.c().k(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.fn6
-    public long getCurrentPlayTime() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                return vlogEditManager.getCurrentPlayTime();
-            }
-            return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn6
-    public TbMediaTrackConfig getMediaTrackConfig() {
+    public eo6<T> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.b != null) {
-                return (TbMediaTrackConfig) new Gson().fromJson(this.b.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (TbMediaTrackConfig) invokeV.objValue;
+        return (eo6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn6
-    public float getRatio() {
+    public BdUniqueId f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return invokeV.floatValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn6
-    public boolean isPlaying() {
+    public TbPageContext<?> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                return vlogEditManager.isPlaying();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public boolean m() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!vz9.a()) {
-                this.a.getPageActivity().finish();
-                return false;
-            }
-            o();
-            p();
-            n();
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (Context) invokeV.objValue;
     }
 
-    public final void o() {
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            jja.c().h(TbadkCoreApplication.getInst());
-            jja.c().j(FileHelper.getCacheDir());
-            jja.c().k(new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void onDestroy() {
+    public void k(eo6<T> eo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                vlogEditManager.onDestroy();
-            }
-            MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.c;
-            if (multiMediaDataSourceViewAdapter != null) {
-                multiMediaDataSourceViewAdapter.onDestroy();
-            }
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
-            if (tbGLMediaPreviewView != null) {
-                tbGLMediaPreviewView.onDestroy();
-            }
-            nv6 nv6Var = this.e;
-            if (nv6Var != null) {
-                nv6Var.onDestroy();
-            }
+        if (interceptable == null || interceptable.invokeL(1048585, this, eo6Var) == null) {
+            this.e = eo6Var;
         }
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void onPause() {
+    public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                vlogEditManager.onPause();
-            }
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
-            if (tbGLMediaPreviewView != null) {
-                tbGLMediaPreviewView.onPause();
-            }
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+            this.f = bdUniqueId;
         }
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void onResume() {
+    public void q(int i) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
-            if (tbGLMediaPreviewView != null) {
-                tbGLMediaPreviewView.onResume();
-            }
-            VlogEditManager vlogEditManager = this.b;
-            if (vlogEditManager != null) {
-                vlogEditManager.onResume();
-            }
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (view2 = this.d) != null) {
+            view2.setVisibility(i);
         }
     }
 
-    @Override // com.baidu.tieba.fn6
-    public void pause() {
-        VlogEditManager vlogEditManager;
+    public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (vlogEditManager = this.b) != null) {
-            vlogEditManager.pause();
-        }
-    }
-
-    public final void q() {
-        VlogEditManager vlogEditManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (vlogEditManager = this.b) != null) {
-            boolean isPlaying = vlogEditManager.isPlaying();
-            this.b.reset();
-            this.b.setMultiMediaData(this.g);
-            if (isPlaying) {
-                this.b.start();
-            } else {
-                this.b.pause();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fn6
-    public void start() {
-        VlogEditManager vlogEditManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (vlogEditManager = this.b) != null) {
-            vlogEditManager.start();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (this.d.getLayoutParams() instanceof FrameLayout.LayoutParams) && !ListUtils.isEmpty(this.g) && this.g.get(0) != null && this.g.get(0).height > 0 && this.g.get(0).width > 0) {
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
-            if (tbGLMediaPreviewView != null) {
-                ViewGroup.LayoutParams layoutParams = tbGLMediaPreviewView.getLayoutParams();
-                float f = this.h;
-                if (f > 1.0f) {
-                    layoutParams.width = Math.min((int) (this.i / f), this.j);
-                } else if (f > 0.0f) {
-                    layoutParams.width = this.j;
-                }
-                layoutParams.height = (int) (layoutParams.width * this.h);
-                int statusBarHeight = UtilHelper.getStatusBarHeight();
-                this.d.setTranslationY(((this.i + statusBarHeight) - layoutParams.height) * 0.5f);
-                this.d.setTranslationX((this.j - layoutParams.width) * 0.5f);
-                this.d.requestLayout();
-            }
-            this.b.setVideoRatio(this.h);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.d.setZOrderMediaOverlay(true);
-            this.d.setMultiMediaDataSourceViewAdapter(this.c, false);
-            this.d.setCanMeasure(false);
-            this.i = ri.j(this.a.getPageActivity());
-            this.j = ri.l(this.a.getPageActivity());
-            l();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = new MultiMediaDataSourceViewAdapter();
-            this.c = multiMediaDataSourceViewAdapter;
-            VlogEditManager vlogEditManager = new VlogEditManager(multiMediaDataSourceViewAdapter);
-            this.b = vlogEditManager;
-            vlogEditManager.setMultiMediaData(this.g);
-            this.b.setLooping(true);
-            this.b.setPreparedListener(new a(this));
-            nv6 nv6Var = this.e;
-            if (nv6Var != null) {
-                nv6Var.e(this.b, this.c);
-            }
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.g = str;
         }
     }
 }

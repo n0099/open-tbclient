@@ -9,7 +9,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class RequestBody {
     public long contentLength() throws IOException {
         return -1L;

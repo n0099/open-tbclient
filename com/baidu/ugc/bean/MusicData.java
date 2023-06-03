@@ -2,6 +2,7 @@ package com.baidu.ugc.bean;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -132,7 +133,7 @@ public class MusicData extends MusicBaseBean {
             musicData.collectStatus = jSONObject.optString(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
             musicData.mProgress = jSONObject.optInt("progress");
             musicData.musicType = jSONObject.optInt("ai_switch");
-            musicData.isLocalMusic = jSONObject.optBoolean("local_music");
+            musicData.isLocalMusic = jSONObject.optBoolean(DownloadStatisticConstants.UBC_PAGE_LOCAL_MUSIC);
             musicData.musicLoc = jSONObject.optString("music_loc");
             musicData.bgAccompanimentUrl = jSONObject.optString("bgAccompanimentUrl");
             musicData.bgAccompanimentLocalPath = jSONObject.optString("bgAccompanimentLocalPath");
@@ -219,7 +220,7 @@ public class MusicData extends MusicBaseBean {
             jSONObject.put(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS, musicData.collectStatus);
             jSONObject.put("progress", musicData.mProgress);
             jSONObject.put("ai_switch", musicData.musicType);
-            jSONObject.put("local_music", musicData.isLocalMusic);
+            jSONObject.put(DownloadStatisticConstants.UBC_PAGE_LOCAL_MUSIC, musicData.isLocalMusic);
             jSONObject.put("music_loc", musicData.musicLoc);
             jSONObject.put("bgAccompanimentUrl", musicData.bgAccompanimentUrl);
             jSONObject.put("bgAccompanimentLocalPath", musicData.bgAccompanimentLocalPath);

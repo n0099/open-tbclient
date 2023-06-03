@@ -5,9 +5,9 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pq8;
-import com.baidu.tieba.sq8;
-import com.baidu.tieba.tq8;
+import com.baidu.tieba.mw8;
+import com.baidu.tieba.pw8;
+import com.baidu.tieba.qw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq8 a;
-    public sq8 b;
-    public tq8 c;
-    public pq8.f d;
+    public mw8 a;
+    public pw8 b;
+    public qw8 c;
+    public mw8.f d;
     public View.OnClickListener e;
 
     /* loaded from: classes6.dex */
-    public class a implements pq8.f {
+    public class a implements mw8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,8 +46,8 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.pq8.f
-        public void a() {
+        @Override // com.baidu.tieba.mw8.f
+        public void callback() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean g = this.a.b.g();
@@ -57,11 +57,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                tq8 tq8Var = tailManagementActivity.c;
+                qw8 qw8Var = tailManagementActivity.c;
                 if (tailManagementActivity.b.h().size() != 0) {
                     z = false;
                 }
-                tq8Var.e(g, z);
+                qw8Var.e(g, z);
             }
         }
     }
@@ -101,11 +101,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     boolean z2 = !this.a.b.g();
                     this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    tq8 tq8Var = tailManagementActivity.c;
+                    qw8 qw8Var = tailManagementActivity.c;
                     if (tailManagementActivity.b.h().size() != 0) {
                         z = false;
                     }
-                    tq8Var.e(z2, z);
+                    qw8Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -145,19 +145,19 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0909);
-            this.b = new sq8(getPageContext());
-            this.a = new pq8(getPageContext(), this.b, this.d);
-            tq8 tq8Var = new tq8(this, this.e);
-            this.c = tq8Var;
-            tq8Var.d(this.a);
-            tq8 tq8Var2 = this.c;
+            setContentView(R.layout.obfuscated_res_0x7f0d0922);
+            this.b = new pw8(getPageContext());
+            this.a = new mw8(getPageContext(), this.b, this.d);
+            qw8 qw8Var = new qw8(this, this.e);
+            this.c = qw8Var;
+            qw8Var.d(this.a);
+            qw8 qw8Var2 = this.c;
             if (this.b.h().size() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            tq8Var2.e(false, z);
+            qw8Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

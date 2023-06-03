@@ -6,7 +6,7 @@ import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.drawable.DrawableResource;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapDrawableResource extends DrawableResource<BitmapDrawable> implements Initializable {
     public final BitmapPool bitmapPool;
 

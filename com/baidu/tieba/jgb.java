@@ -1,85 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.StringUtils;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class jgb {
+public final class jgb {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883748, "Lcom/baidu/tieba/jgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.##").format(d);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.#").format(d);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static double c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947883748, "Lcom/baidu/tieba/jgb;");
+                return;
             }
         }
-        return invokeL.doubleValue;
-    }
-
-    public static long d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0L;
-            }
-            try {
-                return Long.valueOf(str).longValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
+        a = new String[]{DownloadStatisticConstants.UBC_VALUE_UNKNOW, "idle", "preparing", DpStatConstants.KEY_PREPARED, "ready", "loading", "playing", "paused", "ended", "invalid"};
     }
 }

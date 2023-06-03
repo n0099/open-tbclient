@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.bytedance.sdk.openadsdk.TTCodeGroupRit;
 import com.bytedance.sdk.openadsdk.api.a;
 import com.bytedance.sdk.openadsdk.api.plugin.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
     public static final TTInitializer a = new f();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface InitCallback {
         void fail(int i, String str);
 

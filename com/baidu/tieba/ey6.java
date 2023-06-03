@@ -2,41 +2,43 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public final class ey6 {
+public class ey6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u07 a;
+    public List<RecommendForumInfo> a;
+    public List<String> b;
+    public Page c;
+    public String d;
 
-    public ey6(u07 data) {
+    public ey6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
     }
 
-    public final u07 a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (u07) invokeV.objValue;
+        this.d = dataRes.class_name;
+        this.c = dataRes.page;
+        this.b = dataRes.page_structure;
+        this.a = dataRes.forum_info;
     }
 }

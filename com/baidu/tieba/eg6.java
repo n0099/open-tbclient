@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class eg6<T> {
+public class eg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg6<T> a;
-
-    public abstract T c(String str, String str2, Map<String, String> map);
-
-    public abstract boolean e(String str, String str2, Map<String, String> map);
 
     public eg6() {
         Interceptable interceptable = $ic;
@@ -31,37 +25,27 @@ public abstract class eg6<T> {
         }
     }
 
-    public eg6<T> a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (eg6) invokeV.objValue;
-    }
-
-    public final T b(String str, String str2, Map<String, String> map) {
-        InterceptResult invokeLLL;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
-            if (e(str, str2, map)) {
-                t = c(str, str2, map);
-            } else {
-                t = null;
-            }
-            if (t == null && a() != null) {
-                return a().b(str, str2, map);
-            }
-            return t;
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public void d(eg6<T> eg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eg6Var) == null) {
-            this.a = eg6Var;
-        }
+        jSONObject.optString("user_id");
+        jSONObject.optString("user_name");
+        jSONObject.optString("sex");
+        jSONObject.optString("description");
+        jSONObject.optString("portrait");
+        jSONObject.optString("level_id");
+        jSONObject.optString("location");
+        jSONObject.optString(DI.FOLLOW_STATUS);
+        jSONObject.optString("follow_count");
+        jSONObject.optString("fans_count");
+        jSONObject.optString("live_count");
+        jSONObject.optString("record_count");
+        jSONObject.optInt("yy_level_id");
+        jSONObject.optLong("yy_levelup_exp");
+        jSONObject.optLong("yy_level_exp");
+        jSONObject.optString("yy_level_name");
+        jSONObject.optString("yy_level_next_name");
     }
 }

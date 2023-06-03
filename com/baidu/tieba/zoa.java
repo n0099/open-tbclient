@@ -1,115 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Base64OutputStream;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.js.BaseInterpreter;
-import com.baidu.validation.utils.ValidationLog;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes8.dex */
-public class zoa {
+public class zoa extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public long c;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zoa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-224053441, "Lcom/baidu/tieba/zoa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-224053441, "Lcom/baidu/tieba/zoa$b;");
-                    return;
-                }
-            }
-            a = new zoa(null);
-        }
-    }
-
-    public zoa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zoa(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
     }
 
-    public /* synthetic */ zoa(a aVar) {
-        this();
-    }
-
-    public static zoa b() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (zoa) invokeV.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] split = str.split("_");
-            StringBuilder sb = new StringBuilder();
-            sb.append("com.baidu.validation.js.interpreter.");
-            for (String str2 : split) {
-                char[] charArray = str2.toCharArray();
-                if (charArray[0] >= 'a' && charArray[0] <= 'z') {
-                    charArray[0] = (char) (charArray[0] - ' ');
-                }
-                sb.append(new String(charArray));
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (String) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public BaseInterpreter a(String str) {
-        InterceptResult invokeL;
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(str) : (BaseInterpreter) invokeL.objValue;
-    }
-
-    public final BaseInterpreter c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                BaseInterpreter baseInterpreter = (BaseInterpreter) Class.forName(d(str)).newInstance();
-                baseInterpreter.setName(str);
-                return baseInterpreter;
-            } catch (Exception e) {
-                ValidationLog.e(e);
-                return null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
             }
         }
-        return (BaseInterpreter) invokeL.objValue;
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = 123;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = 117;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = 117;
+                this.a = true;
+                bArr[i + 1] = 123;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
+        }
     }
 }

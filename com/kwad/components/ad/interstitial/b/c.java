@@ -56,7 +56,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     public int gx = -1;
     public List<a.b> gu = new CopyOnWriteArrayList();
     public List<e> gk = new CopyOnWriteArrayList();
-    public List<InterfaceC0574c> gs = new ArrayList();
+    public List<InterfaceC0594c> gs = new ArrayList();
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$4  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -87,7 +87,7 @@ public final class c extends com.kwad.sdk.mvp.a {
                     com.kwad.sdk.core.e.b.d("InterstitialCallerContext", "onLoadingComplete before blur");
                     Bitmap stackBlur = BlurUtils.stackBlur(bitmap, 50, false);
                     com.kwad.sdk.core.e.b.d("InterstitialCallerContext", "onLoadingComplete after blur");
-                    float dimension = AnonymousClass4.this.gC.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704af);
+                    float dimension = AnonymousClass4.this.gC.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704bd);
                     final RoundedBitmapDrawable create = RoundedBitmapDrawableFactory.create(AnonymousClass4.this.gC.getResources(), stackBlur);
                     create.setCornerRadius(dimension);
                     AnonymousClass4.this.dH.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.b.c.4.1.1
@@ -189,7 +189,7 @@ public final class c extends com.kwad.sdk.mvp.a {
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0574c {
+    public interface InterfaceC0594c {
         void cH();
     }
 
@@ -261,7 +261,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     }
 
     public final void a(final Context context, final int i, int i2, int i3) {
-        com.kwad.components.core.c.a.a.a(new a.C0610a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.c.3
+        com.kwad.components.core.c.a.a.a(new a.C0630a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.c.3
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 c.this.a(r2, i, context);
@@ -282,7 +282,7 @@ public final class c extends com.kwad.sdk.mvp.a {
 
     public final void a(final b bVar) {
         boolean z = bVar.cC() == 1;
-        if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0610a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.c.1
+        if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0630a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.c.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 c.this.b(bVar);
@@ -359,8 +359,8 @@ public final class c extends com.kwad.sdk.mvp.a {
     }
 
     public final void cA() {
-        for (InterfaceC0574c interfaceC0574c : this.gs) {
-            interfaceC0574c.cH();
+        for (InterfaceC0594c interfaceC0594c : this.gs) {
+            interfaceC0594c.cH();
         }
     }
 

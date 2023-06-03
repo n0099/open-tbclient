@@ -32,11 +32,11 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     @Override // com.baidu.searchbox.ui.BaseLoadingDialog
     public void initView() {
         int i;
-        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0236);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e94);
-        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0915d2);
-        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0916e1);
-        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090710);
+        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d023d);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ec2);
+        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0915f4);
+        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091705);
+        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09071a);
         this.mMsgTxtView.setText(this.mMsgText);
         this.mCloseImgView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.SimpleLoadingDialog.1
             @Override // android.view.View.OnClickListener
@@ -66,17 +66,17 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     public void setFontResources() {
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
-            FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070769, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07075f);
-            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080550));
+            FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07077b, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070771);
+            this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080565));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
-            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070768);
+            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07077a);
         }
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
-            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070762, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070760);
-            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080552));
+            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070774, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070772);
+            this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
         }
     }
 
@@ -85,19 +85,19 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
         Resources resources = AppRuntime.getAppContext().getResources();
         View view2 = this.mRootView;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080551));
+            view2.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080566));
         }
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
-            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080550));
+            smoothProgressBar.setIndeterminateDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080565));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
-            textView.setTextColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601d7));
+            textView.setTextColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601db));
         }
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
-            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080552));
+            imageView.setBackground(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080567));
         }
     }
 }

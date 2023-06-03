@@ -18,7 +18,6 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -43,7 +42,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Utility {
     public static final String TAG = "Utility";
 
@@ -694,7 +693,7 @@ public class Utility {
                         break;
                     }
                 }
-                Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET), bool);
+                Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString("utf-8"), bool);
                 Closeables.closeSafely(fileInputStream);
                 Closeables.closeSafely(byteArrayOutputStream);
                 return pair;

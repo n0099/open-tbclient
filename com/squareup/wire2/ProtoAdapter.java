@@ -2,12 +2,12 @@ package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s4b;
-import com.baidu.tieba.t4b;
-import com.baidu.tieba.u4b;
-import com.baidu.tieba.v4b;
-import com.baidu.tieba.w4b;
-import com.baidu.tieba.x4b;
+import com.baidu.tieba.cdb;
+import com.baidu.tieba.ddb;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.fdb;
+import com.baidu.tieba.gdb;
+import com.baidu.tieba.hdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<Boolean> BOOL;
@@ -55,9 +55,9 @@ public abstract class ProtoAdapter<E> {
     public ProtoAdapter<List<E>> packedAdapter;
     public ProtoAdapter<List<E>> repeatedAdapter;
 
-    public abstract E decode(t4b t4bVar) throws IOException;
+    public abstract E decode(ddb ddbVar) throws IOException;
 
-    public abstract void encode(u4b u4bVar, E e2) throws IOException;
+    public abstract void encode(edb edbVar, E e2) throws IOException;
 
     public abstract int encodedSize(E e2);
 
@@ -70,7 +70,7 @@ public abstract class ProtoAdapter<E> {
         return (E) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class EnumConstantNotFoundException extends IllegalArgumentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends ProtoAdapter<Float> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,11 +139,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Float decode(t4b t4bVar) throws IOException {
+        public Float decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Float.valueOf(Float.intBitsToFloat(t4bVar.i()));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Float.valueOf(Float.intBitsToFloat(ddbVar.i()));
             }
             return (Float) invokeL.objValue;
         }
@@ -151,15 +151,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Float f) throws IOException {
+        public void encode(edb edbVar, Float f) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, f) == null) {
-                u4bVar.l(Float.floatToIntBits(f.floatValue()));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, f) == null) {
+                edbVar.l(Float.floatToIntBits(f.floatValue()));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends ProtoAdapter<Double> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,11 +200,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Double decode(t4b t4bVar) throws IOException {
+        public Double decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Double.valueOf(Double.longBitsToDouble(t4bVar.j()));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Double.valueOf(Double.longBitsToDouble(ddbVar.j()));
             }
             return (Double) invokeL.objValue;
         }
@@ -212,15 +212,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Double d) throws IOException {
+        public void encode(edb edbVar, Double d) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, d) == null) {
-                u4bVar.m(Double.doubleToLongBits(d.doubleValue()));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, d) == null) {
+                edbVar.m(Double.doubleToLongBits(d.doubleValue()));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c extends ProtoAdapter<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,11 +249,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public String decode(t4b t4bVar) throws IOException {
+        public String decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return t4bVar.k();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return ddbVar.k();
             }
             return (String) invokeL.objValue;
         }
@@ -265,7 +265,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return u4b.h(str);
+                return edb.h(str);
             }
             return invokeL.intValue;
         }
@@ -273,15 +273,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, String str) throws IOException {
+        public void encode(edb edbVar, String str) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, str) == null) {
-                u4bVar.o(str);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, str) == null) {
+                edbVar.o(str);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d extends ProtoAdapter<ByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,11 +310,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public ByteString decode(t4b t4bVar) throws IOException {
+        public ByteString decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return t4bVar.h();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return ddbVar.h();
             }
             return (ByteString) invokeL.objValue;
         }
@@ -334,15 +334,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, ByteString byteString) throws IOException {
+        public void encode(edb edbVar, ByteString byteString) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, byteString) == null) {
-                u4bVar.k(byteString);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, byteString) == null) {
+                edbVar.k(byteString);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e extends ProtoAdapter<List<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -373,11 +373,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public List<E> decode(t4b t4bVar) throws IOException {
+        public List<E> decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Collections.singletonList(this.a.decode(t4bVar));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Collections.singletonList(this.a.decode(ddbVar));
             }
             return (List) invokeL.objValue;
         }
@@ -414,12 +414,12 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, List<E> list) throws IOException {
+        public void encode(edb edbVar, List<E> list) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, list) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, list) == null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    this.a.encode(u4bVar, (u4b) list.get(i));
+                    this.a.encode(edbVar, (edb) list.get(i));
                 }
             }
         }
@@ -442,15 +442,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: c */
-        public void encodeWithTag(u4b u4bVar, int i, List<E> list) throws IOException {
+        public void encodeWithTag(edb edbVar, int i, List<E> list) throws IOException {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, i, list) == null) && !list.isEmpty()) {
-                super.encodeWithTag(u4bVar, i, list);
+            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, edbVar, i, list) == null) && !list.isEmpty()) {
+                super.encodeWithTag(edbVar, i, list);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f extends ProtoAdapter<List<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -481,11 +481,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public List<E> decode(t4b t4bVar) throws IOException {
+        public List<E> decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Collections.singletonList(this.a.decode(t4bVar));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Collections.singletonList(this.a.decode(ddbVar));
             }
             return (List) invokeL.objValue;
         }
@@ -517,9 +517,9 @@ public abstract class ProtoAdapter<E> {
             return (List) invokeL.objValue;
         }
 
-        public void b(u4b u4bVar, List<E> list) {
+        public void b(edb edbVar, List<E> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, list) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, list) == null) {
                 throw new UnsupportedOperationException("Repeated values can only be encoded with a tag.");
             }
         }
@@ -542,26 +542,26 @@ public abstract class ProtoAdapter<E> {
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
-        public /* bridge */ /* synthetic */ void encode(u4b u4bVar, Object obj) throws IOException {
-            b(u4bVar, (List) obj);
+        public /* bridge */ /* synthetic */ void encode(edb edbVar, Object obj) throws IOException {
+            b(edbVar, (List) obj);
             throw null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: c */
-        public void encodeWithTag(u4b u4bVar, int i, List<E> list) throws IOException {
+        public void encodeWithTag(edb edbVar, int i, List<E> list) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, i, list) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, edbVar, i, list) == null) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.a.encodeWithTag(u4bVar, i, list.get(i2));
+                    this.a.encodeWithTag(edbVar, i, list.get(i2));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class g extends ProtoAdapter<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -602,11 +602,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Boolean decode(t4b t4bVar) throws IOException {
+        public Boolean decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                int l = t4bVar.l();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                int l = ddbVar.l();
                 if (l == 0) {
                     return Boolean.FALSE;
                 }
@@ -621,15 +621,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Boolean bool) throws IOException {
+        public void encode(edb edbVar, Boolean bool) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, bool) == null) {
-                u4bVar.q(bool.booleanValue() ? 1 : 0);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, bool) == null) {
+                edbVar.q(bool.booleanValue() ? 1 : 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class h extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -658,11 +658,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Integer decode(t4b t4bVar) throws IOException {
+        public Integer decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Integer.valueOf(t4bVar.l());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Integer.valueOf(ddbVar.l());
             }
             return (Integer) invokeL.objValue;
         }
@@ -674,7 +674,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num)) == null) {
-                return u4b.e(num.intValue());
+                return edb.e(num.intValue());
             }
             return invokeL.intValue;
         }
@@ -682,15 +682,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Integer num) throws IOException {
+        public void encode(edb edbVar, Integer num) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, num) == null) {
-                u4bVar.n(num.intValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, num) == null) {
+                edbVar.n(num.intValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class i extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -719,11 +719,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Integer decode(t4b t4bVar) throws IOException {
+        public Integer decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Integer.valueOf(t4bVar.l());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Integer.valueOf(ddbVar.l());
             }
             return (Integer) invokeL.objValue;
         }
@@ -735,7 +735,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num)) == null) {
-                return u4b.i(num.intValue());
+                return edb.i(num.intValue());
             }
             return invokeL.intValue;
         }
@@ -743,15 +743,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Integer num) throws IOException {
+        public void encode(edb edbVar, Integer num) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, num) == null) {
-                u4bVar.q(num.intValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, num) == null) {
+                edbVar.q(num.intValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class j extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -780,11 +780,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Integer decode(t4b t4bVar) throws IOException {
+        public Integer decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Integer.valueOf(u4b.a(t4bVar.l()));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Integer.valueOf(edb.a(ddbVar.l()));
             }
             return (Integer) invokeL.objValue;
         }
@@ -796,7 +796,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num)) == null) {
-                return u4b.i(u4b.c(num.intValue()));
+                return edb.i(edb.c(num.intValue()));
             }
             return invokeL.intValue;
         }
@@ -804,15 +804,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Integer num) throws IOException {
+        public void encode(edb edbVar, Integer num) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, num) == null) {
-                u4bVar.q(u4b.c(num.intValue()));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, num) == null) {
+                edbVar.q(edb.c(num.intValue()));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class k extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -853,11 +853,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Integer decode(t4b t4bVar) throws IOException {
+        public Integer decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Integer.valueOf(t4bVar.i());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Integer.valueOf(ddbVar.i());
             }
             return (Integer) invokeL.objValue;
         }
@@ -865,15 +865,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Integer num) throws IOException {
+        public void encode(edb edbVar, Integer num) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, num) == null) {
-                u4bVar.l(num.intValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, num) == null) {
+                edbVar.l(num.intValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class l extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -902,11 +902,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Long decode(t4b t4bVar) throws IOException {
+        public Long decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Long.valueOf(t4bVar.m());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Long.valueOf(ddbVar.m());
             }
             return (Long) invokeL.objValue;
         }
@@ -918,7 +918,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-                return u4b.j(l.longValue());
+                return edb.j(l.longValue());
             }
             return invokeL.intValue;
         }
@@ -926,15 +926,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Long l) throws IOException {
+        public void encode(edb edbVar, Long l) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, l) == null) {
-                u4bVar.r(l.longValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, l) == null) {
+                edbVar.r(l.longValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class m extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -963,11 +963,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Long decode(t4b t4bVar) throws IOException {
+        public Long decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Long.valueOf(t4bVar.m());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Long.valueOf(ddbVar.m());
             }
             return (Long) invokeL.objValue;
         }
@@ -979,7 +979,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-                return u4b.j(l.longValue());
+                return edb.j(l.longValue());
             }
             return invokeL.intValue;
         }
@@ -987,15 +987,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Long l) throws IOException {
+        public void encode(edb edbVar, Long l) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, l) == null) {
-                u4bVar.r(l.longValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, l) == null) {
+                edbVar.r(l.longValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class n extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1024,11 +1024,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Long decode(t4b t4bVar) throws IOException {
+        public Long decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Long.valueOf(u4b.b(t4bVar.m()));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Long.valueOf(edb.b(ddbVar.m()));
             }
             return (Long) invokeL.objValue;
         }
@@ -1040,7 +1040,7 @@ public abstract class ProtoAdapter<E> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-                return u4b.j(u4b.d(l.longValue()));
+                return edb.j(edb.d(l.longValue()));
             }
             return invokeL.intValue;
         }
@@ -1048,15 +1048,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Long l) throws IOException {
+        public void encode(edb edbVar, Long l) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, l) == null) {
-                u4bVar.r(u4b.d(l.longValue()));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, l) == null) {
+                edbVar.r(edb.d(l.longValue()));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class o extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1097,11 +1097,11 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Long decode(t4b t4bVar) throws IOException {
+        public Long decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                return Long.valueOf(t4bVar.j());
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                return Long.valueOf(ddbVar.j());
             }
             return (Long) invokeL.objValue;
         }
@@ -1109,15 +1109,15 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Long l) throws IOException {
+        public void encode(edb edbVar, Long l) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, l) == null) {
-                u4bVar.m(l.longValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, l) == null) {
+                edbVar.m(l.longValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class p<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1147,10 +1147,10 @@ public abstract class ProtoAdapter<E> {
             this.b = protoAdapter2;
         }
 
-        public Map.Entry<K, V> a(t4b t4bVar) {
+        public Map.Entry<K, V> a(ddb ddbVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (Map.Entry) invokeL.objValue;
@@ -1169,24 +1169,24 @@ public abstract class ProtoAdapter<E> {
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
-        public /* bridge */ /* synthetic */ Object decode(t4b t4bVar) throws IOException {
-            a(t4bVar);
+        public /* bridge */ /* synthetic */ Object decode(ddb ddbVar) throws IOException {
+            a(ddbVar);
             throw null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: b */
-        public void encode(u4b u4bVar, Map.Entry<K, V> entry) throws IOException {
+        public void encode(edb edbVar, Map.Entry<K, V> entry) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, entry) == null) {
-                this.a.encodeWithTag(u4bVar, 1, entry.getKey());
-                this.b.encodeWithTag(u4bVar, 2, entry.getValue());
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, entry) == null) {
+                this.a.encodeWithTag(edbVar, 1, entry.getKey());
+                this.b.encodeWithTag(edbVar, 2, entry.getValue());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class q<K, V> extends ProtoAdapter<Map<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1217,26 +1217,26 @@ public abstract class ProtoAdapter<E> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
-        public Map<K, V> decode(t4b t4bVar) throws IOException {
+        public Map<K, V> decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
-                long c = t4bVar.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
+                long c = ddbVar.c();
                 K k = null;
                 V v = null;
                 while (true) {
-                    int f = t4bVar.f();
+                    int f = ddbVar.f();
                     if (f == -1) {
                         break;
                     } else if (f != 1) {
                         if (f == 2) {
-                            v = this.a.b.decode(t4bVar);
+                            v = this.a.b.decode(ddbVar);
                         }
                     } else {
-                        k = this.a.a.decode(t4bVar);
+                        k = this.a.a.decode(ddbVar);
                     }
                 }
-                t4bVar.d(c);
+                ddbVar.d(c);
                 if (k != null) {
                     if (v != null) {
                         return Collections.singletonMap(k, v);
@@ -1248,9 +1248,9 @@ public abstract class ProtoAdapter<E> {
             return (Map) invokeL.objValue;
         }
 
-        public void b(u4b u4bVar, Map<K, V> map) {
+        public void b(edb edbVar, Map<K, V> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u4bVar, map) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, edbVar, map) == null) {
                 throw new UnsupportedOperationException("Repeated values can only be encoded with a tag.");
             }
         }
@@ -1272,19 +1272,19 @@ public abstract class ProtoAdapter<E> {
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
-        public /* bridge */ /* synthetic */ void encode(u4b u4bVar, Object obj) throws IOException {
-            b(u4bVar, (Map) obj);
+        public /* bridge */ /* synthetic */ void encode(edb edbVar, Object obj) throws IOException {
+            b(edbVar, (Map) obj);
             throw null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: c */
-        public void encodeWithTag(u4b u4bVar, int i, Map<K, V> map) throws IOException {
+        public void encodeWithTag(edb edbVar, int i, Map<K, V> map) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, i, map) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, edbVar, i, map) == null) {
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    this.a.encodeWithTag(u4bVar, i, entry);
+                    this.a.encodeWithTag(edbVar, i, entry);
                 }
             }
         }
@@ -1430,20 +1430,20 @@ public abstract class ProtoAdapter<E> {
         return (ProtoAdapter) invokeL.objValue;
     }
 
-    public static <E extends x4b> v4b<E> newEnumAdapter(Class<E> cls) {
+    public static <E extends hdb> fdb<E> newEnumAdapter(Class<E> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            return new v4b<>(cls);
+            return new fdb<>(cls);
         }
-        return (v4b) invokeL.objValue;
+        return (fdb) invokeL.objValue;
     }
 
     public static <M extends Message<M, B>, B extends Message.a<M, B>> ProtoAdapter<M> newMessageAdapter(Class<M> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
-            return w4b.a(cls);
+            return gdb.a(cls);
         }
         return (ProtoAdapter) invokeL.objValue;
     }
@@ -1452,7 +1452,7 @@ public abstract class ProtoAdapter<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, inputStream)) == null) {
-            s4b.a(inputStream, "stream == null");
+            cdb.a(inputStream, "stream == null");
             return decode(Okio.buffer(Okio.source(inputStream)));
         }
         return (E) invokeL.objValue;
@@ -1462,7 +1462,7 @@ public abstract class ProtoAdapter<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, e2)) == null) {
-            s4b.a(e2, "value == null");
+            cdb.a(e2, "value == null");
             Buffer buffer = new Buffer();
             try {
                 encode((BufferedSink) buffer, (Buffer) e2);
@@ -1539,8 +1539,8 @@ public abstract class ProtoAdapter<E> {
     public final void encode(OutputStream outputStream, E e2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, outputStream, e2) == null) {
-            s4b.a(e2, "value == null");
-            s4b.a(outputStream, "stream == null");
+            cdb.a(e2, "value == null");
+            cdb.a(outputStream, "stream == null");
             BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
             encode(buffer, (BufferedSink) e2);
             buffer.emit();
@@ -1553,9 +1553,9 @@ public abstract class ProtoAdapter<E> {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i2, e2)) == null) {
             int encodedSize = encodedSize(e2);
             if (this.fieldEncoding == FieldEncoding.LENGTH_DELIMITED) {
-                encodedSize += u4b.i(encodedSize);
+                encodedSize += edb.i(encodedSize);
             }
-            return encodedSize + u4b.g(i2);
+            return encodedSize + edb.g(i2);
         }
         return invokeIL.intValue;
     }
@@ -1564,8 +1564,8 @@ public abstract class ProtoAdapter<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bufferedSource)) == null) {
-            s4b.a(bufferedSource, "source == null");
-            return decode(new t4b(bufferedSource));
+            cdb.a(bufferedSource, "source == null");
+            return decode(new ddb(bufferedSource));
         }
         return (E) invokeL.objValue;
     }
@@ -1574,7 +1574,7 @@ public abstract class ProtoAdapter<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, byteString)) == null) {
-            s4b.a(byteString, "bytes == null");
+            cdb.a(byteString, "bytes == null");
             return decode(new Buffer().write(byteString));
         }
         return (E) invokeL.objValue;
@@ -1584,7 +1584,7 @@ public abstract class ProtoAdapter<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            s4b.a(bArr, "bytes == null");
+            cdb.a(bArr, "bytes == null");
             return decode(new Buffer().write(bArr));
         }
         return (E) invokeL.objValue;
@@ -1593,20 +1593,20 @@ public abstract class ProtoAdapter<E> {
     public final void encode(BufferedSink bufferedSink, E e2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, bufferedSink, e2) == null) {
-            s4b.a(e2, "value == null");
-            s4b.a(bufferedSink, "sink == null");
-            encode(new u4b(bufferedSink), (u4b) e2);
+            cdb.a(e2, "value == null");
+            cdb.a(bufferedSink, "sink == null");
+            encode(new edb(bufferedSink), (edb) e2);
         }
     }
 
-    public void encodeWithTag(u4b u4bVar, int i2, E e2) throws IOException {
+    public void encodeWithTag(edb edbVar, int i2, E e2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, u4bVar, i2, e2) == null) {
-            u4bVar.p(i2, this.fieldEncoding);
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, edbVar, i2, e2) == null) {
+            edbVar.p(i2, this.fieldEncoding);
             if (this.fieldEncoding == FieldEncoding.LENGTH_DELIMITED) {
-                u4bVar.q(encodedSize(e2));
+                edbVar.q(encodedSize(e2));
             }
-            encode(u4bVar, (u4b) e2);
+            encode(edbVar, (edb) e2);
         }
     }
 }

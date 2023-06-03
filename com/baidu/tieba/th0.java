@@ -1,69 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-@Service
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class th0 extends li0 {
+public class th0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.li0
-    public String a() {
+    public static MediaOneAEffect a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
+            mediaOneAEffect.start = 0L;
+            mediaOneAEffect.end = j;
+            ArrayList arrayList = new ArrayList();
+            mediaOneAEffect.aParams = arrayList;
+            arrayList.add(c());
+            return mediaOneAEffect;
+        }
+        return (MediaOneAEffect) invokeJ.objValue;
+    }
+
+    public static MediaAEffect b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            MediaAEffect mediaAEffect = new MediaAEffect();
+            mediaAEffect.name = "defaultScene";
+            mediaAEffect.duration = j;
+            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
+            mediaAEffect.effectType = "scene";
+            mediaAEffect.shaderConfigKey = uh0.b;
+            ArrayList arrayList = new ArrayList();
+            mediaAEffect.mediaOneAEffects = arrayList;
+            arrayList.add(a(j));
+            return mediaAEffect;
+        }
+        return (MediaAEffect) invokeJ.objValue;
+    }
+
+    public static ShaderParams c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
-
-    public th0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ShaderParams shaderParams = new ShaderParams();
+            shaderParams.name = "scale";
+            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
+            shaderParams.values = new float[]{1.0f, 1.2f};
+            return shaderParams;
         }
-    }
-
-    @Override // com.baidu.tieba.li0
-    public boolean b(@NonNull Context context, @NonNull pi0 pi0Var, @Nullable Map<String, Object> map, @Nullable ti0 ti0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pi0Var, map, ti0Var)) == null) {
-            super.b(context, pi0Var, map, ti0Var);
-            HashMap<String, String> d = pi0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            String str3 = d.get("ext");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String b = uh0.a().b(str);
-                JSONObject jSONObject = new JSONObject();
-                p11.f(jSONObject, "key", str);
-                p11.f(jSONObject, "message", b);
-                p11.f(jSONObject, "ext", str3);
-                d(ti0Var, pi0Var, jSONObject.toString(), 0, true);
-                return true;
-            }
-            c(ti0Var, pi0Var, 202, false);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (ShaderParams) invokeV.objValue;
     }
 }

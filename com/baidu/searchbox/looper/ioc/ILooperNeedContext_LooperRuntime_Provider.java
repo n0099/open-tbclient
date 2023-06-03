@@ -1,11 +1,11 @@
 package com.baidu.searchbox.looper.ioc;
 
-import com.baidu.tieba.el9;
-import com.baidu.tieba.tj1;
-/* loaded from: classes3.dex */
-public class ILooperNeedContext_LooperRuntime_Provider implements tj1 {
-    @Override // com.baidu.tieba.tj1
+import com.baidu.tieba.cl1;
+import com.baidu.tieba.lr9;
+/* loaded from: classes4.dex */
+public class ILooperNeedContext_LooperRuntime_Provider implements cl1 {
+    @Override // com.baidu.tieba.cl1
     public Object get() {
-        return new el9();
+        return new lr9();
     }
 }

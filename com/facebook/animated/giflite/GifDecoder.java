@@ -17,7 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GifDecoder implements ImageDecoder {
     public static AnimatedDrawableFrameInfo.DisposalMethod translateFrameDisposal(int i) {
         if (i != 2) {

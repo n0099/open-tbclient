@@ -1,6 +1,5 @@
 package com.baidu.searchbox.common.util.crypto.rsa;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -56,10 +55,10 @@ public final class RSAUtil {
     }
 
     public static String getPrivateKey(Map<String, Object> map) throws Exception {
-        return Base64.encode(((Key) map.get("PrivateKey")).getEncoded(), IMAudioTransRequest.CHARSET);
+        return Base64.encode(((Key) map.get("PrivateKey")).getEncoded(), "utf-8");
     }
 
     public static String getPublicKey(Map<String, Object> map) throws UnsupportedEncodingException {
-        return Base64.encode(((Key) map.get("PublicKey")).getEncoded(), IMAudioTransRequest.CHARSET);
+        return Base64.encode(((Key) map.get("PublicKey")).getEncoded(), "utf-8");
     }
 }

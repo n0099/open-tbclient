@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes6.dex */
 public class l35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public xj1<m35> a;
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vj1 b = vj1.b();
-            this.a = b;
-            b.a(new n35());
-        }
-    }
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
 
     public l35() {
         Interceptable interceptable = $ic;
@@ -31,9 +26,21 @@ public class l35 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a();
+    }
+
+    public void a(NewsInfo newsInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, newsInfo) != null) || newsInfo == null) {
+            return;
+        }
+        this.a = newsInfo.news_link;
+        this.b = newsInfo.summary;
+        newsInfo.position.intValue();
+        this.c = newsInfo.news_type.intValue();
+        this.d = newsInfo.news_icon;
+        this.e = newsInfo.subtitle;
+        this.f = newsInfo.button_text;
     }
 }

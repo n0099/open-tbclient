@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 /* loaded from: classes5.dex */
-public interface g03<K, V> {
-    boolean a(@NonNull K k);
+public interface g03 {
+    Point a(Context context, Bitmap bitmap) throws Exception;
+
+    Bitmap decodeRegion(Rect rect, int i);
+
+    Point init(Context context, Uri uri) throws Exception;
+
+    boolean isReady();
+
+    void recycle();
 }

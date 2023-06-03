@@ -1,246 +1,261 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tieba.k83;
-import com.baidu.tieba.p82;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class p63 extends db3 {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public final class p63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static volatile p63 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, q63> a;
+    public HashMap<String, q63> b;
+    public HashMap<String, q63> c;
 
-    /* loaded from: classes6.dex */
-    public static final class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-564356034, "Lcom/baidu/tieba/p63$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-564356034, "Lcom/baidu/tieba/p63$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public final void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a implements i63 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ Context d;
-
-        public a(String str, p63 p63Var, g93 g93Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, p63Var, g93Var, unitedSchemeEntity, callbackHandler, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = context;
-        }
-
-        @Override // com.baidu.tieba.i63
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.i63
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013948, "Lcom/baidu/tieba/p63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948013948, "Lcom/baidu/tieba/p63;");
-                return;
-            }
-        }
-        c = qp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p63(da3 dispatcher) {
-        super(dispatcher, "/swanAPI/community/openCommunityEditor");
+    public p63() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
+        c();
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public static p63 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, g93Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (g93Var != null) {
-                if (g93Var.n0()) {
-                    if (c) {
-                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (p63.class) {
+                    if (d == null) {
+                        d = new p63();
                     }
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
                 }
-                tu2 U = tu2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                p82 V = U.V();
-                if (V != null && (V.m() instanceof k63)) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-                JSONObject d = gm3.d(entity.getParam("params"));
-                Intrinsics.checkNotNullExpressionValue(d, "SwanAppJSONUtils.parseString(params)");
-                String optString = d.optString("cb");
-                if (optString != null && optString.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "调起参数:" + d);
-                }
-                a aVar = new a(optString, this, g93Var, entity, callbackHandler, context);
-                PublishParams a2 = j63.a(d);
-                if (a2 != null) {
-                    k63 k63Var = new k63();
-                    k63Var.G3(aVar);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("params", a2);
-                    k63Var.l1(bundle);
-                    tu2 controller = tu2.U();
-                    Intrinsics.checkNotNullExpressionValue(controller, "controller");
-                    p82 V2 = controller.V();
-                    if (V2 != null) {
-                        p82.b i = V2.i("navigateTo");
-                        i.n(p82.g, p82.i);
-                        i.j(k63Var);
-                        i.a();
-                        UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "解析调起参数失败");
-                }
-                j(context);
-                return false;
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
-            return false;
+            return d;
         }
-        return invokeLLLL.booleanValue;
+        return (p63) invokeV.objValue;
     }
 
-    public final void j(Context context) {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            k83.a aVar = new k83.a(context);
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f14b9);
-            aVar.v(R.string.obfuscated_res_0x7f0f14bd);
-            aVar.O(R.string.obfuscated_res_0x7f0f0144, b.a);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (p63.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
+                }
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
+            }
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, q63> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<String, q63> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, q63> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
+            }
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c == 2) {
+                    un3.f.update((tn3<Long>) Long.valueOf(j));
+                    return;
+                }
+                return;
+            }
+            un3.e.update((tn3<Long>) Long.valueOf(j));
+            return;
+        }
+        un3.d.update((tn3<Long>) Long.valueOf(j));
+    }
+
+    public void d(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
+            c();
+            char c = 65535;
+            switch (str2.hashCode()) {
+                case -1880922749:
+                    if (str2.equals("pageUpdateEnd")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -964566145:
+                    if (str2.equals("pageSwitchStart")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -410083667:
+                    if (str2.equals("pageInitRenderStart")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 4028902:
+                    if (str2.equals("pageInitRenderEnd")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 627578634:
+                    if (str2.equals("pageUpdateStart")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1719651128:
+                    if (str2.equals("pageSwitchEnd")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0 && c != 1 && c != 2) {
+                if (c == 3 || c == 4 || c == 5) {
+                    g(str, str2, j);
+                    return;
+                }
+                return;
+            }
+            h(str, str2, j);
+        }
+    }
+
+    public final void g(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            q63 q63Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -1880922749) {
+                if (hashCode != 4028902) {
+                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                        c = 0;
+                    }
+                } else if (str2.equals("pageInitRenderEnd")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageUpdateEnd")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        q63Var = this.c.remove(str);
+                    }
+                } else {
+                    q63Var = this.b.remove(str);
+                }
+            } else {
+                q63Var = this.a.remove(str);
+            }
+            if (q63Var == null) {
+                return;
+            }
+            q63Var.b(j);
+            a(q63Var.getType(), q63Var.a());
+        }
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            q63 q63Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -964566145) {
+                if (hashCode != -410083667) {
+                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                        c = 2;
+                    }
+                } else if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageSwitchStart")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2 && (q63Var = this.c.get(str)) == null) {
+                        q63Var = new o63();
+                        this.c.put(str, q63Var);
+                    }
+                } else {
+                    q63Var = this.b.get(str);
+                    if (q63Var == null) {
+                        q63Var = new m63();
+                        this.b.put(str, q63Var);
+                    }
+                }
+            } else {
+                q63Var = this.a.get(str);
+                if (q63Var == null) {
+                    q63Var = new n63();
+                    this.a.put(str, q63Var);
+                }
+            }
+            if (q63Var != null) {
+                q63Var.c(j);
+            }
         }
     }
 }

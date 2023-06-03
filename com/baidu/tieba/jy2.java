@@ -1,81 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jy2 extends iy2 {
+public class jy2 extends ky2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] A;
+    public ArrayList<ry2> z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899558, "Lcom/baidu/tieba/jy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947899558, "Lcom/baidu/tieba/jy2;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jy2(String str) {
-        super(str);
+    public jy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.baidu.tieba.iy2
-    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ky2, com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
-            g62.i("video", "remove, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
-            d(yx2Var, ay2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(yx2 yx2Var, ay2 ay2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yx2Var, ay2Var, unitedSchemeEntity, callbackHandler) == null) {
-            v42 a = t52.a(ay2Var);
-            if (a != null) {
-                a.B();
-            } else {
-                z52.a("VideoPlayerAction", "remove with a null component");
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    ry2 ry2Var = new ry2();
+                    ry2Var.a(jSONObject2);
+                    if (ry2Var.isValid()) {
+                        this.z.add(ry2Var);
+                    }
+                }
             }
-            yx2Var.onDestroy();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = pp3.g(jSONArray.optInt(i2));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<ry2> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdvertisementOption implements Parcelable {
     public static final String ADVERTISEMENT_OPTION = "ado";
     public static final String AD_INSTALL_PACKAGE = "aip";

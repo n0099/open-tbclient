@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.d19;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.lr4;
-import com.baidu.tieba.mr4;
-import com.baidu.tieba.mx8;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.p19;
+import com.baidu.tieba.a85;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.du4;
+import com.baidu.tieba.eu4;
+import com.baidu.tieba.g79;
+import com.baidu.tieba.j39;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.un;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.s79;
+import com.baidu.tieba.w55;
+import com.baidu.tieba.x55;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,10 +49,10 @@ public class PbActivity extends AbsPbActivity {
     public String z;
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int G1() {
+    public int F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d075b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d076a : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -76,7 +76,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements un {
+    public class a implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -103,7 +103,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.un
+        @Override // com.baidu.tieba.yn
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -113,7 +113,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements un {
+    public class b implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -140,7 +140,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.un
+        @Override // com.baidu.tieba.yn
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -164,7 +164,7 @@ public class PbActivity extends AbsPbActivity {
         }
         this.u = false;
         this.v = false;
-        this.w = PriorityOrganizer.n();
+        this.w = PriorityOrganizer.m();
         this.x = new VideoFragmentController();
         this.y = -1;
         this.z = null;
@@ -174,10 +174,10 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.y >= 0) {
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), this.y);
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), this.y);
             }
             if (this.z != null) {
-                o65.m().B(o65.q("key_reaction_guide_show_pb_strategy"), this.z);
+                l95.m().B(l95.q("key_reaction_guide_show_pb_strategy"), this.z);
             }
         }
     }
@@ -189,10 +189,10 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.v = true;
-            a35.o(this, z25.o);
+            x55.o(this, w55.o);
             if (a2()) {
                 this.x.o(true);
-                mr4.w().Q(lr4.c0, this.x.d().c());
+                eu4.w().Q(du4.c0, this.x.d().c());
             }
         }
     }
@@ -224,36 +224,36 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void D1(mx8 mx8Var) {
+    public void D1(j39 j39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx8Var) == null) {
-            super.D1(mx8Var);
-            if (this.a != null && b2(mx8Var)) {
-                this.a.u3(mx8Var);
-                this.b.setArguments(this.x.g(mx8Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j39Var) == null) {
+            super.D1(j39Var);
+            if (this.a != null && b2(j39Var)) {
+                this.a.u3(j39Var);
+                this.b.setArguments(this.x.g(j39Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String I1(mx8 mx8Var) {
+    public String I1(j39 j39Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mx8Var)) == null) {
-            if (mx8Var != null && mx8Var.v0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j39Var)) == null) {
+            if (j39Var != null && j39Var.w0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.I1(mx8Var);
+            return super.I1(j39Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean b2(mx8 mx8Var) {
+    public final boolean b2(j39 j39Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, mx8Var)) == null) {
-            return "video_pb_fragment_tag".equals(I1(mx8Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, j39Var)) == null) {
+            return "video_pb_fragment_tag".equals(I1(j39Var));
         }
         return invokeL.booleanValue;
     }
@@ -287,7 +287,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new d19(this));
+            registerListener(new g79(this));
             X1();
         }
     }
@@ -307,7 +307,7 @@ public class PbActivity extends AbsPbActivity {
                 z = false;
             }
             String str2 = "";
-            String s = o65.m().s(o65.q("key_reaction_guide_show_pb_strategy"), "");
+            String s = l95.m().s(l95.q("key_reaction_guide_show_pb_strategy"), "");
             String[] split = s.split(",");
             int length = split.length;
             int i = 0;
@@ -338,51 +338,51 @@ public class PbActivity extends AbsPbActivity {
                 split = strArr;
             }
             String str5 = s;
-            this.y = o65.m().n(o65.q("key_reaction_guide_show_number_pb"), 0);
-            this.z = o65.m().s(o65.q("key_reaction_guide_show_pb_strategy"), str2);
+            this.y = l95.m().n(l95.q("key_reaction_guide_show_number_pb"), 0);
+            this.z = l95.m().s(l95.q("key_reaction_guide_show_pb_strategy"), str2);
             if (i2 == 0) {
                 if (z) {
-                    o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 3);
-                    o65 m = o65.m();
-                    String q = o65.q("key_reaction_guide_show_pb_strategy");
+                    l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 3);
+                    l95 m = l95.m();
+                    String q = l95.q("key_reaction_guide_show_pb_strategy");
                     m.B(q, str5 + "3,");
                     return;
                 }
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 1);
-                o65 m2 = o65.m();
-                String q2 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 1);
+                l95 m2 = l95.m();
+                String q2 = l95.q("key_reaction_guide_show_pb_strategy");
                 m2.B(q2, str5 + "1,");
             } else if (i2 == 1) {
                 if (z) {
-                    o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 3);
-                    o65 m3 = o65.m();
-                    String q3 = o65.q("key_reaction_guide_show_pb_strategy");
+                    l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 3);
+                    l95 m3 = l95.m();
+                    String q3 = l95.q("key_reaction_guide_show_pb_strategy");
                     m3.B(q3, str5 + "3,");
                     return;
                 }
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 2);
-                o65 m4 = o65.m();
-                String q4 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 2);
+                l95 m4 = l95.m();
+                String q4 = l95.q("key_reaction_guide_show_pb_strategy");
                 m4.B(q4, str5 + "2,");
             } else if (i2 == 4) {
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 1);
-                o65 m5 = o65.m();
-                String q5 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 1);
+                l95 m5 = l95.m();
+                String q5 = l95.q("key_reaction_guide_show_pb_strategy");
                 m5.B(q5, str5 + "1,");
             } else if (i2 == 5) {
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 2);
-                o65 m6 = o65.m();
-                String q6 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 2);
+                l95 m6 = l95.m();
+                String q6 = l95.q("key_reaction_guide_show_pb_strategy");
                 m6.B(q6, str5 + "2,");
             } else if (i2 == 3) {
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 3);
-                o65 m7 = o65.m();
-                String q7 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 3);
+                l95 m7 = l95.m();
+                String q7 = l95.q("key_reaction_guide_show_pb_strategy");
                 m7.B(q7, str5 + "3,");
             } else if (i2 == 7) {
-                o65.m().z(o65.q("key_reaction_guide_show_number_pb"), 4);
-                o65 m8 = o65.m();
-                String q8 = o65.q("key_reaction_guide_show_pb_strategy");
+                l95.m().z(l95.q("key_reaction_guide_show_number_pb"), 4);
+                l95 m8 = l95.m();
+                String q8 = l95.q("key_reaction_guide_show_pb_strategy");
                 m8.B(q8, str5 + "4");
             }
         }
@@ -439,7 +439,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
             this.v = false;
-            a35.n(z25.o);
+            x55.n(w55.o);
             if (a2()) {
                 this.x.o(false);
             }
@@ -462,17 +462,17 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (g55.a().c == 1) {
+                if (d85.a().c == 1) {
                     i3 = 8;
                 }
-                if (g55.a().c == 2) {
+                if (d85.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, g55.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, d85.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - H1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, d55.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, a85.e());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -497,9 +497,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void e2(int i, p19 p19Var) {
+    public void e2(int i, s79 s79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, p19Var) == null) && !this.u && K1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, s79Var) == null) && !this.u && K1() != null) {
             int i2 = 1;
             this.u = true;
             if (K1() != null && K1().x1() == 7) {
@@ -510,7 +510,7 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            p19Var.k2(new b(this, i, i2));
+            s79Var.r2(new b(this, i, i2));
         }
     }
 

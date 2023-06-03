@@ -1,5 +1,5 @@
 package com.ss.android.downloadlib.addownload.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     public int a;
     public int b;

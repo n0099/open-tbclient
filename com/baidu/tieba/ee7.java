@@ -1,70 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import androidx.collection.LongSparseArray;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class ee7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ee7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LongSparseArray<LinkedList<String>> a;
 
-    public static List<le7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731538, "Lcom/baidu/tieba/ee7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                le7 le7Var = new le7();
-                if (gameForumSubTab != null) {
-                    le7Var.a = gameForumSubTab.id.intValue();
-                    le7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    le7Var.c = labelDataList;
-                    arrayList.add(le7Var);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947731538, "Lcom/baidu/tieba/ee7;");
+                return;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        b = new ee7();
     }
 
-    public static List<rn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public ee7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            LinkedList linkedList = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                ce7 ce7Var = new ce7();
-                ThreadData threadData = new ThreadData();
-                ce7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    a05 a05Var = new a05();
-                    a05Var.e(threadData.getLegoCard());
-                    linkedList.add(a05Var);
-                } else {
-                    linkedList.add(ce7Var);
-                }
-            }
-            return linkedList;
         }
-        return (List) invokeL.objValue;
+        this.a = new LongSparseArray<>();
+    }
+
+    public static ee7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ee7) invokeV.objValue;
+    }
+
+    public void b(long j) {
+        LinkedList<String> linkedList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (linkedList = this.a.get(j)) != null) {
+            linkedList.clear();
+        }
     }
 }

@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes4.dex */
-public final class bab<E> extends y9b<E> {
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKey;
+/* loaded from: classes5.dex */
+public class bab implements cab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SecretKey a;
 
-    public bab() {
+    public bab(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,55 +31,26 @@ public final class bab<E> extends y9b<E> {
                 return;
             }
         }
-        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
-        f(linkedQueueNode);
-        e(linkedQueueNode);
-        linkedQueueNode.soNext(null);
+        if (str == null || str2 == null || str3 == null || str4 == null) {
+            return;
+        }
+        this.a = eab.a(u9b.b(str), u9b.b(str2), u9b.b(str3), u9b.b(str4), 5000);
     }
 
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cab
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.a == null) {
+                return str;
             }
-            return null;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                e(lvNext);
-                return andNullValue;
+            try {
+                return new String(eab.b(this.a, u9b.b(str)), "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
+                return str2;
             }
-            return null;
         }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                b().soNext(linkedQueueNode);
-                f(linkedQueueNode);
-                return true;
-            }
-            throw new NullPointerException("null elements not allowed");
-        }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

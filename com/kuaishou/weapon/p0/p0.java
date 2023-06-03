@@ -18,6 +18,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,7 +140,7 @@ public class p0 {
                             return a2 ? 1 : 0;
                         case 18:
                             cls = Method.class;
-                            str2 = "invoke";
+                            str2 = DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST;
                             a2 = a(cls, str2, set);
                             return a2 ? 1 : 0;
                         case 19:

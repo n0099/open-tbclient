@@ -1,39 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qf5 extends df5 {
+public class qf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qf5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.item_edit_tool), 35, i);
+    public static void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", str3);
+            statisticItem.param("obj_locate", str4);
+            TiebaStatic.log(statisticItem);
         }
-        this.d = R.drawable.pic_more_connect64;
-        this.h = R.drawable.pic_more_connect64;
-        this.k = false;
-        this.i = false;
-        this.p = new int[]{61};
+    }
+
+    public static void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", str3);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            d(str, null);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (!StringUtils.isNull(str2)) {
+                if ("card".equals(str2)) {
+                    str2 = "1";
+                } else if (String.valueOf(4).equals(str2)) {
+                    str2 = "2";
+                } else if (String.valueOf(26).equals(str2)) {
+                    str2 = "3";
+                }
+                statisticItem.param("obj_type", str2);
+            }
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.videoplay.model;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.video.VideoItemData;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         VideoAttentionPersonListData videoAttentionPersonListData = new VideoAttentionPersonListData();
-                        videoAttentionPersonListData.parseJson(optJSONObject2.optJSONArray("thread_list"), optJSONObject2.optJSONObject("user_info"));
+                        videoAttentionPersonListData.parseJson(optJSONObject2.optJSONArray("thread_list"), optJSONObject2.optJSONObject(SourceConstant.SOURCE_USER_INFO));
                         this.mVideoAttentionPersonListData.add(videoAttentionPersonListData);
                     }
                 }

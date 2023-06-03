@@ -1,15 +1,14 @@
 package kotlinx.coroutines.scheduling;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicLongFieldUpdater;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.locks.LockSupport;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -18,11 +17,13 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
 import kotlin.ranges.RangesKt___RangesKt;
+import kotlinx.coroutines.AbstractTimeSource;
+import kotlinx.coroutines.AbstractTimeSourceKt;
 import kotlinx.coroutines.DebugKt;
 import kotlinx.coroutines.DebugStringsKt;
-import kotlinx.coroutines.TimeSourceKt;
+import kotlinx.coroutines.internal.ResizableAtomicArray;
 import kotlinx.coroutines.internal.Symbol;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b$\n\u0002\u0010\u000e\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\b\u0000\u0018\u0000 ^2\u00020\u00012\u00020\u0002:\u0003^_`B+\u0012\u0006\u0010L\u001a\u00020\n\u0012\u0006\u0010V\u001a\u00020\n\u0012\b\b\u0002\u0010S\u001a\u00020\b\u0012\b\b\u0002\u0010W\u001a\u00020A¢\u0006\u0004\b\\\u0010]J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0018\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\bH\u0086\b¢\u0006\u0004\b\u000b\u0010\fJ\u0018\u0010\r\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\bH\u0082\b¢\u0006\u0004\b\r\u0010\fJ\u000f\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0011\u0010\u0012J#\u0010\u001a\u001a\u00020\u00032\n\u0010\u0015\u001a\u00060\u0013j\u0002`\u00142\u0006\u0010\u0017\u001a\u00020\u0016H\u0000¢\u0006\u0004\b\u0018\u0010\u0019J\u0018\u0010\u001b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\bH\u0082\b¢\u0006\u0004\b\u001b\u0010\fJ\u0015\u0010\u001d\u001a\b\u0018\u00010\u001cR\u00020\u0000H\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u0010\u0010\u001f\u001a\u00020\u000eH\u0082\b¢\u0006\u0004\b\u001f\u0010\u0010J\u0010\u0010 \u001a\u00020\nH\u0082\b¢\u0006\u0004\b \u0010\u0012J-\u0010\"\u001a\u00020\u000e2\n\u0010\u0015\u001a\u00060\u0013j\u0002`\u00142\b\b\u0002\u0010\u0017\u001a\u00020\u00162\b\b\u0002\u0010!\u001a\u00020\u0005¢\u0006\u0004\b\"\u0010#J\u001b\u0010%\u001a\u00020\u000e2\n\u0010$\u001a\u00060\u0013j\u0002`\u0014H\u0016¢\u0006\u0004\b%\u0010&J\u0010\u0010'\u001a\u00020\bH\u0082\b¢\u0006\u0004\b'\u0010(J\u0010\u0010)\u001a\u00020\nH\u0082\b¢\u0006\u0004\b)\u0010\u0012J\u001b\u0010+\u001a\u00020\n2\n\u0010*\u001a\u00060\u001cR\u00020\u0000H\u0002¢\u0006\u0004\b+\u0010,J\u0015\u0010-\u001a\b\u0018\u00010\u001cR\u00020\u0000H\u0002¢\u0006\u0004\b-\u0010\u001eJ\u001b\u00100\u001a\u00020\u00052\n\u0010*\u001a\u00060\u001cR\u00020\u0000H\u0000¢\u0006\u0004\b.\u0010/J+\u00105\u001a\u00020\u000e2\n\u0010*\u001a\u00060\u001cR\u00020\u00002\u0006\u00101\u001a\u00020\n2\u0006\u00102\u001a\u00020\nH\u0000¢\u0006\u0004\b3\u00104J\u0010\u00106\u001a\u00020\bH\u0082\b¢\u0006\u0004\b6\u0010(J\u0015\u00107\u001a\u00020\u000e2\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b7\u00108J\u0015\u0010:\u001a\u00020\u000e2\u0006\u00109\u001a\u00020\b¢\u0006\u0004\b:\u0010;J\u0017\u0010=\u001a\u00020\u000e2\u0006\u0010<\u001a\u00020\u0005H\u0002¢\u0006\u0004\b=\u0010>J\u000f\u0010@\u001a\u00020\u000eH\u0000¢\u0006\u0004\b?\u0010\u0010J\u000f\u0010B\u001a\u00020AH\u0016¢\u0006\u0004\bB\u0010CJ\u0010\u0010D\u001a\u00020\u0005H\u0082\b¢\u0006\u0004\bD\u0010EJ\u0019\u0010F\u001a\u00020\u00052\b\b\u0002\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\bF\u0010GJ\u000f\u0010H\u001a\u00020\u0005H\u0002¢\u0006\u0004\bH\u0010EJ+\u0010I\u001a\u0004\u0018\u00010\u0003*\b\u0018\u00010\u001cR\u00020\u00002\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010!\u001a\u00020\u0005H\u0002¢\u0006\u0004\bI\u0010JR\u0017\u0010\u000b\u001a\u00020\n8Â\u0002@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bK\u0010\u0012R\u0016\u0010L\u001a\u00020\n8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bL\u0010MR\u0017\u0010\u001b\u001a\u00020\n8Â\u0002@\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bN\u0010\u0012R\u0016\u0010P\u001a\u00020O8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bP\u0010QR\u0016\u0010R\u001a\u00020O8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bR\u0010QR\u0016\u0010S\u001a\u00020\b8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bS\u0010TR\u0013\u0010U\u001a\u00020\u00058F@\u0006¢\u0006\u0006\u001a\u0004\bU\u0010ER\u0016\u0010V\u001a\u00020\n8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bV\u0010MR\u0016\u0010W\u001a\u00020A8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bW\u0010XR\"\u0010Z\u001a\u000e\u0012\n\u0012\b\u0018\u00010\u001cR\u00020\u00000Y8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\bZ\u0010[¨\u0006a"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "Ljava/util/concurrent/Executor;", "Ljava/io/Closeable;", "Lkotlinx/coroutines/scheduling/Task;", "task", "", "addToGlobalQueue", "(Lkotlinx/coroutines/scheduling/Task;)Z", "", "state", "", "availableCpuPermits", "(J)I", "blockingTasks", "", "close", "()V", "createNewWorker", "()I", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlinx/coroutines/scheduling/TaskContext;", "taskContext", "createTask$kotlinx_coroutines_core", "(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;)Lkotlinx/coroutines/scheduling/Task;", "createTask", "createdWorkers", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "currentWorker", "()Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "decrementBlockingTasks", "decrementCreatedWorkers", "tailDispatch", StatConstants.VALUE_TYPE_DISPATCH, "(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V", "command", "execute", "(Ljava/lang/Runnable;)V", "incrementBlockingTasks", "()J", "incrementCreatedWorkers", "worker", "parkedWorkersStackNextIndex", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)I", "parkedWorkersStackPop", "parkedWorkersStackPush$kotlinx_coroutines_core", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)Z", "parkedWorkersStackPush", "oldIndex", "newIndex", "parkedWorkersStackTopUpdate$kotlinx_coroutines_core", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;II)V", "parkedWorkersStackTopUpdate", "releaseCpuPermit", "runSafely", "(Lkotlinx/coroutines/scheduling/Task;)V", "timeout", "shutdown", "(J)V", "skipUnpark", "signalBlockingWork", "(Z)V", "signalCpuWork$kotlinx_coroutines_core", "signalCpuWork", "", "toString", "()Ljava/lang/String;", "tryAcquireCpuPermit", "()Z", "tryCreateWorker", "(J)Z", "tryUnpark", "submitToLocalQueue", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;Lkotlinx/coroutines/scheduling/Task;Z)Lkotlinx/coroutines/scheduling/Task;", "getAvailableCpuPermits", "corePoolSize", "I", "getCreatedWorkers", "Lkotlinx/coroutines/scheduling/GlobalQueue;", "globalBlockingQueue", "Lkotlinx/coroutines/scheduling/GlobalQueue;", "globalCpuQueue", "idleWorkerKeepAliveNs", "J", "isTerminated", "maxPoolSize", "schedulerName", "Ljava/lang/String;", "Ljava/util/concurrent/atomic/AtomicReferenceArray;", "workers", "Ljava/util/concurrent/atomic/AtomicReferenceArray;", "<init>", "(IIJLjava/lang/String;)V", "Companion", "Worker", "WorkerState", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b-\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\b\u0000\u0018\u0000 X2\u00020\\2\u00020]:\u0003XYZB+\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u0012\u0006\u0010\u0003\u001a\u00020\u0001\u0012\b\b\u0002\u0010\u0005\u001a\u00020\u0004\u0012\b\b\u0002\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\r\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0018\u0010\u0010\u001a\u00020\u00012\u0006\u0010\u000f\u001a\u00020\u0004H\u0086\b¢\u0006\u0004\b\u0010\u0010\u0011J\u0018\u0010\u0012\u001a\u00020\u00012\u0006\u0010\u000f\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b\u0012\u0010\u0011J\u000f\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J!\u0010\u001d\u001a\u00020\n2\n\u0010\u001a\u001a\u00060\u0018j\u0002`\u00192\u0006\u0010\u001c\u001a\u00020\u001b¢\u0006\u0004\b\u001d\u0010\u001eJ\u0018\u0010\u001f\u001a\u00020\u00012\u0006\u0010\u000f\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b\u001f\u0010\u0011J\u0015\u0010!\u001a\b\u0018\u00010 R\u00020\u0000H\u0002¢\u0006\u0004\b!\u0010\"J\u0010\u0010#\u001a\u00020\u0013H\u0082\b¢\u0006\u0004\b#\u0010\u0015J\u0010\u0010$\u001a\u00020\u0001H\u0082\b¢\u0006\u0004\b$\u0010\u0017J-\u0010&\u001a\u00020\u00132\n\u0010\u001a\u001a\u00060\u0018j\u0002`\u00192\b\b\u0002\u0010\u001c\u001a\u00020\u001b2\b\b\u0002\u0010%\u001a\u00020\f¢\u0006\u0004\b&\u0010'J\u001b\u0010)\u001a\u00020\u00132\n\u0010(\u001a\u00060\u0018j\u0002`\u0019H\u0016¢\u0006\u0004\b)\u0010*J\u0010\u0010+\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b+\u0010,J\u0010\u0010-\u001a\u00020\u0001H\u0082\b¢\u0006\u0004\b-\u0010\u0017J\u001b\u0010/\u001a\u00020\u00012\n\u0010.\u001a\u00060 R\u00020\u0000H\u0002¢\u0006\u0004\b/\u00100J\u0015\u00101\u001a\b\u0018\u00010 R\u00020\u0000H\u0002¢\u0006\u0004\b1\u0010\"J\u0019\u00102\u001a\u00020\f2\n\u0010.\u001a\u00060 R\u00020\u0000¢\u0006\u0004\b2\u00103J)\u00106\u001a\u00020\u00132\n\u0010.\u001a\u00060 R\u00020\u00002\u0006\u00104\u001a\u00020\u00012\u0006\u00105\u001a\u00020\u0001¢\u0006\u0004\b6\u00107J\u0010\u00108\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b8\u0010,J\u0015\u00109\u001a\u00020\u00132\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b9\u0010:J\u0015\u0010<\u001a\u00020\u00132\u0006\u0010;\u001a\u00020\u0004¢\u0006\u0004\b<\u0010=J\u0017\u0010?\u001a\u00020\u00132\u0006\u0010>\u001a\u00020\fH\u0002¢\u0006\u0004\b?\u0010@J\r\u0010A\u001a\u00020\u0013¢\u0006\u0004\bA\u0010\u0015J\u000f\u0010B\u001a\u00020\u0006H\u0016¢\u0006\u0004\bB\u0010CJ\u0010\u0010D\u001a\u00020\fH\u0082\b¢\u0006\u0004\bD\u0010EJ\u0019\u0010F\u001a\u00020\f2\b\b\u0002\u0010\u000f\u001a\u00020\u0004H\u0002¢\u0006\u0004\bF\u0010GJ\u000f\u0010H\u001a\u00020\fH\u0002¢\u0006\u0004\bH\u0010EJ+\u0010I\u001a\u0004\u0018\u00010\n*\b\u0018\u00010 R\u00020\u00002\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010%\u001a\u00020\fH\u0002¢\u0006\u0004\bI\u0010JR\u0015\u0010\u0010\u001a\u00020\u00018Â\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bK\u0010\u0017R\u0014\u0010\u0002\u001a\u00020\u00018\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0002\u0010LR\u0015\u0010\u001f\u001a\u00020\u00018Â\u0002X\u0082\u0004¢\u0006\u0006\u001a\u0004\bM\u0010\u0017R\u0014\u0010O\u001a\u00020N8\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\bO\u0010PR\u0014\u0010Q\u001a\u00020N8\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\bQ\u0010PR\u0014\u0010\u0005\u001a\u00020\u00048\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0005\u0010RR\u0011\u0010S\u001a\u00020\f8F¢\u0006\u0006\u001a\u0004\bS\u0010ER\u0014\u0010\u0003\u001a\u00020\u00018\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010LR\u0014\u0010\u0007\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0007\u0010TR\u001e\u0010V\u001a\f\u0012\b\u0012\u00060 R\u00020\u00000U8\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\bV\u0010W¨\u0006["}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "", "corePoolSize", "maxPoolSize", "", "idleWorkerKeepAliveNs", "", "schedulerName", "<init>", "(IIJLjava/lang/String;)V", "Lkotlinx/coroutines/scheduling/Task;", DownloadStatisticConstants.UBC_VALUE_TASK, "", "addToGlobalQueue", "(Lkotlinx/coroutines/scheduling/Task;)Z", "state", "availableCpuPermits", "(J)I", "blockingTasks", "", "close", "()V", "createNewWorker", "()I", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlinx/coroutines/scheduling/TaskContext;", "taskContext", "createTask", "(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;)Lkotlinx/coroutines/scheduling/Task;", "createdWorkers", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "currentWorker", "()Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "decrementBlockingTasks", "decrementCreatedWorkers", "tailDispatch", "dispatch", "(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V", "command", "execute", "(Ljava/lang/Runnable;)V", "incrementBlockingTasks", "()J", "incrementCreatedWorkers", "worker", "parkedWorkersStackNextIndex", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)I", "parkedWorkersStackPop", "parkedWorkersStackPush", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;)Z", "oldIndex", "newIndex", "parkedWorkersStackTopUpdate", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;II)V", "releaseCpuPermit", "runSafely", "(Lkotlinx/coroutines/scheduling/Task;)V", "timeout", "shutdown", "(J)V", "skipUnpark", "signalBlockingWork", "(Z)V", "signalCpuWork", "toString", "()Ljava/lang/String;", "tryAcquireCpuPermit", "()Z", "tryCreateWorker", "(J)Z", "tryUnpark", "submitToLocalQueue", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;Lkotlinx/coroutines/scheduling/Task;Z)Lkotlinx/coroutines/scheduling/Task;", "getAvailableCpuPermits", "I", "getCreatedWorkers", "Lkotlinx/coroutines/scheduling/GlobalQueue;", "globalBlockingQueue", "Lkotlinx/coroutines/scheduling/GlobalQueue;", "globalCpuQueue", "J", "isTerminated", "Ljava/lang/String;", "Lkotlinx/coroutines/internal/ResizableAtomicArray;", "workers", "Lkotlinx/coroutines/internal/ResizableAtomicArray;", "Companion", "Worker", "WorkerState", "kotlinx-coroutines-core", "Ljava/util/concurrent/Executor;", "Ljava/io/Closeable;"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class CoroutineScheduler implements Executor, Closeable {
     public static final long BLOCKING_MASK = 4398044413952L;
@@ -38,8 +39,8 @@ public final class CoroutineScheduler implements Executor, Closeable {
     public static final long PARKED_VERSION_INC = 2097152;
     public static final long PARKED_VERSION_MASK = -2097152;
     public static final int TERMINATED = 1;
-    public volatile int _isTerminated;
-    public volatile long controlState;
+    public volatile /* synthetic */ int _isTerminated;
+    public volatile /* synthetic */ long controlState;
     @JvmField
     public final int corePoolSize;
     @JvmField
@@ -50,35 +51,35 @@ public final class CoroutineScheduler implements Executor, Closeable {
     public final long idleWorkerKeepAliveNs;
     @JvmField
     public final int maxPoolSize;
-    public volatile long parkedWorkersStack;
+    public volatile /* synthetic */ long parkedWorkersStack;
     @JvmField
     public final String schedulerName;
     @JvmField
-    public final AtomicReferenceArray<Worker> workers;
+    public final ResizableAtomicArray<Worker> workers;
     public static final Companion Companion = new Companion(null);
     @JvmField
     public static final Symbol NOT_IN_STACK = new Symbol("NOT_IN_STACK");
-    public static final AtomicLongFieldUpdater parkedWorkersStack$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "parkedWorkersStack");
-    public static final AtomicLongFieldUpdater controlState$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "controlState");
-    public static final AtomicIntegerFieldUpdater _isTerminated$FU = AtomicIntegerFieldUpdater.newUpdater(CoroutineScheduler.class, "_isTerminated");
+    public static final /* synthetic */ AtomicLongFieldUpdater parkedWorkersStack$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "parkedWorkersStack");
+    public static final /* synthetic */ AtomicLongFieldUpdater controlState$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "controlState");
+    public static final /* synthetic */ AtomicIntegerFieldUpdater _isTerminated$FU = AtomicIntegerFieldUpdater.newUpdater(CoroutineScheduler.class, "_isTerminated");
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
-    public final /* synthetic */ class WhenMappings {
+    public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
         static {
             int[] iArr = new int[WorkerState.values().length];
-            $EnumSwitchMapping$0 = iArr;
             iArr[WorkerState.PARKING.ordinal()] = 1;
-            $EnumSwitchMapping$0[WorkerState.BLOCKING.ordinal()] = 2;
-            $EnumSwitchMapping$0[WorkerState.CPU_ACQUIRED.ordinal()] = 3;
-            $EnumSwitchMapping$0[WorkerState.DORMANT.ordinal()] = 4;
-            $EnumSwitchMapping$0[WorkerState.TERMINATED.ordinal()] = 5;
+            iArr[WorkerState.BLOCKING.ordinal()] = 2;
+            iArr[WorkerState.CPU_ACQUIRED.ordinal()] = 3;
+            iArr[WorkerState.DORMANT.ordinal()] = 4;
+            iArr[WorkerState.TERMINATED.ordinal()] = 5;
+            $EnumSwitchMapping$0 = iArr;
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007j\u0002\b\b¨\u0006\t"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "CPU_ACQUIRED", "BLOCKING", "PARKING", "DORMANT", "TERMINATED", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", "", "(Ljava/lang/String;I)V", "CPU_ACQUIRED", "BLOCKING", "PARKING", "DORMANT", "TERMINATED", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public enum WorkerState {
         CPU_ACQUIRED,
@@ -92,8 +93,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return (int) ((j & BLOCKING_MASK) >> 21);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final int createdWorkers(long j) {
+    private final int createdWorkers(long j) {
         return (int) (j & 2097151);
     }
 
@@ -101,21 +101,21 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return (int) ((j & CPU_PERMITS_MASK) >> 42);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00048\u0000@\u0000X\u0080T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0006R\u0016\u0010\f\u001a\u00020\u00048\u0000@\u0000X\u0080T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\u000e\u001a\u00020\r8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0010\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0006R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0012\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0006¨\u0006\u0017"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$Companion;", "", "BLOCKING_MASK", "J", "", "BLOCKING_SHIFT", "I", "CLAIMED", "CPU_PERMITS_MASK", "CPU_PERMITS_SHIFT", "CREATED_MASK", "MAX_SUPPORTED_POOL_SIZE", "MIN_SUPPORTED_POOL_SIZE", "Lkotlinx/coroutines/internal/Symbol;", "NOT_IN_STACK", "Lkotlinx/coroutines/internal/Symbol;", "PARKED", "PARKED_INDEX_MASK", "PARKED_VERSION_INC", "PARKED_VERSION_MASK", "TERMINATED", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0006X\u0080T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0006X\u0080T¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u00020\u000e8\u0006X\u0087\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0014"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$Companion;", "", "()V", "BLOCKING_MASK", "", "BLOCKING_SHIFT", "", "CLAIMED", "CPU_PERMITS_MASK", "CPU_PERMITS_SHIFT", "CREATED_MASK", "MAX_SUPPORTED_POOL_SIZE", "MIN_SUPPORTED_POOL_SIZE", "NOT_IN_STACK", "Lkotlinx/coroutines/internal/Symbol;", "PARKED", "PARKED_INDEX_MASK", "PARKED_VERSION_INC", "PARKED_VERSION_MASK", "TERMINATED", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class Companion {
-        public Companion() {
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
+
+        public Companion() {
+        }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\n\b\u0080\u0004\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010)\u001a\u00020\u0002¢\u0006\u0004\bF\u0010GB\t\b\u0002¢\u0006\u0004\bF\u0010HJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\n\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\u000e\u001a\u0004\u0018\u00010\b2\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0010\u001a\u0004\u0018\u00010\b2\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u0010\u0010\u000fJ\u0017\u0010\u0012\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0012\u0010\u0006J\u000f\u0010\u0013\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0018\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u0002H\u0000¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0019\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\u0011\u0010\u001b\u001a\u0004\u0018\u00010\bH\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001d\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001d\u0010\u001aJ\u000f\u0010\u001e\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u001e\u0010\u001aJ\u000f\u0010\u001f\u001a\u00020\fH\u0002¢\u0006\u0004\b\u001f\u0010\u0014J\u000f\u0010 \u001a\u00020\u0004H\u0002¢\u0006\u0004\b \u0010\u001aJ\u0017\u0010%\u001a\u00020\f2\u0006\u0010\"\u001a\u00020!H\u0000¢\u0006\u0004\b#\u0010$J\u0019\u0010'\u001a\u0004\u0018\u00010\b2\u0006\u0010&\u001a\u00020\fH\u0002¢\u0006\u0004\b'\u0010\u000fJ\u000f\u0010(\u001a\u00020\u0004H\u0002¢\u0006\u0004\b(\u0010\u001aR*\u0010*\u001a\u00020\u00022\u0006\u0010)\u001a\u00020\u00028\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b*\u0010+\u001a\u0004\b,\u0010-\"\u0004\b.\u0010\u0006R\u0016\u00100\u001a\u00020/8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\f8\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00106R$\u00108\u001a\u0004\u0018\u0001078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b8\u00109\u001a\u0004\b:\u0010;\"\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010+R\u0014\u0010B\u001a\u00020?8Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b@\u0010AR\u0016\u0010C\u001a\u00020!8\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010E\u001a\u0002048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u00106¨\u0006I"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "Ljava/lang/Thread;", "", "taskMode", "", "afterTask", "(I)V", "beforeTask", "Lkotlinx/coroutines/scheduling/Task;", "task", "executeTask", "(Lkotlinx/coroutines/scheduling/Task;)V", "", "scanLocalQueue", "findAnyTask", "(Z)Lkotlinx/coroutines/scheduling/Task;", "findTask", "mode", "idleReset", "inStack", "()Z", "upperBound", "nextInt$kotlinx_coroutines_core", "(I)I", "nextInt", "park", "()V", "pollGlobalQueues", "()Lkotlinx/coroutines/scheduling/Task;", "run", "runWorker", "tryAcquireCpuPermit", "tryPark", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", "newState", "tryReleaseCpu$kotlinx_coroutines_core", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;)Z", "tryReleaseCpu", "blockingOnly", "trySteal", "tryTerminateWorker", "index", "indexInArray", "I", "getIndexInArray", "()I", "setIndexInArray", "Lkotlinx/coroutines/scheduling/WorkQueue;", "localQueue", "Lkotlinx/coroutines/scheduling/WorkQueue;", "mayHaveLocalTasks", "Z", "", "minDelayUntilStealableTaskNs", "J", "", "nextParkedWorker", "Ljava/lang/Object;", "getNextParkedWorker", "()Ljava/lang/Object;", "setNextParkedWorker", "(Ljava/lang/Object;)V", "rngState", "Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "getScheduler", "()Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "scheduler", "state", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", "terminationDeadline", "<init>", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler;I)V", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\b\u0080\u0004\u0018\u00002\u00020GB\u0011\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004B\t\b\u0002¢\u0006\u0004\b\u0003\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\n\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\n\u0010\tJ\u0017\u0010\r\u001a\u00020\u00072\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0013\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0013\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0015\u0010\tJ\u000f\u0010\u0016\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u0019\u001a\u00020\u00012\u0006\u0010\u0018\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0011\u0010\u001d\u001a\u0004\u0018\u00010\u000bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u001f\u0010\u001cJ\u000f\u0010 \u001a\u00020\u0007H\u0002¢\u0006\u0004\b \u0010\u001cJ\u000f\u0010!\u001a\u00020\u000fH\u0002¢\u0006\u0004\b!\u0010\u0017J\u000f\u0010\"\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\"\u0010\u001cJ\u0015\u0010%\u001a\u00020\u000f2\u0006\u0010$\u001a\u00020#¢\u0006\u0004\b%\u0010&J\u0019\u0010(\u001a\u0004\u0018\u00010\u000b2\u0006\u0010'\u001a\u00020\u000fH\u0002¢\u0006\u0004\b(\u0010\u0012J\u000f\u0010)\u001a\u00020\u0007H\u0002¢\u0006\u0004\b)\u0010\u001cR*\u0010*\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00018\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b*\u0010+\u001a\u0004\b,\u0010-\"\u0004\b.\u0010\tR\u0014\u00100\u001a\u00020/8\u0006X\u0087\u0004¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u000f8\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00106R$\u00108\u001a\u0004\u0018\u0001078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b8\u00109\u001a\u0004\b:\u0010;\"\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010+R\u0012\u0010B\u001a\u00020?8Æ\u0002¢\u0006\u0006\u001a\u0004\b@\u0010AR\u0016\u0010C\u001a\u00020#8\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010E\u001a\u0002048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u00106¨\u0006F"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$Worker;", "", "index", "<init>", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler;I)V", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler;)V", "taskMode", "", "afterTask", "(I)V", "beforeTask", "Lkotlinx/coroutines/scheduling/Task;", DownloadStatisticConstants.UBC_VALUE_TASK, "executeTask", "(Lkotlinx/coroutines/scheduling/Task;)V", "", "scanLocalQueue", "findAnyTask", "(Z)Lkotlinx/coroutines/scheduling/Task;", "findTask", "mode", "idleReset", "inStack", "()Z", "upperBound", "nextInt", "(I)I", "park", "()V", "pollGlobalQueues", "()Lkotlinx/coroutines/scheduling/Task;", "run", "runWorker", "tryAcquireCpuPermit", "tryPark", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", GameAssistConstKt.KEY_DISK_NEW_STATE, "tryReleaseCpu", "(Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;)Z", "blockingOnly", "trySteal", "tryTerminateWorker", "indexInArray", "I", "getIndexInArray", "()I", "setIndexInArray", "Lkotlinx/coroutines/scheduling/WorkQueue;", "localQueue", "Lkotlinx/coroutines/scheduling/WorkQueue;", "mayHaveLocalTasks", "Z", "", "minDelayUntilStealableTaskNs", "J", "", "nextParkedWorker", "Ljava/lang/Object;", "getNextParkedWorker", "()Ljava/lang/Object;", "setNextParkedWorker", "(Ljava/lang/Object;)V", "rngState", "Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "getScheduler", "()Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "scheduler", "state", "Lkotlinx/coroutines/scheduling/CoroutineScheduler$WorkerState;", "terminationDeadline", "kotlinx-coroutines-core", "Ljava/lang/Thread;"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public final class Worker extends Thread {
-        public static final AtomicIntegerFieldUpdater workerCtl$FU = AtomicIntegerFieldUpdater.newUpdater(Worker.class, "workerCtl");
+        public static final /* synthetic */ AtomicIntegerFieldUpdater workerCtl$FU = AtomicIntegerFieldUpdater.newUpdater(Worker.class, "workerCtl");
         public volatile int indexInArray;
         @JvmField
         public final WorkQueue localQueue;
@@ -127,7 +127,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         @JvmField
         public WorkerState state;
         public long terminationDeadline;
-        public volatile int workerCtl;
+        public volatile /* synthetic */ int workerCtl;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public Worker() {
@@ -162,8 +162,8 @@ public final class CoroutineScheduler implements Executor, Closeable {
         }
 
         private final void beforeTask(int i) {
-            if (i != 0 && tryReleaseCpu$kotlinx_coroutines_core(WorkerState.BLOCKING)) {
-                CoroutineScheduler.this.signalCpuWork$kotlinx_coroutines_core();
+            if (i != 0 && tryReleaseCpu(WorkerState.BLOCKING)) {
+                CoroutineScheduler.this.signalCpuWork();
             }
         }
 
@@ -191,7 +191,26 @@ public final class CoroutineScheduler implements Executor, Closeable {
             }
         }
 
-        public final int nextInt$kotlinx_coroutines_core(int i) {
+        public final Task findTask(boolean z) {
+            Task removeFirstOrNull;
+            if (tryAcquireCpuPermit()) {
+                return findAnyTask(z);
+            }
+            if (z) {
+                removeFirstOrNull = this.localQueue.poll();
+                if (removeFirstOrNull == null) {
+                    removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+                }
+            } else {
+                removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+            }
+            if (removeFirstOrNull == null) {
+                return trySteal(true);
+            }
+            return removeFirstOrNull;
+        }
+
+        public final int nextInt(int i) {
             int i2 = this.rngState;
             int i3 = i2 ^ (i2 << 13);
             int i4 = i3 ^ (i3 >> 17);
@@ -223,7 +242,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
             this.nextParkedWorker = obj;
         }
 
-        public final boolean tryReleaseCpu$kotlinx_coroutines_core(WorkerState workerState) {
+        public final boolean tryReleaseCpu(WorkerState workerState) {
             boolean z;
             WorkerState workerState2 = this.state;
             if (workerState2 == WorkerState.CPU_ACQUIRED) {
@@ -240,7 +259,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
             return z;
         }
 
-        public Worker(CoroutineScheduler coroutineScheduler, int i) {
+        public Worker(int i) {
             this();
             setIndexInArray(i);
         }
@@ -250,7 +269,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
             Task pollGlobalQueues;
             Task pollGlobalQueues2;
             if (z) {
-                if (nextInt$kotlinx_coroutines_core(CoroutineScheduler.this.corePoolSize * 2) == 0) {
+                if (nextInt(CoroutineScheduler.this.corePoolSize * 2) == 0) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -259,11 +278,12 @@ public final class CoroutineScheduler implements Executor, Closeable {
                     return pollGlobalQueues2;
                 }
                 Task poll = this.localQueue.poll();
-                if (poll != null) {
+                if (poll == null) {
+                    if (!z2 && (pollGlobalQueues = pollGlobalQueues()) != null) {
+                        return pollGlobalQueues;
+                    }
+                } else {
                     return poll;
-                }
-                if (!z2 && (pollGlobalQueues = pollGlobalQueues()) != null) {
-                    return pollGlobalQueues;
                 }
             } else {
                 Task pollGlobalQueues3 = pollGlobalQueues();
@@ -272,25 +292,6 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 }
             }
             return trySteal(false);
-        }
-
-        public final Task findTask(boolean z) {
-            Task removeFirstOrNull;
-            if (tryAcquireCpuPermit()) {
-                return findAnyTask(z);
-            }
-            if (z) {
-                removeFirstOrNull = this.localQueue.poll();
-                if (removeFirstOrNull == null) {
-                    removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
-                }
-            } else {
-                removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
-            }
-            if (removeFirstOrNull == null) {
-                return trySteal(true);
-            }
-            return removeFirstOrNull;
         }
 
         private final boolean inStack() {
@@ -329,18 +330,18 @@ public final class CoroutineScheduler implements Executor, Closeable {
         }
 
         private final Task pollGlobalQueues() {
-            if (nextInt$kotlinx_coroutines_core(2) == 0) {
+            if (nextInt(2) == 0) {
                 Task removeFirstOrNull = CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
-                if (removeFirstOrNull != null) {
-                    return removeFirstOrNull;
+                if (removeFirstOrNull == null) {
+                    return CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
                 }
-                return CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+                return removeFirstOrNull;
             }
             Task removeFirstOrNull2 = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
-            if (removeFirstOrNull2 != null) {
-                return removeFirstOrNull2;
+            if (removeFirstOrNull2 == null) {
+                return CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
             }
-            return CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
+            return removeFirstOrNull2;
         }
 
         private final void runWorker() {
@@ -357,7 +358,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                             if (!z) {
                                 z = true;
                             } else {
-                                tryReleaseCpu$kotlinx_coroutines_core(WorkerState.PARKING);
+                                tryReleaseCpu(WorkerState.PARKING);
                                 Thread.interrupted();
                                 LockSupport.parkNanos(this.minDelayUntilStealableTaskNs);
                                 this.minDelayUntilStealableTaskNs = 0L;
@@ -368,7 +369,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                     }
                 }
             }
-            tryReleaseCpu$kotlinx_coroutines_core(WorkerState.TERMINATED);
+            tryReleaseCpu(WorkerState.TERMINATED);
         }
 
         private final boolean tryAcquireCpuPermit() {
@@ -397,7 +398,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         private final void tryPark() {
             boolean z;
             if (!inStack()) {
-                CoroutineScheduler.this.parkedWorkersStackPush$kotlinx_coroutines_core(this);
+                CoroutineScheduler.this.parkedWorkersStackPush(this);
                 return;
             }
             if (DebugKt.getASSERTIONS_ENABLED()) {
@@ -411,10 +412,40 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 }
             }
             this.workerCtl = -1;
-            while (inStack() && !CoroutineScheduler.this.isTerminated() && this.state != WorkerState.TERMINATED) {
-                tryReleaseCpu$kotlinx_coroutines_core(WorkerState.PARKING);
+            while (inStack() && this.workerCtl == -1 && !CoroutineScheduler.this.isTerminated() && this.state != WorkerState.TERMINATED) {
+                tryReleaseCpu(WorkerState.PARKING);
                 Thread.interrupted();
                 park();
+            }
+        }
+
+        private final void tryTerminateWorker() {
+            CoroutineScheduler coroutineScheduler = CoroutineScheduler.this;
+            synchronized (coroutineScheduler.workers) {
+                if (coroutineScheduler.isTerminated()) {
+                    return;
+                }
+                if (((int) (coroutineScheduler.controlState & 2097151)) <= coroutineScheduler.corePoolSize) {
+                    return;
+                }
+                if (!workerCtl$FU.compareAndSet(this, -1, 1)) {
+                    return;
+                }
+                int indexInArray = getIndexInArray();
+                setIndexInArray(0);
+                coroutineScheduler.parkedWorkersStackTopUpdate(this, indexInArray, 0);
+                int andDecrement = (int) (CoroutineScheduler.controlState$FU.getAndDecrement(coroutineScheduler) & 2097151);
+                if (andDecrement != indexInArray) {
+                    Worker worker = coroutineScheduler.workers.get(andDecrement);
+                    Intrinsics.checkNotNull(worker);
+                    Worker worker2 = worker;
+                    coroutineScheduler.workers.setSynchronized(indexInArray, worker2);
+                    worker2.setIndexInArray(indexInArray);
+                    coroutineScheduler.parkedWorkersStackTopUpdate(worker2, andDecrement, indexInArray);
+                }
+                coroutineScheduler.workers.setSynchronized(andDecrement, null);
+                Unit unit = Unit.INSTANCE;
+                this.state = WorkerState.TERMINATED;
             }
         }
 
@@ -432,18 +463,21 @@ public final class CoroutineScheduler implements Executor, Closeable {
                     throw new AssertionError();
                 }
             }
-            int createdWorkers = CoroutineScheduler.this.getCreatedWorkers();
-            if (createdWorkers < 2) {
+            int i = (int) (CoroutineScheduler.this.controlState & 2097151);
+            if (i < 2) {
                 return null;
             }
-            int nextInt$kotlinx_coroutines_core = nextInt$kotlinx_coroutines_core(createdWorkers);
+            int nextInt = nextInt(i);
+            CoroutineScheduler coroutineScheduler = CoroutineScheduler.this;
             long j = Long.MAX_VALUE;
-            for (int i = 0; i < createdWorkers; i++) {
-                nextInt$kotlinx_coroutines_core++;
-                if (nextInt$kotlinx_coroutines_core > createdWorkers) {
-                    nextInt$kotlinx_coroutines_core = 1;
+            int i2 = 0;
+            while (i2 < i) {
+                i2++;
+                nextInt++;
+                if (nextInt > i) {
+                    nextInt = 1;
                 }
-                Worker worker = CoroutineScheduler.this.workers.get(nextInt$kotlinx_coroutines_core);
+                Worker worker = coroutineScheduler.workers.get(nextInt);
                 if (worker != null && worker != this) {
                     if (DebugKt.getASSERTIONS_ENABLED()) {
                         if (this.localQueue.getSize$kotlinx_coroutines_core() == 0) {
@@ -474,58 +508,27 @@ public final class CoroutineScheduler implements Executor, Closeable {
             this.minDelayUntilStealableTaskNs = j;
             return null;
         }
-
-        private final void tryTerminateWorker() {
-            synchronized (CoroutineScheduler.this.workers) {
-                if (CoroutineScheduler.this.isTerminated()) {
-                    return;
-                }
-                if (CoroutineScheduler.this.getCreatedWorkers() <= CoroutineScheduler.this.corePoolSize) {
-                    return;
-                }
-                if (!workerCtl$FU.compareAndSet(this, -1, 1)) {
-                    return;
-                }
-                int i = this.indexInArray;
-                setIndexInArray(0);
-                CoroutineScheduler.this.parkedWorkersStackTopUpdate$kotlinx_coroutines_core(this, i, 0);
-                int andDecrement = (int) (CoroutineScheduler.controlState$FU.getAndDecrement(CoroutineScheduler.this) & 2097151);
-                if (andDecrement != i) {
-                    Worker worker = CoroutineScheduler.this.workers.get(andDecrement);
-                    if (worker == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    Worker worker2 = worker;
-                    CoroutineScheduler.this.workers.set(i, worker2);
-                    worker2.setIndexInArray(i);
-                    CoroutineScheduler.this.parkedWorkersStackTopUpdate$kotlinx_coroutines_core(worker2, andDecrement, i);
-                }
-                CoroutineScheduler.this.workers.set(andDecrement, null);
-                Unit unit = Unit.INSTANCE;
-                this.state = WorkerState.TERMINATED;
-            }
-        }
     }
 
     private final Worker currentWorker() {
+        Worker worker;
         Thread currentThread = Thread.currentThread();
-        if (!(currentThread instanceof Worker)) {
-            currentThread = null;
+        if (currentThread instanceof Worker) {
+            worker = (Worker) currentThread;
+        } else {
+            worker = null;
         }
-        Worker worker = (Worker) currentThread;
         if (worker == null || !Intrinsics.areEqual(CoroutineScheduler.this, this)) {
             return null;
         }
         return worker;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void decrementBlockingTasks() {
+    private final void decrementBlockingTasks() {
         controlState$FU.addAndGet(this, PARKED_VERSION_MASK);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final int decrementCreatedWorkers() {
+    private final int decrementCreatedWorkers() {
         return (int) (controlState$FU.getAndDecrement(this) & 2097151);
     }
 
@@ -533,8 +536,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return (int) ((this.controlState & CPU_PERMITS_MASK) >> 42);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final int getCreatedWorkers() {
+    private final int getCreatedWorkers() {
         return (int) (this.controlState & 2097151);
     }
 
@@ -546,13 +548,11 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return (int) (controlState$FU.incrementAndGet(this) & 2097151);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final long releaseCpuPermit() {
+    private final long releaseCpuPermit() {
         return controlState$FU.addAndGet(this, 4398046511104L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final boolean tryAcquireCpuPermit() {
+    private final boolean tryAcquireCpuPermit() {
         long j;
         do {
             j = this.controlState;
@@ -580,12 +580,12 @@ public final class CoroutineScheduler implements Executor, Closeable {
         shutdown(10000L);
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
     public final boolean isTerminated() {
         return this._isTerminated;
     }
 
-    public final void signalCpuWork$kotlinx_coroutines_core() {
+    public final void signalCpuWork() {
         if (tryUnpark() || tryCreateWorker$default(this, 0L, 1, null)) {
             return;
         }
@@ -628,7 +628,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                         this.globalCpuQueue = new GlobalQueue();
                         this.globalBlockingQueue = new GlobalQueue();
                         this.parkedWorkersStack = 0L;
-                        this.workers = new AtomicReferenceArray<>(this.maxPoolSize + 1);
+                        this.workers = new ResizableAtomicArray<>(this.corePoolSize + 1);
                         this.controlState = this.corePoolSize << 42;
                         this._isTerminated = 0;
                         return;
@@ -648,23 +648,12 @@ public final class CoroutineScheduler implements Executor, Closeable {
 
     public static /* synthetic */ void dispatch$default(CoroutineScheduler coroutineScheduler, Runnable runnable, TaskContext taskContext, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
-            taskContext = NonBlockingContext.INSTANCE;
+            taskContext = TasksKt.NonBlockingContext;
         }
         if ((i & 4) != 0) {
             z = false;
         }
         coroutineScheduler.dispatch(runnable, taskContext, z);
-    }
-
-    public final Task createTask$kotlinx_coroutines_core(Runnable runnable, TaskContext taskContext) {
-        long nanoTime = TasksKt.schedulerTimeSource.nanoTime();
-        if (runnable instanceof Task) {
-            Task task = (Task) runnable;
-            task.submissionTime = nanoTime;
-            task.taskContext = taskContext;
-            return task;
-        }
-        return new TaskImpl(runnable, nanoTime, taskContext);
     }
 
     private final boolean addToGlobalQueue(Task task) {
@@ -720,7 +709,6 @@ public final class CoroutineScheduler implements Executor, Closeable {
         dispatch$default(this, runnable, null, false, 6, null);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     public final void runSafely(Task task) {
         try {
             task.run();
@@ -728,11 +716,11 @@ public final class CoroutineScheduler implements Executor, Closeable {
             try {
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
-                kotlinx.coroutines.TimeSource timeSource = TimeSourceKt.getTimeSource();
+                AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
                 if (timeSource == null) {
                 }
             } finally {
-                kotlinx.coroutines.TimeSource timeSource2 = TimeSourceKt.getTimeSource();
+                AbstractTimeSource timeSource2 = AbstractTimeSourceKt.getTimeSource();
                 if (timeSource2 != null) {
                     timeSource2.unTrackTask();
                 }
@@ -763,8 +751,8 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 z = false;
             }
             if (z) {
-                Worker worker = new Worker(this, i2);
-                this.workers.set(i2, worker);
+                Worker worker = new Worker(i2);
+                this.workers.setSynchronized(i2, worker);
                 if (i2 == ((int) (2097151 & controlState$FU.incrementAndGet(this)))) {
                     z2 = true;
                 }
@@ -782,15 +770,14 @@ public final class CoroutineScheduler implements Executor, Closeable {
         while (true) {
             long j = this.parkedWorkersStack;
             Worker worker = this.workers.get((int) (2097151 & j));
-            if (worker != null) {
-                long j2 = (2097152 + j) & PARKED_VERSION_MASK;
-                int parkedWorkersStackNextIndex = parkedWorkersStackNextIndex(worker);
-                if (parkedWorkersStackNextIndex >= 0 && parkedWorkersStack$FU.compareAndSet(this, j, parkedWorkersStackNextIndex | j2)) {
-                    worker.setNextParkedWorker(NOT_IN_STACK);
-                    return worker;
-                }
-            } else {
+            if (worker == null) {
                 return null;
+            }
+            long j2 = (2097152 + j) & PARKED_VERSION_MASK;
+            int parkedWorkersStackNextIndex = parkedWorkersStackNextIndex(worker);
+            if (parkedWorkersStackNextIndex >= 0 && parkedWorkersStack$FU.compareAndSet(this, j, parkedWorkersStackNextIndex | j2)) {
+                worker.setNextParkedWorker(NOT_IN_STACK);
+                return worker;
             }
         }
     }
@@ -809,7 +796,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return worker.localQueue.add(task, z);
     }
 
-    public final void parkedWorkersStackTopUpdate$kotlinx_coroutines_core(Worker worker, int i, int i2) {
+    public final void parkedWorkersStackTopUpdate(Worker worker, int i, int i2) {
         while (true) {
             long j = this.parkedWorkersStack;
             int i3 = (int) (2097151 & j);
@@ -834,34 +821,45 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return coroutineScheduler.tryCreateWorker(j);
     }
 
+    public final Task createTask(Runnable runnable, TaskContext taskContext) {
+        long nanoTime = TasksKt.schedulerTimeSource.nanoTime();
+        if (runnable instanceof Task) {
+            Task task = (Task) runnable;
+            task.submissionTime = nanoTime;
+            task.taskContext = taskContext;
+            return task;
+        }
+        return new TaskImpl(runnable, nanoTime, taskContext);
+    }
+
     public final void dispatch(Runnable runnable, TaskContext taskContext, boolean z) {
         boolean z2;
-        kotlinx.coroutines.TimeSource timeSource = TimeSourceKt.getTimeSource();
+        AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
         if (timeSource != null) {
             timeSource.trackTask();
         }
-        Task createTask$kotlinx_coroutines_core = createTask$kotlinx_coroutines_core(runnable, taskContext);
+        Task createTask = createTask(runnable, taskContext);
         Worker currentWorker = currentWorker();
-        Task submitToLocalQueue = submitToLocalQueue(currentWorker, createTask$kotlinx_coroutines_core, z);
+        Task submitToLocalQueue = submitToLocalQueue(currentWorker, createTask, z);
         if (submitToLocalQueue != null && !addToGlobalQueue(submitToLocalQueue)) {
-            throw new RejectedExecutionException(this.schedulerName + " was terminated");
+            throw new RejectedExecutionException(Intrinsics.stringPlus(this.schedulerName, " was terminated"));
         }
         if (z && currentWorker != null) {
             z2 = true;
         } else {
             z2 = false;
         }
-        if (createTask$kotlinx_coroutines_core.taskContext.getTaskMode() == 0) {
+        if (createTask.taskContext.getTaskMode() == 0) {
             if (z2) {
                 return;
             }
-            signalCpuWork$kotlinx_coroutines_core();
+            signalCpuWork();
             return;
         }
         signalBlockingWork(z2);
     }
 
-    public final boolean parkedWorkersStackPush$kotlinx_coroutines_core(Worker worker) {
+    public final boolean parkedWorkersStackPush(Worker worker) {
         long j;
         long j2;
         int indexInArray;
@@ -889,15 +887,9 @@ public final class CoroutineScheduler implements Executor, Closeable {
         return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x006d, code lost:
-        if (r9 != null) goto L40;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final void shutdown(long j) {
         int i;
-        Task removeFirstOrNull;
+        Task findTask;
         boolean z;
         boolean z2 = false;
         if (!_isTerminated$FU.compareAndSet(this, 0, 1)) {
@@ -910,10 +902,9 @@ public final class CoroutineScheduler implements Executor, Closeable {
         if (1 <= i) {
             int i2 = 1;
             while (true) {
+                int i3 = i2 + 1;
                 Worker worker = this.workers.get(i2);
-                if (worker == null) {
-                    Intrinsics.throwNpe();
-                }
+                Intrinsics.checkNotNull(worker);
                 Worker worker2 = worker;
                 if (worker2 != currentWorker) {
                     while (worker2.isAlive()) {
@@ -936,26 +927,24 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 if (i2 == i) {
                     break;
                 }
-                i2++;
+                i2 = i3;
             }
         }
         this.globalBlockingQueue.close();
         this.globalCpuQueue.close();
         while (true) {
-            if (currentWorker != null) {
-                removeFirstOrNull = currentWorker.findTask(true);
+            if (currentWorker == null) {
+                findTask = null;
+            } else {
+                findTask = currentWorker.findTask(true);
             }
-            removeFirstOrNull = this.globalCpuQueue.removeFirstOrNull();
-            if (removeFirstOrNull == null) {
-                removeFirstOrNull = this.globalBlockingQueue.removeFirstOrNull();
-            }
-            if (removeFirstOrNull == null) {
+            if (findTask == null && (findTask = this.globalCpuQueue.removeFirstOrNull()) == null && (findTask = this.globalBlockingQueue.removeFirstOrNull()) == null) {
                 break;
             }
-            runSafely(removeFirstOrNull);
+            runSafely(findTask);
         }
         if (currentWorker != null) {
-            currentWorker.tryReleaseCpu$kotlinx_coroutines_core(WorkerState.TERMINATED);
+            currentWorker.tryReleaseCpu(WorkerState.TERMINATED);
         }
         if (DebugKt.getASSERTIONS_ENABLED()) {
             if (((int) ((this.controlState & CPU_PERMITS_MASK) >> 42)) == this.corePoolSize) {
@@ -969,46 +958,61 @@ public final class CoroutineScheduler implements Executor, Closeable {
         this.controlState = 0L;
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r10v2 int), ('b' char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r10v2 int), ('c' char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r10v2 int), ('d' char)] */
     public String toString() {
         ArrayList arrayList = new ArrayList();
-        int length = this.workers.length();
+        int currentLength = this.workers.currentLength();
         int i = 0;
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
         int i5 = 0;
-        for (int i6 = 1; i6 < length; i6++) {
+        int i6 = 1;
+        while (i6 < currentLength) {
+            int i7 = i6 + 1;
             Worker worker = this.workers.get(i6);
             if (worker != null) {
                 int size$kotlinx_coroutines_core = worker.localQueue.getSize$kotlinx_coroutines_core();
-                int i7 = WhenMappings.$EnumSwitchMapping$0[worker.state.ordinal()];
-                if (i7 != 1) {
-                    if (i7 != 2) {
-                        if (i7 != 3) {
-                            if (i7 != 4) {
-                                if (i7 == 5) {
+                int i8 = WhenMappings.$EnumSwitchMapping$0[worker.state.ordinal()];
+                if (i8 != 1) {
+                    if (i8 != 2) {
+                        if (i8 != 3) {
+                            if (i8 != 4) {
+                                if (i8 == 5) {
                                     i5++;
                                 }
                             } else {
                                 i4++;
                                 if (size$kotlinx_coroutines_core > 0) {
-                                    arrayList.add(String.valueOf(size$kotlinx_coroutines_core) + "d");
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.append(size$kotlinx_coroutines_core);
+                                    sb.append('d');
+                                    arrayList.add(sb.toString());
                                 }
                             }
                         } else {
                             i++;
-                            arrayList.add(String.valueOf(size$kotlinx_coroutines_core) + "c");
+                            StringBuilder sb2 = new StringBuilder();
+                            sb2.append(size$kotlinx_coroutines_core);
+                            sb2.append('c');
+                            arrayList.add(sb2.toString());
                         }
                     } else {
                         i2++;
-                        arrayList.add(String.valueOf(size$kotlinx_coroutines_core) + "b");
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append(size$kotlinx_coroutines_core);
+                        sb3.append('b');
+                        arrayList.add(sb3.toString());
                     }
                 } else {
                     i3++;
                 }
             }
+            i6 = i7;
         }
         long j = this.controlState;
-        return this.schedulerName + '@' + DebugStringsKt.getHexAddress(this) + "[Pool Size {core = " + this.corePoolSize + StringUtil.ARRAY_ELEMENT_SEPARATOR + "max = " + this.maxPoolSize + "}, Worker States {CPU = " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + "blocking = " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "parked = " + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "dormant = " + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "terminated = " + i5 + "}, running workers queues = " + arrayList + StringUtil.ARRAY_ELEMENT_SEPARATOR + "global CPU queue size = " + this.globalCpuQueue.getSize() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "global blocking queue size = " + this.globalBlockingQueue.getSize() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "Control State {created workers= " + ((int) (2097151 & j)) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "blocking tasks = " + ((int) ((BLOCKING_MASK & j) >> 21)) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "CPUs acquired = " + (this.corePoolSize - ((int) ((CPU_PERMITS_MASK & j) >> 42))) + "}]";
+        return this.schedulerName + '@' + DebugStringsKt.getHexAddress(this) + "[Pool Size {core = " + this.corePoolSize + ", max = " + this.maxPoolSize + "}, Worker States {CPU = " + i + ", blocking = " + i2 + ", parked = " + i3 + ", dormant = " + i4 + ", terminated = " + i5 + "}, running workers queues = " + arrayList + ", global CPU queue size = " + this.globalCpuQueue.getSize() + ", global blocking queue size = " + this.globalBlockingQueue.getSize() + ", Control State {created workers= " + ((int) (2097151 & j)) + ", blocking tasks = " + ((int) ((BLOCKING_MASK & j) >> 21)) + ", CPUs acquired = " + (this.corePoolSize - ((int) ((CPU_PERMITS_MASK & j) >> 42))) + "}]";
     }
 }

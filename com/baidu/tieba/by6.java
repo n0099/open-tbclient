@@ -4,12 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class by6 {
+public class by6 extends e25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public zx6 d;
+    public List<ay6> e;
 
     public by6() {
         Interceptable interceptable = $ic;
@@ -24,6 +25,6 @@ public class by6 {
                 return;
             }
         }
-        this.a = -1;
+        d(12);
     }
 }

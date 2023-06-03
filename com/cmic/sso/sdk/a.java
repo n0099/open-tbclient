@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.a.a;
 import com.cmic.sso.sdk.e.c;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class a {
                 return aVar;
             }
             c.a("UmcConfigBean为空", "请核查");
-            return new a.C0543a().a();
+            return new a.C0563a().a();
         }
         return (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }

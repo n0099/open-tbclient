@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -106,7 +105,7 @@ public class ClassConstructorDescriptorImpl extends FunctionDescriptorImpl imple
                         break;
                     case 11:
                     case 14:
-                        objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                        objArr[0] = "visibility";
                         break;
                     case 12:
                         objArr[0] = "typeParameterDescriptors";

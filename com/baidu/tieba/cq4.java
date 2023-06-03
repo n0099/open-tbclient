@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,15 +10,12 @@ public class cq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public static Drawable a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getDrawable(i);
         }
-        return invokeLL.booleanValue;
+        return (Drawable) invokeLI.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -59,7 +58,7 @@ public class PropertySetterDescriptorImpl extends PropertyAccessorDescriptorImpl
                 objArr[0] = "modality";
                 break;
             case 3:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 4:
                 objArr[0] = "kind";

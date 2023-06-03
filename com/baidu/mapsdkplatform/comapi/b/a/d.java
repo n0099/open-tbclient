@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.b.a;
 
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +55,7 @@ public class d implements Runnable {
                         String name = file2.getName();
                         str2 = c.b;
                         if (name.contains(str2)) {
-                            if (!file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION)) {
+                            if (!file2.getName().endsWith(".txt")) {
                                 if (file2.getName().endsWith(".zip") && file2.exists()) {
                                     this.a.a(file2);
                                 }

@@ -3,7 +3,7 @@ package org.apache.commons.logging.impl;
 import java.io.Serializable;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NoOpLog implements Log, Serializable {
     public NoOpLog() {
         throw new RuntimeException("Stub!");

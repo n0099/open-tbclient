@@ -8,10 +8,11 @@ import com.airbnb.lottie.model.animatable.AnimatablePointValue;
 import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.content.RectangleShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class RectangleShapeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", "r", "hd");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", "r", ClarityUrlList.ClarityUrl.KEY_HD);
 
     public static RectangleShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

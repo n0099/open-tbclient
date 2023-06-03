@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.t35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -395,11 +395,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(w05 w05Var) {
+    public void setRecomData(t35 t35Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, w05Var) == null) && (intent = getIntent()) != null && w05Var != null) {
-            w05Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048620, this, t35Var) == null) && (intent = getIntent()) != null && t35Var != null) {
+            t35Var.c(intent);
         }
     }
 
@@ -703,6 +703,31 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         return (PbCommentFloatActivityConfig) invokeCommon.objValue;
     }
 
+    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048589, this, str, str2, str3, str4, str5)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from", str4);
+            intent.putExtra("sort_type", 0);
+            intent.putExtra("query_word", str5);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeLLLLL.objValue;
+    }
+
     public PbCommentFloatActivityConfig createMangaCfg(String str, String str2, String str3, String str4, int i, int i2, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -822,31 +847,6 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             return this;
         }
         return (PbCommentFloatActivityConfig) invokeLLLL.objValue;
-    }
-
-    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048589, this, str, str2, str3, str4, str5)) == null) {
-            if (str == null) {
-                return this;
-            }
-            Intent intent = getIntent();
-            intent.putExtra("thread_id", str);
-            intent.putExtra("post_id", str2);
-            intent.putExtra("st_type", str3);
-            intent.putExtra("from", str4);
-            intent.putExtra("sort_type", 0);
-            intent.putExtra("query_word", str5);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            addMoreIntentExtraParam();
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeLLLLL.objValue;
     }
 
     public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, boolean z) {

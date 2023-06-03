@@ -11,8 +11,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.sn;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements sn {
+public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements wn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public hn b;
+    public ln b;
     public RecyclerView.Adapter c;
     public RecyclerView.AdapterDataObserver d;
     public RecyclerView.AdapterDataObserver e;
@@ -231,7 +231,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.f = null;
         this.g = null;
         this.a = context;
-        this.b = new hn();
+        this.b = new ln();
         this.e = new a(this);
     }
 
@@ -256,7 +256,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public void G(hn.a aVar) {
+    public void G(ln.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.b.l(aVar);
@@ -371,13 +371,13 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public hn.c s(int i) {
+    public ln.c s(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
             return this.b.e(i);
         }
-        return (hn.c) invokeI.objValue;
+        return (ln.c) invokeI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -392,13 +392,13 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public hn.c t(int i) {
+    public ln.c t(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
             return this.b.g(i);
         }
-        return (hn.c) invokeI.objValue;
+        return (ln.c) invokeI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -512,7 +512,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    @Override // com.baidu.tieba.sn
+    @Override // com.baidu.tieba.wn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -568,7 +568,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return (RecyclerView.Adapter) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sn
+    @Override // com.baidu.tieba.wn
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -585,8 +585,8 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             RecyclerView.Adapter adapter = this.c;
             if (adapter != null && i2 < (i3 = adapter.getItemCount())) {
                 RecyclerView.Adapter adapter2 = this.c;
-                if (adapter2 instanceof sn) {
-                    return ((sn) adapter2).getItem(i2);
+                if (adapter2 instanceof wn) {
+                    return ((wn) adapter2).getItem(i2);
                 }
             }
             int u = u();
@@ -671,7 +671,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048593, this, viewHolder, i) != null) || i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof hn.b)) {
+        if ((interceptable != null && interceptable.invokeLI(1048593, this, viewHolder, i) != null) || i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof ln.b)) {
             return;
         }
         int x = x();
@@ -688,7 +688,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (interceptable == null || interceptable.invokeLIL(1048594, this, viewHolder, i, list) == null) {
             if (list.isEmpty()) {
                 super.onBindViewHolder(viewHolder, i, list);
-            } else if (i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof hn.b)) {
+            } else if (i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof ln.b)) {
             } else {
                 int x = x();
                 RecyclerView.Adapter adapter = this.c;
@@ -707,7 +707,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, viewGroup, i)) == null) {
-            hn.c t = t(i);
+            ln.c t = t(i);
             boolean z2 = true;
             TypeAdapter.ViewHolder viewHolder2 = null;
             if (t != null) {
@@ -718,7 +718,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 z = true;
             }
             if (viewHolder == null) {
-                hn.c s = s(i);
+                ln.c s = s(i);
                 if (s != null) {
                     viewHolder2 = s.c;
                 }

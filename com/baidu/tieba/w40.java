@@ -1,90 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class w40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public w40() {
-        this(0L);
+    public static String a(Map<String, String> map) {
+        InterceptResult invokeL;
+        String encode;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            if (map == null) {
+                return "";
             }
-        }
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public w40(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            StringBuilder sb = new StringBuilder();
+            for (String str : map.keySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                String str2 = map.get(str);
+                if (str != null) {
+                    try {
+                        encode = URLEncoder.encode(str, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                    }
+                } else {
+                    encode = "";
+                }
+                sb.append(encode);
+                sb.append("=");
+                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
             }
+            return sb.toString();
         }
-        this.a = j;
+        return (String) invokeL.objValue;
     }
 
-    public long a(long j) {
-        InterceptResult invokeJ;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return j & this.a;
-        }
-        return invokeJ.longValue;
-    }
-
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public boolean c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = this.a;
-            long j4 = (j & j2) | ((~j2) & j3);
-            this.a = j4;
-            if ((j4 ^ j3) != 0) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return false;
+            String a = a(map);
+            if (TextUtils.isEmpty(a)) {
+                return str;
+            }
+            if (!str.contains("?")) {
+                return str + "?" + a;
+            }
+            if (str.lastIndexOf("?") == str.length() - 1) {
+                return str + a;
+            }
+            return str + "&" + a;
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

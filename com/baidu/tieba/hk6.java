@@ -1,84 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class hk6 extends lk6 {
+import java.util.HashMap;
+import org.xml.sax.Attributes;
+/* loaded from: classes6.dex */
+public class hk6 extends gk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId Q0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947826646, "Lcom/baidu/tieba/hk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947826646, "Lcom/baidu/tieba/hk6;");
-                return;
-            }
-        }
-        Q0 = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.lk6, com.baidu.tieba.dk6, com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gk6
+    public void a(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
-        return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lk6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return Q0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public hk6(ThreadData threadData) {
+    public hk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = threadData;
     }
 
-    public static boolean Z(ThreadData threadData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gk6
+    public void b(boolean z, String str, Attributes attributes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", NativeConstants.HREF);
+            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
+                    }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
+                }
+                kk6.g().b(value, value, new HashMap());
             }
-            return threadData.isBJHNormalThreadType();
         }
-        return invokeL.booleanValue;
     }
 }

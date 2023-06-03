@@ -1,210 +1,240 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yi3 {
+public class yi3 extends bj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static yi3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, b> a;
-    public AudioManager b;
-    public boolean c;
-    public BroadcastReceiver d;
+    public String A;
+    public String B;
+    public long C;
+    public long D;
+    public int v;
+    public String w;
+    public String x;
+    public int y;
+    public String z;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yi3 this$0;
-
-        public a(yi3 yi3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331078, "Lcom/baidu/tieba/yi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.this$0 = yi3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (this.this$0.b == null) {
-                    this.this$0.b = (AudioManager) ns2.c().getSystemService("audio");
-                }
-                for (Map.Entry entry : this.this$0.a.entrySet()) {
-                    if (this.this$0.b != null) {
-                        i = this.this$0.b.getStreamVolume(3);
-                    } else {
-                        i = 0;
-                    }
-                    ((b) entry.getValue()).a(i);
-                }
-            }
-        }
-    }
-
-    public yi3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948331078, "Lcom/baidu/tieba/yi3;");
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.d = new a(this);
+        boolean z = is1.a;
     }
 
-    public static yi3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (yi3.class) {
-                    if (e == null) {
-                        e = new yi3();
-                    }
-                }
-            }
-            return e;
-        }
-        return (yi3) invokeV.objValue;
-    }
-
-    public static void h() {
-        yi3 yi3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (yi3Var = e) != null) {
-            yi3Var.g();
-        }
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            ns2.c().registerReceiver(this.d, intentFilter);
-            this.c = true;
-        }
-    }
-
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            try {
-                ns2.c().unregisterReceiver(this.d);
-                this.c = false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public int f() {
+    public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) ns2.c().getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager != null) {
-                return audioManager.getStreamMaxVolume(3);
-            }
-            return 100;
+            return this.C;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public final void g() {
+    public String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-                this.b = null;
-                this.c = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.B;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.w;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = this.h;
+            if (jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0")) {
+                return true;
             }
-            e = null;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public yi3(int i, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.B = "1";
+    }
+
+    public yi3(int i, String str, String str2, int i2, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.C = j;
+        this.D = j2;
+        if (i == 200 && j2 - j >= 5000) {
+            this.B = "2";
+        } else {
+            this.B = "1";
         }
     }
 
-    public void d(@NonNull String str, @NonNull b bVar) {
+    public yi3(String str, int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this) {
-            this.a.put(str, bVar);
-            if (!this.c) {
-                registerReceiver();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
-            if (qp1.a) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+        }
+        this.w = str;
+        this.y = i;
+        this.C = j;
+        this.D = j2;
+        this.B = "0";
+    }
+
+    @Override // com.baidu.tieba.bj3, com.baidu.tieba.aj3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    this.h.put("errorno", this.v);
+                }
+                String b = qi3.b(this.w);
+                this.w = b;
+                this.h.put("url", b);
+                this.h.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    this.h.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.z)) {
+                    this.h.put("pagetype", this.z);
+                }
+                if (!TextUtils.isEmpty(this.A)) {
+                    this.h.put("curpage", this.A);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    this.h.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    this.h.put("startTime", this.C);
+                    this.h.put("endTime", this.D);
+                }
+                ExtensionCore T2 = si2.U().T();
+                if (T2 != null) {
+                    this.h.put("extension_ver", T2.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                y82.e("SwanAppRequestEvent", "834", "#toJSONObject error", e, false);
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void p(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    jSONObject.put("errorno", this.v);
+                }
+                jSONObject.put("url", qi3.b(this.w));
+                jSONObject.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    jSONObject.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    jSONObject.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    jSONObject.put("startTime", this.C);
+                    jSONObject.put("endTime", this.D);
+                }
+            } catch (JSONException e) {
+                y82.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e, false);
             }
         }
     }
 
-    public boolean i(@NonNull String str) {
-        InterceptResult invokeL;
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (this) {
-                b remove = this.a.remove(str);
-                if (this.a.size() == 0 && this.c) {
-                    unregisterReceiver();
-                }
-                if (qp1.a && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
-                }
-                if (remove != null) {
-                    z = true;
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.A = str;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.z = str;
+        }
     }
 }

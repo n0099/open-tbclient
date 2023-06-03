@@ -10,7 +10,7 @@ import com.baidu.nps.pm.SubBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tieba.ce1;
+import com.baidu.tieba.lf1;
 import com.baidu.ubc.UBCManager;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultiPluginHelper {
     public static final int ARCH_TYPE_NEW = 3;
     public static final int ARCH_TYPE_OLD = 1;
@@ -207,7 +207,7 @@ public class MultiPluginHelper {
                 log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                 return 3;
             }
-            int c = ce1.b().c("com.baidu.searchbox.livenps");
+            int c = lf1.b().c("com.baidu.searchbox.livenps");
             if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                 log("installLivenps：" + bundleByType.getVersionCode());
                 log("installLivenps.livenpsHostMinVersion：" + c);

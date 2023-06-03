@@ -1,58 +1,34 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class z3b extends Drawable {
+public class z3b implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ImageView.ScaleType c;
-    public final e4b d;
-    public final SVGAVideoEntity e;
-    public final a4b f;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
-        }
-    }
-
-    public z3b(SVGAVideoEntity sVGAVideoEntity, a4b a4bVar) {
+    public z3b(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, a4bVar};
+            Object[] objArr = {context, pBNative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,61 +38,75 @@ public final class z3b extends Drawable {
                 return;
             }
         }
-        this.e = sVGAVideoEntity;
-        this.f = a4bVar;
-        this.a = true;
-        this.c = ImageView.ScaleType.MATRIX;
-        this.d = new e4b(sVGAVideoEntity, a4bVar);
+        this.b = context;
+        this.a = pBNative;
     }
 
-    public final int a() {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public final SVGAVideoEntity b() {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
     }
 
-    public final void c(boolean z) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == z) {
-            return;
-        }
-        this.a = z;
-        invalidateSelf();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
     }
 
-    public final void d(int i) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.b == i) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
         }
-        this.b = i;
-        invalidateSelf();
+        return (List) invokeV.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && !this.a && canvas != null) {
-            this.d.a(canvas, this.b, this.c);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
     }
 
-    public final void e(ImageView.ScaleType scaleType) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.c = scaleType;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if (!adType.equals("h5") && !adType.equals("video")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
+            }
+            return this.c;
         }
+        return (View) invokeV.objValue;
     }
 }

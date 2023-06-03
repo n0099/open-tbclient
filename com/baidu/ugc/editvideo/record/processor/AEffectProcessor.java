@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.dg0;
-import com.baidu.tieba.ig0;
-import com.baidu.tieba.jja;
-import com.baidu.tieba.lna;
+import com.baidu.tieba.mh0;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.wqa;
+import com.baidu.tieba.yua;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
     public boolean isCamera;
     public Map<String, ShaderConfig> mTrackConfig;
     public List<MediaTrack> mUpdateMediaTracks;
-    public ig0 mVlogEditCore;
+    public rh0 mVlogEditCore;
     public final LinkedList<Runnable> runOnDraw = new LinkedList<>();
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor
@@ -25,17 +25,17 @@ public class AEffectProcessor extends BaseEffectProcessor {
     }
 
     public AEffectProcessor() {
-        ig0 ig0Var = new ig0();
-        this.mVlogEditCore = ig0Var;
-        ig0Var.a(jja.c().getContext());
+        rh0 rh0Var = new rh0();
+        this.mVlogEditCore = rh0Var;
+        rh0Var.a(wqa.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkCamera() {
         MediaSegment mediaSegment;
         this.isCamera = false;
-        MediaTrack mediaTrack = (MediaTrack) lna.c(this.mUpdateMediaTracks, 0);
-        if (mediaTrack != null && (mediaSegment = (MediaSegment) lna.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
+        MediaTrack mediaTrack = (MediaTrack) yua.c(this.mUpdateMediaTracks, 0);
+        if (mediaTrack != null && (mediaSegment = (MediaSegment) yua.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
             this.isCamera = true;
         }
     }
@@ -109,7 +109,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(dg0 dg0Var, int i, float[] fArr) {
+    public int onProcessFrame(mh0 mh0Var, int i, float[] fArr) {
         int d;
         runPendingOnDrawTasks();
         HashMap hashMap = new HashMap();

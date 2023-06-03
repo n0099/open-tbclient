@@ -1,6 +1,7 @@
 package com.qq.e.mediation.interfaces;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,13 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.List;
-/* loaded from: classes9.dex */
-public abstract class BaseNativeUnifiedAd {
+/* loaded from: classes10.dex */
+public abstract class BaseNativeUnifiedAd implements IBaseAd {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int CALLBACK_CLICK = 3;
-    public static final int CALLBACK_IMPRESSION = 4;
-    public static final int CALLBACK_LOADED = 1;
-    public static final int CALLBACK_NO_AD = 2;
     public static final int DEFAULT_PRIORITY = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,13 +41,30 @@ public abstract class BaseNativeUnifiedAd {
         return invokeV.intValue;
     }
 
-    public abstract int getECPM();
-
     public abstract void loadData(int i);
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendLossNotification(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) {
+        }
+    }
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendWinNotification(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
 
     public abstract void setAdListener(ADListener aDListener);
 
-    public abstract void setBrowserType(int i);
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setBidECPM(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
 
     public abstract void setCategories(List<String> list);
 
@@ -61,4 +75,11 @@ public abstract class BaseNativeUnifiedAd {
     public abstract void setMaxVideoDuration(int i);
 
     public abstract void setMinVideoDuration(int i);
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setPayload(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
 }

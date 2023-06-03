@@ -1,64 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.tieba.ej4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ri4 {
+public class ri4 extends ej4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull ak4 ak4Var, @Nullable List<gi4> list, @Nullable List<hi4> list2, @NonNull bh4 bh4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ri4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, ak4Var, list, list2, bh4Var) == null) {
-            lj4 b = ti4.b(ak4Var, bh4Var);
-            if (list != null && !list.isEmpty()) {
-                ti4.a(b, kj4.h(list, bh4Var));
-            }
-            if (list2 != null && !list2.isEmpty()) {
-                ti4.a(b, kj4.e(list2, bh4Var));
-            }
-            b.e();
-        }
-    }
-
-    public static void b(bk4 bk4Var, bh4 bh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bk4Var, bh4Var) == null) {
-            ti4.c(bk4Var, bh4Var);
-        }
-    }
-
-    public static void c(ck4 ck4Var, bh4 bh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ck4Var, bh4Var) == null) {
-            ti4.d(ck4Var, bh4Var);
-        }
-    }
-
-    public static void d(dk4 dk4Var, bh4 bh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, dk4Var, bh4Var) == null) {
-            ti4.e(dk4Var, bh4Var);
-        }
-    }
-
-    public static void e(yl4 yl4Var, bh4 bh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, yl4Var, bh4Var) == null) {
-            ti4.f(yl4Var, bh4Var);
-        }
-    }
-
-    public static synchronized void f(List<hi4> list, bh4 bh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, bh4Var) == null) {
-            synchronized (ri4.class) {
-                ti4.g(list, bh4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ej4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public ej4 build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qi4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (ej4) invokeV.objValue;
     }
 }

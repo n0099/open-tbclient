@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class y1 {
@@ -35,7 +34,7 @@ public class y1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optInt(Constants.KEYS.RET);
+            this.a = jSONObject.optInt("ret");
             this.b = jSONObject.optString("msg");
             String optString = jSONObject.optString("data");
             try {

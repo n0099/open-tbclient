@@ -1,14 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
-import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,61 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class tb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w95 a;
-    public b b;
+    public String a;
+    public String b;
     public int c;
-    public int d;
-    public ChannelIconConfigFinalData e;
-    public HttpMessageListener f;
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, w95 w95Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tb5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tb5 tb5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tb5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tb5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
-                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
-                this.a.a = channelConfigResponseMessage.getData();
-                if (this.a.b != null) {
-                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
-                }
-                if (channelConfigResponseMessage.isSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
-                }
-            }
-        }
-    }
+    public String d;
 
     public tb5() {
         Interceptable interceptable = $ic;
@@ -87,49 +28,99 @@ public class tb5 {
                 return;
             }
         }
-        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
-        MessageManager.getInstance().registerListener(this.f);
-        this.c = o65.m().n("key_common_category_version", 0);
-        this.d = o65.m().n("key_special_category_version", 0);
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
     }
 
-    public ChannelIconConfigFinalData c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
-            if (channelIconConfigFinalData != null) {
-                return channelIconConfigFinalData;
-            }
-            if (this.a == null) {
-                return null;
-            }
-            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            w95 w95Var = this.a;
-            if (w95Var != null && w95Var.b() != null && this.d < this.a.b().e()) {
-                channelIconConfigFinalData2.setIcon(this.a.b().a());
-                channelIconConfigFinalData2.setPopText(this.a.b().b());
-                channelIconConfigFinalData2.setTabCode(this.a.b().c());
-                channelIconConfigFinalData2.setTid(this.a.b().d());
-                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
-            } else {
-                w95 w95Var2 = this.a;
-                if (w95Var2 != null && w95Var2.a() > 0 && this.c < this.a.a()) {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
-                } else {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
-                }
-            }
-            this.e = channelIconConfigFinalData2;
-            return channelIconConfigFinalData2;
+            return this.c;
         }
-        return (ChannelIconConfigFinalData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return nj.a(R.string.voice_cache_error_internal);
+                case 2:
+                    return nj.a(R.string.voice_cache_error_no_space);
+                case 3:
+                    return nj.a(R.string.obfuscated_res_0x7f0f0def);
+                case 4:
+                    return nj.a(R.string.voice_cache_error_no_file);
+                case 5:
+                    return nj.a(R.string.voice_cache_error_md5);
+                case 6:
+                    return nj.a(R.string.voice_cache_error_no_input);
+                case 7:
+                    return nj.a(R.string.voice_cache_error_no_dir);
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -1,140 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class gh3 implements kh3 {
+public class gh3 extends jh3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public final long b;
+    public final Context m;
 
-    @NonNull
-    public abstract String c();
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947793879, "Lcom/baidu/tieba/gh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947793879, "Lcom/baidu/tieba/gh3;");
-                return;
-            }
-        }
-        c = new ReentrantReadWriteLock();
-    }
-
-    public gh3() {
+    public gh3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d();
-        this.b = getMaxSize();
+        this.m = context;
     }
 
-    @Override // com.baidu.tieba.kh3
-    public boolean a(long j) {
-        InterceptResult invokeJ;
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vg3
+    /* renamed from: P */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            c.readLock().lock();
-            try {
-                if (e() + j > this.b) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                return z;
-            } finally {
-                c.readLock().unlock();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return wg3.c(jSONObject);
         }
-        return invokeJ.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kh3
-    public void b(long j) {
+    @Override // com.baidu.tieba.jh3
+    public HttpRequest w(jh3 jh3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c.writeLock().lock();
-            try {
-                try {
-                    if (this.a == null) {
-                        this.a = d();
-                    }
-                    File file = this.a;
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    kp4.O(String.valueOf(e() + j).getBytes(), file);
-                } catch (Exception e) {
-                    if (qp1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            } finally {
-                c.writeLock().unlock();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jh3Var)) == null) {
+            return fv2.o().g(this.m, jh3Var.B());
         }
+        return (HttpRequest) invokeL.objValue;
     }
 
-    public final File d() {
+    @Override // com.baidu.tieba.vg3
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(c() + File.separator + "record.pro");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yb3 M = yb3.M();
+            if (M != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", M.O());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                v("data", jSONObject.toString());
+                return true;
+            }
+            return true;
         }
-        return (File) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final long e() {
+    @Override // com.baidu.tieba.jh3
+    public SwanInterfaceType z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = d();
-            }
-            File file = this.a;
-            if (file.exists() && file.isFile()) {
-                String E = kp4.E(file);
-                try {
-                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
-                        return Long.parseLong(E.trim());
-                    }
-                } catch (Exception e) {
-                    if (qp1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return 0L;
+            return SwanInterfaceType.SWAN_ID;
         }
-        return invokeV.longValue;
+        return (SwanInterfaceType) invokeV.objValue;
     }
 }

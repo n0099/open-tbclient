@@ -1,65 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.PersonPrivateData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zx4 {
+public class zx4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ty9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375315, "Lcom/baidu/tieba/zx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public zx4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948375315, "Lcom/baidu/tieba/zx4;");
+        }
+    }
+
+    public final void a(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !ui.isEmpty(str) && !ui.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
                 return;
             }
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
         }
-        a = new HashMap<>();
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public void b(ty9 ty9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
-            if (a.containsKey(str)) {
-                return a.get(str).intValue();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty9Var) == null) {
+            this.a = ty9Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        ty9 ty9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!jd5.a(str) && str2.startsWith("tiebaapp")) {
+                wy9 wy9Var = new wy9();
+                wy9Var.w(az9.b(str2));
+                wy9Var.y(301);
+                a(webView, wy9Var.c(), wy9Var.d());
             }
-            a.put(str, 1);
-            return 1;
+            if ((!jd5.a(str) || (ty9Var = this.a) == null || !ty9Var.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
+                jsPromptResult.cancel();
+            }
+            return true;
         }
-        return invokeI.intValue;
-    }
-
-    public static void b(PersonPrivateData personPrivateData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, personPrivateData) != null) || personPrivateData == null) {
-            return;
-        }
-        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-        int U = personPrivateData.U();
-        if (!a.containsKey(str)) {
-            a.put(str, Integer.valueOf(U));
-        }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -3,7 +3,7 @@ package com.facebook.fresco.ui.common;
 import java.util.Map;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ControllerListener2<INFO> {
     void onFailure(String str, Throwable th, @Nullable Extras extras);
 
@@ -17,23 +17,23 @@ public interface ControllerListener2<INFO> {
 
     void onSubmit(String str, Object obj, @Nullable Extras extras);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Extras {
         @Nullable
         public Map<String, Object> pipe;
         @Nullable
 
         /* renamed from: view  reason: collision with root package name */
-        public Map<String, Object> f1068view;
+        public Map<String, Object> f1204view;
 
         public String toString() {
-            return "pipe: " + this.pipe + ", view: " + this.f1068view;
+            return "pipe: " + this.pipe + ", view: " + this.f1204view;
         }
 
         public static Extras of(@Nullable Map<String, Object> map, @Nullable Map<String, Object> map2) {
             Extras extras = new Extras();
             extras.pipe = map;
-            extras.f1068view = map2;
+            extras.f1204view = map2;
             return extras;
         }
     }

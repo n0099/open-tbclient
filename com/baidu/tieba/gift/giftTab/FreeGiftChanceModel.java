@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.mx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public fb c;
+    public jb c;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -47,7 +47,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FreeGiftChanceModel a;
@@ -74,7 +74,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             this.a = freeGiftChanceModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -96,18 +96,18 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FreeGiftChanceModel(g9<GiftTabActivity> g9Var) {
-        super(g9Var);
+    public FreeGiftChanceModel(k9<GiftTabActivity> k9Var) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,8 +144,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ar9.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            ar9.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            mx9.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            mx9.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

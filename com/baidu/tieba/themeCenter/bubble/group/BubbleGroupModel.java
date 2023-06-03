@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.cy9;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.oy9;
+import com.baidu.tieba.a5a;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.o4a;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,16 +29,16 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public oy9 b;
-    public List<cy9> c;
+    public a5a b;
+    public List<o4a> c;
     public c d;
     public boolean e;
-    public fb f;
+    public jb f;
     public final HttpMessageListener g;
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(int i, String str, oy9 oy9Var, List<cy9> list);
+        void a(int i, String str, a5a a5aVar, List<o4a> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,7 +52,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -79,7 +79,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             this.a = bubbleGroupModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -166,7 +166,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -201,8 +201,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ar9.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            ar9.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            mx9.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            mx9.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -228,12 +228,12 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void f0(int i) {
-        List<cy9> list;
+        List<o4a> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (cy9 cy9Var : this.c) {
-                if (cy9Var != null && cy9Var.a() != null) {
-                    for (DressItemData dressItemData : cy9Var.a()) {
+            for (o4a o4aVar : this.c) {
+                if (o4aVar != null && o4aVar.a() != null) {
+                    for (DressItemData dressItemData : o4aVar.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

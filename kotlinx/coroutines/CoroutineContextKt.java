@@ -3,79 +3,178 @@ package kotlinx.coroutines;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.Metadata;
+import kotlin.coroutines.Continuation;
 import kotlin.coroutines.ContinuationInterceptor;
 import kotlin.coroutines.CoroutineContext;
+import kotlin.coroutines.EmptyCoroutineContext;
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame;
 import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.InlineMarker;
-import kotlinx.coroutines.internal.SystemPropsKt;
+import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.internal.ThreadContextKt;
-import kotlinx.coroutines.scheduling.DefaultScheduler;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\u001a\u000f\u0010\u0001\u001a\u00020\u0000H\u0000¢\u0006\u0004\b\u0001\u0010\u0002\u001a6\u0010\n\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u00032\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0080\b¢\u0006\u0004\b\n\u0010\u000b\u001a\u001b\u0010\r\u001a\u00020\u0004*\u00020\f2\u0006\u0010\u0005\u001a\u00020\u0004H\u0007¢\u0006\u0004\b\r\u0010\u000e\"\u0016\u0010\u0010\u001a\u00020\u000f8\u0000@\u0000X\u0080T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011\"\u0016\u0010\u0012\u001a\u00020\u000f8\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0011\"\u001c\u0010\u0014\u001a\u00020\u00138\u0000@\u0000X\u0080\u0004¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017\"\u001c\u0010\u001a\u001a\u0004\u0018\u00010\u000f*\u00020\u00048@@\u0000X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0019¨\u0006\u001b"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher;", "createDefaultDispatcher", "()Lkotlinx/coroutines/CoroutineDispatcher;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/coroutines/CoroutineContext;", "context", "", "countOrElement", "Lkotlin/Function0;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "withCoroutineContext", "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "Lkotlinx/coroutines/CoroutineScope;", "newCoroutineContext", "(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;", "", "COROUTINES_SCHEDULER_PROPERTY_NAME", "Ljava/lang/String;", "DEBUG_THREAD_NAME_SEPARATOR", "", "useCoroutinesScheduler", "Z", "getUseCoroutinesScheduler", "()Z", "getCoroutineName", "(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/String;", "coroutineName", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000>\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a \u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00032\u0006\u0010\b\u001a\u00020\u00032\u0006\u0010\t\u001a\u00020\nH\u0002\u001a8\u0010\u000b\u001a\u0002H\f\"\u0004\b\u0000\u0010\f2\n\u0010\r\u001a\u0006\u0012\u0002\b\u00030\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u0002H\f0\u0012H\u0080\b¢\u0006\u0002\u0010\u0013\u001a4\u0010\u0014\u001a\u0002H\f\"\u0004\b\u0000\u0010\f2\u0006\u0010\u0015\u001a\u00020\u00032\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u0002H\f0\u0012H\u0080\b¢\u0006\u0002\u0010\u0016\u001a\f\u0010\u0017\u001a\u00020\n*\u00020\u0003H\u0002\u001a\u0014\u0010\u0018\u001a\u00020\u0003*\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u0003H\u0007\u001a\u0014\u0010\u0018\u001a\u00020\u0003*\u00020\u001a2\u0006\u0010\u0015\u001a\u00020\u0003H\u0007\u001a\u0013\u0010\u001b\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001c*\u00020\u001dH\u0080\u0010\u001a(\u0010\u001e\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001c*\u0006\u0012\u0002\b\u00030\u000e2\u0006\u0010\u0015\u001a\u00020\u00032\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010H\u0000\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u001a\u0010\u0002\u001a\u0004\u0018\u00010\u0001*\u00020\u00038@X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u0004\u0010\u0005¨\u0006 "}, d2 = {"DEBUG_THREAD_NAME_SEPARATOR", "", "coroutineName", "Lkotlin/coroutines/CoroutineContext;", "getCoroutineName", "(Lkotlin/coroutines/CoroutineContext;)Ljava/lang/String;", "foldCopies", "originalContext", "appendContext", "isNewCoroutine", "", "withContinuationContext", ExifInterface.GPS_DIRECTION_TRUE, "continuation", "Lkotlin/coroutines/Continuation;", "countOrElement", "", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/Function0;", "(Lkotlin/coroutines/Continuation;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "withCoroutineContext", "context", "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "hasCopyableElements", "newCoroutineContext", "addedContext", "Lkotlinx/coroutines/CoroutineScope;", "undispatchedCompletion", "Lkotlinx/coroutines/UndispatchedCoroutine;", "Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "updateUndispatchedCompletion", "oldValue", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class CoroutineContextKt {
-    public static final String COROUTINES_SCHEDULER_PROPERTY_NAME = "kotlinx.coroutines.scheduler";
     public static final String DEBUG_THREAD_NAME_SEPARATOR = " @";
-    public static final boolean useCoroutinesScheduler;
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0028, code lost:
-        if (r0.equals(kotlinx.coroutines.DebugKt.DEBUG_PROPERTY_VALUE_ON) != false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0031, code lost:
-        if (r0.equals("") != false) goto L21;
-     */
-    static {
-        boolean z;
-        String systemProp = SystemPropsKt.systemProp(COROUTINES_SCHEDULER_PROPERTY_NAME);
-        if (systemProp != null) {
-            int hashCode = systemProp.hashCode();
-            if (hashCode != 0) {
-                if (hashCode != 3551) {
-                    if (hashCode == 109935 && systemProp.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
-                        z = false;
-                    }
-                }
-                throw new IllegalStateException(("System property 'kotlinx.coroutines.scheduler' has unrecognized value '" + systemProp + '\'').toString());
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.coroutines.CoroutineContext */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v6, types: [T, java.lang.Object] */
+    public static final CoroutineContext foldCopies(CoroutineContext coroutineContext, CoroutineContext coroutineContext2, final boolean z) {
+        boolean hasCopyableElements = hasCopyableElements(coroutineContext);
+        boolean hasCopyableElements2 = hasCopyableElements(coroutineContext2);
+        if (!hasCopyableElements && !hasCopyableElements2) {
+            return coroutineContext.plus(coroutineContext2);
+        }
+        final Ref.ObjectRef objectRef = new Ref.ObjectRef();
+        objectRef.element = coroutineContext2;
+        CoroutineContext coroutineContext3 = (CoroutineContext) coroutineContext.fold(EmptyCoroutineContext.INSTANCE, new Function2<CoroutineContext, CoroutineContext.Element, CoroutineContext>() { // from class: kotlinx.coroutines.CoroutineContextKt$foldCopies$folded$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
             }
-            useCoroutinesScheduler = z;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Type inference failed for: r2v2, types: [T, kotlin.coroutines.CoroutineContext] */
+            @Override // kotlin.jvm.functions.Function2
+            public final CoroutineContext invoke(CoroutineContext coroutineContext4, CoroutineContext.Element element) {
+                if (!(element instanceof CopyableThreadContextElement)) {
+                    return coroutineContext4.plus(element);
+                }
+                CoroutineContext.Element element2 = objectRef.element.get(element.getKey());
+                if (element2 == null) {
+                    CopyableThreadContextElement copyableThreadContextElement = (CopyableThreadContextElement) element;
+                    if (z) {
+                        copyableThreadContextElement = copyableThreadContextElement.copyForChild();
+                    }
+                    return coroutineContext4.plus(copyableThreadContextElement);
+                }
+                Ref.ObjectRef<CoroutineContext> objectRef2 = objectRef;
+                objectRef2.element = objectRef2.element.minusKey(element.getKey());
+                return coroutineContext4.plus(((CopyableThreadContextElement) element).mergeForChild(element2));
+            }
+        });
+        if (hasCopyableElements2) {
+            objectRef.element = ((CoroutineContext) objectRef.element).fold(EmptyCoroutineContext.INSTANCE, new Function2<CoroutineContext, CoroutineContext.Element, CoroutineContext>() { // from class: kotlinx.coroutines.CoroutineContextKt$foldCopies$1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function2
+                public final CoroutineContext invoke(CoroutineContext coroutineContext4, CoroutineContext.Element element) {
+                    if (element instanceof CopyableThreadContextElement) {
+                        return coroutineContext4.plus(((CopyableThreadContextElement) element).copyForChild());
+                    }
+                    return coroutineContext4.plus(element);
+                }
+            });
         }
-        z = true;
-        useCoroutinesScheduler = z;
+        return coroutineContext3.plus((CoroutineContext) objectRef.element);
     }
 
-    public static final CoroutineDispatcher createDefaultDispatcher() {
-        if (useCoroutinesScheduler) {
-            return DefaultScheduler.INSTANCE;
+    public static final <T> T withContinuationContext(Continuation<?> continuation, Object obj, Function0<? extends T> function0) {
+        UndispatchedCoroutine<?> undispatchedCoroutine;
+        CoroutineContext context = continuation.getContext();
+        Object updateThreadContext = ThreadContextKt.updateThreadContext(context, obj);
+        if (updateThreadContext != ThreadContextKt.NO_THREAD_ELEMENTS) {
+            undispatchedCoroutine = updateUndispatchedCompletion(continuation, context, updateThreadContext);
+        } else {
+            undispatchedCoroutine = null;
         }
-        return CommonPool.INSTANCE;
-    }
-
-    public static final boolean getUseCoroutinesScheduler() {
-        return useCoroutinesScheduler;
+        try {
+            return function0.invoke();
+        } finally {
+            InlineMarker.finallyStart(1);
+            if (undispatchedCoroutine == null || undispatchedCoroutine.clearThreadContext()) {
+                ThreadContextKt.restoreThreadContext(context, updateThreadContext);
+            }
+            InlineMarker.finallyEnd(1);
+        }
     }
 
     public static final String getCoroutineName(CoroutineContext coroutineContext) {
         CoroutineId coroutineId;
+        String name;
         if (!DebugKt.getDEBUG() || (coroutineId = (CoroutineId) coroutineContext.get(CoroutineId.Key)) == null) {
             return null;
         }
         CoroutineName coroutineName = (CoroutineName) coroutineContext.get(CoroutineName.Key);
-        String str = (coroutineName == null || (str = coroutineName.getName()) == null) ? "coroutine" : "coroutine";
+        String str = "coroutine";
+        if (coroutineName != null && (name = coroutineName.getName()) != null) {
+            str = name;
+        }
         return str + '#' + coroutineId.getId();
+    }
+
+    public static final boolean hasCopyableElements(CoroutineContext coroutineContext) {
+        return ((Boolean) coroutineContext.fold(Boolean.FALSE, new Function2<Boolean, CoroutineContext.Element, Boolean>() { // from class: kotlinx.coroutines.CoroutineContextKt$hasCopyableElements$1
+            public final Boolean invoke(boolean z, CoroutineContext.Element element) {
+                boolean z2;
+                if (!z && !(element instanceof CopyableThreadContextElement)) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                return Boolean.valueOf(z2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Boolean invoke(Boolean bool, CoroutineContext.Element element) {
+                return invoke(bool.booleanValue(), element);
+            }
+        })).booleanValue();
+    }
+
+    public static final UndispatchedCoroutine<?> undispatchedCompletion(CoroutineStackFrame coroutineStackFrame) {
+        while (!(coroutineStackFrame instanceof DispatchedCoroutine) && (coroutineStackFrame = coroutineStackFrame.getCallerFrame()) != null) {
+            if (coroutineStackFrame instanceof UndispatchedCoroutine) {
+                return (UndispatchedCoroutine) coroutineStackFrame;
+            }
+        }
+        return null;
+    }
+
+    @InternalCoroutinesApi
+    public static final CoroutineContext newCoroutineContext(CoroutineContext coroutineContext, CoroutineContext coroutineContext2) {
+        if (!hasCopyableElements(coroutineContext2)) {
+            return coroutineContext.plus(coroutineContext2);
+        }
+        return foldCopies(coroutineContext, coroutineContext2, false);
     }
 
     @ExperimentalCoroutinesApi
     public static final CoroutineContext newCoroutineContext(CoroutineScope coroutineScope, CoroutineContext coroutineContext) {
         CoroutineContext coroutineContext2;
-        CoroutineContext plus = coroutineScope.getCoroutineContext().plus(coroutineContext);
+        CoroutineContext foldCopies = foldCopies(coroutineScope.getCoroutineContext(), coroutineContext, true);
         if (DebugKt.getDEBUG()) {
-            coroutineContext2 = plus.plus(new CoroutineId(DebugKt.getCOROUTINE_ID().incrementAndGet()));
+            coroutineContext2 = foldCopies.plus(new CoroutineId(DebugKt.getCOROUTINE_ID().incrementAndGet()));
         } else {
-            coroutineContext2 = plus;
+            coroutineContext2 = foldCopies;
         }
-        if (plus != Dispatchers.getDefault() && plus.get(ContinuationInterceptor.Key) == null) {
+        if (foldCopies != Dispatchers.getDefault() && foldCopies.get(ContinuationInterceptor.Key) == null) {
             return coroutineContext2.plus(Dispatchers.getDefault());
         }
         return coroutineContext2;
+    }
+
+    public static final UndispatchedCoroutine<?> updateUndispatchedCompletion(Continuation<?> continuation, CoroutineContext coroutineContext, Object obj) {
+        boolean z;
+        if (!(continuation instanceof CoroutineStackFrame)) {
+            return null;
+        }
+        if (coroutineContext.get(UndispatchedMarker.INSTANCE) != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (!z) {
+            return null;
+        }
+        UndispatchedCoroutine<?> undispatchedCompletion = undispatchedCompletion((CoroutineStackFrame) continuation);
+        if (undispatchedCompletion != null) {
+            undispatchedCompletion.saveThreadContext(coroutineContext, obj);
+        }
+        return undispatchedCompletion;
     }
 
     public static final <T> T withCoroutineContext(CoroutineContext coroutineContext, Object obj, Function0<? extends T> function0) {

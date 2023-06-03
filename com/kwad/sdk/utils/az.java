@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.huawei.hms.common.internal.TransactionIdCreater;
@@ -42,7 +43,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class az {
     public static String aoE = null;
     public static String aoF = "";
@@ -297,7 +298,7 @@ public final class az {
     public static String br(boolean z) {
         Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
         String bv = com.kwad.sdk.core.f.a.bv(context);
-        return (TextUtils.isEmpty(bv) && !z && TextUtils.isEmpty(m117do(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lC() : bv;
+        return (TextUtils.isEmpty(bv) && !z && TextUtils.isEmpty(m172do(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lC() : bv;
     }
 
     @SuppressLint({"HardwareIds"})
@@ -426,7 +427,7 @@ public final class az {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     /* renamed from: do  reason: not valid java name */
-    public static synchronized String m117do(@Nullable Context context) {
+    public static synchronized String m172do(@Nullable Context context) {
         synchronized (az.class) {
             if (aq.zV() && !TextUtils.isEmpty(aq.zW())) {
                 return aq.zW();
@@ -811,7 +812,7 @@ public final class az {
     public static int getScreenHeight(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.heightPixels;
         } catch (Exception unused) {
             return 0;
@@ -821,7 +822,7 @@ public final class az {
     public static int getScreenWidth(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.widthPixels;
         } catch (Exception unused) {
             return 0;
@@ -830,8 +831,8 @@ public final class az {
 
     public static String u(@Nullable Context context, boolean z) {
         if (!aq.zV() || TextUtils.isEmpty(aq.zW())) {
-            String m117do = m117do(context);
-            return (TextUtils.isEmpty(m117do) && !z && TextUtils.isEmpty(com.kwad.sdk.core.f.a.bv(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lB() : m117do;
+            String m172do = m172do(context);
+            return (TextUtils.isEmpty(m172do) && !z && TextUtils.isEmpty(com.kwad.sdk.core.f.a.bv(context))) ? ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lB() : m172do;
         }
         return aq.zW();
     }

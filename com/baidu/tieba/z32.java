@@ -1,52 +1,113 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.security.SchemeCheckerHelperImpl;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class z32 extends m22 {
+public class z32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public u22 a;
 
-    public z32() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308944, "Lcom/baidu/tieba/z32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.m22
-    public void a(n22 n22Var, Canvas canvas) {
-        u22 u22Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && (u22Var = this.a) != null && u22Var.d()) {
-            if (this.a.c()) {
-                n22Var.c.setShader(this.a.b());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308944, "Lcom/baidu/tieba/z32;");
                 return;
             }
-            n22Var.m = this.a.a();
-            n22Var.c.setColor(this.a.a());
-            n22Var.b.setShader(null);
         }
+        a = is1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    @Override // com.baidu.tieba.m22
-    public void b(JSONArray jSONArray) {
+    @NonNull
+    public static Pair<Boolean, x32> a(yz1 yz1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new u22(jSONArray);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, yz1Var, str)) == null) {
+            y32 y32Var = new y32();
+            boolean b2 = b(str, yz1Var.a().e());
+            if (b2) {
+                y32Var.b = 402;
+            }
+            return new Pair<>(Boolean.valueOf(b2), y32Var);
         }
+        return (Pair) invokeLL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof gy1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (!a) {
+                    return false;
+                }
+                throw new RuntimeException("whitelistName is empty");
+            } else {
+                String Z = ((gy1) callbackHandler).Z();
+                if (SchemeCheckerHelperImpl.FRAME_WHITE_LIST_SWAN_APP_WIDGET.equals(Z)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(Z)) {
+                    z = !pc3.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(Z) && !"swan_app_alliance_choose_address_widget".equals(Z) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
+                return true;
+            }
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (pc3.g(str2 + "/" + substring)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return !pc3.g(str);
+        }
+        return invokeL.booleanValue;
     }
 }

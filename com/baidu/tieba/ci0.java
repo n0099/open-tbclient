@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class ci0 {
+public class ci0 extends uj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public Map<String, String> b;
-    public Map<String, String> c;
+
+    @Override // com.baidu.tieba.uj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
+    }
 
     public ci0() {
         Interceptable interceptable = $ic;
@@ -31,30 +38,15 @@ public class ci0 {
         }
     }
 
-    public static ci0 a(@NonNull HashMap<String, ?> hashMap) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.uj0
+    public boolean b(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
-            ci0 ci0Var = new ci0();
-            if (hashMap.get("cmd_map") instanceof String) {
-                JSONObject c = p11.c((String) hashMap.get("cmd_map"));
-                ci0Var.a = c;
-                ci0Var.b = p11.b(c);
-            }
-            if (hashMap.get("area_cmd") instanceof String) {
-                ci0Var.c = p11.b(p11.c((String) hashMap.get("area_cmd")));
-            }
-            if (hashMap.get("charge_map") instanceof String) {
-                p11.b(p11.c((String) hashMap.get("charge_map")));
-            }
-            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
-                p11.b((JSONObject) hashMap.get("parallel_charge_urls"));
-            }
-            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
-                p11.b((JSONObject) hashMap.get("defer_charge_urls"));
-            }
-            return ci0Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yj0Var, map, ck0Var)) == null) {
+            super.b(context, yj0Var, map, ck0Var);
+            pl0.k().b(yj0Var, ck0Var);
+            return true;
         }
-        return (ci0) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

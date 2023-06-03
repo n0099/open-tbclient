@@ -1,753 +1,220 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Environment;
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.cs2;
-import com.baidu.tieba.du2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.apache.commons.codec.language.bm.ResourceConstants;
-/* loaded from: classes6.dex */
-public final class og3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class og3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static final Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes7.dex */
+    public class a implements ks1 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Activity d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ og3 g;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-547732687, "Lcom/baidu/tieba/og3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-547732687, "Lcom/baidu/tieba/og3$a;");
+        public a(og3 og3Var, boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og3Var, Boolean.valueOf(z), callbackHandler, str, activity, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+            this.g = og3Var;
+            this.a = z;
+            this.b = callbackHandler;
+            this.c = str;
+            this.d = activity;
+            this.e = str2;
+            this.f = str3;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031246, "Lcom/baidu/tieba/og3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031246, "Lcom/baidu/tieba/og3;");
-                return;
-            }
-        }
-        a = qp1.a;
-        b = "/aiapp";
-        c = new HashSet(Arrays.asList("extension_core", "js_native", "swan_core"));
-    }
-
-    public static File A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(p(), "swan_plugin_workspace");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @NonNull
-    public static File B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(xh3.d());
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            Map<String, PMSAppInfo> v = dh4.i().v();
-            if (v.isEmpty()) {
-                return 0L;
-            }
-            return kp4.c(o(), v.keySet());
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return (int) (a() / 1024);
-        }
-        return invokeV.intValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            return kp4.a(q());
-        }
-        return invokeV.longValue;
-    }
-
-    public static long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return kp4.a(r());
-        }
-        return invokeV.longValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            return c() + h();
-        }
-        return invokeV.longValue;
-    }
-
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return kp4.b(B(), "aiapp_", "aiapp_setting_");
-        }
-        return invokeV.longValue;
-    }
-
-    public static long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            return kp4.c(o(), c);
-        }
-        return invokeV.longValue;
-    }
-
-    public static long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            return kp4.b(B(), "aiapp_setting_", null);
-        }
-        return invokeV.longValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            return (int) ((((g() + l()) + e()) + j()) / 1024);
-        }
-        return invokeV.intValue;
-    }
-
-    public static long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            return kp4.a(A());
-        }
-        return invokeV.longValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            return (int) ((f() + d()) / 1024);
-        }
-        return invokeV.intValue;
-    }
-
-    public static long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return kp4.a(new File(p(), "ubcdir"));
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public static File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
-            return new File(p(), "aiapps_folder");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @NonNull
-    public static File q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            return new File(o(), "cloud_config");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Nullable
-    public static String C(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            g93 M = g93.M();
-            if (M == null) {
-                return null;
-            }
-            if (M.N() == null) {
-                str2 = "";
-            } else {
-                str2 = M.N().d();
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                String d = mp4.d(str2.getBytes(), false);
-                if (D(str + b + File.separator + d)) {
-                    if (a) {
-                        Log.d("StorageUtil", "the filesystem base path is under UID ");
-                    }
-                    return d;
-                }
-            }
-            String i = ns2.h0().i(AppRuntime.getAppContext());
-            if (!TextUtils.isEmpty(i)) {
-                i = i.replace("|", "");
-            }
-            return mp4.d(i.getBytes(), false);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static String K(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_remote_debug_folder");
-            if (file.exists()) {
-                String replace = str.replace(ResourceConstants.CMT, "/");
-                if (replace.startsWith("/")) {
-                    return file.getAbsolutePath() + replace;
-                }
-                if (replace.startsWith("./")) {
-                    replace = replace.replace("./", "");
-                }
-                return file.getAbsolutePath() + File.separator + replace;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static PathType s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return PathType.ERROR;
-            }
-            String str2 = null;
-            try {
-                str2 = new URI(str).getScheme();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return PathType.RELATIVE;
-            }
-            if (TextUtils.equals(str2, "bdfile")) {
-                return PathType.BD_FILE;
-            }
-            if (!TextUtils.equals(str2, "http") && !TextUtils.equals(str2, "https")) {
-                if (TextUtils.equals(str2, "cloud")) {
-                    return PathType.CLOUD;
-                }
-                return PathType.ERROR;
-            }
-            return PathType.NETWORK;
-        }
-        return (PathType) invokeL.objValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, str)) == null) {
-            try {
-                if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                if (a) {
-                    Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
-                }
-                String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + b + "/store" + File.separator + "aiapp_" + str;
-                m(str2);
-                return str2;
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("StorageUtil", Log.getStackTraceString(e));
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (a) {
-                Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
-            }
-            String str2 = AppRuntime.getAppContext().getExternalCacheDir() + b + "/tmp" + File.separator + "aiapp_" + str;
-            m(str2);
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String z(String str) {
-        InterceptResult invokeL;
-        File externalFilesDir;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str) || (externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null)) == null) {
-                return null;
-            }
-            String absolutePath = externalFilesDir.getAbsolutePath();
-            if (a) {
-                Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + absolutePath);
-            }
-            String C = C(absolutePath);
-            if (C == null) {
-                return null;
-            }
-            String str2 = absolutePath + b + "/usr" + File.separator + C + File.separator + "aiapp_" + str;
-            m(str2);
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean D(String str) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean E(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            PathType s = s(str);
-            if (s != PathType.BD_FILE && s != PathType.RELATIVE) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("bdfile://tmp_")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (str.startsWith("bdfile://usr/") || TextUtils.equals(str, dl2.USER_DATA_PATH))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (!file.exists()) {
-                return file.mkdirs();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String H(String str, @NonNull g93 g93Var) {
-        InterceptResult invokeLL;
-        String M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, g93Var)) == null) {
-            int i = a.a[s(str).ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    M = str;
+        @Override // com.baidu.tieba.ks1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.g.k(this.a, this.b, this.c, this.d, this.e, "snsapi_userinfo", this.f);
                 } else {
-                    M = L(str, g93Var, g93Var.k0());
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
                 }
-            } else {
-                M = M(str, g93Var.b);
             }
-            if (M != null) {
-                return M;
-            }
-            return str;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String u(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, str, i)) == null) {
-            String str2 = "aiapp_setting_" + str;
-            if (i == 1) {
-                return str2 + "_dev";
-            }
-            return str2;
-        }
-        return (String) invokeLI.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class b implements rq3<kh3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ og3 f;
 
-    @Nullable
-    public static String I(String str, String str2) {
-        InterceptResult invokeLL;
-        String replace;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("StorageUtil", "——> path2Scheme: path " + str + " swanAppId " + str2);
+        public b(og3 og3Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og3Var, activity, Boolean.valueOf(z), str, callbackHandler, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                String v = v(str2);
-                String x = x(str2);
-                String z = z(str2);
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(WebGLImageLoader.BDFILE);
-                if (!TextUtils.isEmpty(x) && str.startsWith(x)) {
-                    replace = str.replace(x, "");
-                    stringBuffer.append("tmp_");
-                } else if (!TextUtils.isEmpty(v) && str.startsWith(v)) {
-                    replace = str.replace(v, "");
-                    stringBuffer.append("store_");
-                } else if (!TextUtils.isEmpty(z) && str.startsWith(z)) {
-                    String replace2 = str.replace(z + File.separator, "");
-                    return "bdfile://usr/" + replace2;
-                }
-                if (a) {
-                    Log.d("StorageUtil", "——> path2Scheme: relative path " + replace);
-                }
-                if (TextUtils.isEmpty(replace)) {
-                    return null;
-                }
-                stringBuffer.append(new String(Base64.encode(replace.getBytes(), 10)));
-                if (a) {
-                    Log.d("StorageUtil", "——> path2Scheme: url " + ((Object) stringBuffer));
-                }
-                return stringBuffer.toString();
             }
-            return null;
+            this.f = og3Var;
+            this.a = activity;
+            this.b = z;
+            this.c = str;
+            this.d = callbackHandler;
+            this.e = str2;
         }
-        return (String) invokeLL.objValue;
-    }
 
-    @Nullable
-    public static String J(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-            String I = I(str, str2);
-            String r = kp4.r(kp4.s(str));
-            if (I != null && !I.contains(".") && r != null) {
-                I = I + "." + r;
-            }
-            if (a) {
-                Log.d("StorageUtil", "path2SchemeWithExt: url" + I);
-            }
-            return I;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String N(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        String z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
-            String str3 = "";
-            if (!TextUtils.equals(str, dl2.USER_DATA_PATH)) {
-                str3 = str.replace("bdfile://usr/", "");
-            }
-            if (kp4.x(str3) || (z = z(str2)) == null) {
-                return null;
-            }
-            return z + File.separator + str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String L(String str, g93 g93Var, String str2) {
-        InterceptResult invokeLLL;
-        boolean z;
-        File i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, str, g93Var, str2)) == null) {
-            if (g93Var != null && !kp4.x(str)) {
-                du2.a Y = g93Var.Y();
-                if (Y != null && Y.n0()) {
-                    z = true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(kh3 kh3Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kh3Var) == null) {
+                y82.b("OpenData", "onOpenDataCallback:: ", kh3Var);
+                yb3 c = this.f.c();
+                if (c != null) {
+                    z = c.N().e(this.a);
                 } else {
                     z = false;
                 }
-                if (a && z) {
-                    Log.d("StorageUtil", "relative path : " + str);
-                    i = cs2.b.e();
-                } else if (!TextUtils.isEmpty(g93Var.b) && !TextUtils.isEmpty(str2) && s(str) == PathType.RELATIVE) {
-                    i = cs2.e.i(g93Var.b, str2);
-                }
-                if (i.exists()) {
-                    String replace = str.replace(ResourceConstants.CMT, "/");
-                    if (replace.startsWith("/")) {
-                        return i.getAbsolutePath() + replace;
+                if (!kh3Var.E()) {
+                    if (!z && !this.b) {
+                        ri3.S("fail", 3, this.c);
                     }
-                    if (replace.startsWith("./")) {
-                        replace = replace.replace("./", "");
-                    }
-                    return i.getAbsolutePath() + File.separator + replace;
+                    wg3.n(kh3Var, this.d, this.e);
+                    return;
                 }
+                if (z && !this.b) {
+                    ri3.S("success", 3, this.c);
+                }
+                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(kh3Var.g, 0).toString());
             }
-            return null;
         }
-        return (String) invokeLLL.objValue;
     }
 
-    @Nullable
-    public static String M(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/getUserInfo");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (G(str)) {
-                    return N(str, str2);
-                }
-                Uri parse = Uri.parse(str);
-                if (parse == null) {
-                    return null;
-                }
-                String host = parse.getHost();
-                if (a) {
-                    Log.d("StorageUtil", "——> getFileStorePathFromScheme: uri " + str + "  host " + host);
-                }
-                if (TextUtils.isEmpty(host)) {
-                    return null;
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                if (host.startsWith("tmp_")) {
-                    str3 = host.replace("tmp_", "");
-                    int indexOf = str3.indexOf(".");
-                    if (indexOf > 0) {
-                        str3 = str3.substring(0, indexOf);
-                    }
-                    String x = x(str2);
-                    if (TextUtils.isEmpty(x)) {
-                        return null;
-                    }
-                    stringBuffer.append(x);
-                } else if (host.startsWith("store_")) {
-                    str3 = host.replace("store_", "");
-                    int indexOf2 = str3.indexOf(".");
-                    if (indexOf2 > 0) {
-                        str3 = str3.substring(0, indexOf2);
-                    }
-                    String v = v(str2);
-                    if (TextUtils.isEmpty(v)) {
-                        return null;
-                    }
-                    stringBuffer.append(v);
-                } else {
-                    str3 = null;
-                }
-                if (TextUtils.isEmpty(str3)) {
-                    return null;
-                }
-                try {
-                    String str4 = new String(Base64.decode(str3, 10));
-                    if (kp4.x(str4)) {
-                        return null;
-                    }
-                    stringBuffer.append(str4);
-                    if (a) {
-                        Log.d("StorageUtil", "——> scheme2Path: encodePath " + str3);
-                        Log.d("StorageUtil", "——> scheme2Path:  path " + stringBuffer.toString());
-                    }
-                    return stringBuffer.toString();
-                } catch (IllegalArgumentException e) {
-                    if (a) {
-                        Log.d("StorageUtil", "——> scheme2Path: IllegalArgumentException " + e.getMessage());
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String n(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Activity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65564, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!TextUtils.isEmpty(str3)) {
-                    return x(str) + File.separator + str2 + ("." + str3);
-                }
-                return x(str) + File.separator + str2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                gv2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+                return false;
             }
-            return "";
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                gv2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                gv2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+                return false;
+            }
+            if (context instanceof Activity) {
+                w = (Activity) context;
+            } else {
+                w = yb3Var.w();
+            }
+            Activity activity = w;
+            if (activity == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                gv2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("invokeFrom");
+            if (!yb3Var.N().e(context)) {
+                ri3.S("show", 3, optString2);
+            }
+            String f = w73.f(optParamsAsJo.optString("__plugin__", null));
+            ls1 N = yb3Var.N();
+            boolean j = wg3.j(optParamsAsJo);
+            if (!N.e(context) && j) {
+                N.f(activity, null, new a(this, j, callbackHandler, optString, activity, f, optString2));
+            } else {
+                k(j, callbackHandler, optString, activity, f, "snsapi_userinfo", optString2);
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Nullable
-    public static File r() {
-        InterceptResult invokeV;
-        File externalFilesDir;
+    public final void k(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, String str4) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            if (!"mounted".equals(Environment.getExternalStorageState()) || (externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null)) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), callbackHandler, str, activity, str2, str3, str4}) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 != null) {
+                z2 = b0.N().e(activity);
+            } else {
+                z2 = false;
             }
-            return new File(externalFilesDir, "aiapp" + File.separator + "usr");
+            kh3.B(activity, str3, str2, z, "getUserInfoApi", new b(this, activity, z2, str4, callbackHandler, str));
         }
-        return (File) invokeV.objValue;
-    }
-
-    public static String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted")) {
-                return null;
-            }
-            if (a) {
-                Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
-            }
-            return AppRuntime.getAppContext().getExternalFilesDir(null) + b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
-            if (a) {
-                Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
-            }
-            return AppRuntime.getAppContext().getExternalCacheDir() + b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String t(g93 g93Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, g93Var)) == null) {
-            du2.a Y = g93Var.Y();
-            if (Y != null && !TextUtils.isEmpty(Y.I()) && Y.getType() == 1) {
-                return Y.I() + "_dev";
-            }
-            return g93Var.b;
-        }
-        return (String) invokeL.objValue;
     }
 }

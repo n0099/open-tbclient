@@ -1,124 +1,220 @@
 package com.baidu.tieba;
 
+import android.content.res.Configuration;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.ChunkUploadSwitch;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.AdSdkSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ys9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 524288;
-    public static int d = 6144000;
-    public static int e = 524288;
+public class ys9 implements ps9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ct9 a;
-    public sr8 b;
+    public final qs9 a;
+    public final rs9 b;
+    public kx4 c;
+    public ViewGroup d;
+    public boolean e;
+    public long f;
+    public boolean g;
+    public final Runnable h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948340874, "Lcom/baidu/tieba/ys9;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ys9 a;
+
+        public a(ys9 ys9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ys9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ys9Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948340874, "Lcom/baidu/tieba/ys9;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.e && this.a.d != null) {
+                SpeedStatsManager.getInstance().setIsTimeout(true);
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
+                if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
+                    return;
+                }
+                p0a.a("ThirdPartySplashController mTimeOutRunnable");
+                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
+                if (this.a.a.h()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
+                }
+                this.a.a.getRootView().removeView(this.a.d);
+                this.a.b.a();
+                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
+            }
         }
     }
 
-    public ys9(sr8 sr8Var) {
+    public ys9(qs9 qs9Var, rs9 rs9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sr8Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {qs9Var, rs9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = sr8Var;
+        this.e = false;
+        this.f = -1L;
+        this.g = false;
+        this.h = new a(this);
+        this.a = qs9Var;
+        this.b = rs9Var;
     }
 
-    public static void b(int i) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i <= 0) {
-                d = 6144000;
-            } else {
-                d = i;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public static void c(int i) {
+    @Override // com.baidu.tieba.ps9
+    public void onConfigurationChanged(Configuration configuration) {
+        kx4 kx4Var;
+        ix4 ix4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            if (i <= 0) {
-                c = 524288;
-            } else {
-                c = i;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) && (kx4Var = this.c) != null && (ix4Var = kx4Var.c) != null) {
+            ix4Var.a();
         }
     }
 
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            if (i <= 0) {
-                e = 524288;
-            } else {
-                e = i;
-            }
-        }
-    }
-
+    @Override // com.baidu.tieba.ps9
     public void a() {
-        ct9 ct9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ct9Var = this.a) != null) {
-            ct9Var.cancel();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j();
+            kx4 kx4Var = this.c;
+            if (kx4Var != null) {
+                kx4Var.f(null);
+                this.c.e(null);
+            }
         }
     }
 
-    public VideoFinishResult e(String str, String str2, int i, ft9 ft9Var) {
-        InterceptResult invokeLLIL;
+    @Override // com.baidu.tieba.ps9
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, ft9Var)) == null) {
-            try {
-                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                    this.a = new et9(str2, e, this.b);
-                } else {
-                    this.a = new dt9(str, c, d, this.b);
-                }
-                this.a.a(ft9Var);
-                return this.a.b(str2, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                sr8 sr8Var = this.b;
-                if (sr8Var != null) {
-                    sr8Var.f(306, -4399, mr8.a(e2));
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            l();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public ViewGroup h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            wg.a().postDelayed(this.h, 500L);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g = true;
+            wg.a().removeCallbacks(this.h);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
+                this.b.a();
+            } else if (MessageManager.getInstance().findTask(2016555) == null) {
+                this.b.a();
+            } else {
+                m();
             }
         }
-        return (VideoFinishResult) invokeLLIL.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.g = false;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f = System.currentTimeMillis();
+            this.c = new kx4(this.a.h(), this.a.i());
+            this.d = new RelativeLayout(this.a.getActivity());
+            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.a.getRootView().addView(this.d);
+            this.c.f(this.d);
+            this.c.e(new xs9(this.a, this.b, this));
+            MessageManager.getInstance().runTask(2016555, Long.class, this.c);
+            if (!this.g) {
+                qs5.b().j(System.currentTimeMillis() - currentTimeMillis);
+                wg.a().postDelayed(this.h, pv5.l() + 500);
+            }
+        }
     }
 }

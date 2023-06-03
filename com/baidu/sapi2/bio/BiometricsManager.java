@@ -29,7 +29,6 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.permission.DangerousPermissionStatistic;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
@@ -128,7 +127,7 @@ public class BiometricsManager implements NoProguard {
         public void onClick(View view2) {
             BiometricsManager.this.a(this.a, this.b, this.c, this.d, this.e);
             SapiContext.getInstance().setIsAlreadyShowExplainCamera(true);
-            SapiStatUtil.statExplainCamera(DangerousPermissionStatistic.UBC_TYPE_VALUE_AGREE, this.f);
+            SapiStatUtil.statExplainCamera("agree", this.f);
         }
     }
 

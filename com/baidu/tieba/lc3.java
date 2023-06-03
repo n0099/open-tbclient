@@ -1,83 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes6.dex */
-public class lc3 extends db3 {
+public abstract class lc3<T> implements cv2<T, byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lc3(da3 da3Var) {
-        super(da3Var, "/swanAPI/prefetchAppData");
+    public abstract T a(@NonNull dv2 dv2Var) throws Exception;
+
+    public lc3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final PrefetchEvent j(@NonNull JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cv2
+    public final T call(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            PrefetchEvent.b bVar = new PrefetchEvent.b();
-            bVar.e(jSONObject.optString("state"));
-            bVar.d(jSONObject.optString("schema"));
-            bVar.c(jSONObject.optString("scene"));
-            bVar.a(jSONObject.optString("appKey"));
-            return bVar.b();
-        }
-        return (PrefetchEvent) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("PrefetchAppData", "handle entity: " + unitedSchemeEntity.getUri().toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            String param = unitedSchemeEntity.getParam("params");
-            JSONObject d = gm3.d(param);
-            PrefetchEvent j = j(d);
-            if (j != null && j.isValid()) {
-                if (!w72.c(d.optString("netconf", "1"))) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
-                    return false;
-                }
-                fd2.g().f(j);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
-            return false;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            dv2 dv2Var = new dv2(byteArrayInputStream);
+            T a = a(dv2Var);
+            dv2Var.close();
+            byteArrayInputStream.close();
+            return a;
         }
-        return invokeLLLL.booleanValue;
+        return (T) invokeL.objValue;
     }
 }

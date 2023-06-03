@@ -1,112 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cu9 implements i65 {
+public class cu9 extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bu9 a;
+    @NonNull
+    public final Drawable a;
 
-    public cu9() {
+    public cu9(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = drawable;
     }
 
-    @Override // com.baidu.tieba.i65
-    public Class<?> d() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return MainTabActivity.class;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+            return;
         }
-        return (Class) invokeV.objValue;
+        canvas.save();
+        canvas.translate(0.0f, (((canvas.getHeight() / 2) - (this.a.getIntrinsicHeight() / 2)) * 1.0f) / 2.0f);
+        this.a.draw(canvas);
+        canvas.restore();
     }
 
-    @Override // com.baidu.tieba.i65
-    public String f() {
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return MainTabActivity.class.getName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i65
-    public int getCurrentTabType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            bu9 bu9Var = this.a;
-            if (bu9Var != null) {
-                return bu9Var.getCurrentTabType();
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getIntrinsicHeight();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.i65
-    public void a(Context context) {
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
-            } else {
-                b(context, 0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getIntrinsicWidth();
         }
-    }
-
-    public void g(bu9 bu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bu9Var) == null) {
-            this.a = bu9Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void c(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void e(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-        }
+        return invokeV.intValue;
     }
 }

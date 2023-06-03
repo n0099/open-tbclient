@@ -1,57 +1,202 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface kk5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
+public final class kk5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915988, "Lcom/baidu/tieba/kk5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947915988, "Lcom/baidu/tieba/kk5;");
+                return;
+            }
+        }
+        b = new a(null);
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void B1(long j, String str, boolean z, boolean z2);
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        void D(ChatRoomEntranceData chatRoomEntranceData);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
-        void F0(boolean z);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-        boolean Q();
-
-        void R0();
-
-        void T0(MotionEvent motionEvent);
-
-        boolean X0();
-
-        void c();
-
-        Fragment d();
-
-        void destroy();
-
-        int getState();
-
-        boolean n0();
-
-        void o1(boolean z);
-
-        void r1();
-
-        boolean u1(String str);
+        public final kk5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (kk5) invokeV.objValue;
+        }
     }
 
-    void a(@Nullable a aVar);
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final kk5 b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    b b(String str, nk5 nk5Var);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-658495594, "Lcom/baidu/tieba/kk5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-658495594, "Lcom/baidu/tieba/kk5$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new kk5();
+        }
 
-    void onChangeSkinType(int i);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final kk5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (kk5) invokeV.objValue;
+        }
+    }
+
+    public kk5() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        String cache = l95.m().s("festival_global_switches_key", "");
+        Intrinsics.checkNotNullExpressionValue(cache, "cache");
+        if (cache.length() > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            try {
+                c(new JSONObject(cache));
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
+                }
+                throw e;
+            }
+        }
+    }
+
+    public final boolean a(String key) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Integer num2 = this.a.get("global_switch");
+            if ((num2 != null && num2.intValue() == 0) || (num = this.a.get(key)) == null || num.intValue() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a.clear();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                Intrinsics.checkNotNullExpressionValue(keys, "keys");
+                while (keys.hasNext()) {
+                    String key = keys.next();
+                    HashMap<String, Integer> hashMap = this.a;
+                    Intrinsics.checkNotNullExpressionValue(key, "key");
+                    hashMap.put(key, Integer.valueOf(jSONObject.optInt(key)));
+                }
+            }
+        }
+    }
+
+    public final void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            l95.m().B("festival_global_switches_key", (jSONObject == null || (r5 = jSONObject.toString()) == null) ? "" : "");
+        }
+    }
+
+    public final void update(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            c(jSONObject);
+            b(jSONObject);
+        }
+    }
 }

@@ -2,7 +2,6 @@ package com.baidu.mapsdkplatform.comapi.b.a;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,7 @@ public class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0112a {
+    public static class C0117a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +81,7 @@ public class a implements Thread.UncaughtExceptionHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return C0112a.a;
+            return C0117a.a;
         }
         return (a) invokeV.objValue;
     }
@@ -124,7 +123,7 @@ public class a implements Thread.UncaughtExceptionHandler {
             }
             if (!obj.contains("BDMapSDKException")) {
                 if ((obj.contains("com.baidu.platform") || obj.contains("com.baidu.mapsdkplatform")) && this.b != null && !this.b.isEmpty()) {
-                    c.a().a(this.b + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, obj);
+                    c.a().a(this.b + (System.currentTimeMillis() / 1000) + ".txt", obj);
                 }
             }
         } catch (Exception unused) {

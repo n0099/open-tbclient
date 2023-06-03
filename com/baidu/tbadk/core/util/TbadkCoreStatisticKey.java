@@ -151,6 +151,13 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_H5_INSTALL_APK = "c15149";
     public static final String KEY_H5_LAUNCH_APK = "c15151";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
+    public static final String KEY_HOMEPAGE_CAR_HEAD_FORUM_ATTENTION_CLICK = "c15346";
+    public static final String KEY_HOMEPAGE_CAR_HEAD_FORUM_ATTENTION_SHOW = "c15345";
+    public static final String KEY_HOMEPAGE_FORUM_UNATTENTION_WINDOW_CLICK = "c15348";
+    public static final String KEY_HOMEPAGE_FORUM_UNATTENTION_WINDOW_SHOW = "c15347";
+    public static final String KEY_HOMEPAGE_RECFORUM_CARD_INNERFORUM_SHOW = "c15350";
+    public static final String KEY_HOMEPAGE_REC_FORUM_CARD_CLICK = "c15351";
+    public static final String KEY_HOMEPAGE_REC_FORUM_CARD_SHOW = "c15349";
     public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
     public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
@@ -303,6 +310,10 @@ public class TbadkCoreStatisticKey {
     public static final String UPDATE_TIEFA_DOWNLOAD_FAILED = "c10662";
     public static final String UPGRADE_DIALOG_CHOOSE_IMAGE = "c10489";
     public static final String UPGRADE_SUCCESS = "c10500";
+    public static final String VIDEO_LIVE_PAGE_AUTO_JUMP = "c15245";
+    public static final String VIDEO_LIVE_PAGE_CLICK = "c15238";
+    public static final String VIDEO_LIVE_PAGE_SHOW = "c15237";
+    public static final String VIDEO_LIVE_PAGE_STAY_TIME = "c15239";
     public static final String WEBVIEW_PERF_DATA_KEY = "c15167";
     public static final String WEBVIEW_SHARE = "c10898";
     public static final String WRITE_MORE_LINK_DIALOG_SHOW = "c13745";

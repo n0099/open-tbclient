@@ -1,33 +1,33 @@
 package rx.internal.util;
 
-import com.baidu.tieba.a8b;
-import com.baidu.tieba.b8b;
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.jbb;
-import com.baidu.tieba.l7b;
-import com.baidu.tieba.n8b;
-import com.baidu.tieba.w7b;
-import com.baidu.tieba.x7b;
-import com.baidu.tieba.z7b;
+import com.baidu.tieba.anb;
+import com.baidu.tieba.bnb;
+import com.baidu.tieba.imb;
+import com.baidu.tieba.jqb;
+import com.baidu.tieba.lmb;
+import com.baidu.tieba.nnb;
+import com.baidu.tieba.wmb;
+import com.baidu.tieba.xmb;
+import com.baidu.tieba.zmb;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import rx.Notification;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum InternalObservableUtils {
     ;
     
-    public static final h LONG_COUNTER = new b8b<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
+    public static final h LONG_COUNTER = new bnb<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8b
+        @Override // com.baidu.tieba.bnb
         public Long call(Long l2, Object obj) {
             return Long.valueOf(l2.longValue() + 1);
         }
     };
-    public static final f OBJECT_EQUALS = new b8b<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
+    public static final f OBJECT_EQUALS = new bnb<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.b8b
+        @Override // com.baidu.tieba.bnb
         public Boolean call(Object obj, Object obj2) {
             boolean z;
             if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
@@ -38,57 +38,57 @@ public enum InternalObservableUtils {
             return Boolean.valueOf(z);
         }
     };
-    public static final q TO_ARRAY = new a8b<List<? extends i7b<?>>, i7b<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
+    public static final q TO_ARRAY = new anb<List<? extends imb<?>>, imb<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?>[] call(List<? extends i7b<?>> list) {
-            return (i7b[]) list.toArray(new i7b[list.size()]);
+        @Override // com.baidu.tieba.anb
+        public imb<?>[] call(List<? extends imb<?>> list) {
+            return (imb[]) list.toArray(new imb[list.size()]);
         }
     };
     public static final o RETURNS_VOID = new o();
-    public static final g COUNTER = new b8b<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
+    public static final g COUNTER = new bnb<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8b
+        @Override // com.baidu.tieba.bnb
         public Integer call(Integer num, Object obj) {
             return Integer.valueOf(num.intValue() + 1);
         }
     };
     public static final e ERROR_EXTRACTOR = new e();
-    public static final w7b<Throwable> ERROR_NOT_IMPLEMENTED = new w7b<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
+    public static final wmb<Throwable> ERROR_NOT_IMPLEMENTED = new wmb<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
+        @Override // com.baidu.tieba.wmb
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }
     };
-    public static final i7b.b<Boolean, Object> IS_EMPTY = new n8b(UtilityFunctions.a(), true);
+    public static final imb.b<Boolean, Object> IS_EMPTY = new nnb(UtilityFunctions.a(), true);
 
-    /* loaded from: classes10.dex */
-    public static final class o implements a8b<Object, Void> {
+    /* loaded from: classes2.dex */
+    public static final class o implements anb<Object, Void> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
+        @Override // com.baidu.tieba.anb
         public Void call(Object obj) {
             return null;
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class a<T, R> implements b8b<R, T, R> {
-        public final x7b<R, ? super T> a;
+    /* loaded from: classes2.dex */
+    public static final class a<T, R> implements bnb<R, T, R> {
+        public final xmb<R, ? super T> a;
 
-        public a(x7b<R, ? super T> x7bVar) {
-            this.a = x7bVar;
+        public a(xmb<R, ? super T> xmbVar) {
+            this.a = xmbVar;
         }
 
-        @Override // com.baidu.tieba.b8b
+        @Override // com.baidu.tieba.bnb
         public R call(R r, T t) {
             this.a.call(r, t);
             return r;
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class b implements a8b<Object, Boolean> {
+    /* loaded from: classes2.dex */
+    public static final class b implements anb<Object, Boolean> {
         public final Object a;
 
         public b(Object obj) {
@@ -97,7 +97,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.a8b
+        @Override // com.baidu.tieba.anb
         public Boolean call(Object obj) {
             boolean z;
             Object obj2 = this.a;
@@ -110,8 +110,8 @@ public enum InternalObservableUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class d implements a8b<Object, Boolean> {
+    /* loaded from: classes2.dex */
+    public static final class d implements anb<Object, Boolean> {
         public final Class<?> a;
 
         public d(Class<?> cls) {
@@ -120,184 +120,184 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.a8b
+        @Override // com.baidu.tieba.anb
         public Boolean call(Object obj) {
             return Boolean.valueOf(this.a.isInstance(obj));
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class i implements a8b<i7b<? extends Notification<?>>, i7b<?>> {
-        public final a8b<? super i7b<? extends Void>, ? extends i7b<?>> a;
+    /* loaded from: classes2.dex */
+    public static final class i implements anb<imb<? extends Notification<?>>, imb<?>> {
+        public final anb<? super imb<? extends Void>, ? extends imb<?>> a;
 
-        public i(a8b<? super i7b<? extends Void>, ? extends i7b<?>> a8bVar) {
-            this.a = a8bVar;
+        public i(anb<? super imb<? extends Void>, ? extends imb<?>> anbVar) {
+            this.a = anbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?> call(i7b<? extends Notification<?>> i7bVar) {
-            return this.a.call(i7bVar.j(InternalObservableUtils.RETURNS_VOID));
+        @Override // com.baidu.tieba.anb
+        public imb<?> call(imb<? extends Notification<?>> imbVar) {
+            return this.a.call(imbVar.j(InternalObservableUtils.RETURNS_VOID));
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class j<T> implements z7b<jbb<T>> {
-        public final i7b<T> a;
+    /* loaded from: classes2.dex */
+    public static final class j<T> implements zmb<jqb<T>> {
+        public final imb<T> a;
         public final int b;
 
-        public j(i7b<T> i7bVar, int i) {
-            this.a = i7bVar;
+        public j(imb<T> imbVar, int i) {
+            this.a = imbVar;
             this.b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
-        public jbb<T> call() {
+        @Override // com.baidu.tieba.zmb
+        public jqb<T> call() {
             return this.a.r(this.b);
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class k<T> implements z7b<jbb<T>> {
+    /* loaded from: classes2.dex */
+    public static final class k<T> implements zmb<jqb<T>> {
         public final TimeUnit a;
-        public final i7b<T> b;
+        public final imb<T> b;
         public final long c;
-        public final l7b d;
+        public final lmb d;
 
-        public k(i7b<T> i7bVar, long j, TimeUnit timeUnit, l7b l7bVar) {
+        public k(imb<T> imbVar, long j, TimeUnit timeUnit, lmb lmbVar) {
             this.a = timeUnit;
-            this.b = i7bVar;
+            this.b = imbVar;
             this.c = j;
-            this.d = l7bVar;
+            this.d = lmbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
-        public jbb<T> call() {
+        @Override // com.baidu.tieba.zmb
+        public jqb<T> call() {
             return this.b.t(this.c, this.a, this.d);
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class l<T> implements z7b<jbb<T>> {
-        public final i7b<T> a;
+    /* loaded from: classes2.dex */
+    public static final class l<T> implements zmb<jqb<T>> {
+        public final imb<T> a;
 
-        public l(i7b<T> i7bVar) {
-            this.a = i7bVar;
+        public l(imb<T> imbVar) {
+            this.a = imbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
-        public jbb<T> call() {
+        @Override // com.baidu.tieba.zmb
+        public jqb<T> call() {
             return this.a.q();
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class m<T> implements z7b<jbb<T>> {
+    /* loaded from: classes2.dex */
+    public static final class m<T> implements zmb<jqb<T>> {
         public final long a;
         public final TimeUnit b;
-        public final l7b c;
+        public final lmb c;
         public final int d;
-        public final i7b<T> e;
+        public final imb<T> e;
 
-        public m(i7b<T> i7bVar, int i, long j, TimeUnit timeUnit, l7b l7bVar) {
+        public m(imb<T> imbVar, int i, long j, TimeUnit timeUnit, lmb lmbVar) {
             this.a = j;
             this.b = timeUnit;
-            this.c = l7bVar;
+            this.c = lmbVar;
             this.d = i;
-            this.e = i7bVar;
+            this.e = imbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
-        public jbb<T> call() {
+        @Override // com.baidu.tieba.zmb
+        public jqb<T> call() {
             return this.e.s(this.d, this.a, this.b, this.c);
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class n implements a8b<i7b<? extends Notification<?>>, i7b<?>> {
-        public final a8b<? super i7b<? extends Throwable>, ? extends i7b<?>> a;
+    /* loaded from: classes2.dex */
+    public static final class n implements anb<imb<? extends Notification<?>>, imb<?>> {
+        public final anb<? super imb<? extends Throwable>, ? extends imb<?>> a;
 
-        public n(a8b<? super i7b<? extends Throwable>, ? extends i7b<?>> a8bVar) {
-            this.a = a8bVar;
+        public n(anb<? super imb<? extends Throwable>, ? extends imb<?>> anbVar) {
+            this.a = anbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
-        public i7b<?> call(i7b<? extends Notification<?>> i7bVar) {
-            return this.a.call(i7bVar.j(InternalObservableUtils.ERROR_EXTRACTOR));
+        @Override // com.baidu.tieba.anb
+        public imb<?> call(imb<? extends Notification<?>> imbVar) {
+            return this.a.call(imbVar.j(InternalObservableUtils.ERROR_EXTRACTOR));
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class p<T, R> implements a8b<i7b<T>, i7b<R>> {
-        public final a8b<? super i7b<T>, ? extends i7b<R>> a;
-        public final l7b b;
+    /* loaded from: classes2.dex */
+    public static final class p<T, R> implements anb<imb<T>, imb<R>> {
+        public final anb<? super imb<T>, ? extends imb<R>> a;
+        public final lmb b;
 
-        public p(a8b<? super i7b<T>, ? extends i7b<R>> a8bVar, l7b l7bVar) {
-            this.a = a8bVar;
-            this.b = l7bVar;
+        public p(anb<? super imb<T>, ? extends imb<R>> anbVar, lmb lmbVar) {
+            this.a = anbVar;
+            this.b = lmbVar;
         }
 
-        public i7b<R> call(i7b<T> i7bVar) {
-            return this.a.call(i7bVar).m(this.b);
+        public imb<R> call(imb<T> imbVar) {
+            return this.a.call(imbVar).m(this.b);
         }
 
-        @Override // com.baidu.tieba.a8b
+        @Override // com.baidu.tieba.anb
         public /* bridge */ /* synthetic */ Object call(Object obj) {
-            return call((i7b) ((i7b) obj));
+            return call((imb) ((imb) obj));
         }
     }
 
-    public static <T, R> a8b<i7b<T>, i7b<R>> createReplaySelectorAndObserveOn(a8b<? super i7b<T>, ? extends i7b<R>> a8bVar, l7b l7bVar) {
-        return new p(a8bVar, l7bVar);
+    public static <T, R> anb<imb<T>, imb<R>> createReplaySelectorAndObserveOn(anb<? super imb<T>, ? extends imb<R>> anbVar, lmb lmbVar) {
+        return new p(anbVar, lmbVar);
     }
 
-    public static <T> z7b<jbb<T>> createReplaySupplier(i7b<T> i7bVar, int i2) {
-        return new j(i7bVar, i2);
+    public static <T> zmb<jqb<T>> createReplaySupplier(imb<T> imbVar, int i2) {
+        return new j(imbVar, i2);
     }
 
-    /* loaded from: classes10.dex */
-    public static final class e implements a8b<Notification<?>, Throwable> {
+    /* loaded from: classes2.dex */
+    public static final class e implements anb<Notification<?>, Throwable> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a8b
+        @Override // com.baidu.tieba.anb
         public Throwable call(Notification<?> notification) {
             return notification.e();
         }
     }
 
-    public static <T, R> b8b<R, T, R> createCollectorCaller(x7b<R, ? super T> x7bVar) {
-        return new a(x7bVar);
+    public static <T, R> bnb<R, T, R> createCollectorCaller(xmb<R, ? super T> xmbVar) {
+        return new a(xmbVar);
     }
 
-    public static a8b<i7b<? extends Notification<?>>, i7b<?>> createRepeatDematerializer(a8b<? super i7b<? extends Void>, ? extends i7b<?>> a8bVar) {
-        return new i(a8bVar);
+    public static anb<imb<? extends Notification<?>>, imb<?>> createRepeatDematerializer(anb<? super imb<? extends Void>, ? extends imb<?>> anbVar) {
+        return new i(anbVar);
     }
 
-    public static <T> z7b<jbb<T>> createReplaySupplier(i7b<T> i7bVar) {
-        return new l(i7bVar);
+    public static <T> zmb<jqb<T>> createReplaySupplier(imb<T> imbVar) {
+        return new l(imbVar);
     }
 
-    public static a8b<i7b<? extends Notification<?>>, i7b<?>> createRetryDematerializer(a8b<? super i7b<? extends Throwable>, ? extends i7b<?>> a8bVar) {
-        return new n(a8bVar);
+    public static anb<imb<? extends Notification<?>>, imb<?>> createRetryDematerializer(anb<? super imb<? extends Throwable>, ? extends imb<?>> anbVar) {
+        return new n(anbVar);
     }
 
-    public static a8b<Object, Boolean> equalsWith(Object obj) {
+    public static anb<Object, Boolean> equalsWith(Object obj) {
         return new b(obj);
     }
 
-    public static a8b<Object, Boolean> isInstanceOf(Class<?> cls) {
+    public static anb<Object, Boolean> isInstanceOf(Class<?> cls) {
         return new d(cls);
     }
 
-    public static <T> z7b<jbb<T>> createReplaySupplier(i7b<T> i7bVar, int i2, long j2, TimeUnit timeUnit, l7b l7bVar) {
-        return new m(i7bVar, i2, j2, timeUnit, l7bVar);
+    public static <T> zmb<jqb<T>> createReplaySupplier(imb<T> imbVar, int i2, long j2, TimeUnit timeUnit, lmb lmbVar) {
+        return new m(imbVar, i2, j2, timeUnit, lmbVar);
     }
 
-    public static <T> z7b<jbb<T>> createReplaySupplier(i7b<T> i7bVar, long j2, TimeUnit timeUnit, l7b l7bVar) {
-        return new k(i7bVar, j2, timeUnit, l7bVar);
+    public static <T> zmb<jqb<T>> createReplaySupplier(imb<T> imbVar, long j2, TimeUnit timeUnit, lmb lmbVar) {
+        return new k(imbVar, j2, timeUnit, lmbVar);
     }
 }

@@ -1,66 +1,69 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(g66 g66Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        int i;
-        SdkLiveInfoData.YYExt yYExt;
+    public static String a(Context context, AdInfo adInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, g66Var, str, str2) == null) && g66Var != null && (sdkLiveInfoData = g66Var.a) != null) {
-            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-            String str7 = "";
-            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-                str3 = "";
-                str4 = str3;
-                str5 = str4;
-                str6 = str5;
-            } else {
-                str4 = yYExt.sid;
-                str5 = yYExt.ssid;
-                str6 = yYExt.yyUid;
-                str3 = yYExt.templateId;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
+            if (adInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("placeId", adInfo.placeId);
+                    jSONObject.put(com.heytap.mcssdk.constant.b.C, "1.1.4");
+                    jSONObject.put("adType", adInfo.adShowType.getValue());
+                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
+                        jSONObject.put("landingPage", adInfo.downLoadUrl);
+                    } else {
+                        jSONObject.put("landingPage", adInfo.redirectUrl);
+                    }
+                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
+                    jSONObject.put("packageName", adInfo.packageName);
+                    jSONObject.put("finalPrice", adInfo.finalPrice);
+                    jSONObject.put("chargingMode", adInfo.chargingMode);
+                    jSONObject.put("token", adInfo.token);
+                    jSONObject.put("adpUserId", adInfo.adpUserId);
+                    jSONObject.put("bdId", CommonParam.getCUID(context));
+                    jSONObject.put("unitId", adInfo.unitId);
+                    jSONObject.put("planId", adInfo.planId);
+                    jSONObject.put("ideaId", adInfo.ideaId);
+                    jSONObject.put("ideaType", adInfo.sourceType);
+                    jSONObject.put("s", "0");
+                    return jSONObject.toString();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return "";
+                }
             }
-            StatisticItem param = new StatisticItem(str).param("fid", g66Var.c).param("liveid", g66Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
-            if (!TextUtils.isEmpty(str4)) {
-                str7 = "1";
-            }
-            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, g66Var.a.nid);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param2.param("obj_source", i));
+            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void b(g66 g66Var, String str) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, g66Var, str) == null) {
-            a(g66Var, "c14705", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e);
+                return null;
+            }
         }
-    }
-
-    public static void c(g66 g66Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, g66Var, str) == null) {
-            a(g66Var, "c14704", str);
-        }
+        return (String) invokeL.objValue;
     }
 }

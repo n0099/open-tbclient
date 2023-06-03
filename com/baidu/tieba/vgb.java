@@ -1,77 +1,120 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.WindowParams;
-/* loaded from: classes7.dex */
-public interface vgb extends pgb, ogb {
+import com.yy.transvod.player.log.TLog;
+/* loaded from: classes8.dex */
+public class vgb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public long d;
+    public long e;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(ifb ifbVar, efb efbVar, AppCustomExpand appCustomExpand);
-
-        void b(ifb ifbVar, efb efbVar, AppCustomExpand appCustomExpand);
-
-        void c(hfb hfbVar);
-
-        void onRefreshViewFail(int i, String str);
-
-        void toHelpCenterPage();
+    public vgb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = true;
+        this.c = 0;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    void a();
-
-    boolean d();
-
-    void setCallback(a aVar);
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<PayWayInfo> a;
-        public String b;
-        public efb c;
-        public AppCustomExpand d;
-        public Map<String, String> e;
-        public AbsViewEventHandler f;
-        public PayFlowType g;
-        public WindowParams h;
-        public boolean i;
-        public String j;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public synchronized boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (this.c < 2) {
+                    return false;
                 }
+                if (Math.abs(this.d - this.e) < 100) {
+                    z = true;
+                }
+                return z;
             }
-            this.i = false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.g + ", showFaqPage=" + this.i + ", appCustomExpand=" + this.d + ", clientInfoExpand='" + this.e + "', windowParams='" + this.h + "', viewEventListener='" + this.f + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.j + "'}";
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.a;
             }
-            return (String) invokeV.objValue;
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceCreated");
+                if (this.c > 0) {
+                    this.e = this.d;
+                }
+                this.c++;
+                this.d = System.currentTimeMillis();
+                this.b = true;
+                this.a = true;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceDestroy");
+                this.b = true;
+                this.a = false;
+            }
+        }
+    }
+
+    public synchronized boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (this.b == z) {
+                    this.b = z2;
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public synchronized void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            synchronized (this) {
+            }
         }
     }
 }

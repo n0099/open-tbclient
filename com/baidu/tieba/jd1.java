@@ -1,55 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jd1 {
+public abstract class jd1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qd1 a;
+    public md1 b;
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public jd1(md1 md1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
-            b(context, drawable, mode, i, e(context));
-        }
-    }
-
-    public static void b(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, drawable, mode, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && context != null && drawable != null) {
-            if (i >= 0 && i < 255) {
-                i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {md1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            drawable.setColorFilter(i2, mode);
         }
+        this.a = md1Var.f();
+        this.b = md1Var;
     }
 
-    public static void c(Context context, Drawable drawable) {
+    public jd1<T> a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            d(context, drawable, 255);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.d(z);
+            return this;
         }
+        return (jd1) invokeZ.objValue;
     }
 
-    public static void d(Context context, Drawable drawable, int i) {
+    public jd1<T> c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.b.m(i);
+            return this;
         }
+        return (jd1) invokeI.objValue;
     }
 
-    public static int e(Context context) {
+    public jd1<T> e(BubblePosition bubblePosition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return context.getResources().getColor(R.color.nad_ui_cover_layer_color);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
+            this.b.e().d = false;
+            this.b.e().e = bubblePosition;
+            return this;
         }
-        return invokeL.intValue;
+        return (jd1) invokeL.objValue;
+    }
+
+    public jd1<T> f(BubbleManager.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            this.b.n(bVar);
+            return this;
+        }
+        return (jd1) invokeL.objValue;
+    }
+
+    public jd1<T> g(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            this.b.e().q(f);
+            return this;
+        }
+        return (jd1) invokeF.objValue;
+    }
+
+    public jd1<T> b(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
+            this.a.s(view2, viewGroup);
+            return this;
+        }
+        return (jd1) invokeLL.objValue;
+    }
+
+    public jd1<T> d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.w(i);
+                } catch (Exception e) {
+                    kl0.h("BubbleBuilder", "", e);
+                    this.a.w(-1);
+                    return this;
+                }
+            }
+            if (i2 != -1) {
+                try {
+                    this.a.x(i2);
+                } catch (Exception e2) {
+                    kl0.h("BubbleBuilder", "", e2);
+                    this.a.x(-1);
+                }
+            }
+            return this;
+        }
+        return (jd1) invokeII.objValue;
     }
 }

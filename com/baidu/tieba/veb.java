@@ -1,198 +1,364 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tgb;
-import com.baidu.tieba.vgb;
+import android.app.ActivityManager;
+import android.app.ApplicationExitInfo;
+import android.content.Context;
+import android.os.Build;
+import android.os.Process;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes7.dex */
-public class veb implements odb {
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.regex.Pattern;
+/* loaded from: classes8.dex */
+public class veb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ndb b;
-    public PayUIKitConfig c;
-    public PayFlowType d;
-    public mdb e;
-    public int f;
-    public int g;
-    public long h;
 
-    /* loaded from: classes7.dex */
-    public class a implements IPayCallback<CurrencyChargeMessage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-        public final /* synthetic */ ifb b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ efb d;
-        public final /* synthetic */ Dialog e;
-        public final /* synthetic */ ogb f;
-        public final /* synthetic */ AppCustomExpand g;
-        public final /* synthetic */ vgb.b h;
-        public final /* synthetic */ veb i;
-
-        public a(veb vebVar, IPayCallback iPayCallback, ifb ifbVar, Activity activity, efb efbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239318, "Lcom/baidu/tieba/veb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vebVar, iPayCallback, ifbVar, activity, efbVar, dialog, ogbVar, appCustomExpand, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.i = vebVar;
-            this.a = iPayCallback;
-            this.b = ifbVar;
-            this.c = activity;
-            this.d = efbVar;
-            this.e = dialog;
-            this.f = ogbVar;
-            this.g = appCustomExpand;
-            this.h = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onFail(i, str, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStart();
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
-                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
-                    ifb ifbVar = this.b;
-                    ifbVar.a = PayType.ALI_PAY;
-                    this.i.e(this.c, this.d, ifbVar, this.e, this.f, this.g, this.h, this.a);
-                    return;
-                }
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-                }
-            }
-        }
-    }
-
-    public veb(int i, int i2, ndb ndbVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, mdb mdbVar) {
-        MiddleRevenueConfig middleRevenueConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), ndbVar, payUIKitConfig, payFlowType, mdbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948239318, "Lcom/baidu/tieba/veb;");
                 return;
             }
         }
-        this.a = "PaySignManager";
-        this.h = 0L;
-        RLog.info("PaySignManager", "create PaySignManager:" + this);
-        this.f = i;
-        this.g = i2;
-        this.b = ndbVar;
-        this.c = payUIKitConfig;
-        this.d = payFlowType;
-        this.e = mdbVar;
-        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
-            this.h = middleRevenueConfig.getUid();
-        }
+        a = Pattern.compile("[^0-9]");
     }
 
-    @Override // com.baidu.tieba.odb
-    public void a(Activity activity, efb efbVar, ifb ifbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public static void a(Context context) {
+        ApplicationExitInfo next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog:" + this);
-            a aVar = new a(this, iPayCallback, ifbVar, activity, efbVar, dialog, ogbVar, appCustomExpand, bVar);
-            boolean z = false;
-            if (!ifbVar.g) {
-                z = dgb.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && Build.VERSION.SDK_INT > 29) {
+            Iterator<ApplicationExitInfo> it = ((ActivityManager) context.getSystemService("activity")).getHistoricalProcessExitReasons(context.getPackageName(), 0, 3).iterator();
+            while (it.hasNext() && (next = it.next()) != null) {
+                peb.d("CrashReportUtil", next.toString());
+                try {
+                    f(next.getTraceInputStream());
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
             }
-            String str2 = this.a;
-            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + z);
-            if (z) {
-                e(activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, aVar);
-                return;
+        }
+    }
+
+    public static void f(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, inputStream) != null) || inputStream == null) {
+            return;
+        }
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    peb.d("CrashReportUtil", byteArrayOutputStream.toString(StandardCharsets.UTF_8.name()));
+                    inputStream.close();
+                    byteArrayOutputStream.close();
+                    return;
+                }
             }
-            tgb.b bVar2 = new tgb.b();
-            bVar2.a = ifbVar.g;
-            bVar2.b = efbVar;
-            bVar2.c = bVar.f;
-            tgb f = this.b.f(activity, bVar2, this.c);
-            f.setCallback(new keb(activity, d(activity, f, bVar2), this.e, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, aVar));
+        } catch (Throwable th) {
+            peb.b("CrashReportUtil", th.getMessage());
         }
     }
 
-    public final Dialog d(Activity activity, tgb tgbVar, tgb.b bVar) {
-        InterceptResult invokeLLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, tgbVar, bVar)) == null) {
-            return ehb.b.e(activity, "title", tgbVar.getContentView(), new jeb(this.f, this.g), bVar.c, PayDialogType.PAY_SIGN_DIALOG, this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("ls /proc/self/fd -al").getInputStream()), 1024);
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                    sb.append("\n");
+                }
+                bufferedReader.close();
+            } catch (Exception e) {
+                peb.d("CrashReportUtil", e.getMessage());
+            }
+            return sb.toString();
         }
-        return (Dialog) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void e(Activity activity, efb efbVar, ifb ifbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public static String c() {
+        InterceptResult invokeV;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback}) == null) {
-            String str = this.a;
-            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + ifbVar.a);
-            this.e.k(activity, ifbVar, efbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                for (File file : new File("/proc/self/task").listFiles()) {
+                    if (file.isDirectory()) {
+                        File file2 = new File(file.getAbsolutePath() + File.separator + "comm");
+                        if (file2.isFile() && file2.exists()) {
+                            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file2));
+                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                            sb.append(file.getName());
+                            sb.append("---");
+                            while (true) {
+                                int read = bufferedReader.read();
+                                if (read <= 0) {
+                                    break;
+                                }
+                                sb.append((char) read);
+                            }
+                            inputStreamReader.close();
+                            bufferedReader.close();
+                        }
+                        file2.delete();
+                    }
+                }
+            } catch (Exception e) {
+                peb.d("CrashReportUtil", e.getMessage());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Exception e;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                i = 0;
+                for (File file : new File("/proc/self/task").listFiles()) {
+                    try {
+                        if (file.isDirectory()) {
+                            i++;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        peb.d("CrashReportUtil", e.getMessage());
+                        return i;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                i = 0;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long j = -1;
+            try {
+                FileInputStream fileInputStream = new FileInputStream("/proc/" + Process.myPid() + "/status");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    String lowerCase = readLine.toLowerCase();
+                    if (lowerCase.contains("vmsize")) {
+                        j = Integer.parseInt(a.matcher(lowerCase).replaceAll("").trim());
+                        break;
+                    }
+                }
+                fileInputStream.close();
+                bufferedReader.close();
+            } catch (Exception unused) {
+                Log.e("CrashReportUtil", "read current status failed.");
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x010a: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
+    /* JADX WARN: Not initialized variable reg: 5, insn: 0x010b: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
+    /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00fe A[Catch: Exception -> 0x0076, TRY_ENTER, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0103 A[Catch: Exception -> 0x0076, TRY_LEAVE, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0116 A[Catch: Exception -> 0x0112, TRY_LEAVE, TryCatch #10 {Exception -> 0x0112, blocks: (B:69:0x010e, B:73:0x0116), top: B:86:0x010e }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void g(String str) {
+        FileChannel fileChannel;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        FileChannel fileChannel2;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            FileChannel fileChannel3 = null;
+            BufferedReader bufferedReader3 = null;
+            r3 = null;
+            r3 = null;
+            BufferedReader bufferedReader4 = null;
+            fileChannel3 = null;
+            try {
+                try {
+                    try {
+                        try {
+                            FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                            if (channel != null) {
+                                try {
+                                    InputStreamReader inputStreamReader = new InputStreamReader(Runtime.getRuntime().exec("showmap " + Process.myPid()).getInputStream());
+                                    BufferedReader bufferedReader5 = new BufferedReader(inputStreamReader, 1024);
+                                    while (true) {
+                                        try {
+                                            String readLine = bufferedReader5.readLine();
+                                            if (readLine == null) {
+                                                break;
+                                            }
+                                            channel.write(ByteBuffer.wrap(readLine.getBytes()));
+                                            channel.write(ByteBuffer.wrap("\n".getBytes()));
+                                        } catch (Exception e) {
+                                            e = e;
+                                            peb.b("CrashReportUtil", e.getMessage());
+                                            try {
+                                                file = new File("/proc/self/smaps");
+                                                fileChannel2 = new RandomAccessFile(str, "rw").getChannel();
+                                                try {
+                                                } catch (Exception e2) {
+                                                    e = e2;
+                                                    bufferedReader2 = null;
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    bufferedReader2 = null;
+                                                }
+                                            } catch (Exception e3) {
+                                                e = e3;
+                                                bufferedReader2 = null;
+                                            }
+                                            if (file.isFile() && file.exists() && fileChannel2 != null) {
+                                                InputStreamReader inputStreamReader2 = new InputStreamReader(new FileInputStream(file));
+                                                bufferedReader2 = new BufferedReader(inputStreamReader2);
+                                                while (true) {
+                                                    try {
+                                                        String readLine2 = bufferedReader2.readLine();
+                                                        if (readLine2 == null) {
+                                                            break;
+                                                        }
+                                                        fileChannel2.write(ByteBuffer.wrap(readLine2.getBytes()));
+                                                        fileChannel2.write(ByteBuffer.wrap("\n".getBytes()));
+                                                    } catch (Exception e4) {
+                                                        e = e4;
+                                                        fileChannel3 = fileChannel2;
+                                                        try {
+                                                            peb.b("CrashReportUtil", e.getMessage());
+                                                            fileChannel2 = fileChannel3;
+                                                            bufferedReader4 = bufferedReader2;
+                                                            if (fileChannel2 != null) {
+                                                            }
+                                                            if (bufferedReader4 == null) {
+                                                            }
+                                                        } catch (Throwable th2) {
+                                                            th = th2;
+                                                            if (fileChannel3 != null) {
+                                                                try {
+                                                                    fileChannel3.close();
+                                                                } catch (Exception e5) {
+                                                                    peb.b("CrashReportUtil", e5.getMessage());
+                                                                    throw th;
+                                                                }
+                                                            }
+                                                            if (bufferedReader2 != null) {
+                                                                bufferedReader2.close();
+                                                            }
+                                                            throw th;
+                                                        }
+                                                    } catch (Throwable th3) {
+                                                        th = th3;
+                                                        fileChannel3 = fileChannel2;
+                                                        th = th;
+                                                        if (fileChannel3 != null) {
+                                                        }
+                                                        if (bufferedReader2 != null) {
+                                                        }
+                                                        throw th;
+                                                    }
+                                                }
+                                                inputStreamReader2.close();
+                                                bufferedReader4 = bufferedReader2;
+                                            }
+                                            if (fileChannel2 != null) {
+                                                fileChannel2.close();
+                                            }
+                                            if (bufferedReader4 == null) {
+                                                bufferedReader4.close();
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                    }
+                                    inputStreamReader.close();
+                                    bufferedReader3 = bufferedReader5;
+                                } catch (Exception e6) {
+                                    e = e6;
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    bufferedReader2 = null;
+                                    fileChannel3 = channel;
+                                    if (fileChannel3 != null) {
+                                    }
+                                    if (bufferedReader2 != null) {
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (channel != null) {
+                                channel.close();
+                            }
+                            if (bufferedReader3 != null) {
+                                bufferedReader3.close();
+                            }
+                        } catch (Exception e7) {
+                            e = e7;
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        bufferedReader2 = null;
+                    }
+                } catch (Exception e8) {
+                    peb.b("CrashReportUtil", e8.getMessage());
+                }
+            } catch (Throwable th6) {
+                th = th6;
+                fileChannel3 = fileChannel;
+                bufferedReader2 = bufferedReader;
+            }
         }
     }
 }

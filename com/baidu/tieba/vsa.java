@@ -1,236 +1,376 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.MainThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.osa;
+import com.baidu.tieba.psa;
+import com.baidu.tieba.qsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class vsa extends gta<zta> {
+public class vsa implements psa, qsa.a, osa.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public isa a;
+    public lsa b;
+    public Executor c;
+    public String d;
+    public gsa e;
+    public psa.a f;
+    public int g;
+    public rsa h;
+    public qsa i;
+    public List<osa> j;
 
-    /* loaded from: classes8.dex */
-    public class a implements TTAdNative.SplashAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vsa a;
-
-        public a(vsa vsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vsaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vsaVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        @MainThread
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
-                LogPrinter.d();
-                this.a.onAdLoaded((vsa) new zta(tTSplashAd));
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onTimeout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.a.onError(0, "Load Timeout");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements TTSplashAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final zta a;
-        public final String b;
-        public boolean c;
-        public boolean d;
-        public final /* synthetic */ vsa e;
-
-        public b(vsa vsaVar, zta ztaVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vsaVar, ztaVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = vsaVar;
-            this.a = ztaVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdClicked(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked(this.a, this.d, new String[0]);
-                this.d = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdShow(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdShow(this.a, this.c, new String[0]);
-                this.c = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vsa(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
+    public vsa(isa isaVar, lsa lsaVar, Executor executor, String str, gsa gsaVar, psa.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {isaVar, lsaVar, executor, str, gsaVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = isaVar;
+        this.b = lsaVar;
+        this.c = executor;
+        this.d = str;
+        this.e = gsaVar;
+        this.f = aVar;
+        g();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    @Override // com.baidu.tieba.osa.a
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            zta ztaVar = (zta) obj;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
+            this.g = 108;
+            this.b.a(downloadException);
+            m();
         }
     }
 
-    public final boolean h(ViewGroup viewGroup, zta ztaVar, TTSplashAd.AdInteractionListener adInteractionListener) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.osa.a
+    public void onDownloadCompleted(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, ztaVar, adInteractionListener)) == null) {
-            View splashView = ((TTSplashAd) ztaVar.a).getSplashView();
-            if (splashView.getParent() != null) {
-                ((ViewGroup) splashView.getParent()).removeView(splashView);
+        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
+            this.g = 105;
+            this.b.onDownloadCompleted(str);
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.qsa.a
+    public void b(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+            } else if (this.i.isPaused()) {
+                onDownloadPaused();
+            } else {
+                this.g = 108;
+                this.b.b(downloadException);
+                m();
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(splashView);
-            onShowStart(ztaVar);
-            ((TTSplashAd) ztaVar.a).setSplashInteractionListener(adInteractionListener);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            File file = new File(this.h.a(), this.h.d());
+            if (file.exists() && file.isFile()) {
+                file.delete();
+            }
+        }
+    }
+
+    public final zsa f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new zsa(0, this.d, this.a.c(), 0L);
+        }
+        return (zsa) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            for (osa osaVar : this.j) {
+                if (osaVar.isDownloading()) {
+                    return false;
+                }
+            }
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    @Override // com.baidu.tieba.psa
+    public boolean isRunning() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i = this.g;
+            if (i != 101 && i != 102 && i != 103 && i != 104) {
+                return false;
             }
-            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
-            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build();
-            onLoadStart(funAdSlot);
-            this.e.loadSplashAd(build, new a(this), 5000);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            zta ztaVar = (zta) obj;
-            h(viewGroup, ztaVar, new b(this, ztaVar, str));
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            zta ztaVar = (zta) obj;
-            fta ftaVar = new fta((TTSplashAd) ztaVar.a);
-            h(viewGroup, ztaVar, new wsa(this, ztaVar, str, ftaVar));
-            return ftaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            for (osa osaVar : this.j) {
+                if (!osaVar.isComplete()) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (FunSplashAd) invokeLLLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            for (osa osaVar : this.j) {
+                if (osaVar.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            for (osa osaVar : this.j) {
+                if (osaVar.isDownloading()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.f.a(this.d, this);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            wsa wsaVar = new wsa(this.a.c(), this);
+            this.i = wsaVar;
+            this.c.execute(wsaVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.qsa.a
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            c();
+            this.g = 107;
+            this.b.onConnectCanceled();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.qsa.a
+    public void onConnectPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            onDownloadPaused();
+        }
+    }
+
+    @Override // com.baidu.tieba.qsa.a
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.g = 102;
+            this.b.onConnecting();
+        }
+    }
+
+    @Override // com.baidu.tieba.osa.a
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
+            c();
+            this.g = 107;
+            this.b.onDownloadCanceled();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.osa.a
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
+            this.g = 106;
+            this.b.onDownloadPaused();
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.psa
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.g = 101;
+            this.b.onStarted();
+            n();
+        }
+    }
+
+    @Override // com.baidu.tieba.psa
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qsa qsaVar = this.i;
+            if (qsaVar != null) {
+                qsaVar.cancel();
+            }
+            for (osa osaVar : this.j) {
+                osaVar.cancel();
+            }
+            if (this.g != 104) {
+                onDownloadCanceled();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h = new rsa(this.a.b().toString(), this.a.c(), this.a.a());
+            this.j = new LinkedList();
+        }
+    }
+
+    @Override // com.baidu.tieba.psa
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            qsa qsaVar = this.i;
+            if (qsaVar != null) {
+                qsaVar.pause();
+            }
+            for (osa osaVar : this.j) {
+                osaVar.pause();
+            }
+            if (this.g != 104) {
+                onDownloadPaused();
+            }
+        }
+    }
+
+    public final void d(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.g = 104;
+            h(j, z);
+            for (osa osaVar : this.j) {
+                this.c.execute(osaVar);
+            }
+        }
+    }
+
+    public final List<zsa> e(long j) {
+        InterceptResult invokeJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int b = this.e.b();
+            for (int i = 0; i < b; i++) {
+                long j3 = j / b;
+                long j4 = j3 * i;
+                if (i == b - 1) {
+                    j2 = j;
+                } else {
+                    j2 = (j3 + j4) - 1;
+                }
+                arrayList.add(new zsa(i, this.d, this.a.c(), j4, j2, 0L));
+            }
+            return arrayList;
+        }
+        return (List) invokeJ.objValue;
+    }
+
+    public final void h(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.j.clear();
+            if (z) {
+                List<zsa> e = e(j);
+                int i = 0;
+                for (zsa zsaVar : e) {
+                    i = (int) (i + zsaVar.b());
+                }
+                this.h.f(i);
+                for (zsa zsaVar2 : e) {
+                    this.j.add(new xsa(this.h, zsaVar2, this));
+                }
+                return;
+            }
+            this.j.add(new ysa(this.h, f(), this));
+        }
+    }
+
+    @Override // com.baidu.tieba.qsa.a
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (this.i.isCanceled()) {
+                onConnectCanceled();
+                return;
+            }
+            this.g = 103;
+            this.b.onConnected(j, j2, z);
+            this.h.e(z);
+            this.h.g(j2);
+            d(j2, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.osa.a
+    public void onDownloadProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
+        }
     }
 }

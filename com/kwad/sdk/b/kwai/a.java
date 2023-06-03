@@ -16,7 +16,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.utils.al;
@@ -67,12 +67,12 @@ public final class a {
     public static int aH(@Nullable Context context) {
         int i = SK;
         if (i <= 0 && context != null) {
-            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 SK = context.getResources().getDimensionPixelSize(identifier);
             } else {
                 try {
-                    SK = context.getResources().getDimensionPixelSize(((Integer) q.c("com.android.internal.R$dimen", SapiSystemBarTintManager.SystemBarConfig.g)).intValue());
+                    SK = context.getResources().getDimensionPixelSize(((Integer) q.c("com.android.internal.R$dimen", "status_bar_height")).intValue());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -229,7 +229,7 @@ public final class a {
             return 0;
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.heightPixels;
     }
 
@@ -239,7 +239,7 @@ public final class a {
             return 0;
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.widthPixels;
     }
 

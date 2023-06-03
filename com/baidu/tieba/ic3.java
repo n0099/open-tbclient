@@ -1,90 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class ic3 extends db3 {
+public final class ic3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, nc3> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic3(da3 da3Var) {
-        super(da3Var, "/swanAPI/setNavigationBarColor");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947848656, "Lcom/baidu/tieba/ic3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947848656, "Lcom/baidu/tieba/ic3;");
                 return;
             }
         }
+        b = is1.a;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public ic3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            p82 V = tu2.U().V();
-            if (V == null) {
-                g62.c("navigationColor", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (optParamsAsJo == null) {
-                g62.c("navigationColor", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("frontColor");
-                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-                m82 m = V.m();
-                if (m == null) {
-                    g62.c("navigationColor", "slave container exception");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.H2(optString, true)) {
-                    g62.c("navigationColor", "set title color fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.x2(SwanAppConfigData.t(optString2), true)) {
-                    g62.c("navigationColor", "set title background fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    if (optJSONObject != null) {
-                        m.v2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
-                        g62.i("navigationColor", "set action bar animator");
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.a = null;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            File d = f73.d(str2);
+            if (d == null || !d.exists()) {
+                if (str.endsWith(File.separator)) {
+                    d = new File(str + str2 + ".json");
+                } else {
+                    d = new File(str + File.separator + str2 + ".json");
+                }
+            }
+            if (b) {
+                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
+            }
+            if (!d.exists()) {
+                return null;
+            }
+            return uu2.m(d);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public nc3 a(String str, @NonNull String str2, @NonNull nc3 nc3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, nc3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                nc3 d = d(str, str2, nc3Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return nc3Var;
+        }
+        return (nc3) invokeLLL.objValue;
+    }
+
+    public final nc3 d(String str, String str2, @NonNull nc3 nc3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, nc3Var)) == null) {
+            String c = c(str, str2);
+            if (TextUtils.isEmpty(c)) {
+                return nc3Var;
+            }
+            return nc3.b(c, nc3Var);
+        }
+        return (nc3) invokeLLL.objValue;
+    }
+
+    public nc3 b(String str, String str2, @NonNull nc3 nc3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, nc3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (this.a == null) {
+                    this.a = new TreeMap();
+                }
+                nc3 nc3Var2 = this.a.get(str2);
+                if (nc3Var2 != null) {
+                    return nc3Var2;
+                }
+                nc3 d = d(str, str2, nc3Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return nc3Var;
+        }
+        return (nc3) invokeLLL.objValue;
     }
 }

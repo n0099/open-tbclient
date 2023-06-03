@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rv6 {
+public class rv6 extends sl1<pv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,18 +25,15 @@ public class rv6 {
         }
     }
 
-    public vv6 a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public pv6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if ("default".equals(str)) {
-                return new tv6(z);
-            }
-            if ("manual".equals(str)) {
-                return new uv6(z);
-            }
-            return new tv6(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new qv6();
         }
-        return (vv6) invokeLZ.objValue;
+        return (pv6) invokeV.objValue;
     }
 }

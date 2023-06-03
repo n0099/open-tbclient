@@ -1,125 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bn6;
-import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.t25;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kf7 extends t25 {
+public class kf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jf7 c;
-    public final FrsSpriteGuideTipController d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kf7(Activity activity, jf7 jf7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
-        super(activity);
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, jf7Var, frsSpriteGuideTipController};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.c = jf7Var;
-        this.d = frsSpriteGuideTipController;
-    }
-
-    public static final void g(kf7 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static final void h(kf7 this$0) {
+    public static void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.t25
-    public void d(t25.a shouldShowCallback) {
+    public static void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.a(true);
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.t25
-    public void b() {
+    public static void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jf7 jf7Var = this.c;
-            if (jf7Var != null) {
-                jf7Var.o();
-            }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                frsSpriteGuideTipController.g();
-            }
+        if (interceptable == null || interceptable.invokeJ(65539, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.t25
-    public void e() {
+    public static void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            DefaultLog.getInstance().c("FrsGuide", "开始显示frs吧引导");
-            jf7 jf7Var = this.c;
-            if (jf7Var != null) {
-                DefaultLog.getInstance().c("FrsGuide", "展示线上吧引导样式");
-                jf7Var.t(new bn6.e() { // from class: com.baidu.tieba.ff7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeJ(65541, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
 
-                    @Override // com.baidu.tieba.bn6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            kf7.g(kf7.this);
-                        }
-                    }
-                });
-                jf7Var.w();
-            }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                DefaultLog.getInstance().c("FrsGuide", "展示精灵吧引导样式");
-                frsSpriteGuideTipController.j(new bn6.e() { // from class: com.baidu.tieba.gf7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
 
-                    @Override // com.baidu.tieba.bn6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            kf7.h(kf7.this);
-                        }
-                    }
-                });
-                frsSpriteGuideTipController.l();
-            }
+    public static void e(String str, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_SHOW);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_id", j);
+            statisticItem.addParam("obj_source", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

@@ -1,69 +1,51 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hg6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kg6 implements jg6 {
+public class kg6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kg6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public jg6 a;
+    public TbPageContext a;
 
-    public kg6() {
+    public kg6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static kg6 b() {
-        InterceptResult invokeV;
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (kg6.class) {
-                    if (b == null) {
-                        b = new kg6();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
+            if (j2 <= 0) {
+                return;
             }
-            return b;
-        }
-        return (kg6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jg6
-    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
-            jg6 jg6Var = this.a;
-            if (jg6Var == null) {
-                return null;
+            if (j2 > 200000000) {
+                vi.Q(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f027b, 20L));
+                return;
             }
-            return jg6Var.a(str, webResourceRequest);
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    public void c(hg6.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
-            this.a = aVar.b();
+            if (j2 % 1000 != 0) {
+                j2 = ((j2 / 1000) + 1) * 1000;
+            }
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
         }
     }
 }

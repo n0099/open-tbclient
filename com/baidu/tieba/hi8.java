@@ -1,26 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class hi8 implements ot4 {
+/* loaded from: classes6.dex */
+public class hi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ot4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
-    }
 
     public hi8() {
         Interceptable interceptable = $ic;
@@ -32,26 +20,9 @@ public class hi8 implements ot4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ot4
-    public void b(HashMap<String, String> hashMap, pt4 pt4Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, pt4Var) == null) && pt4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.a = pt4Var.a;
-            aVar.b = pt4Var.c;
-            aVar.d = true;
-            if (hashMap.get("touid") == null) {
-                str = "";
-            } else {
-                str = hashMap.get("touid");
-            }
-            aVar.c = str;
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
-        }
+        new HashMap();
     }
 }

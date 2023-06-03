@@ -7,7 +7,6 @@ import android.os.Build;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.bean.ARConfig;
-import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.constants.HttpConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -39,7 +38,7 @@ public class a {
         hashMap.put("ar_type", Integer.valueOf(ARConfig.getARType()));
         hashMap.put(HttpConstants.OS_VERSION, String.valueOf(Build.VERSION.SDK_INT));
         hashMap.put("device_id", this.gC);
-        hashMap.put(ARConfigKey.EXTRA_INFO, ARConfig.getARExtraInfo());
+        hashMap.put("extra_info", ARConfig.getARExtraInfo());
         hashMap.put("os_type", "android");
         hashMap.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
         hashMap.put("channel", this.gD);

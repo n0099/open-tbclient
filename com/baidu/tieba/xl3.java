@@ -1,115 +1,327 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xl3 {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile xl3 m;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public SensorEventListener c;
+    public SensorEventListener d;
+    public Sensor e;
+    public Sensor f;
+    public float[] g;
+    public float[] h;
+    public int i;
+    public c j;
+    public boolean k;
+    public long l;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(float f, int i);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public static String h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i != -1 ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? DownloadStatisticConstants.UBC_VALUE_UNKNOW : "high" : "medium" : Config.EXCEPTION_MEMORY_LOW : "unreliable" : "no-contact" : (String) invokeI.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements SensorEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl3 a;
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
             }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
-            }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
+
+        public a(xl3 xl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xl3Var;
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+                    this.a.g = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    y82.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
+                }
+                y82.o(MapController.COMPASS_LAYER_TAG, "illegal accelerometer event");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements SensorEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl3 a;
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        public b(xl3 xl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xl3Var;
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
+                    this.a.h = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    y82.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
+                }
+                y82.o(MapController.COMPASS_LAYER_TAG, "illegal magnetic filed event");
+            }
+        }
+    }
+
+    public xl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = new float[3];
+        this.h = new float[3];
+        this.i = -100;
+        this.k = false;
+        this.l = 0L;
+    }
+
+    public void q() {
+        SensorManager sensorManager;
+        SensorManager sensorManager2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!this.k) {
+                y82.o(MapController.COMPASS_LAYER_TAG, "has already stop");
+                return;
+            }
+            y82.i(MapController.COMPASS_LAYER_TAG, "stop listen");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null && (sensorManager2 = this.b) != null) {
+                sensorManager2.unregisterListener(sensorEventListener);
+                this.c = null;
+            }
+            SensorEventListener sensorEventListener2 = this.d;
+            if (sensorEventListener2 != null && (sensorManager = this.b) != null) {
+                sensorManager.unregisterListener(sensorEventListener2);
+                this.d = null;
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.k = false;
+        }
+    }
+
+    public void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public void o(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.j = cVar;
+        }
+    }
+
+    public static xl3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (m == null) {
+                synchronized (xl3.class) {
+                    if (m == null) {
+                        m = new xl3();
+                    }
+                }
+            }
+            return m;
+        }
+        return (xl3) invokeV.objValue;
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || m == null) {
+            return;
+        }
+        m.m();
+    }
+
+    public final float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[3];
+            float[] fArr2 = new float[9];
+            SensorManager.getRotationMatrix(fArr2, null, this.g, this.h);
+            SensorManager.getOrientation(fArr2, fArr);
+            return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final SensorEventListener g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            y82.i(MapController.COMPASS_LAYER_TAG, "get Accelerometer listener");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            a aVar = new a(this);
+            this.c = aVar;
+            return aVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final SensorEventListener j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            y82.i(MapController.COMPASS_LAYER_TAG, "get MagneticFiled listener");
+            SensorEventListener sensorEventListener = this.d;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            b bVar = new b(this);
+            this.d = bVar;
+            return bVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            y82.i(MapController.COMPASS_LAYER_TAG, "release");
+            if (this.k) {
+                q();
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.c = null;
+            this.d = null;
+            this.j = null;
+            this.a = null;
+            m = null;
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j != null && System.currentTimeMillis() - this.l > 200) {
+            float f = f();
+            y82.b("SwanAppCompassManager", "orientation changed, orientation : " + f);
+            this.j.a(f, this.i);
+            this.l = System.currentTimeMillis();
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Context context = this.a;
+            if (context == null) {
+                y82.c(MapController.COMPASS_LAYER_TAG, "start error, none context");
+            } else if (this.k) {
+                y82.o(MapController.COMPASS_LAYER_TAG, "has already start");
+            } else {
+                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+                this.b = sensorManager;
+                if (sensorManager != null) {
+                    this.e = sensorManager.getDefaultSensor(1);
+                    this.f = this.b.getDefaultSensor(2);
+                    this.b.registerListener(g(), this.e, 1);
+                    this.b.registerListener(j(), this.f, 1);
+                    this.k = true;
+                    y82.i(MapController.COMPASS_LAYER_TAG, "start listen");
+                    return;
+                }
+                y82.c(MapController.COMPASS_LAYER_TAG, "none sensorManager");
+            }
+        }
     }
 }

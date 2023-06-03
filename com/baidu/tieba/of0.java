@@ -1,232 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class of0 extends rf0 {
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes7.dex */
+public class of0 {
     public static /* synthetic */ Interceptable $ic;
-    public static JSONObject h;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf0 c;
-    public WeakReference<Context> d;
-    public String e;
-    public File f;
-    public boolean g;
+    public SharedPreferences a;
+    public Set<String> b;
 
-    /* loaded from: classes6.dex */
-    public class a extends AsyncTask<Void, Void, Boolean> {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ of0 a;
+    }
 
-        public a(of0 of0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {of0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static of0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-548745550, "Lcom/baidu/tieba/of0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-548745550, "Lcom/baidu/tieba/of0$b;");
                     return;
                 }
             }
-            this.a = of0Var;
+            a = new of0(null);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Boolean bool) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                super.onPostExecute(bool);
-                of0 of0Var = this.a;
-                if (bool.booleanValue()) {
-                    i = 2;
-                } else {
-                    i = 3;
-                }
-                of0Var.d(i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948030192, "Lcom/baidu/tieba/of0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948030192, "Lcom/baidu/tieba/of0;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (of0.h == null) {
-                    of0.h = new JSONObject();
-                }
-                if (this.a.f == null) {
-                    try {
-                        of0.h.put("sdcardPath", StringUtil.NULL_STRING);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return Boolean.FALSE;
-                } else if (!this.a.g && this.a.m()) {
-                    try {
-                        of0.h.put("exist", true);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    return Boolean.TRUE;
-                } else {
-                    if (!this.a.f.isDirectory()) {
-                        try {
-                            of0.h.put("file-del", true);
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
-                        }
-                        this.a.f.delete();
-                    }
-                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
-                    boolean a = this.a.c.a(this.a.e, file);
-                    if (a) {
-                        try {
-                            of0.h.put("assetsToSD", true);
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
-                        }
-                        a = file.renameTo(this.a.f);
-                    }
-                    if (!a) {
-                        try {
-                            of0.h.put("renameTo-del", true);
-                        } catch (JSONException e5) {
-                            e5.printStackTrace();
-                        }
-                        sf0.b(file);
-                        if (this.a.f.exists()) {
-                            sf0.b(this.a.f);
-                        }
-                    }
-                    try {
-                        of0.h.put("result", a);
-                    } catch (JSONException e6) {
-                        e6.printStackTrace();
-                    }
-                    if (this.a.l()) {
-                        wf0.a("ARSourceCopyManager", "sdk exist + " + of0.h.toString());
-                    }
-                    return Boolean.valueOf(a);
-                }
-            }
-            return (Boolean) invokeL.objValue;
-        }
+        c = l95.q("advert_hide_list");
     }
 
     public of0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    private Context getContext() {
+    public static of0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            WeakReference<Context> weakReference = this.d;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (of0) invokeV.objValue;
+    }
+
+    public /* synthetic */ of0(a aVar) {
+        this();
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new qf0(getContext());
-            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return te0.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = this.f;
-            if (file != null && file.isDirectory() && this.f.exists()) {
-                return true;
+            if (this.b == null) {
+                this.b = this.a.getStringSet(c, null);
             }
-            return false;
+            Set<String> set = this.b;
+            if (set == null) {
+                return false;
+            }
+            return set.contains(str);
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rf0
-    public void b() {
-        String str;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean m = m();
-            JSONObject jSONObject = new JSONObject();
-            h = jSONObject;
-            if (m) {
-                try {
-                    if (ue0.a) {
-                        str = "assets";
-                    } else {
-                        str = "soloader";
-                    }
-                    jSONObject.put("type", str);
-                    h.put("exist", m);
-                    h.put("path", this.f);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (l()) {
-                    wf0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
-                }
-                d(2);
-            } else if (getContext() != null) {
-                try {
-                    if (l()) {
-                        wf0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
-                    }
-                    k();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
+        Set<String> stringSet = this.a.getStringSet(c, null);
+        this.b = stringSet;
+        if (stringSet == null) {
+            this.b = new HashSet();
+        }
+        this.b.add(str);
+        this.a.edit().putStringSet(c, this.b).commit();
     }
 }

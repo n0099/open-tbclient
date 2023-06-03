@@ -1,177 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.service.ChangeSkinReceiver;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-/* loaded from: classes7.dex */
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes8.dex */
 public class tx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static tx4 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountData a;
-    public boolean b;
-    public c c;
-    public int d;
-    public int e;
-    public int f;
+    public final int a;
+    public final NavigationBar b;
+    public final View c;
+    public final Set<sx4> d;
+    public float e;
+    public boolean f;
     public boolean g;
     public int h;
-    public ChangeSkinReceiver i;
-    public boolean j;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ tx4 c;
-
-        public a(tx4 tx4Var, AccountData accountData, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tx4Var, accountData, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = tx4Var;
-            this.a = accountData;
-            this.b = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.b) {
-                    BdSocketLinkService.setHasAbsoluteClose(false);
-                    BdSocketLinkService.setAvailable(true);
-                    ki5.b(0, 0, 0, 1, 2);
-                    BdSocketLinkService.startService(true, "account changed");
-                }
-                this.c.M(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rs9.a("", 7);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tx4 this$0;
-
-        public c(tx4 tx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = tx4Var;
-        }
-
-        public /* synthetic */ c(tx4 tx4Var, a aVar) {
-            this(tx4Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.E() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
-                Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
-                if (serializableExtra instanceof AccountData) {
-                    this.this$0.a = (AccountData) serializableExtra;
-                } else {
-                    this.this$0.a = null;
-                }
-                cl5.o(this.this$0.C());
-                if (this.this$0.a != null) {
-                    cl5.n(this.this$0.a.getBDUSS());
-                    cl5.q(this.this$0.a.getTbs());
-                    cl5.p(this.this$0.a.getStoken());
-                }
-            }
-        }
-    }
-
-    public tx4() {
+    public tx4(NavigationBar navigationBar, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {navigationBar, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,575 +51,198 @@ public class tx4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
-        this.j = false;
+        this.a = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds300);
+        this.d = new HashSet();
+        this.e = 1.0f;
+        this.f = false;
+        this.g = false;
+        this.h = Integer.MAX_VALUE;
+        this.b = navigationBar;
+        this.c = view2;
     }
 
-    public void A() {
+    public final String i(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !D(false) && E() && this.c == null) {
-            this.c = new c(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.tieba.action.accountChange");
-            TbadkCoreApplication.getInst().registerReceiver(this.c, intentFilter);
-        }
-    }
-
-    public static void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            vg.a().b(new b());
-            o65.m().A("app_inverval", System.currentTimeMillis());
-        }
-    }
-
-    public static tx4 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (k == null) {
-                synchronized (tx4.class) {
-                    if (k == null) {
-                        k = new tx4();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                try {
+                    String query = new URL(str).getQuery();
+                    if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
+                        return null;
                     }
+                    for (String str3 : split) {
+                        String[] split2 = str3.split("=");
+                        if (split2 != null && split2.length == 2) {
+                            String str4 = split2[0];
+                            String str5 = split2[1];
+                            if (str2.equalsIgnoreCase(str4)) {
+                                return str5;
+                            }
+                        }
+                    }
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 }
-            }
-            return k;
-        }
-        return (tx4) invokeV.objValue;
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && E()) {
-            this.i = new ChangeSkinReceiver();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(TbConfig.getBroadcastActionChangeSkin());
-            TbadkCoreApplication.getInst().registerReceiver(this.i, intentFilter);
-        }
-    }
-
-    public boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String h = h();
-            if (h != null && h.length() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return TbadkCoreApplication.getInst().isRemoteProcess();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            TbSingleton.getInstance().clearVideoRecord();
-        }
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getID();
             }
             return null;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
+    public void a(sx4... sx4VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            String h = h();
-            if (TextUtils.isEmpty(h)) {
-                AccountData e = ux4.e();
-                if (e != null) {
-                    return e.getID();
-                }
-                return "";
-            }
-            return h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData == null) {
-                return 0L;
-            }
-            return pg.g(accountData.getID(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public AccountData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.a;
-        }
-        return (AccountData) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getAccount();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getAccountNameShow();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public AccountData n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a;
-        }
-        return (AccountData) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            AccountData n = n();
-            if (n == null) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(n.getAvatar())) {
-                return n.getAvatar();
-            }
-            return n.getPortrait();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getBDUSS();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getMemberType();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            AccountData n = n();
-            if (n == null) {
-                return null;
-            }
-            return n.getPortrait();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null && accountData.getVipInfo() != null) {
-                return this.a.getVipInfo().getVipLevel();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            AccountData accountData = this.a;
-            if (accountData != null) {
-                return accountData.getTbs();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void I(AccountData accountData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, accountData) == null) {
-            String str2 = null;
-            if (accountData != null) {
-                str2 = accountData.getID();
-                str = accountData.getAccount();
-            } else {
-                str = null;
-            }
-            String currentBduss = TbadkCoreApplication.getCurrentBduss();
-            Intent intent = new Intent();
-            intent.setAction("adp.bdstatisticsmanager.account_changed");
-            intent.putExtra("intent_data_userid", str2);
-            intent.putExtra("intent_data_username", str);
-            intent.putExtra("intent_data_bduss", currentBduss);
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            try {
-                TbadkCoreApplication.getInst().sendStickyBroadcast(intent);
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-            }
-            Intent intent2 = new Intent();
-            intent2.setAction("com.baidu.tieba.action.accountChange");
-            intent2.putExtra("intent_data_accountData", accountData);
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            cl5.o(!TextUtils.isEmpty(str2));
-            if (accountData != null) {
-                cl5.n(accountData.getBDUSS());
-                cl5.q(accountData.getTbs());
-                cl5.p(accountData.getStoken());
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sx4VarArr) == null) && sx4VarArr != null && sx4VarArr.length > 0) {
+            this.d.addAll(Arrays.asList(sx4VarArr));
         }
     }
 
-    public boolean D(boolean z) {
-        InterceptResult invokeZ;
+    public final void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            return TbadkCoreApplication.getInst().isMainProcess(z);
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void N(int i) {
-        AccountData accountData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (accountData = this.a) != null) {
-            accountData.setMemberType(i);
-        }
-    }
-
-    public void P(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-            zk8 a2 = rk.a();
-            a2.c(Config.DEVICE_PART, "skinType status: " + i);
-        }
-    }
-
-    public void Q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && str != null && str.length() > 0) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.setTbs(str);
-                }
-            }
-        }
-    }
-
-    public void L(AccountData accountData, Context context) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, accountData, context) == null) {
-            this.a = accountData;
-            String str3 = null;
-            if (accountData != null) {
-                str3 = accountData.getID();
-                str2 = accountData.getAccount();
-                str = accountData.getBDUSS();
-            } else {
-                str = null;
-                str2 = null;
-            }
-            BdStatisticsManager.getInstance().setUser(str3, str2, str);
-        }
-    }
-
-    public void G(AccountData accountData, Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            p58.a("onAccountChanged()");
-            BdLog.e("账号切换");
-            o65 m = o65.m();
-            String s = m.s("current_used_theme_" + h(), null);
-            if (StringUtils.isNull(s)) {
-                this.e = 0;
-            } else {
-                String[] split = s.split("/");
-                if (split != null && split.length >= 2) {
-                    this.e = pg.e(split[0], 0);
-                } else {
-                    this.e = 0;
-                }
-            }
-            f();
-            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            p58.a("send METHOD_ACCOUNT_CHANGE");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
-            MessageManager.getInstance().registerStickyMode(2005019);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TbSingleton.getInstance().onAccountChange();
-            if (accountData != null) {
-                zk8 a2 = rk.a();
-                a2.c(Config.DEVICE_PART, "账号切换 Account:" + accountData.toString());
-            }
-        }
-    }
-
-    public void J(AccountData accountData, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, accountData, str, str2) == null) {
-            if (accountData == null && this.a != null) {
-                this.b = true;
-            } else if (this.a == null && accountData != null) {
-                this.b = true;
-            } else {
-                AccountData accountData2 = this.a;
-                if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                    this.b = true;
-                }
-            }
-            if (this.a == null && accountData != null) {
-                this.a = accountData;
-            }
-            if (this.a == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (!z && this.g && this.e < 0.5f) {
                 return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                this.a.setBDUSS(str);
+            if (this.e < 0.5f) {
+                this.g = true;
+            } else {
+                this.g = false;
             }
-            if (!TextUtils.isEmpty(str2)) {
-                this.a.setTbs(str2);
-            }
-        }
-    }
-
-    public void K(AccountData accountData, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData, context) == null) {
-            String str = "set_application_account:";
-            if (accountData == null) {
-                str = "set_application_account:" + StringUtil.NULL_STRING;
-            } else if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_application_account:valid_logined";
-            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_application_account:valid";
-            } else if (!StringUtils.isNull(accountData.getID())) {
-                str = "set_application_account:logined";
-            }
-            d65.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-            if (!this.b) {
-                if (accountData == null && this.a != null) {
-                    this.b = true;
-                    p58.a("account == null && mAccount != null");
-                } else if (this.a == null && accountData != null) {
-                    this.b = true;
-                    p58.a("mAccount == null && account != null 初始化");
-                } else {
-                    AccountData accountData2 = this.a;
-                    if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                        this.b = true;
-                        p58.a("mAccount != null && account != null");
+            for (sx4 sx4Var : this.d) {
+                if (sx4Var.b() != null) {
+                    if (sx4Var.b() instanceof TextView) {
+                        if (this.g && !jw9.e(this.h)) {
+                            ((TextView) sx4Var.b()).setTextColor(this.h);
+                        } else {
+                            SkinManager.setViewTextColor(sx4Var.b(), d());
+                        }
+                    } else if (sx4Var.b() instanceof ImageView) {
+                        if (this.g) {
+                            if (!jw9.e(this.h)) {
+                                ((ImageView) sx4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(sx4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
+                            } else {
+                                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) sx4Var.b(), sx4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                            }
+                        } else {
+                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) sx4Var.b(), sx4Var.a(), R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        }
                     }
                 }
             }
-            this.a = accountData;
-            rs9.n();
-            wb.b().a("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }
 
-    public final void M(AccountData accountData, Context context) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, accountData, context) == null) {
-            if (context != null) {
-                if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
-                    UtilHelper.startPushService(context);
-                } else {
-                    UtilHelper.stopPushService(context);
-                }
-            }
-            I(accountData);
-            if (this.b) {
-                G(accountData, TbadkCoreApplication.getInst());
-            }
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            if (BdNetTypeUtil.isWifiNet() && accountData != null) {
-                MessageManager.getInstance().runTask(2004611, (Class) null);
-            }
-            TbadkCoreApplication.getInst().setActivityPrizeData(null);
-        }
-    }
-
-    public void g(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048593, this, str, z) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.f) {
             return;
         }
-        o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from search_data where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from search_post_data where account=?", new Object[]{str});
-        if (z) {
-            mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
+        float abs = Math.abs(this.e - 0.5f) * 2.0f;
+        for (sx4 sx4Var : this.d) {
+            if (sx4Var.b() != null) {
+                sx4Var.b().setAlpha(abs);
+            }
         }
     }
 
-    public void O(int i) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = v();
-            H();
-            P(i);
-            TbadkSettings.getInst().saveInt("skin_", i);
-            a(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001304, Integer.valueOf(i)));
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f = false;
+            this.e = 1.0f;
+            NavigationBar navigationBar = this.b;
+            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(1);
+            }
+            b(true);
+            c();
+            this.d.clear();
         }
     }
 
-    public void a(int i) {
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            Intent intent = new Intent();
-            intent.setAction(TbConfig.getBroadcastActionChangeSkin());
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent.putExtra("skin_type", i);
-            TbadkCoreApplication.getInst().getContext().sendBroadcast(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.f || !this.g) {
+                return R.color.CAM_X0106;
+            }
+            return R.color.CAM_X0101;
         }
+        return invokeV.intValue;
     }
 
-    public void z() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048611, this) != null) || this.j) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.f) {
             return;
         }
-        this.j = true;
-        long currentTimeMillis = System.currentTimeMillis();
-        if (D(true)) {
-            try {
-                if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                    AccountData e = ux4.e();
-                    if (e != null) {
-                        d65.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
-                        K(e, TbadkCoreApplication.getInst());
-                    } else {
-                        d65.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
-                    }
-                } else {
-                    d65.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+        b(true);
+        c();
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
+            this.f = true;
+            this.e = 0.0f;
+            this.h = jw9.f(i(str, "opacitybtnhex"));
+            NavigationBar navigationBar = this.b;
+            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(0);
             }
-            oo5.b().i(System.currentTimeMillis() - currentTimeMillis);
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            }
+            b(true);
+        } else if (!str.contains(BaseWebViewActivity.QUERY_OPACITY) && this.f) {
+            this.f = false;
+            this.e = 1.0f;
+            NavigationBar navigationBar2 = this.b;
+            if (navigationBar2 != null && navigationBar2.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(1);
+            }
+            View view3 = this.c;
+            if (view3 != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+                layoutParams.addRule(3, R.id.view_navigation_bar);
+                this.c.setLayoutParams(layoutParams);
+            }
+            b(true);
+        }
+    }
+
+    public void f(int i) {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || !this.f || (navigationBar = this.b) == null) {
+            return;
+        }
+        if (navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
+        }
+        b(true);
+        c();
+    }
+
+    public void h(int i, int i2, int i3, int i4) {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) && this.f && (navigationBar = this.b) != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+            int i5 = this.a;
+            if (i2 < i5) {
+                this.e = (i2 * 1.0f) / i5;
+            } else {
+                this.e = 1.0f;
+            }
+            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
+            b(false);
+            c();
         }
     }
 }

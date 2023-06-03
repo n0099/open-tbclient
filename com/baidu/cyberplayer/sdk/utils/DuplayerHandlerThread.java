@@ -17,6 +17,14 @@ public class DuplayerHandlerThread extends HandlerThread {
         this.a = -1L;
     }
 
+    public void setIdleBeginTime(long j) {
+        this.a = j;
+    }
+
+    public void setRunState(int i) {
+        this.b = i;
+    }
+
     public DuplayerHandlerThread(String str, int i) {
         super(str, i);
         this.b = 0;
@@ -29,13 +37,5 @@ public class DuplayerHandlerThread extends HandlerThread {
 
     public int getRunState() {
         return this.b;
-    }
-
-    public void setIdleBeginTime(long j) {
-        this.a = j;
-    }
-
-    public void setRunState(int i) {
-        this.b = i;
     }
 }

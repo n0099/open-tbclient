@@ -3,6 +3,7 @@ package com.kwad.components.core.webview.jshandler;
 import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,7 +121,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
     public final String getKey() {
-        return "log";
+        return LocalFilesFilterKt.FILTER_NAME_LOG;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

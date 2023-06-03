@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 /* loaded from: classes10.dex */
 public interface ResolutionScope {
     /* renamed from: getContributedClassifier */
-    ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation);
+    ClassifierDescriptor mo2101getContributedClassifier(Name name, LookupLocation lookupLocation);
 
     Collection<DeclarationDescriptor> getContributedDescriptors(DescriptorKindFilter descriptorKindFilter, Function1<? super Name, Boolean> function1);
 

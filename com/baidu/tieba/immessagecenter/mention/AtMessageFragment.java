@@ -27,17 +27,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad8;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.co;
-import com.baidu.tieba.md8;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.vd8;
+import com.baidu.tieba.fj8;
+import com.baidu.tieba.fo;
+import com.baidu.tieba.go;
+import com.baidu.tieba.oj8;
+import com.baidu.tieba.qi8;
+import com.baidu.tieba.si8;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.ti8;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xc8;
-import com.baidu.tieba.zc8;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,33 +49,33 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController a;
-    public xc8 b;
+    public qi8 b;
     public ViewGroup c;
-    public ad8 d;
+    public ti8 d;
     public int e;
     public boolean f;
     public CustomMessageListener g;
     public CustomMessageListener h;
     public final CustomMessageListener i;
     public final CustomMessageListener j;
-    public bo k;
-    public co l;
+    public fo k;
+    public go l;
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-    public void e(boolean z) {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements co {
+    public class f implements go {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtMessageFragment a;
 
         /* loaded from: classes6.dex */
-        public class a implements ad8.c {
+        public class a implements ti8.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -100,7 +100,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                 this.a = i;
             }
 
-            @Override // com.baidu.tieba.ad8.c
+            @Override // com.baidu.tieba.ti8.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -128,29 +128,29 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             this.a = atMessageFragment;
         }
 
-        @Override // com.baidu.tieba.co
-        public boolean a(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.go
+        public boolean a(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             InterceptResult invokeCommon;
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                if (!(rnVar instanceof md8)) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+                if (!(vnVar instanceof fj8)) {
                     return false;
                 }
-                md8 md8Var = (md8) rnVar;
-                zc8 zc8Var = new zc8();
-                zc8Var.a = 2;
-                zc8Var.b = pg.g(md8Var.x(), 0L);
-                zc8Var.c = pg.g(md8Var.n(), 0L);
-                if (md8Var.getBaijiahaoData() != null) {
-                    str = md8Var.getBaijiahaoData().oriUgcNid;
+                fj8 fj8Var = (fj8) vnVar;
+                si8 si8Var = new si8();
+                si8Var.a = 2;
+                si8Var.b = tg.g(fj8Var.x(), 0L);
+                si8Var.c = tg.g(fj8Var.n(), 0L);
+                if (fj8Var.getBaijiahaoData() != null) {
+                    str = fj8Var.getBaijiahaoData().oriUgcNid;
                 } else {
                     str = "";
                 }
-                zc8Var.d = str;
+                si8Var.d = str;
                 AtMessageFragment atMessageFragment = this.a;
-                atMessageFragment.d = new ad8(atMessageFragment.getPageContext());
-                this.a.d.h(zc8Var);
+                atMessageFragment.d = new ti8(atMessageFragment.getPageContext());
+                this.a.d.h(si8Var);
                 this.a.d.i(new a(this, i));
                 this.a.d.j();
                 return true;
@@ -249,7 +249,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                     this.a.a.W();
                     return;
                 }
-                this.a.c2();
+                this.a.d2();
             }
         }
     }
@@ -328,7 +328,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements bo {
+    public class e implements fo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtMessageFragment a;
@@ -351,38 +351,38 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             this.a = atMessageFragment;
         }
 
-        @Override // com.baidu.tieba.bo
-        public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(rnVar instanceof md8)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(vnVar instanceof fj8)) {
                 return;
             }
-            md8 md8Var = (md8) rnVar;
-            if (md8Var.y()) {
-                md8Var.E(false);
+            fj8 fj8Var = (fj8) vnVar;
+            if (fj8Var.y()) {
+                fj8Var.E(false);
                 if (this.a.b != null) {
                     this.a.b.i0();
                 }
             }
-            if (md8Var.isBjh()) {
-                if (md8Var.A()) {
-                    this.a.T1(md8Var);
+            if (fj8Var.isBjh()) {
+                if (fj8Var.A()) {
+                    this.a.U1(fj8Var);
                 } else {
-                    this.a.S1(md8Var);
+                    this.a.T1(fj8Var);
                 }
-            } else if (md8Var.A()) {
-                this.a.U1(md8Var);
-            } else if (md8Var.getThreadType() == 40) {
-                this.a.Y1(md8Var, true);
+            } else if (fj8Var.A()) {
+                this.a.V1(fj8Var);
+            } else if (fj8Var.getThreadType() == 40) {
+                this.a.Z1(fj8Var, true);
             } else {
-                this.a.W1(md8Var);
+                this.a.X1(fj8Var);
             }
-            vd8.a(md8Var, 11);
-            if (md8Var != null) {
+            oj8.a(fj8Var, 11);
+            if (fj8Var != null) {
                 StatisticItem statisticItem = new StatisticItem("c13720");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("tid", md8Var.x());
-                statisticItem.param("fname", md8Var.d());
+                statisticItem.param("tid", fj8Var.x());
+                statisticItem.param("fname", fj8Var.d());
                 statisticItem.param("obj_type", 3);
                 TiebaStatic.log(statisticItem);
             }
@@ -424,33 +424,33 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             MessageManager.getInstance().unRegisterListener(this.h);
             MessageManager.getInstance().unRegisterListener(this.i);
             MessageManager.getInstance().unRegisterListener(this.j);
-            xc8 xc8Var = this.b;
-            if (xc8Var != null) {
-                xc8Var.c0();
+            qi8 qi8Var = this.b;
+            if (qi8Var != null) {
+                qi8Var.c0();
             }
             AtMeModelController atMeModelController = this.a;
             if (atMeModelController != null) {
                 atMeModelController.onDestroy();
             }
-            ad8 ad8Var = this.d;
-            if (ad8Var != null) {
-                ad8Var.d();
+            ti8 ti8Var = this.d;
+            if (ti8Var != null) {
+                ti8Var.d();
                 this.d = null;
             }
         }
     }
 
-    public void U1(md8 md8Var) {
+    public void V1(fj8 fj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, md8Var) == null) {
-            V1(md8Var, null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fj8Var) == null) {
+            W1(fj8Var, null);
         }
     }
 
-    public void W1(md8 md8Var) {
+    public void X1(fj8 fj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, md8Var) == null) {
-            X1(md8Var, null);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fj8Var) == null) {
+            Y1(fj8Var, null);
         }
     }
 
@@ -461,9 +461,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             super.onChangeSkinType(i);
             if (this.e != i) {
                 this.e = i;
-                xc8 xc8Var = this.b;
-                if (xc8Var != null) {
-                    xc8Var.onChangeSkinType(i);
+                qi8 qi8Var = this.b;
+                if (qi8Var != null) {
+                    qi8Var.onChangeSkinType(i);
                 }
             }
         }
@@ -474,9 +474,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            ad8 ad8Var = this.d;
-            if (ad8Var != null) {
-                ad8Var.f();
+            ti8 ti8Var = this.d;
+            if (ti8Var != null) {
+                ti8Var.f();
             }
         }
     }
@@ -490,14 +490,14 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         }
     }
 
-    public void Y1(md8 md8Var, boolean z) {
+    public void Z1(fj8 fj8Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, md8Var, z) == null) {
-            Z1(md8Var, z, null);
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, fj8Var, z) == null) {
+            a2(fj8Var, z, null);
         }
     }
 
-    public void b2(boolean z, ArrayList<rn> arrayList) {
+    public void c2(boolean z, ArrayList<vn> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(1048586, this, z, arrayList) == null) && this.b != null) {
             hideLoadingView(this.c);
@@ -506,14 +506,14 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         }
     }
 
-    public void R1() {
+    public void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.r0(false);
         }
     }
 
-    public void a2() {
+    public void b2() {
         AtMeModelController atMeModelController;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (atMeModelController = this.a) != null) {
@@ -521,7 +521,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         }
     }
 
-    public void c2() {
+    public void d2() {
         AtMeModelController atMeModelController;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (atMeModelController = this.a) != null) {
@@ -531,13 +531,13 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        xc8 xc8Var;
+        qi8 qi8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (ri.F() && (xc8Var = this.b) != null) {
-                xc8Var.r0(true);
-                c2();
+            if (vi.F() && (qi8Var = this.b) != null) {
+                qi8Var.r0(true);
+                d2();
             }
         }
     }
@@ -555,97 +555,97 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPrimary();
-            xc8 xc8Var = this.b;
-            if (xc8Var != null) {
-                xc8Var.n0();
+            qi8 qi8Var = this.b;
+            if (qi8Var != null) {
+                qi8Var.n0();
             }
         }
     }
 
-    public final void S1(md8 md8Var) {
+    public final void T1(fj8 fj8Var) {
         String userName;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, md8Var) != null) || md8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fj8Var) != null) || fj8Var == null) {
             return;
         }
-        if (md8Var.s() == null) {
+        if (fj8Var.s() == null) {
             userName = "";
         } else {
-            userName = md8Var.s().getUserName();
+            userName = fj8Var.s().getUserName();
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(md8Var.x(), md8Var.n(), "mention", false, userName, false, md8Var.n(), 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(fj8Var.x(), fj8Var.n(), "mention", false, userName, false, fj8Var.n(), 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
-        createSubPbActivityConfig.setBjhData(md8Var.getBaijiahaoData());
-        createSubPbActivityConfig.setHighLightPostId(md8Var.n());
+        createSubPbActivityConfig.setBjhData(fj8Var.getBaijiahaoData());
+        createSubPbActivityConfig.setHighLightPostId(fj8Var.n());
         createSubPbActivityConfig.setKeyOriUgcTopPid("0");
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public final void T1(md8 md8Var) {
+    public final void U1(fj8 fj8Var) {
         String userName;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, md8Var) != null) || md8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fj8Var) != null) || fj8Var == null) {
             return;
         }
-        if (md8Var.s() == null) {
+        if (fj8Var.s() == null) {
             userName = "";
         } else {
-            userName = md8Var.s().getUserName();
+            userName = fj8Var.s().getUserName();
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(md8Var.x(), md8Var.o(), "mention", false, userName, false, md8Var.o(), 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(fj8Var.x(), fj8Var.o(), "mention", false, userName, false, fj8Var.o(), 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
-        createSubPbActivityConfig.setBjhData(md8Var.getBaijiahaoData());
-        createSubPbActivityConfig.setHighLightPostId(md8Var.n());
-        createSubPbActivityConfig.setKeyOriUgcTopPid(md8Var.n());
+        createSubPbActivityConfig.setBjhData(fj8Var.getBaijiahaoData());
+        createSubPbActivityConfig.setHighLightPostId(fj8Var.n());
+        createSubPbActivityConfig.setKeyOriUgcTopPid(fj8Var.n());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public void V1(md8 md8Var, @Nullable String str) {
+    public void W1(fj8 fj8Var, @Nullable String str) {
         String userName;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, md8Var, str) != null) || md8Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, fj8Var, str) != null) || fj8Var == null) {
             return;
         }
         if (str == null) {
-            str = md8Var.n();
+            str = fj8Var.n();
         }
-        if (md8Var.s() == null) {
+        if (fj8Var.s() == null) {
             userName = "";
         } else {
-            userName = md8Var.s().getUserName();
+            userName = fj8Var.s().getUserName();
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(md8Var.x(), "", "mention", false, userName, false, str, 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(fj8Var.x(), "", "mention", false, userName, false, str, 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
         createSubPbActivityConfig.setHighLightPostId(str);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public void X1(md8 md8Var, @Nullable String str) {
+    public void Y1(fj8 fj8Var, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, md8Var, str) != null) || md8Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, fj8Var, str) != null) || fj8Var == null) {
             return;
         }
         if (str == null) {
-            str = md8Var.n();
+            str = fj8Var.n();
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(md8Var.x(), str, 1, "mention");
+        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(fj8Var.x(), str, 1, "mention");
         createNormalCfg.setStartFrom(13);
-        createNormalCfg.setBjhData(md8Var.getBaijiahaoData());
+        createNormalCfg.setBjhData(fj8Var.getBaijiahaoData());
         createNormalCfg.setHighLightPostId(str);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
 
-    public void Z1(md8 md8Var, boolean z, @Nullable String str) {
+    public void a2(fj8 fj8Var, boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{md8Var, Boolean.valueOf(z), str}) != null) || md8Var == null) {
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{fj8Var, Boolean.valueOf(z), str}) != null) || fj8Var == null) {
             return;
         }
         if (str == null) {
-            str = md8Var.n();
+            str = fj8Var.n();
         }
         ArrayList arrayList = new ArrayList();
         VideoItemData videoItemData = new VideoItemData();
-        videoItemData.thread_id = md8Var.x();
+        videoItemData.thread_id = fj8Var.x();
         if (z) {
             videoItemData.highLightPostId = str;
         }
@@ -655,21 +655,21 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
 
     public void g(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, errorData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, errorData) == null) {
             hideLoadingView(this.c);
             if (errorData != null) {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f09f9);
+                    showToast(R.string.obfuscated_res_0x7f0f0a2f);
                 }
             }
-            xc8 xc8Var = this.b;
-            if (xc8Var != null) {
-                xc8Var.g(errorData);
+            qi8 qi8Var = this.b;
+            if (qi8Var != null) {
+                qi8Var.g(errorData);
             }
-            xc8 xc8Var2 = this.b;
-            if (xc8Var2 != null && xc8Var2.d0() != null) {
+            qi8 qi8Var2 = this.b;
+            if (qi8Var2 != null && qi8Var2.d0() != null) {
                 this.b.d0().setVisibility(8);
             }
             showNetRefreshView(this.c, null, false);
@@ -689,9 +689,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             atMeModelController.X(bundle);
             this.a.setUniqueId(getUniqueId());
             this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d012c, viewGroup, false);
-            xc8 xc8Var = new xc8(this);
-            this.b = xc8Var;
-            xc8Var.l0(this.c);
+            qi8 qi8Var = new qi8(this);
+            this.b = qi8Var;
+            qi8Var.k0(this.c);
             this.b.q0(this.k);
             this.b.p0(this.l);
             if (TbadkCoreApplication.getInst().checkInterrupt()) {

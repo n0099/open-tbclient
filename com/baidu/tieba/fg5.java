@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes5.dex */
-public class fg5 extends ue5 {
+public class fg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xf5 a;
+    public boolean a;
+    public int b;
 
-    @Override // com.baidu.tieba.ue5
-    public void c(we5 we5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, we5Var) == null) {
-        }
-    }
-
-    public fg5(xf5 xf5Var) {
+    public fg5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xf5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,40 +31,106 @@ public class fg5 extends ue5 {
                 return;
             }
         }
-        this.a = xf5Var;
+        this.a = false;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.ue5
-    public we5 b(Context context) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setBarLauncherType(6);
-            editorTools.setBackgroundColorId(R.color.CAM_X0602);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
-            editorTools.F(false);
-            return new eg5(editorTools);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (we5) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ue5
-    public void d(we5 we5Var) {
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, we5Var) == null) {
-            EditorTools b = we5Var.b();
-            b.setHideBigEmotion(true);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            b.h(arrayList);
-            b.d(new gg5(b.getContext(), this.a));
-            df5 p = b.p(5);
-            p.d = 0;
-            p.e(false);
-            b.setClearEbPadding(true);
-            b.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    return 5000;
+                }
+                return 10000;
+            }
+            return 3000;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str) {
+        int lastIndexOf;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = false;
+            this.b = 0;
+            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(":")) < 5) {
+                return;
+            }
+            String str3 = null;
+            try {
+                str2 = str.substring(5, lastIndexOf);
+            } catch (Exception e) {
+                e = e;
+                str2 = null;
+            }
+            try {
+                str3 = str.substring(lastIndexOf + 1);
+            } catch (Exception e2) {
+                e = e2;
+                BdLog.e(e.getMessage());
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return;
+            }
+            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                int i = 0;
+                int i2 = 0;
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, tg.e(String.valueOf(str3), 8000)), c());
+                            if (socket.isConnected()) {
+                                i++;
+                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
+                                this.a = true;
+                            }
+                            try {
+                                socket.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e5) {
+                        BdLog.e(e5.getMessage());
+                        socket.close();
+                    }
+                }
+                if (this.a && i > 0) {
+                    this.b = i2 / i;
+                }
+            }
         }
     }
 }

@@ -1,42 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.cs2;
-import com.baidu.tieba.le3;
+import com.baidu.smallgame.sdk.permission.PermissionListener;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.dh3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ak2 extends db3 {
+import com.baidu.webkit.sdk.PermissionRequest;
+/* loaded from: classes5.dex */
+public class ak2 implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements zn3<je3<le3.e>> {
+    /* loaded from: classes5.dex */
+    public class a implements rq3<bh3<dh3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ PermissionListener c;
         public final /* synthetic */ ak2 d;
 
-        public a(ak2 ak2Var, CallbackHandler callbackHandler, String str, String str2) {
+        public a(ak2 ak2Var, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ak2Var, callbackHandler, str, str2};
+                Object[] objArr = {ak2Var, str, str2, permissionListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,47 +46,39 @@ public class ak2 extends db3 {
                 }
             }
             this.d = ak2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.a = str;
+            this.b = str2;
+            this.c = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
+        @Override // com.baidu.tieba.rq3
         /* renamed from: b */
-        public void a(je3<le3.e> je3Var) {
+        public void a(bh3<dh3.e> bh3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
-                if (ee3.h(je3Var)) {
-                    this.d.k(this.c, this.b, this.a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
+                if (wg3.h(bh3Var)) {
+                    this.d.b(this.a, this.b, this.c);
                 } else {
-                    ee3.q(je3Var, this.a, this.b);
+                    this.c.onPermissionResult(this.a, 2);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements cs2.c {
+    /* loaded from: classes5.dex */
+    public class b implements b73 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ PermissionListener a;
+        public final /* synthetic */ String b;
 
-        @Override // com.baidu.tieba.cs2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public b(ak2 ak2Var, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
+        public b(ak2 ak2Var, PermissionListener permissionListener, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ak2Var, callbackHandler, jSONObject, str};
+                Object[] objArr = {ak2Var, permissionListener, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,119 +88,113 @@ public class ak2 extends db3 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = jSONObject;
-            this.c = str;
+            this.a = permissionListener;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.cs2.c
-        public void onFailed() {
+        @Override // com.baidu.tieba.b73
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a == null) {
-                    g62.o("ExtCore-DebugDownload", "handler is null");
-                    return;
-                }
-                try {
-                    g62.c("ExtCore-DebugDownload", "download failed");
-                    y83.f(ns2.c(), R.string.obfuscated_res_0x7f0f0156).G();
-                    this.b.put("status", -1);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onPermissionResult(this.b, 0);
             }
         }
 
-        @Override // com.baidu.tieba.cs2.c
-        public void onSuccess() {
+        @Override // com.baidu.tieba.b73
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a == null) {
-                    g62.o("ExtCore-DebugDownload", "handler is null");
-                    return;
-                }
-                try {
-                    File c = xj2.c();
-                    File b = xj2.b();
-                    if (c.exists() && kp4.U(c.getPath(), b.getPath())) {
-                        g62.c("ExtCore-DebugDownload", "download success");
-                        y83.f(ns2.c(), R.string.obfuscated_res_0x7f0f0157).G();
-                        this.b.put("status", 0);
-                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
-                    } else {
-                        g62.c("ExtCore-DebugDownload", "download failed");
-                        y83.f(ns2.c(), R.string.obfuscated_res_0x7f0f0156).G();
-                        this.b.put("status", -1);
-                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
-                    }
-                } catch (JSONException e) {
-                    g62.d("ExtCore-DebugDownload", "build result with exception", e);
-                    e.printStackTrace();
-                    this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
-                }
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onPermissionResult(this.b, 1);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak2(da3 da3Var) {
-        super(da3Var, "/swanAPI/debug/downloadExtension");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947617985, "Lcom/baidu/tieba/ak2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947617985, "Lcom/baidu/tieba/ak2;");
                 return;
             }
         }
+        a = is1.a;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public ak2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                g62.c("ExtCore-DebugDownload", "params is null");
-                y83.f(context, R.string.obfuscated_res_0x7f0f0173).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            String optString = a2.optString("url");
-            if (TextUtils.isEmpty(optString)) {
-                g62.c("ExtCore-DebugDownload", "url is null");
-                y83.f(context, R.string.obfuscated_res_0x7f0f0148).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString2 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                g62.c("ExtCore-DebugDownload", "cb is null");
-                y83.f(context, R.string.obfuscated_res_0x7f0f0155).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
-                return false;
-            }
-            g93Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void k(String str, String str2, CallbackHandler callbackHandler) {
+    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, callbackHandler) == null) {
-            cs2.I(str, new b(this, callbackHandler, new JSONObject(), str2));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
+            b bVar = new b(this, permissionListener, str);
+            a73.e(str2, new String[]{str2}, 2, xb3.K().w(), bVar);
+        }
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1785599184) {
+                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
+                    c = 1;
+                }
+            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return null;
+                }
+                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
+            }
+            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
+    public void requestPermission(String str, PermissionListener permissionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
+            if (a) {
+                Log.d("V8PermissionDelegate", "requestPermission : " + str);
+            }
+            if (permissionListener == null) {
+                if (a) {
+                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    return;
+                }
+                return;
+            }
+            String c = c(str);
+            yb3 M = yb3.M();
+            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
+                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
+            } else {
+                permissionListener.onPermissionResult(str, 2);
+            }
         }
     }
 }

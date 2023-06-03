@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g15;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.d45;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(g15 g15Var) {
+    public void b(d45 d45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g15Var) != null) || g15Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d45Var) != null) || d45Var == null) {
             return;
         }
-        this.b.N(g15Var.f(), 10, false);
-        this.c.setText(g15Var.l());
-        this.e.setText(g15Var.b());
-        this.d.setData(pg.g(g15Var.d(), 0L), g15Var.c(), g15Var.k());
+        this.b.N(d45Var.f(), 10, false);
+        this.c.setText(d45Var.l());
+        this.e.setText(d45Var.b());
+        this.d.setData(tg.g(d45Var.d(), 0L), d45Var.c(), d45Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p45 d = p45.d(this);
+            m75 d = m75.d(this);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            p45.d(this.c).w(R.color.CAM_X0107);
+            m75.d(this.c).w(R.color.CAM_X0107);
             this.d.i(i);
-            p45 d2 = p45.d(this.e);
+            m75 d2 = m75.d(this.e);
             d2.w(R.color.CAM_X0304);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);

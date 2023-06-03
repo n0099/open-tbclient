@@ -9,25 +9,25 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tv8;
-import com.baidu.tieba.uv8;
-import com.baidu.tieba.vv8;
-import com.baidu.tieba.wv8;
-import com.baidu.tieba.xv8;
-import com.baidu.tieba.yv8;
-import com.baidu.tieba.zv8;
+import com.baidu.tieba.q19;
+import com.baidu.tieba.r19;
+import com.baidu.tieba.s19;
+import com.baidu.tieba.t19;
+import com.baidu.tieba.u19;
+import com.baidu.tieba.v19;
+import com.baidu.tieba.w19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public vv8 b;
-    public uv8 c;
-    public tv8 d;
+    public s19 b;
+    public r19 c;
+    public q19 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            vv8 vv8Var = new vv8();
-            this.b = vv8Var;
-            vv8Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            s19 s19Var = new s19();
+            this.b = s19Var;
+            s19Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -82,14 +82,14 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004a);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ea2);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ed0);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new xv8(getPageContext(), findViewById);
-                this.d = new wv8(getPageContext(), this.c);
+                this.c = new u19(getPageContext(), findViewById);
+                this.d = new t19(getPageContext(), this.c);
             } else {
-                this.c = new zv8(getPageContext(), findViewById);
-                this.d = new yv8(getPageContext(), this.c);
+                this.c = new w19(getPageContext(), findViewById);
+                this.d = new v19(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

@@ -14,7 +14,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface WireField {
     String adapter();
 
@@ -27,7 +27,7 @@ public @interface WireField {
     int tag();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Label {
         public static final /* synthetic */ Label[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

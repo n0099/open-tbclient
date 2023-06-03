@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lt5;
+import com.baidu.tieba.nx5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,10 +102,10 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901d8);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901d9);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090233);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090245);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901d9);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901da);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090234);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090246);
             initHeaderImg();
         }
     }
@@ -149,8 +149,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             } else {
                 str = "";
             }
-            if (lt5.e(str) > 10) {
-                str = lt5.m(str, 10) + StringHelper.STRING_MORE;
+            if (nx5.e(str) > 10) {
+                str = nx5.m(str, 10) + "...";
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.N(alaUserInfoData.portrait, 28, false);

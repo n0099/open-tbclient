@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuilderAdapter<B extends Message.Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<Field> ORDER_BY_FIELD_NAME;

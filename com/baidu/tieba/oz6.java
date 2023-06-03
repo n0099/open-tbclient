@@ -1,236 +1,178 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.jz;
+import com.baidu.tieba.uz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class oz6 extends e37 {
+/* loaded from: classes7.dex */
+public class oz6 extends in<l45, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yz6 c;
-    public a17 d;
-    public a17 e;
-    public String f;
-    public final c57 g;
-    public z07 h;
-    public final Function1<z07, Unit> i;
-    public final Function2<View, String, Unit> j;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public bo c;
+    public eo6<uo6> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948049598, "Lcom/baidu/tieba/oz6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948049598, "Lcom/baidu/tieba/oz6;");
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a extends eo6<uo6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oz6 b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        public a(oz6 oz6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oz6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof oz6) {
-                oz6 oz6Var = (oz6) obj;
-                return Intrinsics.areEqual(this.c, oz6Var.c) && Intrinsics.areEqual(this.d, oz6Var.d) && Intrinsics.areEqual(this.e, oz6Var.e) && Intrinsics.areEqual(this.f, oz6Var.f) && Intrinsics.areEqual(this.g, oz6Var.g) && Intrinsics.areEqual(this.h, oz6Var.h) && Intrinsics.areEqual(this.i, oz6Var.i) && Intrinsics.areEqual(this.j, oz6Var.j);
+            this.b = oz6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, uo6 uo6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, uo6Var) == null) {
+                super.a(view2, uo6Var);
+                if (uo6Var != null && uo6Var.getThreadData() != null) {
+                    ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                    if (this.b.viewholder != null) {
+                        ThreadCardUtils.jumpToPB((f15) uo6Var.getThreadData(), view2.getContext(), 0, false);
+                        threadCardViewHolder.a().p(new uz.a(1));
+                    }
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int hashCode = this.c.hashCode() * 31;
-            a17 a17Var = this.d;
-            int hashCode2 = (hashCode + (a17Var == null ? 0 : a17Var.hashCode())) * 31;
-            a17 a17Var2 = this.e;
-            int hashCode3 = (hashCode2 + (a17Var2 == null ? 0 : a17Var2.hashCode())) * 31;
-            String str = this.f;
-            int hashCode4 = (((hashCode3 + (str == null ? 0 : str.hashCode())) * 31) + this.g.hashCode()) * 31;
-            z07 z07Var = this.h;
-            return ((((hashCode4 + (z07Var != null ? z07Var.hashCode() : 0)) * 31) + this.i.hashCode()) * 31) + this.j.hashCode();
+    /* loaded from: classes7.dex */
+    public class b implements fo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oz6 a;
+
+        public b(oz6 oz6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oz6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oz6Var;
         }
-        return invokeV.intValue;
+
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (vnVar instanceof uo6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                uo6 uo6Var = (uo6) vnVar;
+                if (this.a.d != null) {
+                    this.a.d.a(threadCardViewHolder.getView(), uo6Var);
+                }
+            }
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "RecommendPersonAttentionCardUiState(headData=" + this.c + ", userName=" + this.d + ", userDesc=" + this.e + ", schema=" + this.f + ", personAttentionUiState=" + this.g + ", statData=" + this.h + ", onStat=" + this.i + ", onItemClick=" + this.j + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public oz6(yz6 headData, a17 a17Var, a17 a17Var2, String str, c57 personAttentionUiState, z07 z07Var, Function1<? super z07, Unit> onStat, Function2<? super View, ? super String, Unit> onItemClick) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oz6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {headData, a17Var, a17Var2, str, personAttentionUiState, z07Var, onStat, onItemClick};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(headData, "headData");
-        Intrinsics.checkNotNullParameter(personAttentionUiState, "personAttentionUiState");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
-        this.c = headData;
-        this.d = a17Var;
-        this.e = a17Var2;
-        this.f = str;
-        this.g = personAttentionUiState;
-        this.h = z07Var;
-        this.i = onStat;
-        this.j = onItemClick;
+        this.d = new a(this);
+        this.b = tbPageContext;
+        this.a = bdUniqueId2;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ oz6(yz6 yz6Var, a17 a17Var, a17 a17Var2, String str, c57 c57Var, z07 z07Var, Function1 function1, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(yz6Var, r5, r6, r7, c57Var, r9, r10, r11);
-        a17 a17Var3;
-        a17 a17Var4;
-        String str2;
-        z07 z07Var2;
-        Function1<z07, Unit> function12;
-        Function2<View, String, Unit> function22;
-        if ((i & 2) != 0) {
-            a17Var3 = null;
-        } else {
-            a17Var3 = a17Var;
-        }
-        if ((i & 4) != 0) {
-            a17Var4 = null;
-        } else {
-            a17Var4 = a17Var2;
-        }
-        if ((i & 8) != 0) {
-            str2 = null;
-        } else {
-            str2 = str;
-        }
-        if ((i & 32) != 0) {
-            z07Var2 = null;
-        } else {
-            z07Var2 = z07Var;
-        }
-        if ((i & 64) != 0) {
-            function12 = CardUiStateKt.b();
-        } else {
-            function12 = function1;
-        }
-        if ((i & 128) != 0) {
-            function22 = CommonOnClickKt.b();
-        } else {
-            function22 = function2;
-        }
-    }
-
-    public final yz6 d() {
-        InterceptResult invokeV;
+    public void y(bo boVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048580, this, boVar) == null) {
+            this.c = boVar;
         }
-        return (yz6) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: u */
+    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            jz.b bVar = new jz.b(this.b.getPageActivity(), false);
+            bVar.h(new fz(this.b.getPageActivity()));
+            jz k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
+            k.s(2);
+            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return (Function2) invokeV.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public final Function1<z07, Unit> f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l45 l45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l45Var, threadCardViewHolder})) == null) {
+            if (l45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = l45Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(l45Var.t);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
+            }
+            return null;
         }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final c57 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (c57) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final z07 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (z07) invokeV.objValue;
-    }
-
-    public final a17 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return (a17) invokeV.objValue;
-    }
-
-    public final a17 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (a17) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

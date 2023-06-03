@@ -1,129 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class zf2 {
+public class zf2 extends b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.b02
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zf2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-233765307, "Lcom/baidu/tieba/zf2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-233765307, "Lcom/baidu/tieba/zf2$b;");
-                    return;
-                }
-            }
-            a = new zf2(null);
-        }
+    @Override // com.baidu.tieba.b02
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357955, "Lcom/baidu/tieba/zf2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948357955, "Lcom/baidu/tieba/zf2;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
-
-    public zf2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zf2(@NonNull zz1 zz1Var) {
+        super(zz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new LruCache<>(10);
     }
 
-    public static zf2 b() {
-        InterceptResult invokeV;
+    public y32 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (zf2) invokeV.objValue;
-    }
-
-    public /* synthetic */ zf2(a aVar) {
-        this();
-    }
-
-    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return config;
-                }
-                CONFIG config2 = (CONFIG) b.get(str);
-                if (config2 == null) {
-                    return config;
-                }
-                if (a) {
-                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
-                }
-                return config2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#prefetchResources params=" + str, false);
+            Pair<y32, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (jSONObject == null) {
+                return (y32) s.first;
             }
-        }
-        return (CONFIG) invokeLL.objValue;
-    }
-
-    public synchronized <CONFIG> void c(String str, CONFIG config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && config != null) {
-                    if (a) {
-                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
-                    }
-                    b.put(str, config);
-                }
+            if (!SwanAppNetworkUtils.i(fv2.c())) {
+                return new y32(1001, "network disconnected");
             }
+            JSONArray c = yo3.c(jSONObject, "video");
+            if (c != null && c.length() > 0) {
+                fv2.U().a(c);
+            }
+            JSONArray c2 = yo3.c(jSONObject, "image");
+            if (c2 != null && c2.length() > 0) {
+                fv2.U().c(c2);
+            }
+            return y32.f();
         }
+        return (y32) invokeL.objValue;
     }
 }

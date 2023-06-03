@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.l09;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
-import com.baidu.tieba.ou8;
-import com.baidu.tieba.rt8;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.ut8;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.rz8;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ou8 a;
+    public l09 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -45,7 +45,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.b0();
-                List<MyEmotionGroupData> f = ut8.i().f();
+                List<MyEmotionGroupData> f = rz8.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -129,12 +129,12 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     }
                 }
                 SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-                sg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+                wg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,10 +189,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         registerListener(this.c);
     }
 
-    public void c0(ou8 ou8Var) {
+    public void c0(l09 l09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ou8Var) == null) {
-            this.a = ou8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, l09Var) == null) {
+            this.a = l09Var;
         }
     }
 
@@ -261,7 +261,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            rt8.b().a(new b(this));
+            oz8.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

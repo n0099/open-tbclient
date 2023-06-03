@@ -1,95 +1,138 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.apps.so.SoUtils;
-import com.baidu.tieba.of3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Arrays;
-import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ye3 implements SoUtils.a {
+public class ye3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327234, "Lcom/baidu/tieba/ye3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327234, "Lcom/baidu/tieba/ye3;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
-
-    public ye3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ye3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/getMenuButtonBoundingClientRect");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final String a(String str) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            if (vd3.b) {
+                Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            hb2 U = lx2.T().U();
+            if (U == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            eb2 m = U.m();
+            if (m == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (yb3Var.w0()) {
+                View q = gv2.i().q(m);
+                if (q == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                unitedSchemeEntity.result = j(q);
+                return true;
+            } else {
+                SwanAppActionBar M1 = m.M1();
+                if (M1 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                View rightMenu = M1.getRightMenu();
+                if (rightMenu == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                unitedSchemeEntity.result = j(rightMenu);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final JSONObject j(View view2) {
         InterceptResult invokeL;
-        String absolutePath;
-        long length;
+        boolean z;
+        int P;
+        JSONObject wrapCallbackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(ns2.c(), str);
-            if (findSoFilesInLibrary == null) {
-                absolutePath = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            yb3 M = yb3.M();
+            if (M != null) {
+                z = M.w0();
             } else {
-                absolutePath = findSoFilesInLibrary.getAbsolutePath();
+                z = false;
             }
-            if (findSoFilesInLibrary == null) {
-                length = 0;
+            if (z) {
+                P = 0;
             } else {
-                length = findSoFilesInLibrary.length();
+                P = (int) (pp3.P(pp3.t()) + 0.5f);
             }
-            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, absolutePath, Long.valueOf(length));
+            int P2 = (int) (pp3.P(view2.getLeft()) + 0.5f);
+            int P3 = (int) (pp3.P(view2.getRight()) + 0.5f);
+            int P4 = ((int) (pp3.P(view2.getTop()) + 0.5f)) + P;
+            int P5 = ((int) (pp3.P(view2.getBottom()) + 0.5f)) + P;
+            int i = P3 - P2;
+            int i2 = P5 - P4;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("width", i);
+                jSONObject.put("height", i2);
+                jSONObject.put("left", P2);
+                jSONObject.put("right", P3);
+                jSONObject.put("top", P4);
+                jSONObject.put("bottom", P5);
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            } catch (JSONException e) {
+                if (vd3.b) {
+                    e.printStackTrace();
+                }
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+            }
+            if (vd3.b) {
+                Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
+            }
+            return wrapCallbackParams;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.so.SoUtils.a
-    public void onEvent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
-        String str3 = Arrays.toString(strArr) + "\n" + rp1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
-        if (a) {
-            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
-        }
-        of3.b bVar = new of3.b(10007);
-        bVar.j(str);
-        bVar.i(str3);
-        bVar.h(g93.g0());
-        bVar.m();
+        return (JSONObject) invokeL.objValue;
     }
 }

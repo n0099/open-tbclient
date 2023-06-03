@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PbLinkInfo extends Message {
     public static final String DEFAULT_EXTTXT = "";
     public static final String DEFAULT_LINKFROM = "";
@@ -26,7 +26,7 @@ public final class PbLinkInfo extends Message {
     public static final Integer DEFAULT_SORT = 0;
     public static final Integer DEFAULT_URLTYPE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PbLinkInfo> {
         public String extTxt;
         public String linkFrom;

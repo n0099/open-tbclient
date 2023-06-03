@@ -21,26 +21,26 @@ public final class TestTimeSource extends AbstractLongTimeSource {
     }
 
     /* renamed from: overflow-LRDsOJo  reason: not valid java name */
-    private final void m2212overflowLRDsOJo(long j) {
-        throw new IllegalStateException("TestTimeSource will overflow if its reading " + this.reading + "ns is advanced by " + ((Object) Duration.m2134toStringimpl(j)) + IStringUtil.EXTENSION_SEPARATOR);
+    private final void m2268overflowLRDsOJo(long j) {
+        throw new IllegalStateException("TestTimeSource will overflow if its reading " + this.reading + "ns is advanced by " + ((Object) Duration.m2190toStringimpl(j)) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     /* renamed from: plusAssign-LRDsOJo  reason: not valid java name */
-    public final void m2213plusAssignLRDsOJo(long j) {
+    public final void m2269plusAssignLRDsOJo(long j) {
         long j2;
-        long m2131toLongimpl = Duration.m2131toLongimpl(j, getUnit());
-        if (m2131toLongimpl != Long.MIN_VALUE && m2131toLongimpl != Long.MAX_VALUE) {
+        long m2187toLongimpl = Duration.m2187toLongimpl(j, getUnit());
+        if (m2187toLongimpl != Long.MIN_VALUE && m2187toLongimpl != Long.MAX_VALUE) {
             long j3 = this.reading;
-            j2 = j3 + m2131toLongimpl;
-            if ((m2131toLongimpl ^ j3) >= 0 && (j3 ^ j2) < 0) {
-                m2212overflowLRDsOJo(j);
+            j2 = j3 + m2187toLongimpl;
+            if ((m2187toLongimpl ^ j3) >= 0 && (j3 ^ j2) < 0) {
+                m2268overflowLRDsOJo(j);
             }
         } else {
-            double m2128toDoubleimpl = this.reading + Duration.m2128toDoubleimpl(j, getUnit());
-            if (m2128toDoubleimpl > 9.223372036854776E18d || m2128toDoubleimpl < -9.223372036854776E18d) {
-                m2212overflowLRDsOJo(j);
+            double m2184toDoubleimpl = this.reading + Duration.m2184toDoubleimpl(j, getUnit());
+            if (m2184toDoubleimpl > 9.223372036854776E18d || m2184toDoubleimpl < -9.223372036854776E18d) {
+                m2268overflowLRDsOJo(j);
             }
-            j2 = (long) m2128toDoubleimpl;
+            j2 = (long) m2184toDoubleimpl;
         }
         this.reading = j2;
     }

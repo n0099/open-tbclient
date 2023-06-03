@@ -1,170 +1,276 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class s46 implements du1 {
+public class s46 implements j36, View.OnClickListener, TbTabLayout.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public TbPageContext<SelectForumActivity> a;
+    public String b;
+    public NavigationBar c;
+    public ImageView d;
+    public LinearLayout e;
+    public TbTabLayout f;
+    public BdBaseViewPager g;
+    public SelectForumPagerAdapter h;
+    public Intent i;
+    public boolean j;
 
-    @Override // com.baidu.tieba.du1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.du1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.du1
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
-
-    public String g() {
+    @Override // com.baidu.tieba.gt5
+    public boolean Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public pn5 i() {
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void a(TbTabLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void c(TbTabLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j36
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt5
+    public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
         }
-        return (pn5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101492, "Lcom/baidu/tieba/s46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s46 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public a(s46 s46Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101492, "Lcom/baidu/tieba/s46;");
-                return;
+            this.a = s46Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                s46 s46Var = this.a;
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                s46Var.j = z;
             }
         }
-        b = qp1.a;
     }
 
-    public s46() {
+    public s46(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+        this.e = linearLayout;
+        this.c = navigationBar;
+        this.b = "key_select_forum_tab_index";
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (!StringUtils.isNull(currentAccount)) {
+            this.b += currentAccount;
+        }
+        f();
+        d();
+        g();
+        h();
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0054, (ViewGroup) this.e, true);
+            this.f = (TbTabLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09008c);
+            this.g = (BdBaseViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09008d);
         }
     }
 
-    public List<String> h() {
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.a);
+            this.h = selectForumPagerAdapter;
+            this.g.setAdapter(selectForumPagerAdapter);
+            this.f.setupWithViewPager(this.g);
+            i(l95.m().n(this.b, 0));
+            this.f.setOnTabSelectedListener(this);
+            this.g.addOnPageChangeListener(new a(this));
+        }
+    }
+
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void e(TbTabLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
+            l95.m().z(this.b, fVar.e());
+        }
+    }
+
+    @Override // com.baidu.tieba.gt5
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.h.c();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00be));
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.d = imageView;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+            layoutParams.setMargins(0, 0, vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070353), 0);
+            this.d.setLayoutParams(layoutParams);
+            this.d.setOnClickListener(this);
+            this.d.setVisibility(8);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f.setSelectedTabTextBlod(true);
+            this.f.setSelectedTabIndicatorColor(0);
+            TbTabLayout.f z = this.f.z();
+            z.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00bd));
+            TbTabLayout.f z2 = this.f.z();
+            z2.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00bc));
+            this.f.f(z, false);
+            this.f.f(z2, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.gt5
+    public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("a001");
-            return arrayList;
+            return this.i;
         }
-        return (List) invokeV.objValue;
+        return (Intent) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.du1
-    public void a(String str) {
+    @Override // com.baidu.tieba.j36
+    public void onDestroy() {
+        SelectForumPagerAdapter selectForumPagerAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
-            }
-            long o = o65.m().o("smart_app_tid", 0L);
-            String s = o65.m().s("smart_app_id", "");
-            String s2 = o65.m().s("smart_app_name", "");
-            if (this.a != 0 && o != 0) {
-                long currentTimeMillis = System.currentTimeMillis() - this.a;
-                rn5 rn5Var = new rn5();
-                rn5Var.y(currentTimeMillis);
-                rn5Var.s(g());
-                rn5Var.C(o);
-                rn5Var.i = s;
-                rn5Var.j = s2;
-                rn5Var.x(h());
-                sn5.b().j(true);
-                sn5.b().k(TbadkApplication.getInst().getApplicationContext(), rn5Var, i());
-                o65.m().A("smart_app_tid", 0L);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (selectForumPagerAdapter = this.h) != null) {
+            selectForumPagerAdapter.onDestroy();
         }
     }
 
-    @Override // com.baidu.tieba.du1
-    public void c(String str) {
+    public boolean i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + g93.M().b);
-            }
-            File file = new File(jm.b("libBaiduMapSDK.so"));
-            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so") == null && lm.a(BdBaseApplication.getInst().getContext(), jm.a("libBaiduMapSDK.so"))) {
-                try {
-                    System.loadLibrary("BaiduMapSDK");
-                } catch (Throwable unused) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                TbTabLayout.f w = this.f.w(i);
+                if (w != null && !w.h()) {
+                    w.l();
                 }
-                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK.so", jm.a("libBaiduMapSDK.so"));
+                return true;
             }
-            this.a = System.currentTimeMillis();
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.du1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable du2 du2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, du2Var) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppExit");
-            }
-            if (o65.m().i("key_ai_app_guide_display", true)) {
-                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-                intent.putExtra("class", 38);
-                swanAppActivity.startService(intent);
-            }
-        }
+        return invokeI.booleanValue;
     }
 }

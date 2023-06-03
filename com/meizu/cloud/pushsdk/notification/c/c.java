@@ -4,7 +4,7 @@ import android.content.Context;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.sina.weibo.sdk.utils.ResourceManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a(Context context) {
         return d.a(context).a(context, "push_expandable_big_image_notification", TtmlNode.TAG_LAYOUT);

@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.extractor;
 
-import android.support.v4.media.session.MediaSessionCompat;
 import com.baidu.pass.face.platform.utils.FileUtils;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
@@ -20,10 +19,10 @@ public final class MpegAudioHeader {
     public int version;
     public static final String[] MIME_TYPE_BY_LAYER = {MimeTypes.AUDIO_MPEG_L1, MimeTypes.AUDIO_MPEG_L2, MimeTypes.AUDIO_MPEG};
     public static final int[] SAMPLING_RATE_V1 = {44100, OpusReader.SAMPLE_RATE, 32000};
-    public static final int[] BITRATE_V1_L1 = {32, 64, 96, 128, 160, 192, 224, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
+    public static final int[] BITRATE_V1_L1 = {32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, FileUtils.S_IRWXU};
     public static final int[] BITRATE_V2_L1 = {32, 48, 56, 64, 80, 96, 112, 128, Cea708Decoder.COMMAND_SPA, 160, MatroskaExtractor.ID_PIXEL_WIDTH, 192, 224, 256};
-    public static final int[] BITRATE_V1_L2 = {32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384};
-    public static final int[] BITRATE_V1_L3 = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP};
+    public static final int[] BITRATE_V1_L2 = {32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384};
+    public static final int[] BITRATE_V1_L3 = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320};
     public static final int[] BITRATE_V2 = {8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, Cea708Decoder.COMMAND_SPA, 160};
 
     public static int getFrameSize(int i) {

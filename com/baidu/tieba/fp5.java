@@ -1,233 +1,197 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class fp5 extends BaseAdapter {
+public class fp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<gp5> a;
-    public TbPageContext<?> b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static boolean a(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, str, z)) == null) {
+            return tg.b(h(str), z);
         }
-        return invokeI.longValue;
+        return invokeLZ.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    public static int d(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            return tg.e(h(str), i);
         }
-        return invokeV.intValue;
+        return invokeLI.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public LinearLayout a;
-        public TbImageView b;
-
-        public b(fp5 fp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(fp5 fp5Var, a aVar) {
-            this(fp5Var);
-        }
-    }
-
-    public fp5(TbPageContext<?> tbPageContext) {
+    public static long e(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            return tg.g(h(str), j);
         }
-        this.a = null;
-        this.b = null;
-        this.c = -1;
-        this.h = 0;
-        this.i = 0;
-        this.b = tbPageContext;
-        this.a = new ArrayList<>();
-        this.d = SkinManager.getColor(R.color.common_color_10043);
-        this.e = SkinManager.getColor(R.color.CAM_X0302);
-        this.f = ri.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070198);
-        this.g = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
-        this.h = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070215);
+        return invokeLJ.longValue;
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public static OrmObject f(String str, Class<?> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = i / 4;
-            if (i2 == 0) {
-                return 1;
-            }
-            if (i2 == this.i - 1) {
-                return 2;
-            }
-            return 3;
-        }
-        return invokeI.intValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void c(ArrayList<gp5> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
-            if (arrayList != null) {
-                if (arrayList.size() % 4 == 0) {
-                    this.i = arrayList.size() / 4;
-                } else {
-                    this.i = (arrayList.size() / 4) + 1;
-                }
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ArrayList<gp5> arrayList = this.a;
-            if (arrayList != null && i < arrayList.size()) {
-                return this.a.get(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, cls)) == null) {
+            if (str != null && cls != null) {
+                return OrmObject.objectWithJsonStr(h(str), cls);
             }
             return null;
         }
-        return invokeI.objValue;
+        return (OrmObject) invokeLL.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public static String g(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i == this.c) {
-                return 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            String h = h(str);
+            if (h != null) {
+                return h;
             }
-            return 0;
+            return str2;
         }
-        return invokeI.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static void k(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65546, null, str, z) == null) {
+            o(str, Boolean.valueOf(z));
+        }
+    }
+
+    public static void l(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, str, i) == null) {
+            o(str, Integer.valueOf(i));
+        }
+    }
+
+    public static void m(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65548, null, str, j) == null) {
+            o(str, Long.valueOf(j));
+        }
+    }
+
+    public static void n(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
+            o(str, str2);
+        }
+    }
+
+    public static void o(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, str, obj) == null) {
+            p(Uri.parse(b() + str), j(str, obj));
+        }
+    }
+
+    public static void p(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, uri, contentValues) == null) {
+            q(uri, contentValues);
+        }
+    }
+
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<gp5> arrayList = this.a;
-            if (arrayList != null) {
-                return arrayList.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return l95.m().j();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public static ContentResolver c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0813, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ba8);
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ba6);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            if (a(i) == 1) {
-                bVar.a.setPadding(0, this.h, 0, 0);
-            } else if (a(i) == 2) {
-                bVar.a.setPadding(0, 0, 0, this.h);
-            } else {
-                bVar.a.setPadding(0, 0, 0, 0);
-            }
-            bVar.b.setDrawerType(0);
-            bVar.b.setBorderSurroundContent(true);
-            bVar.b.setDrawBorder(true);
-            if (itemViewType == 0) {
-                bVar.b.setBorderColor(this.d);
-                bVar.b.setBorderWidth(this.f);
-            } else {
-                bVar.b.setBorderColor(this.e);
-                bVar.b.setBorderWidth(this.g);
-            }
-            bVar.b.setDefaultResource(R.drawable.transparent_bg);
-            bVar.b.N(this.a.get(i).a(), 10, false);
-            view2.setTag(bVar);
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return l95.m().k();
         }
-        return (View) invokeILL.objValue;
+        return (ContentResolver) invokeV.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return i(Uri.parse(b() + str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(Uri uri) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                str = c().getType(uri);
+            } catch (SecurityException e) {
+                BdLog.detailException(e);
+                str = null;
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            ep5.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static ContentValues j(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, obj)) == null) {
+            ContentValues contentValues = new ContentValues();
+            String str2 = null;
+            if (obj != null) {
+                if (obj instanceof String) {
+                    str2 = (String) obj;
+                } else if (obj instanceof Boolean) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Integer) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Long) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Float) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Double) {
+                    str2 = String.valueOf(obj);
+                }
+            }
+            contentValues.put(str, str2);
+            return contentValues;
+        }
+        return (ContentValues) invokeLL.objValue;
+    }
+
+    public static void q(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65552, null, uri, contentValues) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                c().insert(uri, contentValues);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            ep5.m("setValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+        }
     }
 }

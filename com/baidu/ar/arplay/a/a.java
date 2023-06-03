@@ -12,6 +12,8 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.util.HashMap;
@@ -330,7 +332,7 @@ public final class a {
         hashMap3.put("buffer_status", bVar.ea);
         hashMap3.put("buffer_progress", Integer.valueOf(bVar.eb));
         hashMap3.put("play_status", bVar.dZ);
-        hashMap3.put("play_progress", Integer.valueOf((int) (bVar.ec * 100.0f)));
+        hashMap3.put(LocalDataScanHelper.EXT_KEY_PLAY_PROGRESS, Integer.valueOf((int) (bVar.ec * 100.0f)));
         hashMap2.put("data", hashMap3);
         hashMap.put("msg_data", hashMap2);
         ARPMessage.getInstance().sendMessage(1902, hashMap);
@@ -388,7 +390,7 @@ public final class a {
         hashMap2.put("buffer_status", bVar.ea);
         hashMap2.put("duration", String.valueOf(bVar.dV));
         hashMap2.put("buffer_progress", String.valueOf(bVar.eb));
-        hashMap2.put("play_progress", String.valueOf((int) (bVar.ec * 100.0f)));
+        hashMap2.put(LocalDataScanHelper.EXT_KEY_PLAY_PROGRESS, String.valueOf((int) (bVar.ec * 100.0f)));
         hashMap.put("msg_data", hashMap2);
         ARPMessage.getInstance().sendMessage(1011, hashMap);
     }
@@ -447,7 +449,7 @@ public final class a {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (str == "finished") {
+        } else if (str == DownloadStatisticConstants.UBC_TYPE_FINISHED) {
             bVar.ec = 1.0f;
         }
         if (bVar.ec > 1.0f) {
@@ -571,7 +573,7 @@ public final class a {
                     if (z != null) {
                         com.baidu.ar.arplay.a.a.b bVar = z.dg;
                         bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                        bVar.dZ = "finished";
+                        bVar.dZ = DownloadStatisticConstants.UBC_TYPE_FINISHED;
                         a.a(z);
                         if (aVar.aQ()) {
                             com.baidu.ar.arplay.c.b.b(a.TAG, "openAudio mMediaPlayer onCompletion  isLoopForever open！");
@@ -736,7 +738,7 @@ public final class a {
                 if (z != null) {
                     com.baidu.ar.arplay.a.a.b bVar = z.dg;
                     bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                    bVar.dZ = "finished";
+                    bVar.dZ = DownloadStatisticConstants.UBC_TYPE_FINISHED;
                     a.a(z);
                     if (aVar.aQ()) {
                         a.this.a(aVar, hashMap);

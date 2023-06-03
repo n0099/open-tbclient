@@ -171,7 +171,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                             int i4 = 0;
                             while (true) {
                                 int i5 = i4 + 1;
-                                long longValue = function1.invoke(UByte.m801boximpl(UByte.m807constructorimpl((byte) i4))).longValue();
+                                long longValue = function1.invoke(UByte.m856boximpl(UByte.m862constructorimpl((byte) i4))).longValue();
                                 if (longValue != j2) {
                                     j3 += longValue;
                                 }
@@ -270,11 +270,11 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                     @Override // kotlin.jvm.functions.Function1
                     public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
-                        return m86invoke7apg3OU(uByte.m856unboximpl());
+                        return m141invoke7apg3OU(uByte.m911unboximpl());
                     }
 
                     /* renamed from: invoke-7apg3OU  reason: not valid java name */
-                    public final Long m86invoke7apg3OU(byte b) {
+                    public final Long m141invoke7apg3OU(byte b) {
                         InterceptResult invokeB;
                         long j4;
                         DatagramSocket datagramSocket3;
@@ -293,13 +293,13 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                                 Intrinsics.checkNotNull(datagramSocket4);
                                 datagramSocket4.receive(datagramPacket2);
                                 j4 = System.currentTimeMillis() - currentTimeMillis;
-                                this.$cache[UByte.m807constructorimpl(this.$buf[0]) & 255] = 1;
+                                this.$cache[UByte.m862constructorimpl(this.$buf[0]) & 255] = 1;
                                 LogTo logTo = LogTo.INSTANCE;
-                                logTo.d("*****", "[Probe time] " + ((Object) UByte.m850toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j4);
+                                logTo.d("*****", "[Probe time] " + ((Object) UByte.m905toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j4);
                             } catch (Exception unused) {
                                 j4 = -1;
                                 LogTo logTo2 = LogTo.INSTANCE;
-                                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m850toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m905toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
                             }
                             return Long.valueOf(j4);
                         }

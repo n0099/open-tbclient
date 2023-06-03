@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,25 +67,25 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public cn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.qg
+    public gn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            cn z2 = TbImageMemoryCache.u().z(str3);
+            gn z2 = TbImageMemoryCache.u().z(str3);
             if (z2 == null) {
-                Bitmap bitmap = SkinManager.getBitmap(pg.e(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(tg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                cn cnVar = new cn(bitmap, false, str2);
-                TbImageMemoryCache.u().l(str3, cnVar);
-                return cnVar;
+                gn gnVar = new gn(bitmap, false, str2);
+                TbImageMemoryCache.u().l(str3, gnVar);
+                return gnVar;
             }
             return z2;
         }
-        return (cn) invokeCommon.objValue;
+        return (gn) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

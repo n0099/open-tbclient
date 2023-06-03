@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface tv1 {
-    sv1 a();
-
-    rv1 b();
+    void a(String str, x83 x83Var);
 }

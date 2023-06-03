@@ -1,126 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public abstract class nu4 {
+/* loaded from: classes7.dex */
+public class nu4 extends ju4 {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<TbPageContext<?>> a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile long e;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014940, "Lcom/baidu/tieba/nu4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948014940, "Lcom/baidu/tieba/nu4;");
-        }
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i);
-
-    public abstract void i();
-
-    public abstract void k(a aVar);
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    public abstract void m();
-
-    public nu4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu4(du4 du4Var) {
+        super(du4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {du4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((du4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new ArrayList(5);
+        this.e = System.currentTimeMillis();
     }
 
-    public boolean b() {
+    public synchronized long i() {
         InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            synchronized (this) {
+                this.e = System.currentTimeMillis() + 60000;
+                j = this.e;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (System.currentTimeMillis() - this.e >= 60000) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (weakReference = a) != null) {
-            weakReference.get();
-            a.clear();
-            a = null;
-        }
-    }
-
-    public static nu4 a(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, nu4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (nu4) runTask.getData();
-            }
-            return null;
-        }
-        return (nu4) invokeL.objValue;
-    }
-
-    public void j(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            WeakReference<TbPageContext<?>> weakReference = a;
-            if (weakReference == null) {
-                a = new WeakReference<>(tbPageContext);
-                return;
-            }
-            weakReference.clear();
-            a = null;
-            a = new WeakReference<>(tbPageContext);
-        }
     }
 }

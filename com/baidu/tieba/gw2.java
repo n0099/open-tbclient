@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,34 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
 public class gw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public int n;
-    public int o;
-    public String p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public String u;
+    public WeakReference<Activity> mActivityRef;
+    public CallbackHandler mCallbackHandler;
+    public Context mContext;
+    public wa2 mJsContainer;
+    public UnitedSchemeMainDispatcher mMainDispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -54,22 +38,35 @@ public class gw2 {
                 return;
             }
         }
-        v = qp1.a;
+        DEBUG = is1.a;
     }
 
-    public boolean a() {
+    public Context getDispatchContext() {
         InterceptResult invokeV;
+        Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.r;
+            WeakReference<Activity> weakReference = this.mActivityRef;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.mContext;
+            }
+            return activity;
         }
-        return invokeV.booleanValue;
+        return (Context) invokeV.objValue;
     }
 
-    public gw2() {
+    @SuppressLint({"BDThrowableCheck"})
+    public gw2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, wa2 wa2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, wa2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,104 +76,28 @@ public class gw2 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        this.i = false;
-        this.j = "";
-        this.k = 0;
-        this.l = 0;
-        this.m = "";
-        this.q = false;
-    }
-
-    public static gw2 b(JSONObject jSONObject, gw2 gw2Var) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, gw2Var)) == null) {
-            gw2 gw2Var2 = new gw2();
-            if (jSONObject != null) {
-                gw2Var2.a = jSONObject.optString("audioId", gw2Var.a);
-                gw2Var2.b = jSONObject.optString("slaveId", gw2Var.b);
-                gw2Var2.c = jSONObject.optString("src", gw2Var.c);
-                if (g93.M() != null && og3.E(gw2Var2.c)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                gw2Var2.q = z;
-                gw2Var2.d = jSONObject.optString("title", gw2Var.d);
-                gw2Var2.e = jSONObject.optString("epname", gw2Var.e);
-                gw2Var2.f = jSONObject.optString("singer", gw2Var.f);
-                gw2Var2.g = jSONObject.optString("coverImgUrl", gw2Var.g);
-                gw2Var2.h = jSONObject.optString("lrcURL", gw2Var.h);
-                gw2Var2.i = jSONObject.optBoolean("showFloatView", gw2Var.i);
-                gw2Var2.j = jSONObject.optString("floatPosition", gw2Var.j);
-                gw2Var2.k = jSONObject.optInt("startTime", gw2Var.k);
-                gw2Var2.l = jSONObject.optInt(CriusAttrConstants.POSITION, gw2Var.l);
-                gw2Var2.p = jSONObject.optString("cb", gw2Var.p);
-                gw2Var2.m = jSONObject.optString("param", gw2Var.m);
-                gw2Var2.r = TextUtils.isEmpty(jSONObject.optString("src"));
-                String g0 = ag2.U().g0();
-                if (!TextUtils.isEmpty(g0)) {
-                    gw2Var2.s = g0;
-                }
-                String b = nm3.b();
-                if (!TextUtils.isEmpty(b) && nm3.c(gw2Var2.c)) {
-                    gw2Var2.t = b;
-                }
-                String j = ci3.l().j(gw2Var2.c);
-                if (!TextUtils.isEmpty(j)) {
-                    gw2Var2.u = j;
-                    if (v) {
-                        Log.d("AudioPlayerParams", "addCookiesToHeader cookie: " + j);
-                    }
-                }
+        this.mContext = context;
+        this.mMainDispatcher = unitedSchemeMainDispatcher;
+        this.mCallbackHandler = callbackHandler;
+        this.mJsContainer = wa2Var;
+        if (DEBUG) {
+            if (context == null || unitedSchemeMainDispatcher == null) {
+                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
             }
-            return gw2Var2;
         }
-        return (gw2) invokeLL.objValue;
     }
 
-    public String c(String str) {
-        InterceptResult invokeL;
+    public void setActivityRef(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.d);
-                jSONObject.putOpt("epname", this.e);
-                jSONObject.putOpt("singer", this.f);
-                jSONObject.putOpt("coverImgUrl", this.g);
-                jSONObject.putOpt("lrcURL", this.h);
-                jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
-                jSONObject.putOpt("appid", g93.g0());
-                jSONObject.putOpt("user-agent", this.s);
-                jSONObject.putOpt(TiebaStatic.Params.REFER, this.t);
-                jSONObject.putOpt("Cookie", this.u);
-            } catch (JSONException e) {
-                if (v) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            this.mActivityRef = new WeakReference<>(activity);
         }
-        return (String) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void setCallbackHandler(CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.b + " url=" + this.c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
+            this.mCallbackHandler = callbackHandler;
         }
-        return (String) invokeV.objValue;
     }
 }

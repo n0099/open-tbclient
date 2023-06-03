@@ -13,14 +13,14 @@ public final class c {
         ArrayList arrayList = new ArrayList();
         Qe = arrayList;
         arrayList.add("application/x-javascript");
-        Qe.add(WordCommandManager.IMAGE_JPEG);
+        Qe.add("image/jpeg");
         Qe.add("image/tiff");
         Qe.add("text/css");
         Qe.add(SapiWebView.DATA_MIME_TYPE);
         Qe.add("image/gif");
         Qe.add(WordCommandManager.IMAGE_PNG);
         Qe.add("application/javascript");
-        Qe.add(MimeTypes.VIDEO_MP4);
+        Qe.add("video/mp4");
         Qe.add(MimeTypes.AUDIO_MPEG);
         Qe.add("application/json");
         Qe.add("image/webp");

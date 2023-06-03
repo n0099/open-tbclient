@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class oz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public oz4() {
+    public static Context a(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
+            if (webView == null) {
+                return g9.f().b();
             }
+            Activity a = hl6.a(webView.getContext());
+            if (a == null) {
+                a = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            if (a == null) {
+                a = g9.f().b();
+            }
+            if (a == null) {
+                return webView.getContext();
+            }
+            return a;
         }
+        return (Context) invokeL.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static Bitmap b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+            }
+            return bitmap;
         }
-        try {
-            jSONObject.optString("icon");
-            jSONObject.optString("name");
-            jSONObject.optString("url");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void b(MemberShowIcon memberShowIcon) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) != null) || memberShowIcon == null) {
-            return;
-        }
-        String str = memberShowIcon.icon;
-        String str2 = memberShowIcon.name;
-        String str3 = memberShowIcon.url;
+        return (Bitmap) invokeL.objValue;
     }
 }

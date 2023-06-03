@@ -1,180 +1,321 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountRealNameCallback;
+import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.dto.RealNameDTO;
+import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.searchbox.live.game.interfaces.GameService;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class zs8 extends en<pt8, b> {
+public class zs8 implements GameService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> a;
-    public zw4<pt8> b;
+    public final Map<String, String> a;
+    public lb b;
 
     /* loaded from: classes8.dex */
-    public class a implements zw4<pt8> {
+    public class a extends lb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs8 a;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zw4
-        /* renamed from: a */
-        public void c(View view2, pt8 pt8Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pt8Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        public a(zs8 zs8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zs8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zs8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zw4
-        /* renamed from: b */
-        public void d(View view2, pt8 pt8Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, pt8Var, Integer.valueOf(i), Long.valueOf(j)}) == null) && pt8Var != null && this.a.a != null) {
-                ys8.a("c13820", pt8Var, i, ((HotTopicDetailActivity) this.a.a.getOrignalPage()).z1());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailSpecialItem a;
+        public final /* synthetic */ GameService.MsgSendListener a;
+        public final /* synthetic */ zs8 b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
-            super(hotTopicDetailSpecialItem);
+        public a(zs8 zs8Var, int i, GameService.MsgSendListener msgSendListener) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicDetailSpecialItem};
+                Object[] objArr = {zs8Var, Integer.valueOf(i), msgSendListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = hotTopicDetailSpecialItem;
+            this.b = zs8Var;
+            this.a = msgSendListener;
         }
 
-        public void a(pt8 pt8Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, pt8Var) == null) && pt8Var != null) {
-                this.a.a(pt8Var);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+                return;
             }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.c(i);
-            }
-        }
-
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a.setCurrentTopicId(str);
-            }
-        }
-
-        public void d(zw4<pt8> zw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, zw4Var) == null) {
-                this.a.setOnItemCoverListener(zw4Var);
+            ChatMessage chatMessage = (ChatMessage) ((ResponseCommitPersonalMessage) socketResponsedMessage).getOrginalMessage();
+            if (chatMessage instanceof PersonalChatMessage) {
+                String valueOf = String.valueOf(chatMessage.getRecordId());
+                if (this.b.a.containsKey(valueOf)) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("msg_id", this.b.a.get(valueOf));
+                    if (socketResponsedMessage.hasError()) {
+                        this.a.onFailed(hashMap);
+                    } else {
+                        this.a.onSuccess(hashMap);
+                    }
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zs8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ot8.a);
+    /* loaded from: classes8.dex */
+    public class b implements SapiCallback<CheckUserFaceIdResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameService.GameAuthCallback a;
+        public final /* synthetic */ zs8 b;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public b(zs8 zs8Var, GameService.GameAuthCallback gameAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs8Var, gameAuthCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zs8Var;
+            this.a = gameAuthCallback;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: a */
+        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
+            GameService.GameAuthCallback gameAuthCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) && (gameAuthCallback = this.a) != null) {
+                gameAuthCallback.onFail(checkUserFaceIdResult.getResultCode(), checkUserFaceIdResult.getResultMsg());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: b */
+        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
+                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
+                    this.b.c(this.a);
+                    return;
+                }
+                GameService.GameAuthCallback gameAuthCallback = this.a;
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onSuccess();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends AccountRealNameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameService.GameAuthCallback a;
+
+        public c(zs8 zs8Var, GameService.GameAuthCallback gameAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs8Var, gameAuthCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gameAuthCallback;
+        }
+
+        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
+        public void onFinish(AccountRealNameResult accountRealNameResult) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
+                super.onFinish(accountRealNameResult);
+                if (accountRealNameResult.getResultCode() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    GameService.GameAuthCallback gameAuthCallback = this.a;
+                    if (gameAuthCallback != null) {
+                        gameAuthCallback.onSuccess();
+                        return;
+                    }
+                    return;
+                }
+                GameService.GameAuthCallback gameAuthCallback2 = this.a;
+                if (gameAuthCallback2 != null) {
+                    gameAuthCallback2.onFail(accountRealNameResult.getResultCode(), accountRealNameResult.getResultMsg());
+                }
+            }
+        }
+    }
+
+    public zs8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
+        this.a = new HashMap();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void clearCachedHostMsgSendAPI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-            bVar.c(this.a.getOrignalPage().z1());
-            bVar.d(this.b);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.clear();
         }
-        return (b) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pt8 pt8Var, b bVar) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void releaseHostMsgSendAPI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pt8Var, bVar})) == null) {
-            if (pt8Var != null && bVar != null) {
-                bVar.a(pt8Var);
-                bVar.b(TbadkCoreApplication.getInst().getSkinType());
-                return bVar.getView();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void initHostMsgSendAPI(@Nullable GameService.MsgSendListener msgSendListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, msgSendListener) != null) || msgSendListener == null) {
+            return;
+        }
+        if (this.b == null) {
+            this.b = new a(this, 0, msgSendListener);
+        }
+        MessageManager.getInstance().registerListener(205001, this.b);
+    }
+
+    public final void c(@Nullable GameService.GameAuthCallback gameAuthCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gameAuthCallback) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onFail(-1, "pass没有初始化");
+                    return;
+                }
+                return;
             }
-            return null;
+            RealNameDTO realNameDTO = new RealNameDTO();
+            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            realNameDTO.scene = "baidugame";
+            realNameDTO.needCbKey = true;
+            PassportSDK.getInstance().loadAccountRealName(TbadkCoreApplication.getInst().getContext(), new c(this, gameAuthCallback), realNameDTO);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void callHostMsgSendAPI(@Nullable Map<String, String> map) {
+        long parseLong;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) && map != null && !map.isEmpty()) {
+            String str = map.get("msg_id");
+            String str2 = map.get("msg_content");
+            String str3 = map.get("receiver_id");
+            String str4 = map.get("receiver_name");
+            String str5 = map.get("receiver_avatar");
+            String str6 = map.get(DI.FOLLOW_STATUS);
+            try {
+                if (TextUtils.isEmpty(str3)) {
+                    parseLong = -1;
+                } else {
+                    parseLong = Long.parseLong(str3);
+                }
+                boolean equalsIgnoreCase = "1".equalsIgnoreCase(str6);
+                if (parseLong > -1) {
+                    this.a.put(String.valueOf(MessageUtils.createAndSendPersonalText(str2, parseLong, str4, str4, str5, equalsIgnoreCase)), str);
+                }
+            } catch (NumberFormatException unused) {
+                if (BdBaseApplication.getInst().isDebugMode()) {
+                    BdLog.e("NumberFormatException: parse long");
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void doAuth(@NonNull Map<String, String> map, @Nullable GameService.GameAuthCallback gameAuthCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, map, gameAuthCallback) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onFail(-1, "pass没有初始化");
+                    return;
+                }
+                return;
+            }
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", "baidugame");
+            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new b(this, gameAuthCallback), session.bduss, hashMap);
+        }
     }
 }

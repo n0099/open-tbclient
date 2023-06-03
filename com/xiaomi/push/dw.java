@@ -62,14 +62,14 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public long m315a() {
+        public long m370a() {
             return this.f242a;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public a m316a() {
+        public a m371a() {
             this.f253f = false;
             this.f249d = "";
             return this;
@@ -91,45 +91,45 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public a a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                switch (m208a) {
+                int m263a = bVar.m263a();
+                switch (m263a) {
                     case 0:
                         return this;
                     case 8:
-                        a(bVar.m217b());
+                        a(bVar.m272b());
                         break;
                     case 16:
-                        a(bVar.m218b());
+                        a(bVar.m273b());
                         break;
                     case 26:
-                        a(bVar.m211a());
+                        a(bVar.m266a());
                         break;
                     case 34:
-                        b(bVar.m211a());
+                        b(bVar.m266a());
                         break;
                     case 42:
-                        c(bVar.m211a());
+                        c(bVar.m266a());
                         break;
                     case 50:
-                        d(bVar.m211a());
+                        d(bVar.m266a());
                         break;
                     case 58:
-                        e(bVar.m211a());
+                        e(bVar.m266a());
                         break;
                     case 64:
-                        b(bVar.m217b());
+                        b(bVar.m272b());
                         break;
                     case 72:
-                        c(bVar.m217b());
+                        c(bVar.m272b());
                         break;
                     case 80:
-                        d(bVar.m217b());
+                        d(bVar.m272b());
                         break;
                     case 90:
-                        f(bVar.m211a());
+                        f(bVar.m266a());
                         break;
                     default:
-                        if (a(bVar, m208a)) {
+                        if (a(bVar, m263a)) {
                             break;
                         } else {
                             return this;
@@ -147,74 +147,74 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m317a() {
+        public String m372a() {
             return this.f243a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m318a()) {
-                cVar.m251a(1, c());
+            if (m373a()) {
+                cVar.m306a(1, c());
             }
-            if (m320b()) {
-                cVar.m265b(2, m315a());
+            if (m375b()) {
+                cVar.m320b(2, m370a());
             }
-            if (m322c()) {
-                cVar.m255a(3, m317a());
+            if (m377c()) {
+                cVar.m310a(3, m372a());
             }
-            if (m324d()) {
-                cVar.m255a(4, m319b());
+            if (m379d()) {
+                cVar.m310a(4, m374b());
             }
-            if (m326e()) {
-                cVar.m255a(5, m321c());
+            if (m381e()) {
+                cVar.m310a(5, m376c());
             }
-            if (m328f()) {
-                cVar.m255a(6, m323d());
+            if (m383f()) {
+                cVar.m310a(6, m378d());
             }
             if (g()) {
-                cVar.m255a(7, m325e());
+                cVar.m310a(7, m380e());
             }
             if (h()) {
-                cVar.m251a(8, d());
+                cVar.m306a(8, d());
             }
             if (i()) {
-                cVar.m251a(9, e());
+                cVar.m306a(9, e());
             }
             if (j()) {
-                cVar.m251a(10, f());
+                cVar.m306a(10, f());
             }
             if (k()) {
-                cVar.m255a(11, m327f());
+                cVar.m310a(11, m382f());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m318a() {
+        public boolean m373a() {
             return this.f244a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m318a() ? 0 + com.xiaomi.push.c.a(1, c()) : 0;
-            if (m320b()) {
-                a += com.xiaomi.push.c.b(2, m315a());
+            int a = m373a() ? 0 + com.xiaomi.push.c.a(1, c()) : 0;
+            if (m375b()) {
+                a += com.xiaomi.push.c.b(2, m370a());
             }
-            if (m322c()) {
-                a += com.xiaomi.push.c.a(3, m317a());
+            if (m377c()) {
+                a += com.xiaomi.push.c.a(3, m372a());
             }
-            if (m324d()) {
-                a += com.xiaomi.push.c.a(4, m319b());
+            if (m379d()) {
+                a += com.xiaomi.push.c.a(4, m374b());
             }
-            if (m326e()) {
-                a += com.xiaomi.push.c.a(5, m321c());
+            if (m381e()) {
+                a += com.xiaomi.push.c.a(5, m376c());
             }
-            if (m328f()) {
-                a += com.xiaomi.push.c.a(6, m323d());
+            if (m383f()) {
+                a += com.xiaomi.push.c.a(6, m378d());
             }
             if (g()) {
-                a += com.xiaomi.push.c.a(7, m325e());
+                a += com.xiaomi.push.c.a(7, m380e());
             }
             if (h()) {
                 a += com.xiaomi.push.c.a(8, d());
@@ -226,7 +226,7 @@ public final class dw {
                 a += com.xiaomi.push.c.a(10, f());
             }
             if (k()) {
-                a += com.xiaomi.push.c.a(11, m327f());
+                a += com.xiaomi.push.c.a(11, m382f());
             }
             this.e = a;
             return a;
@@ -246,13 +246,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m319b() {
+        public String m374b() {
             return this.f245b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m320b() {
+        public boolean m375b() {
             return this.f246b;
         }
 
@@ -273,12 +273,12 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m321c() {
+        public String m376c() {
             return this.f247c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m322c() {
+        public boolean m377c() {
             return this.f248c;
         }
 
@@ -299,12 +299,12 @@ public final class dw {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m323d() {
+        public String m378d() {
             return this.f249d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m324d() {
+        public boolean m379d() {
             return this.f250d;
         }
 
@@ -319,12 +319,12 @@ public final class dw {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m325e() {
+        public String m380e() {
             return this.f251e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m326e() {
+        public boolean m381e() {
             return this.f252e;
         }
 
@@ -339,12 +339,12 @@ public final class dw {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public String m327f() {
+        public String m382f() {
             return this.f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m328f() {
+        public boolean m383f() {
             return this.f253f;
         }
 
@@ -411,19 +411,19 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public b a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 8) {
-                    a(bVar.m214a());
-                } else if (m208a == 24) {
-                    a(bVar.m217b());
-                } else if (m208a == 32) {
-                    b(bVar.m217b());
-                } else if (m208a == 40) {
-                    c(bVar.m217b());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 8) {
+                    a(bVar.m269a());
+                } else if (m263a == 24) {
+                    a(bVar.m272b());
+                } else if (m263a == 32) {
+                    b(bVar.m272b());
+                } else if (m263a == 40) {
+                    c(bVar.m272b());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -437,37 +437,37 @@ public final class dw {
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m330b()) {
-                cVar.m256a(1, m329a());
+            if (m385b()) {
+                cVar.m311a(1, m384a());
             }
-            if (m331c()) {
-                cVar.m251a(3, c());
+            if (m386c()) {
+                cVar.m306a(3, c());
             }
-            if (m332d()) {
-                cVar.m251a(4, d());
+            if (m387d()) {
+                cVar.m306a(4, d());
             }
-            if (m333e()) {
-                cVar.m251a(5, e());
+            if (m388e()) {
+                cVar.m306a(5, e());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m329a() {
+        public boolean m384a() {
             return this.f255b;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m330b() ? 0 + com.xiaomi.push.c.a(1, m329a()) : 0;
-            if (m331c()) {
+            int a = m385b() ? 0 + com.xiaomi.push.c.a(1, m384a()) : 0;
+            if (m386c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
-            if (m332d()) {
+            if (m387d()) {
                 a += com.xiaomi.push.c.a(4, d());
             }
-            if (m333e()) {
+            if (m388e()) {
                 a += com.xiaomi.push.c.a(5, e());
             }
             this.d = a;
@@ -482,7 +482,7 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m330b() {
+        public boolean m385b() {
             return this.f254a;
         }
 
@@ -497,7 +497,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m331c() {
+        public boolean m386c() {
             return this.f256c;
         }
 
@@ -506,7 +506,7 @@ public final class dw {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m332d() {
+        public boolean m387d() {
             return this.f257d;
         }
 
@@ -515,7 +515,7 @@ public final class dw {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m333e() {
+        public boolean m388e() {
             return this.e;
         }
     }
@@ -562,23 +562,23 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public c a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m211a());
-                } else if (m208a == 18) {
-                    b(bVar.m211a());
-                } else if (m208a == 26) {
-                    c(bVar.m211a());
-                } else if (m208a == 34) {
-                    d(bVar.m211a());
-                } else if (m208a == 42) {
-                    e(bVar.m211a());
-                } else if (m208a == 50) {
-                    f(bVar.m211a());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 10) {
+                    a(bVar.m266a());
+                } else if (m263a == 18) {
+                    b(bVar.m266a());
+                } else if (m263a == 26) {
+                    c(bVar.m266a());
+                } else if (m263a == 34) {
+                    d(bVar.m266a());
+                } else if (m263a == 42) {
+                    e(bVar.m266a());
+                } else if (m263a == 50) {
+                    f(bVar.m266a());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -593,55 +593,55 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m334a() {
+        public String m389a() {
             return this.f258a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m335a()) {
-                cVar.m255a(1, m334a());
+            if (m390a()) {
+                cVar.m310a(1, m389a());
             }
-            if (m337b()) {
-                cVar.m255a(2, m336b());
+            if (m392b()) {
+                cVar.m310a(2, m391b());
             }
-            if (m338c()) {
-                cVar.m255a(3, c());
+            if (m393c()) {
+                cVar.m310a(3, c());
             }
-            if (m339d()) {
-                cVar.m255a(4, d());
+            if (m394d()) {
+                cVar.m310a(4, d());
             }
-            if (m340e()) {
-                cVar.m255a(5, e());
+            if (m395e()) {
+                cVar.m310a(5, e());
             }
-            if (m341f()) {
-                cVar.m255a(6, f());
+            if (m396f()) {
+                cVar.m310a(6, f());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m335a() {
+        public boolean m390a() {
             return this.f259a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m335a() ? 0 + com.xiaomi.push.c.a(1, m334a()) : 0;
-            if (m337b()) {
-                a += com.xiaomi.push.c.a(2, m336b());
+            int a = m390a() ? 0 + com.xiaomi.push.c.a(1, m389a()) : 0;
+            if (m392b()) {
+                a += com.xiaomi.push.c.a(2, m391b());
             }
-            if (m338c()) {
+            if (m393c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
-            if (m339d()) {
+            if (m394d()) {
                 a += com.xiaomi.push.c.a(4, d());
             }
-            if (m340e()) {
+            if (m395e()) {
                 a += com.xiaomi.push.c.a(5, e());
             }
-            if (m341f()) {
+            if (m396f()) {
                 a += com.xiaomi.push.c.a(6, f());
             }
             this.a = a;
@@ -656,13 +656,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m336b() {
+        public String m391b() {
             return this.b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m337b() {
+        public boolean m392b() {
             return this.f260b;
         }
 
@@ -677,7 +677,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m338c() {
+        public boolean m393c() {
             return this.f261c;
         }
 
@@ -692,7 +692,7 @@ public final class dw {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m339d() {
+        public boolean m394d() {
             return this.f262d;
         }
 
@@ -707,7 +707,7 @@ public final class dw {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m340e() {
+        public boolean m395e() {
             return this.f263e;
         }
 
@@ -722,7 +722,7 @@ public final class dw {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m341f() {
+        public boolean m396f() {
             return this.f264f;
         }
     }
@@ -763,19 +763,19 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public d a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 8) {
-                    a(bVar.m214a());
-                } else if (m208a == 18) {
-                    a(bVar.m211a());
-                } else if (m208a == 26) {
-                    b(bVar.m211a());
-                } else if (m208a == 34) {
-                    c(bVar.m211a());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 8) {
+                    a(bVar.m269a());
+                } else if (m263a == 18) {
+                    a(bVar.m266a());
+                } else if (m263a == 26) {
+                    b(bVar.m266a());
+                } else if (m263a == 34) {
+                    c(bVar.m266a());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -796,41 +796,41 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m342a() {
+        public String m397a() {
             return this.f265a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m345b()) {
-                cVar.m256a(1, m343a());
+            if (m400b()) {
+                cVar.m311a(1, m398a());
             }
-            if (m346c()) {
-                cVar.m255a(2, m342a());
+            if (m401c()) {
+                cVar.m310a(2, m397a());
             }
             if (d()) {
-                cVar.m255a(3, m344b());
+                cVar.m310a(3, m399b());
             }
             if (e()) {
-                cVar.m255a(4, c());
+                cVar.m310a(4, c());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m343a() {
+        public boolean m398a() {
             return this.f267b;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m345b() ? 0 + com.xiaomi.push.c.a(1, m343a()) : 0;
-            if (m346c()) {
-                a += com.xiaomi.push.c.a(2, m342a());
+            int a = m400b() ? 0 + com.xiaomi.push.c.a(1, m398a()) : 0;
+            if (m401c()) {
+                a += com.xiaomi.push.c.a(2, m397a());
             }
             if (d()) {
-                a += com.xiaomi.push.c.a(3, m344b());
+                a += com.xiaomi.push.c.a(3, m399b());
             }
             if (e()) {
                 a += com.xiaomi.push.c.a(4, c());
@@ -847,13 +847,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m344b() {
+        public String m399b() {
             return this.b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m345b() {
+        public boolean m400b() {
             return this.f266a;
         }
 
@@ -868,7 +868,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m346c() {
+        public boolean m401c() {
             return this.f268c;
         }
 
@@ -938,7 +938,7 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public b m347a() {
+        public b m402a() {
             return this.f269a;
         }
 
@@ -952,33 +952,33 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public e a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                switch (m208a) {
+                int m263a = bVar.m263a();
+                switch (m263a) {
                     case 0:
                         return this;
                     case 8:
                         a(bVar.c());
                         break;
                     case 18:
-                        a(bVar.m211a());
+                        a(bVar.m266a());
                         break;
                     case 26:
-                        b(bVar.m211a());
+                        b(bVar.m266a());
                         break;
                     case 34:
-                        c(bVar.m211a());
+                        c(bVar.m266a());
                         break;
                     case 40:
-                        b(bVar.m217b());
+                        b(bVar.m272b());
                         break;
                     case 50:
-                        d(bVar.m211a());
+                        d(bVar.m266a());
                         break;
                     case 58:
-                        e(bVar.m211a());
+                        e(bVar.m266a());
                         break;
                     case 66:
-                        f(bVar.m211a());
+                        f(bVar.m266a());
                         break;
                     case 74:
                         b bVar2 = new b();
@@ -986,10 +986,10 @@ public final class dw {
                         a(bVar2);
                         break;
                     case 80:
-                        c(bVar.m217b());
+                        c(bVar.m272b());
                         break;
                     default:
-                        if (a(bVar, m208a)) {
+                        if (a(bVar, m263a)) {
                             break;
                         } else {
                             return this;
@@ -1016,77 +1016,77 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m348a() {
+        public String m403a() {
             return this.f270a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m349a()) {
-                cVar.m264b(1, c());
+            if (m404a()) {
+                cVar.m319b(1, c());
             }
-            if (m351b()) {
-                cVar.m255a(2, m348a());
+            if (m406b()) {
+                cVar.m310a(2, m403a());
             }
-            if (m353c()) {
-                cVar.m255a(3, m350b());
+            if (m408c()) {
+                cVar.m310a(3, m405b());
             }
-            if (m355d()) {
-                cVar.m255a(4, m352c());
+            if (m410d()) {
+                cVar.m310a(4, m407c());
             }
-            if (m357e()) {
-                cVar.m251a(5, d());
+            if (m412e()) {
+                cVar.m306a(5, d());
             }
-            if (m358f()) {
-                cVar.m255a(6, m354d());
+            if (m413f()) {
+                cVar.m310a(6, m409d());
             }
             if (g()) {
-                cVar.m255a(7, m356e());
+                cVar.m310a(7, m411e());
             }
             if (h()) {
-                cVar.m255a(8, f());
+                cVar.m310a(8, f());
             }
             if (i()) {
-                cVar.m254a(9, (com.xiaomi.push.e) m347a());
+                cVar.m309a(9, (com.xiaomi.push.e) m402a());
             }
             if (j()) {
-                cVar.m251a(10, e());
+                cVar.m306a(10, e());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m349a() {
+        public boolean m404a() {
             return this.f271a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int b = m349a() ? 0 + com.xiaomi.push.c.b(1, c()) : 0;
-            if (m351b()) {
-                b += com.xiaomi.push.c.a(2, m348a());
+            int b = m404a() ? 0 + com.xiaomi.push.c.b(1, c()) : 0;
+            if (m406b()) {
+                b += com.xiaomi.push.c.a(2, m403a());
             }
-            if (m353c()) {
-                b += com.xiaomi.push.c.a(3, m350b());
+            if (m408c()) {
+                b += com.xiaomi.push.c.a(3, m405b());
             }
-            if (m355d()) {
-                b += com.xiaomi.push.c.a(4, m352c());
+            if (m410d()) {
+                b += com.xiaomi.push.c.a(4, m407c());
             }
-            if (m357e()) {
+            if (m412e()) {
                 b += com.xiaomi.push.c.a(5, d());
             }
-            if (m358f()) {
-                b += com.xiaomi.push.c.a(6, m354d());
+            if (m413f()) {
+                b += com.xiaomi.push.c.a(6, m409d());
             }
             if (g()) {
-                b += com.xiaomi.push.c.a(7, m356e());
+                b += com.xiaomi.push.c.a(7, m411e());
             }
             if (h()) {
                 b += com.xiaomi.push.c.a(8, f());
             }
             if (i()) {
-                b += com.xiaomi.push.c.a(9, (com.xiaomi.push.e) m347a());
+                b += com.xiaomi.push.c.a(9, (com.xiaomi.push.e) m402a());
             }
             if (j()) {
                 b += com.xiaomi.push.c.a(10, e());
@@ -1109,13 +1109,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m350b() {
+        public String m405b() {
             return this.f272b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m351b() {
+        public boolean m406b() {
             return this.f273b;
         }
 
@@ -1136,12 +1136,12 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m352c() {
+        public String m407c() {
             return this.f274c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m353c() {
+        public boolean m408c() {
             return this.f275c;
         }
 
@@ -1156,12 +1156,12 @@ public final class dw {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m354d() {
+        public String m409d() {
             return this.f276d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m355d() {
+        public boolean m410d() {
             return this.f277d;
         }
 
@@ -1176,12 +1176,12 @@ public final class dw {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m356e() {
+        public String m411e() {
             return this.e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m357e() {
+        public boolean m412e() {
             return this.f278e;
         }
 
@@ -1196,7 +1196,7 @@ public final class dw {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m358f() {
+        public boolean m413f() {
             return this.f279f;
         }
 
@@ -1250,7 +1250,7 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public b m359a() {
+        public b m414a() {
             return this.f280a;
         }
 
@@ -1258,19 +1258,19 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public f a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m211a());
-                } else if (m208a == 18) {
-                    b(bVar.m211a());
-                } else if (m208a == 26) {
+                if (m263a == 10) {
+                    a(bVar.m266a());
+                } else if (m263a == 18) {
+                    b(bVar.m266a());
+                } else if (m263a == 26) {
                     b bVar2 = new b();
                     bVar.a(bVar2);
                     a(bVar2);
-                } else if (!a(bVar, m208a)) {
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1294,38 +1294,38 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m360a() {
+        public String m415a() {
             return this.f281a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m361a()) {
-                cVar.m255a(1, m360a());
+            if (m416a()) {
+                cVar.m310a(1, m415a());
             }
-            if (m363b()) {
-                cVar.m255a(2, m362b());
+            if (m418b()) {
+                cVar.m310a(2, m417b());
             }
             if (c()) {
-                cVar.m254a(3, (com.xiaomi.push.e) m359a());
+                cVar.m309a(3, (com.xiaomi.push.e) m414a());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m361a() {
+        public boolean m416a() {
             return this.f282a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m361a() ? 0 + com.xiaomi.push.c.a(1, m360a()) : 0;
-            if (m363b()) {
-                a += com.xiaomi.push.c.a(2, m362b());
+            int a = m416a() ? 0 + com.xiaomi.push.c.a(1, m415a()) : 0;
+            if (m418b()) {
+                a += com.xiaomi.push.c.a(2, m417b());
             }
             if (c()) {
-                a += com.xiaomi.push.c.a(3, (com.xiaomi.push.e) m359a());
+                a += com.xiaomi.push.c.a(3, (com.xiaomi.push.e) m414a());
             }
             this.a = a;
             return a;
@@ -1339,13 +1339,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m362b() {
+        public String m417b() {
             return this.b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m363b() {
+        public boolean m418b() {
             return this.f283b;
         }
 
@@ -1388,17 +1388,17 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public g a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m211a());
-                } else if (m208a == 18) {
-                    b(bVar.m211a());
-                } else if (m208a == 26) {
-                    c(bVar.m211a());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 10) {
+                    a(bVar.m266a());
+                } else if (m263a == 18) {
+                    b(bVar.m266a());
+                } else if (m263a == 26) {
+                    c(bVar.m266a());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1413,37 +1413,37 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m364a() {
+        public String m419a() {
             return this.f284a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m365a()) {
-                cVar.m255a(1, m364a());
+            if (m420a()) {
+                cVar.m310a(1, m419a());
             }
-            if (m367b()) {
-                cVar.m255a(2, m366b());
+            if (m422b()) {
+                cVar.m310a(2, m421b());
             }
-            if (m368c()) {
-                cVar.m255a(3, c());
+            if (m423c()) {
+                cVar.m310a(3, c());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m365a() {
+        public boolean m420a() {
             return this.f285a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m365a() ? 0 + com.xiaomi.push.c.a(1, m364a()) : 0;
-            if (m367b()) {
-                a += com.xiaomi.push.c.a(2, m366b());
+            int a = m420a() ? 0 + com.xiaomi.push.c.a(1, m419a()) : 0;
+            if (m422b()) {
+                a += com.xiaomi.push.c.a(2, m421b());
             }
-            if (m368c()) {
+            if (m423c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
             this.a = a;
@@ -1458,13 +1458,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m366b() {
+        public String m421b() {
             return this.b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m367b() {
+        public boolean m422b() {
             return this.f286b;
         }
 
@@ -1479,7 +1479,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m368c() {
+        public boolean m423c() {
             return this.f287c;
         }
     }
@@ -1520,15 +1520,15 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public h a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 8) {
-                    a(bVar.m217b());
-                } else if (m208a == 18) {
-                    a(bVar.m211a());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 8) {
+                    a(bVar.m272b());
+                } else if (m263a == 18) {
+                    a(bVar.m266a());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1543,32 +1543,32 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m369a() {
+        public String m424a() {
             return this.f288a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m370a()) {
-                cVar.m251a(1, c());
+            if (m425a()) {
+                cVar.m306a(1, c());
             }
-            if (m371b()) {
-                cVar.m255a(2, m369a());
+            if (m426b()) {
+                cVar.m310a(2, m424a());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m370a() {
+        public boolean m425a() {
             return this.f289a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m370a() ? 0 + com.xiaomi.push.c.a(1, c()) : 0;
-            if (m371b()) {
-                a += com.xiaomi.push.c.a(2, m369a());
+            int a = m425a() ? 0 + com.xiaomi.push.c.a(1, c()) : 0;
+            if (m426b()) {
+                a += com.xiaomi.push.c.a(2, m424a());
             }
             this.b = a;
             return a;
@@ -1576,7 +1576,7 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m371b() {
+        public boolean m426b() {
             return this.f290b;
         }
 
@@ -1610,7 +1610,7 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public com.xiaomi.push.a m372a() {
+        public com.xiaomi.push.a m427a() {
             return this.f291a;
         }
 
@@ -1624,13 +1624,13 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public i a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m210a());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 10) {
+                    a(bVar.m265a());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1638,21 +1638,21 @@ public final class dw {
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m373a()) {
-                cVar.m253a(1, m372a());
+            if (m428a()) {
+                cVar.m308a(1, m427a());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m373a() {
+        public boolean m428a() {
             return this.f292a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m373a() ? 0 + com.xiaomi.push.c.a(1, m372a()) : 0;
+            int a = m428a() ? 0 + com.xiaomi.push.c.a(1, m427a()) : 0;
             this.a = a;
             return a;
         }
@@ -1687,14 +1687,14 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public com.xiaomi.push.a m374a() {
+        public com.xiaomi.push.a m429a() {
             return this.f293a;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public b m375a() {
+        public b m430a() {
             return this.f294a;
         }
 
@@ -1708,17 +1708,17 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public j a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m210a());
-                } else if (m208a == 18) {
+                if (m263a == 10) {
+                    a(bVar.m265a());
+                } else if (m263a == 18) {
                     b bVar2 = new b();
                     bVar.a(bVar2);
                     a(bVar2);
-                } else if (!a(bVar, m208a)) {
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1735,26 +1735,26 @@ public final class dw {
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m376a()) {
-                cVar.m253a(1, m374a());
+            if (m431a()) {
+                cVar.m308a(1, m429a());
             }
-            if (m377b()) {
-                cVar.m254a(2, (com.xiaomi.push.e) m375a());
+            if (m432b()) {
+                cVar.m309a(2, (com.xiaomi.push.e) m430a());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m376a() {
+        public boolean m431a() {
             return this.f295a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m376a() ? 0 + com.xiaomi.push.c.a(1, m374a()) : 0;
-            if (m377b()) {
-                a += com.xiaomi.push.c.a(2, (com.xiaomi.push.e) m375a());
+            int a = m431a() ? 0 + com.xiaomi.push.c.a(1, m429a()) : 0;
+            if (m432b()) {
+                a += com.xiaomi.push.c.a(2, (com.xiaomi.push.e) m430a());
             }
             this.a = a;
             return a;
@@ -1762,7 +1762,7 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m377b() {
+        public boolean m432b() {
             return this.b;
         }
     }
@@ -1809,7 +1809,7 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public long m378a() {
+        public long m433a() {
             return this.f296a;
         }
 
@@ -1829,23 +1829,23 @@ public final class dw {
         @Override // com.xiaomi.push.e
         public k a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m208a = bVar.m208a();
-                if (m208a == 0) {
+                int m263a = bVar.m263a();
+                if (m263a == 0) {
                     return this;
                 }
-                if (m208a == 10) {
-                    a(bVar.m211a());
-                } else if (m208a == 18) {
-                    b(bVar.m211a());
-                } else if (m208a == 24) {
-                    a(bVar.m209a());
-                } else if (m208a == 32) {
-                    b(bVar.m209a());
-                } else if (m208a == 40) {
-                    a(bVar.m214a());
-                } else if (m208a == 48) {
-                    a(bVar.m217b());
-                } else if (!a(bVar, m208a)) {
+                if (m263a == 10) {
+                    a(bVar.m266a());
+                } else if (m263a == 18) {
+                    b(bVar.m266a());
+                } else if (m263a == 24) {
+                    a(bVar.m264a());
+                } else if (m263a == 32) {
+                    b(bVar.m264a());
+                } else if (m263a == 40) {
+                    a(bVar.m269a());
+                } else if (m263a == 48) {
+                    a(bVar.m272b());
+                } else if (!a(bVar, m263a)) {
                     return this;
                 }
             }
@@ -1866,50 +1866,50 @@ public final class dw {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public String m379a() {
+        public String m434a() {
             return this.f297a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
-            if (m380a()) {
-                cVar.m255a(1, m379a());
+            if (m435a()) {
+                cVar.m310a(1, m434a());
             }
-            if (m383b()) {
-                cVar.m255a(2, m382b());
+            if (m438b()) {
+                cVar.m310a(2, m437b());
             }
-            if (m384c()) {
-                cVar.m252a(3, m378a());
+            if (m439c()) {
+                cVar.m307a(3, m433a());
             }
             if (d()) {
-                cVar.m252a(4, m381b());
+                cVar.m307a(4, m436b());
             }
             if (f()) {
-                cVar.m256a(5, e());
+                cVar.m311a(5, e());
             }
             if (g()) {
-                cVar.m251a(6, c());
+                cVar.m306a(6, c());
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m380a() {
+        public boolean m435a() {
             return this.f298a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
-            int a = m380a() ? 0 + com.xiaomi.push.c.a(1, m379a()) : 0;
-            if (m383b()) {
-                a += com.xiaomi.push.c.a(2, m382b());
+            int a = m435a() ? 0 + com.xiaomi.push.c.a(1, m434a()) : 0;
+            if (m438b()) {
+                a += com.xiaomi.push.c.a(2, m437b());
             }
-            if (m384c()) {
-                a += com.xiaomi.push.c.a(3, m378a());
+            if (m439c()) {
+                a += com.xiaomi.push.c.a(3, m433a());
             }
             if (d()) {
-                a += com.xiaomi.push.c.a(4, m381b());
+                a += com.xiaomi.push.c.a(4, m436b());
             }
             if (f()) {
                 a += com.xiaomi.push.c.a(5, e());
@@ -1922,7 +1922,7 @@ public final class dw {
         }
 
         /* renamed from: b  reason: collision with other method in class */
-        public long m381b() {
+        public long m436b() {
             return this.f299b;
         }
 
@@ -1940,13 +1940,13 @@ public final class dw {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public String m382b() {
+        public String m437b() {
             return this.f300b;
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m383b() {
+        public boolean m438b() {
             return this.f301b;
         }
 
@@ -1955,7 +1955,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m384c() {
+        public boolean m439c() {
             return this.c;
         }
 

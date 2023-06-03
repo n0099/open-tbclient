@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.of4;
+import com.baidu.tieba.gi4;
 /* loaded from: classes4.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
     public ImageView a;
     public TextView b;
     public TextView c;
     public ImageView d;
-    public of4 e;
+    public gi4 e;
     public int f;
     public int g;
     public boolean h;
@@ -33,8 +33,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            of4 of4Var = SwanAppMenuItemView.this.e;
-            if (of4Var != null && of4Var.d() != null) {
+            gi4 gi4Var = SwanAppMenuItemView.this.e;
+            if (gi4Var != null && gi4Var.d() != null) {
                 SwanAppMenuItemView swanAppMenuItemView = SwanAppMenuItemView.this;
                 swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(SwanAppMenuItemView.this.e);
             }
@@ -61,8 +61,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return "99+";
     }
 
-    public final Drawable b(of4 of4Var) {
-        return of4Var.a(getContext());
+    public final Drawable b(gi4 gi4Var) {
+        return gi4Var.a(getContext());
     }
 
     public final int c(int i) {
@@ -70,16 +70,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e9) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700ea));
     }
 
-    public final void g(of4 of4Var) {
-        if (of4Var == null) {
+    public final void g(gi4 gi4Var) {
+        if (gi4Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(of4Var.h(getContext()));
-        Drawable b = b(of4Var);
+        this.b.setText(gi4Var.h(getContext()));
+        Drawable b = b(gi4Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(of4Var.b());
+            this.a.setImageLevel(gi4Var.b());
         }
     }
 
@@ -90,12 +90,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
         d();
     }
 
-    public void h(of4 of4Var, int i) {
-        if (of4Var == null) {
+    public void h(gi4 gi4Var, int i) {
+        if (gi4Var == null) {
             return;
         }
-        e(of4Var, i);
-        this.e = of4Var;
+        e(gi4Var, i);
+        this.e = gi4Var;
     }
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet, int i) {
@@ -108,34 +108,34 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public final void d() {
         setGravity(49);
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0092, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09019e);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a1);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a0);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09019f);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09019f);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a2);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a1);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a0);
         setBackgroundResource(0);
     }
 
-    public final void e(of4 of4Var, int i) {
+    public final void e(gi4 gi4Var, int i) {
         float f;
         this.b.setEllipsize(TextUtils.TruncateAt.END);
-        if (of4Var.i()) {
+        if (gi4Var.i()) {
             f = 1.0f;
         } else {
             f = 0.3f;
         }
         this.b.setAlpha(f);
-        this.a.setEnabled(of4Var.i());
+        this.a.setEnabled(gi4Var.i());
         this.a.setScaleType(ImageView.ScaleType.CENTER);
         this.a.setVisibility(0);
-        g(of4Var);
-        f(of4Var, i);
+        g(gi4Var);
+        f(gi4Var, i);
     }
 
-    public final void f(of4 of4Var, int i) {
-        if (of4Var == null) {
+    public final void f(gi4 gi4Var, int i) {
+        if (gi4Var == null) {
             return;
         }
-        int f = of4Var.f();
+        int f = gi4Var.f();
         if (f != 0) {
             if (f != 1) {
                 if (f != 2) {
@@ -144,16 +144,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
                 this.c.setVisibility(8);
-                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08138c));
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813bc));
                 this.d.setVisibility(0);
                 return;
             } else if (i <= 0) {
                 return;
             } else {
                 this.d.setVisibility(8);
-                this.c.setText(a(of4Var.e()));
-                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060aa6));
-                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08138b));
+                this.c.setText(a(gi4Var.e()));
+                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060abd));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0813bb));
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
                 marginLayoutParams.leftMargin = c(i);
                 this.c.setLayoutParams(marginLayoutParams);
@@ -194,8 +194,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 return super.onTouchEvent(motionEvent);
             }
         } else {
-            of4 of4Var = this.e;
-            if (of4Var != null && of4Var.d() != null) {
+            gi4 gi4Var = this.e;
+            if (gi4Var != null && gi4Var.d() != null) {
                 removeCallbacks(this.i);
                 this.h = false;
                 this.f = x;

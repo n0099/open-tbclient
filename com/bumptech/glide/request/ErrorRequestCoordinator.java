@@ -3,7 +3,7 @@ package com.bumptech.glide.request;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.RequestCoordinator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ErrorRequestCoordinator implements RequestCoordinator, Request {
     public volatile Request error;
     @GuardedBy("requestLock")

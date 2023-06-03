@@ -1,101 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.view.View;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Locale;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
+import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "BdPlayerUtils")
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class r01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
-    }
-
-    public static final int a(View view2, float f) {
-        InterceptResult invokeLF;
-        float f2;
-        Context context;
-        Resources resources;
-        DisplayMetrics displayMetrics;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
-            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                f2 = displayMetrics.density;
-            } else {
-                f2 = 1.0f;
-            }
-            return (int) ((f * f2) + 0.5f);
-        }
-        return invokeLF.intValue;
-    }
-
-    @JvmOverloads
-    public static final int d(String str, int i) {
-        InterceptResult invokeLI;
+    public static final void a(y01 mpdModel, JSONArray clarityUrlList) {
+        ArrayList<u01> a;
+        int i;
         boolean z;
+        u01 u01Var;
+        ArrayList<Object> d;
+        ArrayList<u01> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                v01.f("parseInt catch exception:", e);
-                return i;
+        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
+            w01 a3 = mpdModel.a();
+            if (a3 != null && (a = a3.a()) != null) {
+                w01 a4 = mpdModel.a();
+                if (a4 != null && (a2 = a4.a()) != null) {
+                    i = a2.size();
+                } else {
+                    i = 0;
+                }
+                if (i > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    a = null;
+                }
+                if (a != null && (u01Var = a.get(0)) != null && (d = u01Var.d()) != null) {
+                    int length = clarityUrlList.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        Object obj = clarityUrlList.get(i2);
+                        if (!(obj instanceof JSONObject)) {
+                            obj = null;
+                        }
+                        JSONObject jSONObject = (JSONObject) obj;
+                        if (jSONObject != null) {
+                            Object obj2 = d.get(0);
+                            if (!(obj2 instanceof x01)) {
+                                obj2 = null;
+                            }
+                            x01 x01Var = (x01) obj2;
+                            if (x01Var != null) {
+                                jSONObject.put("interact_url", x01Var.a());
+                            }
+                        }
+                    }
+                }
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static final String b(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static final void b(y01 mpdModel, JSONObject mpdJson) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
+            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
+            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
+            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
+            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int length2 = optJSONArray2.length();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                            if (optJSONObject3 != null) {
+                                arrayList2.add(new x01(optJSONObject3.optString("url")));
+                            }
+                        }
+                        arrayList.add(new u01(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
+                    }
+                }
+                mpdModel.c(new w01(arrayList));
             }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
-                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
-                return format;
-            }
-            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
-            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
-            return format2;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
-        }
-        return d(str, i);
     }
 }

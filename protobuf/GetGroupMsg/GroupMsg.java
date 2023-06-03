@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.MsgInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class GroupMsg extends Message {
     @ProtoField(tag = 1)
     public final GroupInfo groupInfo;
@@ -17,7 +17,7 @@ public final class GroupMsg extends Message {
     public static final List<MsgInfo> DEFAULT_MSGLIST = Collections.emptyList();
     public static final Integer DEFAULT_HASMORE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<GroupMsg> {
         public GroupInfo groupInfo;
         public Integer hasMore;

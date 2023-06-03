@@ -8,7 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class TbCaptureActivityConfig extends IntentConfig {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String CAPTURE_TYPE = "capture_type";
+    public static final int CAPTURE_TYPE_PIC_ONLY = 1;
+    public static final int CAPTURE_TYPE_VIDEO_ONLY = 0;
+    public static final String ENTRANCE_FLAG = "entrance_flag";
+    public static final String FORUM_WRITE_DATA = "forum_write_data";
+    public static final String WRITE_IMAGE_INFO = "write_image_info";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -28,6 +34,13 @@ public class TbCaptureActivityConfig extends IntentConfig {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void setCaptureType(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(CAPTURE_TYPE, i);
         }
     }
 }

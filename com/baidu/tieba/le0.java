@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import android.opengl.EGL14;
+import android.opengl.EGLSurface;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class le0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static final String c = "le0";
     public transient /* synthetic */ FieldHolder $fh;
+    public ke0 a;
+    public EGLSurface b;
 
     static {
         InterceptResult invokeClinit;
@@ -28,43 +34,68 @@ public class le0 {
         }
     }
 
-    public static void a(String str, String str2) {
+    public le0(ke0 ke0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ke0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        Log.i("cyber-" + str, str2);
+        this.b = EGL14.EGL_NO_SURFACE;
+        this.a = ke0Var;
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (this.b == EGL14.EGL_NO_SURFACE) {
+                this.b = this.a.b(obj);
+                return;
+            }
+            throw new IllegalStateException("surface already created");
         }
-        Log.e("cyber-" + str, str2, th);
     }
 
-    public static void c(String str, String str2) {
+    public void b(ke0 ke0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ke0Var) == null) && !ke0Var.d(this.b)) {
+            ke0Var.e(this.b);
         }
-        Log.i("cyber-" + str, str2);
     }
 
-    public static void d(String str, String str2) {
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.a.h(this.b, j);
         }
-        Log.w("cyber-" + str, str2);
     }
 
-    public static void e(String str, String str2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.g(this.b);
+            this.b = EGL14.EGL_NO_SURFACE;
         }
-        Log.e("cyber-" + str, str2);
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            boolean i = this.a.i(this.b);
+            if (!i) {
+                Log.d(c, "WARNING: swapBuffers() failed");
+            }
+            return i;
+        }
+        return invokeV.booleanValue;
     }
 }

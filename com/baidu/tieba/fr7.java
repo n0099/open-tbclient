@@ -1,227 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.homepage.concern.message.ConcernNetModel;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.util.PageType;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
 public class fr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final BdUniqueId b;
-    public RecPersonalizePageModel c;
-    public ConcernNetModel d;
-    public c e;
-    public RecPersonalizePageModel.b f;
-    public ConcernNetModel.b g;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(DataRes dataRes, boolean z, boolean z2);
-
-        void b(String str, String str2, int i, boolean z, int i2);
-
-        void c(tbclient.Userlike.DataRes dataRes, boolean z);
-
-        void d(boolean z, gw7 gw7Var, boolean z2, String str, String str2, boolean z3);
-    }
-
-    public wj8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (wj8) invokeV.objValue;
-    }
-
-    public void i(wj8 wj8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wj8Var) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements RecPersonalizePageModel.b {
+    public static class a implements a55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr7 a;
 
-        public a(fr7 fr7Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = fr7Var;
         }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
-        public void a(int i, String str) {
+        @Override // com.baidu.tieba.a55.e
+        public void onClick(a55 a55Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.e != null) {
-                TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-                this.a.e.b("", str, i, false, 1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
+                a55Var.dismiss();
             }
         }
+    }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
-        public void b(DataRes dataRes, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (this.a.e != null) {
-                    TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-                    this.a.e.a(dataRes, z, z2);
+    public static void a(TbPageContext tbPageContext, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, tbPageContext, frsViewData) != null) || tbPageContext == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
+        pf.n().j(false);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), frsViewData.getForum().getName(), frsViewData.getForum().getId(), frsViewData.getUserData().getUserId(), frsViewData.getForum().getSpecialForumType())));
+    }
+
+    public static void b(FrsViewData frsViewData, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, frsViewData, tbPageContext) == null) {
+            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            if (tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
+                if (Build.VERSION.SDK_INT < 24) {
+                    a55 a55Var = new a55(tbPageContext.getPageActivity());
+                    a55Var.setAutoNight(false);
+                    a55Var.setTitle(R.string.obfuscated_res_0x7f0f1129);
+                    a55Var.setMessage(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v7_0));
+                    a55Var.setTitleShowCenter(true);
+                    a55Var.setMessageShowCenter(true);
+                    a55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b29, new a());
+                    a55Var.create(tbPageContext).show();
+                } else if (!TbadkCoreApplication.isLogin()) {
+                    if (frsViewData != null && frsViewData.getAnti() != null) {
+                        frsViewData.getAnti().setIfpost(1);
+                    }
+                    ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
+                } else {
+                    AntiData anti = frsViewData.getAnti();
+                    if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
+                        anti.setBlock_forum_name(frsViewData.getForum().getName());
+                        anti.setBlock_forum_id(frsViewData.getForum().getId());
+                        anti.setUser_name(frsViewData.getUserData().getUserName());
+                        anti.setUser_id(frsViewData.getUserData().getUserId());
+                        if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
+                            return;
+                        }
+                    }
+                    if (frsViewData.getUserData() != null) {
+                        a(tbPageContext, frsViewData);
+                    }
                 }
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ConcernNetModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr7 a;
-
-        public b(fr7 fr7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fr7Var;
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.e != null) {
-                this.a.e.b("", str, i, false, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
-        public void b(tbclient.Userlike.DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes, z) == null) && this.a.e != null) {
-                this.a.e.c(dataRes, z);
-            }
-        }
-    }
-
-    public fr7(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = RecPersonalizePageModel.e();
-        this.f = new a(this);
-        this.g = new b(this);
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.d = concernNetModel;
-        concernNetModel.Y(this.g);
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public TbPageContext<BaseFragmentActivity> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public RecPersonalizePageModel.b d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (RecPersonalizePageModel.b) invokeV.objValue;
-    }
-
-    public c e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public BdUniqueId f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void g(String str, qr5 qr5Var) {
-        ConcernNetModel concernNetModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, qr5Var) == null) && (concernNetModel = this.d) != null) {
-            concernNetModel.W(str, qr5Var);
-        }
-    }
-
-    public void h(int i, int i2, qr5 qr5Var, int i3, int i4) {
-        RecPersonalizePageModel recPersonalizePageModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), qr5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (recPersonalizePageModel = this.c) != null) {
-            recPersonalizePageModel.g(i, i2, qr5Var, i3, i4);
         }
     }
 }

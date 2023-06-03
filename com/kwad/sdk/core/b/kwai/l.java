@@ -4,7 +4,7 @@ import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l implements com.kwad.sdk.core.d<AdMatrixInfo.AdDataV2> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdMatrixInfo.AdDataV2 adDataV2, JSONObject jSONObject) {

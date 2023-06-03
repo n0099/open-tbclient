@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.NewHottopic.PkModule;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TopicDetail;
 /* loaded from: classes6.dex */
-public class n38 extends ua {
+public class n38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public c48 e;
+    public r38 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n38() {
-        super(2016007);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,50 +27,42 @@ public class n38 extends ua {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ab
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
-        List<ImMessageCenterPojo> data;
+    public void a(TopicDetail topicDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo = null;
-            if (customResponsedMessage == null) {
-                return null;
-            }
-            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
-                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
-                    ImMessageCenterPojo imMessageCenterPojo2 = null;
-                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
-                            imMessageCenterPojo = imMessageCenterPojo3;
-                        }
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
-                            imMessageCenterPojo2 = imMessageCenterPojo3;
-                        }
-                    }
-                    if (imMessageCenterPojo != null) {
-                        data.remove(imMessageCenterPojo);
-                        data.add(q08.a(imMessageCenterPojo));
-                    }
-                    if (imMessageCenterPojo2 != null) {
-                        data.remove(imMessageCenterPojo2);
-                        data.add(r08.a(imMessageCenterPojo2));
-                    }
-                }
-            }
-            return customResponsedMessage;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
+            return;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = topicDetail.topic_id.longValue();
+        this.b = topicDetail.topic_desc;
+        topicDetail.discuss_num.longValue();
+        this.c = topicDetail.topic_image;
+        this.d = topicDetail.bg_image;
+    }
+
+    public void b(PkModule pkModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            c48 c48Var = new c48();
+            this.e = c48Var;
+            c48Var.a = this.a;
+            c48Var.f = 2;
+            c48Var.a(pkModule);
+        }
+    }
+
+    public void c(TimeLine timeLine) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
+            return;
+        }
+        r38 r38Var = new r38();
+        this.f = r38Var;
+        r38Var.a(this.a, timeLine);
     }
 }

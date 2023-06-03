@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Build;
 import android.view.Window;
 import androidx.annotation.NonNull;
-import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.q;
 /* loaded from: classes9.dex */
@@ -43,7 +42,7 @@ public final class e {
         }
         if (z && i2 >= 23) {
             i3 = 9472;
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
             if (ap.zQ()) {
                 a(activity, true);

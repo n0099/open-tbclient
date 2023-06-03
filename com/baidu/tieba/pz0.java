@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,23 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class pz0 {
+public abstract class pz0 extends hz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qz0 a;
-    public nz0 b;
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
 
     public pz0() {
         Interceptable interceptable = $ic;
@@ -39,35 +28,44 @@ public final class pz0 {
         }
     }
 
-    public final nz0 a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hz0
+    @NonNull
+    /* renamed from: M */
+    public bu0 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return (bu0) super.u();
         }
-        return (nz0) invokeV.objValue;
+        return (bu0) invokeV.objValue;
     }
 
-    public final qz0 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hz0, com.baidu.tieba.uz0
+    public void onLayerRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (qz0) invokeV.objValue;
-    }
-
-    public final void c(nz0 nz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nz0Var) == null) {
-            this.b = nz0Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onLayerRelease();
         }
     }
 
-    public final void f(qz0 qz0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pz0(@NonNull Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qz0Var) == null) {
-            this.a = qz0Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 }

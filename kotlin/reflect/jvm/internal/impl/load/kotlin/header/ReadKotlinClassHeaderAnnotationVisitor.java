@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.kotlin.header;
 
+import com.baidu.searchbox.player.model.YYOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.ClassLiteralValue;
 /* loaded from: classes10.dex */
 public class ReadKotlinClassHeaderAnnotationVisitor implements KotlinJvmBinaryClass.AnnotationVisitor {
     public static final Map<ClassId, KotlinClassHeader.Kind> HEADER_KINDS;
-    public static final boolean IGNORE_OLD_METADATA = "true".equals(System.getProperty("kotlin.ignore.old.metadata"));
+    public static final boolean IGNORE_OLD_METADATA = YYOption.IsLive.VALUE_TRUE.equals(System.getProperty("kotlin.ignore.old.metadata"));
     public int[] metadataVersionArray = null;
     public JvmBytecodeBinaryVersion bytecodeVersion = null;
     public String extraString = null;

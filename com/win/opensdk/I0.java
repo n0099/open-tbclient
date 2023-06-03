@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class I0 implements ViewTreeObserver.OnWindowAttachListener {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +32,7 @@ public class I0 implements ViewTreeObserver.OnWindowAttachListener {
     public void onWindowAttached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowAttached:");
+            Log.e("register", "onWindowAttached:");
         }
     }
 
@@ -41,7 +40,7 @@ public class I0 implements ViewTreeObserver.OnWindowAttachListener {
     public void onWindowDetached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowDetached:");
+            Log.e("register", "onWindowDetached:");
         }
     }
 }

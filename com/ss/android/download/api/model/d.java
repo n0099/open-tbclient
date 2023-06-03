@@ -1,10 +1,10 @@
 package com.ss.android.download.api.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public String a;
     public String b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String a;
         public String b;

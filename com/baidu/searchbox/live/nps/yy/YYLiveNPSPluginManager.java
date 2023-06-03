@@ -13,7 +13,6 @@ import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
@@ -30,7 +29,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class YYLiveNPSPluginManager {
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
     public static final String LOAD_FROM_NPS_INSTALL = "nps_install";
@@ -55,12 +54,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static YYLiveNPSPluginManager instance = new YYLiveNPSPluginManager();
     }
@@ -103,7 +102,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -141,7 +140,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -175,7 +174,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -209,7 +208,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -243,7 +242,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -279,7 +278,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -311,7 +310,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -545,10 +544,10 @@ public class YYLiveNPSPluginManager {
                     if (z) {
                         if (i == 34) {
                             if (YYLiveNPSPluginManager.this.loadingCallback == null) {
-                                YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b89, 0);
+                                YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc2, 0);
                             }
                         } else {
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     }
                     if (YYLiveNPSPluginManager.this.isDebug()) {
@@ -580,7 +579,7 @@ public class YYLiveNPSPluginManager {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", a.g0);
+                    jSONObject.put("value", "fail");
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);
@@ -741,7 +740,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }
@@ -792,7 +791,7 @@ public class YYLiveNPSPluginManager {
                                 YYLiveNPSPluginManager.this.ubcManager.flowEnd(YYLiveNPSPluginManager.this.pageFlow);
                                 YYLiveNPSPluginManager.this.pageFlow = null;
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0b88, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0bc1, 0);
                         }
                     });
                 }

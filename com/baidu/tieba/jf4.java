@@ -1,76 +1,108 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public class jf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
-            if (baseMenuView.a()) {
-                return 240L;
+    /* loaded from: classes6.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             }
-            return 200L;
         }
-        return invokeL.longValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    public static Map<String, String> a(@NonNull yb3 yb3Var, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, yb3Var, i, str)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, yb3Var.O());
+            treeMap.put("to_app_key", str);
+            treeMap.put("source", String.valueOf(i));
+            treeMap.put("timestamp", c());
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : treeMap.keySet()) {
+                sb.append(str2);
+                sb.append("=");
+                sb.append((String) treeMap.get(str2));
+                sb.append("&");
+            }
+            sb.append("dsb9Ao44");
+            treeMap.put("sign", es4.d(sb.toString().getBytes(), false));
+            return treeMap;
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return (Map) invokeLIL.objValue;
     }
 
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public static void b(int i, @NonNull ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
+            yb3 M = yb3.M();
+            if (M == null) {
+                responseCallback.onFail(new Exception("framework error: swan app is null."));
+                return;
+            }
+            M.i0().getRequest().cookieManager(fv2.q().a()).url(p84.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
-        InterceptResult invokeLL;
+    public static void d(int i, String str) {
+        yb3 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (M = yb3.M()) == null) {
+            return;
         }
-        return (ObjectAnimator) invokeLL.objValue;
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(fv2.q().a())).url(p84.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

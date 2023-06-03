@@ -1,76 +1,91 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ce7 extends BaseCardInfo implements rn {
+public class ce7 extends SparseArray<ne7> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671956, "Lcom/baidu/tieba/ce7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671956, "Lcom/baidu/tieba/ce7;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public BdUniqueId a;
 
     public ce7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                ne7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.R(null);
+                    valueAt.s();
+                }
             }
         }
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                ne7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+            }
         }
-        return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(int i, ne7 ne7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, ne7Var) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            put(i, ne7Var);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(ThreadData threadData) {
+    public ne7 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return get(i);
+        }
+        return (ne7) invokeI.objValue;
+    }
+
+    public void e(re7 re7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, re7Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                ne7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.R(re7Var);
+                }
+            }
         }
     }
 }

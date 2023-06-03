@@ -195,7 +195,7 @@ public class ClassDescriptorImpl extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2037getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2092getCompanionObjectDescriptor() {
         return null;
     }
 
@@ -332,7 +332,7 @@ public class ClassDescriptorImpl extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2038getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2093getUnsubstitutedPrimaryConstructor() {
         return this.primaryConstructor;
     }
 

@@ -7,11 +7,12 @@ import android.util.Log;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
 import com.baidu.ar.plugin.PluginManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.lm1;
+import com.baidu.tieba.dp1;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
@@ -41,7 +42,7 @@ public class XRSessionAnchor {
     public XRSessionAnchor() {
         Context appContext = V8Engine.getAppContext();
         this.mContext = appContext;
-        this.mWM = (WindowManager) appContext.getSystemService("window");
+        this.mWM = (WindowManager) appContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         this.mAppAuthorized = true;
         this.mRotation = 0;
         this.mOrientationEventListener = new OrientationEventListener(V8Engine.getAppContext()) { // from class: com.baidu.ar.session.XRSessionAnchor.1
@@ -58,7 +59,7 @@ public class XRSessionAnchor {
     }
 
     public void requestCameraPermission() {
-        PermissionProxy permissionProxy = lm1.o;
+        PermissionProxy permissionProxy = dp1.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.2
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
@@ -105,7 +106,7 @@ public class XRSessionAnchor {
         PackageInfo packageInfo;
         Context appContext = V8Engine.getAppContext();
         this.mContext = appContext;
-        this.mRotation = lm1.p;
+        this.mRotation = dp1.p;
         if (appContext != null) {
             str = this.mContext.getFilesDir() + "/aigames_folder/game_ar_resource/arcore";
             Log.i(TAG, "apk path is:" + str);
@@ -133,14 +134,14 @@ public class XRSessionAnchor {
                     if (installPackage != 1 && installPackage != -1) {
                         XRSessionAnchor.this.xRSessionCreateFail(XRSessionAnchor.this.mNativeSessionHandle, 1003);
                     }
-                    if (lm1.o != null) {
-                        lm1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
+                    if (dp1.o != null) {
+                        dp1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                             @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                             public void onPermissionResult(String str2, int i) {
                                 if (i == 0) {
                                     Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
                                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;
-                                    xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, lm1.p);
+                                    xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, dp1.p);
                                     XRSessionAnchor.this.mOrientationEventListener.enable();
                                     return;
                                 }
@@ -151,7 +152,7 @@ public class XRSessionAnchor {
                             }
                         });
                     } else {
-                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, lm1.p);
+                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, dp1.p);
                     }
                 } catch (Throwable unused2) {
                     XRSessionAnchor xRSessionAnchor = XRSessionAnchor.this;

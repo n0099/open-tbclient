@@ -1,11 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes8.dex */
 public interface vn {
-    void cancelRefresh();
-
-    sn getAdapter();
-
-    int getFirstVisiblePosition();
-
-    int getLastVisiblePosition();
+    BdUniqueId getType();
 }

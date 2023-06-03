@@ -1,49 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iq1 extends n53 {
+public class iq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile iq1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public hx3 c;
-    public DownloadParams.SwanAppDownloadType d;
+    public HandlerThread a;
+    public Handler b;
 
-    @Override // com.baidu.tieba.l53
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(iq1 iq1Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iq1Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        return invokeV.longValue;
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                fq1 fq1Var = new fq1();
+                fq1Var.a = message.arg2;
+                int i = message.arg1;
+                if (i == -1) {
+                    i = gq1.m().a();
+                }
+                gq1.m().d(message.what, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, i, "out time.", fq1Var, true);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.l53
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public iq1(hx3 hx3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+    public iq1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hx3Var, swanAppDownloadType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,27 +72,40 @@ public class iq1 extends n53 {
                 return;
             }
         }
-        this.c = hx3Var;
-        this.d = swanAppDownloadType;
+        HandlerThread handlerThread = new HandlerThread("callback-handler");
+        this.a = handlerThread;
+        this.b = null;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n53, com.baidu.tieba.l53
-    public void onEvent(@NonNull j53 j53Var) {
-        Bundle a;
+    public static iq1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j53Var) == null) && (a = j53Var.a()) != null && this.c != null) {
-            int i = a.getInt("state", DownloadState.NOT_START.value());
-            int i2 = a.getInt("progress", 0);
-            this.c.c(DownloadState.convert(i), i2);
-            this.c.a(i2);
-            String string = a.getString("packageName", "");
-            if (!TextUtils.isEmpty(string)) {
-                this.c.d(string);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (iq1.class) {
+                    if (c == null) {
+                        c = new iq1();
+                    }
+                }
             }
-            if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.c.f(true);
-            }
+            return c;
+        }
+        return (iq1) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.removeMessages(i);
+        }
+    }
+
+    public void c(Message message, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
+            this.b.sendMessageDelayed(message, j);
         }
     }
 }

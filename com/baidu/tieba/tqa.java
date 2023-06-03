@@ -1,137 +1,201 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 /* loaded from: classes7.dex */
-public class tqa {
-    public static /* synthetic */ Interceptable $ic;
+public final class tqa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1000;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
 
-    public tqa(long j, int i) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948191237, "Lcom/baidu/tieba/tqa;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = j;
-        this.a = i;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948191237, "Lcom/baidu/tieba/tqa;");
+        }
     }
 
-    public static tqa b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt >= '0' && charAt <= '9') {
-                    j2 = (j2 * 16) + (charAt - '0');
-                } else {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
+            c(2, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
+            c(5, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void d(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
+            c(2, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static void e(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
+            c(4, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            b = z;
+        }
+    }
+
+    public static void c(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                int length = str2.length();
+                int i2 = a;
+                if (length >= i2) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
+                                    if (i == 5) {
+                                        Log.e(str, str2.substring(0, i2));
+                                    }
+                                } else {
+                                    Log.w(str, str2.substring(0, i2));
+                                }
+                            } else {
+                                Log.i(str, str2.substring(0, i2));
+                            }
+                        } else {
+                            Log.d(str, str2.substring(0, i2));
+                        }
                     } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
+                        Log.v(str, str2.substring(0, i2));
                     }
-                    j2 = j + i3 + 10;
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
-            }
-            if (i4 == i) {
-                return null;
-            }
-            return new tqa(j2, i4);
-        }
-        return (tqa) invokeLII.objValue;
-    }
-
-    public static tqa c(String str, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            boolean z2 = false;
-            if (z) {
-                char charAt = str.charAt(i);
-                if (charAt != '+') {
-                    if (charAt == '-') {
-                        z2 = true;
-                    }
-                }
-                i++;
-            }
-            long j = 0;
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt2 = str.charAt(i3);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    break;
-                }
-                if (z2) {
-                    j = (j * 10) - (charAt2 - '0');
-                    if (j < -2147483648L) {
-                        return null;
+                } else if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    Log.d(str, str2);
+                                } else {
+                                    Log.e(str, str2);
+                                }
+                            } else {
+                                Log.w(str, str2);
+                            }
+                        } else {
+                            Log.i(str, str2);
+                        }
+                    } else {
+                        Log.d(str, str2);
                     }
                 } else {
-                    j = (j * 10) + (charAt2 - '0');
-                    if (j > 2147483647L) {
-                        return null;
-                    }
+                    Log.v(str, str2);
                 }
-                i3++;
             }
-            if (i3 == i) {
-                return null;
+            if (th != null) {
+                String f = f(th);
+                if (!TextUtils.isEmpty(f)) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
+                                    if (i != 5) {
+                                        Log.d(str, str2);
+                                        return;
+                                    } else {
+                                        Log.e(str, f);
+                                        return;
+                                    }
+                                }
+                                Log.w(str, f);
+                                return;
+                            }
+                            Log.i(str, f);
+                            return;
+                        }
+                        Log.d(str, f);
+                        return;
+                    }
+                    Log.v(str, f);
+                }
             }
-            return new tqa(j, i3);
         }
-        return (tqa) invokeCommon.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static String f(Throwable th) {
+        InterceptResult invokeL;
+        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
+            StringWriter stringWriter = null;
+            try {
+                StringWriter stringWriter2 = new StringWriter();
+                try {
+                    printWriter = new PrintWriter(stringWriter2);
+                    try {
+                        th.printStackTrace(printWriter);
+                        printWriter.flush();
+                        stringWriter2.flush();
+                        String stringWriter3 = stringWriter2.toString();
+                        try {
+                            stringWriter2.close();
+                        } catch (Throwable th2) {
+                            th2.printStackTrace();
+                        }
+                        printWriter.close();
+                        return stringWriter3;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        stringWriter = stringWriter2;
+                        try {
+                            th.printStackTrace();
+                            return "";
+                        } finally {
+                            if (stringWriter != null) {
+                                try {
+                                    stringWriter.close();
+                                } catch (Throwable th4) {
+                                    th4.printStackTrace();
+                                }
+                            }
+                            if (printWriter != null) {
+                                printWriter.close();
+                            }
+                        }
+                    }
+                } catch (Throwable th5) {
+                    th = th5;
+                    printWriter = null;
+                }
+            } catch (Throwable th6) {
+                th = th6;
+                printWriter = null;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.b;
-        }
-        return invokeV.intValue;
     }
 }

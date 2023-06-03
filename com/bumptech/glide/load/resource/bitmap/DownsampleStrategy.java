@@ -2,7 +2,7 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.os.Build;
 import com.bumptech.glide.load.Option;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class DownsampleStrategy {
     public static final DownsampleStrategy DEFAULT;
     public static final boolean IS_BITMAP_FACTORY_SCALING_SUPPORTED;
@@ -14,7 +14,7 @@ public abstract class DownsampleStrategy {
     public static final DownsampleStrategy CENTER_OUTSIDE = new CenterOutside();
     public static final DownsampleStrategy NONE = new None();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum SampleSizeRounding {
         MEMORY,
         QUALITY
@@ -37,7 +37,7 @@ public abstract class DownsampleStrategy {
         IS_BITMAP_FACTORY_SCALING_SUPPORTED = z;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AtLeast extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
@@ -54,7 +54,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AtMost extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
@@ -73,7 +73,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CenterInside extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
@@ -89,7 +89,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CenterOutside extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
@@ -102,7 +102,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FitCenter extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
@@ -125,7 +125,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class None extends DownsampleStrategy {
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
         public float getScaleFactor(int i, int i2, int i3, int i4) {

@@ -9,7 +9,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0560a {
+    public interface InterfaceC0580a {
         void c(com.kwad.sdk.e.kwai.b bVar);
 
         void d(com.kwad.sdk.e.kwai.b bVar);
@@ -17,9 +17,9 @@ public final class a {
         void e(com.kwad.sdk.e.kwai.b bVar);
     }
 
-    public static void a(Context context, final com.kwad.sdk.e.kwai.b bVar, @NonNull final InterfaceC0560a interfaceC0560a) {
+    public static void a(Context context, final com.kwad.sdk.e.kwai.b bVar, @NonNull final InterfaceC0580a interfaceC0580a) {
         com.kwad.sdk.core.e.b.d("HybridDownloader", "reportHybrid: download+++url " + bVar.packageUrl);
-        interfaceC0560a.c(bVar);
+        interfaceC0580a.c(bVar);
         bVar.N(System.currentTimeMillis());
         com.kwad.components.a.b.b.a(bVar, 1);
         r.dD(context);
@@ -29,17 +29,17 @@ public final class a {
             public final void a(com.kwai.filedownloader.a aVar, Throwable th) {
                 super.a(aVar, th);
                 com.kwad.components.a.b.b.a(bVar, 0, 1, th.getMessage());
-                InterfaceC0560a.this.e((com.kwad.sdk.e.kwai.b) aVar.getTag());
+                InterfaceC0580a.this.e((com.kwad.sdk.e.kwai.b) aVar.getTag());
             }
 
             @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
             public final void c(com.kwai.filedownloader.a aVar) {
                 super.c(aVar);
                 if (aVar.Ca() == -3) {
-                    InterfaceC0560a.this.d(bVar);
+                    InterfaceC0580a.this.d(bVar);
                     return;
                 }
-                InterfaceC0560a.this.e(bVar);
+                InterfaceC0580a.this.e(bVar);
                 com.kwad.sdk.e.kwai.b bVar2 = bVar;
                 com.kwad.components.a.b.b.a(bVar2, 0, 1, "task.getStatus()=" + ((int) aVar.Ca()));
             }

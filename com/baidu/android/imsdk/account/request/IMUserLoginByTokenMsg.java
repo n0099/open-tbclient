@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.common.security.DeviceInfoIPCServiceManager;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -208,7 +207,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                             if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501101) {
                                 AccountManagerImpl accountManagerImpl = AccountManagerImpl.getInstance(this.mContext);
-                                if (jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+                                if (jSONObject2.optInt("switch", 0) == 1) {
                                     z2 = true;
                                 } else {
                                     z2 = false;
@@ -217,7 +216,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                             if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501102) {
                                 AccountManagerImpl accountManagerImpl2 = AccountManagerImpl.getInstance(this.mContext);
-                                if (jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+                                if (jSONObject2.optInt("switch", 0) == 1) {
                                     z = true;
                                 } else {
                                     z = false;

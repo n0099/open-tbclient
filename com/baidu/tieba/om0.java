@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class om0 {
+/* loaded from: classes7.dex */
+public class om0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y11 a;
-    public final Map<String, String> b;
-    @NonNull
-    public final Map<String, Map<String, String>> c;
-    public volatile boolean d;
+    public final zl0 a;
+    public float b;
+    public final float c;
+    public final float d;
+    public final float e;
+    public boolean f;
 
-    public om0() {
-        String[] a;
+    public om0(@NonNull zl0 zl0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,113 +37,92 @@ public final class om0 {
                 return;
             }
         }
-        this.b = new ConcurrentHashMap(128);
-        this.c = new ConcurrentHashMap(8);
-        this.a = b21.a().b("nad.cold.launch.config");
-        for (String str : vm0.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                q11.e(this.b, str, string);
+        this.b = -1.0f;
+        this.f = false;
+        this.c = (float) eo0.b().a().b("nad_fake_progress", 0.5950000286102295d);
+        this.b = (float) eo0.b().a().b("nad_fake_max_progress_time", 0.0d);
+        this.d = (float) eo0.b().a().b("nad_fake_speed", 768000.0d);
+        this.e = (float) eo0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
+        this.a = zl0Var;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what != 1) {
+                d();
+            } else if (this.a.q.g == 1) {
+                this.f = false;
+            } else if (!NetUtil.a(kk0.b())) {
+                d();
+            } else {
+                zl0 zl0Var = this.a;
+                if (zl0Var.c != AdDownloadStatus.DOWNLOADING) {
+                    d();
+                    return;
+                }
+                float f = zl0Var.j;
+                if (f >= this.c) {
+                    d();
+                    return;
+                }
+                this.f = true;
+                zl0Var.j = Math.max(zl0Var.i, f) + this.e;
+                ml0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+                c();
             }
         }
     }
 
-    @NonNull
-    public Map<String, String> a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(false);
         }
-        return (Map) invokeV.objValue;
     }
 
-    @NonNull
-    public Map<String, Map<String, String>> b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 1;
+            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
         }
-        return (Map) invokeV.objValue;
     }
 
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                q11.e(this.b, next, jSONObject.optString(next));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            removeMessages(1);
+            this.f = false;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (this.f && !z) {
+                return;
             }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : vm0.a().a()) {
-                String str2 = (String) q11.b(this.b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
+            d();
+            long j = this.a.q.e;
+            if (j > 0) {
+                float f = this.d;
+                if (f > 0.0f) {
+                    this.b = (((float) j) * this.c) / f;
                 }
             }
-            edit.apply();
-            SharedPreferences.Editor edit2 = b21.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.b.keySet()) {
-                String str4 = (String) q11.b(this.b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
-            }
-            edit2.apply();
-        }
-    }
-
-    public final void d(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject c = p11.c(optString);
-                    Iterator<String> keys2 = c.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        q11.e(hashMap, next2, c.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    q11.e(this.c, next, hashMap);
-                    b21 a = b21.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
-                        }
-                    }
-                    edit.apply();
-                }
-            }
-        }
-    }
-
-    public void update(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString("global");
-            if (!TextUtils.isEmpty(optString)) {
-                c(p11.c(optString));
-            }
-            String optString2 = jSONObject.optString("place_conf");
-            if (!TextUtils.isEmpty(optString2)) {
-                d(p11.c(optString2));
+            if (this.b <= 0.0f) {
+                this.f = false;
+            } else if (this.e <= 0.0f) {
+                this.f = false;
+            } else {
+                this.f = true;
+                Message obtain = Message.obtain();
+                obtain.what = 1;
+                sendMessage(obtain);
             }
         }
     }

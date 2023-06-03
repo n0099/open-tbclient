@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CircleStrokeHeadImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
@@ -47,7 +47,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
                 return;
             }
         }
-        g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        g = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
     }
 
     public void b() {
@@ -185,7 +185,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X07);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setBorderWidth(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setBorderSurroundContent(true);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.a.setPlaceHolder(1);

@@ -1,41 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class va9 implements o4a {
+import java.util.ArrayList;
+import tbclient.ExcPbPage.ExcContent;
+/* loaded from: classes8.dex */
+public class va9 implements ua9, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
     public int b;
     public int c;
-    public boolean d;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    public va9(TbPageContext tbPageContext) {
+    @Override // com.baidu.tieba.ua9
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public va9(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,91 +48,68 @@ public class va9 implements o4a {
                 return;
             }
         }
-        this.b = 1;
-        this.c = 2;
-        this.d = false;
-        this.a = tbPageContext;
+        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
+            this.d = new ArrayList<>(1);
+            this.a = excContent.src;
+            String str = excContent.bsize;
+            this.e = str;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.b = tg.e(split[0], 0);
+                    this.c = tg.e(split[1], 0);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.b <= 0) {
+                this.b = 1;
+            }
+            if (this.c <= 0) {
+                this.c = 1;
+            }
+            String str2 = excContent.cdn_src;
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.procType = 17;
+            preLoadImageInfo.height = this.c;
+            preLoadImageInfo.width = this.b;
+            if (StringUtils.isNull(str2)) {
+                preLoadImageInfo.imgUrl = this.a;
+            } else {
+                preLoadImageInfo.imgUrl = str2;
+            }
+            this.d.add(preLoadImageInfo);
+        }
     }
 
-    @Override // com.baidu.tieba.o4a
-    public void a(View view2, mv6 mv6Var) {
-        int i;
-        int i2;
-        boolean z;
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, mv6Var) != null) || mv6Var == null) {
-            return;
-        }
-        UserData userData = null;
-        Bundle bundle = mv6Var.b;
-        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
-            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
-                i = 1;
-            } else {
-                i = 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
             }
-            this.b = i;
-            if (userData.isGod()) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            this.c = i2;
-            if (this.b == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = z;
+            return (i * this.c) / this.b;
         }
-        switch (mv6Var.a) {
-            case 2:
-                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
-                return;
-            case 3:
-                if (userData == null) {
-                    return;
-                }
-                yu4.x(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
-                return;
-            case 4:
-                if (userData == null) {
-                    return;
-                }
-                if (mv6Var instanceof u79) {
-                    TiebaStatic.log(new StatisticItem("c11586"));
-                } else {
-                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
-                return;
-            case 5:
-                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
-                return;
-            case 6:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
-                return;
-            case 7:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
-                return;
-            default:
-                return;
+        return invokeI.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

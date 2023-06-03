@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.depend.q;
 import com.ss.android.socialbase.downloader.depend.r;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements r {
     public int a;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,7 +83,7 @@ public class WriteImageGridView extends GridView {
             super.onMeasure(i, i2);
             if (getCount() > 0) {
                 int ceil = (int) Math.ceil(getCount() / 3.0f);
-                setMeasuredDimension(getMeasuredWidth(), ((((ri.l(getContext()) - (ri.g(getContext(), R.dimen.tbds44) * 2)) - (ri.g(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * ri.g(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + ri.g(getContext(), R.dimen.tbds24));
+                setMeasuredDimension(getMeasuredWidth(), ((((vi.l(getContext()) - (vi.g(getContext(), R.dimen.tbds44) * 2)) - (vi.g(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * vi.g(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + vi.g(getContext(), R.dimen.tbds24));
             }
         }
     }

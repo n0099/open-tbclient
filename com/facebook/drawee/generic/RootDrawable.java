@@ -9,7 +9,7 @@ import com.facebook.drawee.drawable.ForwardingDrawable;
 import com.facebook.drawee.drawable.VisibilityAwareDrawable;
 import com.facebook.drawee.drawable.VisibilityCallback;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RootDrawable extends ForwardingDrawable implements VisibilityAwareDrawable {
     public static ColorFilter sGlobalColorFilter;
     public ColorFilter mColorFilter;

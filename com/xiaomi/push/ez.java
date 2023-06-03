@@ -69,11 +69,11 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
         int a10;
         int a11;
         if (ez.class.equals(ezVar.getClass())) {
-            int compareTo = Boolean.valueOf(m408a()).compareTo(Boolean.valueOf(ezVar.m408a()));
+            int compareTo = Boolean.valueOf(m463a()).compareTo(Boolean.valueOf(ezVar.m463a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m408a() || (a11 = it.a(this.f340a, ezVar.f340a)) == 0) {
+            if (!m463a() || (a11 = it.a(this.f340a, ezVar.f340a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ezVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -170,13 +170,13 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo640a();
+        jdVar.mo695a();
         while (true) {
-            ja mo636a = jdVar.mo636a();
-            byte b2 = mo636a.a;
+            ja mo691a = jdVar.mo691a();
+            byte b2 = mo691a.a;
             if (b2 == 0) {
                 jdVar.f();
-                if (!m408a()) {
+                if (!m463a()) {
                     throw new je("Required field 'chid' was not found in serialized data! Struct: " + toString());
                 } else if (!b()) {
                     throw new je("Required field 'type' was not found in serialized data! Struct: " + toString());
@@ -187,7 +187,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     throw new je("Required field 'value' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (mo636a.f813a) {
+            switch (mo691a.f813a) {
                 case 1:
                     if (b2 == 3) {
                         this.f340a = jdVar.a();
@@ -198,7 +198,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     break;
                 case 2:
                     if (b2 == 8) {
-                        this.f341a = jdVar.mo634a();
+                        this.f341a = jdVar.mo689a();
                         b(true);
                         continue;
                         jdVar.g();
@@ -206,7 +206,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 8) {
-                        this.f344b = jdVar.mo634a();
+                        this.f344b = jdVar.mo689a();
                         c(true);
                         continue;
                         jdVar.g();
@@ -214,21 +214,21 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f342a = jdVar.mo641a();
+                        this.f342a = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f345b = jdVar.mo641a();
+                        this.f345b = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 8) {
-                        this.f346c = jdVar.mo634a();
+                        this.f346c = jdVar.mo689a();
                         d(true);
                         continue;
                         jdVar.g();
@@ -236,21 +236,21 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f347c = jdVar.mo641a();
+                        this.f347c = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f349d = jdVar.mo641a();
+                        this.f349d = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 8) {
-                        this.f348d = jdVar.mo634a();
+                        this.f348d = jdVar.mo689a();
                         e(true);
                         continue;
                         jdVar.g();
@@ -258,7 +258,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 8) {
-                        this.f350e = jdVar.mo634a();
+                        this.f350e = jdVar.mo689a();
                         f(true);
                         continue;
                         jdVar.g();
@@ -275,12 +275,12 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m408a() {
+    public boolean m463a() {
         return this.f343a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m409a(ez ezVar) {
+    public boolean m464a(ez ezVar) {
         if (ezVar != null && this.f340a == ezVar.f340a && this.f341a == ezVar.f341a && this.f344b == ezVar.f344b) {
             boolean d2 = d();
             boolean d3 = ezVar.d();
@@ -341,10 +341,10 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
         jdVar.a(this.f340a);
         jdVar.b();
         jdVar.a(b);
-        jdVar.mo645a(this.f341a);
+        jdVar.mo700a(this.f341a);
         jdVar.b();
         jdVar.a(c);
-        jdVar.mo645a(this.f344b);
+        jdVar.mo700a(this.f344b);
         jdVar.b();
         if (this.f342a != null) {
             jdVar.a(d);
@@ -358,7 +358,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
         }
         if (f()) {
             jdVar.a(f);
-            jdVar.mo645a(this.f346c);
+            jdVar.mo700a(this.f346c);
             jdVar.b();
         }
         if (this.f347c != null && g()) {
@@ -373,16 +373,16 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
         }
         if (i()) {
             jdVar.a(i);
-            jdVar.mo645a(this.f348d);
+            jdVar.mo700a(this.f348d);
             jdVar.b();
         }
         if (j()) {
             jdVar.a(j);
-            jdVar.mo645a(this.f350e);
+            jdVar.mo700a(this.f350e);
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo644a();
+        jdVar.mo699a();
     }
 
     public void b(boolean z) {
@@ -441,7 +441,7 @@ public class ez implements is<ez, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ez)) {
-            return m409a((ez) obj);
+            return m464a((ez) obj);
         }
         return false;
     }

@@ -3,7 +3,7 @@ package com.kwad.sdk.core.f.kwai;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h {
     public Context mContext;
 

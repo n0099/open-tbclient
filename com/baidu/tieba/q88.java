@@ -1,65 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
+import com.baidu.tieba.u95;
 /* loaded from: classes7.dex */
-public class q88 extends FastRequest.b<Void> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final String b;
-    @NonNull
-    public final ChatPage c;
+public interface q88 extends u95.g {
+    void J0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.net.FastRequest.b
-    /* renamed from: g */
-    public void e(@NonNull Void r5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-        }
-    }
+    void b();
 
-    public q88(@Nullable String str, @NonNull ChatPage chatPage) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, chatPage};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = str;
-        this.c = chatPage;
-    }
+    void g(ErrorData errorData);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.net.FastRequest.b
-    /* renamed from: f */
-    public void b(int i, @NonNull String str, @Nullable Void r7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-            super.b(i, str, r7);
-            BdLog.d("error: " + i + " " + str);
-            String str2 = this.b;
-            if (str2 != null && !StringUtils.isNull(str2)) {
-                this.c.o1(this.b, false);
-            }
-        }
-    }
+    void l0(r88 r88Var);
+
+    void refresh();
 }

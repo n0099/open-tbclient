@@ -5,9 +5,9 @@ import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p82;
-import com.baidu.tieba.tu2;
-import com.baidu.tieba.y83;
+import com.baidu.tieba.hb2;
+import com.baidu.tieba.lx2;
+import com.baidu.tieba.qb3;
 /* loaded from: classes4.dex */
 public class OpenSettingButton extends ApiButton {
     public OpenSettingButton(Context context) {
@@ -20,13 +20,13 @@ public class OpenSettingButton extends ApiButton {
     }
 
     public void A() {
-        p82 V = tu2.U().V();
-        if (V == null) {
-            y83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01d0).G();
+        hb2 U = lx2.T().U();
+        if (U == null) {
+            qb3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01d0).G();
             return;
         }
-        p82.b i = V.i("navigateTo");
-        i.n(p82.g, p82.i);
+        hb2.b i = U.i("navigateTo");
+        i.n(hb2.g, hb2.i);
         i.k("authority", null).a();
     }
 }

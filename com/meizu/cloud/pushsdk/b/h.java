@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h<T> {
     public T a;
     public T b;

@@ -9,7 +9,6 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.webkit.logsdk.c;
 import java.io.File;
 import java.util.ArrayList;
@@ -127,7 +126,7 @@ public class b implements Handler.Callback {
                 int i = aVar2.e.b;
                 String str = aVar2.h;
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleWriteDataToFile oldFileName = ".concat(String.valueOf(str)));
-                String l = (i == 1 || i == 2) ? Long.toString(j2) : i == 3 ? StatConstants.VALUE_TYPE_UPLOAD : null;
+                String l = (i == 1 || i == 2) ? Long.toString(j2) : i == 3 ? "upload" : null;
                 if (!TextUtils.isEmpty(l)) {
                     String c = com.baidu.webkit.logsdk.d.c.c(aVar2.e.a, l);
                     String b = com.baidu.webkit.logsdk.d.c.b(c);
@@ -537,7 +536,7 @@ public class b implements Handler.Callback {
                                 if (b.a.get(str).booleanValue()) {
                                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createUploadTask: ".concat(String.valueOf(str)));
                                     try {
-                                        String c = com.baidu.webkit.logsdk.d.c.c(str, StatConstants.VALUE_TYPE_UPLOAD);
+                                        String c = com.baidu.webkit.logsdk.d.c.c(str, "upload");
                                         File file = new File(com.baidu.webkit.logsdk.d.c.b(c));
                                         if (file.exists()) {
                                             com.baidu.webkit.logsdk.upload.a a = com.baidu.webkit.logsdk.c.c.a(file, b.a().e().a(str));

@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.t9a;
-import com.baidu.tieba.u9a;
-import com.baidu.tieba.xca;
+import com.baidu.tieba.iga;
+import com.baidu.tieba.jga;
+import com.baidu.tieba.mja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t9a a;
-    public u9a b;
+    public iga a;
+    public jga b;
 
     /* loaded from: classes8.dex */
-    public class a implements xca {
+    public class a implements mja {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -51,39 +51,39 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // com.baidu.tieba.xca
+        @Override // com.baidu.tieba.mja
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-                return this.a.b.q(bitmap);
+                return this.a.b.p(bitmap);
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xca
+        @Override // com.baidu.tieba.mja
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.s();
-                this.a.b.r(false);
+                this.a.b.r();
+                this.a.b.q(false);
             }
         }
 
-        @Override // com.baidu.tieba.xca
+        @Override // com.baidu.tieba.mja
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.b.A();
+                this.a.b.z();
             }
         }
 
-        @Override // com.baidu.tieba.xca
+        @Override // com.baidu.tieba.mja
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.b.n();
-                this.a.b.r(true);
+                this.a.b.m();
+                this.a.b.q(true);
             }
         }
     }
@@ -116,24 +116,24 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            u9a u9aVar = this.b;
-            if (u9aVar != null) {
-                u9aVar.t();
+            jga jgaVar = this.b;
+            if (jgaVar != null) {
+                jgaVar.s();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            t9a t9aVar = this.a;
-            if (t9aVar != null) {
-                t9aVar.o();
+            iga igaVar = this.a;
+            if (igaVar != null) {
+                igaVar.o();
             }
             super.onDestroy();
         }
     }
 
     public void y1() {
-        u9a u9aVar;
+        jga jgaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (u9aVar = this.b) != null) {
-            u9aVar.n();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jgaVar = this.b) != null) {
+            jgaVar.m();
         }
     }
 
@@ -142,9 +142,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            t9a t9aVar = this.a;
-            if (t9aVar != null) {
-                t9aVar.h(i);
+            iga igaVar = this.a;
+            if (igaVar != null) {
+                igaVar.h(i);
             }
             this.b.c.notifyDataSetChanged();
         }
@@ -156,12 +156,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            t9a t9aVar = new t9a(getPageContext(), new a(this));
-            this.a = t9aVar;
-            setContentView(t9aVar.k);
-            u9a u9aVar = new u9a(getPageContext(), this.a, bundle);
-            this.b = u9aVar;
-            if (u9aVar.j != TbadkCoreApplication.getInst().getSkinType()) {
+            iga igaVar = new iga(getPageContext(), new a(this));
+            this.a = igaVar;
+            setContentView(igaVar.k);
+            jga jgaVar = new jga(getPageContext(), this.a, bundle);
+            this.b = jgaVar;
+            if (jgaVar.j != TbadkCoreApplication.getInst().getSkinType()) {
                 TbadkCoreApplication.getInst().setSkinType(this.b.j);
             }
         }
@@ -172,14 +172,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            u9a u9aVar = this.b;
-            if (u9aVar != null && (multiImagePagerAdapter = u9aVar.c) != null) {
+            jga jgaVar = this.b;
+            if (jgaVar != null && (multiImagePagerAdapter = jgaVar.c) != null) {
                 bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.j());
-                bundle.putInt("OutState_Write_Entrance", this.b.u());
-                bundle.putSerializable("OutState_Write_Info_Data", this.b.v());
+                bundle.putInt("OutState_Write_Entrance", this.b.t());
+                bundle.putSerializable("OutState_Write_Info_Data", this.b.u());
                 this.b.c.g(true);
-                if (this.b.w() != null) {
-                    bundle.putString("OutState_Write_Img_Info", this.b.w().toJsonString());
+                if (this.b.v() != null) {
+                    bundle.putString("OutState_Write_Img_Info", this.b.v().toJsonString());
                 }
             }
             super.onSaveInstanceState(bundle);
@@ -189,17 +189,17 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void z1(boolean z, WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048582, this, z, writeImagesInfo) == null) {
-            u9a u9aVar = this.b;
-            if (u9aVar != null) {
-                if (1 == u9aVar.u()) {
-                    ForumWriteData v = this.b.v();
-                    if (v != null) {
+            jga jgaVar = this.b;
+            if (jgaVar != null) {
+                if (1 == jgaVar.t()) {
+                    ForumWriteData u = this.b.u();
+                    if (u != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {
                             return;
                         }
-                        WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(v).setWriteImagesInfo(writeImagesInfo).send();
+                        WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(u).setWriteImagesInfo(writeImagesInfo).send();
                     }
-                } else if (2 == this.b.u()) {
+                } else if (2 == this.b.t()) {
                     WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this);
                     newInstance.getIntent().setFlags(603979776);
                     newInstance.getIntent().putExtras(getIntent());

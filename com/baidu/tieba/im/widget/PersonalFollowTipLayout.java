@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.ia5;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.m75;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q85;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public q85 g;
+    public mb5 g;
     public UserData h;
 
     /* loaded from: classes6.dex */
@@ -77,7 +77,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.b();
                 if (this.a.h != null) {
-                    o65 m = o65.m();
+                    l95 m = l95.m();
                     m.A("im_personal_follow_tip_close_last_time_" + this.a.h.getUserId(), System.currentTimeMillis());
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_PERSON_FOLLOW_TIP_CLOSE_BTN_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
@@ -234,12 +234,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
         }
     }
 
-    public void f(g9<MsglistActivity<?>> g9Var) {
+    public void f(k9<MsglistActivity<?>> k9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, g9Var) == null) && (g9Var instanceof TbPageContext)) {
-            q85 q85Var = new q85((TbPageContext) g9Var, this.f);
-            this.g = q85Var;
-            q85Var.k(true);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, k9Var) == null) && (k9Var instanceof TbPageContext)) {
+            mb5 mb5Var = new mb5((TbPageContext) k9Var, this.f);
+            this.g = mb5Var;
+            mb5Var.k(true);
         }
     }
 
@@ -267,10 +267,10 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.f.setOnClickEvent(new b(this));
             this.c.setAutoChangeStyle(false);
             this.c.setDrawerType(1);
-            this.c.setRadius(ri.g(getContext(), R.dimen.tbds83));
+            this.c.setRadius(vi.g(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081120);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081149);
             h();
         }
     }
@@ -301,7 +301,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (this.h == null) {
                 return false;
             }
-            o65 m = o65.m();
+            l95 m = l95.m();
             long o = m.o("im_personal_follow_tip_close_last_time_" + this.h.getUserId(), 0L);
             if (o != 0 && System.currentTimeMillis() - o <= 86400000) {
                 return false;
@@ -314,14 +314,14 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            p45 d = p45.d(this.d);
+            m75 d = m75.d(this.d);
             d.B(R.dimen.T_X12);
             d.w(R.color.CAM_X0107);
             d.C(R.string.F_X01);
             WebPManager.setPureDrawable(this.e, R.drawable.icon_pure_im_pobing_close18, R.color.CAM_X0111, null);
-            p45.d(this).f(R.color.CAM_X0204);
-            p45.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            p45 d2 = p45.d(this.b);
+            m75.d(this).f(R.color.CAM_X0204);
+            m75.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            m75 d2 = m75.d(this.b);
             d2.e(R.string.A_X07);
             d2.f(R.color.CAM_X0208);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -346,15 +346,15 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            m75 m75Var = new m75();
-            m75Var.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            m75Var.h(R.color.CAM_X0101);
-            m75Var.g(ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            m75Var.f(ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(m75Var);
+            ia5 ia5Var = new ia5();
+            ia5Var.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ia5Var.h(R.color.CAM_X0101);
+            ia5Var.g(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            ia5Var.f(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(ia5Var);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
-                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e1));
+                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
             } else {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.back_attention));
             }

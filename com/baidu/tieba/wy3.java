@@ -1,40 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class wy3 {
+public class wy3 implements ISchemeHeadIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public wy3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, hashMap)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (hashMap != null) {
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append("&");
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append(str);
-            sb2.append("?code2=");
-            sy3 sy3Var = new sy3();
-            sb2.append(sy3Var.a(sb.toString() + "b" + System.currentTimeMillis() + "=1"));
-            String sb3 = sb2.toString();
-            StringBuilder sb4 = new StringBuilder();
-            sb4.append("&b" + System.currentTimeMillis());
-            sb4.append("=");
-            sb4.append("1");
-            return sb3 + sb4.toString();
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
+    public String getSchemeHead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return fv2.n().getSchemeHeader();
+        }
+        return (String) invokeV.objValue;
     }
 }

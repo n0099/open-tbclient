@@ -1,103 +1,54 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gb8 extends yb8 {
+public final class gb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947788268, "Lcom/baidu/tieba/gb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947788268, "Lcom/baidu/tieba/gb8;");
-                return;
-            }
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
-        b = BdUniqueId.gen().getId();
     }
 
-    @Override // com.baidu.tieba.yb8
-    public int a() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
-        return invokeV.intValue;
     }
 
-    @NonNull
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO b() {
-        InterceptResult invokeV;
+    public static void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            eb8.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
         }
-        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void d(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getName();
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            eb8.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void e(long j, int i, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.getDefaultX() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public gb8(@NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {optsDTO};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = optsDTO;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.setDefaultX(z ? 1 : 0);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
+            long c = hb8.c(j);
+            eb8.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
+            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
         }
     }
 }

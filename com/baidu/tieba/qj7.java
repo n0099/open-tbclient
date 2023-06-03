@@ -1,88 +1,67 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.kk5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class qj7 implements y35 {
+public class qj7 extends in<fj7, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    public qj7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qj7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.y35
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsGroupChatGuide");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.y35
-    public boolean b(@NonNull Map<String, Object> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: s */
+    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            boolean z = false;
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
-            if (v1 == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前FrsFragment为空");
-                return false;
-            }
-            kk5.b O3 = v1.O3();
-            if (O3 == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前OptFragment为空");
-                return false;
-            }
-            if (!o65.m().i("key_chat_group_guide_show", false) && O3.n0()) {
-                z = true;
-            }
-            if (!z) {
-                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗策略校验失败：已经显示过");
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.a));
         }
-        return invokeL.booleanValue;
+        return (FrsGameStrategyItemView.FrsGameStrategyItemViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fj7 fj7Var, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fj7Var, frsGameStrategyItemViewHolder})) == null) {
+            frsGameStrategyItemViewHolder.a.i(fj7Var);
+            return frsGameStrategyItemViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

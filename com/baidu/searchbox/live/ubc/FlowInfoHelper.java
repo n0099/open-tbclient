@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FlowInfoHelper {
     public static final String KEY_EVENTLIST = "eventlist";
     public static final String KEY_EVENTLIST_ID = "id";

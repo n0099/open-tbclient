@@ -1,209 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ii0 {
+public final class ii0 extends xo0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854329, "Lcom/baidu/tieba/ii0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ String d;
+
+        public a(long j, long j2, long j3, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947854329, "Lcom/baidu/tieba/ii0;");
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a < ki0.c()) {
+                    ki0.z();
+                } else if (ki0.f()) {
+                    return;
+                } else {
+                    ki0.h(this.b, this.c, this.d);
+                }
+                ki0.g(this.b, "boot_from_cold", this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+
+        public b(long j, long j2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = j2;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ki0.g(this.a, "boot_from_background", this.b, this.c);
+            }
+        }
+    }
+
+    public ii0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
                 return;
             }
+            if (!ki0.d()) {
+                ki0.l();
+                return;
+            }
+            String i = ki0.i();
+            long j2 = ki0.j();
+            a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
+            Handler handler = new Handler();
+            j = ji0.a;
+            handler.postDelayed(aVar, j);
         }
-        a = new String[]{"tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "smsto:", "mailto:", "file:"};
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int i;
+    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
+    public void onBackgroundToForeground(Activity activity) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int indexOf = str.indexOf(63);
-            boolean z = false;
-            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                i = str.indexOf(UrlSchemaHelper.SCHEMA_TYPE_SMS) + 4;
-            } else if (str.startsWith("smsto:")) {
-                i = str.indexOf("smsto:") + 6;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!ki0.d()) {
+                ki0.l();
+            } else if (!TextUtils.equals(activity.getLocalClassName(), ki0.k())) {
             } else {
-                i = 0;
-            }
-            if (indexOf - i > 1) {
-                z = true;
-            }
-            if (indexOf > -1) {
-                if (z) {
-                    return str.substring(i, indexOf);
+                String i = ki0.i();
+                long j2 = ki0.j();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (System.currentTimeMillis() - j2 < ki0.c()) {
+                    ki0.z();
+                    ki0.y();
                 }
-                return "";
+                b bVar = new b(j2, currentTimeMillis, i);
+                Handler handler = new Handler();
+                j = ji0.a;
+                handler.postDelayed(bVar, j);
             }
-            return str.substring(i);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean b(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.xo0, com.baidu.tieba.ap0
+    public void onForegroundToBackground(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            String e = e(str);
-            if (!z && !c(e)) {
-                return false;
-            }
-            if (e.startsWith("tel:")) {
-                return h(context, e);
-            }
-            if (!e.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !e.startsWith("smsto:")) {
-                if (e.startsWith("mailto:")) {
-                    return f(context, e);
-                }
-                if (!e.startsWith("file:")) {
-                    return false;
-                }
-                return d(context, e);
-            }
-            return g(context, e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            ki0.w(activity);
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (qi0.a().c() != null) {
-                strArr = qi0.a().c();
-            } else {
-                strArr = a;
-            }
-            for (String str2 : strArr) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (str.startsWith("wtai://") && str.length() > 13) {
-                return "tel:" + str.substring(13);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                Intent parseUri = Intent.parseUri(str, 1);
-                if (Build.VERSION.SDK_INT >= 24) {
-                    String path = Uri.parse(str).getPath();
-                    if (path == null) {
-                        return false;
-                    }
-                    l41.a(context, new File(path), parseUri);
-                }
-                return l41.d(context, parseUri);
-            } catch (IllegalArgumentException | URISyntaxException unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            if (context != null && str != null) {
-                return l41.d(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(str));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return l41.d(context, intent);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            String str2 = UrlSchemaHelper.SCHEMA_TYPE_SMS;
-            try {
-                int indexOf = str.indexOf("body=");
-                String str3 = null;
-                if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                    if (str.startsWith("smsto:")) {
-                        str2 = "smsto:";
-                    } else {
-                        str2 = null;
-                    }
-                }
-                String a2 = a(str);
-                if (indexOf > -1) {
-                    str3 = str.substring(indexOf + 5);
-                    if (!TextUtils.isEmpty(str3)) {
-                        str3 = URLDecoder.decode(str3, "UTF-8");
-                    }
-                }
-                Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str2 + a2));
-                intent.putExtra("sms_body", str3);
-                l41.d(context, intent);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

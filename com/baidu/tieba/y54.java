@@ -1,166 +1,152 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class y54 implements zx3 {
+public class y54 implements x54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, z54> a;
+    public HashMap<String, ArrayList<x54>> b;
+    public String c;
+    public fa4 d;
+    public final Object e;
 
-    public y54() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281137, "Lcom/baidu/tieba/y54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281137, "Lcom/baidu/tieba/y54;");
+                return;
+            }
+        }
+        f = is1.a;
+    }
+
+    public y54(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.c = str;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
+            }
+            if (this.d == null) {
+                this.d = fa4.b();
+            }
+            z54 z54Var = new z54(this.d, this.c, str, this);
+            this.a.put(str, z54Var);
+            z54Var.e();
+        }
+    }
+
+    @Override // com.baidu.tieba.x54
+    public void a(String str, String str2) {
+        ArrayList<x54> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).a(str, str2);
+                        if (f) {
+                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.zx3
-    public long a() {
-        InterceptResult invokeV;
+    public void e(String str, x54 x54Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return tb4.A().n();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return tb4.A().C();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return tb4.A().B();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return tb4.A().v();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return tb4.A().o();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return tb4.A().z();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return tb4.A().p();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public Long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return tb4.A().w();
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return tb4.A().q();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return tb4.A().u();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return tb4.A().x();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return tb4.A().y();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zx3
-    public void b(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                str = "gdtvideo";
-            } else {
-                str = "video";
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, x54Var) == null) {
+            synchronized (this.e) {
+                if (!d(str)) {
+                    if (f) {
+                        Log.e("AudioDownloadManager", "start load url = " + str);
+                    }
+                    c(str);
+                } else if (f) {
+                    Log.e("AudioDownloadManager", "re load url = " + str);
+                }
+                b(str, x54Var);
             }
-            e24.b(str, null);
+        }
+    }
+
+    public final void b(String str, x54 x54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, x54Var) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(x54Var);
+                return;
+            }
+            ArrayList<x54> arrayList = new ArrayList<>();
+            arrayList.add(x54Var);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x54
+    public void fail(int i, String str) {
+        ArrayList<x54> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).fail(i, str);
+                    }
+                    this.a.remove(str);
+                }
+            }
         }
     }
 }

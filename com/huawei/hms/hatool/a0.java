@@ -2,8 +2,8 @@ package com.huawei.hms.hatool;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.c3b;
-import com.baidu.tieba.g3b;
+import com.baidu.tieba.mbb;
+import com.baidu.tieba.qbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -347,40 +347,40 @@ public abstract class a0 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, httpURLConnection) == null) && (httpURLConnection instanceof HttpsURLConnection)) {
             HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
-            c3b c3bVar = null;
+            mbb mbbVar = null;
             try {
-                c3bVar = c3b.b(b.i());
+                mbbVar = mbb.b(b.i());
             } catch (IOException unused) {
                 str = "getSocketFactory(): IO Exception!";
                 y.f("hmsSdk", str);
-                if (c3bVar != null) {
+                if (mbbVar != null) {
                 }
             } catch (IllegalAccessException unused2) {
                 str = "getSocketFactory(): Illegal Access Exception ";
                 y.f("hmsSdk", str);
-                if (c3bVar != null) {
+                if (mbbVar != null) {
                 }
             } catch (KeyStoreException unused3) {
                 str = "getSocketFactory(): Key Store exception";
                 y.f("hmsSdk", str);
-                if (c3bVar != null) {
+                if (mbbVar != null) {
                 }
             } catch (NoSuchAlgorithmException unused4) {
                 str = "getSocketFactory(): Algorithm Exception!";
                 y.f("hmsSdk", str);
-                if (c3bVar != null) {
+                if (mbbVar != null) {
                 }
             } catch (GeneralSecurityException unused5) {
                 str = "getSocketFactory(): General Security Exception";
                 y.f("hmsSdk", str);
-                if (c3bVar != null) {
+                if (mbbVar != null) {
                 }
             }
-            if (c3bVar != null) {
+            if (mbbVar != null) {
                 throw new a("No ssl socket factory set");
             }
-            httpsURLConnection.setSSLSocketFactory(c3bVar);
-            httpsURLConnection.setHostnameVerifier(new g3b());
+            httpsURLConnection.setSSLSocketFactory(mbbVar);
+            httpsURLConnection.setHostnameVerifier(new qbb());
         }
     }
 

@@ -6,11 +6,11 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class g {
     public static final byte[] a = new byte[8];
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public final ByteBuffer a;
         public final byte[] b;
@@ -21,7 +21,7 @@ public abstract class g {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements j {
         public int a;
         public final ByteBuffer b;

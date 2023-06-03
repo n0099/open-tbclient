@@ -14,6 +14,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -24,8 +25,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tz9;
+import com.baidu.tieba.f6a;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -167,7 +168,7 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.wm == null) {
-                this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+                this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             }
             View view2 = this.mFloatingView;
             if (view2 != null && view2.getParent() != null) {
@@ -270,7 +271,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0910d6)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0910e9)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -287,16 +288,16 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = tz9.a(2002);
+            layoutParams.type = f6a.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = ri.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070397) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703a2) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;
             if (this.wm == null) {
-                this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+                this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             }
             try {
                 if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {

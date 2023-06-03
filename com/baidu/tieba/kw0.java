@@ -1,8 +1,21 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface kw0 {
+public class kw0 extends uw0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
     @NonNull
-    lw0 a();
+    public static uw0 w(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return uw0.m(str, 3);
+        }
+        return (uw0) invokeL.objValue;
+    }
 }

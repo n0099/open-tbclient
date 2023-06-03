@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class w14 extends m14 {
+public class w14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final String a;
+    public static w14 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,12 +33,11 @@ public class w14 extends m14 {
                 return;
             }
         }
-        c = qp1.a;
+        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+        b = new w14();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w14() {
-        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,63 +45,127 @@ public class w14 extends m14 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public static boolean b(Long l, Long l2) {
-        InterceptResult invokeLL;
+    public static w14 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeLL.booleanValue;
+        return (w14) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m14
-    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
-        InterceptResult invokeLL;
+    public synchronized void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
-            if (jSONObject == null) {
-                km2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                km2Var.onFail(202, "params may be error");
-            } else {
-                oh3 a = uh3.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    oh3 a2 = uh3.a();
-                    a2.putLong(optString + "_Duration", 0L);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
+                    File file = new File(a);
+                    if (!file.exists() && !file.mkdirs()) {
+                        if (is1.a) {
+                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
+                        }
+                        return;
+                    }
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null && listFiles.length > 0) {
+                        for (File file2 : listFiles) {
+                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
+                                cs4.j(file2);
+                            }
+                        }
+                    }
+                    boolean N = cs4.N(str2, new File(a, b(str, j)));
+                    if (is1.a) {
+                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
+                    }
+                    return;
                 }
-                oh3 a3 = uh3.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
+                if (is1.a) {
+                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
+                }
+            }
+        }
+    }
+
+    public final String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return str + "_" + j;
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            if (file != null && file.exists()) {
+                String[] split = file.getName().split("_");
+                if (split.length != 2) {
+                    return true;
+                }
                 try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
-                } catch (JSONException e) {
-                    if (c) {
-                        e.printStackTrace();
+                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    if (is1.a) {
+                        th.printStackTrace();
                     }
                 }
-                km2Var.onSuccess(jSONObject2);
             }
-            return null;
+            return true;
         }
-        return (g12) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public synchronized String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    if (is1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
+                    }
+                    return null;
+                }
+                File file = new File(a);
+                if (!file.exists()) {
+                    if (is1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
+                    }
+                    return null;
+                }
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length > 0) {
+                    File file2 = null;
+                    for (File file3 : listFiles) {
+                        if (d(file3)) {
+                            cs4.j(file3);
+                        } else if (file3.getName().startsWith(str)) {
+                            file2 = file3;
+                        }
+                    }
+                    if (file2 == null) {
+                        return null;
+                    }
+                    return cs4.E(file2);
+                }
+                if (is1.a) {
+                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

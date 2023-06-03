@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.producers.NetworkFetchProducer;
 import com.facebook.imagepipeline.producers.PartialDiskCacheProducer;
 import com.facebook.imagepipeline.producers.PostprocessedBitmapMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.QualifiedResourceFetchProducer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImageOriginUtils {
     public static String toString(int i) {
         switch (i) {

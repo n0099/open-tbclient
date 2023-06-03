@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetStateManager {
     public static /* synthetic */ Interceptable $ic;
     public static NetState CUR_NETSTATE;
@@ -28,7 +28,7 @@ public class NetStateManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NetState {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -95,7 +95,7 @@ public class NetStateManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class NetStateReceive extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

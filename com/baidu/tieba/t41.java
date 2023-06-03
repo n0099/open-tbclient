@@ -1,323 +1,136 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.WindowManager;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class t41 {
+public class t41 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return g51.b();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return Build.VERSION.SDK_INT;
-            }
-            return invokeV.intValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (Build.VERSION.SDK_INT >= 17) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static DisplayMetrics a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-451746023, "Lcom/baidu/tieba/t41$c;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-451746023, "Lcom/baidu/tieba/t41$c;");
-            }
-        }
-
-        public static int a(@Nullable Context context, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
-                if (context == null) {
-                    return 0;
-                }
-                return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
-            }
-            return invokeLF.intValue;
-        }
-
-        public static int k(@Nullable Context context, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(65547, null, context, f)) == null) {
-                if (context == null) {
-                    return 0;
-                }
-                return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
-            }
-            return invokeLF.intValue;
-        }
-
-        public static float b(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-                i(context);
-                DisplayMetrics displayMetrics = a;
-                if (displayMetrics != null) {
-                    return displayMetrics.density;
-                }
-                return 0.0f;
-            }
-            return invokeL.floatValue;
-        }
-
-        public static int c(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-                DisplayMetrics d = d(context);
-                if (d != null) {
-                    return d.heightPixels;
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public static DisplayMetrics d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-                if (context == null) {
-                    return null;
-                }
-                return context.getResources().getDisplayMetrics();
-            }
-            return (DisplayMetrics) invokeL.objValue;
-        }
-
-        public static int e(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-                DisplayMetrics d = d(context);
-                if (d != null) {
-                    return d.widthPixels;
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public static float h(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-                TypedValue typedValue = new TypedValue();
-                bj0.b().getResources().getValue(i, typedValue, true);
-                return typedValue.getFloat();
-            }
-            return invokeI.floatValue;
-        }
-
-        public static void i(Context context) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(65545, null, context) != null) || a != null || context == null) {
-                return;
-            }
-            a = context.getResources().getDisplayMetrics();
-        }
-
-        public static int f(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-                if (context == null) {
-                    return 0;
-                }
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                if (windowManager == null) {
-                    return -1;
-                }
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                if (b.b()) {
-                    windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
-                    return displayMetrics.heightPixels;
-                }
-                return c(context);
-            }
-            return invokeL.intValue;
-        }
-
-        public static int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                int identifier = bj0.b().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-                int i = 0;
-                if (identifier > 0) {
-                    try {
-                        i = bj0.b().getResources().getDimensionPixelSize(identifier);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (i == 0) {
-                    return (int) (b(null) * 25.0f);
-                }
-                return i;
-            }
-            return invokeV.intValue;
-        }
-
-        public static boolean j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-                if (bj0.b().getResources().getConfiguration().orientation == 2) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static String a() {
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "hw_sc.build.os.version");
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SerialElasticExecutorCell" : (String) invokeV.objValue;
     }
 
-    public static boolean c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t41(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (i != 1) {
+            String d = d();
+            Log.w(d, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
+            this.b = 1;
+        }
+        this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i = 0; i < 7; i++) {
-                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (e() < 1) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public final synchronized ElasticTask k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                int identifier = Resources.getSystem().getIdentifier("config_os_brand", EMABTest.TYPE_STRING, "android");
-                if (identifier != 0) {
-                    return context.getString(identifier).equals("harmony");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
                 }
-            } catch (Exception unused) {
+                return this.a.get(0);
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (ElasticTask) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public synchronized void f(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
+            synchronized (this) {
+                super.f(elasticTask);
+                if (n41.b) {
+                    c51.f().n(n41.c + 10);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public synchronized void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, elasticTask) == null) {
+            synchronized (this) {
+                super.g(elasticTask);
+                c51.f().o();
+            }
+        }
+    }
+
+    public final void i(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            elasticTask.h(null);
+            this.c.shutdown();
+            this.a.clear();
+            this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+            c51.f().o();
+        }
+    }
+
+    public synchronized boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                if (!n41.b) {
+                    return false;
+                }
+                ElasticTask k = k();
+                if (k == null) {
+                    return false;
+                }
+                if (k.c() < n41.c) {
+                    return false;
+                }
+                i(k);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

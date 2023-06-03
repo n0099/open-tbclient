@@ -1,31 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
 /* loaded from: classes8.dex */
 public class zi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public int g;
-    public int h;
-    public SimpleUser i;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String E;
+    public String F;
+    public String G;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
     public int j;
-    public int k;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public int x;
+    public int y;
+    public String z;
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 1567) {
+                    if (hashCode != 1568) {
+                        if (hashCode != 1570) {
+                            if (hashCode != 1576) {
+                                if (hashCode != 1599) {
+                                    switch (hashCode) {
+                                        case 49:
+                                            if (str.equals("1")) {
+                                                c = 0;
+                                                break;
+                                            }
+                                            break;
+                                        case 50:
+                                            if (str.equals("2")) {
+                                                c = 2;
+                                                break;
+                                            }
+                                            break;
+                                        case 51:
+                                            if (str.equals("3")) {
+                                                c = 4;
+                                                break;
+                                            }
+                                            break;
+                                        case 52:
+                                            if (str.equals("4")) {
+                                                c = 3;
+                                                break;
+                                            }
+                                            break;
+                                        default:
+                                            switch (hashCode) {
+                                                case 54:
+                                                    if (str.equals("6")) {
+                                                        c = 7;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 55:
+                                                    if (str.equals("7")) {
+                                                        c = 1;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 56:
+                                                    if (str.equals("8")) {
+                                                        c = '\b';
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 57:
+                                                    if (str.equals("9")) {
+                                                        c = '\t';
+                                                        break;
+                                                    }
+                                                    break;
+                                            }
+                                    }
+                                } else if (str.equals("21")) {
+                                    c = '\f';
+                                }
+                            } else if (str.equals("19")) {
+                                c = '\n';
+                            }
+                        } else if (str.equals("13")) {
+                            c = 11;
+                        }
+                    } else if (str.equals("11")) {
+                        c = 6;
+                    }
+                } else if (str.equals("10")) {
+                    c = 5;
+                }
+                switch (c) {
+                    case 0:
+                    case 1:
+                        return "a002";
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        return "a006";
+                    case 7:
+                        return "a005";
+                    case '\b':
+                    case '\t':
+                    case '\n':
+                        return "a020";
+                    case 11:
+                        return "a023";
+                    case '\f':
+                        return "a088";
+                    default:
+                        return "";
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     public zi9() {
         Interceptable interceptable = $ic;
@@ -37,251 +174,173 @@ public class zi9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.z = "index";
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public StatisticItem a(StatisticItem statisticItem) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
+            if (statisticItem != null) {
+                if (!StringUtils.isNull(this.a)) {
+                    statisticItem.param("obj_locate", this.a);
+                    statisticItem.param("page_type", a.a(this.a));
+                    if (this.a.equals("21")) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
+                    }
+                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
+                    }
+                }
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem.param("tid", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem.param("fid", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    statisticItem.param("uid", this.e);
+                }
+                if (!StringUtils.isNull(this.f)) {
+                    statisticItem.param("obj_source", this.f);
+                } else {
+                    statisticItem.param("obj_source", 0);
+                }
+                if (!StringUtils.isNull(this.g)) {
+                    statisticItem.param("obj_param1", this.g);
+                } else {
+                    statisticItem.param("obj_param1", 0);
+                }
+                if (!StringUtils.isNull(this.h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
+                }
+                if (!StringUtils.isNull(this.i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
+                }
+                int i = this.j;
+                if (i > 0) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
+                }
+                if (!StringUtils.isNull(this.k)) {
+                    statisticItem.param("obj_id", this.k);
+                }
+                if (!StringUtils.isNull(this.l)) {
+                    statisticItem.param("ab_tag", this.l);
+                } else {
+                    statisticItem.param("ab_tag", 0);
+                }
+                if (!StringUtils.isNull(this.n)) {
+                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
+                }
+                if (!StringUtils.isNull(this.o)) {
+                    statisticItem.param("extra", this.o);
+                } else {
+                    statisticItem.param("extra", 0);
+                }
+                if (!StringUtils.isNull(this.p)) {
+                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
+                }
+                if (!StringUtils.isNull(this.q)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
+                }
+                if (!StringUtils.isNull(this.r)) {
+                    statisticItem.param("resource_id", this.r);
+                }
+                if (!StringUtils.isNull(this.s)) {
+                    statisticItem.param("group_id", this.s);
+                }
+                int i2 = this.x;
+                if (i2 > 0) {
+                    statisticItem.param("request_num", i2);
+                }
+                int i3 = this.y;
+                if (i3 > 0) {
+                    statisticItem.param("video_num", i3);
+                }
+                if (!StringUtils.isNull(this.A)) {
+                    statisticItem.param("obj_type", this.A);
+                }
+                if (!StringUtils.isNull(this.B)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_TO, this.B);
+                }
+                if (!StringUtils.isNull(this.C)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYSID, this.C);
+                }
+                if (!StringUtils.isNull(this.D)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYSSID, this.D);
+                }
+                if (!StringUtils.isNull(this.E)) {
+                    statisticItem.param("yyuid", this.E);
+                }
+                if (!StringUtils.isNull(this.F)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYLIVEID, this.F);
+                }
+                if (!StringUtils.isNull(this.G)) {
+                    statisticItem.param("template_id", this.G);
+                }
+                String str4 = "";
+                if (StringUtils.isNull(this.w)) {
+                    str = "";
+                } else {
+                    str = this.w;
+                }
+                statisticItem.param("obj_extra", str);
+                if (StringUtils.isNull(this.t)) {
+                    str2 = "";
+                } else {
+                    str2 = this.t;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
+                if (StringUtils.isNull(this.u)) {
+                    str3 = "";
+                } else {
+                    str3 = this.u;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
+                if (!StringUtils.isNull(this.v)) {
+                    str4 = this.v;
+                }
+                statisticItem.param("nid", str4);
+            }
+            return statisticItem;
         }
-        return invokeV.intValue;
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public int b() {
+    public zi9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+            zi9 zi9Var = new zi9();
+            zi9Var.a = this.a;
+            zi9Var.b = this.b;
+            zi9Var.c = this.c;
+            zi9Var.d = this.d;
+            zi9Var.e = this.e;
+            zi9Var.f = this.f;
+            zi9Var.g = this.g;
+            zi9Var.h = this.h;
+            zi9Var.i = this.i;
+            zi9Var.k = this.k;
+            zi9Var.l = this.l;
+            zi9Var.m = this.m;
+            zi9Var.n = this.n;
+            zi9Var.q = this.q;
+            zi9Var.r = this.r;
+            zi9Var.s = this.s;
+            zi9Var.t = this.t;
+            zi9Var.u = this.u;
+            zi9Var.v = this.v;
+            zi9Var.x = this.x;
+            zi9Var.y = this.y;
+            return zi9Var;
         }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public SimpleUser f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (SimpleUser) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            o65 m = o65.m();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.a = m.n(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, 0);
-            this.b = m.n("like" + currentAccount, 0);
-            this.c = m.n("group" + currentAccount, 0);
-            this.d = m.n("live" + currentAccount, 0);
-            this.f = m.n("reply" + currentAccount, 1);
-            this.k = m.n("reply_show_myself" + currentAccount, 0);
-            this.g = m.n(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-            this.h = m.n("bazhu_show_outside" + currentAccount, 0);
-            this.e = TbadkCoreApplication.getInst().getLocationShared();
-            if (this.a == 0 && this.b == 0 && this.c == 0 && this.d == 0 && this.f == 1 && this.k == 0 && this.g == 0 && this.h == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            o65 m = o65.m();
-            m.z(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND + currentAccount, this.a);
-            m.z("like" + currentAccount, this.b);
-            m.z("group" + currentAccount, this.c);
-            m.z("live" + currentAccount, this.d);
-            m.z("reply" + currentAccount, this.f);
-            m.z("reply_show_myself" + currentAccount, this.k);
-            m.z(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.g);
-            m.z("bazhu_show_outside" + currentAccount, this.h);
-            TbadkCoreApplication.getInst().setLocationShared(this.e);
-        }
-    }
-
-    public void l(zi9 zi9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, zi9Var) != null) || zi9Var == null) {
-            return;
-        }
-        this.a = zi9Var.a;
-        this.b = zi9Var.b;
-        this.c = zi9Var.c;
-        this.e = zi9Var.e;
-        this.d = zi9Var.d;
-        this.j = zi9Var.j;
-        this.f = zi9Var.f;
-        this.k = zi9Var.k;
-        this.h = zi9Var.h;
-        this.g = zi9Var.g;
-    }
-
-    public void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            o65 m = o65.m();
-            m.z(str + currentAccount, i);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i <= 3 && i >= 1) {
-            this.b = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i <= 3 && i >= 1) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i <= 3 && i >= 1) {
-            this.d = i;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            if (i != 1) {
-                this.e = false;
-            } else {
-                this.e = true;
-            }
-        }
-    }
-
-    public void v(SimpleUser simpleUser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
-            this.i = simpleUser;
-            if (simpleUser != null) {
-                x(simpleUser.show_onlyme.intValue());
-            }
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            if (i == 0) {
-                this.f = 1;
-            } else {
-                this.f = i;
-            }
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.a = i;
-        }
+        return (zi9) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public volatile boolean adk = true;
     public long adl = 0;
@@ -20,7 +20,7 @@ public final class c {
     public a adq;
     public AdMatrixInfo.RotateInfo rotateInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements SensorEventListener {
         public a() {
         }

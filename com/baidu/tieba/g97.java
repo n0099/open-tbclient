@@ -1,60 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetHorseRaceLampList.DataRes;
-import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes5.dex */
-public class g97 {
+public class g97 extends r77<FeedCardView, x47<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveHorseRaceData> a;
 
-    public g97() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g97(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public List<LiveHorseRaceData> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g87
+    /* renamed from: e */
+    public void b(@NonNull FeedCardView feedCardView, @NonNull x47<?> x47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        new LiveHorseRaceData();
-        List<LiveList> list = dataRes.live_list;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
-                liveHorseRaceData.parserProtobuf(list.get(i));
-                this.a.add(liveHorseRaceData);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, x47Var) == null) {
+            feedCardView.f(x47Var);
         }
     }
 }

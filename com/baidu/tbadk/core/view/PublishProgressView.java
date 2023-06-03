@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.rt9;
+import com.baidu.tieba.d0a;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,8 +79,8 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
-            this.b = (TextView) inflate.findViewById(R.id.progress_text);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091cd0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd9);
             TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
             this.c = textView;
             textView.setOnClickListener(this);
@@ -115,11 +115,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
-            p45 d = p45.d(this.b);
+            m75 d = m75.d(this.b);
             d.w(R.color.CAM_X0101);
             d.B(R.dimen.T_X06);
             d.C(R.string.F_X01);
-            p45 d2 = p45.d(this.c);
+            m75 d2 = m75.d(this.c);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X09);
             d2.C(R.string.F_X01);
@@ -148,7 +148,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            rt9.c();
+            d0a.c();
         }
     }
 

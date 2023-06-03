@@ -2,7 +2,6 @@ package com.baidu.ar.gesture;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v4.media.session.MediaSessionCompat;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
@@ -13,6 +12,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.d.e;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
 /* loaded from: classes.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     public static final String TAG = "GestureDetector";
@@ -22,7 +22,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
         c.cd().a(this);
         PixelReadParams pixelReadParams = new PixelReadParams(PixelType.BGR);
         this.nk = pixelReadParams;
-        pixelReadParams.setOutputWidth(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP);
+        pixelReadParams.setOutputWidth(320);
         this.nk.setOutputHeight(180);
     }
 
@@ -50,8 +50,8 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
         if (bundle == null) {
             return 1;
         }
-        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, "gesture");
-        if ("gesture".equals(string)) {
+        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, AppFrameworkConstants.VALUE_GESTURE_BACK);
+        if (AppFrameworkConstants.VALUE_GESTURE_BACK.equals(string)) {
             return 1;
         }
         return "fingertip".equals(string) ? 2 : 0;
@@ -70,7 +70,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                 float f = bundle.getFloat("det_thresh", 0.25f);
                 float f2 = bundle.getFloat("first_cls_thresh", 0.75f);
                 float f3 = bundle.getFloat("second_cls_thresh", 0.5f);
-                return aVar.f1033tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
+                return aVar.f1036tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
             }
 
             @Override // com.baidu.ar.c.a

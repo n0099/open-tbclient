@@ -6,10 +6,11 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableTransform;
 import com.airbnb.lottie.model.content.Repeater;
 import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class RepeaterParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "tr", "hd");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "tr", ClarityUrlList.ClarityUrl.KEY_HD);
 
     public static Repeater parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

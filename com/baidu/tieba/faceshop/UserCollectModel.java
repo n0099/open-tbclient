@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ev4;
+import com.baidu.tieba.is6;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.uw6;
-import com.baidu.tieba.vt8;
-import com.baidu.tieba.xn6;
+import com.baidu.tieba.sz8;
+import com.baidu.tieba.v17;
+import com.baidu.tieba.wl5;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +115,7 @@ public class UserCollectModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    vt8.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
+                    sz8.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -152,7 +152,7 @@ public class UserCollectModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<CollectEmotionData> q = uw6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> q = v17.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (q == null) {
                     return;
@@ -160,7 +160,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : q) {
-                        if (!uh5.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
+                        if (!wl5.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.getSharpText());
                         }
@@ -171,7 +171,7 @@ public class UserCollectModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, ev4.t(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, wx4.t(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }
@@ -205,7 +205,7 @@ public class UserCollectModel extends FaceBaseModel {
     public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xn6.a(new a(this), "UserCollect", 1);
+            is6.a(new a(this), "UserCollect", 1);
         }
     }
 

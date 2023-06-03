@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sw6 implements ne5 {
+public final class sw6 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,142 +35,87 @@ public class sw6 implements ne5 {
         }
     }
 
-    @Override // com.baidu.tieba.ne5
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    @Override // com.baidu.tieba.v65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && i != 3) {
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialogName", "easterEgg");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ne5
-    public void onFileDownloadSucceed(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ne5
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
-            return;
-        }
-        tw6.f().i(downloadData);
-    }
-
-    @Override // com.baidu.tieba.ne5
-    public boolean onFileDownloaded(DownloadData downloadData) {
+    @Override // com.baidu.tieba.v65
+    public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
+        int i;
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            DefaultLog.getInstance().c("easterEgg", "彩蛋广告触发云弹窗判断逻辑");
+            if (e85.a().b() != 3) {
+                wq8 defaultLog = DefaultLog.getInstance();
+                defaultLog.b("easterEgg", "彩蛋广告不展示，非用户启动，启动类型：" + e85.a().b());
                 return false;
             }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(downloadData.getPath());
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = StringUtil.NULL_STRING;
             }
-            try {
-                int g = mw6.c().g(downloadData.getId(), fileInputStream);
-                EmotionGroupData n = uw6.o().n(downloadData.getId());
-                if (n == null) {
-                    if (g == 0) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            BdLog.detailException(e2);
-                        }
-                        return false;
-                    }
-                    n = new EmotionGroupData();
-                    n.setBytesLength((int) downloadData.getSize());
-                    n.setBytesReceived((int) downloadData.getLength());
-                    n.setDownloadUrl(downloadData.getUrl());
-                    n.setGroupId(downloadData.getId());
-                    n.setEmotionsCount(g);
-                    n.setHeight(downloadData.getHeight());
-                    n.setWidth(downloadData.getWidth());
-                    n.setDownloadTime(System.currentTimeMillis());
-                    n.setGroupDesc(downloadData.getDescription());
-                    n.setGroupName(downloadData.getName());
-                    n.setStatus(1);
-                    uw6.o().g(n);
-                }
-                uw6.o().h(downloadData.getStatusMsg(), n);
-                downloadData.setStatusMsg(null);
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    BdLog.detailException(e3);
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                BdLog.detailException(e);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                        BdLog.detailException(e5);
-                    }
-                }
+            Integer num = r3a.g.a().c().get(currentAccount);
+            if (num != null) {
+                i = num.intValue();
+            } else {
+                i = 0;
+            }
+            if (i >= 1) {
+                wq8 defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.b("easterEgg", "彩蛋广告不展示，当前用户：" + currentAccount + "已经展示过彩蛋广告");
                 return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e6) {
-                        BdLog.detailException(e6);
-                    }
-                }
-                throw th;
             }
+            EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
+            if (b == null) {
+                return false;
+            }
+            DefaultLog.getInstance().c("easterEgg", "彩蛋广告数据不为空");
+            if (!b.isValidData()) {
+                DefaultLog.getInstance().b("easterEgg", "彩蛋广告不展示，数据不合法");
+                return false;
+            }
+            String url = b.getUrl();
+            if (url != null) {
+                if (c(url)) {
+                    DefaultLog.getInstance().b("easterEgg", "彩蛋广告不展示，已经被手动关闭");
+                    return false;
+                }
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
+            }
+            if (unit == null) {
+                DefaultLog.getInstance().b("easterEgg", "彩蛋广告不展示，广告url为空");
+                return false;
+            }
+            DefaultLog.getInstance().c("easterEgg", "彩蛋广告可以展示");
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ne5
-    public boolean onPreDownload(DownloadData downloadData) {
+    public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            EmotionGroupData n = uw6.o().n(downloadData.getId());
-            if (n != null && nw6.d(downloadData.getId())) {
-                uw6.o().h(downloadData.getStatusMsg(), n);
-                downloadData.setStatusMsg(null);
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            l95 m = l95.m();
+            return m.i(EasterEggAdData.KEY_EASTER_EGG_AD + TbadkCoreApplication.getCurrentAccount() + str, false);
         }
         return invokeL.booleanValue;
     }

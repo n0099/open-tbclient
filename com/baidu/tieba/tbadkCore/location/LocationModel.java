@@ -10,12 +10,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.hb;
-import com.baidu.tieba.lf;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.cz9;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.lb;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.pf;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,8 +31,8 @@ public class LocationModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
     public d b;
-    public g9 c;
-    public hb d;
+    public k9 c;
+    public lb d;
     public CustomMessageListener e;
 
     /* loaded from: classes7.dex */
@@ -60,7 +60,7 @@ public class LocationModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends hb {
+    public class a extends lb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocationModel a;
@@ -173,13 +173,13 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
         }
-        lf.n().g(LocationModel.class);
+        pf.n().g(LocationModel.class);
     }
 
     public static void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            ar9.h(303017, LocationSocketResponsedMessage.class, false, false);
+            mx9.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -195,18 +195,18 @@ public class LocationModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocationModel(g9 g9Var) {
-        super(g9Var);
+    public LocationModel(k9 k9Var) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -215,7 +215,7 @@ public class LocationModel extends BdBaseModel {
         this.d = new a(this, 303017, true);
         this.e = new b(this, 2001226);
         BdLog.addLogPackage(LocationModel.class.getPackage().getName());
-        this.c = g9Var;
+        this.c = k9Var;
         if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
             this.d.setSelfListener(false);
         }
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void c0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            qs9.a().e(z);
-            o65.m().w("no_longer_show_address", qs9.a().c());
+            cz9.a().e(z);
+            l95.m().w("no_longer_show_address", cz9.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void b0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = qs9.a().b();
+            LocationData b2 = cz9.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             X(locationData);
-            qs9.a().f(System.currentTimeMillis());
-            qs9.a().d(locationData);
+            cz9.a().f(System.currentTimeMillis());
+            cz9.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

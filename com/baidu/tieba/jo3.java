@@ -1,64 +1,82 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.view.View;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class jo3 {
+public final class jo3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long[] b;
-        public final /* synthetic */ Runnable c;
-
-        public a(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.c = runnable;
-            this.a = 5;
-            this.b = new long[5];
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                long[] jArr = this.b;
-                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-                long[] jArr2 = this.b;
-                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.b = new long[this.a];
-                    this.c.run();
-                }
+            try {
+                cs4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                cs4.d(null);
+                return false;
+            } catch (Throwable th) {
+                cs4.d(null);
+                throw th;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void a(View view2, Runnable runnable) {
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.setOnClickListener(new a(runnable));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                cs4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                cs4.d(inputStream);
+                return null;
+            }
+            try {
+                try {
+                    str2 = fs4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (is1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
+                    }
+                    cs4.d(inputStream);
+                    return str2;
+                }
+                cs4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                cs4.d(inputStream2);
+                throw th;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 }

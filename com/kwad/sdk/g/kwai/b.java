@@ -1,5 +1,5 @@
 package com.kwad.sdk.g.kwai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     boolean bG();
 }

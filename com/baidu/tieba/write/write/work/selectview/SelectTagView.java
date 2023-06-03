@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gea;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vka;
 import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,7 +66,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = gea.a;
+        this.k = vka.a;
         b();
     }
 
@@ -106,7 +106,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = gea.a;
+        this.k = vka.a;
         b();
     }
 
@@ -130,7 +130,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = gea.a;
+        this.k = vka.a;
         b();
     }
 
@@ -167,7 +167,7 @@ public final class SelectTagView extends RelativeLayout {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, i, str)) == null) {
             textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             textView.setCompoundDrawables(null, null, null, null);
-            p45 d = p45.d(textView);
+            m75 d = m75.d(textView);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X09);
             d.o(R.string.J_X01);
@@ -180,27 +180,27 @@ public final class SelectTagView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09a8, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092942);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09c1, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09297b);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_tag_sign)");
             setMTagTitleRightSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091983);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0919a9);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.part_name)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09032c);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09032f);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.background_show_text)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090675);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09067f);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_card_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091e32);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091e60);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow_view)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0907ad);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0907b8);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.content_bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jea
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yka
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -224,7 +224,7 @@ public final class SelectTagView extends RelativeLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            p45 d = p45.d(getMCenterContent());
+            m75 d = m75.d(getMCenterContent());
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);

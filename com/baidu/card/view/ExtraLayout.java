@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -143,23 +143,23 @@ public class ExtraLayout extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
             TextView textView = (TextView) inflate.findViewById(R.id.extra_text);
             this.b = textView;
-            textView.setCompoundDrawablePadding(ri.g(context, R.dimen.tbds10));
+            textView.setCompoundDrawablePadding(vi.g(context, R.dimen.tbds10));
             this.c = (TextView) inflate.findViewById(R.id.extra_tag);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            n75 n75Var = new n75();
-            n75Var.t(R.color.CAM_X0302);
-            this.a.setConfig(n75Var);
+            ja5 ja5Var = new ja5();
+            ja5Var.t(R.color.CAM_X0302);
+            this.a.setConfig(ja5Var);
             this.a.setText(getResources().getString(R.string.download_just_now));
         }
     }
 
-    public void setData(jy4 jy4Var) {
+    public void setData(f15 f15Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jy4Var) == null) {
-            ThreadData threadData = jy4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f15Var) == null) {
+            ThreadData threadData = f15Var.getThreadData();
             boolean z2 = true;
             int i = 8;
             if (!TextUtils.isEmpty(threadData.extraText)) {

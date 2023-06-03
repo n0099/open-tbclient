@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MessageAdapter<M extends Message> {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -34,7 +34,7 @@ public final class MessageAdapter<M extends Message> {
     public final Map<String, Integer> tagMap;
     public final Wire wire;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FieldInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Storage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

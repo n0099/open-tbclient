@@ -1,86 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jl2 {
+public class jl2 extends fl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, kl2> a;
 
-    public jl2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jl2(@NonNull el2 el2Var) {
+        super(el2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {el2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((el2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.fl2
+    public void e() {
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void a(kl2 kl2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, kl2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.a.put(str, kl2Var);
-                }
-            }
-        }
-    }
-
-    public ArrayList<kl2> c(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<kl2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void d(kl2 kl2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, kl2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.a.get(str) == kl2Var) {
-                    this.a.remove(str);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
+            ik2 d = kk2.c().d();
+            ArrayList<String> arrayList2 = this.d.b;
+            tl2 l = tl2.l();
+            l.i(15);
+            d.g(arrayList2, true, false, l.k());
         }
     }
 }

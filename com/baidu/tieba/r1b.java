@@ -1,56 +1,83 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKey;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class r1b implements s1b {
+public class r1b extends b1b<TTSplashAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
 
-    public r1b(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r1b(TTSplashAd tTSplashAd) {
+        super(tTSplashAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
+            Object[] objArr = {tTSplashAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (str == null || str2 == null || str3 == null || str4 == null) {
-            return;
-        }
-        this.a = u1b.a(k1b.b(str), k1b.b(str2), k1b.b(str3), k1b.b(str4), 5000);
     }
 
-    @Override // com.baidu.tieba.s1b
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.b1b
+    public double a() {
+        InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.a == null) {
-                return str;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return new String(u1b.b(this.a, k1b.b(str)), "UTF-8");
-            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                return str2;
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTSplashAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
+                }
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
             }
         }
-        return (String) invokeLL.objValue;
+        return invokeV.doubleValue;
+    }
+
+    @Override // com.baidu.tieba.b1b
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        TTSplashAd tTSplashAd = (TTSplashAd) a;
+        if (z) {
+            tTSplashAd.win(Double.valueOf(d2));
+        } else {
+            tTSplashAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        }
+    }
+
+    @Override // com.baidu.tieba.b1b
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTSplashAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTSplashAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

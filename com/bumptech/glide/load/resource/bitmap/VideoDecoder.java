@@ -20,7 +20,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final long DEFAULT_FRAME = -1;
     @VisibleForTesting
@@ -61,7 +61,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final MediaMetadataRetrieverFactory DEFAULT_FACTORY = new MediaMetadataRetrieverFactory();
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface MediaMetadataRetrieverInitializer<T> {
         void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
@@ -71,7 +71,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         return true;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         public AssetFileDescriptorInitializer() {
         }
@@ -84,14 +84,14 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class MediaMetadataRetrieverFactory {
         public MediaMetadataRetriever build() {
             return new MediaMetadataRetriever();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoDecoderException extends RuntimeException {
         public static final long serialVersionUID = -2556382523004027815L;
 
@@ -100,7 +100,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
@@ -114,7 +114,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer

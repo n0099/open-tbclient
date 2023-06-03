@@ -359,12 +359,12 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             if (FontSizeHelper.getFontSizeType() <= 1) {
-                return R.dimen.dimen_ui_50;
+                return R.dimen.obfuscated_res_0x7f070307;
             }
             if (FontSizeHelper.getFontSizeType() <= 2) {
-                return R.dimen.dimen_ui_54;
+                return R.dimen.obfuscated_res_0x7f07030b;
             }
-            return R.dimen.dimen_ui_62;
+            return R.dimen.obfuscated_res_0x7f070314;
         }
         return invokeV.intValue;
     }
@@ -392,8 +392,8 @@ public class ViewToast {
     public static void setAdapterHighlightTopView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, view2) == null) {
-            FontSizeViewExtKt.setScaledMarginRes(view2, 0, R.dimen.dimen_ui_34, R.dimen.dimen_ui_21, R.dimen.dimen_ui_34, R.dimen.dimen_ui_0);
-            FontSizeViewExtKt.setScaledSizeRes(view2, 0, R.dimen.dimen_ui_37, R.dimen.dimen_ui_37);
+            FontSizeViewExtKt.setScaledMarginRes(view2, 0, R.dimen.obfuscated_res_0x7f0702f5, R.dimen.obfuscated_res_0x7f0702e7, R.dimen.obfuscated_res_0x7f0702f5, R.dimen.obfuscated_res_0x7f0702d8);
+            FontSizeViewExtKt.setScaledSizeRes(view2, 0, R.dimen.obfuscated_res_0x7f0702f8, R.dimen.obfuscated_res_0x7f0702f8);
         }
     }
 
@@ -525,11 +525,11 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{activity, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Resources resources = activity.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d06ec, null);
-            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081060));
+            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d06fb, null);
+            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081088));
             sShowMask = z;
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0918df)) != null) {
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091905)) != null) {
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setText(charSequence);
                 if (i2 >= 2) {
                     textView.setSingleLine(false);
@@ -551,7 +551,7 @@ public class ViewToast {
                 return;
             }
             try {
-                view2.setId(R.id.toast_over_float_window_view);
+                view2.setId(R.id.obfuscated_res_0x7f092508);
                 ToastExtKt.removeViewBeforeAdd(view2, windowManagerOrNull);
                 if (mToastViewRef != null) {
                     ToastExtKt.removeViewBeforeAdd(mToastViewRef.get(), windowManagerOrNull);
@@ -598,7 +598,7 @@ public class ViewToast {
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
             synchronized (ViewToast.class) {
                 if (mToastViewRef != null && (view2 = mToastViewRef.get()) != null) {
-                    if (view2.getId() == R.id.toast_over_float_window_view) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f092508) {
                         cancelWindow();
                         return;
                     }
@@ -618,7 +618,7 @@ public class ViewToast {
                         if (view2 == null) {
                             recycler();
                             return;
-                        } else if (view2.getId() != R.id.toast_over_float_window_view) {
+                        } else if (view2.getId() != R.id.obfuscated_res_0x7f092508) {
                             recycler();
                             return;
                         } else if (mWindowManagerWeakReference != null) {
@@ -666,11 +666,11 @@ public class ViewToast {
     public static void setAdapterHighlightTitle(Resources resources, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, resources, textView) == null) {
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601d7));
-            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.dimen_ui_12);
-            FontSizeViewExtKt.setScaledTopMarginRes(textView, 0, R.dimen.dimen_ui_14);
-            FontSizeViewExtKt.setScaledBottomMarginRes(textView, 0, R.dimen.dimen_ui_18);
-            textView.setMaxWidth(FontSizeHelper.getScaledSizeRes(0, R.dimen.dimen_ui_75, 2));
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601db));
+            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702dd);
+            FontSizeViewExtKt.setScaledTopMarginRes(textView, 0, R.dimen.obfuscated_res_0x7f0702df);
+            FontSizeViewExtKt.setScaledBottomMarginRes(textView, 0, R.dimen.obfuscated_res_0x7f0702e3);
+            textView.setMaxWidth(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070322, 2));
         }
     }
 
@@ -678,10 +678,10 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{activity, uri, charSequence, uri2, charSequence2, Integer.valueOf(i), toastCallback}) == null) {
             Resources resources = activity.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0267, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d026e, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081486));
             linearLayout.setClickable(true);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090df0);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e02);
             if (simpleDraweeView != null) {
                 if (uri != null) {
                     simpleDraweeView.setImageURI(uri);
@@ -689,7 +689,7 @@ public class ViewToast {
                     simpleDraweeView.setVisibility(8);
                 }
             }
-            SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dee);
+            SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e00);
             if (simpleDraweeView2 != null) {
                 if (uri2 != null) {
                     simpleDraweeView2.setImageURI(uri2);
@@ -697,15 +697,15 @@ public class ViewToast {
                     simpleDraweeView2.setVisibility(8);
                 }
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090def);
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e01);
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
             textView.setText(charSequence);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090deb);
-            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfd);
+            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
             textView2.setText(charSequence2);
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090ded);
-            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dec);
-            View findViewById3 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090df1);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dff);
+            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfe);
+            View findViewById3 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e03);
             if (findViewById2 != null && findViewById3 != null) {
                 if (TextUtils.isEmpty(charSequence2)) {
                     findViewById2.setVisibility(8);
@@ -818,7 +818,7 @@ public class ViewToast {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0701d1);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0701de);
             addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010046);
         }
     }
@@ -828,22 +828,22 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{activity, drawable, drawable2, charSequence, charSequence2, Integer.valueOf(i), toastCallback}) == null) {
             Resources resources = activity.getResources();
-            View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d016f, null);
+            View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d0173, null);
             inflate.setClickable(true);
             if (drawable != null) {
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091489)).setImageDrawable(drawable);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a1)).setImageDrawable(drawable);
             }
             if (drawable2 != null) {
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e42)).setImageDrawable(drawable2);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e70)).setImageDrawable(drawable2);
             }
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a4)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d8)) != null) {
                 textView.setText(charSequence);
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0903eb);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0903ee);
             if (findViewById != null) {
-                findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06049c));
+                findViewById.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0604a1));
             }
-            inflate.findViewById(R.id.obfuscated_res_0x7f0904a6).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.ext.widget.toast.ViewToast.15
+            inflate.findViewById(R.id.obfuscated_res_0x7f0904ab).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.ext.widget.toast.ViewToast.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -869,7 +869,7 @@ public class ViewToast {
                     }
                 }
             });
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904c7);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904ce);
             if (textView2 != null) {
                 textView2.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.16
                     public static /* synthetic */ Interceptable $ic;
@@ -912,7 +912,7 @@ public class ViewToast {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0701d1);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0701de);
             addToastToViewTree(getContentView(activity), inflate, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010046);
         }
     }
@@ -931,29 +931,29 @@ public class ViewToast {
             if (contentView == null) {
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d01fd, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df));
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090709);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09070b)) != null) {
+            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0203, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804f0));
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090713);
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090715)) != null) {
                 textView.setText(charSequence);
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setTextSize(1, i);
             }
-            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f09070c);
+            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090716);
             if (findViewById2 != null) {
-                findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090708);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090712);
             if (textView2 != null) {
-                textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     textView2.setText(charSequence2);
                     textView2.setTextSize(1, i);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09070a);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090714);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804de));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804ef));
             }
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.6
@@ -994,7 +994,7 @@ public class ViewToast {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
             addToastToViewTree(contentView, linearLayout, i2, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
         }
     }
@@ -1008,19 +1008,19 @@ public class ViewToast {
             if (contentView == null) {
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0823, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081200));
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e38)) != null) {
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0836, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08122d));
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e66)) != null) {
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setText(charSequence);
                 textView.setTextSize(1, i);
             }
-            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e37);
+            Button button = (Button) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e65);
             if (button != null) {
-                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08053f));
+                button.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080554));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     button.setText(charSequence2);
-                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f0606dc));
+                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f0606e1));
                     button.setTextSize(1, i2);
                 }
             }
@@ -1063,7 +1063,7 @@ public class ViewToast {
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0701f6);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070203);
             addToastToViewTree(contentView, linearLayout, i3, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
         }
     }
@@ -1077,14 +1077,14 @@ public class ViewToast {
             if (contentView == null) {
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0580, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df));
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090df0)).setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(true).setUri(uri).build());
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090def)) != null) {
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d058c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804f0));
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e02)).setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(true).setUri(uri).build());
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e01)) != null) {
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setText(charSequence);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dec);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfe);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.7
                     public static /* synthetic */ Interceptable $ic;
@@ -1122,24 +1122,24 @@ public class ViewToast {
                     }
                 });
             }
-            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090df1);
+            View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e03);
             if (findViewById2 != null) {
-                findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090deb);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfd);
             if (textView2 != null) {
-                textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 if (!TextUtils.isEmpty(charSequence2)) {
                     textView2.setText(charSequence2);
                 }
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dee);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e00);
             if (imageView != null) {
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804de));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804ef));
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
             addToastToViewTree(contentView, linearLayout, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
         }
     }
@@ -1154,20 +1154,20 @@ public class ViewToast {
                 return;
             }
             try {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0580, null);
+                LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d058c, null);
                 if (linearLayout == null) {
                     return;
                 }
-                linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df));
-                SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090df0);
+                linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804f0));
+                SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e02);
                 if (simpleDraweeView != null) {
                     simpleDraweeView.setImageDrawable(drawable);
                 }
-                if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090def)) != null) {
-                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e01)) != null) {
+                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                     textView.setText(charSequence);
                 }
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dec);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfe);
                 if (findViewById != null) {
                     findViewById.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.8
                         public static /* synthetic */ Interceptable $ic;
@@ -1205,24 +1205,24 @@ public class ViewToast {
                         }
                     });
                 }
-                View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090df1);
+                View findViewById2 = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e03);
                 if (findViewById2 != null) {
-                    findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                    findViewById2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 }
-                TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090deb);
+                TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dfd);
                 if (textView2 != null) {
-                    textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                    textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                     if (!TextUtils.isEmpty(charSequence2)) {
                         textView2.setText(charSequence2);
                     }
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090dee);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e00);
                 if (imageView != null) {
-                    imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804de));
+                    imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804ef));
                 }
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 81;
-                layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+                layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
                 addToastToViewTree(contentView, linearLayout, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
             } catch (Exception unused) {
             }
@@ -1240,18 +1240,18 @@ public class ViewToast {
             if (contentView == null) {
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d0581, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804dd));
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090df0);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(contentView.getContext(), R.layout.obfuscated_res_0x7f0d058d, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804ee));
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e02);
             if (simpleDraweeView != null) {
                 simpleDraweeView.setImageDrawable(drawable);
             }
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090def)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e01)) != null) {
                 textView.setMaxLines(1);
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setText(charSequence);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090df2);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090e04);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.9
                     public static /* synthetic */ Interceptable $ic;
@@ -1289,14 +1289,14 @@ public class ViewToast {
                     }
                 });
             }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, (int) resources.getDimension(R.dimen.obfuscated_res_0x7f07028f));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, (int) resources.getDimension(R.dimen.obfuscated_res_0x7f07029a));
             layoutParams.gravity = 81;
             if (DeviceUtil.ScreenInfo.getDisplayWidth(UIRuntime.getAppContext()) >= 1080) {
-                dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070290);
+                dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f07029b);
             } else {
-                dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070291);
+                dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f07029c);
             }
-            layoutParams.bottomMargin = ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070240)) + ((int) dimension);
+            layoutParams.bottomMargin = ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07024b)) + ((int) dimension);
             addToastToViewTree(contentView, linearLayout, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
         }
     }
@@ -1306,20 +1306,20 @@ public class ViewToast {
         if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{activity, charSequence, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Resources resources = AppRuntime.getAppContext().getResources();
             sShowMask = z;
-            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0944, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
-            linearLayout.findViewById(R.id.obfuscated_res_0x7f090f08).setVisibility(8);
-            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f09);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d095c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081486));
+            linearLayout.findViewById(R.id.obfuscated_res_0x7f090f1b).setVisibility(8);
+            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f1c);
             progressBar.setVisibility(0);
-            progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08145c));
+            progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08148b));
             setAdapterHighlightTopView(progressBar);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f0a);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f1d);
             if (!TextUtils.isEmpty(charSequence) && textView != null) {
                 textView.setText(charSequence);
                 setAdapterHighlightTitle(resources, textView);
             }
             if (z2) {
-                addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.MIDDLE, R.style.obfuscated_res_0x7f1003ce, 0, -2, -2));
+                addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.MIDDLE, R.style.obfuscated_res_0x7f1003d1, 0, -2, -2));
                 return;
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -1333,28 +1333,28 @@ public class ViewToast {
         if (interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{activity, charSequence, drawable, view2, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Resources resources = AppRuntime.getAppContext().getResources();
             sShowMask = z;
-            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0944, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f0a);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d095c, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081486));
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f1d);
             if (textView != null && !TextUtils.isEmpty(charSequence)) {
                 textView.setText(charSequence);
                 setAdapterHighlightTitle(resources, textView);
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f08);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f1b);
             if (imageView != null) {
                 setAdapterHighlightTopView(imageView);
                 if (view2 != null) {
                     new ReplaceViewHelper(activity).toReplaceView(imageView, view2);
                 } else {
                     if (drawable == null) {
-                        drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0806f2);
+                        drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080712);
                     }
                     ToastUtils.setColorFilter(drawable);
                     imageView.setImageDrawable(drawable);
                 }
             }
             if (z2) {
-                addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.MIDDLE, R.style.obfuscated_res_0x7f1003ce, 0, -2, -2));
+                addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.MIDDLE, R.style.obfuscated_res_0x7f1003d1, 0, -2, -2));
                 return;
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -1371,10 +1371,10 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{activity, uri, Integer.valueOf(i), charSequence, charSequence2, charSequence3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), toastCallback}) == null) {
             Resources resources = activity.getResources();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0406, null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df));
+            LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0412, null);
+            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804f0));
             linearLayout.setClickable(true);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091487);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09149f);
             if (uri != null) {
                 simpleDraweeView.setImageURI(uri);
                 if (i != 1) {
@@ -1383,10 +1383,10 @@ public class ViewToast {
             } else {
                 simpleDraweeView.setVisibility(8);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09249b);
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0916f4);
-            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
-            textView3.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924cf);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091718);
+            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
+            textView3.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
             if (!TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(charSequence2)) {
                 textView2.setText(charSequence);
                 textView3.setText(charSequence2);
@@ -1405,24 +1405,24 @@ public class ViewToast {
                 z = false;
             }
             if (uri == null && !z) {
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070226);
-                ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(R.id.obfuscated_res_0x7f092374).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231);
+                ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923a8).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
             }
-            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090709);
+            View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f090713);
             if (!TextUtils.isEmpty(charSequence3)) {
                 if (i2 != 1) {
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0914cb).setVisibility(8);
-                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903da);
-                    textView.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081458));
-                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0914e3).setVisibility(8);
+                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903dd);
+                    textView.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081487));
+                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                     textView.setText(charSequence3);
                 } else {
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0903da).setVisibility(8);
-                    linearLayout.findViewById(R.id.obfuscated_res_0x7f09070c).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
-                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090708);
-                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f0903dd).setVisibility(8);
+                    linearLayout.findViewById(R.id.obfuscated_res_0x7f090716).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
+                    textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090712);
+                    textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                     textView.setText(charSequence3);
-                    ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09070a)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804de));
+                    ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090714)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804ef));
                 }
                 findViewById.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.11
                     public static /* synthetic */ Interceptable $ic;
@@ -1514,7 +1514,7 @@ public class ViewToast {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             if (i5 <= 0) {
-                i6 = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+                i6 = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
             } else {
                 i6 = i5;
             }
@@ -1522,7 +1522,7 @@ public class ViewToast {
             if (i3 != 2) {
                 animation = AnimationUtils.loadAnimation(activity, R.anim.obfuscated_res_0x7f010174);
             } else {
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07022a);
+                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070236);
                 AnimationSet animationSet = new AnimationSet(true);
                 animationSet.setDuration(200L);
                 animationSet.setInterpolator(new DecelerateInterpolator());
@@ -1563,16 +1563,16 @@ public class ViewToast {
         if (contentView == null) {
             return;
         }
-        LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0942, null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091488);
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091493);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e4b);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e4c);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091e4d);
+        LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d095a, null);
+        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081486));
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914a0);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914ab);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e79);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e7a);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091e7b);
         if (!TextUtils.isEmpty(charSequence)) {
             View view3 = contentView;
-            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.dimen_ui_14);
+            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702df);
             if (textColorHolder != null) {
                 if (NightModeHelper.getNightModeSwitcherState()) {
                     i3 = textColorHolder.nightColor;
@@ -1590,7 +1590,7 @@ public class ViewToast {
             } else {
                 if (view2 != null) {
                     simpleDraweeView.setVisibility(0);
-                    FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.dimen_ui_20, R.dimen.dimen_ui_20);
+                    FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.obfuscated_res_0x7f0702e6, R.dimen.obfuscated_res_0x7f0702e6);
                     new ReplaceViewHelper(activity).toReplaceView(simpleDraweeView, view2);
                 } else if (uri == null && drawable == null) {
                     simpleDraweeView.setVisibility(8);
@@ -1608,13 +1608,13 @@ public class ViewToast {
                     if (!TextUtils.isEmpty(charSequence2)) {
                         linearLayout2.setVisibility(8);
                     } else {
-                        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e43);
-                        FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.dimen_ui_16, R.dimen.dimen_ui_16);
-                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08145f));
+                        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091e71);
+                        FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.obfuscated_res_0x7f0702e1, R.dimen.obfuscated_res_0x7f0702e1);
+                        imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08148e));
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
-                        FontSizeTextViewExtKt.setScaledSizeRes(textView2, 0, R.dimen.dimen_ui_14);
+                        FontSizeTextViewExtKt.setScaledSizeRes(textView2, 0, R.dimen.obfuscated_res_0x7f0702df);
                         if (textColorHolder2 != null) {
                             if (NightModeHelper.getNightModeSwitcherState()) {
                                 i2 = textColorHolder2.nightColor;
@@ -1623,7 +1623,7 @@ public class ViewToast {
                             }
                             textView2.setTextColor(i2);
                         }
-                        findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601bd));
+                        findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601c1));
                         if (linearLayout2 != null) {
                             linearLayout2.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -1662,9 +1662,9 @@ public class ViewToast {
                             });
                             ToastUtils.processAlpha(linearLayout2);
                         }
-                        int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+                        int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
                         if (!z2) {
-                            addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(toastLocation2, R.style.obfuscated_res_0x7f100439, dimension, -2, -2));
+                            addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(toastLocation2, R.style.obfuscated_res_0x7f10043c, dimension, -2, -2));
                             return;
                         }
                         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
@@ -1679,7 +1679,7 @@ public class ViewToast {
                     }
                 } else {
                     simpleDraweeView.setVisibility(0);
-                    FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.dimen_ui_20, R.dimen.dimen_ui_20);
+                    FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.obfuscated_res_0x7f0702e6, R.dimen.obfuscated_res_0x7f0702e6);
                     if (drawable != null) {
                         ToastUtils.setColorFilter(drawable);
                         simpleDraweeView.setImageDrawable(drawable);
@@ -1699,7 +1699,7 @@ public class ViewToast {
                 }
             }
             toastLocation2 = toastLocation;
-            int dimension2 = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+            int dimension2 = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
             if (!z2) {
             }
         } else {
@@ -1734,14 +1734,14 @@ public class ViewToast {
         if (contentView == null) {
             return;
         }
-        LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d0943, null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
+        LinearLayout linearLayout = (LinearLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d095b, null);
+        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081486));
         linearLayout.setClickable(true);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092374);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091487);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923a8);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09149f);
         simpleDraweeView.setVisibility(0);
         View view3 = contentView;
-        FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.dimen_ui_30, R.dimen.dimen_ui_30);
+        FontSizeViewExtKt.setScaledSizeRes(simpleDraweeView, 0, R.dimen.obfuscated_res_0x7f0702f1, R.dimen.obfuscated_res_0x7f0702f1);
         if (view2 != null) {
             new ReplaceViewHelper(activity).toReplaceView(simpleDraweeView, view2);
         } else if (drawable != null) {
@@ -1757,9 +1757,9 @@ public class ViewToast {
             layoutParams.gravity = 16;
             linearLayout2.setMinimumHeight((int) ResUtil.getDimenByResId(getTemplate3Height()));
             linearLayout2.setLayoutParams(layoutParams);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09246f);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921e6);
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09191f);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924a3);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092219);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091945);
             if (TextUtils.isEmpty(charSequence)) {
                 if (!TextUtils.isEmpty(charSequence2)) {
                     if (z4) {
@@ -1768,8 +1768,8 @@ public class ViewToast {
                     }
                     textView.setText(charSequence);
                     textView2.setText(charSequence2);
-                    FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.dimen_ui_14);
-                    FontSizeTextViewExtKt.setScaledSizeRes(textView2, 0, R.dimen.dimen_ui_11);
+                    FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702df);
+                    FontSizeTextViewExtKt.setScaledSizeRes(textView2, 0, R.dimen.obfuscated_res_0x7f0702dc);
                     textView.setVisibility(0);
                     textView2.setVisibility(0);
                     if (textColorHolder != null) {
@@ -1780,14 +1780,14 @@ public class ViewToast {
                         }
                         textView.setTextColor(i4);
                     }
-                    textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601c1));
+                    textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601c5));
                     textView3.setVisibility(8);
                 } else {
                     if (z4) {
                         textView3.setMaxWidth(getTemplate3TitleMaxWidth(activity));
                     }
                     textView3.setText(charSequence);
-                    FontSizeTextViewExtKt.setScaledSizeRes(textView3, 0, R.dimen.dimen_ui_14);
+                    FontSizeTextViewExtKt.setScaledSizeRes(textView3, 0, R.dimen.obfuscated_res_0x7f0702df);
                     if (FontSizeHelper.isFontSizeBigger()) {
                         textView3.setSingleLine(false);
                         textView3.setMaxLines(2);
@@ -1806,25 +1806,25 @@ public class ViewToast {
                         textView3.setTextColor(i2);
                     }
                 }
-                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09049f);
-                LinearLayout linearLayout4 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911e7);
-                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904df);
-                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911ea);
-                ImageView imageView2 = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911ed);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091e4d);
-                ImageView imageView3 = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090490);
+                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904a4);
+                LinearLayout linearLayout4 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911ff);
+                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0904e6);
+                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091202);
+                ImageView imageView2 = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091205);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091e7b);
+                ImageView imageView3 = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090495);
                 if (!TextUtils.isEmpty(charSequence3)) {
                     if (toastRightAreaStyle == ToastRightAreaStyle.BUTTON) {
                         linearLayout3.setVisibility(0);
                         linearLayout4.setVisibility(8);
                         textView4.setText(charSequence3);
-                        FontSizeTextViewExtKt.setScaledSizeRes(textView4, 0, R.dimen.dimen_ui_12);
+                        FontSizeTextViewExtKt.setScaledSizeRes(textView4, 0, R.dimen.obfuscated_res_0x7f0702dd);
                         textView4.setBackground(resources.getDrawable(toastRightAreaStyle.btnBgDrawableResId));
                         textView4.setTextColor(resources.getColor(toastRightAreaStyle.btnTextColorResId));
                         toastRightAreaStyle.resetButtonStyle();
                         if (z) {
                             imageView3.setVisibility(0);
-                            FontSizeImageViewExtKt.setScaledImageDrawableRes(imageView3, 0, R.drawable.obfuscated_res_0x7f081459);
+                            FontSizeImageViewExtKt.setScaledImageDrawableRes(imageView3, 0, R.drawable.obfuscated_res_0x7f081488);
                             imageView = imageView3;
                             if (linearLayout3 != null) {
                                 linearLayout3.setOnClickListener(new View.OnClickListener(toastCallback) { // from class: com.baidu.android.ext.widget.toast.ViewToast.2
@@ -1965,7 +1965,7 @@ public class ViewToast {
                         linearLayout4.setVisibility(0);
                         linearLayout3.setVisibility(8);
                         textView5.setText(charSequence3);
-                        FontSizeTextViewExtKt.setScaledSizeRes(textView5, 0, R.dimen.dimen_ui_14);
+                        FontSizeTextViewExtKt.setScaledSizeRes(textView5, 0, R.dimen.obfuscated_res_0x7f0702df);
                         if (textColorHolder2 != null) {
                             if (NightModeHelper.getNightModeSwitcherState()) {
                                 i3 = textColorHolder2.nightColor;
@@ -1974,9 +1974,9 @@ public class ViewToast {
                             }
                             textView5.setTextColor(i3);
                         }
-                        imageView2.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08145f));
-                        FontSizeViewExtKt.setScaledSizeRes(imageView2, 0, R.dimen.dimen_ui_16, R.dimen.dimen_ui_16);
-                        findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601bd));
+                        imageView2.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08148e));
+                        FontSizeViewExtKt.setScaledSizeRes(imageView2, 0, R.dimen.obfuscated_res_0x7f0702e1, R.dimen.obfuscated_res_0x7f0702e1);
+                        findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f0601c1));
                         linearLayout3 = linearLayout4;
                     }
                     imageView = null;
@@ -1988,9 +1988,9 @@ public class ViewToast {
                     linearLayout3.setVisibility(8);
                     linearLayout4.setVisibility(8);
                 }
-                int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+                int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
                 if (z3) {
-                    addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.BOTTOM, R.style.obfuscated_res_0x7f100439, dimension, -2, -2));
+                    addToastToWindow(activity, linearLayout, i, ToastExtKt.getWMLayoutParamsOrNull(ToastLocation.BOTTOM, R.style.obfuscated_res_0x7f10043c, dimension, -2, -2));
                     return;
                 }
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
@@ -2003,9 +2003,9 @@ public class ViewToast {
             return;
         }
         z4 = false;
-        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09246f);
-        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921e6);
-        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09191f);
+        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924a3);
+        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092219);
+        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091945);
         if (TextUtils.isEmpty(charSequence)) {
         }
     }
@@ -2015,16 +2015,16 @@ public class ViewToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65574, null, activity, charSequence, i) == null) {
             Resources resources = activity.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d06ec, null);
-            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081060));
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0918df)) != null) {
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b87));
+            RelativeLayout relativeLayout = (RelativeLayout) View.inflate(activity, R.layout.obfuscated_res_0x7f0d06fb, null);
+            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081088));
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091905)) != null) {
+                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b9e));
                 textView.setText(charSequence);
-                FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.dimen_ui_14);
+                FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702df);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070229);
+            layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070235);
             addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, (int) R.anim.obfuscated_res_0x7f010174);
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.permission;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionStatistic {
     public static final String STATISTIC_EXT_KEY = "ext";
     public static final String STATISTIC_FROM_KEY = "from";

@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.n05;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.q9;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +70,7 @@ public class PbGiftListView extends FrameLayout {
         public void onClick(View view2) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (tbPageContext = (TbPageContext) m9.a(this.a.a)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (tbPageContext = (TbPageContext) q9.a(this.a.a)) == null) {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
@@ -150,65 +150,65 @@ public class PbGiftListView extends FrameLayout {
         h();
     }
 
-    public void g(n05 n05Var, String str, String str2, long j, long j2, long j3) {
+    public void g(k35 k35Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{n05Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{k35Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (n05Var != null && n05Var.a() != null && n05Var.a().size() > 0) {
-                if (n05Var.a().size() > 4) {
+            if (k35Var != null && k35Var.a() != null && k35Var.a().size() > 0) {
+                if (k35Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = n05Var.a().size();
+                    size = k35Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.N(n05Var.a().get(0).a, 10, false);
-                                this.d.N(n05Var.a().get(1).a, 10, false);
-                                this.e.N(n05Var.a().get(2).a, 10, false);
-                                this.f.N(n05Var.a().get(3).a, 10, false);
+                                this.c.N(k35Var.a().get(0).a, 10, false);
+                                this.d.N(k35Var.a().get(1).a, 10, false);
+                                this.e.N(k35Var.a().get(2).a, 10, false);
+                                this.f.N(k35Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.N(n05Var.a().get(0).a, 10, false);
-                            this.d.N(n05Var.a().get(1).a, 10, false);
-                            this.e.N(n05Var.a().get(2).a, 10, false);
+                            this.c.N(k35Var.a().get(0).a, 10, false);
+                            this.d.N(k35Var.a().get(1).a, 10, false);
+                            this.e.N(k35Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.N(n05Var.a().get(0).a, 10, false);
-                        this.d.N(n05Var.a().get(1).a, 10, false);
+                        this.c.N(k35Var.a().get(0).a, 10, false);
+                        this.d.N(k35Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.N(n05Var.a().get(0).a, 10, false);
+                    this.c.N(k35Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (n05Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0899), Integer.valueOf(n05Var.b())));
+                if (k35Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08cf), Integer.valueOf(k35Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);
                 }
-                if (j == pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                if (j == tg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                     this.h.setVisibility(8);
                     return;
                 } else {
@@ -223,12 +223,12 @@ public class PbGiftListView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d074e, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d075d, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ff);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a00);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a01);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a02);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a27);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a28);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a29);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a2a);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
@@ -237,8 +237,8 @@ public class PbGiftListView extends FrameLayout {
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919fd);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919fe);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a25);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a26);
             this.h = textView;
             textView.setOnClickListener(new a(this));
         }

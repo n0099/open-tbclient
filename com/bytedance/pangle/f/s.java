@@ -5,7 +5,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class s {
     public static long a(ByteBuffer byteBuffer, int i) {
         return byteBuffer.getInt(i) & 4294967295L;

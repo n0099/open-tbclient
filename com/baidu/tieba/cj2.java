@@ -1,47 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cj2 {
+public class cj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(e82 e82Var, gj2 gj2Var) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, e82Var, gj2Var) == null) && e82Var != null && gj2Var != null) {
-            gj2Var.g(e82Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0,app_name TEXT,app_icon TEXT,frame_type INTEGER,sync_state INTEGER,pay_protected INTEGER,app_type TEXT,app_key TEXT,version_code TEXT);" : (String) invokeV.objValue;
+    }
+
+    public static void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL(c());
+            } catch (Exception e) {
+                e.getStackTrace();
+            }
         }
     }
 
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                String quote = JSONObject.quote(str3);
-                return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
+        if (interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
+                sQLiteDatabase.execSQL("CREATE TRIGGER delete_old_swan_history AFTER INSERT ON ai_apps_history WHEN (select count(*) from ai_apps_history)>200 BEGIN  DELETE FROM ai_apps_history WHERE _id IN (SELECT _id FROM  ai_apps_history ORDER BY visit_time LIMIT (SELECT count(*) -200 FROM ai_apps_history)); END;");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return "";
         }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String c(e82 e82Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e82Var)) == null) {
-            if (e82Var.isWebView()) {
-                return ClearCacheUbcController.DOCUMENT;
-            }
-            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
-        }
-        return (String) invokeL.objValue;
     }
 }

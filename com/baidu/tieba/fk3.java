@@ -1,285 +1,271 @@
 package com.baidu.tieba;
 
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.SharedPreferences;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class fk3 {
+public class fk3 extends gk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
+    public final Set<String> f;
 
-    public fk3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947766971, "Lcom/baidu/tieba/fk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947766971, "Lcom/baidu/tieba/fk3;");
                 return;
             }
         }
-        f();
+        g = is1.a;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return WifiManager.calculateSignalLevel(this.d, 100);
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.b;
-            if (str == null) {
-                return Config.DEF_MAC_ID;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            if (str == null) {
-                return "<unknown ssid>";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = "<unknown ssid>";
-            this.b = Config.DEF_MAC_ID;
-            this.c = -1;
-            this.d = 0;
-            this.e = 0;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
+            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
+            Log.i("IpcReadOnlySP", illegalAccessException.toString());
+            illegalAccessException.printStackTrace();
         }
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (e() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.hashCode() + this.b.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return n().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return o();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fk3(ScanResult scanResult) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fk3(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {scanResult};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (scanResult == null) {
-            f();
-            return;
-        }
-        m(scanResult.SSID);
-        h(scanResult.BSSID);
-        j(scanResult.level);
-        l(scanResult.capabilities);
-        i(scanResult.frequency);
+        this.f = new HashSet();
     }
 
-    public fk3(WifiInfo wifiInfo, int i) {
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wifiInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (j(str)) {
+                return super.getBoolean(str, z);
             }
+            return c(str, z);
         }
-        if (wifiInfo == null) {
-            f();
-            return;
-        }
-        m(hk3.e(wifiInfo.getSSID()));
-        h(wifiInfo.getBSSID());
-        j(wifiInfo.getRssi());
-        k(i);
-        i(wifiInfo.getFrequency());
+        return invokeLZ.booleanValue;
     }
 
-    public boolean equals(Object obj) {
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
+            if (j(str)) {
+                return super.getFloat(str, f);
+            }
+            return d(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (j(str)) {
+                return super.getInt(str, i);
+            }
+            return e(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            if (j(str)) {
+                return super.getLong(str, j);
+            }
+            return f(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (j(str)) {
+                return super.getString(str, str2);
+            }
+            return h(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putBoolean(str, z);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putFloat(str, f);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putInt(str, i);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putLong(str, j);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putString(str, str2);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putStringSet(str, set);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    public boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (!(obj instanceof fk3)) {
-                return super.equals(obj);
-            }
-            fk3 fk3Var = (fk3) obj;
-            if (fk3Var.a.equals(this.a) && fk3Var.b.equals(this.b)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.f.contains(str);
         }
         return invokeL.booleanValue;
     }
 
-    public void h(String str) {
+    @Override // com.baidu.tieba.lk3, com.baidu.tieba.as4, android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (str == null) {
-                str = Config.DEF_MAC_ID;
-            }
-            this.b = str;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.c = ik3.c(str);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            if (str == null) {
-                str = "<unknown ssid>";
-            }
-            this.a = str;
-        }
-    }
-
-    public JSONObject n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("SSID", d());
-                jSONObject.put("BSSID", b());
-                jSONObject.put(ClientCookie.SECURE_ATTR, g());
-                jSONObject.put("signalStrength", a());
-                jSONObject.put(FetchTimer.FREQUENCY, c());
-                return jSONObject;
-            } catch (JSONException e) {
-                if (qp1.a) {
-                    Log.d("WifiAccessPoint", Log.getStackTraceString(e));
-                }
-                return new JSONObject();
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            if (i()) {
+                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                k();
             }
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gk3, com.baidu.tieba.lk3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.remove(str);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk3, com.baidu.tieba.as4, android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
+            if (i()) {
+                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                k();
+            }
+        }
     }
 }

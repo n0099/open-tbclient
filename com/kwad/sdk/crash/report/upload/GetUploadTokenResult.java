@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.report.upload;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.network.BaseResultData;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetUploadTokenResult extends BaseResultData implements com.kwad.sdk.core.b {
     public static final long serialVersionUID = -6532478349134611769L;
     public String uploadToken;

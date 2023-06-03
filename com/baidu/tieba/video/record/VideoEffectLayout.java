@@ -15,15 +15,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g2a;
-import com.baidu.tieba.h2a;
+import com.baidu.tieba.b9a;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.l0a;
-import com.baidu.tieba.n2a;
-import com.baidu.tieba.p2a;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.s8a;
+import com.baidu.tieba.t8a;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.tieba.video.record.VideoEffectButtonLayout;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.x6a;
+import com.baidu.tieba.z8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,24 +31,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoEffectLayout extends LinearLayout implements VideoEffectButtonLayout.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HListView a;
     public HListView b;
-    public g2a c;
-    public n2a d;
-    public List<h2a> e;
-    public List<h2a> f;
-    public List<h2a> g;
+    public s8a c;
+    public z8a d;
+    public List<t8a> e;
+    public List<t8a> f;
+    public List<t8a> g;
     public List<StickerItem> h;
     public String i;
     public String j;
     public String k;
-    public h2a<l0a> l;
-    public h2a<String> m;
-    public h2a<MusicData> n;
+    public t8a<x6a> l;
+    public t8a<String> m;
+    public t8a<MusicData> n;
     public StickerItem o;
     public AnimatorSet p;
     public AnimatorSet q;
@@ -56,14 +56,14 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public Handler s;
     public int t;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface h {
-        void g1(h2a h2aVar, Object obj);
+        void g1(t8a t8aVar, Object obj);
 
         void v1(StickerItem stickerItem);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,35 +97,35 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
 
         @Override // com.baidu.tieba.video.record.VideoEffectLayout.h
-        public void g1(h2a h2aVar, Object obj) {
+        public void g1(t8a t8aVar, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, h2aVar, obj) != null) || h2aVar == null) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, t8aVar, obj) != null) || t8aVar == null) {
                 return;
             }
             h hVar = this.a;
             if (hVar != null) {
-                hVar.g1(h2aVar, obj);
+                hVar.g1(t8aVar, obj);
             }
-            int type = h2aVar.getType();
+            int type = t8aVar.getType();
             if (type != 1) {
                 if (type != 2) {
                     if (type == 3) {
-                        this.b.k = h2aVar.b();
-                        this.b.n = h2aVar;
+                        this.b.k = t8aVar.b();
+                        this.b.n = t8aVar;
                         return;
                     }
                     return;
                 }
-                this.b.j = h2aVar.b();
-                this.b.m = h2aVar;
+                this.b.j = t8aVar.b();
+                this.b.m = t8aVar;
                 return;
             }
-            this.b.i = h2aVar.b();
-            this.b.l = h2aVar;
+            this.b.i = t8aVar.b();
+            this.b.l = t8aVar;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,9 +133,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         public final /* synthetic */ VideoEffectLayout b;
 
         @Override // com.baidu.tieba.video.record.VideoEffectLayout.h
-        public void g1(h2a h2aVar, Object obj) {
+        public void g1(t8a t8aVar, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, h2aVar, obj) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, t8aVar, obj) == null) {
             }
         }
 
@@ -172,7 +172,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,8 +246,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class e extends p2a {
+    /* loaded from: classes8.dex */
+    public class e extends b9a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoEffectLayout b;
@@ -270,7 +270,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             this.b = videoEffectLayout;
         }
 
-        @Override // com.baidu.tieba.p2a, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.b9a, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && !this.a && this.b.a != null) {
@@ -278,7 +278,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             }
         }
 
-        @Override // com.baidu.tieba.p2a, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.b9a, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
@@ -290,7 +290,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -323,8 +323,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class g extends p2a {
+    /* loaded from: classes8.dex */
+    public class g extends b9a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoEffectLayout b;
@@ -347,7 +347,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             this.b = videoEffectLayout;
         }
 
-        @Override // com.baidu.tieba.p2a, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.b9a, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && !this.a && this.b.b != null) {
@@ -355,7 +355,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             }
         }
 
-        @Override // com.baidu.tieba.p2a, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.b9a, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
@@ -400,9 +400,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                         stickerItem2.isSelect = true;
                     }
                 }
-                n2a n2aVar = this.d;
-                if (n2aVar != null) {
-                    n2aVar.notifyDataSetChanged();
+                z8a z8aVar = this.d;
+                if (z8aVar != null) {
+                    z8aVar.notifyDataSetChanged();
                 }
             }
         }
@@ -430,7 +430,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         s();
     }
 
-    public final void m(List<h2a> list, String str) {
+    public final void m(List<t8a> list, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048585, this, list, str) != null) || list == null) {
             return;
@@ -469,10 +469,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         s();
     }
 
-    public final void k(String str, l0a l0aVar) {
+    public final void k(String str, x6a x6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, l0aVar) == null) {
-            this.e.add(n(0, 1, str, l0aVar));
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, x6aVar) == null) {
+            this.e.add(n(0, 1, str, x6aVar));
         }
     }
 
@@ -496,21 +496,21 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     public void setListener(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, hVar) == null) {
-            g2a g2aVar = this.c;
-            if (g2aVar != null) {
-                g2aVar.f(new a(this, hVar));
+            s8a s8aVar = this.c;
+            if (s8aVar != null) {
+                s8aVar.f(new a(this, hVar));
             }
-            n2a n2aVar = this.d;
-            if (n2aVar != null) {
-                n2aVar.e(new b(this, hVar));
+            z8a z8aVar = this.d;
+            if (z8aVar != null) {
+                z8aVar.e(new b(this, hVar));
             }
         }
     }
 
-    public void setMusicList(List<h2a> list) {
+    public void setMusicList(List<t8a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-            List<h2a> list2 = this.g;
+            List<t8a> list2 = this.g;
             if (list2 == null) {
                 this.g = new ArrayList();
             } else {
@@ -524,9 +524,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
             this.h = list;
-            n2a n2aVar = this.d;
-            if (n2aVar != null) {
-                n2aVar.d(list);
+            z8a z8aVar = this.d;
+            if (z8aVar != null) {
+                z8aVar.d(list);
                 this.d.notifyDataSetChanged();
             }
         }
@@ -542,7 +542,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void T0() {
+    public void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.t = 2;
@@ -551,13 +551,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         }
     }
 
-    public h2a<l0a> getCurrentBeautyItem() {
+    public t8a<x6a> getCurrentBeautyItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.l;
         }
-        return (h2a) invokeV.objValue;
+        return (t8a) invokeV.objValue;
     }
 
     public int getCurrentEffectLayout() {
@@ -569,13 +569,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return invokeV.intValue;
     }
 
-    public h2a<String> getCurrentFilterItem() {
+    public t8a<String> getCurrentFilterItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.m;
         }
-        return (h2a) invokeV.objValue;
+        return (t8a) invokeV.objValue;
     }
 
     public StickerItem getCurrentStickItem() {
@@ -598,24 +598,24 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     public void v() {
-        g2a g2aVar;
+        s8a s8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (g2aVar = this.c) != null) {
-            g2aVar.c();
-            this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c8e);
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (s8aVar = this.c) != null) {
+            s8aVar.c();
+            this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc7);
         }
     }
 
     public void w() {
-        g2a g2aVar;
+        s8a s8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (g2aVar = this.c) != null) {
-            g2aVar.d();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (s8aVar = this.c) != null) {
+            s8aVar.d();
         }
     }
 
     public final void l(int i, String str, String str2) {
-        List<h2a> list;
+        List<t8a> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, str2) != null) || (list = this.f) == null) {
             return;
@@ -623,30 +623,30 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         list.add(n(i, 2, str, str2));
     }
 
-    public final <T> h2a<T> n(int i, int i2, String str, T t) {
+    public final <T> t8a<T> n(int i, int i2, String str, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, t})) == null) {
-            h2a<T> h2aVar = new h2a<>();
-            h2aVar.f(i2);
-            h2aVar.d(i);
-            h2aVar.e(str);
-            h2aVar.g(t);
-            return h2aVar;
+            t8a<T> t8aVar = new t8a<>();
+            t8aVar.f(i2);
+            t8aVar.d(i);
+            t8aVar.e(str);
+            t8aVar.g(t);
+            return t8aVar;
         }
-        return (h2a) invokeCommon.objValue;
+        return (t8a) invokeCommon.objValue;
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
             this.e = new ArrayList();
-            k("No", l0a.b(0));
-            k("1", l0a.b(1));
-            k("2", l0a.b(2));
-            k("3", l0a.b(3));
-            k("4", l0a.b(4));
-            k("5", l0a.b(5));
+            k("No", x6a.b(0));
+            k("1", x6a.b(1));
+            k("2", x6a.b(2));
+            k("3", x6a.b(3));
+            k("4", x6a.b(4));
+            k("5", x6a.b(5));
         }
     }
 
@@ -654,24 +654,24 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f == null) {
             this.f = new ArrayList();
-            l(R.drawable.obfuscated_res_0x7f08067d, q(R.string.obfuscated_res_0x7f0f06fb), "origin");
-            l(R.drawable.obfuscated_res_0x7f080681, q(R.string.obfuscated_res_0x7f0f06f8), "hongkong");
-            l(R.drawable.obfuscated_res_0x7f080684, q(R.string.obfuscated_res_0x7f0f06fc), "refreshing");
-            l(R.drawable.obfuscated_res_0x7f080680, q(R.string.obfuscated_res_0x7f0f06f6), "girly");
-            l(R.drawable.obfuscated_res_0x7f08067b, q(R.string.obfuscated_res_0x7f0f06f3), "concrete");
-            l(R.drawable.obfuscated_res_0x7f080688, q(R.string.obfuscated_res_0x7f0f0700), "warm");
-            l(R.drawable.obfuscated_res_0x7f08067a, q(R.string.obfuscated_res_0x7f0f06f2), "cold");
-            l(R.drawable.obfuscated_res_0x7f080682, q(R.string.obfuscated_res_0x7f0f06f9), "Japanese");
-            l(R.drawable.obfuscated_res_0x7f08067c, q(R.string.obfuscated_res_0x7f0f06f7), "cruz");
-            l(R.drawable.obfuscated_res_0x7f080677, q(R.string.obfuscated_res_0x7f0f06ef), "abao");
-            l(R.drawable.obfuscated_res_0x7f08067e, q(R.string.obfuscated_res_0x7f0f06f4), "dew");
-            l(R.drawable.obfuscated_res_0x7f080686, q(R.string.obfuscated_res_0x7f0f06fe), "slowlived");
-            l(R.drawable.obfuscated_res_0x7f080687, q(R.string.obfuscated_res_0x7f0f06ff), "sweet");
-            l(R.drawable.obfuscated_res_0x7f080679, q(R.string.obfuscated_res_0x7f0f06f1), "boardwalk");
-            l(R.drawable.obfuscated_res_0x7f080683, q(R.string.obfuscated_res_0x7f0f06fa), "keylime");
-            l(R.drawable.obfuscated_res_0x7f08067f, q(R.string.obfuscated_res_0x7f0f06f5), "electric");
-            l(R.drawable.obfuscated_res_0x7f080685, q(R.string.obfuscated_res_0x7f0f06fd), "silver");
-            l(R.drawable.obfuscated_res_0x7f080678, q(R.string.obfuscated_res_0x7f0f06f0), "blackwhite");
+            l(R.drawable.obfuscated_res_0x7f0806a0, q(R.string.obfuscated_res_0x7f0f0731), "origin");
+            l(R.drawable.obfuscated_res_0x7f0806a4, q(R.string.obfuscated_res_0x7f0f072e), "hongkong");
+            l(R.drawable.obfuscated_res_0x7f0806a7, q(R.string.obfuscated_res_0x7f0f0732), "refreshing");
+            l(R.drawable.obfuscated_res_0x7f0806a3, q(R.string.obfuscated_res_0x7f0f072c), "girly");
+            l(R.drawable.obfuscated_res_0x7f08069e, q(R.string.obfuscated_res_0x7f0f0729), "concrete");
+            l(R.drawable.obfuscated_res_0x7f0806ab, q(R.string.obfuscated_res_0x7f0f0736), "warm");
+            l(R.drawable.obfuscated_res_0x7f08069d, q(R.string.obfuscated_res_0x7f0f0728), "cold");
+            l(R.drawable.obfuscated_res_0x7f0806a5, q(R.string.obfuscated_res_0x7f0f072f), "Japanese");
+            l(R.drawable.obfuscated_res_0x7f08069f, q(R.string.obfuscated_res_0x7f0f072d), "cruz");
+            l(R.drawable.obfuscated_res_0x7f08069a, q(R.string.obfuscated_res_0x7f0f0725), "abao");
+            l(R.drawable.obfuscated_res_0x7f0806a1, q(R.string.obfuscated_res_0x7f0f072a), "dew");
+            l(R.drawable.obfuscated_res_0x7f0806a9, q(R.string.obfuscated_res_0x7f0f0734), "slowlived");
+            l(R.drawable.obfuscated_res_0x7f0806aa, q(R.string.obfuscated_res_0x7f0f0735), "sweet");
+            l(R.drawable.obfuscated_res_0x7f08069c, q(R.string.obfuscated_res_0x7f0f0727), "boardwalk");
+            l(R.drawable.obfuscated_res_0x7f0806a6, q(R.string.obfuscated_res_0x7f0f0730), "keylime");
+            l(R.drawable.obfuscated_res_0x7f0806a2, q(R.string.obfuscated_res_0x7f0f072b), "electric");
+            l(R.drawable.obfuscated_res_0x7f0806a8, q(R.string.obfuscated_res_0x7f0f0733), "silver");
+            l(R.drawable.obfuscated_res_0x7f08069b, q(R.string.obfuscated_res_0x7f0f0726), "blackwhite");
         }
     }
 
@@ -679,16 +679,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.i = "2";
-            this.l = n(R.drawable.obfuscated_res_0x7f080285, 1, "2", l0a.b(2));
-            this.j = q(R.string.obfuscated_res_0x7f0f06fb);
-            this.m = n(R.drawable.obfuscated_res_0x7f08067d, 2, q(R.string.obfuscated_res_0x7f0f06fb), "origin");
+            this.l = n(R.drawable.obfuscated_res_0x7f080294, 1, "2", x6a.b(2));
+            this.j = q(R.string.obfuscated_res_0x7f0f0731);
+            this.m = n(R.drawable.obfuscated_res_0x7f0806a0, 2, q(R.string.obfuscated_res_0x7f0f0731), "origin");
             StickerItem stickerItem = new StickerItem();
             stickerItem.id = -1;
             stickerItem.name = "nosticker";
             this.o = stickerItem;
-            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0c8e);
-            getResources().getString(R.string.obfuscated_res_0x7f0f0c8e);
-            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0c8e));
+            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0cc7);
+            getResources().getString(R.string.obfuscated_res_0x7f0f0cc7);
+            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0cc7));
         }
     }
 
@@ -697,20 +697,20 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.s = new Handler();
             r();
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04f9, this);
-            HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f09096c);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0505, this);
+            HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f09097d);
             this.a = hListView;
             hListView.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
             this.a.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
-            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f0921cd);
+            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f092200);
             this.b = hListView2;
             hListView2.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
-            g2a g2aVar = new g2a();
-            this.c = g2aVar;
-            this.a.setAdapter((ListAdapter) g2aVar);
-            n2a n2aVar = new n2a();
-            this.d = n2aVar;
-            this.b.setAdapter((ListAdapter) n2aVar);
+            s8a s8aVar = new s8a();
+            this.c = s8aVar;
+            this.a.setAdapter((ListAdapter) s8aVar);
+            z8a z8aVar = new z8a();
+            this.d = z8aVar;
+            this.b.setAdapter((ListAdapter) z8aVar);
         }
     }
 
@@ -750,9 +750,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     stickerItem3.isDownLoading = false;
                 }
             }
-            n2a n2aVar = this.d;
-            if (n2aVar != null) {
-                n2aVar.notifyDataSetChanged();
+            z8a z8aVar = this.d;
+            if (z8aVar != null) {
+                z8aVar.notifyDataSetChanged();
             }
         }
     }
@@ -810,7 +810,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     ofPropertyValuesHolder.addListener(new e(this));
                     this.q.playSequentially(ofFloat, ofPropertyValuesHolder);
                 }
-                sg.a().postDelayed(new f(this), 300L);
+                wg.a().postDelayed(new f(this), 300L);
                 this.q.start();
                 return;
             }

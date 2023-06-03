@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.plugin.a;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,10 +15,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static final c a = new c();
     }
@@ -129,7 +128,7 @@ public class c {
                     }
                     int responseCode = httpsURLConnection.getResponseCode();
                     if (responseCode >= 200 && responseCode < 300) {
-                        String str2 = new String(a(httpsURLConnection.getInputStream(), 1024), a(httpsURLConnection.getHeaderField("Content-Type"), IMAudioTransRequest.CHARSET));
+                        String str2 = new String(a(httpsURLConnection.getInputStream(), 1024), a(httpsURLConnection.getHeaderField("Content-Type"), "utf-8"));
                         if (httpsURLConnection != null) {
                             try {
                                 httpsURLConnection.disconnect();

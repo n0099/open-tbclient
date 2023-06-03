@@ -55,19 +55,19 @@ public abstract class a extends LinearLayout {
 
     private void initView() {
         this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091219);
-        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f09121b);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09121c);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091218);
-        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f09121a);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09124f);
+        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091231);
+        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091233);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091234);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091230);
+        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091232);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091267);
         this.wZ = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wZ.setTextColor(-1);
-        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091314);
-        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09130e);
-        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f091310);
-        this.un = findViewById(R.id.obfuscated_res_0x7f09130f);
+        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f091326);
+        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f091328);
+        this.un = findViewById(R.id.obfuscated_res_0x7f091327);
         this.ux = new com.kwad.components.ad.g.a(this.BA);
     }
 

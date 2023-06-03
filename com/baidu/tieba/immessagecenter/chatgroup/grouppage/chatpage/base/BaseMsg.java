@@ -15,11 +15,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a98;
-import com.baidu.tieba.es5;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.gw5;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.qe8;
+import com.baidu.tieba.vn;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes6.dex */
-public abstract class BaseMsg extends OrmObject implements Serializable, rn, Cloneable {
+public abstract class BaseMsg extends OrmObject implements Serializable, vn, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<BaseMsg> CHAT_MSG_COMPARATOR;
     public static final DiffUtil.ItemCallback<BaseMsg> DIFF_ITEM_CALLBACK;
@@ -46,30 +46,30 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
     public static final int STATUS_JUST_CREATED = 0;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public List<AtUserInfo> atUserInfoList;
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public CommonMsgField commonMsgField;
     @Nullable
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public Boolean isLeft;
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public boolean isShowLocateColor;
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public boolean isSysMsg;
-    @es5(serialize = false)
-    public a98 itemEventCallback;
+    @gw5(serialize = false)
+    public qe8 itemEventCallback;
     public int itemStatus;
     @Nullable
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public BaseMsg preTimestampMsg;
     @Nullable
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public ReMsgInfo reMsgInfo;
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public ChatMsg sdkMsg;
     @Nullable
-    @es5(serialize = false)
+    @gw5(serialize = false)
     public TaskInfo taskInfo;
 
     public abstract int getMsgType();
@@ -239,7 +239,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            xs5.b(this.commonMsgField);
+            zw5.b(this.commonMsgField);
             return this.commonMsgField;
         }
         return (CommonMsgField) invokeV.objValue;
@@ -256,14 +256,14 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
     }
 
     @NonNull
-    public <T extends BaseMsg> a98<T> getItemEventCallback() {
+    public <T extends BaseMsg> qe8<T> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            xs5.b(this.itemEventCallback);
+            zw5.b(this.itemEventCallback);
             return this.itemEventCallback;
         }
-        return (a98) invokeV.objValue;
+        return (qe8) invokeV.objValue;
     }
 
     public int getItemStatus() {
@@ -290,7 +290,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0411), getCommonMsgField().getUserName());
+            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0417), getCommonMsgField().getUserName());
         }
         return (CharSequence) invokeV.objValue;
     }
@@ -300,7 +300,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            xs5.b(this.sdkMsg);
+            zw5.b(this.sdkMsg);
             return this.sdkMsg;
         }
         return (ChatMsg) invokeV.objValue;
@@ -392,10 +392,10 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         }
     }
 
-    public void setItemEventCallback(@NonNull a98 a98Var) {
+    public void setItemEventCallback(@NonNull qe8 qe8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, a98Var) == null) {
-            this.itemEventCallback = a98Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, qe8Var) == null) {
+            this.itemEventCallback = qe8Var;
         }
     }
 
@@ -478,7 +478,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (CharSequence) invokeV.objValue;
                 }
 
-                @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
+                @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.vn
                 public BdUniqueId getType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -547,8 +547,8 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.isLeft == null) {
-                tx4 t = tx4.t();
-                xs5.d(t.C());
+                p05 t = p05.t();
+                zw5.d(t.C());
                 if (t.j() != this.commonMsgField.getUserId()) {
                     z = true;
                 } else {
@@ -570,8 +570,8 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
             }
             if (obj != null && getClass() == obj.getClass()) {
                 BaseMsg baseMsg = (BaseMsg) obj;
-                xs5.b(this.commonMsgField);
-                xs5.b(baseMsg.commonMsgField);
+                zw5.b(this.commonMsgField);
+                zw5.b(baseMsg.commonMsgField);
                 return Objects.equals(this.commonMsgField, baseMsg.commonMsgField);
             }
             return false;

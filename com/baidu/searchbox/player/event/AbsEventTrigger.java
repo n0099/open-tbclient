@@ -1,19 +1,16 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsEventTrigger implements IEventTrigger {
     public final ArrayList<IMessenger> mMessengers = new ArrayList<>();
 
-    @PublicMethod
     public void clear() {
         this.mMessengers.clear();
     }
 
-    @PublicMethod
     public void bindMessenger(@NonNull IMessenger iMessenger) {
         if (!this.mMessengers.contains(iMessenger)) {
             this.mMessengers.add(iMessenger);
@@ -21,7 +18,6 @@ public abstract class AbsEventTrigger implements IEventTrigger {
     }
 
     @Override // com.baidu.searchbox.player.event.IEventTrigger
-    @PublicMethod
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
         int size = this.mMessengers.size();
         for (int i = 0; i < size; i++) {
@@ -34,7 +30,6 @@ public abstract class AbsEventTrigger implements IEventTrigger {
         }
     }
 
-    @PublicMethod
     public void unbindMessenger(@NonNull IMessenger iMessenger) {
         this.mMessengers.remove(iMessenger);
     }

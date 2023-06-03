@@ -32,8 +32,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.df5;
+import com.baidu.tieba.ei5;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
@@ -55,12 +54,13 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.vo8;
-import com.baidu.tieba.vq8;
-import com.baidu.tieba.wq8;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.su8;
+import com.baidu.tieba.sw8;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.tw8;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,12 +96,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<df5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ei5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new wq8(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new tw8(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -129,12 +129,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<df5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ei5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new vq8(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new sw8(customMessage.getData()));
                 }
                 return null;
             }
@@ -169,7 +169,7 @@ public class MemberCenterStatic {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
                     bubbleListModel.a0();
-                    bubbleListModel.d0(0, ri.l(customMessage.getData().getPageActivity()), ri.j(customMessage.getData().getPageActivity()));
+                    bubbleListModel.d0(0, vi.l(customMessage.getData().getPageActivity()), vi.j(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -245,12 +245,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<df5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ei5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new vo8(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new su8(customMessage.getData()));
                 }
                 return null;
             }
@@ -379,14 +379,14 @@ public class MemberCenterStatic {
                             } else if (queryParameter.equals(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS)) {
                                 i2 = 7;
                             }
-                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, pg.e(queryParameter4, 0), queryParameter5);
+                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, tg.e(queryParameter4, 0), queryParameter5);
                             memberPayActivityConfig.setReferPageClickZone(queryParameter2, queryParameter3);
                             memberPayActivityConfig.setShowPrice(queryParameter6);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                             return 0;
                         }
                         i2 = 0;
-                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, pg.e(queryParameter4, 0), queryParameter5);
+                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, tg.e(queryParameter4, 0), queryParameter5);
                         memberPayActivityConfig2.setReferPageClickZone(queryParameter2, queryParameter3);
                         memberPayActivityConfig2.setShowPrice(queryParameter6);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig2));
@@ -426,10 +426,10 @@ public class MemberCenterStatic {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                        String d = yt5.d(str, MemberPayStatistic.REFER_PAGE);
-                        String d2 = yt5.d(str, MemberPayStatistic.CLICK_ZONE);
-                        String d3 = yt5.d(str, "onlyShowPrice");
-                        String d4 = yt5.d(str, GuildActivityConfig.FROM_PAGE);
+                        String d = zx5.d(str, MemberPayStatistic.REFER_PAGE);
+                        String d2 = zx5.d(str, MemberPayStatistic.CLICK_ZONE);
+                        String d3 = zx5.d(str, "onlyShowPrice");
+                        String d4 = zx5.d(str, GuildActivityConfig.FROM_PAGE);
                         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), 0);
                         memberPayActivityConfig.setReferPageClickZone(d, d2);
                         memberPayActivityConfig.setShowPrice(d3);
@@ -605,7 +605,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        ri.P(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f107e);
+                        vi.P(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f10c8);
                         return;
                     }
                 }
@@ -617,8 +617,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            ar9.h(i3, cls2, false, false);
-            ar9.c(i3, i2, str, cls, false, false, false, false);
+            mx9.h(i3, cls2, false, false);
+            mx9.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

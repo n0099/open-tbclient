@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.om2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface vt1 {
-    boolean a(@Nullable Activity activity);
+public class vt1 implements sv1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Context context);
+    @Override // com.baidu.tieba.sv1
+    public String a(@NonNull String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+    }
 
-    void c(@NonNull String str);
-
-    void d(CallbackHandler callbackHandler);
-
-    void e(g93 g93Var);
-
-    String f(@NonNull Context context);
-
-    void g(g93 g93Var);
-
-    void h(@NonNull Activity activity, String str, String str2, nm2 nm2Var, om2.b bVar);
+    public vt1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

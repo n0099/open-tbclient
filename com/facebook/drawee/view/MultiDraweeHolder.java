@@ -7,7 +7,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultiDraweeHolder<DH extends DraweeHierarchy> {
     @VisibleForTesting
     public boolean mIsAttached = false;

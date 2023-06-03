@@ -108,7 +108,7 @@ public final class a {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-                return com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                return "fail";
             }
             if (activeNetworkInfo.getType() == 1) {
                 return "wifi";

@@ -1,56 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qt4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = 6;
-    public static int j = 7;
-    public static int k = 8;
-    public static int l = 9;
-    public static rt4 m;
+public final class qt4 implements MediaGestureLayout.b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public MediaGestureLayout b;
+    public MediaGestureLayout.c c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103352, "Lcom/baidu/tieba/qt4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948103352, "Lcom/baidu/tieba/qt4;");
+    public qt4(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        m = new rt4();
+        this.a = context;
+        g(context);
     }
 
-    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void a(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
-            st4 st4Var = new st4();
-            st4Var.a = i2;
-            st4Var.b = i3;
-            st4Var.c = str;
-            st4Var.d = str2;
-            st4Var.e = str3;
-            st4Var.f = i4;
-            m.a(st4Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && (cVar = this.c) != null) {
+            cVar.a(motionEvent);
         }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void c(int i) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (cVar = this.c) != null) {
+            cVar.c(i);
+        }
+    }
+
+    public void d(SwanVideoView swanVideoView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
+            this.b.h(swanVideoView);
+        }
+    }
+
+    public void e(nt4 nt4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nt4Var) == null) {
+            this.b.g(nt4Var);
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.a = context;
+            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
+            this.b = mediaGestureLayout;
+            mediaGestureLayout.setMediaGestureListener(this);
+        }
+    }
+
+    public void h(MediaGestureLayout.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void onDoubleTap(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) && (cVar = this.c) != null) {
+            cVar.onDoubleTap(motionEvent);
+        }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) && (cVar = this.c) != null) {
+            cVar.b(motionEvent, mediaGestureMode);
+        }
+    }
+
+    public ViewGroup f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

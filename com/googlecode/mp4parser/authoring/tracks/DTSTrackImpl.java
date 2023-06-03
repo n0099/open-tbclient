@@ -815,7 +815,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 384;
      */
     /* JADX WARN: Code restructure failed: missing block: B:266:0x0388, code lost:
-        r22.bitrate = android.support.v4.media.session.MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        r22.bitrate = 320;
      */
     /* JADX WARN: Code restructure failed: missing block: B:267:0x038d, code lost:
         r22.bitrate = 256;

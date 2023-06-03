@@ -7,7 +7,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
     public AbstractSessionInputBuffer() {
         throw new RuntimeException("Stub!");

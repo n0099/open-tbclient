@@ -1,15 +1,14 @@
 package com.baidu.nadcore.player.model;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ez0;
-import com.baidu.tieba.v01;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.n01;
 import java.util.ArrayList;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J#\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u000f\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\u000f\u0010\u000b¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/player/model/HistoryCache;", "Ljava/util/ArrayList;", "Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "element", "", "add", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;)Z", "", "id", TiebaStatic.Params.VID, "findCache", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "info", "isSameHistory", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;Ljava/lang/String;Ljava/lang/String;)Z", "removeCache", "<init>", "()V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J#\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u000f\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\u000f\u0010\u000b¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/player/model/HistoryCache;", "Ljava/util/ArrayList;", "Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "element", "", "add", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;)Z", "", "id", "vid", "findCache", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "info", "isSameHistory", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;Ljava/lang/String;Ljava/lang/String;)Z", "removeCache", "<init>", "()V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class HistoryCache extends ArrayList<ez0> {
+public final class HistoryCache extends ArrayList<n01> {
     public HistoryCache() {
         super(20);
     }
@@ -29,10 +28,10 @@ public final class HistoryCache extends ArrayList<ez0> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private final boolean isSameHistory(ez0 ez0Var, String str, String str2) {
+    private final boolean isSameHistory(n01 n01Var, String str, String str2) {
         boolean z;
         boolean z2;
-        String b = ez0Var.b();
+        String b = n01Var.b();
         if (b != null) {
             if (b.length() > 0) {
                 z2 = true;
@@ -42,7 +41,7 @@ public final class HistoryCache extends ArrayList<ez0> {
             if (z2) {
             }
         }
-        String e = ez0Var.e();
+        String e = n01Var.e();
         if (e == null) {
             return false;
         }
@@ -51,7 +50,7 @@ public final class HistoryCache extends ArrayList<ez0> {
         } else {
             z = false;
         }
-        if (!z || !Intrinsics.areEqual(ez0Var.e(), str2)) {
+        if (!z || !Intrinsics.areEqual(n01Var.e(), str2)) {
             return false;
         }
         return true;
@@ -59,83 +58,83 @@ public final class HistoryCache extends ArrayList<ez0> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean add(ez0 element) {
+    public boolean add(n01 element) {
         Intrinsics.checkNotNullParameter(element, "element");
         if (size() >= 50) {
-            v01.a("remove item " + remove(0));
+            e21.a("remove item " + remove(0));
         }
         removeCache(element.b(), element.e());
         return super.add((HistoryCache) element);
     }
 
-    public /* bridge */ boolean contains(ez0 ez0Var) {
-        return super.contains((Object) ez0Var);
+    public /* bridge */ boolean contains(n01 n01Var) {
+        return super.contains((Object) n01Var);
     }
 
-    public /* bridge */ int indexOf(ez0 ez0Var) {
-        return super.indexOf((Object) ez0Var);
+    public /* bridge */ int indexOf(n01 n01Var) {
+        return super.indexOf((Object) n01Var);
     }
 
-    public /* bridge */ int lastIndexOf(ez0 ez0Var) {
-        return super.lastIndexOf((Object) ez0Var);
+    public /* bridge */ int lastIndexOf(n01 n01Var) {
+        return super.lastIndexOf((Object) n01Var);
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
-    public final /* bridge */ ez0 remove(int i) {
+    public final /* bridge */ n01 remove(int i) {
         return removeAt(i);
     }
 
-    public /* bridge */ ez0 removeAt(int i) {
-        return (ez0) super.remove(i);
+    public /* bridge */ n01 removeAt(int i) {
+        return (n01) super.remove(i);
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof ez0) {
-            return contains((ez0) obj);
+        if (obj instanceof n01) {
+            return contains((n01) obj);
         }
         return false;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object obj) {
-        if (obj instanceof ez0) {
-            return indexOf((ez0) obj);
+        if (obj instanceof n01) {
+            return indexOf((n01) obj);
         }
         return -1;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
     public final /* bridge */ int lastIndexOf(Object obj) {
-        if (obj instanceof ez0) {
-            return lastIndexOf((ez0) obj);
+        if (obj instanceof n01) {
+            return lastIndexOf((n01) obj);
         }
         return -1;
     }
 
-    public /* bridge */ boolean remove(ez0 ez0Var) {
-        return super.remove((Object) ez0Var);
+    public /* bridge */ boolean remove(n01 n01Var) {
+        return super.remove((Object) n01Var);
     }
 
-    public final ez0 findCache(String str, String str2) {
-        for (ez0 ez0Var : this) {
-            if (isSameHistory(ez0Var, str, str2)) {
-                return ez0Var;
+    public final n01 findCache(String str, String str2) {
+        for (n01 n01Var : this) {
+            if (isSameHistory(n01Var, str, str2)) {
+                return n01Var;
             }
         }
         return null;
     }
 
-    public final ez0 removeCache(String str, String str2) {
-        Iterator<ez0> it = iterator();
+    public final n01 removeCache(String str, String str2) {
+        Iterator<n01> it = iterator();
         Intrinsics.checkNotNullExpressionValue(it, "iterator()");
         while (it.hasNext()) {
-            ez0 next = it.next();
+            n01 next = it.next();
             Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-            ez0 ez0Var = next;
-            if (isSameHistory(ez0Var, str, str2)) {
+            n01 n01Var = next;
+            if (isSameHistory(n01Var, str, str2)) {
                 it.remove();
-                return ez0Var;
+                return n01Var;
             }
         }
         return null;
@@ -143,8 +142,8 @@ public final class HistoryCache extends ArrayList<ez0> {
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ boolean remove(Object obj) {
-        if (obj instanceof ez0) {
-            return remove((ez0) obj);
+        if (obj instanceof n01) {
+            return remove((n01) obj);
         }
         return false;
     }

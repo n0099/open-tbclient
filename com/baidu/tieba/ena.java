@@ -1,66 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
 public class ena {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static String b = "";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lna a;
+    public HashSet<String> b;
+    public HashSet<String> c;
+    public HashSet<String> d;
+    public HashSet<String> e;
+    public HashSet<String> f;
+    public HashSet<String> g;
+    public HashMap<String, Integer> h;
+    public HashMap<String, String> i;
+    public HashMap<String, kna> j;
+    public HashSet<String> k;
+    public HashSet<String> l;
+    public HashMap<String, Integer> m;
+    public HashMap<String, Integer> n;
+    public HashMap<String, Integer> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947741489, "Lcom/baidu/tieba/ena;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ena() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947741489, "Lcom/baidu/tieba/ena;");
-        }
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return b;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i = a;
-            if (i >= 0) {
-                return i;
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a;
-        }
-        return invokeL.intValue;
+        this.a = new lna();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashSet<>();
+        this.g = new HashSet<>();
+        this.h = new HashMap<>();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashSet<>();
+        this.l = new HashSet<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
     }
 }

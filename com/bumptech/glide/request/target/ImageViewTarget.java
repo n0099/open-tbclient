@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implements Transition.ViewAdapter {
     @Nullable
     public Animatable animatable;
@@ -59,7 +59,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
 
     @Override // com.bumptech.glide.request.transition.Transition.ViewAdapter
     public void setDrawable(Drawable drawable) {
-        ((ImageView) this.f1063view).setImageDrawable(drawable);
+        ((ImageView) this.f1199view).setImageDrawable(drawable);
     }
 
     @Deprecated
@@ -79,7 +79,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     @Override // com.bumptech.glide.request.transition.Transition.ViewAdapter
     @Nullable
     public Drawable getCurrentDrawable() {
-        return ((ImageView) this.f1063view).getDrawable();
+        return ((ImageView) this.f1199view).getDrawable();
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.manager.LifecycleListener

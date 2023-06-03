@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class G0 implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +35,7 @@ public class G0 implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public void onGlobalFocusChanged(View view2, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onGlobalFocusChanged:" + view2 + ",newFocus:" + view3);
+            Log.e("register", "onGlobalFocusChanged:" + view2 + ",newFocus:" + view3);
             M0 m0 = this.a;
             if (m0 != null) {
                 m0.b();

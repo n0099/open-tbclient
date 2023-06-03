@@ -7,7 +7,7 @@ public enum PayStatus {
     VALIDATE_FAIL(-1, "账号验证失败"),
     CAN_NOT_USE(-5, "账户已冻结"),
     APPLE_PAY_FAIL(-14, "苹果支付凭证重复验证"),
-    WRONG_ARGS(ErrorCode.ARGS_ERROR, "参数错误，特指参数缺失"),
+    WRONG_ARGS(-400, "参数错误，特指参数缺失"),
     SEVER_ERROR(ErrorCode.SERVER_ERROR, "服务端错误"),
     ORDER_RISK_ERROR(-18, "风控拦截"),
     UNKNOWN(0, "未知状态"),

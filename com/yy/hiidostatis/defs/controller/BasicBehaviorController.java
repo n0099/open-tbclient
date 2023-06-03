@@ -2,6 +2,7 @@ package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
 import android.os.Handler;
+import com.fun.ad.sdk.channel.CsjForbidStrategy;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.hiidostatis.defs.interf.IOnStatisListener;
@@ -161,7 +162,7 @@ public class BasicBehaviorController {
                                 appaElemInfo2 = appaElemInfo;
                                 L.debug(this, "appa onExitApp:Cannot calculate app action linger time.", new Object[0]);
                             }
-                            if (j5 <= 21600000 && i >= 0) {
+                            if (j5 <= CsjForbidStrategy.FORBID_TIME_ANTI_SPAM && i >= 0) {
                                 L.brief("appa onExitApp:normal", Long.valueOf(j5));
                             } else {
                                 L.warn(this, "appa onExitApp:app action linger time [%d] is off normal.", Long.valueOf(j5));

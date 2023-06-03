@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.b6a;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.pz9;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -107,31 +107,31 @@ public class SubscribeSlice extends Slice {
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.m2().s0() && !this.a.o.m2().j0()) {
-                wg.e(new a(this));
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.o2().s0() && !this.a.o.o2().j0()) {
+                ah.e(new a(this));
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void b(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != pg.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.e0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != tg.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.e0()) {
                 return;
             }
             this.a.k = true;
-            this.a.o.m2().p0();
-            this.a.o.K2();
+            this.a.o.o2().p0();
+            this.a.o.M2();
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void c(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != pg.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.g0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != tg.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.g0()) {
                 return;
             }
             this.a.l = true;
-            this.a.o.m2().p0();
-            this.a.o.K2();
+            this.a.o.o2().p0();
+            this.a.o.M2();
         }
     }
 
@@ -195,7 +195,7 @@ public class SubscribeSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f092224);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -234,11 +234,11 @@ public class SubscribeSlice extends Slice {
     public final void j0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            FrameLayout q2 = this.o.q2();
+            FrameLayout s2 = this.o.s2();
             if (z) {
-                q2.setVisibility(0);
+                s2.setVisibility(0);
             } else {
-                q2.setVisibility(8);
+                s2.setVisibility(8);
             }
         }
     }
@@ -280,7 +280,7 @@ public class SubscribeSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08b0, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08c9, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -290,7 +290,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             i0(8);
             j0(true);
-            pz9.b(this.m.b, 600);
+            b6a.b(this.m.b, 600);
             this.m.b.a();
         }
     }
@@ -327,7 +327,7 @@ public class SubscribeSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            sg.a().removeCallbacks(this.q);
+            wg.a().removeCallbacks(this.q);
         }
     }
 
@@ -340,8 +340,8 @@ public class SubscribeSlice extends Slice {
                 long id = this.n.getBasicInfo().getId();
                 int isSubscription = this.n.getUserInfo().getIsSubscription();
                 if (id > 0 && isSubscription != 1) {
-                    o65 m = o65.m();
-                    String q = o65.q("key_show_subscribe_guide" + id);
+                    l95 m = l95.m();
+                    String q = l95.q("key_show_subscribe_guide" + id);
                     long o = m.o(q, 0L);
                     if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                         return false;
@@ -366,7 +366,7 @@ public class SubscribeSlice extends Slice {
             if (guideTips != null) {
                 this.m.b.d(guideTips);
             }
-            sg.a().postDelayed(this.q, 3000L);
+            wg.a().postDelayed(this.q, 3000L);
             TiebaStatic.log(new StatisticItem("c15256"));
         }
     }

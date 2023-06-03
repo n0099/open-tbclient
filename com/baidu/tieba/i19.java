@@ -1,69 +1,173 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
+/* loaded from: classes6.dex */
 public class i19 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public q05 c;
 
-    public i19(TbPageContext tbPageContext) {
-        Uri uri;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947800792, "Lcom/baidu/tieba/i19;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947800792, "Lcom/baidu/tieba/i19;");
+        }
+    }
+
+    public i19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            String queryParameter = uri.getQueryParameter("tid");
-            q05 q05Var = new q05();
-            this.c = q05Var;
-            q05Var.a = uri.getQueryParameter("tid");
-            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-            if (!TextUtils.isEmpty(queryParameter) && c9.f().g() <= 3) {
-                this.b = true;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(PbModel pbModel) {
+    public void a(int i, d19 d19Var, int i2, List<vn> list, BdTypeRecyclerView bdTypeRecyclerView) {
+        List<b19> list2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.y1() != null && pbModel.y1().k() != null) {
-            ForumData k = pbModel.y1().k();
-            this.c.c = k.getFirst_class();
-            this.c.d = k.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-            if (c9.f().h("MainTabActivity")) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-            } else {
-                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), d19Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) && d19Var != null && (list2 = d19Var.a) != null && !ListUtils.isEmpty(list2)) {
+            ArrayList arrayList = new ArrayList();
+            c(i, arrayList, list);
+            List<b19> list3 = d19Var.a;
+            if (list3 != null && list3.size() > 0) {
+                int i3 = 0;
+                for (b19 b19Var : list3) {
+                    if (b19Var != null && i == b19Var.b.intValue()) {
+                        List<h19> list4 = b19Var.a;
+                        if (list4 != null && list4.size() > 0) {
+                            for (int i4 = 0; i4 < list4.size(); i4++) {
+                                if (list4.get(i4) != null) {
+                                    if (arrayList.size() >= 20) {
+                                        d(list.get(i2));
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else if (i3 >= 4) {
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else {
+                                        if (i4 == list4.size() - 1) {
+                                            d(list.get(i2));
+                                        }
+                                        RecommendForumInfo recommendForumInfo = list4.get(i4).a;
+                                        if (!arrayList.contains(recommendForumInfo.forum_id)) {
+                                            e19 e19Var = new e19();
+                                            e19Var.l(b19Var.b.intValue());
+                                            e19Var.k(recommendForumInfo.avatar);
+                                            e19Var.n(recommendForumInfo.forum_id.longValue());
+                                            e19Var.o(recommendForumInfo.forum_name);
+                                            e19Var.p(recommendForumInfo.member_count.intValue());
+                                            e19Var.t(recommendForumInfo.thread_count.intValue());
+                                            e19Var.s(recommendForumInfo.slogan);
+                                            e19Var.q(false);
+                                            list.add(i2, e19Var);
+                                            arrayList.add(recommendForumInfo.forum_id);
+                                            i2++;
+                                            i3++;
+                                        }
+                                    }
+                                }
+                            }
+                            bdTypeRecyclerView.setData(list);
+                        } else {
+                            return;
+                        }
+                    }
+                }
             }
+        }
+    }
+
+    public List<vn> b(List<b19> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (b19 b19Var : list) {
+                    if (b19Var != null) {
+                        g19 g19Var = new g19();
+                        g19Var.d(b19Var.b.intValue());
+                        g19Var.c(b19Var.d);
+                        g19Var.e(b19Var.c);
+                        arrayList.add(g19Var);
+                        List<h19> list2 = b19Var.a;
+                        if (list2 != null && list2.size() > 0) {
+                            a = 0;
+                            for (h19 h19Var : list2) {
+                                if (h19Var != null) {
+                                    if (a >= 4) {
+                                        break;
+                                    }
+                                    e19 e19Var = new e19();
+                                    RecommendForumInfo recommendForumInfo = h19Var.a;
+                                    e19Var.l(b19Var.b.intValue());
+                                    e19Var.m(b19Var.c);
+                                    e19Var.k(recommendForumInfo.avatar);
+                                    e19Var.n(recommendForumInfo.forum_id.longValue());
+                                    e19Var.o(recommendForumInfo.forum_name);
+                                    e19Var.p(recommendForumInfo.member_count.intValue());
+                                    e19Var.t(recommendForumInfo.thread_count.intValue());
+                                    e19Var.s(recommendForumInfo.slogan);
+                                    arrayList.add(e19Var);
+                                    a++;
+                                }
+                            }
+                            f19 f19Var = new f19();
+                            f19Var.d(b19Var.b.intValue());
+                            f19Var.e(b19Var.c);
+                            arrayList.add(f19Var);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void c(int i, List<Long> list, List<vn> list2) {
+        e19 e19Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
+            for (vn vnVar : list2) {
+                if ((vnVar instanceof e19) && (e19Var = (e19) vnVar) != null && e19Var.b() == i) {
+                    list.add(Long.valueOf(e19Var.c()));
+                }
+            }
+        }
+    }
+
+    public final void d(vn vnVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, vnVar) == null) && (vnVar instanceof f19)) {
+            ((f19) vnVar).f(false);
         }
     }
 }

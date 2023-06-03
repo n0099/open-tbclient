@@ -1,100 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.net.URLEncoder;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
-    public boolean b;
-    public long c;
-    public List<a> d;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String a(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("tiebaclient://");
+            if (num.intValue() > 0) {
+                sb.append("swangame/");
+            } else {
+                sb.append("swan/");
+            }
+            sb.append(str);
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str2.startsWith("/")) {
+                    sb.append("/");
                 }
+                sb.append(str2);
+            } else {
+                sb.append("/");
             }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
+            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+                sb.append("&");
+            } else {
+                if (!sb.toString().endsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append("?");
             }
-            this.a = jSONObject.optInt("tag_type");
-            this.b = jSONObject.optString("tag_word");
+            sb.append("_baiduboxapp=");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sb.append(URLEncoder.encode(jSONObject.toString()));
+            sb.append("&callback=_bdbox_js_275&upgrade=0");
+            return sb.toString();
         }
+        return (String) invokeLLLL.objValue;
     }
 
-    public l86() {
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
+            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+                return false;
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
+            return true;
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z = true;
-        if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
-            z = false;
-        }
-        this.b = z;
-        this.c = jSONObject.optLong("last_watch_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
-        if (optJSONObject != null) {
-            ThreadData threadData = new ThreadData();
-            this.a = threadData;
-            threadData.parserJson(optJSONObject);
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
-        if (optJSONArray == null) {
-            return;
-        }
-        int length = optJSONArray.length();
-        this.d = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-            if (optJSONObject2 != null) {
-                a aVar = new a();
-                aVar.a(optJSONObject2);
-                this.d.add(aVar);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

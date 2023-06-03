@@ -5,11 +5,12 @@ import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.StartupCountStatsController;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cm;
-import com.baidu.tieba.jm;
-import com.baidu.tieba.jt4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.gm;
+import com.baidu.tieba.nm;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -39,17 +40,25 @@ public class InitSDKTask extends LaunchTask {
         }
     }
 
+    private void initLibCXX() {
+        try {
+            System.loadLibrary(SwanKV.LIB_CPP_SHARED);
+        } catch (Throwable th) {
+            BdLog.e(th);
+        }
+    }
+
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            jt4.f().g(TbadkCoreApplication.getInst());
+            bw4.f().g(TbadkCoreApplication.getInst());
         }
     }
 
     private void initTurbonet() {
         try {
-            String a = jm.a("libturbonet.so");
+            String a = nm.a("libturbonet.so");
             if (FileUtils.exists(a)) {
-                cm.d(TbadkCoreApplication.getInst().getClassLoader(), a);
+                gm.d(TbadkCoreApplication.getInst().getApplicationContext().getClassLoader(), a);
             }
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
@@ -58,10 +67,10 @@ public class InitSDKTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
+        initLibCXX();
         initDeviceSdk();
         initCountStats();
         initGrowthSdk();
         initTBTaskSDK();
-        initTurbonet();
     }
 }

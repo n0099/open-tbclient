@@ -3,7 +3,7 @@ package kotlinx.coroutines.internal;
 import com.baidu.android.common.others.IStringUtil;
 import kotlin.Metadata;
 import kotlin.text.StringsKt__StringNumberConversionsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0002\u001a\u001f\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0002H\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a3\u0010\u0004\u001a\u00020\u00062\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\u00062\b\b\u0002\u0010\b\u001a\u00020\u0006H\u0000¢\u0006\u0004\b\u0004\u0010\t\u001a3\u0010\u0004\u001a\u00020\n2\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\n2\b\b\u0002\u0010\u0007\u001a\u00020\n2\b\b\u0002\u0010\b\u001a\u00020\nH\u0000¢\u0006\u0004\b\u0004\u0010\u000b¨\u0006\f"}, d2 = {"", "propertyName", "", "defaultValue", "systemProp", "(Ljava/lang/String;Z)Z", "", "minValue", "maxValue", "(Ljava/lang/String;III)I", "", "(Ljava/lang/String;JJJ)J", "kotlinx-coroutines-core"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlinx/coroutines/internal/SystemPropsKt")
+@Metadata(d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\u001a\u0018\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0001H\u0000\u001a,\u0010\u0000\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\b\b\u0002\u0010\u0007\u001a\u00020\u0005H\u0000\u001a,\u0010\u0000\u001a\u00020\b2\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\b2\b\b\u0002\u0010\u0006\u001a\u00020\b2\b\b\u0002\u0010\u0007\u001a\u00020\bH\u0000¨\u0006\t"}, d2 = {"systemProp", "", "propertyName", "", "defaultValue", "", "minValue", "maxValue", "", "kotlinx-coroutines-core"}, k = 5, mv = {1, 6, 0}, xi = 48, xs = "kotlinx/coroutines/internal/SystemPropsKt")
 /* loaded from: classes10.dex */
 public final /* synthetic */ class SystemPropsKt__SystemProps_commonKt {
     public static final int systemProp(String str, int i, int i2, int i3) {
@@ -12,18 +12,22 @@ public final /* synthetic */ class SystemPropsKt__SystemProps_commonKt {
 
     public static final long systemProp(String str, long j, long j2, long j3) {
         String systemProp = SystemPropsKt.systemProp(str);
-        if (systemProp != null) {
-            Long longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(systemProp);
-            if (longOrNull != null) {
-                long longValue = longOrNull.longValue();
-                if (j2 <= longValue && j3 >= longValue) {
-                    return longValue;
-                }
-                throw new IllegalStateException(("System property '" + str + "' should be in range " + j2 + IStringUtil.TOP_PATH + j3 + ", but is '" + longValue + '\'').toString());
-            }
-            throw new IllegalStateException(("System property '" + str + "' has unrecognized value '" + systemProp + '\'').toString());
+        if (systemProp == null) {
+            return j;
         }
-        return j;
+        Long longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(systemProp);
+        if (longOrNull != null) {
+            long longValue = longOrNull.longValue();
+            boolean z = false;
+            if (j2 <= longValue && longValue <= j3) {
+                z = true;
+            }
+            if (z) {
+                return longValue;
+            }
+            throw new IllegalStateException(("System property '" + str + "' should be in range " + j2 + IStringUtil.TOP_PATH + j3 + ", but is '" + longValue + '\'').toString());
+        }
+        throw new IllegalStateException(("System property '" + str + "' has unrecognized value '" + systemProp + '\'').toString());
     }
 
     public static final boolean systemProp(String str, boolean z) {

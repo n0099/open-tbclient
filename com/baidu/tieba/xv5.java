@@ -1,43 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class xv5 {
+public class xv5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313842, "Lcom/baidu/tieba/xv5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313842, "Lcom/baidu/tieba/xv5;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
     /* loaded from: classes8.dex */
-    public static final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
+        public String a;
+        public int b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,61 +34,83 @@ public final class xv5 {
             }
         }
 
-        public final wv5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (wv5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final wv5 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-276157900, "Lcom/baidu/tieba/xv5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-276157900, "Lcom/baidu/tieba/xv5$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new wv5();
-        }
-
-        public b() {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = i;
         }
 
-        public final wv5 a() {
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
+                }
+                a aVar = new a();
+                if (str.contains("#")) {
+                    String[] split = str.split("#");
+                    if (split.length == 1) {
+                        aVar.a = split[0];
+                    } else if (split.length == 2) {
+                        aVar.a = split[0];
+                        aVar.b = tg.e(split[1], -1);
+                    }
+                } else {
+                    aVar.a = str;
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+                if (StringUtils.isNull(this.a)) {
+                    return "";
+                }
+                return this.a + "#" + this.b;
             }
-            return (wv5) invokeV.objValue;
+            return (String) invokeV.objValue;
         }
+    }
+
+    public static String[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String s = l95.m().s("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(s)) {
+                return new String[0];
+            }
+            String[] split = s.split("\\^");
+            if (split != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (String str : split) {
+                    a a2 = a.a(str);
+                    if (a2 != null && !StringUtils.isNull(a2.a)) {
+                        arrayList.add(a2.a);
+                    }
+                }
+                return (String[]) arrayList.toArray(new String[arrayList.size()]);
+            }
+            return null;
+        }
+        return (String[]) invokeV.objValue;
     }
 }

@@ -1,16 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.spswitch.utils.ViewUtil;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.publisher.view.SPSwitchRootLinearLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class z93 {
+public class z93 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements b73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ tz2 d;
+        public final /* synthetic */ Context e;
+
+        public a(int i, boolean z, Activity activity, tz2 tz2Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), activity, tz2Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = z;
+            this.c = activity;
+            this.d = tz2Var;
+            this.e = context;
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("swanAppId", yb3.g0());
+                bundle.putInt("count", this.a);
+                bundle.putBoolean("compressed", this.b);
+                bundle.putString("launchType", "Image");
+                bundle.putString("swanTmpPath", lx2.T().G().k());
+                oz2.l(this.c, bundle, this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (z93.a) {
+                    Log.i(ViewUtil.TAG, str + "");
+                }
+                Toast.makeText(this.e, str, 1).show();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,135 +99,135 @@ public final class z93 {
                 return;
             }
         }
-        a = qp1.a;
+        a = is1.a;
     }
 
-    public static da3 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+    public static View b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
-            da3 da3Var = new da3();
-            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", da3Var);
-            ns2.s().a(da3Var);
-            da3Var.b(new tc3(da3Var));
-            da3Var.b(new sc3(da3Var));
-            da3Var.b(new zc3(da3Var));
-            da3Var.b(new xc3(da3Var));
-            da3Var.b(new wc3(da3Var));
-            da3Var.b(new qc3(da3Var));
-            da3Var.b(new jc3(da3Var));
-            da3Var.b(new ic3(da3Var));
-            da3Var.b(new hc3(da3Var));
-            da3Var.b(new kc3(da3Var));
-            da3Var.b(new oc3(da3Var));
-            da3Var.b(new nc3(da3Var));
-            da3Var.b(new bd3(da3Var));
-            da3Var.b(new dd3(da3Var));
-            da3Var.b(new cd3(da3Var));
-            da3Var.b(new la3(da3Var));
-            da3Var.b(new ec3(da3Var));
-            da3Var.b(new g22(da3Var));
-            da3Var.b(new j22(da3Var));
-            da3Var.b(new l22(da3Var));
-            da3Var.b(new e22(da3Var));
-            da3Var.b(new h22(da3Var));
-            da3Var.b(new k22(da3Var));
-            da3Var.b(new lw2(da3Var));
-            da3Var.b(new kw2(da3Var));
-            da3Var.b(new hy2(da3Var));
-            da3Var.b(new a82(da3Var));
-            da3Var.b(new u62(da3Var));
-            da3Var.b(new bh3(da3Var));
-            da3Var.b(new ug3(da3Var));
-            da3Var.b(new vg3(da3Var));
-            da3Var.b(new yg3(da3Var));
-            da3Var.b(new o03(da3Var));
-            da3Var.b(new vr2(da3Var));
-            da3Var.b(new sr2(da3Var));
-            da3Var.b(new wr2(da3Var));
-            da3Var.b(new kk3(da3Var));
-            da3Var.b(new lk3(da3Var));
-            da3Var.b(new mk3(da3Var));
-            da3Var.b(new nk3(da3Var));
-            da3Var.b(new ok3(da3Var));
-            da3Var.b(new pk3(da3Var));
-            da3Var.b(new qk3(da3Var));
-            da3Var.b(new rk3(da3Var));
-            da3Var.b(new ov2(da3Var));
-            da3Var.b(new r12(da3Var));
-            da3Var.b(new w12(da3Var));
-            da3Var.b(new s12(da3Var));
-            da3Var.b(new v12(da3Var));
-            da3Var.b(new t12(da3Var));
-            da3Var.b(new u12(da3Var));
-            da3Var.b(new i52(da3Var));
-            da3Var.b(new j52(da3Var));
-            da3Var.b(new zl2(da3Var));
-            da3Var.b(new yp1(da3Var));
-            da3Var.b(new vp1(da3Var));
-            da3Var.b(new tj3(da3Var));
-            da3Var.b(new uj3(da3Var));
-            da3Var.b(new dj3(da3Var));
-            da3Var.b(new ro3(da3Var));
-            da3Var.b(new k12(da3Var));
-            da3Var.b(new pw2(da3Var));
-            da3Var.b(new qw2(da3Var));
-            da3Var.b(new ow2(da3Var));
-            da3Var.b(new tg3(da3Var));
-            da3Var.b(new p72(da3Var));
-            da3Var.b(new xk3(da3Var));
-            da3Var.b(new wk3(da3Var));
-            da3Var.b(new yk3(da3Var));
-            da3Var.b(new nj3(da3Var));
-            da3Var.b(new cc3(da3Var));
-            da3Var.b(new zb3(da3Var));
-            da3Var.b(new va3(da3Var));
-            if (a) {
-                da3Var.b(new ad3(da3Var));
-                da3Var.b(new e72(da3Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            View view3 = null;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (childAt instanceof SPSwitchRootLinearLayout) {
+                        view3 = childAt;
+                    }
+                    if (view3 != null) {
+                        break;
+                    }
+                    view3 = b(childAt);
+                }
             }
-            da3Var.b(new ya3(da3Var));
-            da3Var.b(new pa3(da3Var));
-            da3Var.b(new ga3(da3Var));
-            da3Var.b(new ra3(da3Var));
-            da3Var.b(new f22(da3Var));
-            da3Var.b(new i22(da3Var));
-            da3Var.b(new d52(da3Var));
-            da3Var.b(new jb3(da3Var));
-            da3Var.b(new mb3(da3Var));
-            da3Var.b(new nb3(da3Var));
-            da3Var.b(new lb3(da3Var));
-            da3Var.b(new ob3(da3Var));
-            da3Var.b(new uc3(da3Var));
-            da3Var.b(new aw1(da3Var));
-            da3Var.b(new qj2(da3Var));
-            da3Var.b(new hb3(da3Var));
-            da3Var.b(new ib3(da3Var));
-            da3Var.b(new gc3(da3Var));
-            da3Var.b(new pb3(da3Var));
-            da3Var.b(new cb3(da3Var));
-            da3Var.b(new ia3(da3Var));
-            da3Var.b(new yy2(da3Var));
-            da3Var.b(new qa3(da3Var));
-            da3Var.b(new wp2(da3Var));
-            da3Var.b(new yp2(da3Var));
-            da3Var.b(new ub3(da3Var));
-            da3Var.b(new vb3(da3Var));
-            da3Var.b(new sy2(da3Var));
-            da3Var.b(new dq1(da3Var));
-            da3Var.b(new q13(da3Var));
-            da3Var.b(new hw1(da3Var));
-            da3Var.b(new lw1(da3Var));
-            da3Var.b(new jw1(da3Var));
-            da3Var.b(new mw1(da3Var));
-            da3Var.b(new kw1(da3Var));
-            da3Var.b(new vd3(da3Var));
-            da3Var.b(new yv1(da3Var));
-            da3Var.b(new zv1(da3Var));
-            da3Var.b(new fw1(da3Var));
-            ns2.Y().a(da3Var);
-            return da3Var;
+            return view3;
         }
-        return (da3) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            View b = b(activity.getWindow().getDecorView());
+            if (b == null) {
+                if (a) {
+                    Log.d(ViewUtil.TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
+                    return false;
+                }
+                return false;
+            }
+            return b.getFitsSystemWindows();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if ((activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 67108864) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) {
+            if (view2.getHeight() == i) {
+                return false;
+            }
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, originalHeight: " + view2.getHeight() + ", aimHeight: " + i);
+            }
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
+            } else {
+                layoutParams.height = i;
+                view2.requestLayout();
+            }
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, newHeight: " + view2.getHeight());
+                return true;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void h(@NonNull Context context, @StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
+            qb3.f(context, i).G();
+        }
+    }
+
+    public static void i(int i, tz2 tz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, tz2Var) == null) {
+            j(i, false, tz2Var);
+        }
+    }
+
+    public static void j(int i, boolean z, tz2 tz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), tz2Var}) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            yb3 b0 = yb3.b0();
+            if (b0 == null) {
+                return;
+            }
+            SwanAppActivity w = b0.w();
+            a73.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, w, new a(i, z, w, tz2Var, appContext));
+        }
     }
 }

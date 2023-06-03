@@ -1,7 +1,6 @@
 package com.baidu.minivideo.plugin.capture.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +35,7 @@ public class StringUtils {
                 return "";
             }
             try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                return URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException unused) {
                 return str;
             }

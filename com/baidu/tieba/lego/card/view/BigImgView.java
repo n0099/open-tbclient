@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.lego.card.model.BigImgCard;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,13 +55,13 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigImgCard) == null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
-                int ratio = (int) (bigImgCard.getRatio() * ri.l(getContext()));
+                int ratio = (int) (bigImgCard.getRatio() * vi.l(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
                     this.m.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((ri.l(getContext()) * 0.5f) + 0.5f);
+                layoutParams.height = (int) ((vi.l(getContext()) * 0.5f) + 0.5f);
                 this.m.setLayoutParams(layoutParams);
             }
             this.m.N(bigImgCard.getUrl(), 10, false);

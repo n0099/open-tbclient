@@ -8,16 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.ADSize;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes9.dex */
-public abstract class BaseNativeExpressAd {
+/* loaded from: classes10.dex */
+public abstract class BaseNativeExpressAd implements IBaseAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
-    public static final int EVENT_TYPE_ON_AD_CLICKED = 6;
-    public static final int EVENT_TYPE_ON_AD_EXPOSURE = 5;
-    public static final int EVENT_TYPE_ON_AD_LOADED = 2;
-    public static final int EVENT_TYPE_ON_NO_AD = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     public BaseNativeExpressAd(Context context, ADSize aDSize, String str, String str2, String str3) {
@@ -45,13 +42,32 @@ public abstract class BaseNativeExpressAd {
         return invokeV.intValue;
     }
 
-    public abstract int getECPM();
-
     public abstract void loadAD(int i);
 
     public abstract void loadAD(int i, LoadAdParams loadAdParams);
 
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendLossNotification(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, str) == null) {
+        }
+    }
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendWinNotification(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
     public abstract void setAdListener(ADListener aDListener);
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setBidECPM(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
 
     public abstract void setECPMLevel(String str);
 
@@ -59,7 +75,14 @@ public abstract class BaseNativeExpressAd {
 
     public abstract void setMinVideoDuration(int i);
 
-    public abstract void setVideoOption(VideoOption videoOption);
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setPayload(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        }
+    }
 
-    public abstract void setVideoPlayPolicy(int i);
+    public abstract void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
+
+    public abstract void setVideoOption(VideoOption videoOption);
 }

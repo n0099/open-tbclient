@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.refresh.ContinuousAnimationView;
-import com.baidu.live.business.refresh.LoadAnimStrategy;
-import com.baidu.live.business.refresh.SmartBubbleAnimatedView;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,104 +12,154 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class z90 extends x90 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int v;
-    public static final int w;
-    public static final int x;
+public class z90 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 3;
+    public static Context b;
+    public static List<String> c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public View d;
-    public LinearLayout e;
-    public f f;
-    public e g;
-    public g h;
-    public d i;
-    public ContinuousAnimationView j;
-    public boolean k;
-    public SmartBubbleAnimatedView l;
-    public i m;
-    public h n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public View.OnClickListener r;
-    public View.OnClickListener s;
-    public String t;
-    public final Animator.AnimatorListener u;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(String str, boolean z);
+
+        void b(String str, d dVar);
+    }
 
     /* loaded from: classes8.dex */
     public interface d {
-        void a();
+        void a(int i, String str, String str2);
     }
 
     /* loaded from: classes8.dex */
-    public interface e {
-        void a(View view2, boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface f {
-        void f(boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface g {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class h {
+    public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract int a();
-
-        public abstract String b();
-    }
-
-    /* loaded from: classes8.dex */
-    public interface i {
-        void a(int i);
-
-        void onAnimationEnd();
-    }
-
-    @Override // com.baidu.tieba.x90, com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public long getCompleteAnimTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 600L;
+        @Override // com.baidu.tieba.z90.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            }
         }
-        return invokeV.longValue;
-    }
 
-    @Override // com.baidu.tieba.x90
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        /* renamed from: com.baidu.tieba.z90$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0534a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ Timer b;
+            public final /* synthetic */ d c;
+
+            /* renamed from: com.baidu.tieba.z90$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes8.dex */
+            public class C0535a extends TimerTask {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AtomicBoolean a;
+                public final /* synthetic */ RunnableC0534a b;
+
+                public C0535a(RunnableC0534a runnableC0534a, AtomicBoolean atomicBoolean) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0534a, atomicBoolean};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = runnableC0534a;
+                    this.a = atomicBoolean;
+                }
+
+                @Override // java.util.TimerTask, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        ta0.a("DNSUrlProvider", "bddns > bdDnsIps is null");
+                        d dVar = this.b.c;
+                        if (dVar != null) {
+                            dVar.a(8007, "bddns timeout :", "bddns timeout, bdDnsIps is null");
+                            z90.f(true);
+                            b c = z90.c(z90.b);
+                            RunnableC0534a runnableC0534a = this.b;
+                            c.b(runnableC0534a.a, runnableC0534a.c);
+                        }
+                        this.a.set(true);
+                    }
+                }
+            }
+
+            public RunnableC0534a(a aVar, String str, Timer timer, d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, str, timer, dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = timer;
+                this.c = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ta0.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
+                    AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                    this.b.schedule(new C0535a(this, atomicBoolean), 10000L);
+                    DnsHelper dnsHelper = new DnsHelper(z90.b);
+                    dnsHelper.setHttpDnsState(false, null, false, true);
+                    z90.j(dnsHelper.getIpList(this.a));
+                    List<String> list = z90.c;
+                    if (list != null && list.size() > 0) {
+                        ta0.a("DNSUrlProvider", "bddns > bdDnsIps = " + z90.c);
+                        String str = z90.c.get(0);
+                        if (this.c != null && !atomicBoolean.get()) {
+                            this.c.a(0, DnsModel.MSG_OK, str);
+                            if (z90.c.size() > 1) {
+                                z90.d++;
+                                z90.f(false);
+                            }
+                        }
+                        ta0.a("DNSUrlProvider", "bddns > return ip = " + str);
+                        this.b.cancel();
+                    }
+                }
+            }
         }
-    }
 
-    public void u(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z90 a;
-
-        public a(z90 z90Var) {
+        public a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z90Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,51 +169,130 @@ public class z90 extends x90 {
                     return;
                 }
             }
-            this.a = z90Var;
+            Context unused = z90.b = context.getApplicationContext();
+            z90.i();
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public static synchronized a c(Context context) {
+            InterceptResult invokeL;
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null) {
-                this.a.r.onClick(view2);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (a.class) {
+                    if (a == null) {
+                        a = new a(context);
+                    }
+                    aVar = a;
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.z90.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+                try {
+                    ta0.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
+                    if (z90.c != null && z90.c.size() > 0) {
+                        if (z90.d < z90.c.size()) {
+                            if (dVar != null) {
+                                dVar.a(0, DnsModel.MSG_OK, z90.c.get(z90.d));
+                                ta0.a("DNSUrlProvider", "retry bddns > return ip = " + z90.c.get(z90.d));
+                            }
+                            z90.d++;
+                            return;
+                        }
+                        z90.f(true);
+                        z90.c(z90.b).b(str, dVar);
+                        return;
+                    }
+                    qa0.a(z90.b).b(new RunnableC0534a(this, str, new Timer(), dVar));
+                } catch (Throwable unused) {
+                    ta0.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
+                    z90.f(true);
+                    z90.c(z90.b).b(str, dVar);
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Animator.AnimatorListener {
+    public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
+        public static c a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z90 a;
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // com.baidu.tieba.z90.b
+        public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        public c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
+        public static synchronized b c() {
+            InterceptResult invokeV;
+            c cVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                synchronized (c.class) {
+                    if (a == null) {
+                        a = new c();
+                    }
+                    cVar = a;
+                }
+                return cVar;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.z90.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+                ta0.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
+                if (dVar != null) {
+                    z90.i();
+                    dVar.a(0, DnsModel.MSG_OK, str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class e implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public static e a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.z90.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
             }
         }
 
-        public b(z90 z90Var) {
+        public e(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z90Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -181,50 +302,38 @@ public class z90 extends x90 {
                     return;
                 }
             }
-            this.a = z90Var;
+            Context unused = z90.b = context.getApplicationContext();
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
+        public static synchronized e c(Context context) {
+            InterceptResult invokeL;
+            e eVar;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) || this.a.q) {
-                return;
-            }
-            this.a.q = true;
-            this.a.j.setSpeed(1.0f);
-            this.a.j.setMinAndMaxFrame(z90.w, z90.x);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements SmartBubbleAnimatedView.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z90 a;
-
-        public c(z90 z90Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z90Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (e.class) {
+                    if (a == null) {
+                        a = new e(context);
+                    }
+                    eVar = a;
                 }
+                return eVar;
             }
-            this.a = z90Var;
+            return (e) invokeL.objValue;
         }
 
-        @Override // com.baidu.live.business.refresh.SmartBubbleAnimatedView.e
-        public void a() {
+        @Override // com.baidu.tieba.z90.b
+        public void b(String str, d dVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.m != null) {
-                this.a.m.onAnimationEnd();
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+                ta0.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
+                try {
+                    pa0 pa0Var = new pa0(z90.b);
+                    pa0Var.a(dVar);
+                    oa0.d().e(pa0Var, pa0Var);
+                } catch (Exception unused) {
+                    z90.f(true);
+                    z90.c(z90.b).b(str, dVar);
+                }
             }
         }
     }
@@ -242,271 +351,148 @@ public class z90 extends x90 {
                 return;
             }
         }
-        v = LoadAnimStrategy.getInstance().pullEndFrame;
-        w = LoadAnimStrategy.getInstance().loopStartFrame;
-        x = LoadAnimStrategy.getInstance().loopEndFrame;
+        c = Collections.synchronizedList(new ArrayList());
+        d = 0;
     }
 
-    public final void C() {
-        ContinuousAnimationView continuousAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (continuousAnimationView = this.j) != null) {
-            if (continuousAnimationView.isAnimating()) {
-                this.j.cancelAnimation();
-            }
-            this.q = false;
-            this.j.loop(true);
-            this.j.setMinFrame(v);
-            this.j.setRepeatMode(1);
-            this.j.removeAllAnimatorListeners();
-            this.j.addAnimatorListener(this.u);
-            this.j.playAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.x90
-    public void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || h()) {
-            return;
-        }
-        d dVar = this.i;
-        if (dVar != null) {
-            dVar.a();
-        }
-        if (!A()) {
-            B();
-            return;
-        }
-        ContinuousAnimationView continuousAnimationView = this.j;
-        if (continuousAnimationView != null && continuousAnimationView.isAnimating()) {
-            this.j.cancelAnimation();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z90(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.k = false;
-        this.o = true;
-        this.p = true;
-        this.q = false;
-        this.r = null;
-        this.s = new a(this);
-        this.u = new b(this);
-    }
-
-    @Override // com.baidu.tieba.x90
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.p = true;
-            if (w() && this.j.isAnimating()) {
-                this.j.cancelAnimation();
-            }
-            e eVar = this.g;
-            if (eVar != null) {
-                eVar.a(this.d, z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.x90
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || h()) {
-            return;
-        }
-        f fVar = this.f;
-        if (fVar != null && this.p) {
-            fVar.f(z);
-        }
-        this.p = true;
-    }
-
-    @Override // com.baidu.tieba.x90
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            g gVar = this.h;
-            if (gVar != null) {
-                gVar.a(z);
-            }
-            v();
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.t = str;
-        }
-    }
-
-    public final void B() {
-        ContinuousAnimationView continuousAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && w() && (continuousAnimationView = this.j) != null) {
-            continuousAnimationView.loop(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.x90
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            v();
-            if (!w() || h()) {
-                return;
-            }
-            C();
-        }
-    }
-
-    public boolean w() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return y90.a().b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            List<String> list = c;
+            if (list != null && d <= list.size()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean x() {
-        InterceptResult invokeV;
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!x() || !this.o || this.n == null || this.e == null) {
-                return false;
-            }
-            this.j.setVisibility(8);
-            if (this.l == null) {
-                SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(getContext());
-                this.l = smartBubbleAnimatedView;
-                smartBubbleAnimatedView.setExtrusionRemind(true);
-            }
-            this.l.a = this.n.b();
-            this.l.b = this.n.a();
-            if (this.l.getParent() != null) {
-                this.e.removeView(this.l);
-            }
-            this.e.addView(this.l);
-            this.l.setOnBubbleAnimateListener(new c(this));
-            i iVar = this.m;
-            if (iVar != null) {
-                iVar.a(this.l.getTipViewHeight());
-            }
-            this.l.f();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x90, com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void c(float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            super.c(f2, f3);
-            if (w()) {
-                this.j.setAlpha(f2);
-                this.j.setFrame((int) (f2 * v));
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            try {
+                d = 0;
+                c.clear();
+                a = 2;
+            } catch (Exception e2) {
+                ta0.c("DNSUrlProvider", "resetBdDns exception", e2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.x90
-    public View f() {
-        InterceptResult invokeV;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean equals = "recommend".equals(this.t);
-            int i2 = R.layout.obfuscated_res_0x7f0d05ae;
-            if (!equals && !"baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05af;
-                } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05b0;
-                } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05b1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static b c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            b = context.getApplicationContext();
+            int a2 = sa0.a(context);
+            if (a2 != 1 && a2 != 2) {
+                ta0.b("DNSUrlProvider", "bdDNS :" + ua0.c(context) + ", cur :" + a);
+                if (ua0.c(context) && a == 2) {
+                    return a.c(context);
+                }
+                if (a == 3) {
+                    return e.c(context);
+                }
+                return c.c();
+            }
+            a = 0;
+            return c.c();
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public static int f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
+            if (z) {
+                int a2 = sa0.a(b);
+                if (a2 != 1 && a2 != 2) {
+                    int i = a;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                a = 0;
+                            }
+                        } else {
+                            a = 3;
+                        }
+                    } else {
+                        a = 2;
+                    }
+                } else {
+                    a = 0;
                 }
             }
-            View inflate = LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) null);
-            this.d = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091cda);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.continuous_loading_view);
-            this.j = continuousAnimationView;
-            continuousAnimationView.setOnClickListener(this.s);
-            v();
-            return this.d;
+            ta0.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
+            return a;
         }
-        return (View) invokeV.objValue;
+        return invokeZ.intValue;
     }
 
-    public final void v() {
-        ContinuousAnimationView continuousAnimationView;
+    public static void g(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            SmartBubbleAnimatedView smartBubbleAnimatedView = this.l;
-            if (smartBubbleAnimatedView != null && smartBubbleAnimatedView.getParent() != null) {
-                this.e.removeView(this.l);
-            }
-            if (w() && (continuousAnimationView = this.j) != null) {
-                if (continuousAnimationView.getVisibility() != 0) {
-                    this.j.setVisibility(0);
-                }
-                if (this.j.isAnimating()) {
-                    this.j.cancelAnimation();
-                }
-                this.j.setMinAndMaxProgress(0.0f, 1.0f);
-                this.j.setFrame(0);
-                this.j.setSpeed(1.3f);
-            }
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
+            h(context, str, true);
         }
     }
 
-    public void y(String str) {
+    public static void h(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            String m = tc0.f().m(str);
-            if (TextUtils.isEmpty(m)) {
-                int n = tc0.f().n(str);
-                if (n != 0) {
-                    this.j.setAnimation(n);
+        if (interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) {
+            i();
+            c.c().a(str, true);
+        }
+    }
+
+    public static void j(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, list) == null) {
+            c.clear();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            if (list != null && !list.isEmpty()) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (e(list.get(i))) {
+                        arrayList.add(list.get(i));
+                    } else {
+                        arrayList2.add(list.get(i));
+                    }
+                }
+            }
+            if (arrayList.size() + arrayList2.size() > 0) {
+                int f = ua0.f(b);
+                ta0.b("DNSUrlProvider", "getIpPriority :" + f + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
+                if (f != 1) {
+                    if (f != 2) {
+                        if (f != 4) {
+                            c.addAll(arrayList);
+                            c.addAll(arrayList2);
+                            return;
+                        }
+                        c.addAll(arrayList);
+                        return;
+                    }
+                    c.addAll(arrayList2);
+                    c.addAll(arrayList);
                     return;
                 }
-                return;
+                c.addAll(arrayList2);
             }
-            this.j.setAnimation(m);
         }
     }
 }

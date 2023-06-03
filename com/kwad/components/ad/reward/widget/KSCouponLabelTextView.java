@@ -77,7 +77,7 @@ public class KSCouponLabelTextView extends TextView implements e {
     @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCouponLabelTextView, i, 0);
-        int color = context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06078d);
+        int color = context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06079e);
         this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
         this.wu = obtainStyledAttributes.getDimension(3, 2.0f);
         this.strokeColor = obtainStyledAttributes.getColor(2, color);
@@ -175,7 +175,7 @@ public class KSCouponLabelTextView extends TextView implements e {
 
     @Override // com.kwad.components.core.widget.e
     public final void a(f fVar) {
-        int color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06078d);
+        int color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06079e);
         this.strokeColor = color;
         setTextColor(color);
         jd();

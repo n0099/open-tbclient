@@ -1,73 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.friendList;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
 /* loaded from: classes5.dex */
-public class f76 extends en<s86, LiveTabConcernTitleView.ViewHolder> {
+public class f76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
+    public List<cf5> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f76(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), s86.b);
+    public f76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public LiveTabConcernTitleView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<cf5> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.a, viewGroup));
-        }
-        return (LiveTabConcernTitleView.ViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s86 s86Var, LiveTabConcernTitleView.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
-        LiveTabConcernTitleView liveTabConcernTitleView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s86Var, viewHolder})) == null) {
-            if (viewHolder != null && (liveTabConcernTitleView = viewHolder.a) != null) {
-                liveTabConcernTitleView.i(s86Var);
-                viewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return viewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
             }
-            return null;
+            return this.b;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(listData listdata) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
+            this.a = listdata.key;
+            if (listdata.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : listdata.friend_list) {
+                    cf5 cf5Var = new cf5();
+                    cf5Var.i(friendlist);
+                    cf5Var.j(this.a);
+                    this.b.add(cf5Var);
+                }
+            }
+        }
+    }
+
+    public void d(robotsList robotslist) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
+            this.a = robotslist.key;
+            if (robotslist.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : robotslist.friend_list) {
+                    cf5 cf5Var = new cf5();
+                    cf5Var.i(friendlist);
+                    cf5Var.j(this.a);
+                    this.b.add(cf5Var);
+                }
+            }
+        }
     }
 }

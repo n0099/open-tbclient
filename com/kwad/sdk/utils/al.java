@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.PowerManager;
 import android.os.SystemClock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class al {
     public static volatile al anT = new al();
     public volatile boolean anU;

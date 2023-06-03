@@ -25,7 +25,6 @@ import com.huawei.hms.push.t;
 import com.huawei.hms.push.utils.PushBiUtil;
 import com.huawei.hms.support.api.entity.push.PushNaming;
 import com.huawei.hms.support.log.HMSLog;
-import com.qq.e.comm.constants.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -323,7 +322,7 @@ public class HmsMessageService extends Service {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     String optString = jSONObject.optString("transactionId");
                     String optString2 = jSONObject.optString("msgId");
-                    int optInt = jSONObject.optInt(Constants.KEYS.RET, ErrorEnum.ERROR_UNKNOWN.getInternalCode());
+                    int optInt = jSONObject.optInt("ret", ErrorEnum.ERROR_UNKNOWN.getInternalCode());
                     if (ErrorEnum.SUCCESS.getInternalCode() == optInt) {
                         b(optString, optString2);
                     } else {

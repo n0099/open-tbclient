@@ -3,10 +3,8 @@ package com.baidu.searchbox.player.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 /* loaded from: classes4.dex */
 public class BdActivityUtils {
-    @PublicMethod
     @SuppressLint({"SourceLockedOrientationActivity"})
     public static void requestLandscape(@Nullable Activity activity, boolean z) {
         if (activity != null) {
@@ -19,7 +17,6 @@ public class BdActivityUtils {
         }
     }
 
-    @PublicMethod
     @SuppressLint({"SourceLockedOrientationActivity"})
     public static void requestPortrait(@Nullable Activity activity) {
         if (activity != null) {

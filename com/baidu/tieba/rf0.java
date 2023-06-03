@@ -1,84 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tf0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class rf0 implements tf0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public tf0.a b;
+public interface rf0 {
 
-    public abstract void b();
-
-    public rf0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void b(rf0 rf0Var);
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean d(rf0 rf0Var, int i, int i2);
     }
 
-    public void c(tf0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-            if (aVar != null) {
-                aVar.a(a(), this);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface c {
+        boolean e(rf0 rf0Var, int i, int i2, Object obj);
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        tf0.a aVar = this.b;
-        if (aVar != null) {
-            aVar.a(i, this);
-        }
+    /* loaded from: classes7.dex */
+    public interface d {
+        void c(rf0 rf0Var);
     }
 
-    public void e(tf0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            int i = this.a;
-            if (i != 0 && 3 != i && 2 != i) {
-                c(aVar);
-                return;
-            }
-            d(1);
-            c(aVar);
-            try {
-                b();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                d(3);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(rf0 rf0Var);
     }
 }

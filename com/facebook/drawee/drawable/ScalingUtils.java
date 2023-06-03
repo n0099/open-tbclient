@@ -5,10 +5,10 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScalingUtils {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ScaleType {
         public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
         public static final ScaleType FIT_X = ScaleTypeFitX.INSTANCE;
@@ -25,12 +25,12 @@ public class ScalingUtils {
         Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface StatefulScaleType {
         Object getState();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
         @Nullable
         public final Rect mBoundsFrom;
@@ -173,7 +173,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class AbstractScaleType implements ScaleType {
         public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
 
@@ -184,7 +184,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeCenter extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeCenter();
 
@@ -198,7 +198,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeCenterCrop extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeCenterCrop();
 
@@ -223,7 +223,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeCenterInside extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeCenterInside();
 
@@ -241,7 +241,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitBottomStart extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitBottomStart();
 
@@ -257,7 +257,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitCenter extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitCenter();
 
@@ -275,7 +275,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitEnd extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitEnd();
 
@@ -291,7 +291,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitStart extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitStart();
 
@@ -307,7 +307,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitX extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitX();
 
@@ -323,7 +323,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitXY extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitXY();
 
@@ -338,7 +338,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFitY extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFitY();
 
@@ -353,7 +353,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleTypeFocusCrop extends AbstractScaleType {
         public static final ScaleType INSTANCE = new ScaleTypeFocusCrop();
 

@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public Context a;
 

@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tq7;
+import com.baidu.tieba.dw7;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.MatchCardInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MatchCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,16 +103,16 @@ public class MatchCardView extends LinearLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p45 d = p45.d(this.b);
+            m75 d = m75.d(this.b);
             int i = R.dimen.T_X12;
             d.B(R.dimen.T_X12);
             d.w(R.color.CAM_X0107);
-            p45 d2 = p45.d(this.d);
+            m75 d2 = m75.d(this.d);
             d2.B(R.dimen.T_X12);
             d2.w(R.color.CAM_X0107);
             this.c.setSkinType(TbadkCoreApplication.getInst().getSkinType());
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
-            p45 d3 = p45.d(this.f);
+            m75 d3 = m75.d(this.f);
             d3.B(R.dimen.T_X09);
             int i2 = R.color.CAM_X0108;
             d3.w(R.color.CAM_X0108);
@@ -120,7 +120,7 @@ public class MatchCardView extends LinearLayout {
             if (matchCardInfo == null || matchCardInfo.status.intValue() != 1) {
                 i = R.dimen.T_X04;
             }
-            p45 d4 = p45.d(this.g);
+            m75 d4 = m75.d(this.g);
             d4.C(R.string.F_X02);
             d4.B(i);
             d4.w(R.color.CAM_X0105);
@@ -128,62 +128,62 @@ public class MatchCardView extends LinearLayout {
             if (matchCardInfo2 != null && matchCardInfo2.status.intValue() == 2) {
                 i2 = R.color.CAM_X0302;
             }
-            p45 d5 = p45.d(this.h);
+            m75 d5 = m75.d(this.h);
             d5.B(R.dimen.T_X10);
             d5.w(i2);
             d5.o(R.string.J_X04);
             d5.e(R.string.A_X11);
             d5.f(i2);
-            p45.d(this.i).f(R.color.CAM_X0203);
+            m75.d(this.i).f(R.color.CAM_X0203);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0812, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.bottomMargin = ri.g(getContext(), R.dimen.tbds4);
+            marginLayoutParams.bottomMargin = vi.g(getContext(), R.dimen.tbds4);
             setLayoutParams(marginLayoutParams);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09235a);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092358);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09238d);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09238b);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setDefaultResource(R.drawable.pic_head_topic);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09235b);
-            HeadImageView headImageView2 = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092359);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09238e);
+            HeadImageView headImageView2 = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09238c);
             this.e = headImageView2;
             headImageView2.setIsRound(true);
             this.e.setDefaultResource(R.drawable.pic_head_topic);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091690);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091692);
-            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091693);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916b2);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916b4);
+            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916b5);
             this.i = findViewById(R.id.bottom_divider);
         }
     }
 
-    public void setData(tq7 tq7Var) {
+    public void setData(dw7 dw7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tq7Var) == null) && tq7Var != null && tq7Var.a() != null) {
-            this.j = tq7Var.a();
-            this.b.setText(tq7Var.a().team_name_a);
-            this.c.N(tq7Var.a().team_icon_a, 12, false);
-            this.d.setText(tq7Var.a().team_name_b);
-            this.e.N(tq7Var.a().team_icon_b, 12, false);
-            this.f.setText(tq7Var.a().name);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dw7Var) == null) && dw7Var != null && dw7Var.a() != null) {
+            this.j = dw7Var.a();
+            this.b.setText(dw7Var.a().team_name_a);
+            this.c.N(dw7Var.a().team_icon_a, 12, false);
+            this.d.setText(dw7Var.a().team_name_b);
+            this.e.N(dw7Var.a().team_icon_b, 12, false);
+            this.f.setText(dw7Var.a().name);
             int intValue = this.j.status.intValue();
             if (intValue != 2) {
                 if (intValue != 3) {
-                    this.g.setText(tq7Var.a().start_desc);
+                    this.g.setText(dw7Var.a().start_desc);
                     this.h.setText("未开始");
                 } else {
                     this.h.setText("已结束");
-                    this.g.setText(String.format("%d - %d", tq7Var.a().team_score_a, tq7Var.a().team_score_b));
+                    this.g.setText(String.format("%d - %d", dw7Var.a().team_score_a, dw7Var.a().team_score_b));
                 }
             } else {
                 this.h.setText("进行中");
-                this.g.setText(String.format("%d - %d", tq7Var.a().team_score_a, tq7Var.a().team_score_b));
+                this.g.setText(String.format("%d - %d", dw7Var.a().team_score_a, dw7Var.a().team_score_b));
             }
             a();
         }

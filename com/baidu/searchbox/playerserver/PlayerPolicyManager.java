@@ -4,7 +4,10 @@ import androidx.annotation.Keep;
 @Keep
 /* loaded from: classes4.dex */
 public class PlayerPolicyManager {
+    public static final String REQ_SOURCE_OPEN_VIDEO = "req_source_open_video";
+    public static final String REQ_SOURCE_PREFETCH = "req_source_prefetch";
     public static final PlayerPolicyManager ourInstance = new PlayerPolicyManager();
+    public static String sRequestSource = "unknown";
     public IPlayerPolicy mPlayerPolicy;
 
     public PlayerPolicyManager() {
@@ -48,6 +51,13 @@ public class PlayerPolicyManager {
         IPlayerPolicy iPlayerPolicy = this.mPlayerPolicy;
         if (iPlayerPolicy != null) {
             iPlayerPolicy.unregister(iPlayerConfig);
+        }
+    }
+
+    public void updateManually(int i) {
+        IPlayerPolicy iPlayerPolicy = this.mPlayerPolicy;
+        if (iPlayerPolicy != null) {
+            iPlayerPolicy.sendRequestManually(i);
         }
     }
 }

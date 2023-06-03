@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.rb8;
+import com.baidu.tieba.kh8;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ import java.util.List;
 public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long i;
-    public long j;
+    public long k;
+    public long l;
 
     /* loaded from: classes6.dex */
     public static class Holder extends BaseViewHolder {
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918e9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff7);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e84);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918ec);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918eb);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09190f);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091005);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09100a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e96);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091912);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091911);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -101,54 +101,54 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: N */
-    public Holder H(@NonNull ViewGroup viewGroup) {
+    /* renamed from: P */
+    public Holder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ef, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f5, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void P(long j) {
+    public void R(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.i = j;
+            this.k = j;
         }
     }
 
-    public void Q(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.j = j;
+            this.l = j;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: O */
-    public View J(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysMsg noticeModifySysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: Q */
+    public View M(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysMsg noticeModifySysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            p45 d = p45.d(holder.a);
+            m75 d = m75.d(holder.a);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            p45 d2 = p45.d(holder.b);
+            m75 d2 = m75.d(holder.b);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X09);
             d2.C(R.string.F_X01);
-            p45 d3 = p45.d(holder.c);
+            m75 d3 = m75.d(holder.c);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X09);
             d3.C(R.string.F_X01);
-            p45 d4 = p45.d(holder.d);
+            m75 d4 = m75.d(holder.d);
             d4.w(R.color.CAM_X0101);
             d4.B(R.dimen.T_X09);
             d4.C(R.string.F_X01);
-            p45 d5 = p45.d(holder.e);
+            m75 d5 = m75.d(holder.e);
             d5.B(R.dimen.T_X09);
             d5.w(R.color.CAM_X0304);
             d5.C(R.string.F_X01);
@@ -156,13 +156,13 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0909);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f093f);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f090b);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0941);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0901);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f1781);
-                rb8.a("c15095", 2, this.i, this.j, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f0937);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f17e4);
+                kh8.b("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

@@ -1,5 +1,35 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface nz2 {
-    void a(xz2 xz2Var);
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class nz2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static float b;
+    public static float c;
+    public static boolean d;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019683, "Lcom/baidu/tieba/nz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948019683, "Lcom/baidu/tieba/nz2;");
+                return;
+            }
+        }
+        a = is1.a;
+        b = 2.5f;
+        c = 100.0f;
+        d = true;
+    }
 }

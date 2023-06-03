@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LimitedAgeDiskCache extends BaseDiskCache {
     public final Map<File, Long> loadingDates;
     public final long maxFileAge;

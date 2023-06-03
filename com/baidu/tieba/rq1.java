@@ -1,20 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface rq1 {
-    JSONObject a();
+public class rq1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final byte[] a;
+    public final byte[] b;
 
-    void b(String str);
+    public rq1(byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = bArr;
+        this.b = bArr2;
+    }
 
-    void c(CallbackHandler callbackHandler, String str);
+    public byte[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 
-    void d(CallbackHandler callbackHandler, String str);
-
-    void e(String str);
-
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    public byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 }

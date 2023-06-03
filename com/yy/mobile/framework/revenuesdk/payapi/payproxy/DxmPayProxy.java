@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payproxy;
 
 import android.app.Activity;
-import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayFailMsg;
@@ -60,7 +59,7 @@ public final class DxmPayProxy extends DefaultPayMethod {
         if (activity == null) {
             RLog.error(this.TAG, "pay failed params activity null", new Object[0]);
             if (iPayCallback != null) {
-                iPayCallback.onFail(DlnaManager.DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
+                iPayCallback.onFail(-1011, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
                 return;
             }
             return;

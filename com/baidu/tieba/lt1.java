@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
 public interface lt1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    HttpManager a();
+
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

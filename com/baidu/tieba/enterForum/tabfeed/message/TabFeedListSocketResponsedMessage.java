@@ -3,9 +3,9 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.gm5;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.tu6;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.tz6;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes5.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements gm5 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements iq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu6 enterForumTabFeedData;
+    public tz6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -48,7 +48,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         return invokeV.objValue;
     }
 
-    public ArrayList<rn> getThreadList() {
+    public ArrayList<vn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -80,9 +80,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (tabfeedlistResIdl.data == null) {
                 return tabfeedlistResIdl;
             }
-            tu6 tu6Var = new tu6();
-            this.enterForumTabFeedData = tu6Var;
-            tu6Var.g(tabfeedlistResIdl.data);
+            tz6 tz6Var = new tz6();
+            this.enterForumTabFeedData = tz6Var;
+            tz6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;

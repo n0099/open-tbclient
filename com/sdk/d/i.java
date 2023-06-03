@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i<E> extends AbstractQueue<E> implements BlockingQueue<E>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6903933977591709194L;
@@ -572,7 +572,7 @@ public class i<E> extends AbstractQueue<E> implements BlockingQueue<E>, Serializ
         return (T[]) ((Object[]) invokeL.objValue);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

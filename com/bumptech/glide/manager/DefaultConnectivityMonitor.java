@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static final String TAG = "ConnectivityMonitor";
     public final BroadcastReceiver connectivityReceiver = new BroadcastReceiver() { // from class: com.bumptech.glide.manager.DefaultConnectivityMonitor.1

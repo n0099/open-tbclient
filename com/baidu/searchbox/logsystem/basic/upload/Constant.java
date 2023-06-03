@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.basic.upload;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Constant {
     public static final String APERF = "aperf";
     public static final String APP_EXT = "appext";

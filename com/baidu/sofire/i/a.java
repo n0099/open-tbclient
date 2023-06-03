@@ -8,9 +8,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.k.b;
 import com.baidu.sofire.k.c;
@@ -33,7 +33,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0181a a;
+    public HandlerC0195a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -42,13 +42,13 @@ public class a {
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class HandlerC0181a extends Handler {
+    public class HandlerC0195a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0181a(a aVar, Looper looper) {
+        public HandlerC0195a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -231,7 +231,7 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0181a(this, h.a());
+        this.a = new HandlerC0195a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }
@@ -283,7 +283,7 @@ public class a {
                     Cursor cursor = null;
                     try {
                         try {
-                            Cursor cursor2 = a2.b.query("r", null, "i=5", null, null, null, "d desc", "100");
+                            Cursor cursor2 = a2.b.query("r", null, "i=5", null, null, null, "d desc", YYOption.UrlProtocol.USER);
                             if (cursor2 != null) {
                                 while (cursor2.moveToNext()) {
                                     try {
@@ -300,7 +300,7 @@ public class a {
                                             aVar2.j = cursor2.getString(cursor2.getColumnIndex("j"));
                                             String string = cursor2.getString(cursor2.getColumnIndex("h"));
                                             try {
-                                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
+                                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
                                             } catch (Exception unused) {
                                                 int i3 = com.baidu.sofire.a.b.a;
                                             }
@@ -453,7 +453,7 @@ public class a {
                 contentValues.put("i", (Integer) 5);
                 contentValues.put("j", (String) null);
                 try {
-                    jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
+                    jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes("utf-8")), 0);
                 } catch (Exception unused) {
                     int i = com.baidu.sofire.a.b.a;
                 }

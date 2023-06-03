@@ -1,31 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class ha3<DispatcherT extends UnitedSchemeAbsDispatcher> {
+/* loaded from: classes6.dex */
+public class ha3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public ha3(DispatcherT dispatchert, String str) {
+    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatchert, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
+            if (context != null && viewGroup != null) {
+                FullScreenFloatView b = b(context, i);
+                viewGroup.addView(b);
+                return b;
             }
+            return null;
         }
-        this.a = str;
+        return (FullScreenFloatView) invokeLLI.objValue;
+    }
+
+    public static FullScreenFloatView b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return null;
+            }
+            int i2 = R.layout.obfuscated_res_0x7f0d00ac;
+            if (i != 1 && i == 2) {
+                i2 = R.layout.obfuscated_res_0x7f0d00ad;
+            }
+            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
+        }
+        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

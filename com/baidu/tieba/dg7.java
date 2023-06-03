@@ -1,51 +1,83 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.cg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.AlbumElement;
-import tbclient.ItemGameCode;
-import tbclient.ItemGameInfo;
-import tbclient.ItemInfo;
-import tbclient.ItemPage.DataRes;
-import tbclient.RecentUpdate;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class dg7 implements nm5 {
+public class dg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemInfo a;
-    public List<AlbumElement> b;
-    public ArrayList<rn> c;
-    public boolean d;
+    public yf7 a;
+    public TbPageContext b;
+    public oe5 c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
 
-    @Override // com.baidu.tieba.nm5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dg7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dg7 dg7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dg7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
+            UpdateAttentionMessage.a data;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
+                return;
+            }
+            if (!data.a) {
+                this.a.a.l(updateAttentionMessage.getData().b);
+            } else {
+                this.a.a.n(data.d);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.nm5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
-    }
-
-    public dg7() {
+    public dg7(TbPageContext tbPageContext, yf7 yf7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, yf7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,80 +87,62 @@ public class dg7 implements nm5 {
                 return;
             }
         }
-        this.c = new ArrayList<>();
+        this.d = BdUniqueId.gen();
+        this.e = new a(this, 2001115);
+        this.b = tbPageContext;
+        this.a = yf7Var;
+        this.c = new oe5(tbPageContext);
+        this.e.setSelfListener(true);
+        this.e.setTag(this.d);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public void a(DataRes dataRes) {
-        boolean z;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        ItemInfo itemInfo = dataRes.item_info;
-        this.a = itemInfo;
-        if (itemInfo == null) {
-            return;
-        }
-        this.b = dataRes.album_list;
-        int i = 1;
-        if (dataRes.has_tornado.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        ItemGameCode itemGameCode = dataRes.item_game_code;
-        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
-            vg7 vg7Var = new vg7();
-            vg7Var.e(dataRes.item_game_code);
-            this.c.add(vg7Var);
-        }
-        ItemGameInfo itemGameInfo = dataRes.item_game_info;
-        if (itemGameInfo != null) {
-            List<ThreadInfo> list = itemGameInfo.hot_videos;
-            if (list != null && ListUtils.getCount(list) >= 3) {
-                wg7 wg7Var = new wg7();
-                wg7Var.d(dataRes.item_game_info.hot_videos);
-                this.c.add(wg7Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            oe5 oe5Var = this.c;
+            if (oe5Var != null) {
+                oe5Var.e();
             }
-            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
-            if (recentUpdate != null && !qi.isEmpty(recentUpdate.log)) {
-                xg7 xg7Var = new xg7();
-                xg7Var.d(dataRes.item_game_info.recent_update);
-                this.c.add(xg7Var);
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
+    }
+
+    public void c(cg7 cg7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg7Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.no_network);
+            } else if (cg7Var == null || cg7Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                oe5 oe5Var = this.c;
+                cg7.b bVar = cg7Var.m;
+                oe5Var.h(!bVar.e, bVar.d, bVar.a, this.d);
             }
         }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            tg7 tg7Var = new tg7();
-            tg7Var.setSupportType(BaseCardInfo.SupportType.TOP);
-            this.c.add(tg7Var);
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.setPositionInFrsItemTab(i);
-                    i++;
-                    threadData.insertItemToTitleOrAbstractText();
-                    this.c.add(threadData);
-                    tg7 tg7Var2 = new tg7();
-                    tg7Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    this.c.add(tg7Var2);
+    }
+
+    public void d(cg7 cg7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cg7Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.no_network);
+            } else if (cg7Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("thread_id", cg7Var.b);
+                httpMessage.addParam("op_type", Boolean.valueOf(cg7Var.h));
+                httpMessage.addParam("obj_type", 3);
+                httpMessage.addParam("agree_type", 2);
+                httpMessage.addParam("forum_id", cg7Var.a);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                if (!StringUtil.isEmpty(cg7Var.i)) {
+                    httpMessage.addParam("obj_source", cg7Var.i);
                 }
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+                this.a.m();
             }
-            tg7 tg7Var3 = new tg7();
-            tg7Var3.d(this.a.id.intValue());
-            tg7Var3.setPositionInFrsItemTab(i);
-            tg7Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-            this.c.add(tg7Var3);
         }
-        ug7 ug7Var = new ug7();
-        ug7Var.e(dataRes.item_info);
-        if (ug7Var.d()) {
-            this.c.add(ug7Var);
-        }
-        yg7 yg7Var = new yg7();
-        yg7Var.d(dataRes.recommend_item);
-        this.c.add(yg7Var);
     }
 }

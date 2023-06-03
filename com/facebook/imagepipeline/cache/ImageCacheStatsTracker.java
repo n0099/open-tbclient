@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.cache;
 
 import com.facebook.cache.common.CacheKey;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ImageCacheStatsTracker {
     void onBitmapCacheHit(CacheKey cacheKey);
 

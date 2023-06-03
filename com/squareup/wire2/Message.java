@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u4b;
+import com.baidu.tieba.edb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -29,12 +29,12 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
 
     public abstract a<M, B> newBuilder();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public u4b unknownFieldsWriter;
+        public edb unknownFieldsWriter;
 
         public abstract T build();
 
@@ -83,7 +83,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new u4b(buffer);
+                    this.unknownFieldsWriter = new edb(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -103,7 +103,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new u4b(buffer);
+                        this.unknownFieldsWriter = new edb(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface uw4<T> {
-    void a(T t);
+
+import java.util.List;
+/* loaded from: classes8.dex */
+public interface uw4 {
+    void a(List<sw4> list);
+
+    void onPreLoad();
 }

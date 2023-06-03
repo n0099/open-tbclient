@@ -48,7 +48,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             com.kwad.components.core.page.c cVar = new com.kwad.components.core.page.c(getContext(), this.mAdTemplate, 4, false);
             this.landingPageViewHelper = cVar;
             cVar.a(this);
-            this.landingPageViewHelper.a(new c.C0618c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
+            this.landingPageViewHelper.a(new c.C0638c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
             this.sr.addView(this.landingPageViewHelper.getRootView());
         }
         this.ss = 0L;
@@ -63,9 +63,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     public final void onBackBtnClicked(View view2) {
         k kVar = this.nM;
         if (kVar.mAdOpenInteractionListener != null) {
-            long T = com.kwad.sdk.core.response.a.a.T(com.kwad.sdk.core.response.a.d.bQ(kVar.mAdTemplate));
+            long T2 = com.kwad.sdk.core.response.a.a.T(com.kwad.sdk.core.response.a.d.bQ(kVar.mAdTemplate));
             boolean z = true;
-            if (T >= 0 && !this.st && this.ss < T) {
+            if (T2 >= 0 && !this.st && this.ss < T2) {
                 z = false;
             }
             if (z) {
@@ -83,8 +83,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09127e);
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09123e);
+        this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091296);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091256);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

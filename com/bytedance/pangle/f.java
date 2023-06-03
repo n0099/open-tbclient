@@ -5,13 +5,13 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface f extends IInterface {
     int a();
 
     void a(ComponentName componentName, IBinder iBinder);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements f {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -19,12 +19,12 @@ public interface f extends IInterface {
         }
 
         /* renamed from: com.bytedance.pangle.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0534a implements f {
+        /* loaded from: classes9.dex */
+        public static class C0554a implements f {
             public static f a;
             public IBinder b;
 
-            public C0534a(IBinder iBinder) {
+            public C0554a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -80,7 +80,7 @@ public interface f extends IInterface {
         }
 
         public static f b() {
-            return C0534a.a;
+            return C0554a.a;
         }
 
         public static f a(IBinder iBinder) {
@@ -91,7 +91,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0534a(iBinder);
+            return new C0554a(iBinder);
         }
 
         @Override // android.os.Binder

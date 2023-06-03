@@ -167,7 +167,7 @@ public class BDEmotionDynamicLayout extends BDEmotionBaseLayout {
                                         EmotionVipHelper.doBuyVip(this.this$1.this$0.getContext(), this.this$1.this$0.mTypeModel.getAuth(), this.this$1.this$0.mTypeModel.getSchema(), new EmotionVipHelper.OnBuyVipListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionDynamicLayout.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C01831 this$2;
+                                            public final /* synthetic */ C01971 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;
@@ -191,8 +191,8 @@ public class BDEmotionDynamicLayout extends BDEmotionBaseLayout {
                                             public void onResult(boolean z2) {
                                                 Interceptable interceptable4 = $ic;
                                                 if ((interceptable4 == null || interceptable4.invokeZ(1048576, this, z2) == null) && z2) {
-                                                    C01831 c01831 = this.this$2;
-                                                    c01831.val$listener.onEmotionClick(c01831.val$itemModel);
+                                                    C01971 c01971 = this.this$2;
+                                                    c01971.val$listener.onEmotionClick(c01971.val$itemModel);
                                                 }
                                             }
                                         });

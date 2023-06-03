@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,21 +81,21 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            n75 n75Var = new n75();
-            n75Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
-            n75Var.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            n75Var.h(R.color.CAM_X0110);
-            n75Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            n75Var.n(ri.g(getContext(), R.dimen.M_W_X004), ri.g(getContext(), R.dimen.M_W_X004));
-            n75Var.o(ri.g(getContext(), R.dimen.M_H_X002));
-            n75Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            ja5 ja5Var = new ja5();
+            ja5Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
+            ja5Var.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ja5Var.h(R.color.CAM_X0110);
+            ja5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            ja5Var.n(vi.g(getContext(), R.dimen.M_W_X004), vi.g(getContext(), R.dimen.M_W_X004));
+            ja5Var.o(vi.g(getContext(), R.dimen.M_H_X002));
+            ja5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(n75Var);
+            tBSpecificationBtn.setConfig(ja5Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
             this.a.setText(getContext().getString(R.string.editor_location));
-            addView(this.a, new LinearLayout.LayoutParams(-2, ri.g(getContext(), R.dimen.tbds62)));
+            addView(this.a, new LinearLayout.LayoutParams(-2, vi.g(getContext(), R.dimen.tbds62)));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -142,7 +142,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                     int indexOf = str.indexOf("·");
                     str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
                 }
-                this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+                this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, "..."));
             } else if (i == 1) {
                 this.a.setText(getContext().getString(R.string.location_loading));
             } else {

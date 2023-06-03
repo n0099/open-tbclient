@@ -1,212 +1,328 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 /* loaded from: classes8.dex */
 public class zx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay5 a;
 
-    public zx5(Context context, gy5 gy5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gy5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, View view2) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921024) {
+                View view2 = this.a;
+                if (view2 instanceof WebView) {
+                    ((WebView) view2).reload();
+                } else if (view2 instanceof TbWebView) {
+                    ((TbWebView) view2).getController().d();
+                }
             }
         }
-        ay5 ay5Var = new ay5(2);
-        this.a = ay5Var;
-        ay5Var.A = context;
-        ay5Var.a = gy5Var;
     }
 
-    public ly5 a() {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = "";
+            this.a = str;
+            this.b = str2;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || b.class != obj.getClass()) {
+                    return false;
+                }
+                b bVar = (b) obj;
+                String str = this.a;
+                if (str == null) {
+                    if (bVar.a != null) {
+                        return false;
+                    }
+                } else if (!str.equals(bVar.a)) {
+                    return false;
+                }
+                String str2 = this.b;
+                if (str2 == null) {
+                    if (bVar.b != null) {
+                        return false;
+                    }
+                } else if (!str2.equals(bVar.b)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String str = this.a;
+                int i = 0;
+                if (str == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = str.hashCode();
+                }
+                int i2 = (hashCode + 31) * 31;
+                String str2 = this.b;
+                if (str2 != null) {
+                    i = str2.hashCode();
+                }
+                return i2 + i;
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (ui.isEmpty(str)) {
+                return str;
+            }
+            if (str.contains("page_type")) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (str.contains("?")) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append("page_type");
+            sb.append("=");
+            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ly5(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (PermissionUtil.isBrowseMode() || Build.VERSION.SDK_INT < 17) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            String s = l95.m().s("key_default_useragent", "");
+            try {
+                if (TextUtils.isEmpty(s)) {
+                    s = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
+                    l95.m().B("key_default_useragent", s);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sb.append(s);
+            sb.append(" tieba/");
+            sb.append(TbConfig.getVersion());
+            return sb.toString();
         }
-        return (ly5) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public zx5 b(boolean z) {
-        InterceptResult invokeZ;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.a.T = z;
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            int indexOf = str.indexOf(str2);
+            if (indexOf == -1) {
+                return "";
+            }
+            int length = indexOf + str2.length();
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            try {
+                return URLDecoder.decode(str.substring(length, i));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return "";
+            }
         }
-        return (zx5) invokeZ.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public zx5 c(boolean z) {
-        InterceptResult invokeZ;
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.a.R = z;
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
+                for (int i = 1; i < split.length; i++) {
+                    String[] split2 = split[i].split("&");
+                    if (split2 != null && split2.length > 0) {
+                        int length = split2.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 < length) {
+                                String[] split3 = split2[i2].split("=");
+                                if (split3.length == 2) {
+                                    String str4 = split3[0];
+                                    String str5 = split3[1];
+                                    if (str2.equals(str4)) {
+                                        try {
+                                            str3 = URLDecoder.decode(str5);
+                                            break;
+                                        } catch (Exception unused) {
+                                            str3 = str5;
+                                        }
+                                    }
+                                }
+                                i2++;
+                            }
+                        }
+                    }
+                }
+            }
+            return str3;
         }
-        return (zx5) invokeZ.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public zx5 d(int i) {
-        InterceptResult invokeI;
+    public static void e(View view2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.P = i;
-            return this;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, bdUniqueId) != null) || view2 == null) {
+            return;
         }
-        return (zx5) invokeI.objValue;
+        a aVar = new a(2921024, view2);
+        if (bdUniqueId != null) {
+            aVar.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(aVar);
+        }
     }
 
-    public zx5 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.H = i;
-            return this;
-        }
-        return (zx5) invokeI.objValue;
-    }
-
-    public zx5 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.L = i;
-            return this;
-        }
-        return (zx5) invokeI.objValue;
-    }
-
-    public zx5 g(Calendar calendar) {
+    public static boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.e = calendar;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!str.toLowerCase().startsWith("http://") && !str.toLowerCase().startsWith("https://")) {
+                return false;
+            }
+            return true;
         }
-        return (zx5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public zx5 h(ViewGroup viewGroup) {
+    public static Bundle g(String str) {
         InterceptResult invokeL;
+        URL url;
+        String query;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.a.y = viewGroup;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            Bundle bundle = new Bundle();
+            try {
+                url = new URL(str);
+                query = url.getQuery();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+                return null;
+            }
+            bundle.putString("path", url.getPath());
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
+                    bundle.putString(split2[0], split2[1]);
+                }
+            }
+            return bundle;
         }
-        return (zx5) invokeL.objValue;
-    }
-
-    public zx5 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.O = i;
-            return this;
-        }
-        return (zx5) invokeI.objValue;
-    }
-
-    public zx5 l(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            this.a.Q = f;
-            return this;
-        }
-        return (zx5) invokeF.objValue;
-    }
-
-    public zx5 m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.a.N = i;
-            return this;
-        }
-        return (zx5) invokeI.objValue;
-    }
-
-    public zx5 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.a.M = i;
-            return this;
-        }
-        return (zx5) invokeI.objValue;
-    }
-
-    public zx5 p(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.d = zArr;
-            return this;
-        }
-        return (zx5) invokeL.objValue;
-    }
-
-    public zx5 j(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            ay5 ay5Var = this.a;
-            ay5Var.l = str;
-            ay5Var.m = str2;
-            ay5Var.n = str3;
-            ay5Var.o = str4;
-            ay5Var.p = str5;
-            ay5Var.q = str6;
-            return this;
-        }
-        return (zx5) invokeCommon.objValue;
-    }
-
-    public zx5 k(int i, by5 by5Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, by5Var)) == null) {
-            ay5 ay5Var = this.a;
-            ay5Var.x = i;
-            ay5Var.c = by5Var;
-            return this;
-        }
-        return (zx5) invokeIL.objValue;
-    }
-
-    public zx5 o(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            ay5 ay5Var = this.a;
-            ay5Var.r = i;
-            ay5Var.s = i2;
-            ay5Var.t = i3;
-            ay5Var.u = i4;
-            ay5Var.v = i5;
-            ay5Var.w = i6;
-            return this;
-        }
-        return (zx5) invokeCommon.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

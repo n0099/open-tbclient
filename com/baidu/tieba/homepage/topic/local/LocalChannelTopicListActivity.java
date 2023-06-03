@@ -6,21 +6,21 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.ep5;
+import com.baidu.tieba.e38;
+import com.baidu.tieba.gt5;
+import com.baidu.tieba.h38;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.px7;
-import com.baidu.tieba.sx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public px7 l;
+    public e38 l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void D1() {
@@ -29,7 +29,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements LocalChannelTopicListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(sx7 sx7Var) {
+        public void a(h38 h38Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sx7Var) == null) && this.a.l != null) {
-                this.a.l.q(sx7Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, h38Var) == null) && this.a.l != null) {
+                this.a.l.p(h38Var);
             }
         }
 
@@ -70,7 +70,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            px7 px7Var = this.l;
-            if (px7Var != null) {
-                px7Var.onDestroy();
+            e38 e38Var = this.l;
+            if (e38Var != null) {
+                e38Var.onDestroy();
             }
         }
     }
@@ -134,9 +134,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            px7 px7Var = this.l;
-            if (px7Var != null) {
-                px7Var.p(i);
+            e38 e38Var = this.l;
+            if (e38Var != null) {
+                e38Var.q(i);
             }
         }
     }
@@ -155,14 +155,14 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ep5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public gt5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
-            px7 px7Var = new px7(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = px7Var;
-            return px7Var;
+            e38 e38Var = new e38(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = e38Var;
+            return e38Var;
         }
-        return (ep5) invokeLL.objValue;
+        return (gt5) invokeLL.objValue;
     }
 }

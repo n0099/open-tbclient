@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatedFrameCache {
     public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
     public final CacheKey mImageCacheKey;
@@ -26,7 +26,7 @@ public class AnimatedFrameCache {
     };
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FrameKey implements CacheKey {
         public final int mFrameIndex;
         public final CacheKey mImageCacheKey;

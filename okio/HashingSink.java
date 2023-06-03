@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HashingSink extends ForwardingSink {
     @Nullable
     public final Mac mac;

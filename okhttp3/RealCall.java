@@ -20,7 +20,7 @@ import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
 import okio.AsyncTimeout;
 import okio.Timeout;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RealCall implements Call {
     public final OkHttpClient client;
     @Nullable
@@ -31,7 +31,7 @@ public final class RealCall implements Call {
     public final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
     public final AsyncTimeout timeout;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class AsyncCall extends NamedRunnable {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public final Callback responseCallback;
@@ -223,7 +223,7 @@ public final class RealCall implements Call {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okhttp3.Call
     /* renamed from: clone */
-    public RealCall mo2263clone() {
+    public RealCall mo2354clone() {
         return newRealCall(this.client, this.originalRequest, this.forWebSocket);
     }
 

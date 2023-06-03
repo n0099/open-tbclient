@@ -1,108 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class mh4 extends gh4<hi4> {
+public class mh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public View c;
+    public boolean d;
+    public b e;
 
-    public mh4() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ mh4 c;
+
+        public a(mh4 mh4Var, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mh4Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mh4Var;
+            this.a = z;
+            this.b = i;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                animator.removeAllListeners();
+                if (!this.a) {
+                    this.c.c(this.b);
+                }
+                if (this.c.e != null) {
+                    this.c.e.a(this.a);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972656, "Lcom/baidu/tieba/mh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947972656, "Lcom/baidu/tieba/mh4;");
+                return;
+            }
+        }
+        f = pp3.g(58.0f);
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public mh4(View view2, FrameLayout frameLayout, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, frameLayout, view3};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = view2;
+        this.b = frameLayout;
+        this.c = view3;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            layoutParams.height = this.a.getHeight() - (i * 2);
+            this.a.setLayoutParams(layoutParams);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh4
-    /* renamed from: g */
-    public hi4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.b(z);
             }
-            return null;
-        }
-        return (hi4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh4
-    public List<hi4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
+            this.d = z;
+            int i = f;
+            if (z) {
+                i = -i;
             }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh4
-    /* renamed from: f */
-    public ContentValues c(hi4 hi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hi4Var)) == null) {
-            ContentValues a = super.a(hi4Var);
-            a.put("max_age", Long.valueOf(hi4Var.o));
-            a.put("token", hi4Var.p);
-            a.put("domains", hi4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, hi4Var.r);
-            a.put("app_name", hi4Var.s);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final hi4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
-                hi4 hi4Var = new hi4();
-                if (b(cursor, hi4Var)) {
-                    hi4Var.o = cursor.getLong(columnIndex);
-                    hi4Var.p = cursor.getString(columnIndex2);
-                    hi4Var.q = cursor.getString(columnIndex3);
-                    hi4Var.r = cursor.getString(columnIndex4);
-                    hi4Var.s = cursor.getString(columnIndex5);
-                    return hi4Var;
-                }
-                return null;
+            float[] fArr = new float[2];
+            if (z) {
+                fArr[0] = 0.0f;
+                fArr[1] = i;
+            } else {
+                fArr[0] = -i;
+                fArr[1] = 0.0f;
             }
-            return null;
+            float[] fArr2 = new float[2];
+            if (z) {
+                fArr2[0] = 0.0f;
+                fArr2[1] = i * 2;
+            } else {
+                fArr2[0] = (-i) * 2;
+                fArr2[1] = 0.0f;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
+            animatorSet.setDuration(200L);
+            animatorSet.start();
+            animatorSet.addListener(new a(this, z, i));
+            if (z) {
+                c(i);
+            }
         }
-        return (hi4) invokeL.objValue;
     }
 }

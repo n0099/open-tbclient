@@ -1,7 +1,6 @@
 package com.baidu.ar.statistic;
 
 import android.content.Context;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.Closeable;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -59,7 +58,7 @@ public class d extends ArrayList<a> {
                     th = th2;
                 }
                 try {
-                    scanner = new Scanner((InputStream) context, IMAudioTransRequest.CHARSET);
+                    scanner = new Scanner((InputStream) context, "utf-8");
                     while (scanner.hasNextLine()) {
                         try {
                             String nextLine = scanner.nextLine();
@@ -121,7 +120,7 @@ public class d extends ArrayList<a> {
                             size = this.wB;
                         }
                         for (int i = 0; i < size; i++) {
-                            fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes(IMAudioTransRequest.CHARSET));
+                            fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes("utf-8"));
                         }
                     }
                 } catch (Exception e) {

@@ -1,13 +1,12 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.core.scene.URLPackage;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class em implements com.kwad.sdk.core.d<com.kwad.sdk.core.report.m> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.core.report.m mVar, JSONObject jSONObject) {
@@ -152,8 +151,8 @@ public final class em implements com.kwad.sdk.core.d<com.kwad.sdk.core.report.m>
         if (jSONObject.opt("customValue") == JSONObject.NULL) {
             mVar.abl = "";
         }
-        mVar.trace = jSONObject.optString(Config.TRACE_PART);
-        if (jSONObject.opt(Config.TRACE_PART) == JSONObject.NULL) {
+        mVar.trace = jSONObject.optString("trace");
+        if (jSONObject.opt("trace") == JSONObject.NULL) {
             mVar.trace = "";
         }
         mVar.abm = jSONObject.optInt("filterCode");
@@ -425,7 +424,7 @@ public final class em implements com.kwad.sdk.core.d<com.kwad.sdk.core.report.m>
         }
         String str19 = mVar.trace;
         if (str19 != null && !str19.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, Config.TRACE_PART, mVar.trace);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "trace", mVar.trace);
         }
         int i13 = mVar.abm;
         if (i13 != 0) {

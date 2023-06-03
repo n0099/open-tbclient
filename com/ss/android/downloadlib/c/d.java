@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.c;
 
 import androidx.annotation.WorkerThread;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
@@ -80,7 +79,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
             jSONObject.put("download_time", downloadInfo.getDownloadTime());
             jSONObject.put("download_status", i);
             jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-            jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
+            jSONObject.put("total_bytes", downloadInfo.getTotalBytes());
             int i3 = 1;
             if (downloadInfo.isOnlyWifi()) {
                 i2 = 1;

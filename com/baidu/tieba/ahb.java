@@ -1,58 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-/* loaded from: classes4.dex */
-public final class ahb {
+/* loaded from: classes5.dex */
+public class ahb {
     public static /* synthetic */ Interceptable $ic;
-    public static final ahb a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616590, "Lcom/baidu/tieba/ahb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947616590, "Lcom/baidu/tieba/ahb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947616590, "Lcom/baidu/tieba/ahb;")) == null) {
+            return;
         }
-        a = new ahb();
-    }
-
-    public ahb() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947616590, "Lcom/baidu/tieba/ahb;");
         }
     }
 
-    public final int a(Collection<?> collection) {
-        InterceptResult invokeL;
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
-            if (collection != null) {
-                return collection.size();
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (ahb.class) {
+                if (a) {
+                    return;
+                }
+                a = true;
+                Log.i("[cronet]", "cronet_lib load");
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 }

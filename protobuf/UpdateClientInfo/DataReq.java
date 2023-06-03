@@ -3,7 +3,7 @@ package protobuf.UpdateClientInfo;
 import com.squareup.wire.ByteString;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_BDUSS = "";
     public static final String DEFAULT_DEVICE = "";
@@ -17,7 +17,6 @@ public final class DataReq extends Message {
     public static final String DEFAULT_STOKEN = "";
     public static final Integer DEFAULT_UNREAD_MSG;
     public static final Integer DEFAULT_WIDTH;
-    public static final String DEFAULT_Z_ID = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String bduss;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
@@ -42,10 +41,8 @@ public final class DataReq extends Message {
     public final Integer unread_msg;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
     public final Integer width;
-    @ProtoField(tag = 13, type = Message.Datatype.STRING)
-    public final String z_id;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String bduss;
         public String device;
@@ -59,7 +56,6 @@ public final class DataReq extends Message {
         public String stoken;
         public Integer unread_msg;
         public Integer width;
-        public String z_id;
 
         public Builder() {
         }
@@ -81,7 +77,6 @@ public final class DataReq extends Message {
             this.project = dataReq.project;
             this.groupId = dataReq.groupId;
             this.stoken = dataReq.stoken;
-            this.z_id = dataReq.z_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,15 +169,9 @@ public final class DataReq extends Message {
             String str4 = builder.stoken;
             if (str4 == null) {
                 this.stoken = "";
-            } else {
-                this.stoken = str4;
-            }
-            String str5 = builder.z_id;
-            if (str5 == null) {
-                this.z_id = "";
                 return;
             } else {
-                this.z_id = str5;
+                this.stoken = str4;
                 return;
             }
         }
@@ -198,6 +187,5 @@ public final class DataReq extends Message {
         this.project = builder.project;
         this.groupId = builder.groupId;
         this.stoken = builder.stoken;
-        this.z_id = builder.z_id;
     }
 }

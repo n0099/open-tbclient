@@ -12,9 +12,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.un;
-import com.baidu.tieba.vy5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.w26;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,15 @@ public class PbLandscapeListView extends BdTypeListView {
     public Handler Q;
     public boolean R;
     public boolean S;
-    public boolean T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1149T;
     @NonNull
-    public vy5 U;
+    public w26 U;
     public boolean V;
     public boolean W;
     public boolean a0;
-    public un b0;
+    public yn b0;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -143,14 +145,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ri.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = vi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.T = false;
-        this.U = new vy5(this);
+        this.f1149T = false;
+        this.U = new w26(this);
         H();
     }
 
@@ -173,7 +175,7 @@ public class PbLandscapeListView extends BdTypeListView {
                         int abs = Math.abs(i);
                         if (abs > this.J && abs > Math.abs(i2) && !this.V) {
                             L(i, i2, this.M, this.N, rawX, rawY);
-                            this.T = true;
+                            this.f1149T = true;
                             return false;
                         }
                     }
@@ -184,7 +186,7 @@ public class PbLandscapeListView extends BdTypeListView {
                 this.M = motionEvent.getRawX();
                 this.N = motionEvent.getRawY();
                 this.S = false;
-                this.T = false;
+                this.f1149T = false;
             }
             if (motionEvent.getAction() == 2 && !this.V) {
                 return true;
@@ -213,14 +215,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ri.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = vi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.T = false;
-        this.U = new vy5(this);
+        this.f1149T = false;
+        this.U = new w26(this);
         H();
     }
 
@@ -243,14 +245,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ri.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = vi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.T = false;
-        this.U = new vy5(this);
+        this.f1149T = false;
+        this.U = new w26(this);
         H();
     }
 
@@ -265,7 +267,7 @@ public class PbLandscapeListView extends BdTypeListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.T;
+            return this.f1149T;
         }
         return invokeV.booleanValue;
     }
@@ -288,9 +290,9 @@ public class PbLandscapeListView extends BdTypeListView {
             super.dispatchDraw(canvas);
             if (this.W && !this.a0) {
                 this.a0 = true;
-                un unVar = this.b0;
-                if (unVar != null) {
-                    unVar.a();
+                yn ynVar = this.b0;
+                if (ynVar != null) {
+                    ynVar.a();
                 }
             }
         }

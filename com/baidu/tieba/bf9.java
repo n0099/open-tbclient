@@ -1,94 +1,151 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bf9 {
+public class bf9 extends in<mg9, CardViewHolder<oh9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public kg<PersonCommonForumItemView> b;
 
-    @NonNull
-    public static String a(@NonNull App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            String str = "";
-            if (list == null) {
-                return "";
-            }
-            for (GoodsInfo goodsInfo : list) {
-                if (goodsInfo != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            str = optJSONObject.optString("id");
-                        }
-                        return str;
-                    } catch (JSONException unused) {
-                    }
+    /* loaded from: classes5.dex */
+    public class a implements lg<PersonCommonForumItemView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bf9 a;
+
+        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        }
+
+        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        }
+
+        public a(bf9 bf9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bf9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return str;
+            this.a = bf9Var;
         }
-        return (String) invokeL.objValue;
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.lg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            e(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.lg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            h(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lg
+        /* renamed from: f */
+        public void b(PersonCommonForumItemView personCommonForumItemView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
+                personCommonForumItemView.removeAllViews();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lg
+        /* renamed from: g */
+        public PersonCommonForumItemView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new PersonCommonForumItemView(this.a.mContext);
+            }
+            return (PersonCommonForumItemView) invokeV.objValue;
+        }
     }
 
-    public static int b(@NonNull App app) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bf9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), mg9.b);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            if (list == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Iterator<GoodsInfo> it = list.iterator();
-            while (it.hasNext()) {
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject == null) {
-                            return -1;
-                        }
-                        return pg.e(optJSONObject.optString("pos"), -1);
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return -1;
         }
-        return invokeL.intValue;
+        this.b = new kg<>(new a(this), 12, 0);
+        this.a = tbPageContext;
     }
 
-    public static void c(@NonNull App.Builder builder, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: t */
+    public CardViewHolder<oh9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            oh9 oh9Var = new oh9(this.a);
+            oh9Var.A(this.b);
+            return new CardViewHolder<>(oh9Var);
         }
-        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
-            GoodsInfo goodsInfo = (GoodsInfo) yi8.d(builder.goods_info, i2);
-            if (goodsInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-                    if (optJSONObject != null) {
-                        optJSONObject.put("pos", String.valueOf(pg.e(optJSONObject.optString("pos"), 0) + i));
-                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
-                        builder2.lego_card = jSONObject.toString();
-                        builder.goods_info.set(i2, builder2.build(false));
-                    }
-                } catch (JSONException unused) {
-                }
-            }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mg9 mg9Var, CardViewHolder<oh9> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mg9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().i(mg9Var);
+            return cardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

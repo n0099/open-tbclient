@@ -10,11 +10,9 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -108,7 +106,7 @@ public class StatusBarUtils {
         }
         Application application = appInfoService.getApplication();
         try {
-            int identifier = application.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = application.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             if (identifier <= 0) {
                 return 0;
             }
@@ -215,7 +213,7 @@ public class StatusBarUtils {
     public void processKitkat() {
         WindowManager.LayoutParams attributes = this.window.getAttributes();
         if (this.transparentStatusBar) {
-            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+            attributes.flags |= 67108864;
         } else {
             attributes.flags &= -67108865;
         }

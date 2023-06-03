@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HmacUtils {
     public static final int STREAM_BUFFER_LENGTH = 1024;
     public final Mac mac;

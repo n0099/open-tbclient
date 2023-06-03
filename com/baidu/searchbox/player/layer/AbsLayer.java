@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -16,10 +15,12 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsLayer implements ILayer {
+    public boolean isInitialized = false;
     public Context mContext;
     public Handler mHandler;
+    @Nullable
     public LayerContainer mLayerContainer;
     @Nullable
     public IMessenger mMessenger;
@@ -35,10 +36,6 @@ public abstract class AbsLayer implements ILayer {
     }
 
     public void handleLayerMessage(Message message) {
-    }
-
-    @Override // com.baidu.searchbox.player.layer.ILayer
-    public void initLayer() {
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
@@ -77,7 +74,7 @@ public abstract class AbsLayer implements ILayer {
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PrivateHandler extends Handler {
         public final WeakReference<AbsLayer> mWeakControl;
 
@@ -123,18 +120,16 @@ public abstract class AbsLayer implements ILayer {
     }
 
     @Nullable
-    @PublicMethod
     public Activity getActivity() {
         return getBindPlayer().getActivity();
     }
 
     @NonNull
-    @PublicMethod
     public Context getAppContext() {
         return this.mContext.getApplicationContext();
     }
 
-    @PublicMethod
+    @Nullable
     public BDVideoPlayer getBindPlayer() {
         LayerContainer layerContainer = this.mLayerContainer;
         if (layerContainer != null) {
@@ -143,17 +138,16 @@ public abstract class AbsLayer implements ILayer {
         return null;
     }
 
-    @PublicMethod
     public ControlEventTrigger getController() {
         return getBindPlayer().getControlEventTrigger();
     }
 
-    @PublicMethod
     public Handler getHandlerInnerLayer() {
         return this.mHandler;
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
+    @Nullable
     public LayerContainer getLayerContainer() {
         return this.mLayerContainer;
     }
@@ -161,6 +155,15 @@ public abstract class AbsLayer implements ILayer {
     @Nullable
     public IMessenger getMessenger() {
         return this.mMessenger;
+    }
+
+    @Override // com.baidu.searchbox.player.layer.ILayer
+    public void initLayer() {
+        this.isInitialized = true;
+    }
+
+    public boolean isInitialized() {
+        return this.isInitialized;
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
@@ -221,7 +224,7 @@ public abstract class AbsLayer implements ILayer {
         getBindPlayer().setInterceptor(iVideoEventInterceptor);
     }
 
-    public void setLayerContainer(@NonNull LayerContainer layerContainer) {
+    public void setLayerContainer(@Nullable LayerContainer layerContainer) {
         this.mLayerContainer = layerContainer;
     }
 

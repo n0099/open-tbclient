@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.k9;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9<?> a;
+    public k9<?> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -40,12 +40,12 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         return invokeV.booleanValue;
     }
 
-    public PayVcodeModel(g9<?> g9Var) {
+    public PayVcodeModel(k9<?> k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
                 return;
             }
         }
-        this.a = g9Var;
+        this.a = k9Var;
     }
 
     public void U() {

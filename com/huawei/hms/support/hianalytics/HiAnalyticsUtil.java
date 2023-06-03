@@ -136,9 +136,9 @@ public class HiAnalyticsUtil {
             hashMap.put("service", responseHeader.getSrvName());
             hashMap.put("apiName", responseHeader.getApiName());
             hashMap.put("package", responseHeader.getPkgName());
-            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(responseHeader.getStatusCode()));
+            hashMap.put("statusCode", String.valueOf(responseHeader.getStatusCode()));
             hashMap.put("result", String.valueOf(responseHeader.getErrorCode()));
-            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_ERRORREASON, responseHeader.getErrorReason());
+            hashMap.put("errorReason", responseHeader.getErrorReason());
             hashMap.put("callTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_BASE_VERSION, "6.5.0.300");
             return hashMap;
@@ -165,9 +165,9 @@ public class HiAnalyticsUtil {
                 }
             }
             hashMap.put("package", responseHeader.getPkgName());
-            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(responseHeader.getStatusCode()));
+            hashMap.put("statusCode", String.valueOf(responseHeader.getStatusCode()));
             hashMap.put("result", String.valueOf(responseHeader.getErrorCode()));
-            hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_ERRORREASON, responseHeader.getErrorReason());
+            hashMap.put("errorReason", responseHeader.getErrorReason());
             hashMap.put("callTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_BASE_VERSION, "6.5.0.300");
             return hashMap;

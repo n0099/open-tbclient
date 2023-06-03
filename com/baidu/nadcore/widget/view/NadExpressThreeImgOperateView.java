@@ -9,11 +9,11 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq0;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.rq0;
-import com.baidu.tieba.t41;
+import com.baidu.tieba.as0;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.vr0;
+import com.baidu.tieba.x21;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
@@ -43,13 +43,13 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, rq0 rq0Var) {
+    public void j(LayoutInflater layoutInflater, as0 as0Var) {
         int i = R.layout.nad_tpl_triple_image;
-        if (rq0Var != null) {
-            if (rq0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                i = rq0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
+        if (as0Var != null) {
+            if (as0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                i = as0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
             }
-            rq0.a aVar = rq0Var.j;
+            as0.a aVar = as0Var.j;
             if (aVar != null) {
                 this.m = aVar.a;
                 this.n = aVar.b;
@@ -64,8 +64,8 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, rq0 rq0Var) {
-        super(context, attributeSet, i, rq0Var);
+    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, as0 as0Var) {
+        super(context, attributeSet, i, as0Var);
         this.m = 15;
         this.n = 15;
         this.o = 0;
@@ -78,7 +78,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         this.r = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_two_id);
         this.s = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_three_id);
         Resources resources = context.getResources();
-        this.t = (((((t41.c.e(context) - t41.c.a(getContext(), this.m)) - t41.c.a(getContext(), this.n)) - t41.c.a(getContext(), this.o)) - t41.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
+        this.t = (((((c61.c.e(context) - c61.c.a(getContext(), this.m)) - c61.c.a(getContext(), this.n)) - c61.c.a(getContext(), this.o)) - c61.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
         this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.nad_template_p1_w))) * ((int) resources.getDimension(R.dimen.nad_template_p1_h)));
         AdImageView adImageView = this.q;
         if (adImageView != null) {
@@ -108,22 +108,22 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         AdImageView adImageView;
         AdImageView adImageView2;
         AdImageView adImageView3;
-        if (!(adBaseModel instanceof mq0)) {
+        if (!(adBaseModel instanceof vr0)) {
             return;
         }
-        List<aq0> list = ((mq0) adBaseModel).f.k;
-        if (!o11.g(list) && o11.l(list) >= 3) {
-            aq0 aq0Var = (aq0) o11.d(list, 0);
-            aq0 aq0Var2 = (aq0) o11.d(list, 1);
-            aq0 aq0Var3 = (aq0) o11.d(list, 2);
-            if (aq0Var != null && (adImageView3 = this.q) != null) {
-                adImageView3.o(aq0Var.a);
+        List<jr0> list = ((vr0) adBaseModel).f.k;
+        if (!x21.g(list) && x21.l(list) >= 3) {
+            jr0 jr0Var = (jr0) x21.d(list, 0);
+            jr0 jr0Var2 = (jr0) x21.d(list, 1);
+            jr0 jr0Var3 = (jr0) x21.d(list, 2);
+            if (jr0Var != null && (adImageView3 = this.q) != null) {
+                adImageView3.o(jr0Var.a);
             }
-            if (aq0Var2 != null && (adImageView2 = this.r) != null) {
-                adImageView2.o(aq0Var2.a);
+            if (jr0Var2 != null && (adImageView2 = this.r) != null) {
+                adImageView2.o(jr0Var2.a);
             }
-            if (aq0Var3 != null && (adImageView = this.s) != null) {
-                adImageView.o(aq0Var3.a);
+            if (jr0Var3 != null && (adImageView = this.s) != null) {
+                adImageView.o(jr0Var3.a);
             }
         }
     }

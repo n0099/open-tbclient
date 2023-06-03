@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zl5 implements yk5<ShowReplyInPbEvent> {
+public class zl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public zl5() {
         Interceptable interceptable = $ic;
@@ -27,23 +33,23 @@ public class zl5 implements yk5<ShowReplyInPbEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk5
-    /* renamed from: a */
-    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
+    public static zl5 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
-            if (showReplyInPbEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                zl5 zl5Var = new zl5();
+                zl5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                zl5Var.b = jSONObject.optInt("width");
+                zl5Var.c = jSONObject.optInt("height");
+                zl5Var.d = jSONObject.optString("pic_url");
+                zl5Var.e = jSONObject.optString("thumbnail");
+                zl5Var.g = jSONObject.optString("origin_url");
+                return zl5Var;
+            } catch (Exception unused) {
+                return null;
             }
-            if (showReplyInPbEvent.isSubPbReply) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
-                return true;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
-            return true;
         }
-        return invokeL.booleanValue;
+        return (zl5) invokeL.objValue;
     }
 }

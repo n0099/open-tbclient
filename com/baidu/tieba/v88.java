@@ -1,81 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public abstract class v88 {
+/* loaded from: classes8.dex */
+public class v88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t88 a;
 
-    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
-
-    public boolean c() {
-        InterceptResult invokeV;
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public v88() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
             }
         }
+        return invokeI.shortValue;
     }
 
-    public Set<String> e() {
-        InterceptResult invokeV;
-        boolean z;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.message_text_error_because_network;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b != 4) {
+                        if (b != 5) {
+                            if (b == 6) {
+                                i2 = R.string.message_text_error_because_refuse;
+                            }
+                            i2 = -1;
+                        } else {
+                            i2 = R.string.message_text_error_because_refuse_stranger;
+                        }
+                    } else {
+                        i2 = R.string.message_text_error_because_refuse_friend;
+                    }
+                }
             }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
+            if (i2 != -1) {
+                return TbadkCoreApplication.getInst().getResources().getString(i2);
             }
-            return SetsKt__SetsJVMKt.setOf(d);
+            return str;
         }
-        return (Set) invokeV.objValue;
-    }
-
-    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            t88 t88Var = this.a;
-            if (t88Var != null) {
-                t88Var.b(abilityItem, baseMsg);
-            }
-        }
+        return (String) invokeIL.objValue;
     }
 }

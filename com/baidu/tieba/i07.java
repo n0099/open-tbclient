@@ -1,27 +1,35 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class i07 {
+/* loaded from: classes6.dex */
+public class i07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends j37> a;
-    public final vz6 b;
-    public final r07 c;
-    public Map<String, String> d;
+    public TbPageContext<?> a;
+    public View b;
+    public ViewGroup c;
+    public ImageView d;
+    public TextView e;
+    public TextView f;
 
-    public i07() {
+    public i07(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,62 +39,33 @@ public final class i07 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new vz6();
-        this.c = new r07();
-        this.d = new HashMap();
+        this.a = tbPageContext;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09116a);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091047);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f1f);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f20);
+        this.e.setText(R.string.no_like_forum_hint_1);
+        this.f.setText(R.string.no_like_forum_hint_2);
     }
 
-    public final vz6 a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(vi.g(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(vi.g(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(vi.g(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(vi.g(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
         }
-        return (vz6) invokeV.objValue;
     }
 
-    public final r07 b() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (r07) invokeV.objValue;
-    }
-
-    public final Map<String, String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.j37>, java.util.Map<java.lang.String, com.baidu.tieba.j37> */
-    public final Map<String, j37> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void e(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.d = map;
-        }
-    }
-
-    public final void f(Map<String, ? extends j37> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.a = map;
-        }
+        return (View) invokeV.objValue;
     }
 }

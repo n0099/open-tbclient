@@ -1,119 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.cs2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class n62 {
+public class n62 extends e52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954335, "Lcom/baidu/tieba/n62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public n62() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947954335, "Lcom/baidu/tieba/n62;");
-                return;
+        }
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) {
+            if (f52Var.a() == 0) {
+                f52Var.b(canvas.save());
+            } else {
+                canvas.restoreToCount(f52Var.a());
+                f52Var.b(canvas.save());
+            }
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
+        }
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = pp3.g((float) jSONArray.optDouble(4));
+                    this.f = pp3.g((float) jSONArray.optDouble(5));
+                }
+            } catch (Exception e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
             }
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
-    }
-
-    public static cs2.g a(du2 du2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, du2Var)) == null) {
-            File d = d();
-            p62.e().f("unzipstart");
-            cs2.M(b(), d, du2Var);
-            p62.e().f("unzipend");
-            cs2.g gVar = new cs2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = s93.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            g62.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (cs2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(c(), "local_debug.swan");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
-        }
-        return invokeV.booleanValue;
     }
 }

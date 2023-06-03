@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.data.mediastore;
 
 import android.net.Uri;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MediaStoreUtil {
     public static final int MINI_THUMB_HEIGHT = 384;
     public static final int MINI_THUMB_WIDTH = 512;

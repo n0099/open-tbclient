@@ -1,125 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.FakeWallCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class tp6 {
+public class tp6 extends r77<FakeWallCardView, f37> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188943, "Lcom/baidu/tieba/tp6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948188943, "Lcom/baidu/tieba/tp6;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tp6() {
+        super("fake_wall");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
     }
 
-    public static final Bitmap b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            o97.i(a, Integer.valueOf(o97.e() - kz.r));
             return a;
         }
-        return (Bitmap) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static final boolean a(lo6 lo6Var, lo6 lo6Var2, lq6 lq6Var, long j, long j2) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g87
+    /* renamed from: e */
+    public void b(@NonNull FakeWallCardView fakeWallCardView, @NonNull f37 f37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{lo6Var, lo6Var2, lq6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = lq6Var.getWidth();
-            float q = lo6Var.f().q();
-            float q2 = lo6Var2.f().q();
-            long j3 = j - lo6Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            if (f - ((q2 + f) * (((float) (j - lo6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fakeWallCardView, f37Var) == null) {
+            fakeWallCardView.update(f37Var);
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static final boolean c(lo6 lo6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, lo6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(lo6Var, "<this>");
-            if (j - lo6Var.j() < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean d(lo6 lo6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, lo6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(lo6Var, "<this>");
-            if (!e(lo6Var, j) && !c(lo6Var, j)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean e(lo6 lo6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, lo6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(lo6Var, "<this>");
-            if (j - lo6Var.j() > lo6Var.g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(lo6 lo6Var, lo6 danmaku, lq6 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{lo6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(lo6Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(lo6Var, j)) {
-                return false;
-            }
-            long j3 = danmaku.j() - lo6Var.j();
-            if (j3 <= 0) {
-                return true;
-            }
-            if (Math.abs(j3) >= j2 || e(lo6Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            if (lo6Var.e().j() != 5 && lo6Var.e().j() != 4 && !a(lo6Var, danmaku, displayer, j, j2) && !a(lo6Var, danmaku, displayer, j + j2, j2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

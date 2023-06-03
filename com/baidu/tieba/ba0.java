@@ -1,80 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Hashtable;
-/* loaded from: classes4.dex */
-public class ba0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
+/* loaded from: classes5.dex */
+public abstract class ba0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Hashtable<String, Typeface> a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ca0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638104, "Lcom/baidu/tieba/ba0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947638104, "Lcom/baidu/tieba/ba0;");
+    public abstract InputStream b() throws Exception;
+
+    public abstract void c(ca0 ca0Var);
+
+    public abstract boolean d() throws IOException;
+
+    public abstract ca0 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+
+    public abstract void f(aa0 aa0Var) throws IOException;
+
+    public ba0(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Hashtable<>();
-        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
-        new File(b).mkdirs();
+        this.b = null;
+        this.a = context;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public ca0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return new File(str).exists();
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Typeface b(String str) {
-        InterceptResult invokeL;
-        Typeface typeface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (a) {
-                if (!a.containsKey(str)) {
-                    String str2 = b + str;
-                    if (a(str2)) {
-                        try {
-                            a.put(str, Typeface.createFromFile(str2));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                if (a.get(str) == null) {
-                    typeface = Typeface.DEFAULT;
-                } else {
-                    typeface = a.get(str);
-                }
-            }
-            return typeface;
-        }
-        return (Typeface) invokeL.objValue;
+        return (ca0) invokeV.objValue;
     }
 }

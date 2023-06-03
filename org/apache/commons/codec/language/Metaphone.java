@@ -4,7 +4,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Metaphone implements StringEncoder {
     public static final String FRONTV = "EIY";
     public static final String VARSON = "CSPTG";

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StretchTextureView extends TextureView {
     public static final int STYLE_DEFAULT = 0;
     public static final int STYLE_MATCH_HEIGHT = 1;
@@ -54,7 +54,7 @@ public class StretchTextureView extends TextureView {
         this.mVideoHeight = i2;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00e2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00e1, code lost:
         r1 = (int) ((r1 * r0) / r2);
         r0 = r2;
      */

@@ -1,71 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.media.MediaCodecList;
 import androidx.core.view.InputDeviceCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.MiPushClient;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes5.dex */
 public class bgb {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    int codecCount = MediaCodecList.getCodecCount();
+                    for (int i = 0; i < codecCount; i++) {
+                        String name = MediaCodecList.getCodecInfoAt(i).getName();
+                        if (name.contains("decoder") && (name.contains("avc") || name.contains("h264"))) {
+                            boolean unused = bgb.a = true;
+                        }
+                        if (name.contains("decoder") && (name.contains("hevc") || name.contains("h265"))) {
+                            boolean unused2 = bgb.b = true;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947645420, "Lcom/baidu/tieba/bgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947645420, "Lcom/baidu/tieba/bgb;");
+                return;
+            }
         }
+        new Thread(new a()).start();
     }
 
-    public static void c(Context context) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH264HwDecode " + a);
+            return a;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_REGISTER);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH265HwDecode " + b);
+            return b;
         }
-    }
-
-    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_UNREGISTER);
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
-        }
+        return invokeV.booleanValue;
     }
 }

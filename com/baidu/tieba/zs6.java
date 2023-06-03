@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class zs6 extends iz4 {
+public final class zs6 extends at6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public final zu6 a;
+    public long b;
+    public long c;
 
-    public zs6(String str, boolean z, boolean z2) {
+    public zs6(zu6 timer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {timer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,13 +30,33 @@ public class zs6 extends iz4 {
                 return;
             }
         }
-        this.g = -1;
-        this.h = -1;
-        this.i = -1;
-        this.j = -1;
-        this.d = str;
-        this.e = z;
-        this.f = z2;
-        d(0);
+        Intrinsics.checkNotNullParameter(timer, "timer");
+        this.a = timer;
+    }
+
+    public final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            long j2 = 0;
+            if (this.b > 0) {
+                j2 = this.a.a() - this.b;
+            }
+            return j + j2;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

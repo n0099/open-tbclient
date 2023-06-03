@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jr2 extends an2<rr2> {
+public class jr2 extends sp2<js2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.an2
+    @Override // com.baidu.tieba.sp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updateVideoRect" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
     }
 
     public jr2() {
@@ -37,15 +40,45 @@ public class jr2 extends an2<rr2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+    @Override // com.baidu.tieba.sp2
+    public void c(@NonNull ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
-            rr2Var.L(command.arg1, command.arg2, command.arg3, command.arg4);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull js2 js2Var) {
+        JSONObject a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, js2Var) == null) {
+            ArrayList<ls2> v = js2Var.v();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (v != null) {
+                Iterator<ls2> it = v.iterator();
+                while (it.hasNext()) {
+                    ls2 next = it.next();
+                    if (next == null) {
+                        a = null;
+                    } else {
+                        a = next.a();
+                    }
+                    if (a != null) {
+                        jSONArray.put(a);
+                    }
+                }
+            }
+            try {
+                jSONObject.put("audioLevels", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
             String str = command.what;
-            d(rr2Var, str, "Rect: (" + command.arg1 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg4 + SmallTailInfo.EMOTION_SUFFIX, false);
+            d(js2Var, str, "" + command.obj, true);
         }
     }
 }

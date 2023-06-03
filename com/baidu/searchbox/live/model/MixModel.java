@@ -29,6 +29,7 @@ import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.live.util.ListLogKt;
 import com.baidu.searchbox.live.widget.LiveContainer;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -414,7 +415,7 @@ public final class MixModel {
                                 jSONObject3 = null;
                             }
                             if (jSONObject3 != null) {
-                                jSONObject4 = jSONObject3.optJSONObject("room");
+                                jSONObject4 = jSONObject3.optJSONObject(YYOption.ROOM_ID);
                             } else {
                                 jSONObject4 = null;
                             }

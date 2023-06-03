@@ -7,7 +7,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneH
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SQLiteFullSceneHandler extends DeviceEventSceneHandler {
     public static final String SQLITE_FULL = "android.database.sqlite.SQLiteFullException";
 

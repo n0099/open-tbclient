@@ -1,137 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sx2 {
+public class sx2 implements px2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public UnitedSchemeEntity b;
+    @Nullable
+    public gj2 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948166716, "Lcom/baidu/tieba/sx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948166716, "Lcom/baidu/tieba/sx2;");
-                return;
-            }
-        }
-        c = qp1.a;
-    }
-
-    public sx2(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public sx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = callbackHandler;
-        this.b = unitedSchemeEntity;
-        d = str;
-        e = str2;
-        f = str3;
-        g = str4;
-        h = str5;
-        i = str6;
-        j = str7;
     }
 
-    public static sx2 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, sx2 sx2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.px2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, sx2Var)) == null) {
-            if (str == null) {
-                return sx2Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            gj2 gj2Var = this.a;
+            if (gj2Var != null) {
+                gj2Var.suspendTimer();
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("onStart");
-                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
-                String optString3 = jSONObject.optString("onResume");
-                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
-                String optString5 = jSONObject.optString("onError");
-                String optString6 = jSONObject.optString("onInterruptionBegin");
-                String optString7 = jSONObject.optString("onInterruptionEnd");
-                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
-                    return new sx2(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.tieba.px2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            gj2 gj2Var = this.a;
+            if (gj2Var != null) {
+                gj2Var.continueTimer();
             }
-            return sx2Var;
-        }
-        return (sx2) invokeLLLL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(str, null);
         }
     }
 
-    public void c(String str, JSONObject jSONObject) {
+    public final void a() {
+        ud2 W;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gj2 gj2Var = this.a;
+            if ((gj2Var == null || gj2Var.isDestroyed()) && (W = si2.U().W()) != null && (W.d() instanceof gj2)) {
+                this.a = (gj2) W.d();
+            }
         }
-        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
-        if (c) {
-            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
-        }
-    }
-
-    public void d(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        c(h, jSONObject);
     }
 }

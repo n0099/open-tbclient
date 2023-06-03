@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +62,7 @@ public class c1 implements Runnable {
                 byte[] bArr = a2.b;
                 if (a2.a == 200) {
                     JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
-                    jSONObject.optInt(Constants.KEYS.RET);
+                    jSONObject.optInt("ret");
                     jSONObject.optString("msg");
                     try {
                         b = M.b(jSONObject.optString("data"));

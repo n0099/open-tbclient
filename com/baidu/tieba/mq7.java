@@ -1,102 +1,272 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.py;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.List;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class mq7 extends en<rq7, ThreadCardViewHolder<rq7>> implements c16 {
+public final class mq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdUniqueId b;
-    public xn c;
-    public String d;
-    public byte e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981398, "Lcom/baidu/tieba/mq7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981398, "Lcom/baidu/tieba/mq7;");
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.e = b;
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.c16
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void u(xn xnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xnVar) == null) {
-            this.c = xnVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public ThreadCardViewHolder<rq7> onCreateViewHolder(ViewGroup viewGroup) {
+    @JvmStatic
+    public static final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            py.b bVar = new py.b(this.a.getPageActivity(), false);
-            bVar.n(new yq7(this.a, this.b, this.e));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<rq7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.b);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rq7 rq7Var, ThreadCardViewHolder<rq7> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    @JvmStatic
+    public static final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq7Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(rq7Var);
-            if (threadCardViewHolder.a() != null) {
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.a().b(this.d);
-                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            }
-            return threadCardViewHolder.getView();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            a.c();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a.e();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return l95.m().i(l95.q("forum_group_feed_card_has_show"), false);
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JvmStatic
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                l95.m().w(l95.q("forum_group_feed_card_has_show"), true);
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.nq7.j();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean a(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int j;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z || j <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = nq7.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
+                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
+                    int i = 0;
+                    for (String str2 : split$default) {
+                        if (Intrinsics.areEqual(str2, str)) {
+                            i++;
+                        }
+                    }
+                    if (i >= j) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final void f(String str) {
+            boolean z;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    return;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = nq7.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                mutableList.add(str);
+                nq7.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.nq7.i();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean b(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z || i <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = nq7.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    nq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    nq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
+                        return false;
+                    }
+                    mutableList.add(str);
+                    nq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    nq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                }
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final void c() {
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = nq7.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                for (i = nq7.i(); -1 < i; i--) {
+                    mutableList.add(String.valueOf(i));
+                }
+                nq7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
+        }
     }
 }

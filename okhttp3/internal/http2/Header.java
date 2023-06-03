@@ -3,7 +3,7 @@ package okhttp3.internal.http2;
 import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Header {
     public final int hpackSize;
     public final ByteString name;
@@ -20,7 +20,7 @@ public final class Header {
     public static final String TARGET_AUTHORITY_UTF8 = ":authority";
     public static final ByteString TARGET_AUTHORITY = ByteString.encodeUtf8(TARGET_AUTHORITY_UTF8);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Listener {
         void onHeaders(Headers headers);
     }

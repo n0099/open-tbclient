@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HttpVersion extends ProtocolVersion implements Serializable {
     public static final String HTTP = "HTTP";
     public static final HttpVersion HTTP_0_9 = null;

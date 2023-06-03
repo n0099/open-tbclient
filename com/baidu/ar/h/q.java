@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.kuaishou.weapon.p0.k1;
@@ -50,7 +49,7 @@ public class q {
         ?? r10 = HardwareInfoUtils.MEM_INFO_FILE;
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(HardwareInfoUtils.MEM_INFO_FILE), Charset.forName(IMAudioTransRequest.CHARSET));
+                inputStreamReader = new InputStreamReader(new FileInputStream(HardwareInfoUtils.MEM_INFO_FILE), Charset.forName("utf-8"));
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -179,7 +178,7 @@ public class q {
         BufferedReader bufferedReader2;
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(k1.a), Charset.forName(IMAudioTransRequest.CHARSET));
+                inputStreamReader = new InputStreamReader(new FileInputStream(k1.a), Charset.forName("utf-8"));
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -272,7 +271,7 @@ public class q {
             InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
             String str2 = "";
             while (inputStream.read(new byte[24]) != -1) {
-                str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
+                str2 = str2 + new String(bArr, "utf-8");
             }
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
@@ -293,7 +292,7 @@ public class q {
             InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
             String str2 = "";
             while (inputStream.read(new byte[24]) != -1) {
-                str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
+                str2 = str2 + new String(bArr, "utf-8");
             }
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
@@ -318,7 +317,7 @@ public class q {
         BufferedReader bufferedReader2 = null;
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(DeviceInfoUtil.CurPath), Charset.forName(IMAudioTransRequest.CHARSET));
+                inputStreamReader = new InputStreamReader(new FileInputStream(DeviceInfoUtil.CurPath), Charset.forName("utf-8"));
                 try {
                     bufferedReader = new BufferedReader(inputStreamReader);
                     try {

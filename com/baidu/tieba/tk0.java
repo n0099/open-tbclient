@@ -1,68 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.PermissionStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tk0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+public interface tk0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "deviceInfo.bag");
+    public static final tk0 b = new a();
 
-    public tk0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    @Nullable
+    hs0 a();
+
+    @Nullable
+    hs0 b();
+
+    @Nullable
+    hs0 c();
+
+    @Nullable
+    hs0 d();
+
+    @Nullable
+    hs0 e();
+
+    @Nullable
+    hs0 f();
+
+    @Nullable
+    hs0 g();
+
+    @Nullable
+    boolean h();
+
+    /* loaded from: classes7.dex */
+    public static class a implements tk0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public hs0 g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (hs0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tk0
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-    }
-
-    @NonNull
-    public static tk0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            tk0 tk0Var = new tk0();
-            JSONObject c = p11.c(str);
-            tk0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
-            tk0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
-            tk0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
-            return tk0Var;
-        }
-        return (tk0) invokeL.objValue;
-    }
-
-    public static String b(@NonNull tk0 tk0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tk0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, tk0Var.a);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, tk0Var.b);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, tk0Var.c);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

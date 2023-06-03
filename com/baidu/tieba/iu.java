@@ -1,11 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface iu {
-    void a(String str);
+public final class iu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final mu a;
+    public final String b;
 
-    void b(String str, UniqueId uniqueId);
+    public iu(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+        this.a = new mu();
+    }
 
-    void c(String str, String str2);
+    public final TaskInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a = mw.c.a(this.b);
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("parse taskInfo str:" + a);
+            return (TaskInfo) this.a.a("info").a(a);
+        }
+        return (TaskInfo) invokeV.objValue;
+    }
 }

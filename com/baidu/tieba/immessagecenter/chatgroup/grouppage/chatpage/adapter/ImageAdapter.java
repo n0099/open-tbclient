@@ -15,14 +15,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a18;
-import com.baidu.tieba.b18;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.p68;
+import com.baidu.tieba.q68;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +33,8 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a18 j;
-    public String k;
+    public p68 l;
+    public String m;
 
     /* loaded from: classes6.dex */
     public static class Holder extends BaseViewHolder {
@@ -112,18 +112,18 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.k = this.a.getBigSrc();
-                if (StringUtils.isNull(this.b.k)) {
-                    this.b.k = this.a.getThumbUrl();
+                this.b.m = this.a.getBigSrc();
+                if (StringUtils.isNull(this.b.m)) {
+                    this.b.m = this.a.getThumbUrl();
                 }
-                if (StringUtils.isNull(this.b.k)) {
+                if (StringUtils.isNull(this.b.m)) {
                     return;
                 }
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.j = new a18(this.b.mContext, this.b.k, forumId, null, roomId, false);
-                this.b.j.execute(new String[0]);
+                this.b.l = new p68(this.b.mContext, this.b.m, forumId, null, roomId, false);
+                this.b.l.execute(new String[0]);
             }
         }
     }
@@ -147,17 +147,17 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 return;
             }
         }
-        this.j = null;
+        this.l = null;
     }
 
-    public final ChatImageWithTailView b0(@NonNull Context context) {
+    public final ChatImageWithTailView d0(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(context);
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             chatImageWithTailView.e(false);
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e52);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e64);
             return chatImageWithTailView;
         }
         return (ChatImageWithTailView) invokeL.objValue;
@@ -166,12 +166,12 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: e0 */
-    public Holder J(@NonNull ViewGroup viewGroup) {
+    /* renamed from: g0 */
+    public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new Holder(b0(viewGroup.getContext()));
+            return new Holder(d0(viewGroup.getContext()));
         }
         return (Holder) invokeL.objValue;
     }
@@ -179,21 +179,21 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: f0 */
-    public Holder M(@NonNull ViewGroup viewGroup) {
+    /* renamed from: h0 */
+    public Holder O(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            return new Holder(b0(viewGroup.getContext()));
+            return new Holder(d0(viewGroup.getContext()));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public final void c0(ChatImageWithTailView chatImageWithTailView, BaseImageMsg<?> baseImageMsg) {
+    public final void e0(ChatImageWithTailView chatImageWithTailView, BaseImageMsg<?> baseImageMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, chatImageWithTailView, baseImageMsg) == null) {
             String thumbUrl = baseImageMsg.getThumbUrl();
-            Pair<Boolean, String> d0 = d0(baseImageMsg.getThumbSize());
+            Pair<Boolean, String> f0 = f0(baseImageMsg.getThumbSize());
             if (!StringUtils.isNull(thumbUrl)) {
                 CommonMsgField commonMsgField = baseImageMsg.getCommonMsgField();
                 if (commonMsgField != null && commonMsgField.isRobot()) {
@@ -201,12 +201,12 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(b18.d(chatImageWithTailView, thumbUrl, d0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(q68.d(chatImageWithTailView, thumbUrl, f0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }
 
-    public final Pair<Boolean, String> d0(String str) {
+    public final Pair<Boolean, String> f0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -215,8 +215,8 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             }
             String[] split = str.split(",");
             if (split != null && split.length > 1) {
-                int d = (int) pg.d(split[0], 0.0f);
-                int d2 = (int) pg.d(split[1], 0.0f);
+                int d = (int) tg.d(split[0], 0.0f);
+                int d2 = (int) tg.d(split[1], 0.0f);
                 if (d > 0 && d2 > 0) {
                     return Pair.create(Boolean.FALSE, str);
                 }
@@ -229,13 +229,13 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: g0 */
-    public void R(int i, @NonNull ViewGroup viewGroup, @NonNull BaseImageMsg<?> baseImageMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: i0 */
+    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull BaseImageMsg<?> baseImageMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), viewGroup, baseImageMsg, holder, list, Integer.valueOf(i2)}) == null) {
             viewGroup.setBackgroundColor(SkinManager.getColor(R.color.transparent));
             holder.a(new a(this, baseImageMsg));
-            c0((ChatImageWithTailView) holder.getView(), baseImageMsg);
+            e0((ChatImageWithTailView) holder.getView(), baseImageMsg);
         }
     }
 }

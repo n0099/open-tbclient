@@ -95,7 +95,7 @@ public class ImagePipelineConfig {
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public Bitmap.Config mBitmapConfig;
         @Nullable
@@ -335,7 +335,7 @@ public class ImagePipelineConfig {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultImageRequestConfig {
         public boolean mProgressiveRenderingEnabled;
 

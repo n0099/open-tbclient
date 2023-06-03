@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.Input;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class o0 implements Input {
+/* loaded from: classes7.dex */
+public class o0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean[] a;
-    public final boolean[] b;
-    public final b7 c;
-    public int d;
-    public boolean e;
+    public y7<n0<T>> a;
 
     public o0() {
         Interceptable interceptable = $ic;
@@ -30,28 +24,39 @@ public abstract class o0 implements Input {
                 return;
             }
         }
-        this.c = new b7();
-        this.a = new boolean[256];
-        this.b = new boolean[256];
+        this.a = new y7<>();
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.c(i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
         }
-        return invokeI.booleanValue;
     }
 
-    public void b(int i, boolean z) {
+    public void a(n0<T> n0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (!z) {
-                this.c.f(i);
-            } else {
-                this.c.a(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, n0Var) == null) {
+            this.a.a(n0Var);
+        }
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            n0<T>[] o = this.a.o();
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                o[i2].a(this, t);
             }
+            this.a.p();
+        }
+    }
+
+    public void c(n0<T> n0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n0Var) == null) {
+            this.a.i(n0Var, true);
         }
     }
 }

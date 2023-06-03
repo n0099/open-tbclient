@@ -2,10 +2,10 @@ package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostBodyRequest extends HttpCommonRequest<PostBodyRequestBuilder> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostBodyRequestBuilder extends HttpCommonRequestBuilder<PostBodyRequestBuilder, PostBodyRequest> {
         public PostBodyRequestBuilder(PostBodyRequest postBodyRequest) {
             super(postBodyRequest);

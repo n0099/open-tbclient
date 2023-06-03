@@ -13,19 +13,20 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.lh6;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.r55;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.i85;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.o85;
+import com.baidu.tieba.p85;
+import com.baidu.tieba.q85;
+import com.baidu.tieba.s85;
+import com.baidu.tieba.tl6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,34 +42,34 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class WebViewBridge extends s55 implements p55 {
+public class WebViewBridge extends p85 implements m85 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] k;
     public static final int[] l;
     public static final int[] m;
     public transient /* synthetic */ FieldHolder $fh;
     public BridgeWebViewClient c;
-    public l55 d;
+    public i85 d;
     public c e;
-    public HashMap<String, o55> f;
-    public HashMap<String, t55> g;
+    public HashMap<String, l85> f;
+    public HashMap<String, q85> g;
     public String h;
     public int i;
     public int j;
 
     /* loaded from: classes4.dex */
-    public static final class NullHandler implements o55 {
+    public static final class NullHandler implements l85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final s55 bridge;
+        public final p85 bridge;
         public final String cmd;
 
-        public NullHandler(s55 s55Var, String str) {
+        public NullHandler(p85 p85Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s55Var, str};
+                Object[] objArr = {p85Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,33 +79,33 @@ public class WebViewBridge extends s55 implements p55 {
                     return;
                 }
             }
-            this.bridge = s55Var;
+            this.bridge = p85Var;
             this.cmd = str;
         }
 
-        public /* synthetic */ NullHandler(s55 s55Var, String str, a aVar) {
-            this(s55Var, str);
+        public /* synthetic */ NullHandler(p85 p85Var, String str, a aVar) {
+            this(p85Var, str);
         }
 
-        @Override // com.baidu.tieba.o55
+        @Override // com.baidu.tieba.l85
         public void handle(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 if (TextUtils.isEmpty(optString)) {
-                    m55.a("scope " + this.cmd + " not found!");
+                    j85.a("scope " + this.cmd + " not found!");
                     return;
                 }
                 HashMap hashMap = new HashMap(4);
                 hashMap.put("errNo", "107");
                 hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "cmd " + this.cmd + " not found");
-                this.bridge.c(t55.k(optString, hashMap));
+                this.bridge.c(q85.k(optString, hashMap));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements r55 {
+    public class a implements o85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -129,16 +130,16 @@ public class WebViewBridge extends s55 implements p55 {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.r55
-        public void a(t55 t55Var, JSONObject jSONObject) {
+        @Override // com.baidu.tieba.o85
+        public void a(q85 q85Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, t55Var, jSONObject) != null) {
+            if (interceptable != null && interceptable.invokeLL(1048576, this, q85Var, jSONObject) != null) {
                 return;
             }
-            this.b.t(t55Var, this.a);
+            this.b.t(q85Var, this.a);
         }
 
-        @Override // com.baidu.tieba.r55
+        @Override // com.baidu.tieba.o85
         public void b(int i, Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th) != null) || i != 1) {
@@ -151,7 +152,7 @@ public class WebViewBridge extends s55 implements p55 {
             if (i2 < 0 || i2 >= WebViewBridge.m.length) {
                 BdLog.e("pingIndex " + this.a + " out of bounds.");
                 String s = this.b.s();
-                m55.b(s, "103", "ping timeout for index " + this.a);
+                j85.b(s, "103", "ping timeout for index " + this.a);
                 return;
             }
             this.b.x(String.valueOf(WebViewBridge.m[this.a]), "");
@@ -159,11 +160,11 @@ public class WebViewBridge extends s55 implements p55 {
     }
 
     /* loaded from: classes4.dex */
-    public static final class b extends s55 {
+    public static final class b extends p85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.s55
+        @Override // com.baidu.tieba.p85
         public void e(String str, BridgeHandler bridgeHandler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bridgeHandler) == null) {
@@ -183,7 +184,7 @@ public class WebViewBridge extends s55 implements p55 {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((View) objArr2[0], (k55) objArr2[1]);
+                    super((View) objArr2[0], (h85) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -195,11 +196,11 @@ public class WebViewBridge extends s55 implements p55 {
             this(view2);
         }
 
-        @Override // com.baidu.tieba.s55
-        public void c(t55 t55Var) {
+        @Override // com.baidu.tieba.p85
+        public void c(q85 q85Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t55Var) == null) {
-                t55Var.g(4, null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, q85Var) == null) {
+                q85Var.g(4, null);
             }
         }
     }
@@ -208,14 +209,14 @@ public class WebViewBridge extends s55 implements p55 {
     public static final class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<p55> a;
+        public final WeakReference<m85> a;
 
-        public c(p55 p55Var) {
+        public c(m85 m85Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p55Var};
+                Object[] objArr = {m85Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -225,27 +226,27 @@ public class WebViewBridge extends s55 implements p55 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(p55Var);
+            this.a = new WeakReference<>(m85Var);
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                p55 p55Var = this.a.get();
-                if (p55Var == null) {
-                    m55.a("TimeHandler got null bridge reference.");
+                m85 m85Var = this.a.get();
+                if (m85Var == null) {
+                    j85.a("TimeHandler got null bridge reference.");
                     return;
                 }
                 int i = message.what;
                 if (i != 1) {
                     if (i == 2) {
-                        p55Var.a((String) message.obj);
+                        m85Var.a((String) message.obj);
                         return;
                     }
                     throw new IllegalArgumentException("Invalid message.");
                 }
-                p55Var.b();
+                m85Var.b();
             }
         }
     }
@@ -268,7 +269,7 @@ public class WebViewBridge extends s55 implements p55 {
         m = new int[]{501, 502, 503};
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.m85
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -279,25 +280,25 @@ public class WebViewBridge extends s55 implements p55 {
             hashMap.put("version", "1.0");
             hashMap.put("logid", s());
             int[] iArr = k;
-            l(t55.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
-            x("100", "");
+            l(q85.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
+            x(YYOption.UrlProtocol.USER, "");
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebViewBridge(WebView webView, k55 k55Var) {
-        super(webView, k55Var);
+    public WebViewBridge(WebView webView, h85 h85Var) {
+        super(webView, h85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, k55Var};
+            Object[] objArr = {webView, h85Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (k55) objArr2[1]);
+                super((View) objArr2[0], (h85) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -315,19 +316,19 @@ public class WebViewBridge extends s55 implements p55 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebViewBridge(TbWebView tbWebView, k55 k55Var) {
-        super(tbWebView, k55Var);
+    public WebViewBridge(TbWebView tbWebView, h85 h85Var) {
+        super(tbWebView, h85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbWebView, k55Var};
+            Object[] objArr = {tbWebView, h85Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (k55) objArr2[1]);
+                super((View) objArr2[0], (h85) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -342,15 +343,15 @@ public class WebViewBridge extends s55 implements p55 {
         this.i = 1;
     }
 
-    public final void t(t55 t55Var, int i) {
+    public final void t(q85 q85Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, t55Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, q85Var, i) == null) {
             this.i = 0;
             long currentTimeMillis = System.currentTimeMillis();
             if (i >= 0) {
                 int[] iArr = l;
                 if (i < iArr.length) {
-                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - t55Var.h));
+                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - q85Var.h));
                     return;
                 }
             }
@@ -370,72 +371,72 @@ public class WebViewBridge extends s55 implements p55 {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            m55.a("reInject for pingIndex " + this.j);
+            j85.a("reInject for pingIndex " + this.j);
             r(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void c(t55 t55Var) {
+    @Override // com.baidu.tieba.p85
+    public void c(q85 q85Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t55Var) == null) {
-            if (t55Var.e == 3) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q85Var) == null) {
+            if (q85Var.e == 3) {
                 z = true;
             } else {
                 z = false;
             }
-            l(t55Var, z);
+            l(q85Var, z);
         }
     }
 
-    public static s55 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient) {
+    public static p85 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), webView, webViewClient, webChromeClient})) == null) {
             if (!z) {
                 return new b(webView, null);
             }
-            WebViewBridge webViewBridge = new WebViewBridge(webView, (k55) null);
+            WebViewBridge webViewBridge = new WebViewBridge(webView, (h85) null);
             webViewBridge.c.c(webViewClient);
             webViewBridge.d.d(webChromeClient);
             return webViewBridge;
         }
-        return (s55) invokeCommon.objValue;
+        return (p85) invokeCommon.objValue;
     }
 
-    public static s55 n(boolean z, TbWebView tbWebView, WebViewClient webViewClient, WebChromeClient webChromeClient) {
+    public static p85 n(boolean z, TbWebView tbWebView, WebViewClient webViewClient, WebChromeClient webChromeClient) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), tbWebView, webViewClient, webChromeClient})) == null) {
             if (!z) {
                 return new b(tbWebView, null);
             }
-            WebViewBridge webViewBridge = new WebViewBridge(tbWebView, (k55) null);
+            WebViewBridge webViewBridge = new WebViewBridge(tbWebView, (h85) null);
             webViewBridge.c.c(webViewClient);
             webViewBridge.d.d(webChromeClient);
             return webViewBridge;
         }
-        return (s55) invokeCommon.objValue;
+        return (p85) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.m85
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                m55.a("invalid callbackId.");
+                j85.a("invalid callbackId.");
                 return;
             }
-            t55 remove = this.g.remove(str);
+            q85 remove = this.g.remove(str);
             if (remove != null) {
-                m55.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                j85.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
                 remove.g(1, null);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s55
+    @Override // com.baidu.tieba.p85
     public void e(String str, BridgeHandler bridgeHandler) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048579, this, str, bridgeHandler) != null) || this.f.put(str, bridgeHandler) == null) {
@@ -460,46 +461,46 @@ public class WebViewBridge extends s55 implements p55 {
         return (StringBuilder) invokeV.objValue;
     }
 
-    public final void l(t55 t55Var, boolean z) {
+    public final void l(q85 q85Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, t55Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, q85Var, z) == null) {
             if (!z) {
                 if (this.i != 0) {
                     String s = s();
-                    m55.b(s, ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, "(" + t55Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + t55Var.b + ") is called before bridge ready");
+                    j85.b(s, ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, "(" + q85Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + q85Var.b + ") is called before bridge ready");
                 }
-                if (TextUtils.isEmpty(t55Var.a) || TextUtils.isEmpty(t55Var.b)) {
-                    m55.b(s(), WorkPostNotifyFlutterData.FAIL_POST, "the alias class or method is empty");
-                    t55Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
+                if (TextUtils.isEmpty(q85Var.a) || TextUtils.isEmpty(q85Var.b)) {
+                    j85.b(s(), WorkPostNotifyFlutterData.FAIL_POST, "the alias class or method is empty");
+                    q85Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
                     return;
                 }
             }
-            if (!TextUtils.isEmpty(t55Var.f)) {
-                if (t55Var.e != 3) {
-                    this.g.put(t55Var.f, t55Var);
-                    if (t55Var.g > 0) {
+            if (!TextUtils.isEmpty(q85Var.f)) {
+                if (q85Var.e != 3) {
+                    this.g.put(q85Var.f, q85Var);
+                    if (q85Var.g > 0) {
                         c cVar = this.e;
-                        cVar.sendMessageDelayed(Message.obtain(cVar, 2, t55Var.f), t55Var.g);
-                    } else if (t55Var.a != null || t55Var.b != null) {
-                        m55.a("ignore timeout check for method call (" + t55Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + t55Var.b + ").");
+                        cVar.sendMessageDelayed(Message.obtain(cVar, 2, q85Var.f), q85Var.g);
+                    } else if (q85Var.a != null || q85Var.b != null) {
+                        j85.a("ignore timeout check for method call (" + q85Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + q85Var.b + ").");
                     }
                 } else {
-                    m55.a("ignore timeout check for response method, callbackId " + t55Var.f);
+                    j85.a("ignore timeout check for response method, callbackId " + q85Var.f);
                 }
             }
             try {
-                String b2 = t55Var.b();
-                lh6.a().e(this.a, b2, null);
-                m55.a(b2);
+                String b2 = q85Var.b();
+                tl6.a().e(this.a, b2, null);
+                j85.a(b2);
             } catch (NullPointerException e) {
                 x("500", e.getMessage());
             } catch (JSONException e2) {
                 if (z) {
                     x(WorkPostNotifyFlutterData.FAIL_POST, e2.getMessage());
                 } else {
-                    m55.a(e2.getMessage());
+                    j85.a(e2.getMessage());
                 }
-                t55Var.g(2, e2);
+                q85Var.g(2, e2);
             }
         }
     }
@@ -508,7 +509,7 @@ public class WebViewBridge extends s55 implements p55 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            m55.a("got js prompt in url:" + str + " with content:" + str2);
+            j85.a("got js prompt in url:" + str + " with content:" + str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 String optString = jSONObject.optString("messageType");
@@ -520,11 +521,11 @@ public class WebViewBridge extends s55 implements p55 {
                     v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
                 } else {
                     String s = s();
-                    m55.b(s, "105", "invalid message type " + optString);
+                    j85.b(s, "105", "invalid message type " + optString);
                 }
                 return null;
             } catch (JSONException e) {
-                m55.b(s(), "109", e.getMessage());
+                j85.b(s(), "109", e.getMessage());
                 return null;
             }
         }
@@ -537,11 +538,11 @@ public class WebViewBridge extends s55 implements p55 {
             this.j = -1;
             int i = this.i;
             if (i != 2 && i != 1) {
-                m55.a("current status " + this.i + ", broken because url changed to " + str);
+                j85.a("current status " + this.i + ", broken because url changed to " + str);
                 this.i = 2;
             }
-            if (v55.b(str) && v55.a(str)) {
-                m55.a("current status " + this.i + ", constructing bridge for " + str);
+            if (s85.b(str) && s85.a(str)) {
+                j85.a("current status " + this.i + ", constructing bridge for " + str);
                 r(this.a);
             }
         }
@@ -567,7 +568,7 @@ public class WebViewBridge extends s55 implements p55 {
                 this.e.sendEmptyMessageDelayed(1, 0L);
             } catch (Throwable th) {
                 x(WorkPostNotifyFlutterData.FAIL_POST, th.getMessage());
-                m55.a(th.toString());
+                j85.a(th.toString());
             }
         }
     }
@@ -576,9 +577,9 @@ public class WebViewBridge extends s55 implements p55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.c = new BridgeWebViewClient(z);
-            l55 l55Var = new l55();
-            this.d = l55Var;
-            l55Var.c(this);
+            i85 i85Var = new i85();
+            this.d = i85Var;
+            i85Var.c(this);
             this.c.b(this);
             this.e = new c(this);
             this.f = new HashMap<>(16);
@@ -590,11 +591,11 @@ public class WebViewBridge extends s55 implements p55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) {
             if (TextUtils.isEmpty(str)) {
-                m55.a("invalid callbackId.");
+                j85.a("invalid callbackId.");
                 return;
             }
             this.e.removeMessages(2, str);
-            t55 remove = this.g.remove(str);
+            q85 remove = this.g.remove(str);
             if (remove != null) {
                 remove.h(jSONObject);
             }
@@ -604,7 +605,7 @@ public class WebViewBridge extends s55 implements p55 {
     public final void x(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            m55.c(s(), str, str2);
+            j85.c(s(), str, str2);
         }
     }
 
@@ -612,15 +613,15 @@ public class WebViewBridge extends s55 implements p55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
             if (this.i != 0) {
-                m55.b(s(), "106", "bridge is not ready");
+                j85.b(s(), "106", "bridge is not ready");
             }
-            o55 o55Var = this.f.get(str);
-            if (o55Var == null) {
-                o55Var = new NullHandler(this, str, null);
+            l85 l85Var = this.f.get(str);
+            if (l85Var == null) {
+                l85Var = new NullHandler(this, str, null);
                 String s = s();
-                m55.b(s, "107", "cmd " + str + " not found");
+                j85.b(s, "107", "cmd " + str + " not found");
             }
-            o55Var.handle(str2, jSONObject, jSONObject2);
+            l85Var.handle(str2, jSONObject, jSONObject2);
         }
     }
 }

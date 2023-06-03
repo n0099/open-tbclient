@@ -1,100 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public final class x00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        InterceptResult invokeL;
-        FileReader fileReader;
+    public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileReader fileReader2 = null;
-        try {
-            fileReader = new FileReader(file);
-            try {
-                try {
-                    char[] cArr = new char[8192];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        charArrayWriter.write(cArr, 0, read);
-                    }
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
-                        c(e);
-                    }
-                    return charArrayWriter2;
-                } catch (Exception e2) {
-                    e = e2;
-                    c(e);
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e3) {
-                            c(e3);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (Exception e4) {
-                        c(e4);
-                    }
-                }
-                throw th;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, byteBuffer, byteBuffer2, byteBuffer3, i) == null) {
+            if (i < 0 || byteBuffer2.remaining() < i || byteBuffer3.remaining() < i || byteBuffer.remaining() < i) {
+                throw new IllegalArgumentException("That combination of buffers, offsets and length to xor result in out-of-bond accesses.");
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileReader2 != null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                byteBuffer.put((byte) (byteBuffer2.get() ^ byteBuffer3.get()));
             }
-            throw th;
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            c(e);
-        }
-    }
-
-    public static void c(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
         }
     }
 }

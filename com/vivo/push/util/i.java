@@ -13,6 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.ImageViewPressedEffectHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +115,7 @@ public final class i extends b {
                 Intent parseUri = Intent.parseUri(str, 1);
                 parseUri.setSelector(null);
                 parseUri.setPackage(str2);
-                parseUri.setFlags(335544320);
+                parseUri.setFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                 a(parseUri, insideNotificationItem.getParams());
                 int a = a(parseUri);
                 if (a > 0) {
@@ -146,7 +147,7 @@ public final class i extends b {
                         if (componentName.getPackageName().equals(str)) {
                             u.d("AndroidTwelveNotifyClickIntentParam", "sendFakeNoticeToClient topClassName=" + componentName.getClassName());
                             intent.setComponent(componentName);
-                            intent.setFlags(335544320);
+                            intent.setFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                             a(intent, map);
                             return intent;
                         }
@@ -158,7 +159,7 @@ public final class i extends b {
             try {
                 intent = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (intent != null) {
-                    intent.setFlags(335544320);
+                    intent.setFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                     a(intent, map);
                 } else {
                     u.a("AndroidTwelveNotifyClickIntentParam", "sendFakeNoticeToClient LaunchIntent is null");
@@ -213,7 +214,7 @@ public final class i extends b {
                                 try {
                                     a = notifyArriveCallbackByUser.getIntent();
                                     a.setSelector(null);
-                                    a.setFlags(335544320);
+                                    a.setFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                                     b(a, insideNotificationItem.getParams());
                                     a2 = a(a);
                                 } catch (Exception e2) {

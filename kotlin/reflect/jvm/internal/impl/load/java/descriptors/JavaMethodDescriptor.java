@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.List;
 import java.util.Map;
 import kotlin.Pair;
@@ -62,7 +61,7 @@ public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implement
                 objArr[0] = "unsubstitutedValueParameters";
                 break;
             case 11:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 12:
             case 17:

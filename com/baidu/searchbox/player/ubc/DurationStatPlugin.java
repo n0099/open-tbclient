@@ -8,19 +8,22 @@ import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
+import com.baidu.searchbox.player.utils.DumediaUtils;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.Slot;
 import com.baidu.ubc.UBCManager;
+import com.tencent.connect.share.QzonePublish;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DurationStatPlugin extends AbsPlugin {
     public static final int DURATION_SLOT_DIFF_MIN = 500;
     public static final UBCManager UBC_MANAGER = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     public Flow mFlow;
     public BDVideoPlayerUbcContent mUBCContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
     public int durationSlotIndex = 1;
+    public boolean isFirstFrameStart = false;
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     @Nullable
@@ -54,11 +57,13 @@ public class DurationStatPlugin extends AbsPlugin {
 
     private void uploadDurationFlow(boolean z) {
         int i;
+        int i2;
+        String str;
+        int i3;
         uploadDurationSlot();
         try {
             JSONObject extStatisticsLogClone = this.mUBCContent.getExtStatisticsLogClone();
             extStatisticsLogClone.putOpt("image", this.mUBCContent.getPoster());
-            int i2 = 0;
             if (z) {
                 i = 1;
             } else {
@@ -67,10 +72,30 @@ public class DurationStatPlugin extends AbsPlugin {
             extStatisticsLogClone.putOpt("closeReason", Integer.valueOf(i));
             if (getBindPlayer() != null) {
                 i2 = getBindPlayer().getLoopCount();
+            } else {
+                i2 = 0;
             }
             extStatisticsLogClone.putOpt("cycleCount", Integer.valueOf(i2 + 1));
             extStatisticsLogClone.putOpt("clarity", this.mUBCContent.getClarityKey());
             extStatisticsLogClone.putOpt("selectedType", Integer.valueOf(this.mUBCContent.getSelectType()));
+            extStatisticsLogClone.putOpt("selectedTag", this.mUBCContent.getClaritySelectStrategy());
+            extStatisticsLogClone.putOpt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, this.mUBCContent.getVideoSize());
+            if (this.isFirstFrameStart) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            extStatisticsLogClone.putOpt("startStatType", str);
+            if (getBindPlayer() != null) {
+                if (getBindPlayer().isPlayerMute()) {
+                    i3 = 1;
+                } else {
+                    i3 = 0;
+                }
+                extStatisticsLogClone.putOpt("mute_status", Integer.valueOf(i3));
+            }
+            extStatisticsLogClone.putOpt("userTag", DumediaUtils.getUserTag());
+            this.mUBCContent.putPublicParams(extStatisticsLogClone);
             String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.mUBCContent, (JSONObject) null);
             if (this.mFlow != null) {
                 UBC_MANAGER.flowSetValueWithDuration(this.mFlow, ubcContent);
@@ -81,6 +106,7 @@ public class DurationStatPlugin extends AbsPlugin {
             e.printStackTrace();
         }
         this.durationSlotIndex = 1;
+        this.isFirstFrameStart = false;
     }
 
     private void uploadDurationSlot() {
@@ -162,6 +188,7 @@ public class DurationStatPlugin extends AbsPlugin {
                 this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
                 return;
             case 1:
+                this.isFirstFrameStart = true;
                 createFlow();
                 return;
             case 2:
@@ -178,12 +205,12 @@ public class DurationStatPlugin extends AbsPlugin {
                 return;
             case 6:
                 if (videoEvent.getBooleanExtra(8)) {
+                    this.isFirstFrameStart = false;
                     createFlow();
                     return;
-                } else {
-                    uploadDurationFlow(false);
-                    return;
                 }
+                uploadDurationFlow(false);
+                return;
             default:
                 return;
         }

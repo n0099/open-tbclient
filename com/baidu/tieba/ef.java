@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.abtest.MemoryThreadOptSwitch;
+import com.baidu.tbadk.switchs.CsjInitSwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tbadk.switchs.KsInitSwitch;
+import com.baidu.tbadk.switchs.PicCaptureModeSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ef {
+public class ef implements cl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public xj1<ze> a;
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vj1 b = vj1.b();
-            this.a = b;
-            b.a(new af());
-        }
-    }
 
     public ef() {
         Interceptable interceptable = $ic;
@@ -31,9 +26,27 @@ public class ef {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a();
+    }
+
+    @Override // com.baidu.tieba.cl1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new MemoryThreadOptSwitch());
+            arrayList.add(new fk5());
+            arrayList.add(new CsjInitSwitch());
+            arrayList.add(new GdtInitSwitch());
+            arrayList.add(new KsInitSwitch());
+            arrayList.add(new PicCaptureModeSwitch());
+            arrayList.add(new wj6());
+            arrayList.add(new xj6());
+            arrayList.add(new hp6());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

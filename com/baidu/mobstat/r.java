@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mobstat.bl;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.io.BufferedReader;
@@ -169,10 +168,10 @@ public class r {
                     byte[] a3 = bv.a(false, bq.a(), a2);
                     gZIPOutputStream.write(a(a3.length, 4));
                     gZIPOutputStream.write(a3);
-                    bytes = bl.a.a(a2, new byte[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, str2.getBytes(IMAudioTransRequest.CHARSET));
+                    bytes = bl.a.a(a2, new byte[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, str2.getBytes("utf-8"));
                     gZIPOutputStream.write(a(bytes.length, 2));
                 } else {
-                    bytes = str2.getBytes(IMAudioTransRequest.CHARSET);
+                    bytes = str2.getBytes("utf-8");
                 }
                 gZIPOutputStream.write(bytes);
                 gZIPOutputStream.close();

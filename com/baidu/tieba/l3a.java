@@ -1,62 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tieba.q55;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l3a extends df5 {
+public class l3a extends q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public final MainTabActivity c;
+    public final v0a d;
+
+    @Override // com.baidu.tieba.q55
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l3a(Context context) {
-        super(context, (String) null, 28);
+    public l3a(@NonNull MainTabActivity mainTabActivity, @NonNull v0a v0aVar) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {mainTabActivity, v0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
-        this.m = videoPlayInputContainer;
-        this.t = videoPlayInputContainer.getInputView();
-        this.p = new int[]{4, 24, 3, 9, 6};
+        this.d = v0aVar;
+        this.c = mainTabActivity;
     }
 
-    public EditText g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q55
+    public void d(@NonNull q55.a aVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            boolean z2 = false;
+            if (this.d.y() != null && this.d.y().getCurrentTabType() != 2) {
+                aVar.callback(false);
+                return;
+            }
+            boolean i = l95.m().i(l95.q("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i && z) {
+                z2 = true;
+            }
+            aVar.callback(z2);
         }
-        return (EditText) invokeV.objValue;
     }
 
-    public VideoPlayInputContainer h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q55
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (VideoPlayInputContainer) this.m;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbWebViewActivityConfig h = qx4.h(this.c, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
+            h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            h.setWebDialogName("newGod");
+            this.c.sendMessage(new CustomMessage(2002001, h));
+            l95.m().w(l95.q("key_new_god_pop_is_show"), false);
+            x55.m("newGod");
         }
-        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

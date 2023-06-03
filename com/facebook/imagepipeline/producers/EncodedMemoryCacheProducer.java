@@ -1,6 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -106,7 +106,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
             if (closeableReference != null) {
                 EncodedImage encodedImage = new EncodedImage(closeableReference);
                 if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {
-                    map2 = ImmutableMap.of("cached_value_found", "true");
+                    map2 = ImmutableMap.of("cached_value_found", YYOption.IsLive.VALUE_TRUE);
                 }
                 producerListener.onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, map2);
                 producerListener.onUltimateProducerReached(producerContext, PRODUCER_NAME, true);
@@ -117,7 +117,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                 CloseableReference.closeSafely(closeableReference);
             } else if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
                 if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {
-                    map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                    map = ImmutableMap.of("cached_value_found", "false");
                 } else {
                     map = null;
                 }
@@ -132,7 +132,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
             } else {
                 EncodedMemoryCacheConsumer encodedMemoryCacheConsumer = new EncodedMemoryCacheConsumer(consumer, this.mMemoryCache, encodedCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled(), producerContext.getImagePipelineConfig().getExperiments().isEncodedCacheEnabled());
                 if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {
-                    map2 = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                    map2 = ImmutableMap.of("cached_value_found", "false");
                 }
                 producerListener.onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, map2);
                 this.mInputProducer.produceResults(encodedMemoryCacheConsumer, producerContext);

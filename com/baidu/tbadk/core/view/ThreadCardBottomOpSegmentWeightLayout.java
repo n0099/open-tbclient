@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a75;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             super.K();
             this.e.setVisibilityListener(this.v0);
             this.e.A(true);
-            a75.b(this);
+            w95.b(this);
         }
     }
 

@@ -117,8 +117,8 @@ public class ARConfig {
             if (jSONObject.has(ARConfigKey.AR_NEED_LAST_PREVIEW)) {
                 setIsNeedLastPreview(jSONObject.getBoolean(ARConfigKey.AR_NEED_LAST_PREVIEW));
             }
-            if (jSONObject.has(ARConfigKey.EXTRA_INFO)) {
-                setARExtraInfo(jSONObject.getString(ARConfigKey.EXTRA_INFO));
+            if (jSONObject.has("extra_info")) {
+                setARExtraInfo(jSONObject.getString("extra_info"));
             }
         } catch (Exception e2) {
             e2.printStackTrace();

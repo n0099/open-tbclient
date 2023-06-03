@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.ImageViewPressedEffectHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +54,7 @@ public final class f implements Runnable {
                             com.vivo.push.util.u.d("NotifyOpenClientTask", "topClassName=" + componentName.getClassName());
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
-                            intent.setFlags(335544320);
+                            intent.setFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                             e.b(intent, this.b);
                             this.a.startActivity(intent);
                             return;

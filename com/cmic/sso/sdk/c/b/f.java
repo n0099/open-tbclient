@@ -2,6 +2,7 @@ package com.cmic.sso.sdk.c.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class f extends g {
         return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public class f extends g {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +243,7 @@ public class f extends g {
                 jSONObject2.put("appid", this.a.a());
                 jSONObject2.put("version", this.a.c());
                 jSONObject.put("header", jSONObject2);
-                jSONObject3.put("log", this.b.a());
+                jSONObject3.put(LocalFilesFilterKt.FILTER_NAME_LOG, this.b.a());
                 jSONObject.put("body", jSONObject3);
             } catch (JSONException e) {
                 e.printStackTrace();

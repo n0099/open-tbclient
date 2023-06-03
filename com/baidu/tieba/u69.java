@@ -1,77 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u69 extends en<j79, CardViewHolder<a89>> {
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
+/* loaded from: classes8.dex */
+public class u69 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public a89 b;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public long f;
+    public MetaData g;
+    public HashMap<String, MetaData> h;
+    public boolean i;
+    public String j;
+    public String k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public e35 o;
+    public YyExtData p;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u69(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163089, "Lcom/baidu/tieba/u69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163089, "Lcom/baidu/tieba/u69;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        q = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public CardViewHolder<a89> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public u69() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new a89(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (CardViewHolder) invokeL.objValue;
+        this.l = false;
+        this.m = false;
+        this.n = false;
     }
 
-    public void u(boolean z) {
-        a89 a89Var;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (a89Var = this.b) != null) {
-            a89Var.u(z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            this.b = 0;
+            this.c = null;
+            this.d = null;
+            this.e = 0;
+            this.f = 0L;
+            this.g = null;
+            this.h = null;
+            this.i = false;
+            this.j = null;
+            this.k = null;
+            this.n = false;
+            this.l = false;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j79 j79Var, CardViewHolder<a89> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j79Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(j79Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return q;
         }
-        return (View) invokeCommon.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(AlaLiveInfo alaLiveInfo) {
+        boolean z;
+        HashMap<String, MetaData> hashMap;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
+            this.a = alaLiveInfo.user_info.user_name;
+            this.c = alaLiveInfo.description;
+            String str = alaLiveInfo.cover_wide;
+            this.d = str;
+            if (str == null || TextUtils.isEmpty(str)) {
+                this.d = alaLiveInfo.cover;
+            }
+            this.b = alaLiveInfo.audience_count.intValue();
+            this.e = alaLiveInfo.live_status.intValue();
+            this.f = alaLiveInfo.live_id.longValue();
+            if (alaLiveInfo.live_from.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.i = z;
+            this.j = alaLiveInfo.third_live_type;
+            this.k = alaLiveInfo.third_room_id;
+            YyExtData yyExtData = new YyExtData();
+            this.p = yyExtData;
+            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            Long l = alaLiveInfo.user_info.user_id;
+            if (l != null && l.longValue() > 0 && (hashMap = this.h) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.g = metaData;
+                metaData.setIsLike(metaData.hadConcerned());
+            }
+            List<DislikeInfo> list = alaLiveInfo.dislike_info;
+            if (ListUtils.getCount(list) > 0) {
+                SparseArray<String> sparseArray = new SparseArray<>();
+                SparseArray<String> sparseArray2 = new SparseArray<>();
+                for (DislikeInfo dislikeInfo : list) {
+                    if (dislikeInfo != null) {
+                        sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                        sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                    }
+                }
+                e35 e35Var = new e35();
+                this.o = e35Var;
+                e35Var.j(sparseArray);
+                this.o.g = sparseArray2;
+            } else {
+                this.o = null;
+            }
+            this.l = true;
+        }
+    }
+
+    public void c(HashMap<String, MetaData> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.h = hashMap;
+        }
     }
 }

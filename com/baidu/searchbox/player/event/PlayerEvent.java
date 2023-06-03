@@ -1,11 +1,11 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PlayerEvent extends VideoEvent {
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_GO_BACK_OR_FOREGROUND = "player_event_go_back_or_foreground";
+    public static final String ACTION_KERNEL_LAYER_ATTACH = "player_event_kernel_layer_attach";
     public static final String ACTION_KERNEL_LAYER_DETACH = "player_event_kernel_layer_detach";
     public static final String ACTION_MEDIA_SOURCE_CHANGED = "player_event_media_source_changed";
     public static final String ACTION_ON_COMPLETE = "player_event_on_complete";
@@ -21,13 +21,13 @@ public class PlayerEvent extends VideoEvent {
     public static final int KEY_EXTRA = 2;
     public static final int KEY_GO_BACK_OR_FOREGROUND = 4;
     public static final int KEY_HEIGHT = 6;
+    public static final int KEY_KERNEL = 9;
     public static final int KEY_OBJECT = 3;
     public static final int KEY_RANK = 8;
     public static final int KEY_RESULT = 7;
     public static final int KEY_WHAT = 1;
     public static final int KEY_WIDTH = 5;
 
-    @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
         return VideoEvent.obtain(str, 4);
     }

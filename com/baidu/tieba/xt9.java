@@ -1,84 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.FunnySpriteSwitch;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class xt9 {
+public class xt9 implements v65 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(NetWork netWork, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = lf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948312044, "Lcom/baidu/tieba/xt9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948312044, "Lcom/baidu/tieba/xt9;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(xt9 xt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            LocationData b = qs9.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !xt9.a) {
+                try {
+                    Class.forName("com.baidu.tieba.homepage.framework.RecommendFrsStatic");
+                } catch (Exception e) {
+                    BdLog.i(e.getMessage());
+                }
+                DefaultLog.getInstance().c("SpriteTip", "展示动画时首次请求");
+                dn5.h(1);
+                boolean unused = xt9.a = true;
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public xt9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.experience_score);
-            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.send_success);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
         }
     }
 
-    public static void c(Context context, View view2) {
+    @Override // com.baidu.tieba.v65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            GreyUtil.grey(toast);
-            toast.show();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v65
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "未登录状态");
+                return false;
+            } else if (!FunnySpriteSwitch.isOn()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "精灵开关未打开");
+                return false;
+            } else {
+                Object obj = map.get("use_hot");
+                if (obj != null && "1".equals(obj.toString())) {
+                    Object obj2 = map.get("dialog_url");
+                    if (obj2 instanceof String) {
+                        String str = (String) obj2;
+                        if (!TextUtils.isEmpty(str) && !ky5.b().e(str)) {
+                            YunDialogLog.getInstance().b("SpriteStrategy", "H5弹窗未预热完成");
+                            return false;
+                        }
+                    }
+                }
+                if (!FunnySpriteResDownloadUtil.k().invoke().booleanValue()) {
+                    YunDialogLog.getInstance().b("SpriteStrategy", "资源未下载完成");
+                    return false;
+                }
+                Object obj3 = map.get("use_offline");
+                if (obj3 != null && "1".equals(obj3.toString())) {
+                    Object obj4 = map.get("dialog_url");
+                    if (obj4 instanceof String) {
+                        String str2 = (String) obj4;
+                        if (!TextUtils.isEmpty(str2)) {
+                            try {
+                                Object obj5 = map.get("module");
+                                wq8 yunDialogLog = YunDialogLog.getInstance();
+                                yunDialogLog.c("SpriteStrategy", "开始手动初始化离线包:" + obj5);
+                                if ((obj5 instanceof String) && !TextUtils.isEmpty((String) obj5)) {
+                                    HashSet hashSet = new HashSet();
+                                    hashSet.add((String) obj5);
+                                    jz4.d(hashSet);
+                                    wq8 yunDialogLog2 = YunDialogLog.getInstance();
+                                    yunDialogLog2.c("SpriteStrategy", "离线包手动初始化完成:" + obj5);
+                                }
+                            } catch (Exception e) {
+                                wq8 yunDialogLog3 = YunDialogLog.getInstance();
+                                yunDialogLog3.b("SpriteStrategy", "离线包手动初始化异常:" + e);
+                            }
+                            boolean c = jz4.c(str2);
+                            wq8 yunDialogLog4 = YunDialogLog.getInstance();
+                            yunDialogLog4.b("SpriteStrategy", "离线包是否可用:" + c);
+                            if (!c) {
+                                YunDialogLog.getInstance().b("SpriteStrategy", "离线包未下载完成");
+                                return false;
+                            }
+                        }
+                    }
+                }
+                ur6.b().b(new ct9());
+                TbSingleton.getInstance().isShowSpriteDialog = true;
+                wg.a().post(new a(this));
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

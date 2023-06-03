@@ -1,119 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
+import android.graphics.Rect;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "FestivalTipViewHelper")
 /* loaded from: classes6.dex */
-public class jca {
+public final class jca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    public final AntiHelper.k b;
 
-    /* loaded from: classes6.dex */
-    public class a implements AntiHelper.k {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static final void a(String str, String str2, TbRichTextView.Position position) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                statisticItem.addParam("tid", str);
+            }
+            if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                statisticItem.addParam("pid", str2);
+            }
+            if (position != null) {
+                statisticItem.addParam("obj_locate", position.getIndex());
+            }
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
+        }
+    }
 
-        public a(jca jcaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jcaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static final void b(ey9 postData, TbRichTextView richTextView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            if (postData.z() != null) {
+                if (z) {
+                    richTextView.getLayoutStrategy().m(-1);
+                } else {
+                    richTextView.getLayoutStrategy().m(vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d25Var) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
             }
         }
     }
 
-    public jca(@NonNull TbPageContext<?> tbPageContext) {
+    public static final void c(ey9 postData, TbRichTextView richTextView) {
+        Rect rect;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            k16 layoutStrategy = richTextView.getLayoutStrategy();
+            if (postData.z() != null) {
+                rect = new Rect(-1, -1, -1, vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
+            } else {
+                rect = null;
             }
-        }
-        this.b = new a(this);
-        this.a = tbPageContext;
-    }
-
-    public final boolean a(PostWriteCallBackData postWriteCallBackData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, postWriteCallBackData)) == null) {
-            if (this.a.getPageActivity() == null || postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || qi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
-                return false;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.a.getPageActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
-            if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
-                if (AntiHelper.w(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.b) != null) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
-                }
-            } else if (postWriteCallBackData.getErrorCode() != 0) {
-                if (postWriteCallBackData.getErrorCode() == 230278) {
-                    return;
-                }
-                String errorString = postWriteCallBackData.getErrorString();
-                if (TextUtils.isEmpty(errorString)) {
-                    errorString = this.a.getString(R.string.sand_fail);
-                }
-                this.a.showToast(errorString);
-            } else if (!a(postWriteCallBackData)) {
-                xt9.b(this.a.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-            }
+            layoutStrategy.s(rect);
         }
     }
 }

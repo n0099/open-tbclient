@@ -5,25 +5,25 @@ import java.io.EOFException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static final Logger f = Logger.getLogger(a.class.getName());
     public final byte[] a;
     public final h b;
     public final g c;
     public final e d;
-    public C0537a e;
+    public C0557a e;
 
     /* renamed from: com.bytedance.pangle.res.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0537a {
+    /* loaded from: classes9.dex */
+    public static class C0557a {
         public final short a;
         public final int b;
         public final int c;
         public final int d;
         public final int e;
 
-        public C0537a(short s, int i, int i2, int i3) {
+        public C0557a(short s, int i, int i2, int i3) {
             this.a = s;
             this.b = i;
             this.c = i2;
@@ -31,12 +31,12 @@ public class a {
             this.e = i3 + i2;
         }
 
-        public static C0537a a(g gVar, e eVar) {
+        public static C0557a a(g gVar, e eVar) {
             int a = eVar.a();
             try {
-                return new C0537a(gVar.readShort(), gVar.readShort(), gVar.readInt(), a);
+                return new C0557a(gVar.readShort(), gVar.readShort(), gVar.readInt(), a);
             } catch (EOFException unused) {
-                return new C0537a((short) -1, 0, 0, eVar.a());
+                return new C0557a((short) -1, 0, 0, eVar.a());
             }
         }
     }
@@ -89,8 +89,8 @@ public class a {
         }
     }
 
-    private C0537a j() {
-        C0537a a = C0537a.a(this.c, this.d);
+    private C0557a j() {
+        C0557a a = C0557a.a(this.c, this.d);
         this.e = a;
         return a;
     }

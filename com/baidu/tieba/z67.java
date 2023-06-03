@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.text.Layout;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.MotionEvent;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,19 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class z67 extends BaseCardInfo {
+public final class z67 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final z67 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +33,7 @@ public class z67 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        a = new z67();
     }
 
     public z67() {
@@ -55,102 +50,40 @@ public class z67 extends BaseCardInfo {
         }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, widget, buffer, event)) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
+            Intrinsics.checkNotNullParameter(buffer, "buffer");
+            Intrinsics.checkNotNullParameter(event, "event");
+            int action = event.getAction();
+            if (action == 0 || action == 1) {
+                int x = ((int) event.getX()) - widget.getTotalPaddingLeft();
+                int y = ((int) event.getY()) - widget.getTotalPaddingTop();
+                int scrollX = x + widget.getScrollX();
+                int scrollY = y + widget.getScrollY();
+                Layout layout = widget.getLayout();
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                ClickableSpan[] links = (ClickableSpan[]) buffer.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+                Intrinsics.checkNotNullExpressionValue(links, "links");
+                if (links.length == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    ClickableSpan clickableSpan = links[0];
+                    if (action == 1 && clickableSpan != null) {
+                        clickableSpan.onClick(widget);
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return h;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) != null) || recommendForumInfo == null) {
-            return;
-        }
-        this.a = recommendForumInfo.forum_id.longValue();
-        this.b = recommendForumInfo.forum_name;
-        this.c = recommendForumInfo.avatar;
-        this.e = recommendForumInfo.member_count.intValue();
-        this.f = recommendForumInfo.thread_count.intValue();
-        boolean z = true;
-        if (recommendForumInfo.is_like.intValue() != 1) {
-            z = false;
-        }
-        this.d = z;
-        this.g = recommendForumInfo.recom_reason;
-        String str = recommendForumInfo.extra;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.d = z;
-        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.facebook.cache.disk;
 
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     public final float mAgeWeight;
     public final float mSizeWeight;

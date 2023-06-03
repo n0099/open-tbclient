@@ -9,7 +9,6 @@ import android.util.SparseIntArray;
 import androidx.constraintlayout.motion.widget.SplineSet;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.R;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -632,7 +631,7 @@ public class KeyAttributes extends Key {
                 c = 65535;
                 break;
             case 1941332754:
-                if (str.equals(RemoteMessageConst.Notification.VISIBILITY)) {
+                if (str.equals("visibility")) {
                     c = '\f';
                     break;
                 }

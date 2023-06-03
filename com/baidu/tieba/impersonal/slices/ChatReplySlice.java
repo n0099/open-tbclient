@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg8;
-import com.baidu.tieba.bj5;
-import com.baidu.tieba.ee8;
+import com.baidu.tieba.dn5;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.qe8;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ve8;
-import com.baidu.tieba.we8;
-import com.baidu.tieba.ze8;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.lk8;
+import com.baidu.tieba.qk8;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.uk8;
+import com.baidu.tieba.wq8;
+import com.baidu.tieba.xj8;
+import com.baidu.tieba.yl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bg8 j;
+    public final yl8 j;
     public final String k;
     public final String l;
     public SlicePersonalReplyBinding m;
@@ -80,7 +80,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends bg8.a {
+    public static final class a extends yl8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -103,15 +103,15 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.bg8.b
-        public void a(List<? extends qe8> list) {
+        @Override // com.baidu.tieba.yl8.b
+        public void a(List<? extends lk8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (qe8 qe8Var : list) {
-                    zk8 defaultLog = DefaultLog.getInstance();
-                    defaultLog.c("sendSpriteMsg", "新消息返回：" + qe8Var.b());
-                    if (qi.isEquals(qe8Var.b(), bj5.c())) {
+                for (lk8 lk8Var : list) {
+                    wq8 defaultLog = DefaultLog.getInstance();
+                    defaultLog.c("sendSpriteMsg", "新消息返回：" + lk8Var.b());
+                    if (ui.isEquals(lk8Var.b(), dn5.c())) {
                         DefaultLog.getInstance().c("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
@@ -166,7 +166,7 @@ public final class ChatReplySlice extends Slice {
                     chatReplySlice.g0(question);
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-                    ee8.a("c15230", currentAccount, questionData.getQuestion());
+                    xj8.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -233,7 +233,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(bg8 repo, String talkType, String talkPrologue) {
+    public ChatReplySlice(yl8 repo, String talkType, String talkPrologue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -262,7 +262,7 @@ public final class ChatReplySlice extends Slice {
     public final void g0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            ve8<we8> a2 = ze8.a(str);
+            qk8<rk8> a2 = uk8.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }

@@ -1,20 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public final class ni3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zi3 a;
+
+        public a(zi3 zi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zi3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fi3.k("671", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,76 +60,47 @@ public final class ni3 {
                 return;
             }
         }
-        a = qp1.a;
+        a = is1.a;
     }
 
-    public static void a() {
+    public static void a(qj4 qj4Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File c = c();
-            if (c.exists()) {
-                kp4.j(c);
-            }
-        }
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return uh3.a().getLong("aiapps_cur_debug_ver_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new File(yt2.d().get(0).a, "/aiapps_debug_swan_core/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (!c.exists()) {
-                c.mkdirs();
-            }
-            return new File(c, "debugSwanCore.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            File file = new File(c().getPath(), "pkginfo.json");
-            if (!file.exists()) {
-                return false;
-            }
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(kp4.E(file));
-            } catch (JSONException e) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{qj4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (qj4Var == null) {
                 if (a) {
-                    e.printStackTrace();
+                    Log.d("SwanStabilityUbc", "pms callback is null");
+                    return;
                 }
+                return;
             }
-            if (jSONObject == null) {
-                return false;
+            rn3 rn3Var = new rn3();
+            rn3Var.k(11L);
+            rn3Var.i(2331L);
+            rn3Var.f("Retry=" + z + ", Scene=" + qj4Var.getClass().getName());
+            zi3 zi3Var = new zi3();
+            zi3Var.q(ri3.n(i));
+            zi3Var.p(rn3Var);
+            if (qj4Var instanceof ze2) {
+                zi3Var.r(((ze2) qj4Var).I0());
             }
-            String optString = jSONObject.optString("version_name");
-            if (!TextUtils.isEmpty(optString)) {
-                uh3.a().putLong("aiapps_cur_debug_ver_key", vm3.b(optString));
-                return true;
+            b(zi3Var);
+            if (a) {
+                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + qj4Var.getClass().getSimpleName());
             }
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void b(zi3 zi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, zi3Var) == null) {
+            if (zi3Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "event is null");
+                    return;
+                }
+                return;
+            }
+            so3.k(new a(zi3Var), "SwanStabilityUBC");
+        }
     }
 }

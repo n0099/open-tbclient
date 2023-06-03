@@ -5,19 +5,19 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hg5;
-import com.baidu.tieba.ig5;
-import com.baidu.tieba.kg5;
+import com.baidu.tieba.ij5;
+import com.baidu.tieba.jj5;
+import com.baidu.tieba.lj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
+public class KPSwitchPanelFrameLayout extends FrameLayout implements jj5, ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kg5 a;
+    public lj5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
@@ -84,7 +84,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
         c(attributeSet);
     }
 
-    @Override // com.baidu.tieba.ig5
+    @Override // com.baidu.tieba.jj5
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -95,11 +95,11 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            this.a = new kg5(this, attributeSet);
+            this.a = new lj5(this, attributeSet);
         }
     }
 
-    @Override // com.baidu.tieba.ig5
+    @Override // com.baidu.tieba.jj5
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -123,7 +123,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
         super.setVisibility(i);
     }
 
-    @Override // com.baidu.tieba.hg5
+    @Override // com.baidu.tieba.ij5
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hg5
+    @Override // com.baidu.tieba.ij5
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -141,7 +141,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
         }
     }
 
-    @Override // com.baidu.tieba.hg5
+    @Override // com.baidu.tieba.ij5
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -149,7 +149,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements ig5, hg5 {
         }
     }
 
-    @Override // com.baidu.tieba.hg5
+    @Override // com.baidu.tieba.ij5
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

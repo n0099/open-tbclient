@@ -4,7 +4,7 @@ import org.apache.commons.codec.BinaryDecoder;
 import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
     public static final int DEFAULT_BUFFER_SIZE = 8192;

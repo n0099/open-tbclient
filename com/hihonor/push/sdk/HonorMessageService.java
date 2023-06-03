@@ -13,15 +13,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.pose.PoseAR;
-import com.baidu.tieba.a1b;
-import com.baidu.tieba.h0b;
-import com.baidu.tieba.mza;
-import com.baidu.tieba.nza;
-import com.baidu.tieba.oza;
-import com.baidu.tieba.tza;
-import com.baidu.tieba.uza;
-import com.baidu.tieba.vza;
-import com.baidu.tieba.w0b;
+import com.baidu.tieba.d8b;
+import com.baidu.tieba.e8b;
+import com.baidu.tieba.f8b;
+import com.baidu.tieba.g9b;
+import com.baidu.tieba.k9b;
+import com.baidu.tieba.r8b;
+import com.baidu.tieba.w7b;
+import com.baidu.tieba.x7b;
+import com.baidu.tieba.y7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,9 +38,9 @@ public abstract class HonorMessageService extends Service {
     public final a a;
     public final Messenger b;
 
-    public void onMessageReceived(mza mzaVar) {
+    public void onMessageReceived(w7b w7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mzaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, w7bVar) == null) {
         }
     }
 
@@ -113,20 +113,20 @@ public abstract class HonorMessageService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(h0b h0bVar) {
+    public void a(r8b r8bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, h0bVar) == null) {
-            if (h0bVar.f()) {
-                mza mzaVar = (mza) h0bVar.d();
-                if (mzaVar != null) {
-                    Log.i("HonorMessageService", "onMessageReceived. msgId is " + mzaVar.b());
-                    onMessageReceived(mzaVar);
+        if (interceptable == null || interceptable.invokeL(65537, this, r8bVar) == null) {
+            if (r8bVar.f()) {
+                w7b w7bVar = (w7b) r8bVar.d();
+                if (w7bVar != null) {
+                    Log.i("HonorMessageService", "onMessageReceived. msgId is " + w7bVar.b());
+                    onMessageReceived(w7bVar);
                     return;
                 }
                 Log.i("HonorMessageService", "parse remote data failed.");
                 return;
             }
-            boolean z = h0bVar.c() instanceof JSONException;
+            boolean z = r8bVar.c() instanceof JSONException;
         }
     }
 
@@ -136,10 +136,10 @@ public abstract class HonorMessageService extends Service {
             try {
                 if (TextUtils.equals(intent.getStringExtra(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY), DownMsgType.RECEIVE_TOKEN)) {
                     String stringExtra = intent.getStringExtra("push_token");
-                    Context a2 = vza.e.a();
-                    tza tzaVar = tza.b;
-                    if (!TextUtils.equals(stringExtra, tzaVar.c(a2))) {
-                        tzaVar.b(a2, stringExtra);
+                    Context a2 = f8b.e.a();
+                    d8b d8bVar = d8b.b;
+                    if (!TextUtils.equals(stringExtra, d8bVar.c(a2))) {
+                        d8bVar.b(a2, stringExtra);
                     }
                     Log.i("HonorMessageService", "onNewToken");
                     onNewToken(stringExtra);
@@ -157,21 +157,21 @@ public abstract class HonorMessageService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
             Log.i("HonorMessageService", "parse remote data start.");
-            h0b c2 = oza.c(new nza(intent));
-            w0b w0bVar = new w0b() { // from class: com.baidu.tieba.dza
+            r8b c2 = y7b.c(new x7b(intent));
+            g9b g9bVar = new g9b() { // from class: com.baidu.tieba.n7b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.w0b
-                public final void a(h0b h0bVar) {
+                @Override // com.baidu.tieba.g9b
+                public final void a(r8b r8bVar) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, h0bVar) == null) {
-                        HonorMessageService.this.a(h0bVar);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, r8bVar) == null) {
+                        HonorMessageService.this.a(r8bVar);
                     }
                 }
             };
             c2.getClass();
-            c2.a(new uza(a1b.c.a, w0bVar));
+            c2.a(new e8b(k9b.c.a, g9bVar));
         }
     }
 

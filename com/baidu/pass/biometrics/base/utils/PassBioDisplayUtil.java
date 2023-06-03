@@ -6,13 +6,14 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 /* loaded from: classes3.dex */
 public class PassBioDisplayUtil {
     public static void enableNavigationBarTint(Activity activity, int i) {
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = activity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.flags |= 134217728;
+            attributes.flags |= SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
             window.setAttributes(attributes);
         }
         SapiSystemBarTintManager sapiSystemBarTintManager = new SapiSystemBarTintManager(activity);

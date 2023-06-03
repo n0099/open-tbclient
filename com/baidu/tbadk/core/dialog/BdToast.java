@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +162,7 @@ public class BdToast {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
-            i(i, i2, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0703cc));
+            i(i, i2, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0703d7));
             return this;
         }
         return (BdToast) invokeII.objValue;
@@ -174,13 +174,13 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            bj.a(toast);
+            fj.a(toast);
             p();
             n();
             if (this.l != 0) {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.a, R.dimen.tbds32), this.l));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(this.a, R.dimen.tbds32), this.l));
             } else {
-                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             }
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);

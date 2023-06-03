@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a18;
+import com.baidu.tieba.be8;
+import com.baidu.tieba.bf8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.TextGenImageView;
-import com.baidu.tieba.l98;
-import com.baidu.tieba.m88;
+import com.baidu.tieba.p68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,11 +35,11 @@ import java.util.List;
 public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseChatAdapter<T, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public a18 k;
+    public String l;
+    public p68 m;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public boolean V() {
+    public boolean X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -48,13 +48,13 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         return invokeV.booleanValue;
     }
 
-    public void c0(long j, long j2, String str) {
+    public void e0(long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
         }
     }
 
-    public void d0(long j, long j2, String str) {
+    public void f0(long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
         }
@@ -121,7 +121,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
     }
 
     /* loaded from: classes6.dex */
-    public class a implements m88 {
+    public class a implements be8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -148,7 +148,7 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             this.b = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.m88
+        @Override // com.baidu.tieba.be8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -156,11 +156,11 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             }
         }
 
-        @Override // com.baidu.tieba.m88
+        @Override // com.baidu.tieba.be8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.e0(this.a, this.b);
+                this.c.g0(this.a, this.b);
             }
         }
     }
@@ -194,8 +194,8 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e52) {
-                this.b.Y(view2.getContext(), this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e64) {
+                this.b.a0(view2.getContext(), this.a);
             }
         }
     }
@@ -219,52 +219,52 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
                 return;
             }
         }
-        this.k = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    @NonNull
-    /* renamed from: Z */
-    public Holder J(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            Holder holder = new Holder(X(viewGroup.getContext()));
-            holder.f(viewGroup);
-            return holder;
-        }
-        return (Holder) invokeL.objValue;
+        this.m = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.j = str;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.l = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: a0 */
+    /* renamed from: b0 */
     public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            Holder holder = new Holder(X(viewGroup.getContext()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            Holder holder = new Holder(Z(viewGroup.getContext()));
             holder.f(viewGroup);
             return holder;
         }
         return (Holder) invokeL.objValue;
     }
 
-    public final TextGenImageView X(@NonNull Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
+    @NonNull
+    /* renamed from: c0 */
+    public Holder O(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            Holder holder = new Holder(Z(viewGroup.getContext()));
+            holder.f(viewGroup);
+            return holder;
+        }
+        return (Holder) invokeL.objValue;
+    }
+
+    public final TextGenImageView Z(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             TextGenImageView textGenImageView = new TextGenImageView(context);
-            textGenImageView.setId(R.id.obfuscated_res_0x7f090e77);
+            textGenImageView.setId(R.id.obfuscated_res_0x7f090e89);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -276,9 +276,9 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
         return (TextGenImageView) invokeL.objValue;
     }
 
-    public void Y(@NonNull Context context, @NonNull SingleTextImageMsg singleTextImageMsg) {
+    public void a0(@NonNull Context context, @NonNull SingleTextImageMsg singleTextImageMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, singleTextImageMsg) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, singleTextImageMsg) == null) {
             CommonMsgField commonMsgField = singleTextImageMsg.getCommonMsgField();
             long roomId = commonMsgField.getRoomId();
             long forumId = commonMsgField.getForumId();
@@ -290,28 +290,28 @@ public class SingleTextImageAdapter<T extends SingleTextImageMsg> extends BaseCh
             if (StringUtils.isNull(str)) {
                 return;
             }
-            a18 a18Var = new a18(this.mContext, str, forumId, this.j, roomId, false);
-            this.k = a18Var;
-            a18Var.execute(new String[0]);
-            c0(roomId, forumId, this.j);
+            p68 p68Var = new p68(this.mContext, str, forumId, this.l, roomId, false);
+            this.m = p68Var;
+            p68Var.execute(new String[0]);
+            e0(roomId, forumId, this.l);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: b0 */
-    public void R(int i, @NonNull ViewGroup viewGroup, @NonNull T t, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: d0 */
+    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull T t, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, t, holder, list, Integer.valueOf(i2)}) == null) {
-            l98.r(this.mType, t, viewGroup, new a(this, viewGroup, t));
+            bf8.r(this.mType, t, viewGroup, new a(this, viewGroup, t));
             holder.b.b(holder, t, i2);
             CommonMsgField commonMsgField = t.getCommonMsgField();
-            d0(commonMsgField.getRoomId(), commonMsgField.getForumId(), this.j);
+            f0(commonMsgField.getRoomId(), commonMsgField.getForumId(), this.l);
             holder.a(new b(this, t));
         }
     }
 
-    public final void e0(@NonNull ViewGroup viewGroup, @NonNull BaseMsg baseMsg) {
+    public final void g0(@NonNull ViewGroup viewGroup, @NonNull BaseMsg baseMsg) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, viewGroup, baseMsg) == null) {

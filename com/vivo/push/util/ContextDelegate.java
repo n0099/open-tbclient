@@ -2,6 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -168,7 +169,7 @@ public class ContextDelegate {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (mIsFbeProject == null) {
                 try {
-                    if ("file".equals(n.a(com.heytap.mcssdk.utils.a.b, "unknow"))) {
+                    if ("file".equals(n.a(com.heytap.mcssdk.utils.a.b, DownloadStatisticConstants.UBC_VALUE_UNKNOW))) {
                         z = true;
                     } else {
                         z = false;

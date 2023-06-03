@@ -1,7 +1,6 @@
 package kotlinx.coroutines.reactive;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -9,65 +8,70 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlinx.coroutines.CoroutineScope;
+import kotlinx.coroutines.intrinsics.CancellableKt;
+import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.sync.Mutex;
-/* JADX INFO: Add missing generic type declarations: [R] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001\"\u0006\b\u0001\u0010\u0002 \u00002\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "R", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "Lkotlinx/coroutines/sync/Mutex;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.reactive.PublisherCoroutine$registerSelectClause2$1", f = "Publish.kt", i = {0}, l = {125}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0006\b\u0001\u0010\u0003 \u0000*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.reactive.PublisherCoroutine$registerSelectClause2$1", f = "Publish.kt", i = {}, l = {114}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes10.dex */
-public final class PublisherCoroutine$registerSelectClause2$1<R> extends SuspendLambda implements Function2<Mutex, Continuation<? super R>, Object> {
-    public final /* synthetic */ Function2 $block;
-    public final /* synthetic */ Object $element;
-    public Object L$0;
+public final class PublisherCoroutine$registerSelectClause2$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public final /* synthetic */ Function1<Continuation<? super R>, Object> $clause;
+    public final /* synthetic */ SelectInstance<R> $select;
     public int label;
-    public Mutex p$0;
-    public final /* synthetic */ PublisherCoroutine this$0;
+    public final /* synthetic */ PublisherCoroutine<T> this$0;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.reactive.PublisherCoroutine<? super T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.selects.SelectInstance<? super R> */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function1<? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublisherCoroutine$registerSelectClause2$1(PublisherCoroutine publisherCoroutine, Object obj, Function2 function2, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public PublisherCoroutine$registerSelectClause2$1(PublisherCoroutine<? super T> publisherCoroutine, SelectInstance<? super R> selectInstance, Function1<? super Continuation<? super R>, ? extends Object> function1, Continuation<? super PublisherCoroutine$registerSelectClause2$1> continuation) {
         super(2, continuation);
         this.this$0 = publisherCoroutine;
-        this.$element = obj;
-        this.$block = function2;
+        this.$select = selectInstance;
+        this.$clause = function1;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-        PublisherCoroutine$registerSelectClause2$1 publisherCoroutine$registerSelectClause2$1 = new PublisherCoroutine$registerSelectClause2$1(this.this$0, this.$element, this.$block, continuation);
-        publisherCoroutine$registerSelectClause2$1.p$0 = (Mutex) obj;
-        return publisherCoroutine$registerSelectClause2$1;
+        return new PublisherCoroutine$registerSelectClause2$1(this.this$0, this.$select, this.$clause, continuation);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Mutex mutex, Object obj) {
-        return ((PublisherCoroutine$registerSelectClause2$1) create(mutex, (Continuation) obj)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
+        return ((PublisherCoroutine$registerSelectClause2$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
+        Mutex mutex;
+        Mutex mutex2;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         if (i != 0) {
             if (i == 1) {
-                Mutex mutex = (Mutex) this.L$0;
                 ResultKt.throwOnFailure(obj);
             } else {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
         } else {
             ResultKt.throwOnFailure(obj);
-            Mutex mutex2 = this.p$0;
-            this.this$0.doLockedNext(this.$element);
-            Function2 function2 = this.$block;
-            PublisherCoroutine publisherCoroutine = this.this$0;
-            this.L$0 = mutex2;
+            mutex = this.this$0.mutex;
             this.label = 1;
-            obj = function2.invoke(publisherCoroutine, this);
-            if (obj == coroutine_suspended) {
+            if (Mutex.DefaultImpls.lock$default(mutex, null, this, 1, null) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         }
-        return obj;
+        if (this.$select.trySelect()) {
+            CancellableKt.startCoroutineCancellable(this.$clause, this.$select.getCompletion());
+            return Unit.INSTANCE;
+        }
+        mutex2 = this.this$0.mutex;
+        Mutex.DefaultImpls.unlock$default(mutex2, null, 1, null);
+        return Unit.INSTANCE;
     }
 }

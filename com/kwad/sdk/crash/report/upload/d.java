@@ -2,7 +2,6 @@ package com.kwad.sdk.crash.report.upload;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.core.network.n;
@@ -12,7 +11,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static void a(@NonNull final File file, boolean z, @Nullable final CountDownLatch countDownLatch) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "upload()" + Thread.currentThread());
@@ -38,7 +37,7 @@ public final class d {
             @NonNull
             /* renamed from: wW */
             public c createRequest() {
-                return new c(ar.getDeviceId(), f.this.aib, StatConstants.VALUE_TYPE_ZIP);
+                return new c(ar.getDeviceId(), f.this.aib, "zip");
             }
 
             @Override // com.kwad.sdk.core.network.m

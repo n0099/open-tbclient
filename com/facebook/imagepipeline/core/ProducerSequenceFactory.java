@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.core;
 
 import android.content.ContentResolver;
 import android.net.Uri;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.media.MediaUtils;
@@ -413,7 +412,7 @@ public class ProducerSequenceFactory {
     public static String getShortenedUriString(Uri uri) {
         String valueOf = String.valueOf(uri);
         if (valueOf.length() > 30) {
-            return valueOf.substring(0, 30) + StringHelper.STRING_MORE;
+            return valueOf.substring(0, 30) + "...";
         }
         return valueOf;
     }

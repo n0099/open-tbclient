@@ -1,162 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetInfluenceRank.DataRes;
-import tbclient.NewGodInfo;
-import tbclient.RankRuler;
-import tbclient.User;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class st6 {
+public abstract class st6<T> extends nt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qt6 a;
-    public List<rt6> b;
-    public rt6 c;
-    public String d;
-    public String e;
-    public long f;
-    public boolean g;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    public st6() {
+    public abstract T c(xs6 xs6Var);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public st6(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.g = true;
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 
-    public final rt6 a(User user) {
-        InterceptResult invokeL;
-        NewGodInfo newGodInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
-            if (user == null) {
-                return null;
-            }
-            rt6 rt6Var = new rt6();
-            rt6Var.a = user.level_influence;
-            rt6Var.c = b(user);
-            boolean z = true;
-            if (!rt6Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                rt6Var.d = user.new_god_data.field_name + st5.b(user.new_god_data);
-                rt6Var.h = true;
-            }
-            if (user.influence == null) {
-                rt6Var.e = "";
-            } else {
-                rt6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a39), StringHelper.numFormatOverWanNa(user.influence.intValue()));
-            }
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(user);
-            Integer num = user.has_concerned;
-            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            rt6Var.f = metaData;
-            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                rt6Var.b = metaData.getAvater();
-            } else {
-                rt6Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
-            }
-            return rt6Var;
-        }
-        return (rt6) invokeL.objValue;
+    public /* synthetic */ st6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
     }
 
-    public void c(DataRes dataRes) {
-        long longValue;
+    @Override // com.baidu.tieba.nt6
+    public boolean b(ws6 item, zu6 timer, qs6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = new qt6();
-        boolean z = false;
-        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.b = b(dataRes.user_rank.get(0));
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.c = metaData;
-            String avatarH = metaData.getAvatarH();
-            if (TextUtils.isEmpty(avatarH)) {
-                avatarH = metaData.getAvater();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (!this.d) {
+                return false;
             }
-            if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.e = avatarH;
-            } else {
-                this.a.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
-            }
-        }
-        qt6 qt6Var = this.a;
-        Long l = dataRes.timestamp;
-        long j = 0;
-        if (l == null) {
-            longValue = 0;
-        } else {
-            longValue = l.longValue();
-        }
-        qt6Var.d = longValue;
-        this.a.f = dataRes.field_info;
-        if (!ListUtils.isEmpty(dataRes.user_rank)) {
-            for (User user : dataRes.user_rank) {
-                if (user != null) {
-                    this.b.add(a(user));
+            boolean contains = this.c.contains(c(item.e()));
+            if (this.b) {
+                if (contains) {
+                    return false;
                 }
+                return true;
             }
+            return contains;
         }
-        this.c = a(dataRes.current_user);
-        RankRuler rankRuler = dataRes.rank_description;
-        if (rankRuler != null) {
-            this.d = rankRuler.top_link;
-            this.e = rankRuler.bottom_link;
-        }
-        Long l2 = dataRes.timestamp;
-        if (l2 != null) {
-            j = l2.longValue();
-        }
-        this.f = j;
-        Boolean bool = dataRes.has_more;
-        if (bool != null) {
-            z = bool.booleanValue();
-        }
-        this.g = z;
+        return invokeLLL.booleanValue;
     }
 
-    public final String b(User user) {
-        InterceptResult invokeL;
+    public final Set<T> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
-            String str = "";
-            if (user == null) {
-                return "";
-            }
-            if (TextUtils.isEmpty("")) {
-                str = user.name_show;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
         }
-        return (String) invokeL.objValue;
+        return (Set) invokeV.objValue;
     }
 }

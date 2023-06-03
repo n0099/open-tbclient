@@ -15,8 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -915,7 +915,7 @@ public class DeviceUtils implements IDevices {
                 boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
                 if (!hasPermanentMenuKey && !deviceHasKey) {
                     Resources resources = AppRuntime.getAppContext().getResources();
-                    return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
+                    return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android"));
                 }
                 return 0;
             }
@@ -926,7 +926,7 @@ public class DeviceUtils implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-                int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
                 int i = 0;
                 if (identifier > 0) {
                     try {
@@ -949,7 +949,7 @@ public class DeviceUtils implements IDevices {
                 if (context == null) {
                     return 0;
                 }
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
+                WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
                 if (windowManager == null) {
                     return -1;
                 }

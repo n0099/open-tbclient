@@ -1,7 +1,6 @@
 package com.baidu.appsearchlib;
 
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +64,7 @@ public class Encryption {
                 byte[] decode = Base64.decode(str, 0);
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(2, createKey(Info.PASSWORD), new IvParameterSpec(Info.IV.getBytes()));
-                return new String(cipher.doFinal(decode), IMAudioTransRequest.CHARSET);
+                return new String(cipher.doFinal(decode), "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

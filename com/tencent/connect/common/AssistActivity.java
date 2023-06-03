@@ -12,7 +12,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.google.protobuf.CodedInputStream;
 import com.tencent.open.a.d;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.l;
@@ -190,7 +189,7 @@ public class AssistActivity extends Activity {
     public void onCreate(Bundle bundle) {
         int intExtra;
         String stringExtra;
-        getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        getWindow().addFlags(67108864);
         requestWindowFeature(1);
         super.onCreate(bundle);
         this.f = getIntent().getBooleanExtra(Constants.KEY_RESTORE_LANDSCAPE, false);

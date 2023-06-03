@@ -181,7 +181,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, grsBaseInfo) == null) {
             try {
-                this.a = grsBaseInfo.m111clone();
+                this.a = grsBaseInfo.m166clone();
             } catch (CloneNotSupportedException e) {
                 Logger.w(i, "GrsClient catch CloneNotSupportedException", e);
                 this.a = grsBaseInfo.copy();

@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.zi8;
+import com.baidu.tieba.wo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -247,12 +247,12 @@ public class LinearGradientView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = zi8.b("#2BB8FF");
-            this.c = zi8.b("#2BB8FF");
-            this.d = zi8.b("#249BD6");
-            this.e = zi8.b("#246CD6");
-            this.f = zi8.b("#249BD6");
-            this.g = zi8.b("#246CD6");
+            this.b = wo8.b("#2BB8FF");
+            this.c = wo8.b("#2BB8FF");
+            this.d = wo8.b("#249BD6");
+            this.e = wo8.b("#246CD6");
+            this.f = wo8.b("#249BD6");
+            this.g = wo8.b("#246CD6");
             this.h = c();
         }
     }
@@ -302,15 +302,15 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.b == zi8.b(str) && this.c == zi8.b(str2) && this.d == zi8.b(str3) && this.e == zi8.b(str4) && this.f == zi8.b(str5) && this.g == zi8.b(str6)) {
+                if (this.b == wo8.b(str) && this.c == wo8.b(str2) && this.d == wo8.b(str3) && this.e == wo8.b(str4) && this.f == wo8.b(str5) && this.g == wo8.b(str6)) {
                     return;
                 }
-                this.b = zi8.b(str);
-                this.c = zi8.b(str2);
-                this.d = zi8.b(str3);
-                this.e = zi8.b(str4);
-                this.f = zi8.b(str5);
-                this.g = zi8.b(str6);
+                this.b = wo8.b(str);
+                this.c = wo8.b(str2);
+                this.d = wo8.b(str3);
+                this.e = wo8.b(str4);
+                this.f = wo8.b(str5);
+                this.g = wo8.b(str6);
                 this.h = c();
                 invalidate();
                 return;
@@ -329,26 +329,26 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, themeElement, themeElement2, themeElement3) == null) {
             if (themeElement == null) {
-                b = zi8.b("#2BB8FF");
-                b2 = zi8.b("#2BB8FF");
+                b = wo8.b("#2BB8FF");
+                b2 = wo8.b("#2BB8FF");
             } else {
-                b = zi8.b(themeElement.common_color);
-                b2 = zi8.b(themeElement.common_color);
+                b = wo8.b(themeElement.common_color);
+                b2 = wo8.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = zi8.b("#249BD6");
-                b3 = zi8.b("#246CD6");
+                i = wo8.b("#249BD6");
+                b3 = wo8.b("#246CD6");
             } else {
-                int b5 = zi8.b(themeElement2.common_color);
-                b3 = zi8.b(themeElement2.common_color);
+                int b5 = wo8.b(themeElement2.common_color);
+                b3 = wo8.b(themeElement2.common_color);
                 i = b5;
             }
             if (themeElement3 == null) {
-                i2 = zi8.b("#249BD6");
-                b4 = zi8.b("#246CD6");
+                i2 = wo8.b("#249BD6");
+                b4 = wo8.b("#246CD6");
             } else {
-                int b6 = zi8.b(themeElement3.common_color);
-                b4 = zi8.b(themeElement3.common_color);
+                int b6 = wo8.b(themeElement3.common_color);
+                b4 = wo8.b(themeElement3.common_color);
                 i2 = b6;
             }
             this.b = b;

@@ -3,7 +3,7 @@ package org.aspectj.runtime.reflect;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.UnlockSignature;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class UnlockSignatureImpl extends SignatureImpl implements UnlockSignature {
     public Class parameterType;
 

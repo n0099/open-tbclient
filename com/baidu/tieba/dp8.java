@@ -1,79 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
-import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes5.dex */
-public class dp8 implements rn {
+public class dp8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ap8 a;
-    public List<ep8> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712349, "Lcom/baidu/tieba/dp8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static cp8 a(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof rn8)) {
+                return ((rn8) tbPageContext.getPageActivity()).k0();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712349, "Lcom/baidu/tieba/dp8;");
-                return;
-            }
+            return null;
         }
-        c = BdUniqueId.gen();
+        return (cp8) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof rn8)) {
+                return ((rn8) tbPageContext.getPageActivity()).r0();
+            }
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (LegoListFragment) invokeL.objValue;
     }
 
-    public dp8(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    public static hp8 c(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof rn8)) {
+                return ((rn8) tbPageContext.getPageActivity()).h1();
             }
+            return null;
         }
-        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
-            String str = vipDailyList.card_id;
-            ap8 ap8Var = new ap8();
-            this.a = ap8Var;
-            ap8Var.e(1);
-            this.a.d(vipDailyList.class_name);
-            this.a.f(vipDailyList.class_url_name);
-            this.a.g(vipDailyList.class_url);
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.b.add(new ep8(vipThemeItem));
-            }
-        }
+        return (hp8) invokeL.objValue;
     }
 }

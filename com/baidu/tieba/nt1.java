@@ -1,8 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-/* loaded from: classes6.dex */
+import java.io.File;
+/* loaded from: classes7.dex */
 public interface nt1 {
-    void a(Activity activity, Bundle bundle, cx2 cx2Var);
+    String a(String str);
+
+    hk2 b();
+
+    void c();
+
+    File[] d();
+
+    String e();
+
+    void f();
+
+    void g();
+
+    String h(String str);
+
+    void i();
 }

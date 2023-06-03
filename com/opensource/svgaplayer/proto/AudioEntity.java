@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t4b;
-import com.baidu.tieba.u4b;
-import com.baidu.tieba.y4b;
+import com.baidu.tieba.ddb;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.idb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<AudioEntity> ADAPTER;
@@ -39,7 +39,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
     public final Integer totalTime;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.a<AudioEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,39 +153,39 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public AudioEntity decode(t4b t4bVar) throws IOException {
+        public AudioEntity decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
                 Builder builder = new Builder();
-                long c = t4bVar.c();
+                long c = ddbVar.c();
                 while (true) {
-                    int f = t4bVar.f();
+                    int f = ddbVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = t4bVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(t4bVar));
+                                            FieldEncoding g = ddbVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ddbVar));
                                         } else {
-                                            builder.totalTime(ProtoAdapter.INT32.decode(t4bVar));
+                                            builder.totalTime(ProtoAdapter.INT32.decode(ddbVar));
                                         }
                                     } else {
-                                        builder.startTime(ProtoAdapter.INT32.decode(t4bVar));
+                                        builder.startTime(ProtoAdapter.INT32.decode(ddbVar));
                                     }
                                 } else {
-                                    builder.endFrame(ProtoAdapter.INT32.decode(t4bVar));
+                                    builder.endFrame(ProtoAdapter.INT32.decode(ddbVar));
                                 }
                             } else {
-                                builder.startFrame(ProtoAdapter.INT32.decode(t4bVar));
+                                builder.startFrame(ProtoAdapter.INT32.decode(ddbVar));
                             }
                         } else {
-                            builder.audioKey(ProtoAdapter.STRING.decode(t4bVar));
+                            builder.audioKey(ProtoAdapter.STRING.decode(ddbVar));
                         }
                     } else {
-                        t4bVar.d(c);
+                        ddbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -209,30 +209,30 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(u4b u4bVar, AudioEntity audioEntity) throws IOException {
+        public void encode(edb edbVar, AudioEntity audioEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, audioEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, edbVar, audioEntity) == null) {
                 String str = audioEntity.audioKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(u4bVar, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(edbVar, 1, str);
                 }
                 Integer num = audioEntity.startFrame;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(u4bVar, 2, num);
+                    ProtoAdapter.INT32.encodeWithTag(edbVar, 2, num);
                 }
                 Integer num2 = audioEntity.endFrame;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(u4bVar, 3, num2);
+                    ProtoAdapter.INT32.encodeWithTag(edbVar, 3, num2);
                 }
                 Integer num3 = audioEntity.startTime;
                 if (num3 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(u4bVar, 4, num3);
+                    ProtoAdapter.INT32.encodeWithTag(edbVar, 4, num3);
                 }
                 Integer num4 = audioEntity.totalTime;
                 if (num4 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(u4bVar, 5, num4);
+                    ProtoAdapter.INT32.encodeWithTag(edbVar, 5, num4);
                 }
-                u4bVar.k(audioEntity.unknownFields());
+                edbVar.k(audioEntity.unknownFields());
             }
         }
 
@@ -382,7 +382,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
                 return false;
             }
             AudioEntity audioEntity = (AudioEntity) obj;
-            if (unknownFields().equals(audioEntity.unknownFields()) && y4b.f(this.audioKey, audioEntity.audioKey) && y4b.f(this.startFrame, audioEntity.startFrame) && y4b.f(this.endFrame, audioEntity.endFrame) && y4b.f(this.startTime, audioEntity.startTime) && y4b.f(this.totalTime, audioEntity.totalTime)) {
+            if (unknownFields().equals(audioEntity.unknownFields()) && idb.f(this.audioKey, audioEntity.audioKey) && idb.f(this.startFrame, audioEntity.startFrame) && idb.f(this.endFrame, audioEntity.endFrame) && idb.f(this.startTime, audioEntity.startTime) && idb.f(this.totalTime, audioEntity.totalTime)) {
                 return true;
             }
             return false;

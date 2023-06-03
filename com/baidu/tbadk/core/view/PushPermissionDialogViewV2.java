@@ -12,13 +12,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ia5;
 import com.baidu.tieba.m75;
-import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,22 +94,6 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         }
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            setOrientation(1);
-            setGravity(1);
-            setLayoutParams(layoutParams);
-            if (UbsABTestHelper.isPushPermissionDialogBtnBottom()) {
-                LinearLayout.inflate(context, R.layout.push_premission_dialog_view_v2_btn_bottom, this);
-            } else {
-                LinearLayout.inflate(context, R.layout.push_premission_dialog_view_v2, this);
-            }
-            c();
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PushPermissionDialogViewV2(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -156,6 +139,18 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         b(context);
     }
 
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            setOrientation(1);
+            setGravity(1);
+            setLayoutParams(layoutParams);
+            LinearLayout.inflate(context, R.layout.push_premission_dialog_view_v2_btn_bottom, this);
+            c();
+        }
+    }
+
     public void setDescription(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.b != null && !TextUtils.isEmpty(str)) {
@@ -178,18 +173,18 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
             this.a = textView;
             if (textView != null) {
-                p45 d = p45.d(textView);
+                m75 d = m75.d(textView);
                 d.w(R.color.CAM_X0105);
                 d.B(R.dimen.T_X05);
                 d.C(R.string.F_X02);
             }
-            TextView textView2 = (TextView) findViewById(R.id.description);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090876);
             this.b = textView2;
             if (textView2 != null) {
-                p45 d2 = p45.d(textView2);
+                m75 d2 = m75.d(textView2);
                 d2.w(R.color.CAM_X0108);
                 d2.B(R.dimen.T_X07);
                 d2.C(R.string.F_X01);
@@ -202,7 +197,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
                 this.e.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_2));
-                this.e.setConfig(new m75());
+                this.e.setConfig(new ia5());
             }
             this.f = skinType;
         }

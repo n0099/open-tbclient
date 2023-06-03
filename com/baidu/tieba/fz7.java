@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-@TargetApi(11)
 /* loaded from: classes5.dex */
-public interface fz7 extends ActionMode.Callback {
-    void a(ActionMode actionMode, int i, long j, boolean z);
+public interface fz7 {
+    void a(int i);
 }

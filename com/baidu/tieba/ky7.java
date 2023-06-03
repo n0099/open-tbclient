@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ky7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ky7 {
+    void a();
 
-    public abstract void a();
+    void b(int i);
 
-    public abstract void b(List<rn> list);
+    void onChangeSkinType(int i);
 
-    public abstract void c(BdUniqueId bdUniqueId);
+    void setData(List<vn> list);
 }

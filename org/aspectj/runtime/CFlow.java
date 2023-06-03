@@ -1,5 +1,5 @@
 package org.aspectj.runtime;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CFlow {
     public Object _aspect;
 

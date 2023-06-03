@@ -1,16 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class eo8 extends jk1<LiveCustomSettingService> {
+public class eo8 implements gw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gw4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
+    }
 
     public eo8() {
         Interceptable interceptable = $ic;
@@ -26,15 +36,22 @@ public class eo8 extends jk1<LiveCustomSettingService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jk1
-    /* renamed from: a */
-    public LiveCustomSettingService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gw4
+    public void b(HashMap<String, String> hashMap, hw4 hw4Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new fo8();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, hw4Var) == null) && hw4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = hw4Var.a;
+            aVar.b = hw4Var.c;
+            aVar.d = true;
+            if (hashMap.get("touid") == null) {
+                str = "";
+            } else {
+                str = hashMap.get("touid");
+            }
+            aVar.c = str;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
         }
-        return (LiveCustomSettingService) invokeV.objValue;
     }
 }

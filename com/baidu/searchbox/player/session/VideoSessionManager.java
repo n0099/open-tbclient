@@ -4,19 +4,18 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.SystemEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoSessionManager {
     public static final String TAG = "VideoSessionManager";
     public final ArrayMap<String, String> mSessionIdCache;
     public SystemEventTrigger mSystemEventTrigger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Holder {
         public static final VideoSessionManager mInstance = new VideoSessionManager();
     }
@@ -32,7 +31,6 @@ public class VideoSessionManager {
         return replace;
     }
 
-    @PublicMethod
     public static VideoSessionManager getInstance() {
         return Holder.mInstance;
     }
@@ -49,12 +47,18 @@ public class VideoSessionManager {
         }
     }
 
-    @PublicMethod
     public VideoSession createVideoSession() {
         return new VideoSession();
     }
 
-    @PublicMethod
+    public boolean isBatteryCharging() {
+        SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
+        if (systemEventTrigger != null) {
+            return systemEventTrigger.isBatteryCharging();
+        }
+        return false;
+    }
+
     public void release() {
         SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
         if (systemEventTrigger != null) {
@@ -65,19 +69,16 @@ public class VideoSessionManager {
         this.mSessionIdCache.clear();
     }
 
-    @PublicMethod
     public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         triggerValidCheck();
         BdVideoLog.d("session manager bind player =>" + bDVideoPlayer);
         this.mSystemEventTrigger.bindMessenger(bDVideoPlayer.getMessenger());
     }
 
-    @PublicMethod
     public void recycle(@NonNull VideoSession videoSession) {
         videoSession.reset();
     }
 
-    @PublicMethod
     public void sendEventToAll(@NonNull VideoEvent videoEvent) {
         SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
         if (systemEventTrigger != null) {

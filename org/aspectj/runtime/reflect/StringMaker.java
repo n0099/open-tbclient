@@ -4,7 +4,7 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.lang.reflect.Modifier;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StringMaker {
     public static StringMaker longStringMaker;
     public static StringMaker middleStringMaker;

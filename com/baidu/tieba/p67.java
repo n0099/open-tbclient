@@ -1,161 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
+import android.text.SpannableStringBuilder;
+import com.baidu.tieba.o77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLevelInfo.DataRes;
-/* loaded from: classes6.dex */
-public class p67<T> {
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.FeedItem;
+import tbclient.FeedKV;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedOriginPic;
+import tbclient.PicInfo;
+import tbclient.VideoField;
+/* loaded from: classes7.dex */
+public final class p67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public BaseActivity<T> b;
-    public fb c;
-    public CustomMessageListener d;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(DataRes dataRes, boolean z, int i, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(p67 p67Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p67Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final void a(FeedOriginComponent feedOriginComponent, List<h87<?>> dataList, j57 feedExtraData) {
+        i47 i47Var;
+        m47 m47Var;
+        String str;
+        b47 b47Var;
+        f47 f47Var;
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
+            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
+            a47 a = h67.a(spannableStringBuilder, _abstract, new j57());
+            if (a.g()) {
+                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
+                if (feedOriginPic != null && feedOriginPic.pics != null) {
+                    String str3 = feedOriginPic.schema;
+                    if (str3 == null) {
+                        str3 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str3, "pic_info.schema ?: \"\"");
+                    }
+                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
+                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
+                    i47Var = q67.a(list, str3, new j57());
+                } else {
+                    i47Var = null;
                 }
-            }
-            this.a = p67Var;
-        }
-
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
-                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
-                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
-                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                if (feedOriginComponent.video != null) {
+                    d67 d67Var = new d67();
+                    String schema = feedOriginComponent.schema;
+                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
+                    d67Var.g(schema);
+                    VideoField video = feedOriginComponent.video;
+                    Intrinsics.checkNotNullExpressionValue(video, "video");
+                    m47Var = u67.b(video, d67Var, new j57());
+                } else {
+                    m47Var = null;
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(p67 p67Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p67Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                o77.a aVar = o77.a;
+                List<FeedKV> list2 = feedOriginComponent.item.business_info;
+                Intrinsics.checkNotNullExpressionValue(list2, "item.business_info");
+                HashMap<String, String> a2 = aVar.a(list2);
+                String str4 = a2.get("apk_detail");
+                String str5 = feedExtraData.a().a().get("origin_thread_id");
+                if (str5 == null) {
+                    str = "";
+                } else {
+                    str = str5;
                 }
+                long g = tg.g(a2.get("item_id"), 0L);
+                if (str4 == null) {
+                    String str6 = feedOriginComponent.item.name;
+                    if (str6 != null && str6.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        FeedItem item = feedOriginComponent.item;
+                        Intrinsics.checkNotNullExpressionValue(item, "item");
+                        f47 b = l67.b(item, g, str, "", "");
+                        b.a().j = R.color.CAM_X0205;
+                        b.d(false);
+                        f47Var = b;
+                    } else {
+                        f47Var = null;
+                    }
+                    b47Var = null;
+                } else {
+                    FeedItem item2 = feedOriginComponent.item;
+                    Intrinsics.checkNotNullExpressionValue(item2, "item");
+                    b47 a3 = l67.a(item2, str4, g, str, "", "");
+                    a3.a().j = R.color.CAM_X0205;
+                    a3.d(false);
+                    b47Var = a3;
+                    f47Var = null;
+                }
+                a67 b2 = k57.b(feedExtraData, "origin_card_click");
+                String str7 = feedOriginComponent.schema;
+                if (str7 == null) {
+                    str2 = "";
+                } else {
+                    str2 = str7;
+                }
+                dataList.add(new i87(new h47(a, i47Var, m47Var, f47Var, b47Var, str2, b2, null, 128, null), "origin_card"));
             }
-            this.a = p67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
-                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public p67(c cVar, BaseActivity<T> baseActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, baseActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
-        this.d = new b(this, 2003007);
-        this.a = cVar;
-        this.b = baseActivity;
-        b();
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
-            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
-            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
-            getLevelInfoRequestMessage.setForumId(i);
-            this.b.sendMessage(getLevelInfoRequestMessage);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.registerListener(this.d);
-            this.b.registerListener(this.c);
         }
     }
 }

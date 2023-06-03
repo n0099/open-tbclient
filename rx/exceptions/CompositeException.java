@@ -9,14 +9,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CompositeException extends RuntimeException {
     public static final long serialVersionUID = 3026362227162912146L;
     public Throwable cause;
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         public static final long serialVersionUID = 3875212506787802066L;
@@ -27,14 +27,14 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a {
         public abstract Object a();
 
         public abstract void b(Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends a {
         public final PrintStream a;
 
@@ -53,7 +53,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class c extends a {
         public final PrintWriter a;
 

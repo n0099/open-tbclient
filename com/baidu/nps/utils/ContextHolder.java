@@ -1,7 +1,7 @@
 package com.baidu.nps.utils;
 
 import android.app.Application;
-import com.baidu.tieba.sd1;
+import com.baidu.tieba.bf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class ContextHolder {
                 return;
             }
         }
-        sApplicationContext = sd1.b().a();
+        sApplicationContext = bf1.b().a();
     }
 
     public ContextHolder() {

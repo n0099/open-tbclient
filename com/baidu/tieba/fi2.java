@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.collection.ArraySet;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface fi2 {
-    ArraySet<String> a();
+public class fi2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
 }

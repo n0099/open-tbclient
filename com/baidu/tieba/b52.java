@@ -1,80 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class b52 extends u42 {
+/* loaded from: classes5.dex */
+public class b52 extends v42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public String w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b52() {
-        super("animateview", "sanId");
+    public b52(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/canvas/remove");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = false;
-        this.v = true;
-        this.w = null;
     }
 
-    @Override // com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("path");
-        this.u = jSONObject.optBoolean("loop");
-        this.v = jSONObject.optBoolean("autoPlay");
-        this.w = jSONObject.optString("action");
-    }
-
-    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            v62 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                y82.c("SwanAppCanvas", "remove action parse model is null");
+                return false;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (isValid() && !TextUtils.isEmpty(this.t)) {
-                return true;
+            y72 y72Var = (y72) l82.a(k);
+            if (y72Var == null) {
+                y82.c("SwanAppCanvas", "remove canvas fail: fina a null component");
+                unitedSchemeEntity.result = l(1001);
+                return false;
             }
-            return false;
+            p72 B = y72Var.B();
+            boolean a = B.a();
+            if (!a) {
+                y82.c("SwanAppCanvas", "remove canvas fail: " + B.b);
+            }
+            j(unitedSchemeEntity, callbackHandler, a);
+            return a;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

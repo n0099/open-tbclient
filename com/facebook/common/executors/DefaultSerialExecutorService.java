@@ -2,7 +2,7 @@ package com.facebook.common.executors;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultSerialExecutorService extends ConstrainedExecutorService implements SerialExecutorService {
     public DefaultSerialExecutorService(Executor executor) {
         super("SerialExecutor", 1, executor, new LinkedBlockingQueue());

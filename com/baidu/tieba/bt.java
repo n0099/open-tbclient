@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes5.dex */
-public interface bt<T> {
-    void onChanged(T t);
+public interface bt {
+    Map<String, Object> a();
 }

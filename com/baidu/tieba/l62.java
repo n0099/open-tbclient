@@ -1,86 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class l62 implements i62 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class l62 extends e52 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947894753, "Lcom/baidu/tieba/l62;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947894753, "Lcom/baidu/tieba/l62;");
-        }
-    }
+    public Paint.Align a;
 
     public l62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        Paint.Align align;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i62
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k62.b().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i62
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = fm3.i(bundle, "adb_debug_path");
-            j62.i(fm3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            j62.j(fm3.i(bundle, "slavePreload"));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && (align = this.a) != null) {
+            f52Var.e.setTextAlign(align);
         }
     }
 
-    @Override // com.baidu.tieba.i62
-    public void b(Bundle bundle) {
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", a);
-            bundle.putString("slavePreload", j62.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, j62.a());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "left")) {
+                        this.a = Paint.Align.LEFT;
+                    } else if (TextUtils.equals(optString, "center")) {
+                        this.a = Paint.Align.CENTER;
+                    } else if (TextUtils.equals(optString, "right")) {
+                        this.a = Paint.Align.RIGHT;
+                    }
+                }
+            } catch (Exception e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

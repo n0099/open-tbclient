@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.u88;
+import com.baidu.tieba.ke8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,29 +111,42 @@ public final class AbilityItem implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0086\b\u0018\u00002\u00020\u0001B#\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0006J\u000b\u0010\u000b\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\f\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\r\u001a\u0004\u0018\u00010\u0003HÆ\u0003J-\u0010\u000e\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0003HÆ\u0001J\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012HÖ\u0003J\t\u0010\u0013\u001a\u00020\u0014HÖ\u0001J\t\u0010\u0015\u001a\u00020\u0003HÖ\u0001R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\bR\u0018\u0010\u0005\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\b¨\u0006\u0016"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem$Extra;", "Ljava/io/Serializable;", "startImage", "", "endImage", "waitingIcon", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getEndImage", "()Ljava/lang/String;", "getStartImage", "getWaitingIcon", "component1", "component2", "component3", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", TTDownloadField.TT_HASHCODE, "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0012\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0086\b\u0018\u00002\u00020\u0001B7\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\bJ\u000b\u0010\u000f\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\u0010\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\u0011\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\u0012\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010\u0013\u001a\u0004\u0018\u00010\u0003HÆ\u0003JE\u0010\u0014\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u0003HÆ\u0001J\u0013\u0010\u0015\u001a\u00020\u00162\b\u0010\u0017\u001a\u0004\u0018\u00010\u0018HÖ\u0003J\t\u0010\u0019\u001a\u00020\u001aHÖ\u0001J\t\u0010\u001b\u001a\u00020\u0003HÖ\u0001R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\nR\u0018\u0010\u0005\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\nR\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\nR\u0018\u0010\u0007\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\n¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem$Extra;", "Ljava/io/Serializable;", "startImage", "", "endImage", "mainStartImage", "mainEndImage", "waitingIcon", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "getEndImage", "()Ljava/lang/String;", "getMainEndImage", "getMainStartImage", "getStartImage", "getWaitingIcon", "component1", "component2", "component3", "component4", "component5", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", TTDownloadField.TT_HASHCODE, "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class Extra implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("end_image")
         public final String endImage;
+        @SerializedName("main_end_image")
+        public final String mainEndImage;
+        @SerializedName("main_start_image")
+        public final String mainStartImage;
         @SerializedName("start_image")
         public final String startImage;
         @SerializedName("waiting_icon")
         public final String waitingIcon;
 
-        public static /* synthetic */ Extra copy$default(Extra extra, String str, String str2, String str3, int i, Object obj) {
+        public static /* synthetic */ Extra copy$default(Extra extra, String str, String str2, String str3, String str4, String str5, int i, Object obj) {
             if ((i & 1) != 0) {
                 str = extra.startImage;
             }
             if ((i & 2) != 0) {
                 str2 = extra.endImage;
             }
+            String str6 = str2;
             if ((i & 4) != 0) {
-                str3 = extra.waitingIcon;
+                str3 = extra.mainStartImage;
             }
-            return extra.copy(str, str2, str3);
+            String str7 = str3;
+            if ((i & 8) != 0) {
+                str4 = extra.mainEndImage;
+            }
+            String str8 = str4;
+            if ((i & 16) != 0) {
+                str5 = extra.waitingIcon;
+            }
+            return extra.copy(str, str6, str7, str8, str5);
         }
 
         public final String component1() {
@@ -151,25 +164,37 @@ public final class AbilityItem implements Serializable {
         public final String component3() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.waitingIcon : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mainStartImage : (String) invokeV.objValue;
         }
 
-        public final Extra copy(String str, String str2, String str3) {
-            InterceptResult invokeLLL;
+        public final String component4() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, str3)) == null) ? new Extra(str, str2, str3) : (Extra) invokeLLL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mainEndImage : (String) invokeV.objValue;
+        }
+
+        public final String component5() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.waitingIcon : (String) invokeV.objValue;
+        }
+
+        public final Extra copy(String str, String str2, String str3, String str4, String str5) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, str, str2, str3, str4, str5)) == null) ? new Extra(str, str2, str3, str4, str5) : (Extra) invokeLLLLL.objValue;
         }
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
                 if (this == obj) {
                     return true;
                 }
                 if (obj instanceof Extra) {
                     Extra extra = (Extra) obj;
-                    return Intrinsics.areEqual(this.startImage, extra.startImage) && Intrinsics.areEqual(this.endImage, extra.endImage) && Intrinsics.areEqual(this.waitingIcon, extra.waitingIcon);
+                    return Intrinsics.areEqual(this.startImage, extra.startImage) && Intrinsics.areEqual(this.endImage, extra.endImage) && Intrinsics.areEqual(this.mainStartImage, extra.mainStartImage) && Intrinsics.areEqual(this.mainEndImage, extra.mainEndImage) && Intrinsics.areEqual(this.waitingIcon, extra.waitingIcon);
                 }
                 return false;
             }
@@ -179,13 +204,17 @@ public final class AbilityItem implements Serializable {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 String str = this.startImage;
                 int hashCode = (str == null ? 0 : str.hashCode()) * 31;
                 String str2 = this.endImage;
                 int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-                String str3 = this.waitingIcon;
-                return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+                String str3 = this.mainStartImage;
+                int hashCode3 = (hashCode2 + (str3 == null ? 0 : str3.hashCode())) * 31;
+                String str4 = this.mainEndImage;
+                int hashCode4 = (hashCode3 + (str4 == null ? 0 : str4.hashCode())) * 31;
+                String str5 = this.waitingIcon;
+                return hashCode4 + (str5 != null ? str5.hashCode() : 0);
             }
             return invokeV.intValue;
         }
@@ -193,18 +222,18 @@ public final class AbilityItem implements Serializable {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return "Extra(startImage=" + this.startImage + ", endImage=" + this.endImage + ", waitingIcon=" + this.waitingIcon + ')';
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return "Extra(startImage=" + this.startImage + ", endImage=" + this.endImage + ", mainStartImage=" + this.mainStartImage + ", mainEndImage=" + this.mainEndImage + ", waitingIcon=" + this.waitingIcon + ')';
             }
             return (String) invokeV.objValue;
         }
 
-        public Extra(String str, String str2, String str3) {
+        public Extra(String str, String str2, String str3, String str4, String str5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {str, str2, str3, str4, str5};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -216,14 +245,34 @@ public final class AbilityItem implements Serializable {
             }
             this.startImage = str;
             this.endImage = str2;
-            this.waitingIcon = str3;
+            this.mainStartImage = str3;
+            this.mainEndImage = str4;
+            this.waitingIcon = str5;
         }
 
         public final String getEndImage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return this.endImage;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getMainEndImage() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mainEndImage;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getMainStartImage() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.mainStartImage;
             }
             return (String) invokeV.objValue;
         }
@@ -231,7 +280,7 @@ public final class AbilityItem implements Serializable {
         public final String getStartImage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return this.startImage;
             }
             return (String) invokeV.objValue;
@@ -240,7 +289,7 @@ public final class AbilityItem implements Serializable {
         public final String getWaitingIcon() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 return this.waitingIcon;
             }
             return (String) invokeV.objValue;
@@ -652,7 +701,7 @@ public final class AbilityItem implements Serializable {
         public final boolean shouldShow() {
             InterceptResult invokeV;
             boolean z;
-            boolean c;
+            boolean d;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 if (this.showType == 2) {
@@ -668,14 +717,14 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    c = u88.c(this.toUk);
+                    d = ke8.d(this.toUk);
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
-                if (this.showType == 0 && c) {
+                if (this.showType == 0 && d) {
                     return true;
                 }
-                if (this.showType == 1 && !c) {
+                if (this.showType == 1 && !d) {
                     return true;
                 }
                 return false;

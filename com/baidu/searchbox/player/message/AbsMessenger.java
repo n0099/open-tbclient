@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.message;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
@@ -14,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsMessenger implements IMessenger {
     @Nullable
     public List<InternalEventDispatcher> mDispatcherList;
@@ -119,16 +120,6 @@ public abstract class AbsMessenger implements IMessenger {
         }
     }
 
-    private void printDispatchLog(VideoEvent videoEvent) {
-        if (videoEvent.getLogLevel() == 0) {
-            String type = getType();
-            BdVideoLog.d(type, System.identityHashCode(this) + ": dispatch event :" + videoEvent);
-            return;
-        }
-        String type2 = getType();
-        BdVideoLog.v(type2, System.identityHashCode(this) + ": dispatch event :" + videoEvent);
-    }
-
     @Override // com.baidu.searchbox.player.message.IMessenger
     public void notifyEvent(@NonNull VideoEvent videoEvent) {
         String type = getType();
@@ -142,6 +133,19 @@ public abstract class AbsMessenger implements IMessenger {
             return;
         }
         publishEventToQueue(videoEvent);
+    }
+
+    private void printDispatchLog(VideoEvent videoEvent) {
+        if (videoEvent instanceof StatisticsEvent) {
+            return;
+        }
+        if (videoEvent.getLogLevel() == 0) {
+            String type = getType();
+            BdVideoLog.d(type, System.identityHashCode(this) + ": dispatch event :" + videoEvent);
+            return;
+        }
+        String type2 = getType();
+        BdVideoLog.v(type2, System.identityHashCode(this) + ": dispatch event :" + videoEvent);
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger

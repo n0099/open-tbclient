@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -175,7 +176,7 @@ public class o {
                             }
                             notificationManager.notify(hashCode, notification);
                             d(context, kVar, iArr);
-                            e.a(context, kVar.p(), kVar.b(), "100");
+                            e.a(context, kVar.p(), kVar.b(), YYOption.UrlProtocol.USER);
                         }
                     }
                 }

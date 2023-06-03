@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes8.dex */
-public class zy5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zy5 {
+    void a();
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long o = o65.m().o("key_youngster_use_time_dialog_show_time", 0L);
-            if (o > System.currentTimeMillis() || System.currentTimeMillis() - o <= 600000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(Canvas canvas);
+
+    void c(ListView listView, Context context, AttributeSet attributeSet);
+
+    void onDraw(Canvas canvas);
+
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

@@ -1,48 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface dt1 {
+    List<vd3> a(vc3 vc3Var);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onFinish();
-    }
+    List<vd3> b(vc3 vc3Var);
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(Exception exc);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(boolean z);
-
-        void b();
-    }
-
-    void a(a aVar);
-
-    void b(Activity activity, Bundle bundle, sp1 sp1Var);
-
-    void c(up1 up1Var);
-
-    String d(@NonNull Context context);
-
-    boolean e(Context context);
-
-    String f(@NonNull Context context);
-
-    void g(c cVar);
-
-    String h(Context context);
-
-    String i(@NonNull Context context);
-
-    void j(sp1 sp1Var);
+    List<vd3> c(vc3 vc3Var);
 }

@@ -1,24 +1,35 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LayerEvent extends VideoEvent {
     public static final String ACTION_ADJUST_LIGHT = "layer_event_adjust_light";
     public static final String ACTION_ADJUST_VOLUME = "layer_event_adjust_volume";
     public static final String ACTION_ADJUST_VOLUME_COMPLETE = "action_adjust_volume_complete";
+    public static final String ACTION_ALL_LAYER_VISIBLE_FADE = "layer_event_all_layer_visible_fade";
     public static final String ACTION_BARRAGE_CLICK = "layer_event_barrage_click";
     public static final String ACTION_BARRAGE_DISABLE = "layer_event_barrage_disable";
     public static final String ACTION_BARRAGE_EDIT_VIEW_VISIBLE_STATUS = "layer_event_barrage_editView_visible_status";
     public static final String ACTION_BARRAGE_VIEW = "layer_event_barrage_view";
     public static final String ACTION_CHANGE_CLARITY = "layer_event_change_clarity";
     public static final String ACTION_CLARITY_CLICK = "action_clarity_click";
+    public static final String ACTION_CLARITY_SWITCH_BY_KERNEL = "action_clarity_switch_by_kernel";
     public static final String ACTION_CLARITY_UPDATE = "action_clarity_update";
     public static final String ACTION_CLICK_NET_TIP = "layer_event_click_net_tip";
     public static final String ACTION_CLICK_REPLAY_BUTTON = "layer_event_click_replay";
     public static final String ACTION_CLICK_RETRY = "layer_event_click_retry";
     public static final String ACTION_CLICK_SHARE = "layer_event_click_share";
     public static final String ACTION_DOUBLE_CLICK = "layer_event_double_click";
+    public static final String ACTION_DRAG_SEEK = "layer_event_drag_seek";
+    public static final String ACTION_FLOATING_BACK = "layer_event_floating_back";
+    public static final String ACTION_FLOATING_CLOSE = "layer_event_floating_close";
+    public static final String ACTION_FLOATING_DESTROY = "layer_event_floating_destroy";
+    public static final String ACTION_FLOATING_PLAY_CLICK = "layer_event_floating_play_click";
+    public static final String ACTION_FLOATING_PLAY_LAST = "layer_event_floating_play_last";
+    public static final String ACTION_FLOATING_PLAY_NEXT = "layer_event_floating_play_next";
+    public static final String ACTION_FLOATING_SHOWN = "layer_event_floating_shown";
+    public static final String ACTION_FLOATING_SWITCH_TO_END = "layer_event_floating_switch_to_end";
+    public static final String ACTION_FLOATING_SWITCH_TO_FIRST = "layer_event_floating_switch_to_first";
     public static final String ACTION_GOODS_CLICK = "action_goods_click";
     public static final String ACTION_HIDE_AIR_PLAY = "layer_event_hide_air_play";
     public static final String ACTION_HIDE_CACHE_LOADING = "layer_event_hide_cache_loading";
@@ -61,6 +72,8 @@ public class LayerEvent extends VideoEvent {
     public static final String ACTION_SET_BARRAGE_HINT = "layer_event_set_barrage_hint";
     public static final String ACTION_SET_BARRAGE_HOT_LIST = "layer_event_set_barrage_hot_list";
     public static final String ACTION_SHOW_AIR_PLAY = "layer_event_show_air_play";
+    public static final String ACTION_SHOW_CACHE_LOADING = "layer_event_show_cache_loading";
+    public static final String ACTION_SHOW_ERROR_LAYER = "layer_event_show_error_layer";
     public static final String ACTION_SHOW_FACE_AI_HEAD_BOX = "action_show_face_ai_head_box";
     public static final String ACTION_SHOW_LIMIT_FREE_TIPS = "control_show_limit_free_tips";
     public static final String ACTION_SHOW_PAYMENT_ALBUM = "control_event_show_payment_album";
@@ -80,6 +93,7 @@ public class LayerEvent extends VideoEvent {
     public static final String ACTION_SWITCH_HALF = "layer_event_switch_half";
     public static final String ACTION_TOUCH_DOWN = "layer_event_touch_down";
     public static final String ACTION_UPDATE_DOWNLOAD = "layer_event_update_download";
+    public static final String ACTION_UPDATE_FONT_SIZE = "layer_event_update_font_size";
     public static final String ACTION_VIDEO_VIEW_CHANGED = "action_video_view_changed";
     public static final String ACTION_VIDEO_VIEW_RECOVER = "action_video_view_recover";
     public static final String ACTION_WAKE_UP_END = "control_event_wake_up_end";
@@ -95,8 +109,12 @@ public class LayerEvent extends VideoEvent {
     public static final int KEY_BARRAGE_VIEW = 15;
     public static final int KEY_CHANGE_CLARITY = 7;
     public static final int KEY_CHANGE_CLARITY_PROGRESS = 19;
+    public static final int KEY_CHANGE_KERNEL_CLARITY = 41;
     public static final int KEY_CURRENT_POSITION = 2;
     public static final int KEY_DOUBLE_CLICK = 6;
+    public static final int KEY_DRAG_SEEKBAR = 38;
+    public static final int KEY_FADE_OUT = 39;
+    public static final int KEY_FADE_OUT_STATUS = 40;
     public static final int KEY_GESTURE_VOLUME_PERCENT = 20;
     public static final int KEY_IS_GAPLESS_TYPE = 25;
     public static final int KEY_LANDSCAPE_EXT_DATA = 36;
@@ -106,10 +124,12 @@ public class LayerEvent extends VideoEvent {
     public static final int KEY_PAYMENT_LIMIT_FREE = 23;
     public static final int KEY_PAYMENT_PREVIEW_TIME = 22;
     public static final int KEY_PAYMENT_STATUS = 32;
+    public static final int KEY_PLAYER_MODE_SWITCH_REASON = 42;
     public static final int KEY_POPUP_SHOWING = 28;
     public static final int KEY_PREFIX_TYPE = 24;
     public static final int KEY_SEEK = 1;
     public static final int KEY_SEEK_DELTA = 3;
+    public static final int KEY_SEEK_TO_DELTA = 37;
     public static final int KEY_SHOW_PAYMENT_ALBUM_PRICE = 21;
     public static final int KEY_SPEED_CHANGED = 26;
     public static final int KEY_SWITCH_CONTROL_LAYER_VISIBLE = 18;
@@ -124,7 +144,6 @@ public class LayerEvent extends VideoEvent {
     }
 
     @NonNull
-    @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
         return VideoEvent.obtain(str, 3);
     }

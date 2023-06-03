@@ -1,6 +1,5 @@
 package com.baidu.ar.http;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,7 +49,7 @@ public class i implements IHttpResponse {
             String stringWriter2 = stringWriter.toString();
             inputStreamReader.close();
             stringWriter.close();
-            if (IMAudioTransRequest.CHARSET.equalsIgnoreCase(name)) {
+            if ("utf-8".equalsIgnoreCase(name)) {
                 stringWriter2 = j.as(stringWriter2);
             }
             this.rl = stringWriter2;

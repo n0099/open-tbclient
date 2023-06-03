@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
-import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
-import com.faceunity.gles.GeneratedTexture;
+import com.baidu.webkit.internal.ETAG;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ima extends MediaBaseRenderer implements xma {
+public class ima {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int c;
-    public float d;
+    public JSONObject a;
+    public String b;
+    public boolean c;
 
     public ima() {
         Interceptable interceptable = $ic;
@@ -32,80 +33,141 @@ public class ima extends MediaBaseRenderer implements xma {
                 return;
             }
         }
-        this.b = new int[1];
+        this.a = new JSONObject();
     }
 
-    @Override // com.baidu.tieba.xma
-    public void a(rma rmaVar, SurfaceTexture surfaceTexture) {
+    public JSONObject g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, rmaVar, surfaceTexture) == null) {
-            int i = this.mSurfaceViewHeight;
-            int i2 = this.mSurfaceViewWidth;
-            float f = this.mRatio;
-            int i3 = i - ((int) (i2 * f));
-            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
-                b();
-                GLES20.glBindFramebuffer(36160, this.c);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16640);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
-                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                GLES20.glBindFramebuffer(36160, 0);
-                rmaVar.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
-            } else if (this.mTextureMode == 1) {
-                rmaVar.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            i("conn", "preconnect_app_hosts", str);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            i("conn", "preconnect_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            if (new File(str).isDirectory()) {
+                this.b = str;
+                return;
+            }
+            throw new IllegalArgumentException("Storage path must be set to existing directory");
+        }
+    }
+
+    public void d(int i, long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i != 3 && i != 2) {
+                if (l() != null) {
+                    throw new IllegalArgumentException("Storage path must not be set");
+                }
+            } else if (l() != null) {
+                this.c = true;
             } else {
-                rmaVar.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
+                throw new IllegalArgumentException("Storage path must be set");
             }
-            rmaVar.f(surfaceTexture);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d != this.mRatio) {
-                c();
+            if (i != 0 && i != 2) {
+                z = false;
+            } else {
+                z = true;
             }
-            if (this.a == 0) {
-                this.a = this.mFullScreen2D.createTexture2DObject();
-                int i = this.mSurfaceViewWidth;
-                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
-                GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.b, 0);
-                this.c = this.b[0];
-                this.d = this.mRatio;
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2 && i != 3) {
+                        throw new IllegalArgumentException("Unknown cache mode");
+                    }
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 2);
+                } else {
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 1);
+                }
+            } else {
+                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 0);
+            }
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+        }
+    }
+
+    public void i(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
+            try {
+                JSONObject optJSONObject = this.a.optJSONObject(str);
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                optJSONObject.put(str2, obj);
+                this.a.put(str, optJSONObject);
+            } catch (JSONException e) {
+                throw new IllegalStateException("JSON expcetion:", e);
             }
         }
     }
 
-    public final void c() {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
-            return;
-        }
-        GLES20.glDeleteFramebuffers(1, this.b, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
-        this.a = 0;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroyInGlThread();
-            c();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPauseInGlThread();
-            c();
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i >= 0) {
+                i("misc", "request_timeout", Integer.valueOf(i));
+                return;
+            }
+            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
         }
     }
 }

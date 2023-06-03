@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck6;
-import com.baidu.tieba.rn;
+import com.baidu.tieba.ko6;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +19,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes5.dex */
-public class PostForumData extends ck6 implements Serializable {
+/* loaded from: classes6.dex */
+public class PostForumData extends ko6 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;
     public static final long serialVersionUID = -2078662294751243784L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rn> mRelateForumDataList;
+    public List<vn> mRelateForumDataList;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public class PostForumData extends ck6 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,13 +78,13 @@ public class PostForumData extends ck6 implements Serializable {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public rn getForumData(int i) {
+    public vn getForumData(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return (rn) ListUtils.getItem(this.mRelateForumDataList, i);
+            return (vn) ListUtils.getItem(this.mRelateForumDataList, i);
         }
-        return (rn) invokeI.objValue;
+        return (vn) invokeI.objValue;
     }
 
     public void parserProtobuf(List<RelateForum> list) {

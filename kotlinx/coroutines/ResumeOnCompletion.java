@@ -1,18 +1,18 @@
 package kotlinx.coroutines;
 
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import kotlin.Metadata;
 import kotlin.Result;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0002\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u000e\u001a\u00020\r\u0012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00040\n¢\u0006\u0004\b\u000f\u0010\u0010J\u001a\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0096\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\b\u0010\tR\u001c\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00040\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000b\u0010\f¨\u0006\u0011"}, d2 = {"Lkotlinx/coroutines/ResumeOnCompletion;", "Lkotlinx/coroutines/JobNode;", "", "cause", "", "invoke", "(Ljava/lang/Throwable;)V", "", "toString", "()Ljava/lang/String;", "Lkotlin/coroutines/Continuation;", "continuation", "Lkotlin/coroutines/Continuation;", "Lkotlinx/coroutines/Job;", "job", "<init>", "(Lkotlinx/coroutines/Job;Lkotlin/coroutines/Continuation;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u0003\n\u0000\b\u0002\u0018\u00002\u00020\u0001B\u0013\u0012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\u0002\u0010\u0005J\u0013\u0010\u0006\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0096\u0002R\u0014\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\t"}, d2 = {"Lkotlinx/coroutines/ResumeOnCompletion;", "Lkotlinx/coroutines/JobNode;", "continuation", "Lkotlin/coroutines/Continuation;", "", "(Lkotlin/coroutines/Continuation;)V", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "cause", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
-public final class ResumeOnCompletion extends JobNode<Job> {
+public final class ResumeOnCompletion extends JobNode {
     public final Continuation<Unit> continuation;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.coroutines.Continuation<? super kotlin.Unit> */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.coroutines.Continuation<? super kotlin.Unit> */
     /* JADX WARN: Multi-variable type inference failed */
-    public ResumeOnCompletion(Job job, Continuation<? super Unit> continuation) {
-        super(job);
+    public ResumeOnCompletion(Continuation<? super Unit> continuation) {
         this.continuation = continuation;
     }
 
@@ -28,13 +28,7 @@ public final class ResumeOnCompletion extends JobNode<Job> {
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public void invoke2(Throwable th) {
         Continuation<Unit> continuation = this.continuation;
-        Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m789constructorimpl(unit));
-    }
-
-    @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode
-    public String toString() {
-        return "ResumeOnCompletion[" + this.continuation + ']';
+        continuation.resumeWith(Result.m844constructorimpl(Unit.INSTANCE));
     }
 }

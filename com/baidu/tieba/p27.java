@@ -1,115 +1,101 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.Map;
-@Autowired
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class p27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<q75> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010228, "Lcom/baidu/tieba/p27;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements q75 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a(p27 p27Var, ThreadData threadData, String str, String str2, String str3, String str4, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p27Var, threadData, str, str2, str3, str4, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948010228, "Lcom/baidu/tieba/p27;");
-                return;
-            }
+            this.a = str;
+            this.b = str2;
         }
-        jx4.e();
+
+        @Override // com.baidu.tieba.q75
+        public String getPicLinkUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.q75
+        public String getPicUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public p27() {
+    public p27(List<EmotionCenterData.BannerData> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        if (list != null && !ListUtils.isEmpty(list)) {
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                EmotionCenterData.BannerData bannerData = list.get(i3);
+                if (bannerData != null) {
+                    this.a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
+                }
             }
         }
     }
 
-    @Inject
-    public static l27 d() {
+    public List<q75> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return sl6.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (l27) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    sb.append("&");
-                    sb.append(URLEncoder.encode(str2, "UTF-8"));
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(str3, "UTF-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    for (String str2 : map.keySet()) {
-                        sb.append("&");
-                        sb.append(URLEncoder.encode(str2, "UTF-8"));
-                        sb.append("=");
-                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            d().a(context, str);
-        }
+        return (List) invokeV.objValue;
     }
 }

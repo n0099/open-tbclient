@@ -1,130 +1,32 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import androidx.core.view.ViewCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t41;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class f81 implements ViewTreeObserver.OnGlobalLayoutListener {
+public final class f81 {
     public static /* synthetic */ Interceptable $ic;
+    public static f81 c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public int b;
-    public WeakReference<View> c;
+    public HashMap<String, NadWebFeature> b;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Application.ActivityLifecycleCallbacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ f81 b;
-        public final /* synthetic */ View c;
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        public a(Context context, f81 f81Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, f81Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f81Var;
-            this.c = view2;
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    ((Application) this.a).unregisterActivityLifecycleCallbacks(this);
-                }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = false;
-                }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = true;
-                }
-            }
-        }
-    }
-
-    public f81(View rootView) {
+    public f81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,41 +36,109 @@ public final class f81 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.b = -1;
-        this.c = new WeakReference<>(rootView);
-        Context a2 = z81.a();
-        if (a2 instanceof Application) {
-            ((Application) a2).registerActivityLifecycleCallbacks(new a(a2, this, rootView));
+        this.a = false;
+        this.b = new HashMap<>(4);
+    }
+
+    public static synchronized f81 c() {
+        InterceptResult invokeV;
+        f81 f81Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (f81.class) {
+                if (c == null) {
+                    c = new f81();
+                }
+                f81Var = c;
+            }
+            return f81Var;
+        }
+        return (f81) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, c81 c81Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, c81Var)) == null) {
+            if (valueCallback == null) {
+                return false;
+            }
+            if (activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (b != null && b.c()) {
+                if (b instanceof e81) {
+                    return ((e81) b).h(activity, valueCallback, c81Var);
+                }
+                valueCallback.onReceiveValue(null);
+            } else {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public NadWebFeature a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public NadWebFeature b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            e(context);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
+            e81 e81Var = new e81(context);
+            e81Var.a();
+            i(e81Var);
+            this.a = true;
         }
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View rootView;
-        int measuredHeight;
+    public void f(Activity activity) {
+        NadWebFeature a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rootView = this.c.get()) != null) {
-            Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-            if (this.b >= ((int) (t41.c.f(rootView.getContext()) * 0.85f)) && !this.a) {
-                return;
-            }
-            if (ViewCompat.isAttachedToWindow(rootView)) {
-                Rect rect = new Rect();
-                rootView.getWindowVisibleDisplayFrame(rect);
-                int i = rect.top;
-                if (i == 0) {
-                    i = t41.c.g();
-                }
-                measuredHeight = rect.bottom - i;
-            } else {
-                measuredHeight = rootView.getMeasuredHeight();
-            }
-            if (this.b != measuredHeight && measuredHeight > 0) {
-                this.b = measuredHeight;
-                rootView.getLayoutParams().height = measuredHeight;
-                rootView.requestLayout();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof e81)) {
+            ((e81) a).f(activity);
+        }
+    }
+
+    public final void i(NadWebFeature nadWebFeature) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
+            this.b.put(nadWebFeature.b(), nadWebFeature);
+        }
+    }
+
+    public void g(Activity activity, int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof e81)) {
+            ((e81) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
         }
     }
 }

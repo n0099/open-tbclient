@@ -19,21 +19,21 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.en;
+import com.baidu.tieba.in;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class AlaEnterEffectAdapter extends en<AlaEnterEffectData, ViewHolder> {
+/* loaded from: classes5.dex */
+public class AlaEnterEffectAdapter extends in<AlaEnterEffectData, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,17 +71,17 @@ public class AlaEnterEffectAdapter extends en<AlaEnterEffectData, ViewHolder> {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e2);
+                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e3);
                 this.a = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901e8);
-                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901e9);
-                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ea);
-                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901df);
-                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901e6);
-                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901f1);
-                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901e3);
-                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901dc);
+                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901e9);
+                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ea);
+                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901eb);
+                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e0);
+                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901e7);
+                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901f2);
+                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901e4);
+                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901dd);
             }
         }
     }
@@ -110,7 +110,7 @@ public class AlaEnterEffectAdapter extends en<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.in
     /* renamed from: t */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -133,7 +133,7 @@ public class AlaEnterEffectAdapter extends en<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.in
     /* renamed from: u */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
@@ -142,7 +142,7 @@ public class AlaEnterEffectAdapter extends en<AlaEnterEffectData, ViewHolder> {
             viewHolder.a.N(alaEnterEffectData.thumbnail_url, 10, false);
             viewHolder.b.setText(alaEnterEffectData.name);
             if (alaEnterEffectData.isUsing()) {
-                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f0607aa, 1, this.b);
+                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f0607b6, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801f0, this.b);
                 viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0246));
                 viewHolder.a.setAlpha(1.0f);

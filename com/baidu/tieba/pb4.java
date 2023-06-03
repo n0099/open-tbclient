@@ -1,10 +1,20 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.cb3;
+import com.baidu.tieba.vw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,21 +23,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb4 a;
+    public cb3 a;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ f42 c;
+        public final /* synthetic */ vw2 d;
+        public final /* synthetic */ pb4 e;
 
-        public a(pb4 pb4Var, SwanAppActivity swanAppActivity) {
+        public a(pb4 pb4Var, SwanAppActivity swanAppActivity, String str, f42 f42Var, vw2 vw2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pb4Var, swanAppActivity};
+                Object[] objArr = {pb4Var, swanAppActivity, str, f42Var, vw2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,94 +52,192 @@ public class pb4 {
                     return;
                 }
             }
+            this.e = pb4Var;
             this.a = swanAppActivity;
+            this.b = str;
+            this.c = f42Var;
+            this.d = vw2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                om3.a(this.a);
+                this.e.f(this.a, this.b, this.c, this.d);
             }
         }
     }
 
-    public pb4(JsObject jsObject) {
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f42 a;
+
+        public b(pb4 pb4Var, f42 f42Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pb4Var, f42Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f42Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ke4.call(this.a, true, new rb4(false));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f42 a;
+        public final /* synthetic */ vw2 b;
+        public final /* synthetic */ pb4 c;
+
+        public c(pb4 pb4Var, f42 f42Var, vw2 vw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pb4Var, f42Var, vw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pb4Var;
+            this.a = f42Var;
+            this.b = vw2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ke4.call(this.a, true, new rb4(true));
+                this.c.e(this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056263, "Lcom/baidu/tieba/pb4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948056263, "Lcom/baidu/tieba/pb4;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    public pb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = nb4.d(n12.F(jsObject));
-        mb4.a().f(this);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
-        if (r1.equals("checkForUpdate") != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(ob4 ob4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ob4Var) == null) && this.a != null && JSEvent.isValid(ob4Var)) {
-            char c = 0;
-            g62.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", ob4Var.type, Boolean.valueOf(ob4Var.hasUpdate)));
-            String str = ob4Var.type;
-            int hashCode = str.hashCode();
-            if (hashCode != -1330233754) {
-                if (hashCode != -1317168438) {
-                    if (hashCode == -585906598 && str.equals("updateReady")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("updateFailed")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        this.a.b();
-                        return;
-                    }
-                    return;
-                }
-                this.a.c();
-                return;
-            }
-            this.a.a(ob4Var);
         }
     }
 
-    @JavascriptInterface
-    public boolean applyUpdate() {
-        InterceptResult invokeV;
+    public final void c(f42 f42Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SwanAppActivity activity = tu2.U().getActivity();
-            if (activity == null) {
-                g62.c("UpdateManagerApi", "applyUpdate activity is null");
-                return false;
-            } else if (activity.isDestroyed() || activity.getIntent() == null) {
-                return false;
-            } else {
-                an3.e0(new a(this, activity));
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f42Var, str) == null) {
+            h64 h64Var = new h64();
+            h64Var.errMsg = str;
+            ke4.call(f42Var, false, h64Var);
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            f42 F = f42.F(jsObject);
+            if (F == null) {
+                F = new f42();
+            }
+            f42 f42Var = F;
+            yb3 q = xb3.K().q();
+            if (!q.I()) {
+                c(f42Var, "reload failed, api internal error.");
+                return;
+            }
+            SwanAppActivity w = q.w();
+            vw2.a W = q.W();
+            if (w == null) {
+                c(f42Var, "reload failed, api internal error.");
+                return;
+            }
+            String B = f42Var.B("content");
+            if (TextUtils.isEmpty(B)) {
+                B = w.getString(R.string.obfuscated_res_0x7f0f01ac);
+            }
+            sp3.e0(new a(this, w, B, f42Var, W));
+        }
+    }
+
+    public final void e(@NonNull vw2 vw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vw2Var) == null) {
+            String H = vw2Var.H();
+            String h1 = ww2.h1(vw2Var.H(), vw2Var.T(), vw2Var.G());
+            Bundle bundle = new Bundle();
+            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
+            bundle.putString("scheme", h1);
+            bundle.putInt("target", SwanAppProcessInfo.current().index);
+            if (b) {
+                Log.d("SwanGameReloadApi", "reload-appid:" + vw2Var.H());
+            }
+            t83.Q().W(bundle, qb4.class);
+        }
+    }
+
+    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull f42 f42Var, @NonNull vw2 vw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, f42Var, vw2Var) == null) {
+            cb3 cb3Var = this.a;
+            if (cb3Var != null && cb3Var.isShowing()) {
+                c(f42Var, "reload failed, the reload dialog has been displayed.");
+                return;
+            }
+            cb3.a aVar = new cb3.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f01ad);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new gr3());
+            aVar.m(false);
+            aVar.B(R.string.obfuscated_res_0x7f0f013c, new b(this, f42Var));
+            aVar.O(R.string.obfuscated_res_0x7f0f01cc, new c(this, f42Var, vw2Var));
+            this.a = aVar.X();
+        }
     }
 }

@@ -1,37 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class woa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public fl1<qoa> a;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = xoa.b(file);
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            dl1 b = dl1.b();
+            this.a = b;
+            b.a(new roa());
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
+    public woa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = xoa.e(str, file, z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return e;
         }
-        return invokeCommon.booleanValue;
+        b();
+    }
+
+    public qoa a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
+        }
+        return (qoa) invokeV.objValue;
     }
 }

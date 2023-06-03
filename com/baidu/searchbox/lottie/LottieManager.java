@@ -12,7 +12,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.OnCompositionLoadedListener;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LottieManager {
     public static void showLottieWindow(WeakReference<Activity> weakReference, String str, int i) {
         Activity activity;

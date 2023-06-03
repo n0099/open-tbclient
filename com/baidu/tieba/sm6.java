@@ -1,13 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes7.dex */
-public class sm6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sm6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrerenderManager");
 
-    public abstract String a();
+    @UiThread
+    void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2);
 
-    public abstract String b();
+    @NonNull
+    @UiThread
+    android.webkit.WebView b(Context context, @NonNull String str);
+
+    @UiThread
+    boolean c(@NonNull String str, android.webkit.WebView webView);
 }

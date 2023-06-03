@@ -1,110 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kk6 extends lk6 {
+public class kk6 extends lk6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId Q0;
-    public static final BdUniqueId R0;
+    public static volatile kk6 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final mk6 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916019, "Lcom/baidu/tieba/kk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947916019, "Lcom/baidu/tieba/kk6;");
-                return;
-            }
-        }
-        Q0 = BdUniqueId.gen();
-        R0 = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.lk6, com.baidu.tieba.dk6, com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lk6
+    public boolean e(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            return false;
         }
-        return (ThreadData) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lk6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadType() == 67) {
-                return R0;
-            }
-            return Q0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public kk6(ThreadData threadData) {
+    public kk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadData;
+        this.b = new mk6();
+        WebViewDiskLoader webViewDiskLoader = new WebViewDiskLoader();
+        webViewDiskLoader.d(this.b);
+        d(webViewDiskLoader);
     }
 
-    public StatisticItem Z(String str) {
-        InterceptResult invokeL;
+    public static kk6 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem d = d(str);
-            d.delete("obj_type");
-            d.delete("obj_type");
-            d.param("obj_type", 3);
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (kk6.class) {
+                    if (c == null) {
+                        c = new kk6();
+                    }
+                }
+            }
+            return c;
         }
-        return (StatisticItem) invokeL.objValue;
+        return (kk6) invokeV.objValue;
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lk6
+    /* renamed from: h */
+    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
+            if (a() != null) {
+                return a().b(str, str2, map);
             }
-            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
-                return true;
-            }
-            if (threadData.getThreadType() != 67 || threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().friendRoomStatus != 2) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public void f(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
+            this.b.p(str, map);
+        }
     }
 }

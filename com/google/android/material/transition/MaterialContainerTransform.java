@@ -34,6 +34,7 @@ import androidx.transition.ArcMotion;
 import androidx.transition.PathMotion;
 import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tieba.R;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
@@ -241,7 +242,7 @@ public final class MaterialContainerTransform extends Transition {
             this.progressThresholds = progressThresholdsGroup;
             this.drawDebugEnabled = z3;
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) view2.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             this.displayWidth = displayMetrics.widthPixels;
             this.displayHeight = displayMetrics.heightPixels;
             this.containerPaint.setColor(i);
@@ -485,7 +486,7 @@ public final class MaterialContainerTransform extends Transition {
 
     @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407b1});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407bb});
         int resourceId = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
         return resourceId;
@@ -615,14 +616,14 @@ public final class MaterialContainerTransform extends Transition {
     public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view2, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         RectF locationOnScreen;
         if (i != -1) {
-            transitionValues.f1027view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1027view, i);
+            transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
         } else if (view2 != null) {
-            transitionValues.f1027view = view2;
-        } else if (transitionValues.f1027view.getTag(R.id.obfuscated_res_0x7f091769) instanceof View) {
-            transitionValues.f1027view.setTag(R.id.obfuscated_res_0x7f091769, null);
-            transitionValues.f1027view = (View) transitionValues.f1027view.getTag(R.id.obfuscated_res_0x7f091769);
+            transitionValues.f1028view = view2;
+        } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09178d) instanceof View) {
+            transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f09178d, null);
+            transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09178d);
         }
-        View view3 = transitionValues.f1027view;
+        View view3 = transitionValues.f1028view;
         if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
             if (view3.getParent() == null) {
                 locationOnScreen = TransitionUtils.getRelativeBounds(view3);
@@ -645,8 +646,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view2.getTag(R.id.obfuscated_res_0x7f091769) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091769);
+        if (view2.getTag(R.id.obfuscated_res_0x7f09178d) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f09178d);
         }
         Context context = view2.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -695,8 +696,8 @@ public final class MaterialContainerTransform extends Transition {
                 RectF rectF2 = (RectF) transitionValues2.values.get("materialContainerTransition:bounds");
                 ShapeAppearanceModel shapeAppearanceModel2 = (ShapeAppearanceModel) transitionValues2.values.get("materialContainerTransition:shapeAppearance");
                 if (rectF2 != null && shapeAppearanceModel2 != null) {
-                    final View view3 = transitionValues.f1027view;
-                    final View view4 = transitionValues2.f1027view;
+                    final View view3 = transitionValues.f1028view;
+                    final View view4 = transitionValues2.f1028view;
                     if (view4.getParent() != null) {
                         view2 = view4;
                     } else {

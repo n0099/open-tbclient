@@ -2,7 +2,6 @@ package com.baidu.searchbox.datacollector.growth.utils;
 
 import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.Base64;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
@@ -43,11 +42,11 @@ public class UBCEncryptor {
 
     public static String decryptByAes(String str, byte[] bArr, byte[] bArr2) {
         try {
-            byte[] decode = android.util.Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 2);
+            byte[] decode = android.util.Base64.decode(str.getBytes("utf-8"), 2);
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr2));
-            return new String(cipher.doFinal(decode), IMAudioTransRequest.CHARSET);
+            return new String(cipher.doFinal(decode), "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -59,7 +58,7 @@ public class UBCEncryptor {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
             Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
+            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), "utf-8");
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
@@ -69,7 +68,7 @@ public class UBCEncryptor {
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, getPublicKey());
-            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
+            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), "utf-8");
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
@@ -89,7 +88,7 @@ public class UBCEncryptor {
         try {
             Cipher cipher = Cipher.getInstance(str);
             cipher.init(1, getPublicKey());
-            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
+            return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), "utf-8");
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }

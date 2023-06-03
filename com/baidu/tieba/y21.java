@@ -1,190 +1,247 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class y21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final ArrayList<String> b;
-    public final StringBuilder c;
 
-    public y21() {
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        }
+    }
+
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            return j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Map<String, String> b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    hashMap.put(next, optString);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Exception e) {
+                h(e.getMessage());
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                StringWriter stringWriter = new StringWriter(str.length());
+                k(stringWriter, str);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                h(e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONObject jSONObject, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, i);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static <T> void f(JSONObject jSONObject, String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, t);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void g(JSONObject jSONObject, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, z);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void e(JSONObject jSONObject, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, j);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void k(Writer writer, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
+            if (writer != null) {
+                if (str != null) {
+                    int length = str.length();
+                    StringBuilder sb = new StringBuilder(4);
+                    boolean z = false;
+                    boolean z2 = false;
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
+                        if (z2) {
+                            sb.append(charAt);
+                            if (sb.length() == 4) {
+                                try {
+                                    writer.write((char) Integer.parseInt(sb.toString(), 16));
+                                    sb.setLength(0);
+                                    z = false;
+                                    z2 = false;
+                                } catch (NumberFormatException e) {
+                                    h(e.getMessage());
+                                }
+                            }
+                        } else if (z) {
+                            if (charAt != '\"') {
+                                if (charAt != '\'') {
+                                    if (charAt != '\\') {
+                                        if (charAt != 'b') {
+                                            if (charAt != 'f') {
+                                                if (charAt != 'n') {
+                                                    if (charAt != 'r') {
+                                                        if (charAt != 't') {
+                                                            if (charAt != 'u') {
+                                                                writer.write(charAt);
+                                                            } else {
+                                                                z = false;
+                                                                z2 = true;
+                                                            }
+                                                        } else {
+                                                            writer.write(9);
+                                                        }
+                                                    } else {
+                                                        writer.write(13);
+                                                    }
+                                                } else {
+                                                    writer.write(10);
+                                                }
+                                            } else {
+                                                writer.write(12);
+                                            }
+                                        } else {
+                                            writer.write(8);
+                                        }
+                                    } else {
+                                        writer.write(92);
+                                    }
+                                } else {
+                                    writer.write(39);
+                                }
+                            } else {
+                                writer.write(34);
+                            }
+                            z = false;
+                        } else if (charAt == '\\') {
+                            z = true;
+                        } else {
+                            writer.write(charAt);
+                        }
+                    }
+                    if (z) {
+                        writer.write(92);
+                        return;
+                    }
+                    return;
+                }
                 return;
             }
-        }
-        this.a = false;
-        this.b = new ArrayList<>();
-        this.c = new StringBuilder();
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.c);
-            if (this.a) {
-                sb.insert(0, "(");
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            }
-            sb.insert(0, " WHERE ");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static y21 g(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
-            return i(column.field, column.stringValue());
-        }
-        return (y21) invokeL.objValue;
-    }
-
-    public static y21 h(o21 o21Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o21Var)) == null) {
-            y21 y21Var = new y21();
-            y21Var.f(null, o21Var, " = ?");
-            return y21Var;
-        }
-        return (y21) invokeL.objValue;
-    }
-
-    public static y21 j(Column... columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
-            y21 g = g(columnArr[0]);
-            for (int i = 1; i < columnArr.length; i++) {
-                g.b(columnArr[i].field, columnArr[i].stringValue());
-            }
-            return g;
-        }
-        return (y21) invokeL.objValue;
-    }
-
-    public y21 d(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, objArr)) == null) {
-            for (Object obj : objArr) {
-                this.b.add(String.valueOf(obj));
-            }
-            return this;
-        }
-        return (y21) invokeL.objValue;
-    }
-
-    public static y21 i(o21 o21Var, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, o21Var, obj)) == null) {
-            y21 h = h(o21Var);
-            h.d(obj);
-            return h;
-        }
-        return (y21) invokeLL.objValue;
-    }
-
-    public y21 b(o21 o21Var, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o21Var, obj)) == null) {
-            c(null, o21Var, obj);
-            return this;
-        }
-        return (y21) invokeLL.objValue;
-    }
-
-    public y21 a(String str, o21 o21Var, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, o21Var, str2)) == null) {
-            this.a = true;
-            this.c.append(" AND ");
-            f(str, o21Var, str2);
-            return this;
-        }
-        return (y21) invokeLLL.objValue;
-    }
-
-    public y21 c(String str, o21 o21Var, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, o21Var, obj)) == null) {
-            a(str, o21Var, " = ?");
-            d(obj);
-            return this;
-        }
-        return (y21) invokeLLL.objValue;
-    }
-
-    public String[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String[] strArr = new String[this.b.size()];
-            for (int i = 0; i < this.b.size(); i++) {
-                strArr[i] = this.b.get(i);
-            }
-            return strArr;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.c);
-            if (this.a) {
-                sb.insert(0, "(");
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void f(String str, o21 o21Var, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, o21Var, str2) == null) {
-            if (o21Var != null) {
-                if (str != null) {
-                    this.c.append(str);
-                    this.c.append(".");
-                }
-                this.c.append(o21Var.b);
-                if (str2.charAt(0) != ' ') {
-                    this.c.append(" ");
-                }
-            } else if (str != null) {
-                throw new IllegalArgumentException("prefix should be null when field is null");
-            }
-            this.c.append(str2);
+            throw new IllegalArgumentException("The Writer must not be null");
         }
     }
 }

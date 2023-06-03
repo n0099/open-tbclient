@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,77 +12,134 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class un0 {
+import java.util.concurrent.ConcurrentLinkedQueue;
+/* loaded from: classes8.dex */
+public class un0 extends Handler implements sn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static wn0 a;
-    public static xn0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentLinkedQueue<b<?>> a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216626, "Lcom/baidu/tieba/un0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948216626, "Lcom/baidu/tieba/un0;");
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final un0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-369582507, "Lcom/baidu/tieba/un0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-369582507, "Lcom/baidu/tieba/un0$a;");
+                    return;
+                }
+            }
+            a = new un0();
         }
     }
 
+    /* loaded from: classes8.dex */
+    public static class b<T extends qn0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final tn0<T> a;
+        public final T b;
+
+        public b(vn0 vn0Var, tn0<T> tn0Var, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vn0Var, tn0Var, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tn0Var;
+            this.b = t;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public un0() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = false;
+    }
+
+    public static sn0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (sn0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sn0
+    public <T extends qn0> void a(vn0 vn0Var, tn0<T> tn0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, vn0Var, tn0Var, t) == null) {
+            if (zk0.a()) {
+                tn0Var.onEvent(t);
+                return;
+            }
+            synchronized (this) {
+                this.a.offer(new b<>(vn0Var, tn0Var, t));
+                if (!this.b) {
+                    sendMessage(Message.obtain());
+                }
             }
         }
     }
 
-    public static wn0 a() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(@NonNull Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (un0.class) {
-                    if (a == null) {
-                        a = (wn0) ServiceManager.getService(wn0.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                do {
+                    b<?> poll = this.a.poll();
+                    if (poll == null) {
+                        synchronized (this) {
+                            poll = this.a.poll();
+                            if (poll == null) {
+                                this.b = false;
+                                return;
+                            }
+                        }
                     }
-                    if (a == null) {
-                        a = wn0.b;
-                    }
-                }
+                    poll.a.onEvent(poll.b);
+                } while (System.currentTimeMillis() - currentTimeMillis < 5);
+                sendMessage(Message.obtain());
+                this.b = true;
+            } finally {
+                this.b = false;
             }
-            return a;
         }
-        return (wn0) invokeV.objValue;
-    }
-
-    public static xn0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (un0.class) {
-                    if (b == null) {
-                        b = (xn0) ServiceManager.getService(xn0.a);
-                    }
-                    if (b == null) {
-                        b = xn0.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (xn0) invokeV.objValue;
     }
 }

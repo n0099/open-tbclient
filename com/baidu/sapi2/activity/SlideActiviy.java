@@ -17,7 +17,6 @@ import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class SlideActiviy extends BaseActivity {
@@ -135,7 +134,7 @@ public class SlideActiviy extends BaseActivity {
             if (!this.u && isTaskRoot()) {
                 z = false;
             }
-            if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
+            if ((getWindow().getAttributes().flags & 67108864) == 0) {
                 Log.e(A, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();

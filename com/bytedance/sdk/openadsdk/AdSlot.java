@@ -1,9 +1,8 @@
 package com.bytedance.sdk.openadsdk;
 
-import android.support.v4.media.session.MediaSessionCompat;
 import com.bytedance.sdk.openadsdk.api.a;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdSlot implements TTAdSlot {
     public String a;
     public int b;
@@ -31,7 +30,7 @@ public class AdSlot implements TTAdSlot {
     public String x;
     public TTAdLoadType y;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public String a;
         public String g;
@@ -49,7 +48,7 @@ public class AdSlot implements TTAdSlot {
         public String w;
         public String x;
         public int b = 640;
-        public int c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        public int c = 320;
         public boolean d = true;
         public boolean e = false;
         public int f = 1;

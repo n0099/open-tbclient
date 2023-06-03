@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,24 +15,24 @@ public class b {
     public a b;
     public String c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C0693a> a;
+        public List<C0710a> a;
         public List<String> b;
         public List<String> c;
         public String d;
 
         /* renamed from: com.sdk.f.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static class C0693a {
+        /* loaded from: classes10.dex */
+        public static class C0710a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
             public long b;
 
-            public C0693a() {
+            public C0710a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

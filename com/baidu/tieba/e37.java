@@ -1,71 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.ContextWrapper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e37 implements s27 {
+public final class e37 extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
+    public static final e37 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683488, "Lcom/baidu/tieba/e37;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683488, "Lcom/baidu/tieba/e37;");
+                return;
+            }
+        }
+        a = new e37();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e37() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
-        Runnable runnable;
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
-            } else {
-                runnable = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (getBaseContext() == null) {
+                attachBaseContext(context);
             }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s27
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
         }
     }
 }

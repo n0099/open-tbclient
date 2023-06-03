@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.annotation.Keep;
 import com.bytedance.pangle.plugin.Plugin;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ZeusApplication extends PluginContext {
     public Application mHostApplication;
 

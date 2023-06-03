@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.cj;
+import com.baidu.tieba.sy9;
+import com.baidu.tieba.wy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class CommonTbJsBridge implements gs9 {
+/* loaded from: classes5.dex */
+public class CommonTbJsBridge implements sy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements gs9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gs9
+    @Override // com.baidu.tieba.sy9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements gs9 {
         return invokeLLLL.booleanValue;
     }
 
-    public ks9 getSupplementInfo() {
+    public wy9 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ks9 ks9Var = new ks9();
+            wy9 wy9Var = new wy9();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements gs9 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = yi.c(sb.toString());
+            String c = cj.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements gs9 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                ks9Var.o(jSONObject.toString());
-                return ks9Var;
+                wy9Var.o(jSONObject.toString());
+                return wy9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                ks9Var.o("");
-                return ks9Var;
+                wy9Var.o("");
+                return wy9Var;
             }
         }
-        return (ks9) invokeV.objValue;
+        return (wy9) invokeV.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.kwad.sdk.f.kwai;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements c {
     public List<c> ams;
     public boolean enabled;

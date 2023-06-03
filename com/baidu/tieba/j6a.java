@@ -1,82 +1,133 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.os.Handler;
-import com.baidu.android.imsdk.internal.Constants;
+import android.media.MediaMetadataRetriever;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class j6a extends BaseOutputSurface {
+public class j6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public MultiMediaData b;
 
-    public j6a(int i, int i2, boolean z, Handler handler) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947836628, "Lcom/baidu/tieba/j6a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new float[16];
-        this.b = new MultiMediaData();
-        init(i, i2, z, handler);
-        this.mFullScreenEXT.setMirror(true);
-        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
-    }
-
-    public void a(int i, int i2, float f) {
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            MultiMediaData multiMediaData = this.b;
-            multiMediaData.type = 1;
-            multiMediaData.width = i;
-            multiMediaData.height = i2;
-            multiMediaData.rotation = f;
-            if (f != 90.0f && f != 270.0f) {
-                f2 = (i * 1.0f) / i2;
-            } else {
-                f2 = (i2 * 1.0f) / i;
-            }
-            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
-                this.b.scaleType = "center_crop";
-            } else {
-                this.b.scaleType = "center_inside";
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947836628, "Lcom/baidu/tieba/j6a;");
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i) {
+    public static boolean a(InputStream inputStream, String str, sta staVar) throws IOException {
+        double d;
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.drawImage(i);
-            if (this.mFullScreenEXT == null) {
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, staVar)) == null) {
+            try {
+                if (inputStream instanceof FileInputStream) {
+                    d = ((FileInputStream) inputStream).getChannel().size();
+                } else {
+                    d = 0.0d;
+                }
+                FileOutputStream fileOutputStream = new FileOutputStream(str);
+                byte[] bArr = new byte[1444];
+                int i = 0;
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    i += read;
+                    if (staVar != null && d != 0.0d) {
+                        staVar.c((int) ((i / d) * 100.0d));
+                    } else if (staVar != null && d == 0.0d) {
+                        staVar.c(80);
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                return true;
+            } finally {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            float[] fArr = new float[16];
-            Matrix.setIdentityM(fArr, 0);
-            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
-            this.mFullScreenEXT.setAngle(180.0f);
-            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
-            Matrix.setIdentityM(fArr, 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(String str, String str2, sta staVar) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, staVar)) == null) {
+            return a(new FileInputStream(str), str2, staVar);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
+    public static VideoFileInfo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                VideoFileInfo videoFileInfo = new VideoFileInfo();
+                videoFileInfo.videoPath = str;
+                videoFileInfo.lastModified = file.lastModified();
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            videoFileInfo.videoDuration = tg.e(mediaMetadataRetriever.extractMetadata(9), 0);
+                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
+                            videoFileInfo.videoWidth = tg.e(mediaMetadataRetriever.extractMetadata(18), 0);
+                            videoFileInfo.videoHeight = tg.e(mediaMetadataRetriever.extractMetadata(19), 0);
+                            int e = tg.e(mediaMetadataRetriever.extractMetadata(24), 0);
+                            if (e == 90 || e == 270) {
+                                int i = videoFileInfo.videoWidth;
+                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
+                                videoFileInfo.videoHeight = i;
+                            }
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            mediaMetadataRetriever.release();
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return videoFileInfo;
+            }
+            return null;
+        }
+        return (VideoFileInfo) invokeL.objValue;
     }
 }

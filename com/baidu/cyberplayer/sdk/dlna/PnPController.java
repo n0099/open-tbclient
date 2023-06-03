@@ -38,14 +38,6 @@ public class PnPController {
         return 0;
     }
 
-    public int getUrlPlayStatus(String str) {
-        CtrlPointProvider ctrlPointProvider = this.a;
-        if (ctrlPointProvider == null || str == null) {
-            return -1;
-        }
-        return ctrlPointProvider.getUrlPlayStatus(str);
-    }
-
     public void pause() {
         CtrlPointProvider ctrlPointProvider = this.a;
         if (ctrlPointProvider != null) {
@@ -58,6 +50,29 @@ public class PnPController {
         if (ctrlPointProvider != null) {
             ctrlPointProvider.play();
         }
+    }
+
+    @Deprecated
+    public void shutdown() {
+        CtrlPointProvider ctrlPointProvider = this.a;
+        if (ctrlPointProvider != null) {
+            ctrlPointProvider.shutdown();
+        }
+    }
+
+    public void stop() {
+        CtrlPointProvider ctrlPointProvider = this.a;
+        if (ctrlPointProvider != null) {
+            ctrlPointProvider.stop();
+        }
+    }
+
+    public int getUrlPlayStatus(String str) {
+        CtrlPointProvider ctrlPointProvider = this.a;
+        if (ctrlPointProvider != null && str != null) {
+            return ctrlPointProvider.getUrlPlayStatus(str);
+        }
+        return -1;
     }
 
     public void seek(long j) {
@@ -95,25 +110,10 @@ public class PnPController {
         }
     }
 
-    @Deprecated
-    public void shutdown() {
-        CtrlPointProvider ctrlPointProvider = this.a;
-        if (ctrlPointProvider != null) {
-            ctrlPointProvider.shutdown();
-        }
-    }
-
     public void shutdown(boolean z) {
         CtrlPointProvider ctrlPointProvider = this.a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.shutdown(z);
-        }
-    }
-
-    public void stop() {
-        CtrlPointProvider ctrlPointProvider = this.a;
-        if (ctrlPointProvider != null) {
-            ctrlPointProvider.stop();
         }
     }
 }

@@ -1,50 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class ge<V> extends FutureTask<V> {
+public class ge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdAsyncTask<?, ?, ?> a;
 
-    public abstract void a();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
+    public static final boolean a(gd gdVar, nc ncVar) {
+        InterceptResult invokeLL;
+        Object objectByType;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Callable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, gdVar, ncVar)) == null) {
+            if (ncVar != null && gdVar != null) {
+                List<Field> b = lc.b(ncVar.getClass());
+                Set<String> keys = gdVar.getKeys();
+                for (Field field : b) {
+                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                        String name = field.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (keys.contains(name)) {
+                                Object objectByType2 = gdVar.getObjectByType(name, field.getGenericType());
+                                if (objectByType2 != null) {
+                                    lc.i(ncVar, name, objectByType2);
+                                }
+                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                                Object objectByType3 = gdVar.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
+                                if (objectByType3 != null) {
+                                    lc.i(ncVar, name, objectByType3);
+                                }
+                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = gdVar.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                                lc.i(ncVar, name, objectByType);
+                            }
+                        }
+                    }
+                }
+                return true;
             }
+            return false;
         }
-        this.a = null;
-        this.a = bdAsyncTask;
-    }
-
-    public BdAsyncTask<?, ?, ?> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (BdAsyncTask) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.a;
-import com.qq.e.comm.managers.GDTADManager;
+import com.qq.e.comm.managers.b;
 import com.qq.e.comm.pi.DFA;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GDTApkManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public class GDTApkManager {
         this.b = false;
         this.c = false;
         this.d = new AtomicInteger(0);
-        if (GDTADManager.getInstance().isInitialized()) {
-            a(context, GDTADManager.getInstance().getAppStatus().getAPPID(), iGDTApkListener);
+        if (b.b().d()) {
+            a(context, b.b().a(), iGDTApkListener);
         }
     }
 
@@ -58,7 +58,7 @@ public class GDTApkManager {
             } else {
                 this.b = true;
                 this.e = context;
-                GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, iGDTApkListener) { // from class: com.qq.e.ads.dfa.GDTApkManager.1
+                b.g.execute(new Runnable(this, iGDTApkListener) { // from class: com.qq.e.ads.dfa.GDTApkManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IGDTApkListener a;
@@ -88,7 +88,7 @@ public class GDTApkManager {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.dfa.GDTApkManager.1.1
+                                new Handler(Looper.getMainLooper()).post(new Runnable(this, b.b().c().getPOFactory()) { // from class: com.qq.e.ads.dfa.GDTApkManager.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ POFactory a;
@@ -120,7 +120,7 @@ public class GDTApkManager {
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             try {
                                                 if (this.a != null) {
-                                                    this.b.b.a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(this.b.a);
+                                                    this.b.b.a = b.b().c().getPOFactory().getGDTApkDelegate(this.b.a);
                                                     this.b.b.c = true;
                                                     while (this.b.b.d.getAndDecrement() > 0) {
                                                         this.b.b.loadGDTApk();

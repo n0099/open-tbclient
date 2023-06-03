@@ -1,45 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.view.button.base.ApiButton;
+import com.baidu.tieba.ue4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class ve4 {
+/* loaded from: classes8.dex */
+public class ve4 extends EventTargetImpl implements ue4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BaiduMap b;
-    public Marker c;
-    public BitmapDescriptor d;
-    public b e;
-    public LocationClient f;
-    public BDLocation g;
-    public boolean h;
+    public ApiButton a;
+    @V8JavascriptField
+    public String image;
+    @V8JavascriptField
+    public ue4 style;
+    @V8JavascriptField
+    public String text;
+    @V8JavascriptField
+    public String type;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(BDLocation bDLocation);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BDAbstractLocationListener {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ve4 a;
@@ -62,114 +54,330 @@ public class ve4 {
             this.a = ve4Var;
         }
 
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null) {
-                    this.a.m();
-                    return;
-                }
-                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.c != null) {
-                    this.a.c.remove();
-                    this.a.c = null;
-                }
-                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d);
-                ve4 ve4Var = this.a;
-                ve4Var.c = (Marker) ve4Var.b.addOverlay(icon);
-                if (this.a.g == null) {
-                    this.a.b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                    if (this.a.e != null) {
-                        this.a.e.a(bDLocation);
-                    }
-                }
-                this.a.g = bDLocation;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                se4.d(apiButton);
+                this.a.a = null;
             }
         }
     }
 
-    public ve4(Context context, BaiduMap baiduMap) {
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve4 a;
+
+        public b(ve4 ve4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.hide();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve4 a;
+
+        public c(ve4 ve4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
+                apiButton.show();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ve4 b;
+
+        public d(ve4 ve4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ve4Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (is1.a) {
+                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
+                }
+                if (this.b.a == null) {
+                    return;
+                }
+                String str = this.a;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 100313435 && str.equals("image")) {
+                        c = 1;
+                    }
+                } else if (str.equals("text")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1) {
+                        ve4 ve4Var = this.b;
+                        ve4Var.a.setImageUrl(ve4Var.image);
+                        return;
+                    }
+                    return;
+                }
+                ve4 ve4Var2 = this.b;
+                ve4Var2.a.setButtonText(ve4Var2.text);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve4 a;
+
+        public e(ve4 ve4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ve4 ve4Var = this.a;
+                if (ve4Var.a != null && !ve4Var.B()) {
+                    this.a.a.j();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ve4(JsObject jsObject, ij2 ij2Var) {
+        super(ij2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baiduMap};
+            Object[] objArr = {jsObject, ij2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.a = context;
-        this.b = baiduMap;
+        this.type = "text";
+        this.text = fv2.c().getString(R.string.obfuscated_res_0x7f0f0130);
+        A(jsObject);
     }
 
-    public void k(b bVar) {
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            sp3.e0(new d(this, str));
         }
     }
 
-    public void n(boolean z) {
+    public final void A(JsObject jsObject) {
+        ue4 ue4Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                l();
-            } else {
-                m();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            f42 F = f42.F(jsObject);
+            if (is1.a) {
+                if (("parse jsObject = " + F) != null) {
+                    str = F.toString();
+                } else {
+                    str = null;
+                }
+                Log.d("BaseButtonProxy", str);
             }
+            if (F == null) {
+                return;
+            }
+            this.type = F.C("type", this.type);
+            this.text = F.C("text", this.text);
+            this.image = F.C("image", this.image);
+            f42 x = F.x("style", null);
+            if (x == null) {
+                ue4Var = this.style;
+            } else {
+                ue4Var = new ue4(x);
+            }
+            this.style = ue4Var;
         }
     }
 
-    public BDLocation i() {
+    public final boolean B() {
+        InterceptResult invokeV;
+        e23 z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null || this.style == null || (z = z()) == null || !se4.f(this.a, z)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sp3.e0(new a(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sp3.e0(new b(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ue4.a
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            sp3.e0(new e(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            sp3.e0(new c(this));
+        }
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        ue4 ue4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null || (ue4Var = this.style) == null) {
+                return false;
+            }
+            ue4Var.b(this);
+            e23 z = z();
+            if (z == null || !se4.a(this.a, z)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final e23 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ue4 ue4Var = this.style;
+            if (ue4Var == null || this.a == null) {
+                return null;
+            }
+            int g = pp3.g(ue4Var.width);
+            int g2 = pp3.g(this.style.height);
+            int g3 = pp3.g(this.style.left);
+            int g4 = pp3.g(this.style.top);
+            int g5 = pp3.g(this.style.borderWidth) * 2;
+            if (g < g5) {
+                g = g5;
+            }
+            if (g2 < g5) {
+                g2 = g5;
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
+                return null;
+            }
+            return new e23(g3, g4, g, g2);
         }
-        return (BDLocation) invokeV.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.h) {
-            return;
-        }
-        j();
-        LocationClient locationClient = this.f;
-        if (locationClient != null && !locationClient.isStarted()) {
-            this.f.start();
-            this.h = true;
-        }
-    }
-
-    public final void m() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
-            this.f.stop();
-            this.h = false;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
-            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f0801ac);
-        }
+        return (e23) invokeV.objValue;
     }
 }

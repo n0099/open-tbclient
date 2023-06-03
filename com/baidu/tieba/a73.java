@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Rect;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public i73 c;
-    public Context d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,135 +30,123 @@ public class a73 {
                 return;
             }
         }
-        e = qp1.a;
+        a = is1.a;
     }
 
-    public a73(View view2) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull b73 b73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, b73Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
             }
+            b73Var.b(2, "method should be called after setActivityRef");
+            if (!a) {
+                return false;
+            }
+            throw new IllegalStateException("this method should be called after setActivityRef");
         }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
+        return invokeLL.booleanValue;
     }
 
-    public final i73 a(View view2) {
-        InterceptResult invokeL;
+    public static boolean c(ArrayList<String> arrayList, @NonNull b73 b73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            i73 i73Var = this.c;
-            if (i73Var != null) {
-                return i73Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, b73Var)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                return false;
             }
-            if (view2 instanceof i73) {
-                i73 i73Var2 = (i73) view2;
-                this.c = i73Var2;
-                return i73Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    i73 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
-                    }
-                }
-                return null;
-            } else {
-                return null;
-            }
+            b73Var.a("permission has already granted");
+            return true;
         }
-        return (i73) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void b(int i, int i2) {
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (h73.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (h73.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!us4.a(context, str)) {
+                    arrayList.add(str);
                 }
             }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            i73 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < f73.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > f73.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
+            return arrayList;
         }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull b73 b73Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, b73Var)) == null) {
+            if (us4.a(context, str)) {
+                b73Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull b73 b73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, b73Var}) != null) || !a(context, b73Var) || b(context, str, b73Var)) {
+            return;
+        }
+        g(context, strArr, i, b73Var);
+    }
+
+    @Deprecated
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull b73 b73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, b73Var) != null) || !a(context, b73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, b73Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).z(i, (String[]) d.toArray(new String[0]), new w63(i, b73Var));
+    }
+
+    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull b73 b73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, b73Var) != null) || !a(context, b73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, b73Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).z(i, (String[]) d.toArray(new String[0]), new x63(context, i, b73Var));
+    }
+
+    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull b73 b73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, b73Var) != null) || !a(context, b73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, b73Var)) {
+            return;
+        }
+        g(context, (String[]) d.toArray(new String[0]), i, b73Var);
+    }
+
+    @Deprecated
+    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull b73 b73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, b73Var) != null) || !a(context, b73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, b73Var)) {
+            return;
+        }
+        f(context, (String[]) d.toArray(new String[0]), i, b73Var);
     }
 }

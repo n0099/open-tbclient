@@ -5,10 +5,10 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.id8;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.t78;
-import com.baidu.tieba.u78;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,15 +51,15 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = pg.e(jSONObject.optString("error_code"), -1);
+            int e = tg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        u78 u78Var = new u78();
-                        u78Var.f(optJSONObject2);
-                        this.mList.add(u78Var);
+                        jd8 jd8Var = new jd8();
+                        jd8Var.f(optJSONObject2);
+                        this.mList.add(jd8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -75,9 +75,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        t78 t78Var = new t78();
-                        t78Var.c(optJSONObject4);
-                        this.mList.add(t78Var);
+                        id8 id8Var = new id8();
+                        id8Var.c(optJSONObject4);
+                        this.mList.add(id8Var);
                         return;
                     }
                     return;

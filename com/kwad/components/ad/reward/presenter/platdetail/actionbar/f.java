@@ -352,8 +352,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912d8);
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09120a);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912f0);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091222);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

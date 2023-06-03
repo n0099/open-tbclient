@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mobstat.bl;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -160,7 +159,7 @@ public class LogSender {
             return;
         }
         try {
-            JSONObject jSONObject2 = (JSONObject) jSONObject.get(Config.TRACE_PART);
+            JSONObject jSONObject2 = (JSONObject) jSONObject.get("trace");
             jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
         } catch (Exception unused2) {
         }
@@ -429,7 +428,7 @@ public class LogSender {
         byte[] b = bl.a.b();
         d.setRequestProperty("key", bv.a(a2));
         d.setRequestProperty("iv", bv.a(b));
-        byte[] a3 = bl.a.a(a2, b, str2.getBytes(IMAudioTransRequest.CHARSET));
+        byte[] a3 = bl.a.a(a2, b, str2.getBytes("utf-8"));
         d.connect();
         try {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(d.getOutputStream());

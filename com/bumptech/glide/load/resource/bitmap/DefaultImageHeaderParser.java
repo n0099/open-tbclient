@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int EXIF_MAGIC_NUMBER = 65496;
     public static final int EXIF_SEGMENT_TYPE = 225;
@@ -44,7 +44,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         return (i & EXIF_MAGIC_NUMBER) == 65496 || i == 19789 || i == 18761;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Reader {
         int getUInt16() throws IOException;
 
@@ -54,7 +54,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         long skip(long j) throws IOException;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class EndOfFileException extends IOException {
             public static final long serialVersionUID = 1;
 
@@ -64,7 +64,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteBufferReader implements Reader {
         public final ByteBuffer byteBuffer;
 
@@ -105,7 +105,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RandomAccessReader {
         public final ByteBuffer data;
 
@@ -143,7 +143,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class StreamReader implements Reader {
         public final InputStream is;
 

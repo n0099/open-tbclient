@@ -1,56 +1,45 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class t91 {
+public class t91 extends i91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final m91 a;
 
-    public abstract void a(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    public abstract r91 b(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void c(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract boolean d(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    public abstract boolean e(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void f(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void g(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    public abstract void h(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    public abstract void i(AbsNadBrowserView absNadBrowserView, p91 p91Var, String str, String str2);
-
-    public abstract void j(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    public abstract void k(AbsNadBrowserView absNadBrowserView, float f, float f2);
-
-    public abstract void l(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    public abstract void m(AbsNadBrowserView absNadBrowserView, String str, boolean z);
-
-    public t91() {
+    public t91(@NonNull m91 m91Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m91Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = m91Var;
+    }
+
+    @Override // com.baidu.tieba.i91
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.m();
+            if (this.a.l() != null && this.a.l().k() != null) {
+                String c = this.a.l().k().c();
+                if (!TextUtils.isEmpty(c)) {
+                    this.a.m().setUserAgentString(c);
+                }
             }
         }
     }

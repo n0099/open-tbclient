@@ -14,7 +14,7 @@ import java.util.List;
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0713a> c;
+    public final List<InterfaceC0730a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0713a {
+    public interface InterfaceC0730a {
         @MainThread
         void b();
 
@@ -135,7 +135,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0713a) obj).b();
+                ((InterfaceC0730a) obj).b();
             }
         }
     }
@@ -146,12 +146,12 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0713a) obj).c();
+                ((InterfaceC0730a) obj).c();
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
     public boolean b() {
         int i = this.f;
         int i2 = i;
@@ -208,19 +208,19 @@ public class a {
         }
     }
 
-    public void b(InterfaceC0713a interfaceC0713a) {
+    public void b(InterfaceC0730a interfaceC0730a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0713a);
+            this.c.remove(interfaceC0730a);
         }
     }
 
-    public void a(InterfaceC0713a interfaceC0713a) {
-        if (interfaceC0713a == null) {
+    public void a(InterfaceC0730a interfaceC0730a) {
+        if (interfaceC0730a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0713a)) {
-                this.c.add(interfaceC0713a);
+            if (!this.c.contains(interfaceC0730a)) {
+                this.c.add(interfaceC0730a);
             }
         }
     }

@@ -1,32 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
-import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class af7 {
+/* loaded from: classes5.dex */
+public class af7 implements z48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public List<ThreadData> c;
-    public ScoreCardInfo d;
-    public List<FeatureCardHot> e;
-    public List<FeatureCardTopic> f;
-    public List<bf7> g;
-    public List<FeatureCardCompetition> h;
-    public List<FeatureCardGod> i;
-    public List<FeatureCardGame> j;
+    public MetaData a;
 
     public af7() {
         Interceptable interceptable = $ic;
@@ -41,12 +25,10 @@ public class af7 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.e = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new ArrayList();
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
     }
 }

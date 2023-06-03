@@ -1,141 +1,206 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class g6b implements h6b {
-    public static /* synthetic */ Interceptable $ic;
+public class g6b implements i6b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Context sApplicationContext = null;
+    public static int sBlockThreshold = 2000;
+    public static g6b sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.h6b
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947747286, "Lcom/baidu/tieba/g6b;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h6b
-    public void c(Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, framedata) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947747286, "Lcom/baidu/tieba/g6b;");
         }
     }
 
-    @Override // com.baidu.tieba.h6b
-    public String d() {
+    public List<String> concernPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h6b
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return invokeL.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h6b
-    public void f(Framedata framedata) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, framedata) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.h6b
-    public String g() {
+    public boolean deleteFilesInWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.h6b
-    public void reset() {
+    public abstract boolean displayNotification();
+
+    public boolean filterNonConcernStack() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i6b
+    public void onBlock(Context context, o6b o6bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, o6bVar) == null) {
+        }
+    }
+
+    public int provideMonitorDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String provideNetworkType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String providePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
+    }
+
+    public String provideQualifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String provideUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
+    }
+
+    public boolean stopWhenDebugging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean zip(File[] fileArr, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public g6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.h6b
-    public h6b a() {
+    public static g6b get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new g6b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            g6b g6bVar = sInstance;
+            if (g6bVar != null) {
+                return g6bVar;
+            }
+            throw new RuntimeException("BlockCanaryContext null");
         }
-        return (h6b) invokeV.objValue;
+        return (g6b) invokeV.objValue;
     }
 
-    public int hashCode() {
+    public int provideBlockThreshold() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return g6b.class.hashCode();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return sBlockThreshold;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.h6b
-    public String toString() {
+    public Context provideContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return g6b.class.getSimpleName();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return sApplicationContext;
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public int provideDumpInterval() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && g6b.class == obj.getClass()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return provideBlockThreshold();
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.h6b
-    public void h(Framedata framedata) throws InvalidDataException {
+    public List<String> provideWhiteList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, framedata) == null) {
-            if (!framedata.b() && !framedata.c() && !framedata.e()) {
-                return;
-            }
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.b() + " RSV2: " + framedata.c() + " RSV3: " + framedata.e());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add("org.chromium");
+            return linkedList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void init(Context context, g6b g6bVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, g6bVar, i) == null) {
+            sApplicationContext = context;
+            sInstance = g6bVar;
+            sBlockThreshold = i;
+        }
+    }
+
+    public void upload(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
+            throw new UnsupportedOperationException();
         }
     }
 }

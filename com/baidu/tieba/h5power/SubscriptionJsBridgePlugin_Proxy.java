@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.ms9;
+import com.baidu.tieba.sl6;
+import com.baidu.tieba.ty4;
+import com.baidu.tieba.uy9;
+import com.baidu.tieba.wy9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,18 +19,18 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class SubscriptionJsBridgePlugin_Proxy extends is9 {
+/* loaded from: classes6.dex */
+public class SubscriptionJsBridgePlugin_Proxy extends uy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bw4 mJsBridge;
+    public ty4 mJsBridge;
 
-    public SubscriptionJsBridgePlugin_Proxy(bw4 bw4Var) {
+    public SubscriptionJsBridgePlugin_Proxy(ty4 ty4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bw4Var};
+            Object[] objArr = {ty4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,84 +40,79 @@ public class SubscriptionJsBridgePlugin_Proxy extends is9 {
                 return;
             }
         }
-        this.mJsBridge = bw4Var;
+        this.mJsBridge = ty4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.is9
-    public ks9 dispatch(WebView webView, ms9 ms9Var, ks9 ks9Var) {
+    @Override // com.baidu.tieba.uy9
+    public wy9 dispatch(WebView webView, yy9 yy9Var, wy9 wy9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ms9Var, ks9Var)) == null) {
-            if (ks9Var == null) {
-                ks9Var = new ks9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, yy9Var, wy9Var)) == null) {
+            if (wy9Var == null) {
+                wy9Var = new wy9();
             }
-            String b = ms9Var.b();
-            JSONObject e = ms9Var.e();
+            String b = yy9Var.b();
+            JSONObject e = yy9Var.e();
             if (b.equals("subscription/gamePush")) {
-                ks9Var.s(true);
-                ks9 c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                wy9Var.s(true);
+                wy9 c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (c != null) {
-                    ks9Var.y(c.f());
-                    ks9Var.u(c.b());
-                    ks9Var.o(c.a());
-                    ks9Var.x(c.e());
+                    wy9Var.y(c.f());
+                    wy9Var.u(c.b());
+                    wy9Var.o(c.a());
+                    wy9Var.x(c.e());
                 }
-                ks9Var.z(0);
+                wy9Var.z(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                ks9Var.s(true);
-                ks9 e2 = this.mJsBridge.e(webView);
+                wy9Var.s(true);
+                wy9 e2 = this.mJsBridge.e(webView);
                 if (e2 != null) {
-                    ks9Var.y(e2.f());
-                    ks9Var.u(e2.b());
-                    ks9Var.o(e2.a());
-                    ks9Var.x(e2.e());
+                    wy9Var.y(e2.f());
+                    wy9Var.u(e2.b());
+                    wy9Var.o(e2.a());
+                    wy9Var.x(e2.e());
                 }
-                ks9Var.z(0);
+                wy9Var.z(0);
             } else if (b.equals("subscription/notifyNativeRefresh")) {
-                ks9Var.s(true);
-                ks9 f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"));
-                this.mNotificationNameList.add("notifyNativeRefresh");
+                wy9Var.s(true);
+                wy9 f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"));
                 if (f != null) {
-                    ks9Var.y(f.f());
-                    ks9Var.u(f.b());
-                    ks9Var.o(f.a());
-                    ks9Var.x(f.e());
-                    if (!ks9Var.h()) {
-                        ks9Var.n(false);
-                        addObserver(webView, "notifyNativeRefresh", ks9Var, false);
-                    }
+                    wy9Var.y(f.f());
+                    wy9Var.u(f.b());
+                    wy9Var.o(f.a());
+                    wy9Var.x(f.e());
                 }
-                ks9Var.z(0);
+                wy9Var.z(0);
             } else if (b.equals("subscription/getViewPosition")) {
-                ks9Var.s(true);
-                ks9 d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
+                wy9Var.s(true);
+                wy9 d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
                 if (d != null) {
-                    ks9Var.y(d.f());
-                    ks9Var.u(d.b());
-                    ks9Var.o(d.a());
-                    ks9Var.x(d.e());
+                    wy9Var.y(d.f());
+                    wy9Var.u(d.b());
+                    wy9Var.o(d.a());
+                    wy9Var.x(d.e());
                 }
-                ks9Var.z(0);
+                wy9Var.z(0);
             }
-            return ks9Var;
+            return wy9Var;
         }
-        return (ks9) invokeLLL.objValue;
+        return (wy9) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.is9
-    public kh6 getJsBridge() {
+    @Override // com.baidu.tieba.uy9
+    public sl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (kh6) invokeV.objValue;
+        return (sl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.is9
-    public List<ks9> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.uy9
+    public List<wy9> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

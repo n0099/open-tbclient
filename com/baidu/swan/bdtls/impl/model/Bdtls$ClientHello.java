@@ -1,8 +1,8 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.tieba.ks3;
-import com.baidu.tieba.ls3;
+import com.baidu.tieba.cv3;
+import com.baidu.tieba.dv3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -114,7 +114,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: q */
-        public b mo29clone() {
+        public b mo43clone() {
             b r = r();
             r.y(buildPartial());
             return r;
@@ -265,7 +265,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: o */
         public Bdtls$ClientHello buildPartial() {
-            Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (ks3) null);
+            Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (cv3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -365,7 +365,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return this.extensions_;
     }
 
-    public List<? extends ls3> getExtensionsOrBuilderList() {
+    public List<? extends dv3> getExtensionsOrBuilderList() {
         return this.extensions_;
     }
 
@@ -492,7 +492,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cv3 cv3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -524,11 +524,11 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return this.extensions_.get(i);
     }
 
-    public ls3 getExtensionsOrBuilder(int i) {
+    public dv3 getExtensionsOrBuilder(int i) {
         return this.extensions_.get(i);
     }
 
-    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
+    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, cv3 cv3Var) {
         this(builder);
     }
 

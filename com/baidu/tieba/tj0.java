@@ -1,237 +1,90 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class tj0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final sj0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj0 a;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tj0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-401905711, "Lcom/baidu/tieba/tj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-401905711, "Lcom/baidu/tieba/tj0$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948182991, "Lcom/baidu/tieba/tj0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new tj0(null);
-        }
-    }
-
-    public tj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948182991, "Lcom/baidu/tieba/tj0;");
                 return;
             }
         }
-        synchronized (tj0.class) {
-            kj0 kj0Var = (kj0) ServiceManager.getService(kj0.a);
-            this.a = kj0Var;
-            if (kj0Var == null) {
-                this.a = kj0.b;
-            }
-        }
+        a = new sj0();
     }
 
-    public /* synthetic */ tj0(a aVar) {
-        this();
-    }
-
-    public static tj0 c() {
-        InterceptResult invokeV;
+    public static boolean a(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, yj0Var, map, ck0Var)) == null) {
+            return a.a(context, yj0Var, map, ck0Var);
         }
-        return (tj0) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public String a(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            yq0 a2 = this.a.a();
-            if (z) {
-                if (a2 != null && !TextUtils.isEmpty(a2.a)) {
-                    return a2.a;
-                }
-                return bj0.d().a();
-            } else if (this.a.h()) {
-                if (a2 != null && a2.b != 3) {
-                    return a2.a;
-                }
-                return "";
-            } else {
-                return bj0.d().a();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, null);
         }
-        return (String) invokeZ.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String b(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean c(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            yq0 e = this.a.e();
-            if (z) {
-                if (e != null && !TextUtils.isEmpty(e.a)) {
-                    return e.a;
-                }
-                return bj0.d().e();
-            } else if (this.a.h()) {
-                if (e != null && e.b != 3) {
-                    return e.a;
-                }
-                return "";
-            } else {
-                return bj0.d().e();
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
+            return d(str, context, null);
         }
-        return (String) invokeZ.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public String d(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean d(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            yq0 f = this.a.f();
-            if (z) {
-                if (f != null && !TextUtils.isEmpty(f.a)) {
-                    return f.a;
-                }
-                return bj0.d().f();
-            } else if (this.a.h()) {
-                if (f != null && f.b != 3) {
-                    return f.a;
-                }
-                return "";
-            } else {
-                return bj0.d().f();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, map)) == null) {
+            return e(str, context, map, null);
         }
-        return (String) invokeZ.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public String e(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean e(String str, @Nullable Context context, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
+        l51 l51Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            yq0 d = this.a.d();
-            if (z) {
-                if (d != null && !TextUtils.isEmpty(d.a)) {
-                    return d.a;
-                }
-                return bj0.d().d();
-            } else if (this.a.h()) {
-                if (d != null && d.b != 3) {
-                    return d.a;
-                }
-                return "";
-            } else {
-                return bj0.d().d();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, context, map, ck0Var)) == null) {
+            if (i51.a && (l51Var = (l51) h51.a().a(l51.class)) != null) {
+                l51Var.a(str);
             }
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            yq0 c = this.a.c();
-            if (z) {
-                if (c != null && !TextUtils.isEmpty(c.a)) {
-                    return c.a;
-                }
-                return bj0.d().c();
-            } else if (this.a.h()) {
-                if (c != null && c.b != 3) {
-                    return c.a;
-                }
-                return "";
-            } else {
-                return bj0.d().c();
+            if (!hk0.o(str)) {
+                hk0.d(ck0Var, str, 201, false);
+                return false;
             }
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            yq0 b2 = this.a.b();
-            if (z) {
-                if (b2 != null && !TextUtils.isEmpty(b2.a)) {
-                    return b2.a;
-                }
-                return bj0.d().b();
-            } else if (this.a.h()) {
-                if (b2 != null && b2.b != 3) {
-                    return b2.a;
-                }
-                return "";
-            } else {
-                return bj0.d().b();
+            if (context == null) {
+                context = kk0.b();
             }
+            return a(context, new yj0(str), map, ck0Var);
         }
-        return (String) invokeZ.objValue;
-    }
-
-    public String g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            yq0 g = this.a.g();
-            if (z) {
-                if (g != null && !TextUtils.isEmpty(g.a)) {
-                    return g.a;
-                }
-                return Build.MANUFACTURER;
-            } else if (this.a.h()) {
-                if (g != null && g.b != 3) {
-                    return g.a;
-                }
-                return "";
-            } else {
-                return Build.MANUFACTURER;
-            }
-        }
-        return (String) invokeZ.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.meizu.flyme.openidsdk;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ValueData {
     @Keep
     public int code;

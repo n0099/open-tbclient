@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
+import com.baidu.tieba.m0a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int d0 = 1;
@@ -35,7 +35,9 @@ public class BdExpandListView extends BdTypeListView {
     public final int Q;
     public final int R;
     public b S;
-    public long T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public long f1176T;
     public long U;
     public Handler V;
     public int W;
@@ -43,7 +45,7 @@ public class BdExpandListView extends BdTypeListView {
     public Runnable b0;
     public int c0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(float f);
 
@@ -67,7 +69,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +103,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +159,7 @@ public class BdExpandListView extends BdTypeListView {
             }
         }
         this.P = false;
-        this.T = 0L;
+        this.f1176T = 0L;
         this.U = 0L;
         this.V = new Handler();
         this.a0 = false;
@@ -166,7 +168,7 @@ public class BdExpandListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.ExpandListView);
         this.R = obtainStyledAttributes.getDimensionPixelSize(d0, 0);
         obtainStyledAttributes.recycle();
     }
@@ -341,7 +343,7 @@ public class BdExpandListView extends BdTypeListView {
                 if (action != 1) {
                     if (action == 2) {
                         float f = y - this.M;
-                        if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f) >= this.Q && this.T > 400) {
+                        if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f) >= this.Q && this.f1176T > 400) {
                             int a2 = this.O.a(this.N - this.M);
                             c cVar = this.O;
                             if (a2 > cVar.a && a2 <= cVar.b) {
@@ -378,7 +380,7 @@ public class BdExpandListView extends BdTypeListView {
                 this.V.removeCallbacks(this.b0);
                 this.V.postDelayed(this.b0, 200L);
             } else {
-                this.T = System.currentTimeMillis() - this.U;
+                this.f1176T = System.currentTimeMillis() - this.U;
                 this.U = System.currentTimeMillis();
                 this.P = false;
                 setClickEventEnabled(true);

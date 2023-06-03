@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface nw2 {
-    void onGetCurrentSong(String str);
+    boolean a(String str, String str2);
 
-    void onGetDownloadProgress(int i);
+    String b();
 
-    void onGetDuration(int i);
+    @NonNull
+    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
 
-    void onGetPosition(int i, int i2);
-
-    void onInvokeFailed();
-
-    void onStateChanged(BgMusicPlayState bgMusicPlayState);
+    boolean enable();
 }

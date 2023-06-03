@@ -168,8 +168,8 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                 com.kwad.components.core.j.a.og().a(d.this.mAdTemplate, System.currentTimeMillis(), 1);
             }
         });
-        this.Pc.setAdClickListener(new a.InterfaceC0621a() { // from class: com.kwad.components.core.widget.d.4
-            @Override // com.kwad.components.core.video.a.InterfaceC0621a
+        this.Pc.setAdClickListener(new a.InterfaceC0641a() { // from class: com.kwad.components.core.widget.d.4
+            @Override // com.kwad.components.core.video.a.InterfaceC0641a
             public final void a(int i, aa.a aVar3) {
                 int i2;
                 int i3 = 2;
@@ -188,7 +188,7 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                 u.b bVar = new u.b();
                 bVar.gL = aVar3;
                 bVar.gJ = i2;
-                com.kwad.components.core.c.a.a.a(new a.C0610a(com.kwad.sdk.b.kwai.a.x(d.this.Pa)).L(d.this.mAdTemplate).b(d.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.core.widget.d.4.1
+                com.kwad.components.core.c.a.a.a(new a.C0630a(com.kwad.sdk.b.kwai.a.x(d.this.Pa)).L(d.this.mAdTemplate).b(d.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.core.widget.d.4.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         d.this.dx();
@@ -240,10 +240,10 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                     if (aVar2.isPlaying()) {
                         d.this.Pc.pc();
                         d.this.OW.setVisibility(0);
-                        d.this.OW.setImageDrawable(d.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6d));
+                        d.this.OW.setImageDrawable(d.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e92));
                         imageView = d.this.OU;
                         resources = d.this.getContext().getResources();
-                        i = R.drawable.obfuscated_res_0x7f080e73;
+                        i = R.drawable.obfuscated_res_0x7f080e98;
                     }
                     if (d.this.getHandler() == null) {
                         d.this.getHandler().removeCallbacks(d.this.Pm);
@@ -253,10 +253,10 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                     return;
                 }
                 d.this.Pc.pd();
-                d.this.OU.setImageDrawable(d.this.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e71));
+                d.this.OU.setImageDrawable(d.this.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e96));
                 imageView = d.this.OW;
                 resources = d.this.getResources();
-                i = R.drawable.obfuscated_res_0x7f080e72;
+                i = R.drawable.obfuscated_res_0x7f080e97;
                 imageView.setImageDrawable(resources.getDrawable(i));
                 if (d.this.getHandler() == null) {
                 }
@@ -315,15 +315,15 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
     public void oQ() {
         this.Pc.pc();
         this.OW.setVisibility(0);
-        this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6d));
-        this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e73));
+        this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e92));
+        this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e98));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qa() {
         this.Pc.pd();
-        this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e71));
-        this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e72));
+        this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e96));
+        this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e97));
     }
 
     private boolean qb() {
@@ -505,24 +505,24 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
         this.GQ = new NestedScrollingChildHelper(this);
-        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913c9);
+        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913e1);
         this.dn = ratioFrameLayout;
         ratioFrameLayout.setRatio(0.56f);
-        this.f10do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d9);
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0913e6);
-        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f0913fb);
+        this.f10do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913f1);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0913fe);
+        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f091413);
         this.OT = scaleAnimSeekBar;
         scaleAnimSeekBar.setMaxProgress(100);
         this.OT.setMinProgress(0);
-        this.OR = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d2);
-        this.OS = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d0);
-        this.OU = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913cf);
-        this.OW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d1);
-        this.OV = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913cc);
-        this.OX = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913cb);
-        this.Pa = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126c);
-        this.OY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913cd);
-        this.OZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ce);
+        this.OR = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ea);
+        this.OS = (TextView) findViewById(R.id.obfuscated_res_0x7f0913e8);
+        this.OU = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e7);
+        this.OW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e9);
+        this.OV = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e4);
+        this.OX = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e3);
+        this.Pa = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091284);
+        this.OY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e5);
+        this.OZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913e6);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -552,7 +552,7 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0484;
+        return R.layout.obfuscated_res_0x7f0d0490;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
@@ -594,11 +594,11 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
         if (i == 101) {
             imageView = this.OV;
             resources = getContext().getResources();
-            i2 = R.drawable.obfuscated_res_0x7f080e6f;
+            i2 = R.drawable.obfuscated_res_0x7f080e94;
         } else {
             imageView = this.OV;
             resources = getContext().getResources();
-            i2 = R.drawable.obfuscated_res_0x7f080e70;
+            i2 = R.drawable.obfuscated_res_0x7f080e95;
         }
         imageView.setImageDrawable(resources.getDrawable(i2));
         this.Pd = i;

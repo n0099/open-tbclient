@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ErrorCode {
     public static final int AD_APP_ID_BLOCKED = 5019;
     public static final int AD_DATA_EXPIRE = 5012;
@@ -11,6 +11,8 @@ public interface ErrorCode {
     public static final int AD_REQUEST_THROTTLING = 5013;
     public static final int AD_TYPE_DEPRECATED = 5021;
     public static final int APPID_NULL = 400102;
+    public static final int BIDDING_C2S_NO_AD = 5052;
+    public static final int BIDDING_C2S_TIMEOUT = 5051;
     public static final int CONSTRUCTOR_PARAM_ERROR = 4001;
     public static final int CONTAINER_SIZE_ERROR = 4005;
     public static final int CONTENT_FORCE_EXPOSURE = 4012;
@@ -72,20 +74,35 @@ public interface ErrorCode {
     public static final int VIDEO_PLAY_ERROR = 5003;
     public static final int VIDEO_URL_ERROR = 5020;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PrivateError {
         public static final int AD_DATA_DESTROYED = 9003;
+        public static final int ERROR_INTERFACE_CALLED = 9004;
         public static final int LOAD_FAIL = 9001;
         public static final int LOAD_TIME_OUT = 9000;
         public static final int PARAM_ERROR = 9002;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ServerError {
+        public static final int APPID_STATE_ABNORMAL = 100135;
+        public static final int ERROR_CALL_INTERFACE = 107040;
+        public static final int JS_OLD_ADMISSION_RULES_DEPRECATED = 107049;
+        public static final int JS_REQUEST_DOMAIN_NOT_MATCH = 107009;
+        public static final int NOT_FOUND_SUITABLE_PT = 109512;
         public static final int NOT_SUPPORT_EXPRESS_VIDEO = 107035;
+        public static final int NO_MATCH_AD = 102006;
         public static final int ORENTATION_MISMATCH = 100159;
+        public static final int OS_TYPE_ERROR = 107011;
         public static final int PACKAGE_NAME_ERROR = 107030;
+        public static final int POSID_NOT_MATCH_INTERFACE = 107050;
+        public static final int POSID_NOT_MATCH_SUITABLE_PT = 100136;
+        public static final int POSID_STATE_ABNORMAL = 100133;
         public static final int RENDER_TYPE_POSTYPE_NOTMATCH = 107034;
+        public static final int REQUEST_FREQUENTLY = 109502;
+        public static final int SERVER_BIDDING_NOT_RECEIVE_VALID_AD = 132007;
+        public static final int SERVER_BIDDING_TOKEN_MISSING = 132005;
+        public static final int SERVER_BIDDING_TOKEN_PARSE_FAIL = 132008;
         public static final int TRAFFIC_CONTROL_DAY = 109506;
         public static final int TRAFFIC_CONTROL_HOUR = 109507;
     }

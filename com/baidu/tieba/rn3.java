@@ -1,170 +1,269 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.tl3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class rn3 extends tl3.a {
+public final class rn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+    public long a;
+    public long b;
+    public long c;
+    public String d;
+    public String e;
+    public final StringBuilder f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127346, "Lcom/baidu/tieba/rn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948127346, "Lcom/baidu/tieba/rn3;");
-                return;
-            }
-        }
-        c = qp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rn3(boolean z) {
-        super(z);
-        String str;
+    public rn3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (z) {
-            str = "swan_js_native_v8_ab.txt";
-        } else {
-            str = "swan_js_native_webview_ab.txt";
-        }
-        this.b = cs2.g().getPath() + File.separator + "js_native" + File.separator + str;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 2L;
+        this.d = "";
+        this.e = "";
+        this.f = new StringBuilder();
+        this.g = false;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (o() * 10000000) + (j() * 10000) + (h() * 1);
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public StringBuilder g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (StringBuilder) invokeV.objValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.g = true;
+        }
+    }
+
+    public long o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return s(-100);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public rn3 b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            p(j / 10000000);
+            long j2 = j % 10000000;
+            k(j2 / 10000);
+            i((j2 % 10000) / 1);
+            return this;
+        }
+        return (rn3) invokeJ.objValue;
+    }
+
+    public rn3 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            this.d = str;
+            return this;
+        }
+        return (rn3) invokeL.objValue;
+    }
+
+    public rn3 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            StringBuilder sb = this.f;
+            sb.append(str);
+            sb.append("\n");
+            return this;
+        }
+        return (rn3) invokeL.objValue;
+    }
+
+    public rn3 i(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.b = m(j, 9999L, "error");
+            return this;
+        }
+        return (rn3) invokeJ.objValue;
+    }
+
+    public rn3 k(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            this.a = m(j, 999L, "feature");
+            return this;
+        }
+        return (rn3) invokeJ.objValue;
+    }
+
+    public rn3 p(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+            this.c = m(j, 9L, com.tencent.connect.common.Constants.PARAM_PLATFORM);
+            return this;
+        }
+        return (rn3) invokeJ.objValue;
+    }
+
+    public rn3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            this.e = str;
+            return this;
+        }
+        return (rn3) invokeL.objValue;
+    }
+
+    public rn3 c(sk4 sk4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sk4Var)) == null) {
+            if (sk4Var != null) {
+                i(sk4Var.a);
+                d(sk4Var.b);
+                q(sk4Var.e);
+                if (!TextUtils.isEmpty(sk4Var.d)) {
+                    f(sk4Var.d);
+                }
+            }
+            return this;
+        }
+        return (rn3) invokeL.objValue;
+    }
+
+    public final long m(long j, long j2, String str) {
+        InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = cs2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = kp4.M(str + "swan_js_native_v8_ab.txt");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
+            if (j >= 0 && j <= j2) {
+                z = false;
             } else {
                 z = true;
             }
-            if ((i & 2) != 0) {
-                return z & kp4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
             if (z) {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
-            } else {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+                f("illegalFallback " + str + "::" + j);
             }
             if (z) {
-                str3 = "swan/v8_ab";
-            } else {
-                str3 = "swan/webview_ab";
+                return j2;
             }
-            List<JSONObject> b = pn3.b(str2, str3);
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
-                    }
-                }
-                if (file.exists()) {
-                    kp4.L(file);
-                }
-                kp4.h(file);
-                kp4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
+            return j;
         }
-        return (List) invokeZL.objValue;
+        return invokeCommon.longValue;
     }
 
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String str;
+    public String s(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() > 0 && kp4.v(this.b)) {
-                if (this.a) {
-                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
-                } else {
-                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-                }
-                return qn3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(a()), Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h()), e()));
+            if (i >= -200) {
+                sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h())));
             }
-            return false;
+            if (i >= -100) {
+                sb.append(String.format(Locale.getDefault(), "  details(%s) \n", g()));
+            }
+            return sb.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!nl4.b() && !TextUtils.equals(nl4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    kp4.L(file);
-                }
-            }
-            if (kp4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return kp4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 }

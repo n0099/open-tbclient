@@ -27,7 +27,9 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
-import com.baidu.tieba.t70;
+import com.baidu.searchbox.download.util.AesUtil;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.tieba.u80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -836,7 +838,7 @@ public final class Utility {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("content://")) {
+            if (!TextUtils.isEmpty(str) && str.startsWith(DownloadConstants.LOCAL_DATA_URI_PREFIX)) {
                 return true;
             }
             return false;
@@ -953,7 +955,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65636, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                t70.e(context).d(context, new Intent(context, t70.class));
+                u80.e(context).d(context, new Intent(context, u80.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }
@@ -1034,7 +1036,7 @@ public final class Utility {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65641, null, str)) == null) {
             try {
-                byte[] encrypt = encrypt("2011121211143000", "AFD311832EDEEAEF", str.getBytes());
+                byte[] encrypt = encrypt(AesUtil.IV, "AFD311832EDEEAEF", str.getBytes());
                 if (encrypt != null) {
                     return android.util.Base64.encodeToString(encrypt, 11);
                 }
@@ -1054,7 +1056,7 @@ public final class Utility {
             try {
                 byte[] decode = android.util.Base64.decode(str, 9);
                 if (decode != null) {
-                    return new String(decrypt("2011121211143000", "AFD311832EDEEAEF", decode));
+                    return new String(decrypt(AesUtil.IV, "AFD311832EDEEAEF", decode));
                 }
                 return "";
             } catch (Exception unused) {
@@ -1106,7 +1108,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
-            Intent intent = new Intent(context, t70.class);
+            Intent intent = new Intent(context, u80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -1119,7 +1121,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            Intent intent = new Intent(context, t70.class);
+            Intent intent = new Intent(context, u80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -1431,7 +1433,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                t70.e(context).d(context, creatMethodIntent);
+                u80.e(context).d(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);

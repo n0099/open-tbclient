@@ -1,164 +1,102 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class zt2 {
+public class zt2 extends sp2<ju2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Object> a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zt2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-220836013, "Lcom/baidu/tieba/zt2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-220836013, "Lcom/baidu/tieba/zt2$b;");
-                    return;
-                }
-            }
-            a = new zt2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371409, "Lcom/baidu/tieba/zt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948371409, "Lcom/baidu/tieba/zt2;");
-                return;
-            }
-        }
-        b = qp1.a;
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
     }
 
     public zt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LruCache<>(10);
+        this.b = 1;
+        this.c = 3;
     }
 
-    public static zt2 c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (zt2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.evictAll();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) == null) {
+            Object obj = command.obj;
+            boolean z = false;
+            if (!(obj instanceof String)) {
+                if (sp2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("setZeusVideoExt with a illegal obj ");
+                    if (obj == null) {
+                        z = true;
+                    }
+                    sb.append(z);
+                    throw new RuntimeException(sb.toString());
                 }
+                return;
             }
-        }
-    }
-
-    public /* synthetic */ zt2(a aVar) {
-        this();
-    }
-
-    public synchronized <RESULT> RESULT b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
+            String str = command.what;
+            d(ju2Var, str, "setZeusVideoExt:" + obj, false);
+            try {
+                JSONObject jSONObject = new JSONObject((String) obj);
+                if (jSONObject.has("instance-error")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
+                    ju2Var.S(hashMap);
                 }
-                RESULT result = (RESULT) this.a.get(str);
-                if (result == null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
-                    }
-                    return null;
+                String optString = jSONObject.optString("firstPlayStatus");
+                if (!TextUtils.isEmpty(optString)) {
+                    ju2Var.a0(optString);
                 }
-                try {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                this.b = jSONObject.optInt("min-cache", this.b);
+                int optInt = jSONObject.optInt("max-cache", this.c);
+                this.c = optInt;
+                if (this.b <= optInt) {
+                    if (jSONObject.has("min-cache")) {
+                        ju2Var.G(this.b);
                     }
-                    return result;
-                } catch (Exception e) {
-                    if (b) {
-                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    if (jSONObject.has("max-cache")) {
+                        ju2Var.f0(this.c);
                     }
-                    return null;
+                } else if (sp2.a) {
+                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
                 }
-            }
-        }
-        return (RESULT) invokeL.objValue;
-    }
-
-    public synchronized <RESULT> void d(String str, RESULT result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && result != null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
-                    }
-                    this.a.put(str, result);
-                }
-            }
-        }
-    }
-
-    public synchronized void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
+            } catch (Exception e) {
+                if (!sp2.a) {
                     return;
                 }
-                if (b) {
-                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
-                }
-                this.a.remove(str);
+                throw new RuntimeException("setZeusVideoExt with a illegal str", e);
             }
         }
     }

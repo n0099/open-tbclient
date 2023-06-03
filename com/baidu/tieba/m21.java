@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.widget.TextView;
-import com.baidu.nadcore.styles.Font;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,33 +9,57 @@ public class m21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 100 && i <= 900 && i % 100 == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return p21.k().getString("key_clarity_lifecycle", "");
         }
-        return invokeI.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void b(TextView textView, Font font) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
-            c(textView, font.getFontWeight());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return p21.k().getString("key_clarity_login", "");
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(TextView textView, int i) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
-            if (i >= 600) {
-                textView.setTypeface(Typeface.defaultFromStyle(1));
-            } else {
-                textView.setTypeface(Typeface.defaultFromStyle(0));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return p21.k().getString("key_clarity_mobile", "");
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return p21.k().getString("key_clarity_smart", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return p21.k().getString("key_clarity_wifi", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return p21.k().getInt("key_clarity_user", -2);
+        }
+        return invokeV.intValue;
     }
 }

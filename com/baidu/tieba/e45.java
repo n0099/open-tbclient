@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.RewardMaterial;
 /* loaded from: classes5.dex */
-public final class e45 implements y35 {
+public class e45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
 
     public e45() {
         Interceptable interceptable = $ic;
@@ -32,34 +30,66 @@ public final class e45 implements y35 {
         }
     }
 
-    @Override // com.baidu.tieba.y35
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "homeLiveRemind");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Map) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y35
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn() || b65.a().c(0) == null || !c65.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || mc5.j()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static e45 e(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
+            }
+            e45 e45Var = new e45();
+            e45Var.a = rewardMaterial.icon;
+            e45Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            e45Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
+            }
+            e45Var.d = z2;
+            return e45Var;
+        }
+        return (e45) invokeL.objValue;
     }
 }

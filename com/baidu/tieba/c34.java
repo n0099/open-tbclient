@@ -1,32 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
+import android.content.pm.PackageInfo;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.HashMap;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c34 {
+public class c34 extends e44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,156 +34,77 @@ public class c34 {
                 return;
             }
         }
-        HashMap<String, String> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("494433", ".mp3");
-        a.put("524946", ".wav");
+        c = is1.a;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c34() {
+        super("getAppList");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String e = e();
-            if (j() && !TextUtils.isEmpty(e)) {
-                return e;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e44
+    public y32 a(@NonNull JSONObject jSONObject, @NonNull cp2 cp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (bArr != null && bArr.length > 0) {
-                for (byte b : bArr) {
-                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
-                    if (upperCase.length() < 2) {
-                        sb.append(0);
-                    }
-                    sb.append(upperCase);
-                }
-                String sb2 = sb.toString();
-                if (qp1.a) {
-                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
-                }
-                return sb2;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(46);
-            if (lastIndexOf != -1) {
-                str2 = str.substring(lastIndexOf);
-            } else {
-                str2 = "";
-            }
-            return "/" + g93.g0() + "/" + str.hashCode() + str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static a34 c(d34 d34Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d34Var)) == null) {
-            a34 a34Var = new a34();
-            a34Var.a = d34Var.b;
-            a34Var.e = d34Var.autoplay;
-            a34Var.f = d34Var.loop;
-            a34Var.c = d34Var.src;
-            a34Var.d = d34Var.startTime;
-            a34Var.g = d34Var.obeyMuteSwitch;
-            a34Var.i = d34Var.volume;
-            a34Var.j = i().toString();
-            return a34Var;
-        }
-        return (a34) invokeL.objValue;
-    }
-
-    public static String h(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            if (bArr != null && 3 <= bArr.length) {
-                byte[] bArr2 = new byte[3];
-                for (int i = 0; i < 3; i++) {
-                    bArr2[i] = bArr[i];
-                }
-                return a.get(a(bArr2));
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = ql2.p() + "/usr";
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return File.separator + "bdata" + File.separator;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return "mounted".equals(Environment.getExternalStorageState());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static JSONObject i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cp2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("onCanplay", "canplay");
-                jSONObject.put("onPlay", "play");
-                jSONObject.put("onEnded", "ended");
-                jSONObject.put(MissionEvent.MESSAGE_PAUSE, "pause");
-                jSONObject.put("onSeeking", "seeking");
-                jSONObject.put("onSeeked", "seeked");
-                jSONObject.put(MissionEvent.MESSAGE_STOP, "stop");
-                jSONObject.put("onError", "error");
-                jSONObject.put("onTimeUpdate", "timeupdate");
-                jSONObject.put("onBufferingUpdate", "buffered");
-                jSONObject.put("onWaiting", "waiting");
-            } catch (Exception e) {
-                if (qp1.a) {
+                jSONObject2.put("data", c());
+                if (c) {
+                    Log.i("GetAppListAction", jSONObject2.toString());
+                }
+            } catch (JSONException e) {
+                if (c) {
                     e.printStackTrace();
                 }
             }
+            cp2Var.onSuccess(jSONObject2);
+            return null;
+        }
+        return (y32) invokeLL.objValue;
+    }
+
+    public final JSONObject b(PackageInfo packageInfo) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("appName", packageInfo.applicationInfo.name);
+            jSONObject.put("appPackageName", packageInfo.packageName);
+            jSONObject.put("appVersion", packageInfo.versionName);
+            boolean z = true;
+            if ((packageInfo.applicationInfo.flags & 1) == 0) {
+                z = false;
+            }
+            jSONObject.put("appIsSystemApp", z);
             return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final JSONArray c() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
+                jSONArray.put(b(packageInfo));
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

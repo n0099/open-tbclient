@@ -16,7 +16,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginContext extends e {
     public LayoutInflater mInflater;
     public boolean mIsHostApplicationContext;

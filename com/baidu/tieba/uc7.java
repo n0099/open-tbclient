@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes7.dex */
-public interface uc7 {
-    void a(String str);
+import android.app.ActivityManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
+/* loaded from: classes8.dex */
+public class uc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
-
-    int c();
-
-    void d(bo boVar);
-
-    void e();
-
-    List<rn> f();
-
-    void g(ArrayList<rn> arrayList, FrsViewData frsViewData);
-
-    HashMap<Integer, ThreadData> h();
-
-    int i();
-
-    int j();
-
-    boolean k(BdUniqueId bdUniqueId);
-
-    void l(y77 y77Var);
-
-    void m(boolean z);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    void setFromCDN(boolean z);
+    public static ImagePipelineConfig a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (ki.a()) {
+                return null;
+            }
+            ImagePipelineConfig.Builder newBuilder = ImagePipelineConfig.newBuilder(TbadkCoreApplication.getInst());
+            newBuilder.setBitmapMemoryCacheParamsSupplier(new vc7((ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity")));
+            return newBuilder.build();
+        }
+        return (ImagePipelineConfig) invokeV.objValue;
+    }
 }

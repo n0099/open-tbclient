@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.lx9;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.x3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public int c;
     public boolean d;
     public b e;
-    public fb f;
+    public jb f;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -53,7 +53,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetAvatarPendantModel a;
@@ -80,7 +80,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
             this.a = setAvatarPendantModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -105,9 +105,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 this.a.c = setPendantSocketResponse.getFreeUseLevel();
             }
             if (this.a.e != null) {
-                int i = lx9.b;
-                if (responsedMessage.getError() == lx9.c) {
-                    i = lx9.a;
+                int i = x3a.b;
+                if (responsedMessage.getError() == x3a.c) {
+                    i = x3a.a;
                 }
                 this.a.e.k1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
             }
@@ -129,8 +129,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        ar9.h(309412, SetPendantSocketResponse.class, false, false);
-        ar9.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        mx9.h(309412, SetPendantSocketResponse.class, false, false);
+        mx9.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.lt5;
-import com.baidu.tieba.n1a;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.v0a;
+import com.baidu.tieba.h7a;
+import com.baidu.tieba.nx5;
+import com.baidu.tieba.u7a;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.video.editvideo.data.PendantData;
+import com.baidu.tieba.z7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CoverPendantDragView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,9 @@ public class CoverPendantDragView extends FrameLayout {
     public int Q;
     public Map<String, Bitmap> R;
     public Bitmap S;
-    public long T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public long f1171T;
     public float U;
     public float V;
     public FrameLayout a;
@@ -90,9 +92,9 @@ public class CoverPendantDragView extends FrameLayout {
     public float w;
     public float x;
     public float y;
-    public n1a z;
+    public z7a z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +161,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +195,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -240,7 +242,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,13 +289,13 @@ public class CoverPendantDragView extends FrameLayout {
                     String E = this.a.E(this.a.d.getPaint(), obj);
                     if (!E.equals(obj)) {
                         editable.delete(E.length(), obj.length());
-                        ri.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f04ea);
+                        vi.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f04f4);
                     }
-                } else if (lt5.d(obj) >= 20) {
-                    String l = lt5.l(obj, 20);
+                } else if (nx5.d(obj) >= 20) {
+                    String l = nx5.l(obj, 20);
                     editable.delete(l.length(), obj.length());
                     this.a.M(l);
-                    ri.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f04e9);
+                    vi.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f04f3);
                 } else if (obj.length() > this.a.d.getText().length()) {
                     this.a.M(obj);
                 } else {
@@ -304,7 +306,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -342,15 +344,15 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class f implements i1a.b {
+    /* loaded from: classes8.dex */
+    public static class f implements u7a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<v0a.c> a;
+        public WeakReference<h7a.c> a;
         public WeakReference<CoverPendantDragView> b;
         public WeakReference<PendantData> c;
 
-        public f(v0a.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
+        public f(h7a.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -376,36 +378,36 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.i1a.b
+        @Override // com.baidu.tieba.u7a.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                WeakReference<v0a.c> weakReference = this.a;
+                WeakReference<h7a.c> weakReference = this.a;
                 if (weakReference != null && weakReference.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
                 WeakReference<CoverPendantDragView> weakReference2 = this.b;
                 if (weakReference2 != null && weakReference2.get() != null) {
-                    ri.Q(this.b.get().getContext(), str);
+                    vi.Q(this.b.get().getContext(), str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.i1a.b
+        @Override // com.baidu.tieba.u7a.b
         public void b() {
-            WeakReference<v0a.c> weakReference;
+            WeakReference<h7a.c> weakReference;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && weakReference.get() != null) {
                 this.a.get().c.setVisibility(8);
             }
         }
 
-        @Override // com.baidu.tieba.i1a.b
+        @Override // com.baidu.tieba.u7a.b
         public void c(String str, String str2) {
             WeakReference<PendantData> weakReference;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                WeakReference<v0a.c> weakReference2 = this.a;
+                WeakReference<h7a.c> weakReference2 = this.a;
                 if (weakReference2 != null && weakReference2.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -498,14 +500,14 @@ public class CoverPendantDragView extends FrameLayout {
         this.y = 1.0f;
         this.F = true;
         this.R = new HashMap();
-        this.T = 0L;
+        this.f1171T = 0L;
         this.U = 0.0f;
         this.V = 0.0f;
-        this.E = ri.l(TbadkCoreApplication.getInst());
-        this.G = ri.g(getContext(), R.dimen.obfuscated_res_0x7f07044a);
-        this.O = ri.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+        this.E = vi.l(TbadkCoreApplication.getInst());
+        this.G = vi.g(getContext(), R.dimen.obfuscated_res_0x7f070455);
+        this.O = vi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
         this.k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.a = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f7, (ViewGroup) null);
+        this.a = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0503, (ViewGroup) null);
         B();
         addView(this.a);
         this.a.setOnTouchListener(new a(this));
@@ -545,10 +547,10 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void setParentViewController(n1a n1aVar) {
+    public void setParentViewController(z7a z7aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, n1aVar) == null) {
-            this.z = n1aVar;
+        if (interceptable == null || interceptable.invokeL(1048600, this, z7aVar) == null) {
+            this.z = z7aVar;
         }
     }
 
@@ -639,11 +641,11 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = (RotateFrameLayout) this.a.findViewById(R.id.content_container);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907ec);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907f7);
             this.c = (FrameLayout) this.a.findViewById(R.id.content_view);
-            this.e = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0907e0);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907df);
-            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907e6);
+            this.e = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907ea);
+            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907f1);
         }
     }
 
@@ -652,8 +654,8 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, textPaint, str)) == null) {
             float measureText = textPaint.measureText(str);
-            while (str.length() > 0 && measureText > this.i - ri.g(getContext(), R.dimen.obfuscated_res_0x7f070353)) {
-                str = lt5.m(str, lt5.e(str) - 1);
+            while (str.length() > 0 && measureText > this.i - vi.g(getContext(), R.dimen.obfuscated_res_0x7f07035e)) {
+                str = nx5.m(str, nx5.e(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str;
@@ -754,7 +756,7 @@ public class CoverPendantDragView extends FrameLayout {
                 int height = bitmap.getHeight();
                 this.x = 1.0f;
                 this.y = 1.0f;
-                int d2 = ri.d(getContext(), width / 2);
+                int d2 = vi.d(getContext(), width / 2);
                 float f2 = d2;
                 float f3 = height;
                 float f4 = width;
@@ -784,11 +786,11 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, pendantData) == null) {
             z();
-            L(this.i, ri.g(getContext(), R.dimen.obfuscated_res_0x7f07019a), this.E, pendantData);
+            L(this.i, vi.g(getContext(), R.dimen.obfuscated_res_0x7f07019a), this.E, pendantData);
             int i = this.h;
             if (i == 4 || i == 0) {
                 this.a.setX(this.A);
-                this.a.setY(((this.j - ri.g(getContext(), R.dimen.obfuscated_res_0x7f07019a)) / 2) + this.B);
+                this.a.setY(((this.j - vi.g(getContext(), R.dimen.obfuscated_res_0x7f07019a)) / 2) + this.B);
                 String obj = this.e.getText().toString();
                 if (!TextUtils.isEmpty(obj)) {
                     String E = E(this.e.getPaint(), obj);
@@ -816,7 +818,7 @@ public class CoverPendantDragView extends FrameLayout {
                 setTextSize(0, this.e.getTextSize() + 1.0f);
                 measureText = paint.measureText(str);
             }
-            if (lt5.d(str) <= lt5.d(getResources().getString(R.string.obfuscated_res_0x7f0f04e8))) {
+            if (nx5.d(str) <= nx5.d(getResources().getString(R.string.obfuscated_res_0x7f0f04f2))) {
                 float textSize2 = this.e.getTextSize();
                 float f4 = this.G;
                 float f5 = this.y;
@@ -870,13 +872,13 @@ public class CoverPendantDragView extends FrameLayout {
                     float abs2 = Math.abs(rawY - this.V);
                     if (motionEvent.getPointerCount() <= 1) {
                         float f2 = this.k;
-                        if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.T < 300) {
+                        if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.f1171T < 300) {
                             A();
                         }
                     }
                 }
             } else {
-                this.T = System.currentTimeMillis();
+                this.f1171T = System.currentTimeMillis();
                 this.U = motionEvent.getRawX();
                 this.V = motionEvent.getRawY();
             }
@@ -971,12 +973,12 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pendantData}) == null) {
             if (pendantData.pendantType != 4) {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003bf);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003bf);
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003c1);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003c1);
                 float f2 = i;
                 float f3 = i3;
-                i2 = (int) ((ri.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07019a) * f2) / f3);
-                setTextSize(0, (ri.g(getContext(), R.dimen.obfuscated_res_0x7f07044a) * f2) / f3);
+                i2 = (int) ((vi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07019a) * f2) / f3);
+                setTextSize(0, (vi.g(getContext(), R.dimen.obfuscated_res_0x7f070455) * f2) / f3);
                 this.L = 0;
                 this.e.setMaxLines(1);
                 this.d.setMaxLines(1);
@@ -985,11 +987,11 @@ public class CoverPendantDragView extends FrameLayout {
                 layoutParams.width = -2;
                 layoutParams.gravity = 17;
                 this.e.setLayoutParams(layoutParams);
-                this.c.setPadding(ri.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0, ri.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0);
+                this.c.setPadding(vi.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0, vi.g(getContext(), R.dimen.obfuscated_res_0x7f070253), 0);
             } else {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003be);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003be);
-                this.L = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003c0);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003c0);
+                this.L = vi.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                 this.e.setMaxLines(2);
                 this.d.setMaxLines(2);
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.d.getLayoutParams();
@@ -997,26 +999,26 @@ public class CoverPendantDragView extends FrameLayout {
                 layoutParams2.width = -2;
                 layoutParams2.gravity = 17;
                 this.e.setLayoutParams(layoutParams2);
-                this.H = (int) (ri.d(getContext(), pendantData.left) * this.x);
-                this.I = (int) (ri.d(getContext(), pendantData.top) * this.x);
-                this.J = (int) (ri.d(getContext(), pendantData.right) * this.x);
-                int d2 = (int) (ri.d(getContext(), pendantData.bottom) * this.x);
+                this.H = (int) (vi.d(getContext(), pendantData.left) * this.x);
+                this.I = (int) (vi.d(getContext(), pendantData.top) * this.x);
+                this.J = (int) (vi.d(getContext(), pendantData.right) * this.x);
+                int d2 = (int) (vi.d(getContext(), pendantData.bottom) * this.x);
                 this.K = d2;
                 this.c.setPadding(this.H, this.I, this.J, d2);
-                this.G = ri.g(getContext(), R.dimen.obfuscated_res_0x7f07044a) * this.x;
+                this.G = vi.g(getContext(), R.dimen.obfuscated_res_0x7f070455) * this.x;
                 String text = getText();
                 this.M = (i2 - this.I) - this.K;
                 this.N = (i - this.H) - this.J;
-                this.P = this.O + ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703ef);
+                this.P = this.O + vi.g(getContext(), R.dimen.obfuscated_res_0x7f0703fa);
                 setTextSize(0, this.G);
                 if (TextUtils.isEmpty(text)) {
-                    D(getContext().getString(R.string.obfuscated_res_0x7f0f04e8), this.N);
+                    D(getContext().getString(R.string.obfuscated_res_0x7f0f04f2), this.N);
                     this.G = this.e.getTextSize();
                     R();
                     S();
                 } else {
-                    if (lt5.d(text) > 20) {
-                        text = lt5.l(text, 20);
+                    if (nx5.d(text) > 20) {
+                        text = nx5.l(text, 20);
                         this.e.setText(text);
                         this.d.setText(text);
                     }
@@ -1079,7 +1081,7 @@ public class CoverPendantDragView extends FrameLayout {
         this.F = true;
         this.f.setVisibility(0);
         this.g.setVisibility(0);
-        this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802bd);
+        this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802cc);
     }
 
     public Bitmap getTempBitmap() {
@@ -1165,12 +1167,12 @@ public class CoverPendantDragView extends FrameLayout {
                 if (i != 2) {
                     if (i != 3) {
                         A();
-                        String f2 = i1a.g().f(pendantData.resource);
+                        String f2 = u7a.g().f(pendantData.resource);
                         if (TextUtils.isEmpty(f2)) {
-                            if (view2 != null && (view2.getTag() instanceof v0a.c)) {
-                                v0a.c cVar = (v0a.c) view2.getTag();
+                            if (view2 != null && (view2.getTag() instanceof h7a.c)) {
+                                h7a.c cVar = (h7a.c) view2.getTag();
                                 cVar.c.setVisibility(0);
-                                i1a.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+                                u7a.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
                             }
                         } else {
                             G(f2, pendantData);
@@ -1182,12 +1184,12 @@ public class CoverPendantDragView extends FrameLayout {
                     }
                 } else {
                     H(pendantData);
-                    this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802bb);
+                    this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802ca);
                     S();
                 }
             } else {
                 H(pendantData);
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802bc);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0802cb);
                 S();
             }
         } else {

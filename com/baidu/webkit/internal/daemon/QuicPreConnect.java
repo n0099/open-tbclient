@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -32,7 +33,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
             Log.i(LOG_TAG, "no need tryToQuicPreConnect");
         } else if (ConectivityUtils.getNetType(context).equals("unknown")) {
         } else {
-            if (ABTestSDK.isEnableUseQuicPreconnectEnabled() && WebSettingsGlobalBlink.hasQuicAltService("https://m.baidu.com") && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
+            if (ABTestSDK.isEnableUseQuicPreconnectEnabled() && WebSettingsGlobalBlink.hasQuicAltService(DownloadCenterFunConstants.Config.DOWNLOAD_MARKET_LINK_HOST) && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
                 String str = mQuicPreConnectUrl + System.currentTimeMillis();
                 Log.i(LOG_TAG, "QuicPreconnect tryToQuicPreConnect preconnectUrl Url = ".concat(String.valueOf(str)));
                 WebViewFactory.getProvider().getStatics().preconnectUrl(str, 1);

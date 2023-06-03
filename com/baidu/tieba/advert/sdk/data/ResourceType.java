@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.sina.weibo.sdk.utils.ResourceManager;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ResourceType {
     public static final /* synthetic */ ResourceType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

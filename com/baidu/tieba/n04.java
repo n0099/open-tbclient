@@ -1,72 +1,15 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n04 extends m14 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n04 {
+    void onCompletion();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n04() {
-        super("openSpaceCleanActivity");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    boolean onError();
 
-    @Override // com.baidu.tieba.m14
-    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
-            if (pm3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (pm3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (pm3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (pm3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
-            } else {
-                z = false;
-            }
-            if (!z) {
-                Toast.makeText(ns2.c(), (int) R.string.obfuscated_res_0x7f0f01ba, 0).show();
-            }
-            km2Var.onSuccess(null);
-            return null;
-        }
-        return (g12) invokeLL.objValue;
-    }
+    void onPause();
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return pl3.i(ns2.c(), intent, true, false);
-        }
-        return invokeLL.booleanValue;
-    }
+    void onPrepared();
+
+    void onResume();
+
+    void onStart();
 }

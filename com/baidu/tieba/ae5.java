@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
+/* loaded from: classes5.dex */
 public class ae5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public be5 a;
-    public be5 b;
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
+    public Long a;
+    public String b;
+    public List<VoiceRoom> c;
 
     public ae5() {
         Interceptable interceptable = $ic;
@@ -30,55 +32,56 @@ public class ae5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
     }
 
-    public be5 a() {
+    public List<VoiceRoom> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (be5) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public be5 b() {
+    public Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (be5) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public static ae5 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(DataRes dataRes) {
+        VoiceRoom voiceRoom;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        ForumInfo forumInfo = dataRes.forum;
+        if (forumInfo != null) {
+            this.a = forumInfo.id;
+            this.b = forumInfo.name;
+        }
+        if (!ListUtils.isEmpty(dataRes.voice_room_list)) {
+            for (ThreadInfo threadInfo : dataRes.voice_room_list) {
+                if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
+                    this.c.add(voiceRoom);
+                }
             }
-            ae5 ae5Var = new ae5();
-            ae5Var.e(be5.c(jSONObject.optJSONObject("day")));
-            ae5Var.d(be5.c(jSONObject.optJSONObject("dark")));
-            ae5Var.f(jSONObject.toString());
-            return ae5Var;
-        }
-        return (ae5) invokeL.objValue;
-    }
-
-    public void d(be5 be5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, be5Var) == null) {
-            this.b = be5Var;
-        }
-    }
-
-    public void e(be5 be5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, be5Var) == null) {
-            this.a = be5Var;
         }
     }
 }

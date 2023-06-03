@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PreloadTarget<Z> extends CustomTarget<Z> {
     public static final Handler HANDLER = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.bumptech.glide.request.target.PreloadTarget.1
         @Override // android.os.Handler.Callback

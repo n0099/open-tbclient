@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR;
@@ -36,7 +36,7 @@ public class SpecialLiveTabInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

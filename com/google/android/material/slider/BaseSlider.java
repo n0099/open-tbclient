@@ -132,7 +132,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
     public static final String TAG = BaseSlider.class.getSimpleName();
-    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100394;
+    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100396;
 
     /* loaded from: classes9.dex */
     public interface TooltipDrawableFactory {
@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c00);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c39);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c01);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c3a);
             }
             return "";
         }
@@ -666,10 +666,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     private void loadResources(@NonNull Resources resources) {
-        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070615);
-        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070613);
-        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070614);
-        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
+        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070622);
+        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070620);
+        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070621);
+        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
     }
 
     private boolean moveFocus(int i) {
@@ -936,7 +936,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04068d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040697);
     }
 
     private float getClampedValue(int i, float f) {
@@ -959,7 +959,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     @NonNull
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
-        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003ac));
+        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003ae));
     }
 
     public static int pivotIndex(float[] fArr, float f) {
@@ -1077,18 +1077,18 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
         ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, i2);
         if (colorStateList == null) {
-            colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607d7);
+            colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e3);
         }
         setTrackInactiveTintList(colorStateList);
         ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i4);
         if (colorStateList2 == null) {
-            colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607d4);
+            colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e0);
         }
         setTrackActiveTintList(colorStateList2);
         this.thumbDrawable.setFillColor(MaterialResources.getColorStateList(context, obtainStyledAttributes, 9));
         ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
         if (colorStateList3 == null) {
-            colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607d5);
+            colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e1);
         }
         setHaloTintList(colorStateList3);
         int i5 = 12;
@@ -1103,12 +1103,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
         ColorStateList colorStateList4 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i3);
         if (colorStateList4 == null) {
-            colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607d6);
+            colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607e2);
         }
         setTickInactiveTintList(colorStateList4);
         ColorStateList colorStateList5 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i5);
         if (colorStateList5 == null) {
-            colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607d3);
+            colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607df);
         }
         setTickActiveTintList(colorStateList5);
         setThumbRadius(obtainStyledAttributes.getDimensionPixelSize(11, 0));

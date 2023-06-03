@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.nv1;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.bl4;
+import okhttp3.Callback;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface lv1<T extends nv1> extends ov1<T> {
-    void E();
+public interface lv1 {
+    void d(byte[] bArr);
 
-    void F(ViewGroup viewGroup);
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    void G(View view2);
+    void f(String str, String str2, bl4.c cVar);
 
-    void P(boolean z);
+    boolean g(String str);
 
-    void V();
+    boolean h();
 
-    void g0(String str, String str2);
+    boolean i(@NonNull yb3 yb3Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, rq3<String> rq3Var);
 }

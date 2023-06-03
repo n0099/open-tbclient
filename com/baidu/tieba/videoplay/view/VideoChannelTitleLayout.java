@@ -8,15 +8,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoChannelTitleLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +95,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i <= 0) {
             return;
         }
-        int g = ri.g(getContext(), R.dimen.tbds8);
-        int g2 = ri.g(getContext(), R.dimen.M_W_X001);
+        int g = vi.g(getContext(), R.dimen.tbds8);
+        int g2 = vi.g(getContext(), R.dimen.M_W_X001);
         ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
         View childAt = getChildAt(1);
         CharSequence text = expandableTextView.getContentView().getText();
@@ -135,9 +134,9 @@ public class VideoChannelTitleLayout extends ViewGroup {
         } else {
             i2 = measuredWidth;
         }
-        StaticLayout staticLayout5 = new StaticLayout(StringHelper.STRING_MORE + ((Object) text.subSequence(lineStart, lineEnd)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        StaticLayout staticLayout5 = new StaticLayout("..." + ((Object) text.subSequence(lineStart, lineEnd)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text.subSequence(0, lineStart + (staticLayout5.getLineEnd(0) - staticLayout5.getLineStart(0)) + (-3)));
-        spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
+        spannableStringBuilder.append((CharSequence) "...");
         expandableTextView.getContentView().setText(spannableStringBuilder);
         StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         this.b = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);

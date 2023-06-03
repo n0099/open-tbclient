@@ -1,185 +1,149 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.ScheduleStrategy;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.os.Process;
+import android.os.SystemClock;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
+import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
-public class ss5 {
+public final class ss5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    public static void a(Object obj, boolean z) {
+    public ss5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = -1L;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = SystemClock.elapsedRealtime();
+            Process.getElapsedCpuTime();
         }
     }
 
-    public static void b(Object obj, boolean z, boolean z2) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -1) {
+                b();
+            }
+            return this.b;
         }
+        return invokeV.longValue;
     }
 
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b() {
+        BufferedReader bufferedReader;
+        NumberFormatException e;
+        IOException e2;
+        FileNotFoundException e3;
+        Closeable closeable;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
-            return;
-        }
-        try {
-            Field field = obj.getClass().getField("common");
-            int i = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
-            }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
-            }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = TbConfig.SW_APID;
-            }
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.user_agent = yt5.b();
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = cl5.b();
-                    if (!StringUtils.isNull(cl5.e())) {
-                        builder.stoken = cl5.e();
-                    }
-                } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = vx4.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a)) {
-                            builder.stoken = a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qs5.b().d();
+            Closeable closeable2 = null;
+            long j2 = -1;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
+                    try {
+                        String[] split = bufferedReader.readLine().split(" ");
+                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
+                            String str = split[21];
+                            try {
+                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
+                                j = LaunchNativeUtils.getClkTck();
+                            } catch (UnsatisfiedLinkError e4) {
+                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
+                                j = 0;
+                            }
+                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
+                            if (j <= 0) {
+                                j = 100;
+                            }
+                            j2 = (Long.parseLong(str) * 1000) / j;
+                        }
+                    } catch (FileNotFoundException e5) {
+                        e3 = e5;
+                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (IOException e6) {
+                        e2 = e6;
+                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (NumberFormatException e7) {
+                        e = e7;
+                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
                         }
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    Closeables.closeSafely(closeable2);
+                    throw th;
                 }
+            } catch (FileNotFoundException e8) {
+                bufferedReader = null;
+                e3 = e8;
+            } catch (IOException e9) {
+                bufferedReader = null;
+                e2 = e9;
+            } catch (NumberFormatException e10) {
+                bufferedReader = null;
+                e = e10;
+            } catch (Throwable th2) {
+                th = th2;
+                Closeables.closeSafely(closeable2);
+                throw th;
             }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = cl5.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-            }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (o65.m().n("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = 0;
-            if (ce9.b()) {
-                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-                builder.model = ti.g();
-                builder._os_version = ti.k();
-                builder.brand = Build.BRAND;
-                builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-                builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            } else {
-                builder.need_decrypt = Integer.valueOf(pg.e(ce9.c(), 0));
-                String g = ce9.g(HttpRequest.PHONE_IMEI);
-                if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = ce9.f();
-                } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = ce9.f();
-                }
-                String g2 = ce9.g("model");
-                if ("model".equals(g2)) {
-                    builder.model = ce9.h();
-                } else if ("ledom".equals(g2)) {
-                    builder.ledom = ce9.h();
-                }
-                String g3 = ce9.g(HttpRequest.OS_VERSION);
-                if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = ce9.j();
-                } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = ce9.j();
-                }
-                String g4 = ce9.g("brand");
-                if ("brand".equals(g4)) {
-                    builder.brand = ce9.e();
-                } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = ce9.e();
-                }
-                String g5 = ce9.g("oaid");
-                if ("oaid".equals(g5)) {
-                    builder.oaid = ce9.i();
-                } else if ("diao".equals(g5)) {
-                    builder.diao = ce9.i();
-                }
-                String g6 = ce9.g(HttpRequest.ANDROID_ID);
-                if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = ce9.d();
-                } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = ce9.d();
-                }
-            }
-            if (be9.b()) {
-                builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            } else {
-                builder.need_cam_decrypt = Integer.valueOf(pg.e(be9.c(), 0));
-                String d = be9.d("mac");
-                if ("mac".equals(d)) {
-                    builder.mac = be9.e();
-                } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = be9.e();
-                }
-            }
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
-            builder.q_type = Integer.valueOf(rx4.c().e());
-            builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ri.i(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i = 2;
-            }
-            builder.cmode = Integer.valueOf(i);
-            builder.start_type = Integer.valueOf(d55.f);
-            builder.start_scheme = d55.e();
-            builder.extra = o65.m().s("key_sync_extra_field", "");
-            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
-            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
+            Closeables.closeSafely(bufferedReader);
+            if (j2 <= 0) {
+                this.b = this.a - j2;
             }
         }
     }

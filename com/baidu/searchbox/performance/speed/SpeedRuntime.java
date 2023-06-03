@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpeedRuntime {
     public static ISpeedContext instance;
 

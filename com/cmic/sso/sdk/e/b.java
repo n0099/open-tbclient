@@ -25,7 +25,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes8.dex */
+import org.chromium.net.AndroidKeyStore;
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] a;
@@ -109,7 +110,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 try {
-                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
+                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", AndroidKeyStore.TAG);
                     keyGenerator.init(new KeyGenParameterSpec.Builder("CMCC_SDK_V1", 3).setDigests("SHA-256", "SHA-512").setBlockModes("CBC").setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).setKeySize(256).build());
                     Thread.sleep(1000L);
                     keyGenerator.generateKey();
@@ -127,7 +128,7 @@ public class b {
                     return false;
                 }
                 KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context).setAlias("CMCC_SDK_V1").setSubject(new X500Principal("CN=CMCC_SDK_V1")).setSerialNumber(BigInteger.TEN).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build();
-                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", AndroidKeyStore.TAG);
                 keyPairGenerator.initialize(build);
                 Thread.sleep(1000L);
                 keyPairGenerator.generateKeyPair();
@@ -149,7 +150,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (b.class) {
                 try {
-                    KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                    KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
                     keyStore.load(null);
                     if (!a(context, false)) {
                         return null;
@@ -217,7 +218,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z)) == null) {
             try {
-                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
                 keyStore.load(null);
                 if (keyStore.getKey("CMCC_SDK_V1", null) != null) {
                     return true;

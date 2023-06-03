@@ -2,9 +2,9 @@ package com.fun.ad.sdk.internal.api.ripper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.bxa;
-import com.baidu.tieba.esa;
-import com.baidu.tieba.jxa;
+import com.baidu.tieba.b0b;
+import com.baidu.tieba.n5b;
+import com.baidu.tieba.rza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new esa();
+        FAKE_AD_RIPPER = new rza();
         a = new Random();
     }
 
@@ -187,40 +187,41 @@ public abstract class BaseAdRipper implements AdRipper {
         RippedAd b;
         Reporter reporter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j)}) == null) && BuildConfig.IS_ADM_REPORT.booleanValue() && obj != null && (b = b(obj)) != null) {
-            Ssp.Pid pid = this.mPid;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("ad_platform", pid.ssp.type);
-                jSONObject.put("aid", pid.pid);
-                jSONObject.put("type", pid.type);
-                jSONObject.put("sid", str);
-                jSONObject.put("corp", b.corporation);
-                jSONObject.put("title", b.title);
-                jSONObject.put("desc", b.description);
-                jSONObject.put("iU", b.iconUrl);
-                jSONObject.put("appN", b.appName);
-                jSONObject.put("pkg", b.appPkg);
-                jSONObject.put(DeepLinkItem.DEEPLINK_APPURL_KEY, b.appUrl);
-                jSONObject.put("imgU", b.imageUrl);
-                jSONObject.put("viU", b.videoImageUrl);
-                jSONObject.put("vU", b.videoUrl);
-                jSONObject.put("clkU", b.clickUrl);
-                jSONObject.put("dpU", b.deepLinkUrl);
-                jSONObject.put("convU", b.convUrl);
-                jSONObject.put("uniqueId", b.uniqueId);
-                jSONObject.put("lid", j);
-                jxa<Reporter> jxaVar = bxa.b;
-                synchronized (jxaVar) {
-                    if (jxaVar.a == null) {
-                        jxaVar.a = jxaVar.a();
-                    }
-                    reporter = jxaVar.a;
+        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j)}) != null) || !BuildConfig.IS_ADM_REPORT.booleanValue() || obj == null || (b = b(obj)) == null) {
+            return;
+        }
+        Ssp.Pid pid = this.mPid;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("ad_platform", pid.ssp.type);
+            jSONObject.put("aid", pid.pid);
+            jSONObject.put("type", pid.type);
+            jSONObject.put("sid", str);
+            jSONObject.put("corp", b.corporation);
+            jSONObject.put("title", b.title);
+            jSONObject.put("desc", b.description);
+            jSONObject.put("iU", b.iconUrl);
+            jSONObject.put("appN", b.appName);
+            jSONObject.put("pkg", b.appPkg);
+            jSONObject.put(DeepLinkItem.DEEPLINK_APPURL_KEY, b.appUrl);
+            jSONObject.put("imgU", b.imageUrl);
+            jSONObject.put("viU", b.videoImageUrl);
+            jSONObject.put("vU", b.videoUrl);
+            jSONObject.put("clkU", b.clickUrl);
+            jSONObject.put("dpU", b.deepLinkUrl);
+            jSONObject.put("convU", b.convUrl);
+            jSONObject.put("uniqueId", b.uniqueId);
+            jSONObject.put("lid", j);
+            n5b<Reporter> n5bVar = b0b.b;
+            synchronized (n5bVar) {
+                if (n5bVar.a == null) {
+                    n5bVar.a = n5bVar.a();
                 }
-                reporter.logEvent("adM", jSONObject);
-            } catch (JSONException e) {
-                LogPrinter.e(e);
+                reporter = n5bVar.a;
             }
+            reporter.logEvent("adM", jSONObject);
+        } catch (JSONException e) {
+            LogPrinter.e(e);
         }
     }
 }

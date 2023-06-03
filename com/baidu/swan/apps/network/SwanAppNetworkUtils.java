@@ -8,21 +8,22 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ag2;
-import com.baidu.tieba.an3;
-import com.baidu.tieba.p53;
-import com.baidu.tieba.qp1;
-import com.baidu.tieba.t03;
-import com.baidu.tieba.t53;
+import com.baidu.tieba.h83;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.l33;
+import com.baidu.tieba.l83;
+import com.baidu.tieba.si2;
+import com.baidu.tieba.sp3;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanAppNetworkUtils {
-    public static final boolean a = qp1.a;
+    public static final boolean a = is1.a;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -30,7 +31,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements p53<Bundle> {
+    public static class a implements h83<Bundle> {
         public final /* synthetic */ b a;
 
         public a(b bVar) {
@@ -38,7 +39,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p53
+        @Override // com.baidu.tieba.h83
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar = this.a;
@@ -49,7 +50,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String f = an3.f(ag2.U().g0());
+        String f = sp3.f(si2.U().g0());
         if (TextUtils.isEmpty(f)) {
             return "";
         }
@@ -72,7 +73,7 @@ public class SwanAppNetworkUtils {
         _3G("3g"),
         _4G("4g"),
         _5G("5g"),
-        UNKOWN("unknow");
+        UNKOWN(DownloadStatisticConstants.UBC_VALUE_UNKNOW);
         
         public final String type;
 
@@ -138,7 +139,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        t53.a(t03.class, null, new a(bVar));
+        l83.a(l33.class, null, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {
@@ -221,7 +222,7 @@ public class SwanAppNetworkUtils {
                 c = 65535;
             }
         } else {
-            if (e.equals("unknow")) {
+            if (e.equals(DownloadStatisticConstants.UBC_VALUE_UNKNOW)) {
                 c = 6;
             }
             c = 65535;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
@@ -109,7 +109,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static Object mSelfLock = new Object();
     public static long mTotalMem = 2048;
     public static String SFSWITCH = VideoCloudSetting.PREF_KEY_SPRING_FESTIVAL_SWITCH;
-    public static String SFSWITCH_VALUE_OPEN = "true";
+    public static String SFSWITCH_VALUE_OPEN = YYOption.IsLive.VALUE_TRUE;
     public static String PREF_NAME_MULTIPROCESS = "zeus_preferences_multiprocess";
     public static String PREF_KEY_RENDER_CRASHES = "zeus_render_crashes";
     public static String PREF_KEY_MULTIPROCESS_DISABLED = "zeus_multiprocess_disabled";
@@ -372,7 +372,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         } catch (Throwable th) {
             Log.e(LOGTAG, "getCronetEnable error:".concat(String.valueOf(th)));
         }
-        if ((GetCloudSettingsValue("oppp_enabled_cronet") == null || !GetCloudSettingsValue("oppp_enabled_cronet").equals("true")) && Build.VERSION.SDK_INT == 23 && Build.MODEL.indexOf("OPPO") != -1) {
+        if ((GetCloudSettingsValue("oppp_enabled_cronet") == null || !GetCloudSettingsValue("oppp_enabled_cronet").equals(YYOption.IsLive.VALUE_TRUE)) && Build.VERSION.SDK_INT == 23 && Build.MODEL.indexOf("OPPO") != -1) {
             Log.e(LOGTAG, "mCronetEnable false");
             return false;
         }
@@ -421,7 +421,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     }
 
     public static boolean getDitingMaxForceLoadSwitch() {
-        boolean z = !CommandUBCHelper.COMMAND_UBC_VALUE_FALSE.equals(GetCloudSettingsValue("diting_max_force_load_switch"));
+        boolean z = !"false".equals(GetCloudSettingsValue("diting_max_force_load_switch"));
         try {
             return WebViewFactory.hasProvider() ? z & WebViewFactory.getProvider().getSettingsStatics().getDitingMaxForceLoadSwitch() : z;
         } catch (UnsatisfiedLinkError e) {
@@ -1045,7 +1045,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static boolean getPageCacheEnabled() {
         try {
             if (GetCloudSettingsValue("page_cache") != null) {
-                return !GetCloudSettingsValue("page_cache").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                return !GetCloudSettingsValue("page_cache").equals("false");
             }
             return true;
         } catch (Throwable th) {
@@ -1375,7 +1375,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static boolean getSubResourceMonitorEnabled() {
         String GetCloudSettingsValue = GetCloudSettingsValue("sub_resource_monitor");
-        return GetCloudSettingsValue == null || !GetCloudSettingsValue.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+        return GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false");
     }
 
     public static String getSubResourceTiming() {
@@ -1755,7 +1755,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                             str = "multiprocess not published for current SDK version";
                         } else {
                             try {
-                                if (GetCloudSettingsValue(ABTestSDK.ZEUS_MULTIPLE_PROCESS) != null && GetCloudSettingsValue(ABTestSDK.ZEUS_MULTIPLE_PROCESS).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+                                if (GetCloudSettingsValue(ABTestSDK.ZEUS_MULTIPLE_PROCESS) != null && GetCloudSettingsValue(ABTestSDK.ZEUS_MULTIPLE_PROCESS).equals("false")) {
                                     Log.i(LOGTAG, "multiprocess cloud settings off");
                                     sMultiprocessEnabled = Boolean.FALSE;
                                     return false;
@@ -1826,7 +1826,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static boolean isWebViewMonitorEnabled() {
         try {
             if (GetCloudSettingsValue("webview_monitor") != null) {
-                return !GetCloudSettingsValue("webview_monitor").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                return !GetCloudSettingsValue("webview_monitor").equals("false");
             }
             return true;
         } catch (Throwable th) {
@@ -1839,7 +1839,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         try {
             String GetCloudSettingsValue = GetCloudSettingsValue("multiple_process_devices");
             if (GetCloudSettingsValue != null) {
-                if (GetCloudSettingsValue.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+                if (GetCloudSettingsValue.equals("false")) {
                     return false;
                 }
             }
@@ -1963,7 +1963,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static void onZeusEnableWillChange(String str, String str2) {
         boolean z = false;
-        if ((str == null || str.length() == 0 || str.toLowerCase().equals("true")) != ((str2 == null || str2.length() == 0 || str2.toLowerCase().equals("true")) ? true : true)) {
+        if ((str == null || str.length() == 0 || str.toLowerCase().equals(YYOption.IsLive.VALUE_TRUE)) != ((str2 == null || str2.length() == 0 || str2.toLowerCase().equals(YYOption.IsLive.VALUE_TRUE)) ? true : true)) {
             EngineManager.getInstance().setNeedKillProcess(true);
         }
     }
@@ -2973,7 +2973,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static void setWhiteAndBlackList(String str, JSONArray jSONArray) {
         mWhiteAndBlackList.put(str, jSONArray);
-        if (CommandUBCHelper.COMMAND_UBC_VALUE_FALSE.equals(GetCloudSettingsValue(KEY_GUM_WHITE_LIST)) || !KEY_GUM_WHITE_LIST.equals(str)) {
+        if ("false".equals(GetCloudSettingsValue(KEY_GUM_WHITE_LIST)) || !KEY_GUM_WHITE_LIST.equals(str)) {
             return;
         }
         for (String str2 : getWhiteAndBlackList(str)) {
@@ -3037,7 +3037,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     }
 
     public static boolean shouldBockFrequentCrash() {
-        if (GetCloudSettingsValue("frequent_crash_block") == null || !GetCloudSettingsValue("frequent_crash_block").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (GetCloudSettingsValue("frequent_crash_block") == null || !GetCloudSettingsValue("frequent_crash_block").equals("false")) {
             return true;
         }
         Log.i(LOGTAG, "frequent crash block disabled.");
@@ -3047,8 +3047,8 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static void shouldReLoadHttpDns(String str) {
         if (str != null) {
             try {
-                if (str.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
-                    if (GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+                if (str.equals("false")) {
+                    if (GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
                         HttpDnsCache.tryToUpdateHttpDnsCache(WebKitFactory.getContext());
                     }
                 }

@@ -414,7 +414,7 @@ public class BinaryTaskMng {
                 String string = query.getString(query.getColumnIndex("uri"));
                 String string2 = query.getString(query.getColumnIndex("path"));
                 String string3 = query.getString(query.getColumnIndex("name"));
-                String string4 = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+                String string4 = query.getString(query.getColumnIndex("mimetype"));
                 String string5 = query.getString(query.getColumnIndex("etag"));
                 long j = query.getLong(query.getColumnIndex("_id"));
                 BinaryReqTask binaryReqTask = null;

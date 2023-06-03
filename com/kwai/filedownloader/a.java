@@ -1,12 +1,12 @@
 package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.x;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.kwai.filedownloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0661a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0681a {
         a Ci();
 
         x.a Cj();
@@ -30,12 +30,12 @@ public interface a {
         boolean isOver();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         int Cq();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void Cr();
 

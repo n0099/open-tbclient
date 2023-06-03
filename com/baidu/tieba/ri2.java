@@ -1,46 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class ri2 extends ni2 {
+public final class ri2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ri2(@NonNull mi2 mi2Var) {
-        super(mi2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mi2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((mi2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ri2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-460027952, "Lcom/baidu/tieba/ri2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-460027952, "Lcom/baidu/tieba/ri2$b;");
+                    return;
+                }
             }
+            a = new ri2(null);
         }
     }
 
-    @Override // com.baidu.tieba.ni2
-    public void e() {
-        ArrayList<String> arrayList;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948122510, "Lcom/baidu/tieba/ri2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948122510, "Lcom/baidu/tieba/ri2;");
+                return;
+            }
+        }
+        a = is1.a;
+    }
+
+    public ri2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
-            qh2 d = sh2.c().d();
-            ArrayList<String> arrayList2 = this.d.b;
-            bj2 l = bj2.l();
-            l.i(15);
-            d.g(arrayList2, true, false, l.k());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b = new LruCache<>(10);
+    }
+
+    public static ri2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (ri2) invokeV.objValue;
+    }
+
+    public /* synthetic */ ri2(a aVar) {
+        this();
+    }
+
+    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return config;
+                }
+                CONFIG config2 = (CONFIG) b.get(str);
+                if (config2 == null) {
+                    return config;
+                }
+                if (a) {
+                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
+                }
+                return config2;
+            }
+        }
+        return (CONFIG) invokeLL.objValue;
+    }
+
+    public synchronized <CONFIG> void c(String str, CONFIG config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && config != null) {
+                    if (a) {
+                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+                    }
+                    b.put(str, config);
+                }
+            }
         }
     }
 }

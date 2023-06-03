@@ -1,29 +1,49 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
-public interface gt2 {
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes6.dex */
+public class gt2 extends sp2<ju2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(fc3 fc3Var);
-
-        void onFailed(int i);
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getCurrentPosition" : (String) invokeV.objValue;
     }
 
-    void a();
+    public gt2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void b(String str, boolean z, boolean z2, a aVar);
-
-    void c();
-
-    void d();
-
-    void e();
-
-    void f(a aVar);
-
-    double[] g(@NonNull fc3 fc3Var, @NonNull String str);
-
-    fc3 h();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) == null) {
+            command.ret = ju2Var.getCurrentPosition();
+            String str = command.what;
+            d(ju2Var, str, "Position: " + command.ret, false);
+        }
+    }
 }

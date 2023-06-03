@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.utils.aa;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSLinearLayout extends LinearLayout implements i {
     public final AtomicBoolean Kt;
     public h Pq;
@@ -60,10 +60,10 @@ public class KSLinearLayout extends LinearLayout implements i {
 
     private void b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f0403da};
+            int[] iArr = {R.attr.obfuscated_res_0x7f0403db};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.aqJ = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403da), 0.0f);
+            this.aqJ = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403db), 0.0f);
             obtainStyledAttributes.recycle();
         }
         g gVar = new g(this, this);

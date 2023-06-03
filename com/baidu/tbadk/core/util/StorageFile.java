@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class StorageFile {
@@ -79,7 +78,7 @@ public class StorageFile {
             for (byte b : str.getBytes()) {
                 j += b;
             }
-            return FileUtils.IMAGE_FILE_START + (j % 20);
+            return "image/" + (j % 20);
         }
         return (String) invokeL.objValue;
     }

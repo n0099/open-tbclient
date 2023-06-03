@@ -92,7 +92,7 @@ public class DataCore {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(8:5|(3:6|7|8)|(5:12|13|14|(2:(5:20|21|(2:25|26)|27|18)|30)|32)|34|13|14|(3:16|(1:18)|30)|32) */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x003a A[Catch: Exception -> 0x0059, TRY_LEAVE, TryCatch #0 {Exception -> 0x0059, blocks: (B:13:0x0025, B:15:0x002e, B:17:0x0034, B:19:0x003a), top: B:29:0x0025 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0039 A[Catch: Exception -> 0x0058, TRY_LEAVE, TryCatch #0 {Exception -> 0x0058, blocks: (B:13:0x0025, B:15:0x002d, B:17:0x0033, B:19:0x0039), top: B:29:0x0025 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -293,8 +293,8 @@ public class DataCore {
         au.a(context, z3);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x013c  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0139  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -452,7 +452,7 @@ public class DataCore {
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put(Config.TRACE_PART, jSONObject2);
+            jSONObject.put("trace", jSONObject2);
         } catch (Exception unused4) {
             z2 = false;
         }

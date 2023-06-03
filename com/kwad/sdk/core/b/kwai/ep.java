@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ep implements com.kwad.sdk.core.d<RewardMonitorInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(RewardMonitorInfo rewardMonitorInfo, JSONObject jSONObject) {

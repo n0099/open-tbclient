@@ -1,7 +1,7 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class be {
     public static boolean X(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {

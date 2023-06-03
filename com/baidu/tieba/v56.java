@@ -1,86 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes7.dex */
-public class v56 implements jt2 {
+/* loaded from: classes8.dex */
+public class v56 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BaseActivity<?> a;
+    public ty9 b;
 
-    public v56() {
+    public v56(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = baseActivity;
+    }
+
+    public void a(ty9 ty9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ty9Var) == null) {
+            this.b = ty9Var;
         }
     }
 
-    @Override // com.baidu.tieba.jt2
-    public boolean a(Context context, String str, zk3 zk3Var) {
-        InterceptResult invokeLLL;
-        String p;
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, zk3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            if (k46.l().p() == null) {
-                p = "";
-            } else {
-                p = k46.l().p();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null && yg.f(baseActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            statisticItem.param("uid", p);
-            statisticItem.param("obj_param1", zk3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, zk3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (zk3Var.j() == 10 && zk3Var.h() == 1013) {
-                b(context, zk3Var);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null && yg.f(baseActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null && yg.f(baseActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            ty9 ty9Var = this.b;
+            if (ty9Var != null && ty9Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
-            return false;
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void b(Context context, zk3 zk3Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zk3Var) == null) {
-            g93 b0 = g93.b0();
-            if (context != null && b0 != null) {
-                String i = li3.i(tu2.U().M(), b0.Y().G());
-                long h = zk3Var.h();
-                String r = zk3Var.r();
-                if (1020 == h && !TextUtils.isEmpty(r)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    r = el4.b().a(h);
-                }
-                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + an3.D() + "/" + i + "/" + zk3Var.a());
-                forbiddenInfo.enableSlidingFlag = -1;
-                au2.l(context, "type_need_update_sdk", zk3Var, forbiddenInfo, b0.Y().D());
-            }
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

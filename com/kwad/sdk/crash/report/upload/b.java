@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidubce.http.Headers;
 import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.sdk.core.network.o;
@@ -20,7 +21,7 @@ import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static Map<String, String> a(f fVar) {
         HashMap hashMap = new HashMap();
@@ -52,7 +53,7 @@ public final class b {
             hashMap.put("uid", fVar.aia);
         }
         if (!TextUtils.isEmpty(fVar.aif)) {
-            hashMap.put("extraInfo", fVar.aif);
+            hashMap.put(DownloadCenterFunConstants.EXTRA_INFO, fVar.aif);
         }
         return hashMap;
     }

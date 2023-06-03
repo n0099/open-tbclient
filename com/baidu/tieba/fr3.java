@@ -1,50 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773698, "Lcom/baidu/tieba/fr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947773698, "Lcom/baidu/tieba/fr3;");
-                return;
-            }
+            return jSONObject;
         }
-        a = qp1.a;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            jg3 jg3Var = new jg3();
-            jg3Var.a = "swan";
-            jg3Var.b = str;
-            jg3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                jg3Var.e = str3;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
             }
-            jg3Var.f = str5;
-            jg3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + jg3Var.f());
-            }
-            zf3.x("1372", jg3Var);
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLLLLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            em2 em2Var = new em2();
+            em2Var.c = b(str, str2, str3, str4, jSONObject);
+            lx2.T().u(em2Var);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            em2 em2Var = new em2();
+            em2Var.c = b(str, str2, str3, str4, jSONObject);
+            lx2.T().m(str, em2Var);
         }
     }
 }

@@ -316,7 +316,7 @@ public class RemoteMessage implements Parcelable {
             this.y = bundle.getString("priority", null);
             this.z = bundle.getString("ticker");
             this.A = bundle.getLongArray(RemoteMessageConst.Notification.VIBRATE_TIMINGS);
-            this.B = bundle.getString(RemoteMessageConst.Notification.VISIBILITY, null);
+            this.B = bundle.getString("visibility", null);
         }
 
         public /* synthetic */ Notification(Bundle bundle, b bVar) {
@@ -690,7 +690,7 @@ public class RemoteMessage implements Parcelable {
         g.put(RemoteMessageConst.Notification.BADGE_SET_NUM, "");
         g.put("priority", "");
         g.put(RemoteMessageConst.Notification.AUTO_CANCEL, 1);
-        g.put(RemoteMessageConst.Notification.VISIBILITY, "");
+        g.put("visibility", "");
         g.put("channelId", "");
         HashMap<String, Object> hashMap5 = new HashMap<>(3);
         h = hashMap5;

@@ -1,55 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pw3<ContenT> {
+public class pw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, pw3<ContenT>.a> a;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ pw3 c;
-
-        public a(pw3 pw3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pw3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = pw3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
-            }
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public ow3 i;
+    public ow3 j;
+    public ow3 k;
+    public ow3 l;
 
     public pw3() {
         Interceptable interceptable = $ic;
@@ -64,69 +39,108 @@ public class pw3<ContenT> {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = -1;
+        this.b = -1;
+        this.c = -1;
+        this.d = -1;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
     }
 
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                pw3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    f93.M().postDelayed(aVar, j);
-                }
-                return content;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.h) {
+                return b(this.l);
             }
+            ow3 ow3Var = this.k;
+            if (ow3Var != null) {
+                return ow3Var.c;
+            }
+            ow3 ow3Var2 = this.i;
+            if (ow3Var2 != null) {
+                return ow3Var2.c;
+            }
+            ow3 ow3Var3 = this.j;
+            if (ow3Var3 != null) {
+                return ow3Var3.c;
+            }
+            return -1;
         }
-        return (ContenT) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public synchronized void b() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (pw3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        f93.M().removeCallbacks(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int b(ow3 ow3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ow3Var)) == null) {
+            if (ow3Var != null) {
+                return ow3Var.c;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int c(ow3 ow3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ow3Var)) == null) {
+            if (ow3Var != null) {
+                return ow3Var.b;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cores", this.a);
+                jSONObject.put("is_biglittle", this.h);
+                if (this.h) {
+                    jSONObject.put("little_freq_min", c(this.j));
+                    jSONObject.put("little_freq_max", b(this.j));
+                    jSONObject.put("big_freq_min", c(this.i));
+                    jSONObject.put("big_freq_max", b(this.i));
+                    jSONObject.put("little_cores", this.b);
+                    jSONObject.put("big_cores", this.d);
+                    jSONObject.put("little_index", this.c);
+                    jSONObject.put("big_index", this.e);
+                    if (this.g != -1) {
+                        jSONObject.put("super_freq_min", c(this.k));
+                        jSONObject.put("super_freq_max", b(this.k));
+                        jSONObject.put("super_cores", this.f);
+                        jSONObject.put("super_index", this.g);
                     }
+                } else {
+                    jSONObject.put("freq_min", c(this.l));
+                    jSONObject.put("freq_max", b(this.l));
                 }
-                this.a.clear();
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
             }
         }
-    }
-
-    public ContenT c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            pw3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
-            }
-            return aVar.b;
-        }
-        return (ContenT) invokeL.objValue;
-    }
-
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                pw3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    f93.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
-        }
-        return (ContenT) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

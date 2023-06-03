@@ -5,38 +5,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-/* loaded from: classes7.dex */
-public class ud implements kd {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class ud implements od {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Object> a;
 
-    public ud(Set<Object> set) {
+    @Override // com.baidu.tieba.od
+    public Object a(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eeVar)) == null) {
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    public ud(Map<?, ?> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {set};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = set;
-    }
-
-    @Override // com.baidu.tieba.kd
-    public Object a(ae aeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aeVar)) == null) {
-            return zd.e(this.a, aeVar);
-        }
-        return invokeL.objValue;
     }
 }

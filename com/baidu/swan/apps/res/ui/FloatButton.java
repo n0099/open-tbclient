@@ -14,16 +14,17 @@ import android.widget.Button;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qp1;
-import com.baidu.tieba.xm3;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.pp3;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.chromium.net.NetError;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FloatButton extends FullScreenFloatView {
-    public static final boolean o = qp1.a;
+    public static final boolean o = is1.a;
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(R.id.obfuscated_res_0x7f090b1e).setBottom(xm3.O(191.0f));
+        findViewById(R.id.float_imgview).setBottom(pp3.O(191.0f));
     }
 
     public FloatButton(Context context, AttributeSet attributeSet) {
@@ -46,7 +47,7 @@ public class FloatButton extends FullScreenFloatView {
         int i3 = this.c;
         int i4 = (int) (f2 - (i3 / 2));
         int i5 = this.d - i;
-        int i6 = (this.e - i3) - 168;
+        int i6 = (this.e - i3) + NetError.ERR_CT_STH_PARSING_FAILED;
         if (i2 <= 0) {
             i2 = 0;
         }
@@ -102,7 +103,7 @@ public class FloatButton extends FullScreenFloatView {
                     }
                     removeCallbacks(this.l);
                 } else if (this.h && (cVar = this.m) != null) {
-                    cVar.a();
+                    cVar.onDrag();
                 }
                 if (o) {
                     Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
@@ -133,14 +134,14 @@ public class FloatButton extends FullScreenFloatView {
         if (drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
+        View findViewById = findViewById(R.id.float_imgview);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
     }
 
     public void setFloatButtonStyle(JSONObject jSONObject) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
+        View findViewById = findViewById(R.id.float_imgview);
         String str = "#4E4E4E";
         if (jSONObject != null) {
             str = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "#4E4E4E");

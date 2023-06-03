@@ -1,6 +1,7 @@
 package com.baidu.tieba.danmu.ecs;
 
-import com.baidu.tieba.lo6;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
+import com.baidu.tieba.ws6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +14,9 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "invoke", "(Lcom/baidu/tieba/danmu/data/DanmakuItem;)Ljava/lang/Long;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "(Lcom/baidu/tieba/danmu/data/DanmakuItem;)Ljava/lang/Long;"}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implements Function1<lo6, Long> {
+public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implements Function1<ws6, Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmakuContext$updateSlice$endIndex$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +57,7 @@ public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Long invoke(lo6 it) {
+    public final Long invoke(ws6 it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, it)) == null) {

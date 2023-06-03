@@ -1,5 +1,5 @@
 package com.baidu.searchbox.performance.speed.task;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LaunchTaskConstants {
     public static final int ALL_PROCESS = -1;
     public static final int LIFE_CYCLE_APP_CREATE_FIRST = 1;

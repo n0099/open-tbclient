@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MinSdkChecker {
     public static boolean isSupportBigTextStyleAndAction() {
         return Build.VERSION.SDK_INT >= 16;

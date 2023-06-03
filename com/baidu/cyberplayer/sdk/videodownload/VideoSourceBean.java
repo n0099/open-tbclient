@@ -5,6 +5,7 @@ import java.util.Map;
 @Keep
 /* loaded from: classes3.dex */
 public class VideoSourceBean {
+    public Map<String, String> downloadOptions;
     public Map<String, String> headers;
     public String passthroughJsonStr;
 }

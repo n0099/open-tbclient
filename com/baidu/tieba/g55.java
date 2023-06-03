@@ -1,45 +1,57 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class g55 {
+public class g55 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public boolean e;
-    public Handler f;
+    public Activity a;
+    public View b;
+    public ViewGroup c;
+    public View d;
+    public TextView e;
+    public WindowManager f;
+    public WindowManager.LayoutParams g;
+    public int h;
+    public int i;
+    public float j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public Drawable o;
+    public View.OnClickListener p;
+    public final Runnable q;
 
     /* loaded from: classes5.dex */
-    public class a implements MessageQueue.IdleHandler {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
+        public final /* synthetic */ g55 a;
 
-        public a(g55 g55Var, Activity activity) {
+        public a(g55 g55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g55Var, activity};
+                Object[] objArr = {g55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,95 +61,24 @@ public class g55 {
                     return;
                 }
             }
-            this.a = activity;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (g55.a().c == 1) {
-                    i = 8;
-                } else {
-                    i = -1;
-                }
-                if (g55.a().c == 2) {
-                    i = 9;
-                }
-                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
-                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, g55.a().d);
-                    return false;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MessageQueue.IdleHandler a;
-        public final /* synthetic */ g55 b;
-
-        public b(g55 g55Var, MessageQueue.IdleHandler idleHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g55Var, idleHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g55Var;
-            this.a = idleHandler;
+            this.a = g55Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a);
+                this.a.e();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g55 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-822882301, "Lcom/baidu/tieba/g55$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-822882301, "Lcom/baidu/tieba/g55$c;");
-                    return;
-                }
-            }
-            a = new g55();
-        }
-    }
-
-    public g55() {
+    public g55(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -147,81 +88,168 @@ public class g55 {
                 return;
             }
         }
-        this.c = 0;
-        this.e = false;
+        this.j = 1.0f;
+        this.k = 5000;
+        this.q = new a(this);
+        if (activity == null) {
+            return;
+        }
+        this.a = activity;
+        this.n = vi.g(activity, R.dimen.tbds114);
+        this.l = vi.g(activity, R.dimen.tbds84);
+        this.m = vi.g(activity, R.dimen.tbds44);
+        this.i = vi.g(activity, R.dimen.tbds222);
+        this.h = vi.g(activity, R.dimen.tbds29);
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
+        this.c = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09032c);
+        this.e = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.b = inflate;
+        this.d.setBackgroundDrawable(b());
+        this.e.setMaxLines(1);
+        this.e.setGravity(17);
+        this.e.setTextSize(0, vi.g(activity, R.dimen.tbfontsize40));
+        this.e.setTextColor(this.a.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.e;
+        int i3 = this.m;
+        textView.setPadding(i3, 0, i3, 0);
+        this.f = (WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        this.g = layoutParams;
+        layoutParams.width = vi.l(this.a) - (this.h * 2);
+        WindowManager.LayoutParams layoutParams2 = this.g;
+        layoutParams2.height = this.n;
+        layoutParams2.type = 1000;
+        layoutParams2.format = -3;
+        layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1002cc;
+        layoutParams2.flags = 262152;
+        layoutParams2.gravity = 81;
+        layoutParams2.y = d();
+        this.g.alpha = this.j;
     }
 
-    public static g55 a() {
+    public static g55 f(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            g55 g55Var = new g55(activity);
+            g55Var.a(str);
+            return g55Var;
+        }
+        return (g55) invokeLL.objValue;
+    }
+
+    public final g55 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                String f = nx5.f(str, 34);
+                int w = vi.w(this.e.getPaint(), f);
+                ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+                layoutParams.width = w + (this.m * 2);
+                this.c.setLayoutParams(layoutParams);
+                this.e.setText(f);
+            }
+            return this;
+        }
+        return (g55) invokeL.objValue;
+    }
+
+    public final Drawable b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.o == null) {
+                this.o = c();
+            }
+            return this.o;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.i + UtilHelper.getNavigationBarHeight(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            wg.a().removeCallbacks(this.q);
+            if (this.b.getWindowToken() != null) {
+                this.f.removeView(this.b);
+            }
+        }
+    }
+
+    public final GradientDrawable c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{wo8.b("#FF722B"), wo8.b("#FF2b5D")});
+            gradientDrawable.setCornerRadius(this.l);
+            return gradientDrawable;
+        }
+        return (GradientDrawable) invokeV.objValue;
+    }
+
+    public g55 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            wg.a().removeCallbacks(this.q);
+            View view2 = this.b;
+            if (view2 != null && view2.getWindowToken() != null) {
+                this.f.removeView(this.b);
+            }
+            this.f.addView(this.b, this.g);
+            wg.a().postDelayed(this.q, this.k);
+            return this;
         }
         return (g55) invokeV.objValue;
     }
 
-    public final Handler b() {
-        InterceptResult invokeV;
+    public g55 g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                this.f = new Handler(Looper.getMainLooper());
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i > 0) {
+                this.k = i * 1000;
             }
-            return this.f;
+            return this;
         }
-        return (Handler) invokeV.objValue;
+        return (g55) invokeI.objValue;
     }
 
-    public void c(Intent intent) {
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            int i = 0;
-            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
-                String dataString = intent.getDataString();
-                String className = intent.getComponent().getClassName();
-                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
-                    this.c = !qi.isEmpty(dataString) ? 1 : 0;
-                    this.d = dataString;
-                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
-                    if (!qi.isEmpty(dataString)) {
-                        i = 2;
-                    }
-                    this.c = i;
-                    this.d = dataString;
-                } else {
-                    this.c = 0;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.p = onClickListener;
         }
     }
 
-    public void d(MessageQueue.IdleHandler idleHandler) {
+    public void i(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            this.c.setTag(obj);
+            this.c.setOnClickListener(this);
         }
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            b().post(new b(this, idleHandler));
-            return;
-        }
-        Looper.myQueue().addIdleHandler(idleHandler);
-        this.e = true;
     }
 
-    public void e(Activity activity) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
-            return;
-        }
-        if (a().c != 1 && a().c != 2) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (h55.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            View.OnClickListener onClickListener = this.p;
+            if (onClickListener != null) {
+                onClickListener.onClick(view2);
             }
-            a().d(new a(this, activity));
+            e();
         }
     }
 }

@@ -1,45 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes5.dex */
-public class gm4 {
+public class gm4 implements wl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ap4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<wl4> a;
+    public Object b;
 
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798715, "Lcom/baidu/tieba/gm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947798715, "Lcom/baidu/tieba/gm4;");
+                return;
+            }
+        }
+        c = ap4.e();
     }
 
-    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
+    public gm4(wl4 wl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
-            rg4.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wl4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(wl4Var);
+    }
+
+    @Override // com.baidu.tieba.wl4
+    public <T> void a(am4<T> am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, am4Var) == null) {
+            try {
+                synchronized (this.b) {
+                    Iterator<wl4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(am4Var);
+                    }
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
+            }
         }
     }
 
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    @Override // com.baidu.tieba.wl4
+    public <T> void b(am4<T> am4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            boolean equals = TextUtils.equals(str, "cs_protocol");
-            if (i != 2000) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, am4Var) == null) {
+            Vector vector = new Vector();
+            try {
+                synchronized (this.b) {
+                    Iterator<wl4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
+                }
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((wl4) it2.next()).b(am4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
             }
-            if (equals && z) {
-                return true;
-            }
-            return false;
         }
-        return invokeLI.booleanValue;
+    }
+
+    public void c(wl4 wl4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wl4Var) == null) && wl4Var != null) {
+            synchronized (this.b) {
+                this.a.add(wl4Var);
+            }
+        }
+    }
+
+    public void d(wl4 wl4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, wl4Var) == null) && wl4Var != null) {
+            synchronized (this.b) {
+                if (!this.a.remove(wl4Var)) {
+                    this.a.remove(this.a.indexOf(wl4Var));
+                }
+            }
+        }
     }
 }

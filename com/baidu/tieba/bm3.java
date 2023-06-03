@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.os.FileObserver;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.Nullable;
+import androidx.media2.session.SessionCommand;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gi3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +16,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class bm3 {
+public final class bm3 extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public int b;
+    public int c;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
+        public final /* synthetic */ bm3 b;
 
-        public a(String str, boolean z) {
+        public a(bm3 bm3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z)};
+                Object[] objArr = {bm3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,19 +46,19 @@ public class bm3 {
                     return;
                 }
             }
+            this.b = bm3Var;
             this.a = str;
-            this.b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + bm3.b;
-                if (bm3.a) {
-                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
-                }
-                js2.b(str, this.a, this.b);
+                gi3.b bVar = new gi3.b(SessionCommand.COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM);
+                bVar.l(String.valueOf(this.b.c));
+                bVar.j(this.a);
+                bVar.h(xb3.K().getAppId());
+                bVar.m();
             }
         }
     }
@@ -70,14 +76,57 @@ public class bm3 {
                 return;
             }
         }
-        a = qp1.a;
-        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+        d = is1.a;
     }
 
-    public static void c(@NonNull String str, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bm3(@NonNull String str) {
+        super(str, 1792);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
-            am3.k(new a(str, z), "record_feedback_ext_info");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = 0;
+        this.b = 0;
+        this.a = str;
+    }
+
+    public void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            so3.f().execute(new a(this, this.a + File.separator + str));
+        }
+    }
+
+    @Override // android.os.FileObserver
+    public void onEvent(int i, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            if ((i & 256) == 256) {
+                this.b++;
+                if (d) {
+                    Log.i("SwanPkgFileObserver", "onEvent: create " + this.b + " " + str);
+                    return;
+                }
+                return;
+            }
+            this.c++;
+            if (d) {
+                Log.i("SwanPkgFileObserver", "onEvent: delete " + this.b + " " + str);
+            }
+            b(str);
         }
     }
 }

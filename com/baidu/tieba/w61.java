@@ -1,144 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.webkit.ValueCallback;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.nadcore.webarch.feature.NadWebFeature;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tieba.c61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes8.dex */
-public final class w61 {
+public class w61 {
     public static /* synthetic */ Interceptable $ic;
-    public static w61 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, NadWebFeature> b;
 
-    public w61() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = new HashMap<>(4);
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ View d;
 
-    public static synchronized w61 c() {
-        InterceptResult invokeV;
-        w61 w61Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (w61.class) {
-                if (c == null) {
-                    c = new w61();
+        public a(Context context, float f, View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Float.valueOf(f), view2, view3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                w61Var = c;
             }
-            return w61Var;
+            this.a = context;
+            this.b = f;
+            this.c = view2;
+            this.d = view3;
         }
-        return (w61) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                int a = c61.c.a(this.a, this.b);
+                this.c.getHitRect(rect);
+                rect.left -= a;
+                rect.right += a;
+                rect.top -= a;
+                rect.bottom += a;
+                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
+            }
+        }
     }
 
-    @RequiresApi(api = 21)
-    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, t61 t61Var) {
-        InterceptResult invokeLLL;
+    public static void a(Context context, View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, t61Var)) == null) {
-            if (valueCallback == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
+            return;
+        }
+        ViewParent parent = view2.getParent();
+        if (!View.class.isInstance(parent)) {
+            return;
+        }
+        View view3 = (View) parent;
+        view3.post(new a(context, f, view2, view3));
+    }
+
+    public static String b(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (!TextUtils.isEmpty(ellipsize)) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
                 return false;
             }
-            if (activity == null) {
-                valueCallback.onReceiveValue(null);
+            Rect rect = new Rect();
+            if (!view2.getGlobalVisibleRect(rect)) {
                 return false;
             }
-            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
-            if (b != null && b.c()) {
-                if (b instanceof v61) {
-                    return ((v61) b).h(activity, valueCallback, t61Var);
-                }
-                valueCallback.onReceiveValue(null);
-            } else {
-                valueCallback.onReceiveValue(null);
+            long height = rect.height() * rect.width();
+            long height2 = view2.getHeight() * view2.getWidth();
+            if (height2 <= 0 || height * 100 < height2 * 50) {
+                return false;
             }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public NadWebFeature a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return b(str);
-        }
-        return (NadWebFeature) invokeL.objValue;
-    }
-
-    public NadWebFeature b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (NadWebFeature) invokeL.objValue;
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            e(context);
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
-            v61 v61Var = new v61(context);
-            v61Var.a();
-            i(v61Var);
-            this.a = true;
-        }
-    }
-
-    public void f(Activity activity) {
-        NadWebFeature a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof v61)) {
-            ((v61) a).f(activity);
-        }
-    }
-
-    public final void i(NadWebFeature nadWebFeature) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
-            this.b.put(nadWebFeature.b(), nadWebFeature);
-        }
-    }
-
-    public void g(Activity activity, int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof v61)) {
-            ((v61) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
-        }
     }
 }

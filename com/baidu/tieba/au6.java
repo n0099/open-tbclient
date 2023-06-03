@@ -1,129 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class au6 implements rn {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class au6 extends et6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public qs6 e;
 
-    public void h(String str) {
+    @Override // com.baidu.tieba.i0
+    public void c(f0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627719, "Lcom/baidu/tieba/au6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947627719, "Lcom/baidu/tieba/au6;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.et6
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public au6(String str, String str2, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public au6(bt6 context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((bt6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public static au6 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final qs6 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new au6(jSONObject.optString("tid"), jSONObject.optString("title"), jSONObject.optString("pic"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (au6) invokeL.objValue;
+        return (qs6) invokeV.objValue;
     }
 
-    public void f(String str) {
+    public final void l() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qs6 qs6Var = this.e;
+            if (qs6Var != null) {
+                qs6 c = i().c();
+                if (c.j() != qs6Var.j() || c.g() != qs6Var.g()) {
+                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + qs6Var.j());
+                    qs6Var.G();
+                    qs6Var.I();
+                    qs6Var.F();
+                    qs6Var.C();
+                }
+                boolean z2 = true;
+                if (c.v() == qs6Var.v()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + qs6Var.v());
+                    qs6Var.I();
+                    qs6Var.F();
+                    qs6Var.G();
+                    qs6Var.C();
+                }
+                if (c.w() != qs6Var.w()) {
+                    qs6Var.J();
+                }
+                if (c.u() != qs6Var.u()) {
+                    z2 = false;
+                }
+                if (!z2 || c.e() != qs6Var.e()) {
+                    qs6Var.F();
+                    qs6Var.J();
+                    qs6Var.I();
+                }
+                if (c.n().size() != qs6Var.n().size() || c.l() != qs6Var.l()) {
+                    qs6Var.D();
+                }
+                i().h(qs6Var);
+            }
+            this.e = null;
+        }
+    }
+
+    public final void m(qs6 danmakuConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
+            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
+            this.e = danmakuConfig;
+        }
+    }
+
+    @Override // com.baidu.tieba.i0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            l();
         }
     }
 }

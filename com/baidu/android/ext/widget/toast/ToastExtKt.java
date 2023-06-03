@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +70,7 @@ public final class ToastExtKt {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             try {
-                Object systemService = activity.getSystemService("window");
+                Object systemService = activity.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
                 if (systemService != null) {
                     return (WindowManager) systemService;
                 }

@@ -1,40 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
 /* loaded from: classes6.dex */
 public class n05 {
     public static /* synthetic */ Interceptable $ic;
+    public static n05 f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public ArrayList<a> b;
+    public int b;
+    public String c;
+    public boolean d;
+    public int e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
     }
 
@@ -48,61 +36,128 @@ public class n05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.d = true;
+        this.e = 0;
     }
 
-    public ArrayList<a> a() {
+    public static n05 c() {
+        InterceptResult invokeV;
+        n05 n05Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            n05 n05Var2 = f;
+            if (n05Var2 == null) {
+                synchronized (n05.class) {
+                    if (f == null) {
+                        f = new n05();
+                    }
+                    n05Var = f;
+                }
+                return n05Var;
+            }
+            return n05Var2;
+        }
+        return (n05) invokeV.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            l95 m = l95.m();
+            int n = m.n(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
+            this.b = n;
+            return n;
         }
         return invokeV.intValue;
     }
 
-    public void c(PbPresent pbPresent) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) != null) || pbPresent == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int n = l95.m().n("image_quality", 0);
+            this.a = n;
+            return n;
         }
-        this.a = pbPresent.total.intValue();
-        List<PbPresentList> list = pbPresent.list;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (PbPresentList pbPresentList : pbPresent.list) {
-                if (pbPresentList != null) {
-                    a aVar = new a();
-                    pbPresentList.gift_id.intValue();
-                    String str = pbPresentList.gift_name;
-                    aVar.a = pbPresentList.thumbnail_url;
-                    pbPresentList.num.intValue();
-                    this.b.add(aVar);
-                }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = l95.m().n("image_quality", 0);
+            l95.m().n("new_abstract_state", 0);
+            this.e = l95.m().n("view_image_quality", 0);
+            boolean i = l95.m().i("show_images", true);
+            this.d = i;
+            if (!i) {
+                this.d = true;
+                l95.m().H("show_images");
+                l95.m().z("view_image_quality", 0);
+                this.e = 0;
             }
         }
     }
 
-    public void d(ArrayList<a> arrayList) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void e(int i) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
+            return;
         }
+        this.e = i;
+        l95.m().z("view_image_quality", i);
+        TbImageHelper.getInstance().updateFrsShowBigImage();
+        TbImageHelper.getInstance().updateUrlQuality();
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
+            return;
+        }
+        this.b = i;
+        l95 m = l95.m();
+        m.z(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

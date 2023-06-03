@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.xp9;
+import com.baidu.tieba.jw9;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class PasswordView extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                ri.O(this.a.getContext(), this.a.e);
+                vi.O(this.a.getContext(), this.a.e);
             }
         }
     }
@@ -259,7 +259,7 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    sg.a().post(this.b.p);
+                    wg.a().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
@@ -426,7 +426,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(ri.g(getContext(), R.dimen.tbds3), xp9.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(vi.g(getContext(), R.dimen.tbds3), jw9.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -510,8 +510,8 @@ public class PasswordView extends RelativeLayout {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            sg.a().removeCallbacks(this.o);
-            sg.a().postDelayed(this.o, 300L);
+            wg.a().removeCallbacks(this.o);
+            wg.a().postDelayed(this.o, 300L);
         }
     }
 
@@ -520,8 +520,8 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            sg.a().removeCallbacks(this.o);
-            sg.a().removeCallbacks(this.p);
+            wg.a().removeCallbacks(this.o);
+            wg.a().removeCallbacks(this.p);
             i();
         }
     }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static a XE;
     public WeakReference<Activity> currentActivity;

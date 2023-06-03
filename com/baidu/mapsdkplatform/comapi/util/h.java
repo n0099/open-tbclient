@@ -16,6 +16,8 @@ import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.util.JsonBuilder;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,14 +282,14 @@ public class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
-                    SigningInfo signingInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo;
+                    SigningInfo signingInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo;
                     if (signingInfo == null) {
                         return null;
                     }
                     if (signingInfo.hasMultipleSigners()) {
-                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo.getApkContentsSigners();
+                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getApkContentsSigners();
                     } else {
-                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo.getSigningCertificateHistory();
+                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getSigningCertificateHistory();
                     }
                 } else {
                     signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
@@ -433,7 +435,7 @@ public class h {
         Display display;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             DisplayMetrics displayMetrics = new DisplayMetrics();
             if (windowManager != null) {
                 display = windowManager.getDefaultDisplay();

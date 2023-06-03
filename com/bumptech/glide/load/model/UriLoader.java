@@ -18,17 +18,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UriLoader<Data> implements ModelLoader<Uri, Data> {
     public static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", UriUtil.QUALIFIED_RESOURCE_SCHEME, "content")));
     public final LocalUriFetcherFactory<Data> factory;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface LocalUriFetcherFactory<Data> {
         DataFetcher<Data> build(Uri uri);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Uri, AssetFileDescriptor>, LocalUriFetcherFactory<AssetFileDescriptor> {
         public final ContentResolver contentResolver;
 
@@ -51,7 +51,7 @@ public class UriLoader<Data> implements ModelLoader<Uri, Data> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Uri, ParcelFileDescriptor>, LocalUriFetcherFactory<ParcelFileDescriptor> {
         public final ContentResolver contentResolver;
 
@@ -75,7 +75,7 @@ public class UriLoader<Data> implements ModelLoader<Uri, Data> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream>, LocalUriFetcherFactory<InputStream> {
         public final ContentResolver contentResolver;
 

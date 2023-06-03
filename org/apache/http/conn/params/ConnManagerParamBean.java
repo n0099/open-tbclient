@@ -3,7 +3,7 @@ package org.apache.http.conn.params;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ConnManagerParamBean extends HttpAbstractParamBean {
     public ConnManagerParamBean(HttpParams httpParams) {
         super(null);

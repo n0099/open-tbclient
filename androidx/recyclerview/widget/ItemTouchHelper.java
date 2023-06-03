@@ -317,7 +317,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
 
         private int getMaxDragScroll(RecyclerView recyclerView) {
             if (this.mCachedMaxScrollSpeed == -1) {
-                this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070480);
+                this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07048d);
             }
             return this.mCachedMaxScrollSpeed;
         }
@@ -1013,8 +1013,8 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         this.mRecyclerView = recyclerView;
         if (recyclerView != null) {
             Resources resources = recyclerView.getResources();
-            this.mSwipeEscapeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070482);
-            this.mMaxSwipeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f070481);
+            this.mSwipeEscapeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f07048f);
+            this.mMaxSwipeVelocity = resources.getDimension(R.dimen.obfuscated_res_0x7f07048e);
             setupCallbacks();
         }
     }

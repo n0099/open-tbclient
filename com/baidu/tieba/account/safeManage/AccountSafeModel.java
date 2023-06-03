@@ -4,21 +4,21 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.gp9;
+import com.baidu.tieba.k9;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
-import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SimpleUser;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public zi9 b;
+    public gp9 b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -43,7 +43,7 @@ public class AccountSafeModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public zi9 V() {
+    public gp9 V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (zi9) invokeV.objValue;
+        return (gp9) invokeV.objValue;
     }
 
     public final SimpleUser W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            zi9 zi9Var = this.b;
-            if (zi9Var != null && zi9Var.f() != null) {
+            gp9 gp9Var = this.b;
+            if (gp9Var != null && gp9Var.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void a0(zi9 zi9Var) {
+    public void a0(gp9 gp9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zi9Var) == null) {
-            this.b = zi9Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gp9Var) == null) {
+            this.b = gp9Var;
             Y();
         }
     }

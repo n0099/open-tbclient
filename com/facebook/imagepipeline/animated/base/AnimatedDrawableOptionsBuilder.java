@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatedDrawableOptionsBuilder {
     public boolean mEnableDebugging;
     public boolean mForceKeepAllFramesInMemory;

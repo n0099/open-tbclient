@@ -8,7 +8,7 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i extends ProxySelector {
     public static final List<Proxy> aeJ = Arrays.asList(Proxy.NO_PROXY);
     public final ProxySelector aeK;

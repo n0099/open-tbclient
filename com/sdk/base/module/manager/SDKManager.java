@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
 import com.sdk.f.f;
 import com.sdk.v.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean closePermission = false;

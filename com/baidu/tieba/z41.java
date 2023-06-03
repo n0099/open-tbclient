@@ -1,135 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class z41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final y41[] a;
 
-    public static int a(@NonNull Activity activity) {
-        InterceptResult invokeL;
+    public z41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (g(activity)) {
-                return c(activity);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeL.intValue;
+        this.a = new y41[4];
+        if (n41.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new y41();
+        }
     }
 
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android");
-            if (identifier > 0) {
-                return context.getResources().getDimensionPixelSize(identifier);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @RequiresApi(api = 17)
-    public static int d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (h(context)) {
-                return 0;
-            }
-            return a((Activity) context);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean g(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            View findViewById = activity.findViewById(16908336);
-            if (findViewById == null || findViewById.getVisibility() != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @RequiresApi(api = 17)
-    public static boolean h(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public static String b() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.BRAND;
-            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
-                return "navigationbar_is_min";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c(0).d()) {
+                return 9999999.0d;
             }
-            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                return "force_fsg_nav_bar";
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.a[i].a() * n41.s[i];
             }
-            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
-                return "navigationbar_is_min";
-            }
-            return "navigation_gesture_on";
+            return d / 1000.0d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public static boolean e() {
+    public ElasticTask b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i != 29 && i != 30) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
+                }
             }
-            return true;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (ElasticTask) invokeV.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public y41 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String d = bj0.c().a().d();
-            if (TextUtils.isEmpty(d)) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = n41.a;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.a[i2];
+                    }
+                    i2++;
+                } else {
+                    y41[] y41VarArr = this.a;
+                    return y41VarArr[y41VarArr.length - 1];
+                }
             }
-            if (!d.contains("MI 8") && !d.contains("MI 9")) {
-                return false;
-            }
-            return true;
+        } else {
+            return (y41) invokeI.objValue;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void e(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
+        }
+    }
+
+    public void d(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
     }
 }

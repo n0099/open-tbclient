@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IElement {
     @NonNull
     View getContentView();

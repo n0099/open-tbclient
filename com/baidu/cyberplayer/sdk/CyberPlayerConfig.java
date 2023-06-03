@@ -6,6 +6,6 @@ import com.baidu.searchbox.playerserver.IPlayerConfig;
 public class CyberPlayerConfig implements IPlayerConfig {
     @Override // com.baidu.searchbox.playerserver.IPlayerConfig
     public void update(String str) {
-        l.a().a(str);
+        PlayerConfigManager.getInstance().updatePlayerConfig(str);
     }
 }

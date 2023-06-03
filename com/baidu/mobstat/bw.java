@@ -25,6 +25,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bl;
 import com.baidu.mobstat.bs;
 import com.baidu.mobstat.util.CuidUtil;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.BufferedReader;
@@ -145,7 +146,7 @@ public class bw {
 
     public static DisplayMetrics e(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getApplicationContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getApplicationContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics;
     }
 

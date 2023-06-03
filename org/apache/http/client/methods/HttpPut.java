@@ -2,7 +2,7 @@ package org.apache.http.client.methods;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpPut extends HttpEntityEnclosingRequestBase {
     public static final String METHOD_NAME = "PUT";
 

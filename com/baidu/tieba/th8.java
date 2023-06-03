@@ -1,29 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class th8 {
+public abstract class th8 implements sh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static int[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<rh8> a;
+    public vh8 b;
+    public sh8 c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948181317, "Lcom/baidu/tieba/th8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948181317, "Lcom/baidu/tieba/th8;");
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public abstract List<rh8> j(List list);
+
+    public th8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
+        this.a = new ArrayList();
+        this.d = -1;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.size() > 0) {
+                return this.a.size();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<rh8> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public rh8 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i < e()) {
+                return f().get(i);
+            }
+            return null;
+        }
+        return (rh8) invokeI.objValue;
+    }
+
+    public void i(int i) {
+        vh8 vh8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (vh8Var = this.b) != null) {
+            vh8Var.c(i, 1);
+        }
+    }
+
+    public void k(sh8 sh8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, sh8Var) == null) {
+            this.c = sh8Var;
+        }
+    }
+
+    public void l(vh8 vh8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, vh8Var) == null) {
+            this.b = vh8Var;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(List list) {
+        List<rh8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
+            this.a.addAll(j);
+            vh8 vh8Var = this.b;
+            if (vh8Var != null) {
+                vh8Var.b(0, e());
+            }
+        }
+    }
+
+    public void h(List list) {
+        List<rh8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
+            int e = e();
+            this.a.clear();
+            this.b.a(0, e);
+            this.a.addAll(j);
+            this.b.c(0, e());
+        }
     }
 }

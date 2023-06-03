@@ -28,7 +28,7 @@ import okio.Okio;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Http1Codec implements HttpCodec {
     public static final int HEADER_LIMIT = 262144;
     public static final int STATE_CLOSED = 6;
@@ -45,7 +45,7 @@ public final class Http1Codec implements HttpCodec {
     public int state = 0;
     public long headerLimit = 262144;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public abstract class AbstractSource implements Source {
         public long bytesRead;
         public boolean closed;
@@ -96,7 +96,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class ChunkedSink implements Sink {
         public boolean closed;
         public final ForwardingTimeout timeout;
@@ -145,7 +145,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class ChunkedSource extends AbstractSource {
         public static final long NO_CHUNK_YET = -1;
         public long bytesRemainingInChunk;
@@ -221,7 +221,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class FixedLengthSink implements Sink {
         public long bytesRemaining;
         public boolean closed;
@@ -274,7 +274,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class FixedLengthSource extends AbstractSource {
         public long bytesRemaining;
 
@@ -324,7 +324,7 @@ public final class Http1Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class UnknownLengthSource extends AbstractSource {
         public boolean inputExhausted;
 

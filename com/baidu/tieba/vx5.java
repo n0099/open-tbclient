@@ -1,275 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.media.AudioManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class vx5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TiebaPlusInfo b;
-    public TiePlusStat.ThreadType c;
-    public String d;
-    public String e;
-    public TiePlusStat.StatType f;
-    public TiePlusStat.LandingType g;
-    public TiePlusStat.CardBtnType h;
-    public TiePlusStat.RichTextType i;
-    public ThreadData j;
-    public int k;
 
-    @NonNull
-    public vx5 a(@Nullable sr9 sr9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sr9Var)) == null) ? this : (vx5) invokeL.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-331569191, "Lcom/baidu/tieba/vx5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-331569191, "Lcom/baidu/tieba/vx5$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TiePlusStat.Locate.values().length];
-            a = iArr;
-            try {
-                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256182, "Lcom/baidu/tieba/vx5;")) == null) {
+            return;
         }
-    }
-
-    public vx5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.h = null;
-        this.i = TiePlusStat.RichTextType.LINK;
-        this.k = -1;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948256182, "Lcom/baidu/tieba/vx5;");
+        }
     }
 
-    public TiePlusStat.CardBtnType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (TiePlusStat.CardBtnType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return String.valueOf(this.j.getDispatchedForumId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xs5.d(!TextUtils.isEmpty(this.e));
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.LandingType g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (TiePlusStat.LandingType) invokeV.objValue;
-    }
-
-    public TiePlusStat.RichTextType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (TiePlusStat.RichTextType) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.StatType j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            xs5.b(this.f);
-            return this.f;
-        }
-        return (TiePlusStat.StatType) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.ThreadType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (TiePlusStat.ThreadType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiebaPlusInfo n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public static vx5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            vx5 vx5Var = new vx5();
-            vx5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
-            vx5Var.g = TiePlusStat.LandingType.create(intValue);
-            vx5Var.i = TiePlusStat.RichTextType.create(i);
-            vx5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
-            vx5Var.b = tiebaPlusInfo;
-            vx5Var.c = TiePlusStat.ThreadType.create(threadData);
-            vx5Var.d = threadData.getTid();
-            vx5Var.e = String.valueOf(threadData.getFid());
-            vx5Var.j = threadData;
-            return vx5Var;
-        }
-        return (vx5) invokeILL.objValue;
-    }
-
-    public vx5 b(int i) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (vx5) invokeI.objValue;
-    }
-
-    public int i(@NonNull TiePlusStat.Locate locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
-            int i = a.a[locate.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i != 3 && i != 4) {
-                    return -1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 3 && i != 4) {
+                if (i != 5) {
+                    int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+                    if ((autoPlaySwitch == 3 || !BdNetTypeUtil.isWifiNet()) && (autoPlaySwitch != 2 || !BdNetTypeUtil.isMobileNet())) {
+                        return false;
+                    }
+                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !BdNetTypeUtil.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
+                    return false;
                 }
-                return this.k;
+                return true;
             }
-            return k().statFloor;
+            return BdNetTypeUtil.isWifiNet();
         }
-        return invokeL.intValue;
+        return invokeI.booleanValue;
     }
 
-    public void p(TiePlusStat.RichTextType richTextType) {
+    public static boolean b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
-            this.i = richTextType;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
+            return a(i);
         }
+        return invokeIL.booleanValue;
     }
 
-    public void q(@NonNull TiePlusStat.StatType statType) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
-            this.f = statType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void r(TiebaPlusInfo tiebaPlusInfo) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
-            this.b = tiebaPlusInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if ((BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(WeakReference<Context> weakReference, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, weakReference, z)) == null) {
+            if (weakReference == null || weakReference.get() == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+            if (z) {
+                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
+                    return false;
+                }
+            } else if (audioManager.abandonAudioFocus(null) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static void f(WeakReference<Context> weakReference) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, weakReference) == null) && weakReference != null && weakReference.get() != null) {
+            a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 }

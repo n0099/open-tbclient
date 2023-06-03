@@ -1,71 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uy8 extends ry8<vy8, CustomDialogData> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface uy8 {
+    void a();
 
-    @Override // com.baidu.tieba.wy8
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(boolean z);
 
-    @Override // com.baidu.tieba.wy8
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void c(int i);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uy8(TbPageContext tbPageContext, CustomDialogData customDialogData) {
-        super(tbPageContext, new vy8(tbPageContext), customDialogData);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, customDialogData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (xy8) objArr2[1], (IBaseDialogData) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        V v = this.h;
-        if (v instanceof vy8) {
-            ((vy8) v).f(this);
-        }
-    }
+    void d(i58 i58Var);
 
-    @Override // com.baidu.tieba.wy8
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ri.g(this.c, R.dimen.obfuscated_res_0x7f070411);
-        }
-        return invokeV.intValue;
-    }
+    void destroy();
+
+    void e();
+
+    void f(boolean z);
+
+    void g(long j, long j2);
+
+    View getRootView();
+
+    i58 h();
+
+    void i();
+
+    void j(boolean z, int i);
+
+    void k(int i);
+
+    int l();
+
+    void m();
+
+    void n(i58 i58Var);
+
+    void o(long j, long j2, int i);
+
+    h58 p(int i);
+
+    void pause();
+
+    void q();
+
+    void r();
+
+    void resetView();
+
+    void resume();
+
+    void s(int i);
+
+    void t(h58 h58Var, boolean z, int i);
 }

@@ -1,4 +1,6 @@
 package com.baidu.cyberplayer.sdk.extractor;
+
+import com.baidu.cyberplayer.sdk.f;
 /* loaded from: classes3.dex */
 public class a {
     public static a a;
@@ -15,10 +17,18 @@ public class a {
     }
 
     public ExtractorProvider a(boolean z) {
-        ExtractorProvider a2 = z ? d.a() : null;
-        if (a2 == null) {
-            a2 = com.baidu.cyberplayer.sdk.d.b();
+        ExtractorProvider extractorProvider;
+        if (z) {
+            extractorProvider = d.a();
+        } else {
+            extractorProvider = null;
         }
-        return a2 == null ? new b() : a2;
+        if (extractorProvider == null) {
+            extractorProvider = f.b();
+        }
+        if (extractorProvider == null) {
+            return new b();
+        }
+        return extractorProvider;
     }
 }

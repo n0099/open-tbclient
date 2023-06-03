@@ -1,181 +1,367 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cc3;
+import com.baidu.tieba.hl4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import dalvik.system.DexFile;
-import dalvik.system.PathClassLoader;
-import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jf2 {
+public final class jf2 extends if2 implements hl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            Object e = e((PathClassLoader) context.getClassLoader());
-            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
-            declaredField.setAccessible(true);
-            File[] fileArr = (File[]) declaredField.get(e);
-            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
-            Array.set(newInstance, 0, new File(str));
-            for (int i = 1; i < fileArr.length + 1; i++) {
-                Array.set(newInstance, i, fileArr[i - 1]);
-            }
-            declaredField.set(e, newInstance);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a implements rq3<j83> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
-            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
-            declaredField.setAccessible(true);
-            String[] strArr = (String[]) declaredField.get(pathClassLoader);
-            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
-            Array.set(newInstance, 0, str);
-            for (int i = 1; i < strArr.length + 1; i++) {
-                Array.set(newInstance, i, strArr[i - 1]);
-            }
-            declaredField.set(pathClassLoader, newInstance);
-        }
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, str) != null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        Object e = e((PathClassLoader) context.getClassLoader());
-        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
-        declaredField.setAccessible(true);
-        List list = (List) declaredField.get(e);
-        list.add(new File(str));
-        declaredField.set(e, list);
-        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
-        declaredField2.setAccessible(true);
-        ArrayList arrayList = (ArrayList) declaredField2.get(e);
-        arrayList.add(new File(str));
-        declaredField2.set(e, arrayList);
-        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
-        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
-        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-        declaredField3.setAccessible(true);
-        Object[] objArr = (Object[]) declaredField3.get(e);
-        Object newInstance = Array.newInstance(cls, objArr.length + 1);
-        if (constructor != null) {
-            try {
-                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
-                for (int i = 1; i < objArr.length + 1; i++) {
-                    Array.set(newInstance, i, objArr[i - 1]);
-                }
-                declaredField3.set(e, newInstance);
-            } catch (IllegalArgumentException unused) {
-                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(null, arrayList);
-                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-                declaredField4.setAccessible(true);
-                declaredField4.set(e, invoke);
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-            }
-        }
-    }
-
-    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
-        }
-        return invokeL.objValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                Class.forName("dalvik.system.BaseDexClassLoader");
-                return true;
-            } catch (ClassNotFoundException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void g(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
-            if (f()) {
-                try {
-                    try {
-                        a(context, str);
-                        return;
-                    } catch (Exception unused) {
-                        b(context, str);
-                        return;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+        public a(jf2 jf2Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jf2Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            try {
-                c(context, str);
-            } catch (Exception unused2) {
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(j83 j83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j83Var) == null) {
+                this.a.onFail(j83Var.N());
             }
         }
     }
 
-    public static boolean h(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
-            if (!z) {
-                try {
-                    System.loadLibrary(str);
-                    return true;
-                } catch (Throwable unused) {
+    /* loaded from: classes6.dex */
+    public class b implements hl4.a, rq3<cc3.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final hl4.a a;
+        public final boolean b;
+        public boolean c;
+        public final /* synthetic */ jf2 d;
+
+        public b(jf2 jf2Var, hl4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jf2Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            try {
-                System.load(str2 + File.separator + "lib" + str + ".so");
-                return true;
-            } catch (Throwable unused2) {
-                return false;
+            this.d = jf2Var;
+            this.c = false;
+            this.a = aVar;
+            this.b = aVar != null;
+            if (jf2.b) {
+                jf2Var.O("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
-        return invokeLLZ.booleanValue;
+
+        @Override // com.baidu.tieba.hl4.a
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+                synchronized (this) {
+                    boolean e = e();
+                    if (jf2.b) {
+                        jf2 jf2Var = this.d;
+                        jf2Var.O("IpcHttpCallbackWrapper#onSuccess", "valid=" + e + " statusCode=" + i + " response=" + str);
+                    }
+                    if (e) {
+                        c();
+                        this.a.onSuccess(str, i);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hl4.a
+        public void b(String str, String str2, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
+                synchronized (this) {
+                    boolean e = e();
+                    if (jf2.b) {
+                        jf2 jf2Var = this.d;
+                        jf2Var.O("IpcHttpCallbackWrapper#onStatRecord", "valid=" + e + " url=" + str + " statRecord=" + jSONObject);
+                    }
+                    if (e) {
+                        this.a.b(str, str2, jSONObject);
+                    }
+                }
+            }
+        }
+
+        public synchronized void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                synchronized (this) {
+                    this.c = true;
+                }
+            }
+        }
+
+        public synchronized boolean e() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                synchronized (this) {
+                    if (this.b) {
+                        if (!this.c) {
+                            z = true;
+                        }
+                    }
+                    z = false;
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: d */
+        public void a(cc3.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                synchronized (this) {
+                    boolean e = e();
+                    if (jf2.b) {
+                        jf2 jf2Var = this.d;
+                        jf2Var.O("IpcHttpCallbackWrapper#onCallback", "valid=" + e + " msg=" + aVar);
+                    }
+                    if (e) {
+                        String o = aVar.o("pms_http_with_ipc_key_action", "");
+                        char c = 65535;
+                        switch (o.hashCode()) {
+                            case -2080875416:
+                                if (o.equals("pms_http_with_ipc_action_success")) {
+                                    c = 1;
+                                    break;
+                                }
+                                break;
+                            case -898655015:
+                                if (o.equals("pms_http_with_ipc_action_fail")) {
+                                    c = 2;
+                                    break;
+                                }
+                                break;
+                            case -480804291:
+                                if (o.equals("pms_http_with_ipc_action_on_start")) {
+                                    c = 3;
+                                    break;
+                                }
+                                break;
+                            case 1737801345:
+                                if (o.equals("pms_http_with_ipc_action_stat_record")) {
+                                    c = 0;
+                                    break;
+                                }
+                                break;
+                        }
+                        if (c != 0) {
+                            if (c != 1) {
+                                if (c != 2) {
+                                    if (c == 3) {
+                                        onStart();
+                                    }
+                                } else {
+                                    onFail(new Exception(aVar.n("pms_http_with_ipc_key_error")));
+                                }
+                            } else {
+                                onSuccess(aVar.n("pms_http_with_ipc_key_response"), aVar.i("pms_http_with_ipc_key_status_code"));
+                            }
+                        } else {
+                            b(aVar.n("pms_http_with_ipc_key_url"), aVar.n("pms_http_with_ipc_key_response"), yo3.d(aVar.n("pms_http_with_ipc_key_stat_record")));
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hl4.a
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
+                synchronized (this) {
+                    boolean e = e();
+                    if (jf2.b) {
+                        jf2 jf2Var = this.d;
+                        jf2Var.O("IpcHttpCallbackWrapper#onFail", "valid=" + e + " exception=" + exc);
+                    }
+                    if (e) {
+                        c();
+                        hl4.a aVar = this.a;
+                        if (exc == null) {
+                            exc = new Exception("onFail");
+                        }
+                        aVar.onFail(exc);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hl4.a
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                synchronized (this) {
+                    boolean e = e();
+                    if (jf2.b) {
+                        jf2 jf2Var = this.d;
+                        jf2Var.O("IpcHttpCallbackWrapper#onStart", "valid=" + e);
+                    }
+                    if (e) {
+                        this.a.onStart();
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881299, "Lcom/baidu/tieba/jf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947881299, "Lcom/baidu/tieba/jf2;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jf2(dc3 dc3Var) {
+        super(dc3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dc3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((xb3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void M(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hl4.a aVar) {
+        String jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, map, map2, jSONObject, aVar}) == null) {
+            if (b) {
+                N("ipcHttp");
+            }
+            String str3 = "";
+            if (jSONObject == null) {
+                jSONObject2 = "";
+            } else {
+                jSONObject2 = jSONObject.toString();
+            }
+            b bVar = new b(this, aVar);
+            j83 z = k83.Q("pms_http_with_ipc").z("pms_http_with_ipc_key_action", str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            j83 z2 = z.z("pms_http_with_ipc_key_url", str2);
+            if (!TextUtils.isEmpty(jSONObject2)) {
+                str3 = jSONObject2;
+            }
+            j83 u = z2.z("pms_http_with_ipc_keyjson_body", str3).u("pms_http_with_ipc_key_url_param_map", if2.J(map)).u("pms_http_with_ipc_key_header_param_map", if2.J(map2));
+            u.K(true);
+            u.G(bVar);
+            u.F(new a(this, bVar));
+            if (b) {
+                O("ipcHttp", "session=" + u);
+            }
+            u.call(mf2.m0);
+        }
+    }
+
+    public final void N(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && b) {
+            Log.i("PmsHttpForClient", str);
+        }
+    }
+
+    public final void O(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            N(str + ": " + str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.if2, com.baidu.tieba.hl4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hl4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, map, map2, jSONObject, aVar) == null) {
+            if (b) {
+                N("buildJsonPostRequest");
+            }
+            M("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.if2, com.baidu.tieba.hl4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, hl4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, map, map2, aVar) == null) {
+            if (b) {
+                N("buildGetRequest");
+            }
+            String b2 = y53.b();
+            if (b2 != null) {
+                if (map == null) {
+                    map = new HashMap<>();
+                }
+                map.put("launchid", b2);
+            }
+            M("pms_http_with_ipc_action_build_get_request", str, map, map2, null, aVar);
+        }
     }
 }

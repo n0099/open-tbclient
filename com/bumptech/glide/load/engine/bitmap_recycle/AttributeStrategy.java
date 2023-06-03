@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AttributeStrategy implements LruPoolStrategy {
     public final KeyPool keyPool = new KeyPool();
     public final GroupedLinkedMap<Key, Bitmap> groupedMap = new GroupedLinkedMap<>();
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Key implements Poolable {
         public Bitmap.Config config;
         public int height;
@@ -61,7 +61,7 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */

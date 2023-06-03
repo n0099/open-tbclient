@@ -203,8 +203,8 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             }
             this.this$0 = autoOrientationBtnDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa1);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa0);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb4);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb3);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnDialog2;
             }
@@ -270,7 +270,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoOrientationBtnDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014c);
+        super(context, R.style.obfuscated_res_0x7f10014e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -316,7 +316,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, btnItem, linearLayout, i)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0446, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0452, (ViewGroup) linearLayout, false);
             linearLayout2.setBackground(getContext().getResources().getDrawable(i));
             new ViewHelper(this, linearLayout2, this).onBindView(btnItem);
             return linearLayout2;
@@ -337,20 +337,20 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         }
         if (size == 1) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(createButton(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080218));
+            linearLayout.addView(createButton(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080219));
         } else if (size == this.mBreakPoint) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(createButton(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080216));
+            linearLayout.addView(createButton(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080217));
             linearLayout.addView(createDivider(0));
-            linearLayout.addView(createButton(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f08021a));
+            linearLayout.addView(createButton(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f08021b));
         } else {
             linearLayout.setOrientation(1);
             for (int i = 0; i < list.size(); i++) {
                 if (i < list.size() - 1) {
-                    linearLayout.addView(createButton(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080214));
+                    linearLayout.addView(createButton(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080215));
                     linearLayout.addView(createDivider(1));
                 } else if (i == list.size() - 1) {
-                    linearLayout.addView(createButton(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080218));
+                    linearLayout.addView(createButton(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080219));
                 }
             }
         }
@@ -363,7 +363,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
             View view2 = new View(this.mContext);
-            view2.setBackgroundColor(this.mContent.getResources().getColor(R.color.obfuscated_res_0x7f060711));
+            view2.setBackgroundColor(this.mContent.getResources().getColor(R.color.obfuscated_res_0x7f060716));
             if (i == 1) {
                 view2.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
             } else {
@@ -379,11 +379,11 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Context context = getContext();
             this.mContext = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d099c, getBuilder().getCustomContentParent(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b5, getBuilder().getCustomContentParent(), false);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fa2);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fa3);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090f9f);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fb5);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fb6);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fb2);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);
@@ -396,7 +396,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
     private void updateBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.mDivider.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060711));
+            this.mDivider.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060716));
         }
     }
 }

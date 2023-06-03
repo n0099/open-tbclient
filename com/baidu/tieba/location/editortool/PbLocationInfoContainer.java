@@ -1,57 +1,66 @@
 package com.baidu.tieba.location.editortool;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef5;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.o65;
+import com.baidu.tieba.fi5;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.m75;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.se5;
-import com.baidu.tieba.tg5;
+import com.baidu.tieba.sh5;
+import com.baidu.tieba.uj5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, ef5 {
+public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, fi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBSpecificationBtn a;
     public TBSpecificationBtn b;
-    public EditorTools c;
-    public int d;
-    public boolean e;
+    public View c;
+    public EditorTools d;
+    public int e;
+    public boolean f;
+    public String g;
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
         }
     }
 
@@ -84,8 +93,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.a.a).booleanValue();
-                o65.m().w("key_virtual_image_and_state_ying_has_show", z);
-                this.a.k(z);
+                l95.m().w("key_virtual_image_and_state_ying_has_show", z);
+                this.a.n(z);
             }
         }
     }
@@ -118,9 +127,50 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                xh5.d(view2);
+                StatisticItem addParam = new StatisticItem("c15295").param("obj_source", "2").param("obj_type", "2").addParam("fid", this.a.d.getFid()).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                if (!TextUtils.isEmpty(this.a.g) && !"0".equals(this.a.g)) {
+                    addParam.addParam("fid", this.a.g);
+                } else if (this.a.d != null && this.a.d.getFid() != 0) {
+                    addParam.addParam("fid", String.valueOf(this.a.d.getFid()));
+                }
+                TiebaStatic.log(addParam);
+                this.a.H(new sh5(77, -1, null));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbLocationInfoContainer a;
+
+        public c(PbLocationInfoContainer pbLocationInfoContainer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbLocationInfoContainer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbLocationInfoContainer;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.b.a).booleanValue();
-                o65.m().w(o65.q("key_reply_add_bless_enable"), z);
-                this.a.j(z);
+                l95.m().w(l95.q("key_reply_add_bless_enable"), z);
+                this.a.m(z);
             }
         }
     }
@@ -143,104 +193,136 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 return;
             }
         }
-        this.d = 0;
-        this.e = true;
-        h();
+        this.e = 0;
+        this.f = true;
+        k();
     }
 
-    public final void g(Context context) {
+    public final void j(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, context) != null) || !tg5.a()) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, context) != null) || !uj5.a()) {
             return;
         }
-        this.b = f(context);
-        j(o65.m().i(o65.q("key_reply_add_bless_enable"), true));
-        this.b.setOnClickListener(new b(this));
+        this.b = h(context);
+        m(l95.m().i(l95.q("key_reply_add_bless_enable"), true));
+        this.b.setOnClickListener(new c(this));
         addView(this.b);
     }
 
-    public final void i(Context context) {
+    public final void l(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, context) != null) || !ProfileVirtualImageInfo.getInstance().isDisplayVirtual()) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, context) != null) || !ProfileVirtualImageInfo.getInstance().isDisplayVirtual()) {
             return;
         }
-        this.a = f(context);
-        k(o65.m().i("key_virtual_image_and_state_ying_has_show", true));
+        this.a = h(context);
+        n(l95.m().i("key_virtual_image_and_state_ying_has_show", true));
         this.a.setOnClickListener(new a(this));
         addView(this.a);
     }
 
-    @Override // com.baidu.tieba.te5
-    public void C(se5 se5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, se5Var) == null) && se5Var != null && se5Var.a == 68) {
-            o65.m().w("key_virtual_image_and_state_has_show", false);
-            k(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.ef5
-    public void H(se5 se5Var) {
+    @Override // com.baidu.tieba.fi5
+    public void H(sh5 sh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se5Var) == null) && (editorTools = this.c) != null) {
-            editorTools.C(se5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sh5Var) == null) && (editorTools = this.d) != null) {
+            editorTools.C(sh5Var);
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    public final void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            FrameLayout a2 = xh5.a(context);
+            this.c = a2;
+            a2.setOnClickListener(new b(this));
+            this.c.setVisibility(8);
+            addView(this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.fi5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            e(i);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            g(i);
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
-            this.c = editorTools;
+        if (interceptable == null || interceptable.invokeL(1048592, this, editorTools) == null) {
+            this.d = editorTools;
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.e = i;
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.th5
+    public void C(sh5 sh5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, sh5Var) != null) || sh5Var == null) {
+            return;
+        }
+        if (sh5Var.a == 68) {
+            l95.m().w("key_virtual_image_and_state_has_show", false);
+            n(false);
+        }
+        if (sh5Var.a == 76 && this.c != null) {
+            Object obj = sh5Var.c;
+            if (obj instanceof String) {
+                this.g = (String) obj;
+            }
+            this.c.setVisibility(0);
+            StatisticItem addParam = new StatisticItem("c15295").param("obj_source", "2").param("obj_type", "1").addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!TextUtils.isEmpty(this.g) && !"0".equals(this.g)) {
+                addParam.addParam("fid", this.g);
+            } else {
+                EditorTools editorTools = this.d;
+                if (editorTools != null && editorTools.getFid() != 0) {
+                    addParam.addParam("fid", String.valueOf(this.d.getFid()));
+                }
+            }
+            TiebaStatic.log(addParam);
+        }
+    }
+
+    @Override // com.baidu.tieba.fi5
     public void display() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e) {
-            this.e = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f) {
+            this.f = false;
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
         return invokeV.intValue;
     }
 
-    public final void h() {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             setGravity(16);
             setOrientation(0);
-            g(getContext());
             i(getContext());
+            j(getContext());
+            l(getContext());
         }
     }
 
-    public void e(int i) {
+    public void g(int i) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (tBSpecificationBtn = this.a) == null) {
@@ -248,45 +330,52 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         }
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-            this.a.getStyleConfig().h(tg5.b(((Boolean) this.a.a).booleanValue()));
+            this.a.getStyleConfig().h(uj5.b(((Boolean) this.a.a).booleanValue()));
             this.a.l(i);
         }
         TBSpecificationBtn tBSpecificationBtn2 = this.b;
         if (tBSpecificationBtn2 != null) {
             tBSpecificationBtn2.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-            this.b.getStyleConfig().h(tg5.b(((Boolean) this.b.a).booleanValue()));
+            this.b.getStyleConfig().h(uj5.b(((Boolean) this.b.a).booleanValue()));
             this.b.l(i);
+        }
+        View view2 = this.c;
+        if (view2 != null) {
+            m75 d = m75.d(view2);
+            d.m(R.dimen.L_X02);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0209);
         }
     }
 
-    public final TBSpecificationBtn f(Context context) {
+    public final TBSpecificationBtn h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            n75 n75Var = new n75();
-            n75Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
-            n75Var.y(false);
-            n75Var.h(tg5.b(true));
-            n75Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            n75Var.n(ri.g(getContext(), R.dimen.M_W_X004), ri.g(getContext(), R.dimen.M_W_X004));
-            n75Var.o(ri.g(getContext(), R.dimen.M_H_X002));
-            n75Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            ja5 ja5Var = new ja5();
+            ja5Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
+            ja5Var.y(false);
+            ja5Var.h(uj5.b(true));
+            ja5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            ja5Var.n(vi.g(getContext(), R.dimen.M_W_X004), vi.g(getContext(), R.dimen.M_W_X004));
+            ja5Var.o(vi.g(getContext(), R.dimen.M_H_X002));
+            ja5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            tBSpecificationBtn.setConfig(n75Var);
+            tBSpecificationBtn.setConfig(ja5Var);
             tBSpecificationBtn.setTextSize(R.dimen.T_X09);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ri.g(getContext(), R.dimen.tbds63));
-            layoutParams.rightMargin = ri.g(context, R.dimen.M_W_X007);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, vi.g(getContext(), R.dimen.tbds63));
+            layoutParams.rightMargin = vi.g(context, R.dimen.M_W_X007);
             tBSpecificationBtn.setLayoutParams(layoutParams);
             return tBSpecificationBtn;
         }
         return (TBSpecificationBtn) invokeL.objValue;
     }
 
-    public final void j(boolean z) {
+    public final void m(boolean z) {
         TBSpecificationBtn tBSpecificationBtn;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && (tBSpecificationBtn = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && (tBSpecificationBtn = this.b) != null) {
             tBSpecificationBtn.setText(BdBaseApplication.getInst().getResources().getString(R.string.show_spring_festival));
             TBSpecificationButtonConfig styleConfig = this.b.getStyleConfig();
             if (z) {
@@ -295,15 +384,15 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 i = R.drawable.icon_pure_post_chose12;
             }
             styleConfig.i(i, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.b.getStyleConfig().h(tg5.b(z));
+            this.b.getStyleConfig().h(uj5.b(z));
             this.b.a = Boolean.valueOf(z);
         }
     }
 
-    public final void k(boolean z) {
+    public final void n(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             TBSpecificationBtn tBSpecificationBtn = this.a;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setText(BdBaseApplication.getInst().getResources().getString(R.string.show_virtual_image_state));
@@ -314,10 +403,10 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                     i = R.drawable.icon_pure_post_chose12;
                 }
                 styleConfig.i(i, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                this.a.getStyleConfig().h(tg5.b(z));
+                this.a.getStyleConfig().h(uj5.b(z));
                 this.a.a = Boolean.valueOf(z);
             }
-            H(new se5(67, -1, Boolean.valueOf(z)));
+            H(new sh5(67, -1, Boolean.valueOf(z)));
         }
     }
 }

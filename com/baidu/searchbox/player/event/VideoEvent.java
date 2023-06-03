@@ -3,12 +3,11 @@ package com.baidu.searchbox.player.event;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoEvent implements IPoolItem {
     public static final int LOG_LEVEL_HIGH = 0;
     public static final int LOG_LEVEL_LOW = 1;
@@ -34,17 +33,17 @@ public class VideoEvent implements IPoolItem {
     public int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface LogLevel {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface Type {
     }
 
@@ -58,12 +57,10 @@ public class VideoEvent implements IPoolItem {
     }
 
     @NonNull
-    @PublicMethod
     public String getAction() {
         return this.action;
     }
 
-    @PublicMethod
     public SparseArray<Object> getBundle() {
         return this.eventBundle;
     }
@@ -72,23 +69,19 @@ public class VideoEvent implements IPoolItem {
         return this.logLevel;
     }
 
-    @PublicMethod(version = "11.24.0.0")
     public int getPriority() {
         return this.priority;
     }
 
     @Nullable
-    @PublicMethod
     public Object getSender() {
         return this.sender;
     }
 
-    @PublicMethod
     public int getTargetType() {
         return this.targetType;
     }
 
-    @PublicMethod
     public int getType() {
         return this.type;
     }
@@ -109,7 +102,6 @@ public class VideoEvent implements IPoolItem {
         this.eventBundle.clear();
     }
 
-    @PublicMethod
     public void recycle() {
         sEventPool.release((VideoEventPool) this);
     }
@@ -123,7 +115,6 @@ public class VideoEvent implements IPoolItem {
         this.action = str;
     }
 
-    @PublicMethod
     public static VideoEvent copy(@NonNull VideoEvent videoEvent) {
         VideoEvent acquire = sEventPool.acquire();
         acquire.setType(videoEvent.type);
@@ -143,42 +134,34 @@ public class VideoEvent implements IPoolItem {
         return true;
     }
 
-    @PublicMethod
     public boolean getBooleanExtra(int i) {
         return getBooleanExtra(i, false);
     }
 
-    @PublicMethod
     public Object getExtra(int i) {
         return this.eventBundle.get(i);
     }
 
-    @PublicMethod
     public float getFloatExtra(int i) {
         return getFloatExtra(i, 0.0f);
     }
 
-    @PublicMethod
     public int getIntExtra(int i) {
         return getIntExtra(i, 0);
     }
 
-    @PublicMethod
     public long getLongExtra(int i) {
         return getLongExtra(i, 0L);
     }
 
-    @PublicMethod
     public String getStringExtra(int i) {
         return getStringExtra(i, "");
     }
 
-    @PublicMethod
     public void setAction(@NonNull String str) {
         this.action = str;
     }
 
-    @PublicMethod
     public void setBundle(@NonNull SparseArray<Object> sparseArray) {
         for (int i = 0; i < sparseArray.size(); i++) {
             this.eventBundle.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
@@ -189,22 +172,18 @@ public class VideoEvent implements IPoolItem {
         this.logLevel = i;
     }
 
-    @PublicMethod(version = "11.24.0.0")
     public void setPriority(int i) {
         this.priority = i;
     }
 
-    @PublicMethod
     public void setSender(@NonNull Object obj) {
         this.sender = obj;
     }
 
-    @PublicMethod
     public void setTargetType(int i) {
         this.targetType = i;
     }
 
-    @PublicMethod
     public void setType(int i) {
         this.type = i;
     }
@@ -216,7 +195,6 @@ public class VideoEvent implements IPoolItem {
         return acquire;
     }
 
-    @PublicMethod
     public boolean getBooleanExtra(int i, boolean z) {
         Object obj = this.eventBundle.get(i);
         if (obj instanceof Boolean) {
@@ -225,7 +203,6 @@ public class VideoEvent implements IPoolItem {
         return z;
     }
 
-    @PublicMethod(version = "12.2.0")
     public float getFloatExtra(int i, float f) {
         Object obj = this.eventBundle.get(i);
         if (obj instanceof Float) {
@@ -234,7 +211,6 @@ public class VideoEvent implements IPoolItem {
         return f;
     }
 
-    @PublicMethod
     public int getIntExtra(int i, int i2) {
         Object obj = this.eventBundle.get(i);
         if (obj instanceof Integer) {
@@ -243,7 +219,6 @@ public class VideoEvent implements IPoolItem {
         return i2;
     }
 
-    @PublicMethod
     public long getLongExtra(int i, long j) {
         Object obj = this.eventBundle.get(i);
         if (obj instanceof Long) {
@@ -252,7 +227,6 @@ public class VideoEvent implements IPoolItem {
         return j;
     }
 
-    @PublicMethod
     public String getStringExtra(int i, String str) {
         Object obj = this.eventBundle.get(i);
         if (obj != null) {
@@ -261,7 +235,6 @@ public class VideoEvent implements IPoolItem {
         return str;
     }
 
-    @PublicMethod
     public void putExtra(int i, Object obj) {
         this.eventBundle.put(i, obj);
     }

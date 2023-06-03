@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c9;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.immessagecenter.mention.ReplyMessageFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,16 +37,16 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public boolean e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.d) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             } else {
@@ -204,7 +204,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -236,9 +236,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             ReplyMessageFragment replyMessageFragment = this.a;
             if (replyMessageFragment != null && intent != null) {
                 replyMessageFragment.setArguments(intent.getExtras());
-                if (this.a.P1() != null) {
-                    this.a.d2();
-                    this.a.b2();
+                if (this.a.Q1() != null) {
+                    this.a.e2();
+                    this.a.c2();
                 }
             }
         }
@@ -258,7 +258,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             boolean z = true;
-            z = (c9.f().h("YunPushProxyActivity") && c9.f().g() == 1) ? false : false;
+            z = (g9.f().h("YunPushProxyActivity") && g9.f().g() == 1) ? false : false;
             this.d = z;
             if (z) {
                 setIsAddSwipeBackLayout(false);
@@ -267,16 +267,16 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             setContentView(R.layout.obfuscated_res_0x7f0d0051);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f119b));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f11ed));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.a = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090792, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09079d, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager x0 = x0();
-            this.c = x0;
-            x0.onCreate(getPageContext());
+            VoiceManager y0 = y0();
+            this.c = y0;
+            y0.onCreate(getPageContext());
             u1();
             v1();
         }

@@ -171,7 +171,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.protobuf.AbstractMessageLite.Builder
         /* renamed from: clone */
-        public BuilderType mo2042clone() {
+        public BuilderType mo2097clone() {
             throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
         }
 

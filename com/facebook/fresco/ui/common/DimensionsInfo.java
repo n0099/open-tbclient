@@ -1,5 +1,5 @@
 package com.facebook.fresco.ui.common;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DimensionsInfo {
     public final int mDecodedImageHeight;
     public final int mDecodedImageWidth;

@@ -14,7 +14,7 @@ import okhttp3.internal.Version;
 import okio.GzipSource;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BridgeInterceptor implements Interceptor {
     public final CookieJar cookieJar;
 

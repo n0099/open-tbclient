@@ -1,57 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class u70 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public interface u70 extends Closeable {
+    void disconnect();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163771, "Lcom/baidu/tieba/u70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163771, "Lcom/baidu/tieba/u70;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-        b = QuickPersistConfig.getInstance().getBoolean("enable_external_opt", true);
-        c = QuickPersistConfig.getInstance().getBoolean("enable_external_push_opt", false);
-        if (a) {
-            Log.d("ExternalABUtils", "external opt ab:" + a() + " push opt ab:" + b());
-        }
-    }
+    int getCode() throws IOException;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
+    Map<String, List<String>> getHeaders() throws IOException;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
+    InputStream getInputStream() throws IOException;
+
+    String getMessage() throws IOException;
+
+    InputStream t() throws IOException;
+
+    void u(int i);
+
+    int v();
 }

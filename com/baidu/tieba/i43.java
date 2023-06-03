@@ -1,152 +1,63 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class i43 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class i43 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803489, "Lcom/baidu/tieba/i43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947803489, "Lcom/baidu/tieba/i43;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i43(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/postPageInfo");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean a(Context context, @NonNull j43 j43Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, j43Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
-            }
-            j43Var.b(2, "method should be called after setActivityRef");
-            if (!a) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null");
                 return false;
             }
-            throw new IllegalStateException("this method should be called after setActivityRef");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(ArrayList<String> arrayList, @NonNull j43 j43Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, j43Var)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
                 return false;
             }
-            j43Var.a("permission has already granted");
+            if (vd3.b) {
+                Log.d("PostPageInfoAction", "joParams" + optParamsAsJo.toString());
+            }
+            fv2.R().b(yb3Var, optParamsAsJo);
             return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @NonNull
-    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : strArr) {
-                if (!cq4.a(context, str)) {
-                    arrayList.add(str);
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull j43 j43Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, j43Var)) == null) {
-            if (cq4.a(context, str)) {
-                j43Var.a("permission has already granted");
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, j43Var}) != null) || !a(context, j43Var) || b(context, str, j43Var)) {
-            return;
-        }
-        g(context, strArr, i, j43Var);
-    }
-
-    @Deprecated
-    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, j43Var) != null) || !a(context, j43Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, j43Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).A(i, (String[]) d.toArray(new String[0]), new e43(i, j43Var));
-    }
-
-    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, j43Var) != null) || !a(context, j43Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, j43Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).A(i, (String[]) d.toArray(new String[0]), new f43(context, i, j43Var));
-    }
-
-    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, j43Var) != null) || !a(context, j43Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, j43Var)) {
-            return;
-        }
-        g(context, (String[]) d.toArray(new String[0]), i, j43Var);
-    }
-
-    @Deprecated
-    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, j43Var) != null) || !a(context, j43Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, j43Var)) {
-            return;
-        }
-        f(context, (String[]) d.toArray(new String[0]), i, j43Var);
+        return invokeLLLL.booleanValue;
     }
 }

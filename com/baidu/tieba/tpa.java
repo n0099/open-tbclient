@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class tpa implements tj1 {
+public final class tpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public spa a;
 
     public tpa() {
         Interceptable interceptable = $ic;
@@ -22,19 +23,32 @@ public class tpa implements tj1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new spa();
     }
 
-    @Override // com.baidu.tieba.tj1
-    public Object get() {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AcUploadResultObserver());
-            return arrayList;
+            return this.a.a();
         }
-        return invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
+        }
+    }
+
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.c(lVar);
+        }
     }
 }

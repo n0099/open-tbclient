@@ -1,24 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class tb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tb8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public String g;
+    public long h;
+    public int i;
+    public String j;
+    public int k;
+    public long l;
+    public String m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public AgreeData v;
+    public JSONArray w;
+    public FaceGroupInfoData x;
 
     public tb8() {
         Interceptable interceptable = $ic;
@@ -30,105 +53,318 @@ public class tb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = 0;
+        this.f = 0;
+        this.g = null;
+        this.h = 0L;
+        this.i = 0;
+        this.j = "";
+        this.k = -1;
+        this.l = 0L;
+        this.m = null;
+        this.u = null;
+        this.w = null;
     }
 
-    public static tb8 a() {
+    public AgreeData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (tb8.class) {
-                    if (a == null) {
-                        a = new tb8();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.v;
         }
-        return (tb8) invokeV.objValue;
+        return (AgreeData) invokeV.objValue;
     }
 
-    public void b(long j, String str, String str2, String str3, String str4, long j2) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            n28.f().l(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            for (ChatRoomInfo chatRoomInfo : list) {
-                if (chatRoomInfo != null) {
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                }
-            }
-            for (ChatRoomInfo chatRoomInfo2 : list2) {
-                if (chatRoomInfo2 != null) {
-                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
-                }
-            }
-            if (q11.c(hashMap)) {
-                if (q11.c(hashMap2)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo3 : list2) {
-                    if (chatRoomInfo3 != null) {
-                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
-                    }
-                }
-            } else if (q11.c(hashMap2)) {
-                if (q11.c(hashMap)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo4 : list) {
-                    if (chatRoomInfo4 != null) {
-                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
-                    }
-                }
-            } else {
-                if (!q11.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
-                    for (Map.Entry entry : hashMap2.entrySet()) {
-                        if (entry != null && entry.getValue() != null) {
-                            if (hashMap.containsKey(entry.getKey())) {
-                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
-                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
-                                }
-                            } else {
-                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
-                            }
-                        }
-                    }
-                }
-                if (!q11.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
-                    for (Map.Entry entry2 : hashMap.entrySet()) {
-                        if (entry2 != null && entry2.getValue() != null) {
-                            if (!hashMap2.containsKey(entry2.getKey())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.m;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void d(long j, String str, String str2, boolean z) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            n28.f().q(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.u;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public FaceGroupInfoData e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.x;
+        }
+        return (FaceGroupInfoData) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return invokeV.longValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public JSONArray o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.w;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.r;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.s;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.t;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.q;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, jSONObject) == null) {
+            try {
+                this.l = jSONObject.optLong("overall_index", 0L);
+                this.m = jSONObject.optString("post_id");
+                this.r = jSONObject.optString("user_id");
+                this.s = jSONObject.optString("user_name");
+                this.t = jSONObject.optString("nickname");
+                boolean z5 = true;
+                if (jSONObject.optInt("show_original_btn") == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.o = z;
+                if (jSONObject.optInt("is_blocked_pic") == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                this.p = z2;
+                if (jSONObject.optInt("is_long_pic") == 1) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                this.q = z3;
+                this.k = jSONObject.optInt("index", -1);
+                if (jSONObject.optInt("is_first_post") == 1) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                this.n = z4;
+                this.u = jSONObject.optString("comment_num");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("agree");
+                if (optJSONObject2 != null) {
+                    int optInt = optJSONObject2.optInt("agree_num");
+                    optJSONObject2.optInt("disagree_num");
+                    int optInt2 = optJSONObject2.optInt("agree_type");
+                    if (optJSONObject2.optInt("has_agree") != 1) {
+                        z5 = false;
+                    }
+                    if (this.v == null) {
+                        this.v = new AgreeData();
+                    }
+                    this.v.agreeType = optInt2;
+                    this.v.hasAgree = z5;
+                    this.v.agreeNum = optInt;
+                }
+                this.w = jSONObject.optJSONArray(TiebaStatic.Params.POST_CONTENT);
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
+                if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
+                    this.a = optJSONObject.optString("id");
+                    this.b = optJSONObject.optString("url");
+                    this.d = optJSONObject.optString("pid");
+                    this.e = optJSONObject.optInt("width", 0);
+                    this.f = optJSONObject.optInt("height", 0);
+                    this.c = optJSONObject.optString("big_cdn_src", null);
+                    this.g = optJSONObject.optString("original_src");
+                    this.h = optJSONObject.optInt("size");
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
+                if (optJSONObject4 != null) {
+                    this.i = optJSONObject4.optInt("pic_type", 0);
+                    this.j = optJSONObject4.optString(PushConstants.SUB_TAGS_STATUS_NAME);
+                }
+                this.x = FaceGroupInfoData.parserJson(jSONObject.optJSONObject("face_group_info"));
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

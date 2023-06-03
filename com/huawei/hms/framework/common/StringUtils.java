@@ -2,7 +2,6 @@ package com.huawei.hms.framework.common;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -213,7 +212,7 @@ public class StringUtils {
                 return bArr;
             }
             try {
-                return str.getBytes(IMAudioTransRequest.CHARSET);
+                return str.getBytes("utf-8");
             } catch (UnsupportedEncodingException unused) {
                 Logger.w(TAG, "the content has error while it is converted to bytes");
                 return bArr;

@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.rc6;
-import com.baidu.tieba.rn;
+import com.baidu.tieba.vg6;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,11 +17,11 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rn> mEffectList;
+    public List<vn> mEffectList;
     public int mEnterEffectCount;
     public String mNickName;
     public String mPortrait;
@@ -77,9 +77,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        rc6 rc6Var = new rc6();
-                        rc6Var.a(optJSONObject2);
-                        this.mEffectList.add(rc6Var);
+                        vg6 vg6Var = new vg6();
+                        vg6Var.a(optJSONObject2);
+                        this.mEffectList.add(vg6Var);
                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -97,7 +97,7 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public List<rn> getEffectList() {
+    public List<vn> getEffectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -1,78 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes4.dex */
-public abstract class an2<W extends dn2> {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class an2 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
+    /* loaded from: classes5.dex */
+    public class a implements rq3<bh3<dh3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ Context d;
 
-    @NonNull
-    public abstract String b();
-
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620868, "Lcom/baidu/tieba/an2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(an2 an2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {an2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620868, "Lcom/baidu/tieba/an2;");
-                return;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = jSONObject;
+            this.d = context;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(bh3<dh3.e> bh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
+                if (!wg3.h(bh3Var)) {
+                    wg3.p(bh3Var, this.a, this.b);
+                    return;
+                }
+                if (mm2.b(this.c.optInt("emitReplaceDynamicLib"))) {
+                    if (om2.n().isEmpty()) {
+                        Context context = this.d;
+                        if (context == null) {
+                            context = fv2.c();
+                        }
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f016c);
+                        qb3.g(context, string).G();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        return;
+                    }
+                    om2.p();
+                } else {
+                    om2.f();
+                }
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
+                x73.Z();
             }
         }
-        a = qp1.a;
     }
 
-    public an2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an2(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && a) {
-            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = str3 + "\t【" + str2 + "】";
-            }
-            if (z) {
-                g62.i("【InlineCommand】", str3);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                y82.c("setReplaceDynamicLibConfig", "'params' is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!a2.has("emitReplaceDynamicLib")) {
+                y82.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             } else {
-                Log.v("【InlineCommand】", str3);
+                yb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface mq5<T> {
-    void a(int i, byte[] bArr) throws Exception;
+public interface mq5 extends kq5 {
+    boolean H(String str);
 
-    int getErrorCode();
-
-    String getErrorMsg();
-
-    gq5 getPageInfo();
+    String t();
 }

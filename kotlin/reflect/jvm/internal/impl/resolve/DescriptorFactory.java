@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.resolve;
 
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.Collections;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
@@ -59,7 +58,7 @@ public class DescriptorFactory {
                 objArr[0] = "sourceElement";
                 break;
             case 10:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 12:
             case 23:

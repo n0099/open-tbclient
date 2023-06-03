@@ -1,104 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class sq6 {
+public final class sq6 implements k87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final sq6 a;
-    public static final Pools.SimplePool<RectF> b;
-    public static final Pools.SimplePool<PointF> c;
-    public static final Pools.SimplePool<lo6> d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160113, "Lcom/baidu/tieba/sq6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160113, "Lcom/baidu/tieba/sq6;");
-                return;
-            }
-        }
-        a = new sq6();
-        b = new Pools.SimplePool<>(200);
-        c = new Pools.SimplePool<>(200);
-        d = new Pools.SimplePool<>(1000);
+    @Override // com.baidu.tieba.k87
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13693" : (String) invokeV.objValue;
     }
 
     public sq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final PointF b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k87
+    public Map<String, String> a(w47 businessInfo) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF acquire = c.acquire();
-            if (acquire == null) {
-                return new PointF();
-            }
-            return acquire;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final RectF c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF acquire = b.acquire();
-            if (acquire == null) {
-                return new RectF();
-            }
-            return acquire;
-        }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final lo6 a(mo6 data, DanmakuPlayer player) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(player, "player");
-            lo6 acquire = d.acquire();
-            if (acquire != null) {
-                acquire.l(data);
-                acquire.q(player.m().w());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", "2");
+            if (tg.e(a.get("is_video_work"), 0) == 1) {
+                str = "1";
             } else {
-                acquire = null;
+                str = "0";
             }
-            if (acquire == null) {
-                return new lo6(data, player);
-            }
-            return acquire;
+            hashMap.put("obj_source", str);
+            return hashMap;
         }
-        return (lo6) invokeLL.objValue;
+        return (Map) invokeL.objValue;
     }
 }

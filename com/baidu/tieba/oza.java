@@ -1,307 +1,203 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.content.pm.SigningInfo;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.VisibleForTesting;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.sza;
+import com.baidu.tieba.uza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.UUID;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
-public class oza {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class oza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public qza d;
+    public final Set<Ssp> e;
+    public final Set<uza> f;
+    public final Set<sza> g;
 
-    public static String f(byte[] bArr) {
-        InterceptResult invokeL;
+    public oza() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
     }
 
-    public static byte[] h(String str) {
+    public boolean b(String str) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return new byte[0];
+                return false;
             }
-            String upperCase = str.toUpperCase(Locale.ENGLISH);
-            int length = upperCase.length() / 2;
-            byte[] bArr = new byte[length];
             try {
-                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
-                for (int i2 = 0; i2 < length; i2++) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("0x");
-                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
-                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
                 }
-            } catch (NumberFormatException e) {
-                String str2 = "hex string 2 byte array exception : " + e.getMessage();
+            } catch (JSONException e) {
+                LogPrinter.e(e);
             }
-            return bArr;
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            return false;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static byte[] i(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
-            if (bArr == null) {
-                return bArr;
-            }
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (i < 0) {
-                    bArr[i2] = (byte) (bArr[i2] << (-i));
-                } else {
-                    bArr[i2] = (byte) (bArr[i2] >> i);
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static byte[] j(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr != null) {
-                int length = bArr.length;
-                if (length != bArr2.length) {
-                    return null;
-                }
-                bArr3 = new byte[length];
-                for (int i = 0; i < length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static RequestHeader a() throws ApiException {
+    @VisibleForTesting
+    public boolean d() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = vza.e.a();
-            String str2 = null;
-            try {
-                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
-                if (obj != null) {
-                    str2 = String.valueOf(obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.e) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
                 }
-            } catch (PackageManager.NameNotFoundException e) {
-                qza.b("ConfigUtils", "getPushAppId", e);
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
+                }
             }
-            if (!TextUtils.isEmpty(str2)) {
-                String str3 = "checkPushAppId Parameter is " + str2;
-                String e2 = e(a, a.getPackageName());
-                if (!TextUtils.isEmpty(e2)) {
-                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
-                    RequestHeader requestHeader = new RequestHeader();
-                    requestHeader.setPackageName(a.getPackageName());
-                    requestHeader.setAppId(str2);
-                    requestHeader.setCertificateFingerprint(e2);
-                    tza tzaVar = tza.b;
-                    requestHeader.setPushToken(tzaVar.c(a));
-                    synchronized (tzaVar) {
-                        tzaVar.a(a);
-                        SharedPreferences sharedPreferences = tza.a.a;
-                        if (sharedPreferences != null) {
-                            str = sharedPreferences.getString("key_aaid", "");
+            HashSet hashSet3 = new HashSet();
+            for (uza uzaVar : this.f) {
+                if (hashSet3.contains(uzaVar.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", uzaVar.a);
+                    return false;
+                }
+                hashSet3.add(uzaVar.a);
+                for (uza.c cVar : uzaVar.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (uza.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), uzaVar.a);
+                            return false;
                         } else {
-                            str = "";
-                        }
-                        if (TextUtils.isEmpty(str)) {
-                            str = UUID.randomUUID().toString().replace("-", "");
-                            String str5 = "getRandomUUID UUID =" + str;
-                            tza.a.b("key_aaid", str);
+                            hashSet4.add(Long.valueOf(bVar.a));
                         }
                     }
-                    requestHeader.setAAID(str);
-                    requestHeader.setSdkVersion(70001103);
-                    return requestHeader;
                 }
-                qza.a("checkPushConfig Parameter is missing.");
-                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
             }
-            qza.a("checkPushConfig Parameter is missing");
-            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
-        }
-        return (RequestHeader) invokeV.objValue;
-    }
-
-    public static ApiException b(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
-            if (exc.getCause() instanceof ApiException) {
-                return (ApiException) exc.getCause();
-            }
-            if (exc instanceof ApiException) {
-                return (ApiException) exc;
-            }
-            return new ApiException(-1, exc.getMessage());
-        }
-        return (ApiException) invokeL.objValue;
-    }
-
-    public static <TResult> h0b<TResult> c(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
-            ExecutorService executorService = a1b.c.b;
-            z0b z0bVar = new z0b();
-            try {
-                executorService.execute(new e0b(z0bVar, callable));
-            } catch (Exception e) {
-                z0bVar.a(e);
-            }
-            return z0bVar.a;
-        }
-        return (h0b) invokeL.objValue;
-    }
-
-    public static void g(Handler handler) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
-            return;
-        }
-        throw new IllegalStateException("Must be called on the handler thread");
-    }
-
-    public static <TResult> TResult d(h0b<TResult> h0bVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, h0bVar)) == null) {
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                synchronized (h0bVar.a) {
-                    z = h0bVar.b;
-                }
-                if (z) {
-                    if (h0bVar.f()) {
-                        return h0bVar.d();
+            if (this.c == 2) {
+                for (sza szaVar : this.g) {
+                    if (hashSet3.contains(szaVar.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", szaVar.a);
+                        return false;
                     }
-                    throw new ExecutionException(h0bVar.c());
-                }
-                l0b l0bVar = new l0b();
-                a1b a1bVar = a1b.c;
-                h0bVar.a(new c0b(a1bVar.a, l0bVar));
-                h0bVar.a(new yza(a1bVar.a, l0bVar));
-                h0bVar.a(new pza(a1bVar.a, l0bVar));
-                l0bVar.a.await();
-                if (h0bVar.f()) {
-                    return h0bVar.d();
-                }
-                throw new ExecutionException(h0bVar.c());
-            }
-            throw new IllegalStateException("await must not be called on the UI thread");
-        }
-        return (TResult) invokeL.objValue;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Signature[] signatureArr;
-        String str2;
-        SigningInfo signingInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            if (Build.VERSION.SDK_INT >= 30) {
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 134217728);
-                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
-                    if (signingInfo.hasMultipleSigners()) {
-                        signatureArr = signingInfo.getApkContentsSigners();
-                    } else {
-                        signatureArr = signingInfo.getSigningCertificateHistory();
-                    }
-                }
-                signatureArr = null;
-            } else {
-                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
-                if (packageInfo2 != null) {
-                    signatureArr = packageInfo2.signatures;
-                }
-                signatureArr = null;
-            }
-            if (signatureArr != null && signatureArr.length > 0) {
-                int length = signatureArr.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    }
-                    try {
-                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
-                        StringBuilder sb = new StringBuilder();
-                        for (byte b : digest) {
-                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
-                            if (upperCase.length() == 1) {
-                                sb.append("0");
+                    hashSet3.add(szaVar.a);
+                    for (sza.b bVar2 : szaVar.b) {
+                        for (sza.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
                             }
-                            sb.append(upperCase);
                         }
-                        str2 = sb.toString();
-                    } catch (NoSuchAlgorithmException unused) {
-                        str2 = null;
                     }
-                    if (str2 != null) {
-                        arrayList.add(str2);
-                        break;
-                    }
-                    i++;
                 }
             }
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            return (String) arrayList.get(0);
+            return true;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void a() {
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            hza hzaVar = new hza(this.e, this.f, this.g);
+            qza qzaVar = this.d;
+            Object obj = xza.a;
+            String d = lza.d(hzaVar);
+            Object[] objArr = new Object[1];
+            if (d == null) {
+                length = -1;
+            } else {
+                length = d.length();
+            }
+            objArr[0] = Integer.valueOf(length);
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            xza.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", lza.d(qzaVar)).apply();
+        }
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.e.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.f.add(new uza(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.g.add(new sza(optJSONArray.getJSONObject(i3), hashMap));
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
+            if (optJSONObject != null) {
+                this.d = new qza(optJSONObject);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q06;
+import com.baidu.tieba.r46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,9 @@ public class BdMemberCenterListView extends BdTypeListView {
     public float Q;
     public float R;
     public final int S;
-    public final int T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public final int f1139T;
     public a U;
 
     /* loaded from: classes6.dex */
@@ -120,15 +122,15 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.ExpandListView);
-        this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r46.ExpandListView);
+        this.f1139T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
     public final void I(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.U.a(360.0f - ((f * 360.0f) / this.T));
+            this.U.a(360.0f - ((f * 360.0f) / this.f1139T));
         }
     }
 
@@ -185,7 +187,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         } else {
             height = view2.getHeight();
         }
-        if (height >= this.O.b - (this.T / 2)) {
+        if (height >= this.O.b - (this.f1139T / 2)) {
             J();
         } else {
             this.U.b();
@@ -269,7 +271,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
                 this.M = this.N;
                 this.Q = this.R;
-                this.O = new b(0, height, 0, this.T + height);
+                this.O = new b(0, height, 0, this.f1139T + height);
             }
             return super.dispatchTouchEvent(motionEvent);
         }

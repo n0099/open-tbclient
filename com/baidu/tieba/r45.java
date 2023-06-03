@@ -1,41 +1,54 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.BirthdayInfo;
 /* loaded from: classes7.dex */
 public class r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
+    public r45() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65536, null, fontMetricsInt, i) != null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
     }
 
-    public static boolean b(CharSequence charSequence) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (!(charSequence instanceof Spanned)) {
-                return false;
-            }
-            Spanned spanned = (Spanned) charSequence;
-            if (((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length <= 0) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = jSONObject.optLong("birthday_time", 0L);
+        this.d = jSONObject.optInt("birthday_show_status", 0);
+        this.b = jSONObject.optString("constellation", "");
+        this.c = jSONObject.optInt("age", 0);
+    }
+
+    public void b(BirthdayInfo birthdayInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) != null) || birthdayInfo == null) {
+            return;
+        }
+        this.a = birthdayInfo.birthday_time.longValue();
+        this.d = birthdayInfo.birthday_show_status.intValue();
+        this.b = birthdayInfo.constellation;
+        this.c = birthdayInfo.age.intValue();
     }
 }

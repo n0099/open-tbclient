@@ -1,80 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class g42 extends d42 {
+public class g42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public int a;
+    public JsObject b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g42(String str) {
-        super(str);
-        String[] split;
+    public g42(int i, JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Integer.valueOf(i), jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = "sans-serif";
-        this.m = xm3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString != null && optString.length() > 0) {
-                for (String str2 : optString.split(" ")) {
-                    if (str2.contains("italic")) {
-                        this.o = true;
-                    } else if (str2.contains("oblique")) {
-                        this.o = true;
-                    } else if (str2.contains("bold")) {
-                        this.n = true;
-                    } else if (!str2.contains("normal")) {
-                        if (Character.isDigit(str2.charAt(0))) {
-                            int length = str2.length();
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= str2.length()) {
-                                    break;
-                                } else if (!Character.isDigit(str2.charAt(i3))) {
-                                    length = i3;
-                                    break;
-                                } else {
-                                    i3++;
-                                }
-                            }
-                            this.m = xm3.g(Float.parseFloat(str2.substring(0, length)));
-                        } else {
-                            this.l = str2;
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            if (qp1.a) {
-                e.printStackTrace();
-            }
-        }
+        this.a = i;
+        this.b = jsObject;
     }
 }

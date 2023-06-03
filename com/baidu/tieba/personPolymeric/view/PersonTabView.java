@@ -63,9 +63,9 @@ public class PersonTabView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09164d) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09166f) {
                     this.a.setCurrentTab(0);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091de7) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e15) {
                     this.a.setCurrentTab(1);
                 }
                 if (this.a.k != null) {
@@ -104,17 +104,17 @@ public class PersonTabView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077d, this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09164d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078c, this);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09166f);
             this.b = textView;
             textView.setOnClickListener(this.l);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091de7);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091e15);
             this.c = textView2;
             textView2.setOnClickListener(this.l);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09164e);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091de9);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09164c);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091de8);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091670);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091e17);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09166e);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091e16);
             setCurrentTab(0);
         }
     }

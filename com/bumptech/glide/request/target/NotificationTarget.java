@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NotificationTarget extends CustomTarget<Bitmap> {
     public final Context context;
     public final Notification notification;

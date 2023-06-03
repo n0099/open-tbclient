@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u84 extends p34 {
+/* loaded from: classes8.dex */
+public class u84 implements l94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errNo;
 
     public u84() {
         Interceptable interceptable = $ic;
@@ -24,5 +23,33 @@ public class u84 extends p34 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.l94
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null && bArr != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 76158) {
+                    if (hashCode == 1952093519 && str.equals("BASE64")) {
+                        c = 1;
+                    }
+                } else if (str.equals("MD5")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    return Base64.encode(bArr, 2);
+                }
+                return es4.d(bArr, false).getBytes();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

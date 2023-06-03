@@ -3,7 +3,7 @@ package com.tencent.mm.opensdk.diffdev.a;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
@@ -39,8 +39,8 @@ public final class d extends AsyncTask<Void, Void, a> {
             } else {
                 try {
                     try {
-                        JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
-                        int i = jSONObject.getInt("errcode");
+                        JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
+                        int i = jSONObject.getInt(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE);
                         if (i != 0) {
                             Log.e("MicroMsg.SDK.GetQRCodeResult", String.format("resp errcode = %d", Integer.valueOf(i)));
                             aVar.m = OAuthErrCode.WechatAuth_Err_NormalErr;

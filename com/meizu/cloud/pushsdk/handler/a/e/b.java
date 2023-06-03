@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

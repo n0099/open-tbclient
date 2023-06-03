@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
-import com.baidu.tieba.dg0;
+import com.baidu.tieba.mh0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -17,7 +17,7 @@ public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
         public static final int TEXTURE_MODE_EXT = 0;
     }
 
-    void onDrawFrame(dg0 dg0Var, int i, float[] fArr);
+    void onDrawFrame(mh0 mh0Var, int i, float[] fArr);
 
     void onGLLocation(GLViewPortLocation gLViewPortLocation);
 

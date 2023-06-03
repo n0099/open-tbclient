@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public int mBorderColor;
     public final Path mBorderPath;
@@ -37,14 +37,14 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     @VisibleForTesting
     public Type mType;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Type {
         OVERLAY_COLOR,
         CLIPPING
     }
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
 

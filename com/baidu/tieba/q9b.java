@@ -1,24 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class q9b<T> extends o7b<T> {
+public final class q9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w7b<? super T> e;
-    public final w7b<Throwable> f;
-    public final v7b g;
+    public String a;
+    public m9b b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<hab> e;
 
-    public q9b(w7b<? super T> w7bVar, w7b<Throwable> w7bVar2, v7b v7bVar) {
+    public q9b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w7bVar, w7bVar2, v7bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +35,24 @@ public final class q9b<T> extends o7b<T> {
                 return;
             }
         }
-        this.e = w7bVar;
-        this.f = w7bVar2;
-        this.g = v7bVar;
+        this.b = m9b.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.j7b
-    public void onCompleted() {
+    public p9b a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.call();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new x9b(context, this.a, this.b, this.c, this.d, this.e, null) : (p9b) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.j7b
-    public void onError(Throwable th) {
+    public q9b b(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f.call(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.call(t);
-        }
+        return (q9b) invokeL.objValue;
     }
 }

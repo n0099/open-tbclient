@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -149,7 +150,7 @@ public class TbDimenManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, application) == null) {
             this.mApplication = application;
-            Display defaultDisplay = ((WindowManager) application.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) application.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics);
             float f = displayMetrics.density;

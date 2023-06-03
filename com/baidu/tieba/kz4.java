@@ -1,18 +1,43 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.ForumBookInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class kz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public final List<String> a;
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kz4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-644672601, "Lcom/baidu/tieba/kz4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-644672601, "Lcom/baidu/tieba/kz4$a;");
+                    return;
+                }
+            }
+            a = new kz4();
+        }
+    }
 
     public kz4() {
         Interceptable interceptable = $ic;
@@ -24,47 +49,44 @@ public class kz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public String a() {
+    public static kz4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (String) invokeV.objValue;
+        return (kz4) invokeV.objValue;
     }
 
-    public int b() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public void c(ForumBookInfo forumBookInfo) {
+    public void d(List<String> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a.clear();
+            if (list != null && !list.isEmpty()) {
+                this.a.addAll(list);
+            }
         }
-        this.a = forumBookInfo.book_id;
-        this.b = forumBookInfo.book_type.intValue();
-        String str = forumBookInfo.book_title;
-        String str2 = forumBookInfo.book_cover;
-        String str3 = forumBookInfo.author;
-        String str4 = forumBookInfo.forum_pic;
-        String str5 = forumBookInfo.show_chapter_id;
-        String str6 = forumBookInfo.show_chapter_no;
-        String str7 = forumBookInfo.show_chapter_title;
-        forumBookInfo.history_page_id.longValue();
-        forumBookInfo.history_paragraph_id.longValue();
-        forumBookInfo.history_word_id.longValue();
-        forumBookInfo.history_percent.longValue();
-        forumBookInfo.show_page_id.longValue();
-        forumBookInfo.show_paragraph_id.longValue();
     }
 }

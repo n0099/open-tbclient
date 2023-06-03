@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LiveGroupInfo extends Message {
     public static final String DEFAULT_AUTHORNAME = "";
     public static final String DEFAULT_BACKGROUND = "";
@@ -101,7 +101,7 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_ISVIP = 0;
     public static final List<Photo> DEFAULT_BACKGROUNDS = Collections.emptyList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<LiveGroupInfo> {
         public Long authorId;
         public String authorName;

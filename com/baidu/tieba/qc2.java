@@ -1,84 +1,153 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pi4;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class qc2 extends o93 implements uc2 {
+public final class qc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final sc2 a;
+    public long b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qc2(f93 f93Var) {
-        super(f93Var);
+    public qc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 0L;
+        this.a = new sc2();
     }
 
-    public static final Map<String, String> I(Bundle bundle) {
-        InterceptResult invokeL;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
-            HashMap hashMap = new HashMap();
-            if (bundle != null && !bundle.isEmpty()) {
-                for (String str : bundle.keySet()) {
-                    hashMap.put(str, bundle.getString(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.g().size() >= 2.0d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a.i() > 2 && System.currentTimeMillis() - this.b >= 3000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.b();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = System.currentTimeMillis();
+        }
+    }
+
+    public void a(oc2 oc2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oc2Var) == null) {
+            this.a.a(oc2Var);
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int size = this.a.d().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<oc2> d = this.a.d();
+            if (d.size() <= 0) {
+                return false;
+            }
+            for (oc2 oc2Var : d) {
+                if (ih2.k().i(oc2Var.f)) {
+                    return true;
                 }
             }
-            return hashMap;
+            return false;
         }
-        return (Map) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final Bundle J(Map<String, String> map) {
-        InterceptResult invokeL;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.a.f().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
             }
-            return bundle;
+            return true;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pi4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, pi4.a aVar) {
+    public rc2 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            ns2.r0().b(str, map, map2, jSONObject, aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            rc2 rc2Var = new rc2();
+            rc2Var.i(this.b);
+            rc2Var.h(this.a.d());
+            rc2Var.k(this.a.g());
+            rc2Var.l(this.a.i());
+            if (c()) {
+                rc2Var.j(RequestStatus.STATUS_CORE_FAILED);
+            } else if (e()) {
+                rc2Var.j(RequestStatus.STATUS_UNKNOWN);
+            } else if (f()) {
+                rc2Var.j(RequestStatus.STATUS_SERVER_FAILED);
+            } else if (b()) {
+                rc2Var.j(RequestStatus.STATUS_FAILED);
+            } else if (d()) {
+                rc2Var.j(RequestStatus.STATUS_SLOW);
+            } else {
+                rc2Var.j(RequestStatus.STATUS_SUCCESS);
+            }
+            return rc2Var;
         }
-    }
-
-    @Override // com.baidu.tieba.pi4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, pi4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            ns2.r0().z(str, map, map2, aVar);
-        }
+        return (rc2) invokeV.objValue;
     }
 }

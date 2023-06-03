@@ -7,8 +7,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.jy4;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.f15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes5.dex */
-public class SpecialColumnListData extends jy4 implements Parcelable {
+/* loaded from: classes6.dex */
+public class SpecialColumnListData extends f15 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -41,17 +41,17 @@ public class SpecialColumnListData extends jy4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jy4
-    public h05 getNegFeedBackData() {
+    @Override // com.baidu.tieba.f15
+    public e35 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (h05) invokeV.objValue;
+        return (e35) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jy4
+    @Override // com.baidu.tieba.f15
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class SpecialColumnListData extends jy4 implements Parcelable {
         return (ThreadData) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<SpecialColumnListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class SpecialColumnListData extends jy4 implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

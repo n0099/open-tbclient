@@ -33,23 +33,23 @@ public final class aw implements Runnable {
         String str;
         String c;
         String c2;
-        com.xiaomi.channel.commonutils.logger.b.m120a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m175a("do sync info");
         ig igVar = new ig(bd.a(), false);
-        b m164a = b.m164a(this.a);
+        b m219a = b.m219a(this.a);
         igVar.c(hr.SyncInfo.f508a);
-        igVar.b(m164a.m165a());
+        igVar.b(m219a.m220a());
         igVar.d(this.a.getPackageName());
         HashMap hashMap = new HashMap();
         igVar.f650a = hashMap;
         Context context = this.a;
-        com.xiaomi.push.k.a(hashMap, "app_version", com.xiaomi.push.g.m455a(context, context.getPackageName()));
+        com.xiaomi.push.k.a(hashMap, "app_version", com.xiaomi.push.g.m510a(context, context.getPackageName()));
         Map<String, String> map2 = igVar.f650a;
         Context context2 = this.a;
         com.xiaomi.push.k.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(context2, context2.getPackageName())));
         com.xiaomi.push.k.a(igVar.f650a, "push_sdk_vn", BuildConfig.VERSION_NAME);
         com.xiaomi.push.k.a(igVar.f650a, "push_sdk_vc", Integer.toString(50005));
-        com.xiaomi.push.k.a(igVar.f650a, "token", m164a.b());
-        if (!com.xiaomi.push.j.m656d()) {
+        com.xiaomi.push.k.a(igVar.f650a, "token", m219a.b());
+        if (!com.xiaomi.push.j.m711d()) {
             String a = bo.a(com.xiaomi.push.i.c(this.a));
             String e = com.xiaomi.push.i.e(this.a);
             if (!TextUtils.isEmpty(e)) {
@@ -60,8 +60,8 @@ public final class aw implements Runnable {
             }
         }
         az.a(this.a).a(igVar.f650a);
-        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_ID, m164a.m172c());
-        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_SECRET, m164a.d());
+        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_ID, m219a.m227c());
+        com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_REG_SECRET, m219a.d());
         com.xiaomi.push.k.a(igVar.f650a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
         if (this.f69a) {
             Map<String, String> map3 = igVar.f650a;

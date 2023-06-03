@@ -16,7 +16,7 @@ import com.facebook.fresco.ui.common.DimensionsInfo;
 import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public static final String TAG = "ImagePerfControllerListener2";
     public static final int WHAT_STATUS = 1;
@@ -28,7 +28,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageI
     public final ImagePerfNotifier mImagePerfNotifier;
     public final ImagePerfState mImagePerfState;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LogHandler extends Handler {
         public final ImagePerfNotifier mNotifier;
 
@@ -128,7 +128,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageI
     @Override // com.facebook.fresco.ui.common.BaseControllerListener2, com.facebook.fresco.ui.common.ControllerListener2
     public void onFinalImageSet(String str, @Nullable ImageInfo imageInfo, @Nullable ControllerListener2.Extras extras) {
         long now = this.mClock.now();
-        extras.f1068view.size();
+        extras.f1204view.size();
         this.mImagePerfState.setExtraData(extras);
         this.mImagePerfState.setControllerFinalImageSetTimeMs(now);
         this.mImagePerfState.setImageRequestEndTimeMs(now);

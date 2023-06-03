@@ -1,126 +1,189 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.jpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.SampleResult;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class a56 extends ActivityDelegation {
+public class a56 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
 
-    /* loaded from: classes4.dex */
-    public class a implements z46 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a56 a;
-
-        public a(a56 a56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 2) {
+                return PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK;
             }
-            this.a = a56Var;
+            return null;
         }
-
-        @Override // com.baidu.tieba.z46
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.a.mResult.putString("params", bundle.getString("result_msg"));
-                this.a.finish();
-            }
-        }
+        return (String) invokeI.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566215, "Lcom/baidu/tieba/a56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return "key_card_show_type";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947566215, "Lcom/baidu/tieba/a56;");
-                return;
+            if (i == 2) {
+                return "key_card_abstract_switch";
             }
+            return null;
         }
-        a = qp1.a;
+        return (String) invokeI.objValue;
     }
 
     public a56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        i();
     }
 
-    public static Bundle d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("order_info", str);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mParams.isEmpty()) {
-                if (a) {
-                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = l95.m().n("key_abtest_channel", 0);
+            j();
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
+            boolean h = h();
+            this.b = h;
+            if (!h) {
+                this.a = 0;
+            }
+        }
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return d(i);
+            }
+            int i2 = this.a;
+            if (i2 == 1) {
+                return c(i);
+            }
+            if (i2 == 0) {
+                return d(i);
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            String f = f(i);
+            if (ui.isEmpty(f) || l95.m().n(f, 0) != 1) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i != 1 && i != 0) {
+                return;
+            }
+            this.a = i;
+            l95.m().z("key_abtest_channel", this.a);
+            j();
+        }
+    }
+
+    public void b(ArrayList<Integer> arrayList, z46 z46Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, z46Var) == null) && arrayList != null && z46Var != null) {
+            Iterator<Integer> it = arrayList.iterator();
+            while (it.hasNext()) {
+                int intValue = it.next().intValue();
+                z46Var.b(intValue, a(intValue));
+            }
+        }
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            String e = e(i);
+            if (ui.isEmpty(e)) {
+                return 0;
+            }
+            SampleResult a = ipa.a(e);
+            if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return false;
             }
-            if (a) {
-                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            }
-            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!zn5.c().d()) {
-                ri.P(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
-                return false;
-            } else if (!(getAgent() instanceof Activity)) {
-                return false;
-            } else {
-                w46 w46Var = new w46();
-                w46Var.mParams.putInt("type", 1);
-                w46Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
-                w46Var.d(getAgent());
-                w46Var.e(new a(this));
-                w46Var.onExec();
+            try {
+                jpa.a aVar = new jpa.a();
+                aVar.e(TbadkCoreApplication.getInst());
+                aVar.j(false);
+                aVar.n(30L);
+                aVar.m(1);
+                aVar.l(false);
+                aVar.o(15L);
+                aVar.k(1000);
+                ipa.b(aVar.c());
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }

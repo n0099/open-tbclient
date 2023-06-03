@@ -6,7 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.runtime.internal.AroundClosure;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JoinPointImpl implements ProceedingJoinPoint {
     public Object _this;
     public AroundClosure arc;
@@ -14,14 +14,14 @@ public class JoinPointImpl implements ProceedingJoinPoint {
     public JoinPoint.StaticPart staticPart;
     public Object target;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class EnclosingStaticPartImpl extends StaticPartImpl implements JoinPoint.EnclosingStaticPart {
         public EnclosingStaticPartImpl(int i, String str, Signature signature, SourceLocation sourceLocation) {
             super(i, str, signature, sourceLocation);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class StaticPartImpl implements JoinPoint.StaticPart {
         public int id;
         public String kind;

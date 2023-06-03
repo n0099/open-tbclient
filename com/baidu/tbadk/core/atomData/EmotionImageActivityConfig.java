@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +36,7 @@ public class EmotionImageActivityConfig extends IntentConfig {
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("pid", str);
         intent.putExtra("panme", str2);
-        intent.putExtra("iconUrl", str3);
+        intent.putExtra(GameAssistConstKt.KEY_ICONURL, str3);
         intent.putExtra("gifUrl", str5);
         intent.putExtra("staticUrl", str4);
         intent.putExtra("sharpText", str6);

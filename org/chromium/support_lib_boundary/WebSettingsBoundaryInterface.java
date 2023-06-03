@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface WebSettingsBoundaryInterface {
     int getDisabledActionModeMenuItems();
 

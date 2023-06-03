@@ -29,63 +29,42 @@ public class r2 implements Runnable {
         this.a = circleProgressbar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0050  */
     @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void run() {
-        CircleProgressbar circleProgressbar;
-        int i;
-        int i2;
-        int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.removeCallbacks(this);
             int ordinal = this.a.i.ordinal();
             if (ordinal != 0) {
                 if (ordinal == 1) {
-                    circleProgressbar = this.a;
-                    i = circleProgressbar.h - 1;
+                    this.a.h--;
                 }
+            } else {
+                this.a.h++;
+            }
+            CircleProgressbar circleProgressbar = this.a;
+            int i = circleProgressbar.h;
+            int i2 = 100;
+            if (i >= 0 && i <= 100) {
+                y yVar = circleProgressbar.l;
+                if (yVar != null) {
+                    yVar.a(circleProgressbar.m, i);
+                }
+                this.a.invalidate();
                 CircleProgressbar circleProgressbar2 = this.a;
-                i2 = circleProgressbar2.h;
-                i3 = 100;
-                if (i2 < 0 && i2 <= 100) {
-                    y yVar = circleProgressbar2.l;
-                    if (yVar != null) {
-                        yVar.a(circleProgressbar2.m, i2);
-                    }
-                    this.a.invalidate();
-                    CircleProgressbar circleProgressbar3 = this.a;
-                    circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.j / 100);
-                    return;
+                circleProgressbar2.postDelayed(circleProgressbar2.n, circleProgressbar2.j / 100);
+                return;
+            }
+            CircleProgressbar circleProgressbar3 = this.a;
+            int i3 = circleProgressbar3.h;
+            if (i3 <= 100) {
+                if (i3 < 0) {
+                    i2 = 0;
+                } else {
+                    i2 = i3;
                 }
-                CircleProgressbar circleProgressbar4 = this.a;
-                i4 = circleProgressbar4.h;
-                if (i4 <= 100) {
-                    if (i4 < 0) {
-                        i3 = 0;
-                    } else {
-                        i3 = i4;
-                    }
-                }
-                circleProgressbar4.h = i3;
             }
-            circleProgressbar = this.a;
-            i = circleProgressbar.h + 1;
-            circleProgressbar.h = i;
-            CircleProgressbar circleProgressbar22 = this.a;
-            i2 = circleProgressbar22.h;
-            i3 = 100;
-            if (i2 < 0) {
-            }
-            CircleProgressbar circleProgressbar42 = this.a;
-            i4 = circleProgressbar42.h;
-            if (i4 <= 100) {
-            }
-            circleProgressbar42.h = i3;
+            circleProgressbar3.h = i2;
         }
     }
 }

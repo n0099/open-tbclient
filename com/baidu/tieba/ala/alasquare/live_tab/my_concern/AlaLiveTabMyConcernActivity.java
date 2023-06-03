@@ -16,35 +16,35 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.g76;
-import com.baidu.tieba.j76;
-import com.baidu.tieba.l76;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.si5;
+import com.baidu.tieba.kb6;
+import com.baidu.tieba.nb6;
+import com.baidu.tieba.pb6;
+import com.baidu.tieba.um5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcernActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l76 a;
+    public pb6 a;
     public MyConcernTabModel b;
     public boolean c;
-    public si5 d;
+    public um5 d;
     public boolean e;
     public boolean f;
     public String g;
     public CustomMessageListener h;
-    public l76.f i;
+    public pb6.f i;
     public MyConcernTabModel.b j;
     public View.OnClickListener k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,12 +78,12 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) {
                 return;
             }
-            this.a.J1(g76.class);
+            this.a.J1(kb6.class);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements l76.f {
+    /* loaded from: classes5.dex */
+    public class b implements pb6.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaLiveTabMyConcernActivity a;
@@ -106,7 +106,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             this.a = alaLiveTabMyConcernActivity;
         }
 
-        @Override // com.baidu.tieba.l76.f
+        @Override // com.baidu.tieba.pb6.f
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -118,17 +118,17 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             }
         }
 
-        @Override // com.baidu.tieba.l76.f
+        @Override // com.baidu.tieba.pb6.f
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ri.F() && this.a.c && !this.a.e) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && vi.F() && this.a.c && !this.a.e) {
                 this.a.e = true;
                 this.a.b.Z();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements MyConcernTabModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.b
-        public void a(List<rn> list, boolean z, boolean z2) {
+        public void a(List<vn> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) {
                 return;
@@ -185,7 +185,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,9 +249,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (myConcernTabModel != null) {
                 myConcernTabModel.c0(cls);
             }
-            l76 l76Var = this.a;
-            if (l76Var != null) {
-                l76Var.o(cls);
+            pb6 pb6Var = this.a;
+            if (pb6Var != null) {
+                pb6Var.o(cls);
             }
         }
     }
@@ -268,18 +268,18 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            l76 l76Var = this.a;
-            if (l76Var != null) {
-                l76Var.l(i);
+            pb6 pb6Var = this.a;
+            if (pb6Var != null) {
+                pb6Var.l(i);
             }
         }
     }
 
     public final void L1() {
-        si5 si5Var;
+        um5 um5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (si5Var = this.d) != null) {
-            si5Var.dettachView(this.a.f());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (um5Var = this.d) != null) {
+            um5Var.dettachView(this.a.f());
         }
     }
 
@@ -292,7 +292,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.h9
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, com.baidu.tieba.l9
     public TbPageContext<AlaLiveTabMyConcernActivity> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -317,9 +317,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
             this.e = false;
-            l76 l76Var = this.a;
-            if (l76Var != null) {
-                l76Var.q(false);
+            pb6 pb6Var = this.a;
+            if (pb6Var != null) {
+                pb6Var.q(false);
             }
         }
     }
@@ -329,8 +329,8 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (!this.f && j76.a(getPageContext())) {
-                J1(g76.class);
+            if (!this.f && nb6.a(getPageContext())) {
+                J1(kb6.class);
             }
         }
     }
@@ -339,9 +339,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, str, onClickListener) == null) {
             if (this.d == null) {
-                si5 si5Var = new si5(getPageContext().getPageActivity(), onClickListener);
-                this.d = si5Var;
-                si5Var.g(null);
+                um5 um5Var = new um5(getPageContext().getPageActivity(), onClickListener);
+                this.d = um5Var;
+                um5Var.g(null);
                 this.d.p();
                 this.d.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -357,9 +357,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            l76 l76Var = new l76(getPageContext(), this.g);
-            this.a = l76Var;
-            l76Var.r(this.i);
+            pb6 pb6Var = new pb6(getPageContext(), this.g);
+            this.a = pb6Var;
+            pb6Var.r(this.i);
             setContentView(this.a.h());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -374,13 +374,13 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (myConcernTabModel != null) {
                 myConcernTabModel.onDestroy();
             }
-            l76 l76Var = this.a;
-            if (l76Var != null && l76Var.g() != null) {
+            pb6 pb6Var = this.a;
+            if (pb6Var != null && pb6Var.g() != null) {
                 hideLoadingView(this.a.g());
             }
-            l76 l76Var2 = this.a;
-            if (l76Var2 != null) {
-                l76Var2.m();
+            pb6 pb6Var2 = this.a;
+            if (pb6Var2 != null) {
+                pb6Var2.m();
             }
         }
     }
@@ -398,14 +398,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
                 this.g = getIntent().getStringExtra(AlaLiveTabMyConcernActivityConfig.ALA_LIVE_SOURCE);
             }
             initView();
-            this.f = j76.a(getPageContext());
+            this.f = nb6.a(getPageContext());
             MyConcernTabModel myConcernTabModel = new MyConcernTabModel(getPageContext());
             this.b = myConcernTabModel;
             myConcernTabModel.d0(this.j);
-            if (!ri.F()) {
+            if (!vi.F()) {
                 N1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.k);
             } else {
-                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b2));
+                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703bd));
                 M1();
             }
             registerListener(this.h);

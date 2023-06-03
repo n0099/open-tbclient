@@ -10,9 +10,8 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,10 +52,10 @@ public class AddThreadRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ss5.c(builder, true, true, true);
+            uw5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
-            builder.tbs = this.requestData.get(HttpRequest.TBS);
+            builder.tbs = this.requestData.get("tbs");
             builder.video_other = this.requestData.get("video_other");
             builder.anonymous = this.requestData.get("anonymous");
             builder.can_no_forum = this.requestData.get("can_no_forum");
@@ -132,8 +131,8 @@ public class AddThreadRequest extends NetMessage {
             builder.is_article = this.requestData.get(WriteActivityConfig.IS_ARTICLE);
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_xiuxiu_thread = Integer.valueOf(pg.e(this.requestData.get("is_xiuxiu_thread"), 0));
-            builder.is_show_bless = Integer.valueOf(pg.e(this.requestData.get("is_show_bless"), 0));
+            builder.is_xiuxiu_thread = Integer.valueOf(tg.e(this.requestData.get("is_xiuxiu_thread"), 0));
+            builder.is_show_bless = Integer.valueOf(tg.e(this.requestData.get("is_show_bless"), 0));
             if (!TextUtils.isEmpty(this.requestData.get("is_question"))) {
                 try {
                     builder.is_question = Integer.valueOf(Integer.parseInt(this.requestData.get("is_question")));

@@ -2,8 +2,8 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.dl5;
-import com.baidu.tieba.o65;
+import com.baidu.tieba.fp5;
+import com.baidu.tieba.l95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.df
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class DisableZanSwitch extends BaseNormalSwitch {
 
     public static boolean getIsOn() {
         InterceptResult invokeV;
-        int c;
+        int d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
-                mCachedSwitchValue = o65.m().n(KEY_SWITCH, 0);
-                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = dl5.c(KEY_SWITCH, -1)) >= 0) {
-                    mCachedSwitchValue = c;
-                    o65.m().z(KEY_SWITCH, c);
+                mCachedSwitchValue = l95.m().n(KEY_SWITCH, 0);
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (d = fp5.d(KEY_SWITCH, -1)) >= 0) {
+                    mCachedSwitchValue = d;
+                    l95.m().z(KEY_SWITCH, d);
                 }
             }
             if (mCachedSwitchValue != 1) {
@@ -83,8 +83,8 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
-            o65.m().z(KEY_SWITCH, i);
-            dl5.i(KEY_SWITCH, i);
+            l95.m().z(KEY_SWITCH, i);
+            fp5.l(KEY_SWITCH, i);
         }
     }
 }

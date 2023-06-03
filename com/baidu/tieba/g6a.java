@@ -1,67 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.bean.LocalAlbumInfo;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class g6a {
+public final class g6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalAlbumInfo a;
-    public boolean b;
-    public int c;
 
-    public g6a() {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String packageName = s6a.d().getPackageName();
+            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
+            return packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public static final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            Intent launchIntentForPackage = s6a.d().getPackageManager().getLaunchIntentForPackage(s6a.d().getPackageName());
+            if (launchIntentForPackage != null) {
+                launchIntentForPackage.addFlags(335577088);
             }
-        }
-        this.c = -1;
-    }
-
-    public LocalAlbumInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (LocalAlbumInfo) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+            if (launchIntentForPackage != null) {
+                int h = s6a.h();
+                s6a.d().startActivity(launchIntentForPackage);
+                if (z && h > 0) {
+                    Process.killProcess(h);
+                    System.exit(0);
+                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+                }
+            }
         }
     }
 }

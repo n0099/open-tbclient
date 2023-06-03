@@ -6,8 +6,9 @@ import android.media.AudioManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class j {
     public static String cb(Context context) {
         try {
@@ -32,7 +33,7 @@ public final class j {
         }
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return (int) (displayMetrics.widthPixels / displayMetrics.density);
         } catch (Exception unused) {
             return 0;
@@ -45,7 +46,7 @@ public final class j {
         }
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return (int) (displayMetrics.heightPixels / displayMetrics.density);
         } catch (Exception unused) {
             return 0;
@@ -59,7 +60,7 @@ public final class j {
     public static int getScreenHeight(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.heightPixels;
         } catch (Exception unused) {
             return 0;
@@ -69,7 +70,7 @@ public final class j {
     public static int getScreenWidth(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.widthPixels;
         } catch (Exception unused) {
             return 0;

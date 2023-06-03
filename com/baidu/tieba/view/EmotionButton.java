@@ -17,8 +17,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EmotionButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
@@ -48,7 +48,7 @@ public class EmotionButton extends View {
     public String n;
     public float o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        p = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        p = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
         q = 1;
     }
 
@@ -145,9 +145,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, ri.g(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, vi.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }
@@ -171,9 +171,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, ri.g(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, vi.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }

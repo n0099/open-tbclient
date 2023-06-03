@@ -1,81 +1,114 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.q24;
-import com.baidu.tieba.v13;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes5.dex */
-public class i64 implements mq1 {
+/* loaded from: classes6.dex */
+public final class i64 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ij2 a;
+    public gb4 b;
+    @V8JavascriptField
+    public final String domain;
 
-    /* loaded from: classes5.dex */
-    public class a implements q24.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v13.k a;
-
-        public a(i64 i64Var, v13.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i64Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.baidu.tieba.q24.d
-        public void onFail(String str) {
-            v13.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (kVar = this.a) != null) {
-                kVar.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.q24.d
-        public void onSuccess() {
-            v13.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kVar = this.a) != null) {
-                kVar.onSuccess();
-            }
-        }
+    @JavascriptInterface
+    public i64 getOpenData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (i64) invokeV.objValue;
     }
 
-    public i64() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i64(ij2 ij2Var) {
+        super(ij2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ij2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.domain = "openData";
+        this.a = ij2Var;
+    }
+
+    @JavascriptInterface
+    public void getFriendCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new gb4(this.a);
+            }
+            this.b.getFriendCloudStorage(jsObject);
         }
     }
 
-    @Override // com.baidu.tieba.mq1
-    public void a(String str, v13.k kVar) {
+    @JavascriptInterface
+    public void getUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            t24.o().j(str, new a(this, kVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new gb4(this.a);
+            }
+            this.b.getUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void getUserInfo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new gb4(this.a);
+            }
+            this.b.getUserInfo(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void initSharedCanvas(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.a.m() instanceof f64)) {
+            ((f64) this.a.m()).z(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void removeUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new gb4(this.a);
+            }
+            this.b.removeUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void setUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new gb4(this.a);
+            }
+            this.b.setUserCloudStorage(jsObject);
         }
     }
 }

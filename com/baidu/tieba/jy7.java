@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface jy7 {
-    void a();
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    void i0(int i, List<rn> list);
+    boolean b(int i, uy7 uy7Var);
+
+    boolean c(int i);
+
+    void setData(List<vn> list);
 }

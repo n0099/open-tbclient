@@ -3,12 +3,12 @@ package com.bumptech.glide.load.engine;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResourceRecycler {
     public final Handler handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
     public boolean isRecycling;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ResourceRecyclerCallback implements Handler.Callback {
         public static final int RECYCLE_RESOURCE = 1;
 

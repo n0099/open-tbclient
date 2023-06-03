@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.Map;
@@ -224,7 +223,7 @@ public class Marshallable extends PacketBase {
         byte[] bArr;
         if (str != null) {
             try {
-                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+                bArr = str.getBytes("utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 bArr = new byte[0];
@@ -238,7 +237,7 @@ public class Marshallable extends PacketBase {
         byte[] bArr;
         if (str != null) {
             try {
-                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+                bArr = str.getBytes("utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 bArr = new byte[0];
@@ -252,7 +251,7 @@ public class Marshallable extends PacketBase {
         byte[] bArr;
         if (str != null) {
             try {
-                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+                bArr = str.getBytes("utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 bArr = new byte[0];

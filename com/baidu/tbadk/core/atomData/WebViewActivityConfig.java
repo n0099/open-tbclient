@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
@@ -14,13 +15,15 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,6 +48,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_NO_HELP = "tag_nohelp";
     public static final String TAG_NO_MENU = "tag_nomenu";
     public static final String TAG_NO_SHARE = "tag_noshare";
+    public static final String TAG_PAGE_DATA = "pageData";
     public static final String TAG_PAGE_TRANSLUCENT = "tag_page_translucent";
     public static final String TAG_SHOW_LOADING_SWITCH = "tag_show_loading_switch";
     public static final String TAG_TEXT_AUTO_SIZE = "tag_text_auto_size";
@@ -81,6 +85,22 @@ public class WebViewActivityConfig extends IntentConfig {
         if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && getIntent() != null && (context instanceof TbPageContextSupport) && (uniqueId = ((TbPageContextSupport) context).getPageContext().getUniqueId()) != null) {
             getIntent().putExtra(IntentConfig.PRE_PAGE_ID, uniqueId.getId());
         }
+    }
+
+    public static HashMap<String, Object> getPageData(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return new HashMap<>();
+            }
+            Serializable serializableExtra = intent.getSerializableExtra(TAG_PAGE_DATA);
+            if (serializableExtra instanceof HashMap) {
+                return (HashMap) serializableExtra;
+            }
+            return new HashMap<>();
+        }
+        return (HashMap) invokeL.objValue;
     }
 
     public void setAutoPlay(boolean z) {
@@ -167,30 +187,37 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setPageData(HashMap<String, Serializable> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, hashMap) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_PAGE_DATA, hashMap);
+        }
+    }
+
     public void setPageTranslucent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
         }
     }
 
     public void setTextAutoSize(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
         }
     }
 
     public void setTranslucentAutoClose(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048595, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_TRANSLUCENT_AUTO_CLOSE, z);
         }
     }
 
     public void setWebDialogName(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_WEB_DIALOG_NAME, str);
         }
     }
@@ -199,9 +226,9 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!qi.isEmpty(str)) {
+            if (!ui.isEmpty(str)) {
                 if (str.indexOf("_client_version=") < 0) {
-                    if (qi.isEmpty(Uri.parse(str).getQuery())) {
+                    if (ui.isEmpty(Uri.parse(str).getQuery())) {
                         str = str + "?_client_version=" + TbConfig.getVersion();
                     } else {
                         str = str + "&_client_version=" + TbConfig.getVersion();
@@ -239,7 +266,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                ri.Q(getContext(), getContext().getString(R.string.web_view_corrupted));
+                vi.Q(getContext(), getContext().getString(R.string.web_view_corrupted));
                 return false;
             }
             return true;

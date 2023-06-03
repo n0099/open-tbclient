@@ -8,40 +8,32 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.InlineMarker;
 import kotlinx.coroutines.internal.Symbol;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\u001a\u0017\u0010\u0003\u001a\u00020\u00022\b\b\u0002\u0010\u0001\u001a\u00020\u0000¢\u0006\u0004\b\u0003\u0010\u0004\u001a7\u0010\n\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u0005*\u00020\u00022\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0086Hø\u0001\u0000¢\u0006\u0004\b\n\u0010\u000b\"\u001c\u0010\r\u001a\u00020\f8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\r\u0010\u000e\u0012\u0004\b\u000f\u0010\u0010\"\u001c\u0010\u0011\u001a\u00020\f8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0011\u0010\u000e\u0012\u0004\b\u0012\u0010\u0010\"\u001c\u0010\u0014\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u0012\u0004\b\u0016\u0010\u0010\"\u001c\u0010\u0017\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0017\u0010\u0015\u0012\u0004\b\u0018\u0010\u0010\"\u001c\u0010\u0019\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0019\u0010\u0015\u0012\u0004\b\u001a\u0010\u0010\"\u001c\u0010\u001b\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001b\u0010\u0015\u0012\u0004\b\u001c\u0010\u0010\"\u001c\u0010\u001d\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001d\u0010\u0015\u0012\u0004\b\u001e\u0010\u0010\"\u001c\u0010\u001f\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001f\u0010\u0015\u0012\u0004\b \u0010\u0010\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006!"}, d2 = {"", "locked", "Lkotlinx/coroutines/sync/Mutex;", "Mutex", "(Z)Lkotlinx/coroutines/sync/Mutex;", ExifInterface.GPS_DIRECTION_TRUE, "", "owner", "Lkotlin/Function0;", "action", "withLock", "(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/sync/Empty;", "EMPTY_LOCKED", "Lkotlinx/coroutines/sync/Empty;", "EMPTY_LOCKED$annotations", "()V", "EMPTY_UNLOCKED", "EMPTY_UNLOCKED$annotations", "Lkotlinx/coroutines/internal/Symbol;", "ENQUEUE_FAIL", "Lkotlinx/coroutines/internal/Symbol;", "ENQUEUE_FAIL$annotations", "LOCKED", "LOCKED$annotations", "LOCK_FAIL", "LOCK_FAIL$annotations", "SELECT_SUCCESS", "SELECT_SUCCESS$annotations", "UNLOCKED", "UNLOCKED$annotations", "UNLOCK_FAIL", "UNLOCK_FAIL$annotations", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000.\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u0010\u0010\u000f\u001a\u00020\u00102\b\b\u0002\u0010\u0011\u001a\u00020\u0012\u001aB\u0010\u0013\u001a\u0002H\u0014\"\u0004\b\u0000\u0010\u0014*\u00020\u00102\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00010\u00162\f\u0010\u0017\u001a\b\u0012\u0004\u0012\u0002H\u00140\u0018H\u0086Hø\u0001\u0000\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0002 \u0001¢\u0006\u0002\u0010\u0019\"\u0016\u0010\u0000\u001a\u00020\u00018\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0002\u0010\u0003\"\u0016\u0010\u0004\u001a\u00020\u00018\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0005\u0010\u0003\"\u0016\u0010\u0006\u001a\u00020\u00078\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\b\u0010\u0003\"\u0016\u0010\t\u001a\u00020\u00078\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\n\u0010\u0003\"\u0016\u0010\u000b\u001a\u00020\u00078\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\f\u0010\u0003\"\u0016\u0010\r\u001a\u00020\u00078\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u000e\u0010\u0003\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001a"}, d2 = {"EMPTY_LOCKED", "Lkotlinx/coroutines/sync/Empty;", "getEMPTY_LOCKED$annotations", "()V", "EMPTY_UNLOCKED", "getEMPTY_UNLOCKED$annotations", "LOCKED", "Lkotlinx/coroutines/internal/Symbol;", "getLOCKED$annotations", "LOCK_FAIL", "getLOCK_FAIL$annotations", "UNLOCKED", "getUNLOCKED$annotations", "UNLOCK_FAIL", "getUNLOCK_FAIL$annotations", "Mutex", "Lkotlinx/coroutines/sync/Mutex;", "locked", "", "withLock", ExifInterface.GPS_DIRECTION_TRUE, "owner", "", "action", "Lkotlin/Function0;", "(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class MutexKt {
     public static final Symbol LOCK_FAIL = new Symbol("LOCK_FAIL");
-    public static final Symbol ENQUEUE_FAIL = new Symbol("ENQUEUE_FAIL");
     public static final Symbol UNLOCK_FAIL = new Symbol("UNLOCK_FAIL");
-    public static final Symbol SELECT_SUCCESS = new Symbol("SELECT_SUCCESS");
     public static final Symbol LOCKED = new Symbol("LOCKED");
     public static final Symbol UNLOCKED = new Symbol("UNLOCKED");
     public static final Empty EMPTY_LOCKED = new Empty(LOCKED);
     public static final Empty EMPTY_UNLOCKED = new Empty(UNLOCKED);
 
-    public static /* synthetic */ void EMPTY_LOCKED$annotations() {
+    public static /* synthetic */ void getEMPTY_LOCKED$annotations() {
     }
 
-    public static /* synthetic */ void EMPTY_UNLOCKED$annotations() {
+    public static /* synthetic */ void getEMPTY_UNLOCKED$annotations() {
     }
 
-    public static /* synthetic */ void ENQUEUE_FAIL$annotations() {
+    public static /* synthetic */ void getLOCKED$annotations() {
     }
 
-    public static /* synthetic */ void LOCKED$annotations() {
+    public static /* synthetic */ void getLOCK_FAIL$annotations() {
     }
 
-    public static /* synthetic */ void LOCK_FAIL$annotations() {
+    public static /* synthetic */ void getUNLOCKED$annotations() {
     }
 
-    public static /* synthetic */ void SELECT_SUCCESS$annotations() {
-    }
-
-    public static /* synthetic */ void UNLOCKED$annotations() {
-    }
-
-    public static /* synthetic */ void UNLOCK_FAIL$annotations() {
+    public static /* synthetic */ void getUNLOCK_FAIL$annotations() {
     }
 
     public static final Mutex Mutex(boolean z) {
@@ -108,10 +100,9 @@ public final class MutexKt {
         }
     }
 
-    public static final Object withLock$$forInline(Mutex mutex, Object obj, Function0 function0, Continuation continuation) {
+    public static final <T> Object withLock$$forInline(Mutex mutex, Object obj, Function0<? extends T> function0, Continuation<? super T> continuation) {
         InlineMarker.mark(0);
         mutex.lock(obj, continuation);
-        InlineMarker.mark(2);
         InlineMarker.mark(1);
         try {
             return function0.invoke();
@@ -128,7 +119,6 @@ public final class MutexKt {
         }
         InlineMarker.mark(0);
         mutex.lock(obj, continuation);
-        InlineMarker.mark(2);
         InlineMarker.mark(1);
         try {
             return function0.invoke();

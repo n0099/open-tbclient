@@ -16,8 +16,8 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.o7b;
+import com.baidu.tieba.imb;
+import com.baidu.tieba.omb;
 /* loaded from: classes4.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
@@ -96,13 +96,13 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static i7b<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return i7b.a(new i7b.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+    public static imb<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
+        return imb.a(new imb.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
-            public void call(o7b<? super DelegateResult> o7bVar) {
-                o7bVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
-                o7bVar.onCompleted();
+            @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+            public void call(omb<? super DelegateResult> ombVar) {
+                ombVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
+                ombVar.onCompleted();
             }
         });
     }

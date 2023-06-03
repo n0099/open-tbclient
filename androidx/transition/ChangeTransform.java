@@ -72,8 +72,8 @@ public class ChangeTransform extends Transition {
         public void onTransitionEnd(@NonNull Transition transition) {
             transition.removeListener(this);
             GhostViewUtils.removeGhost(this.mView);
-            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092596, null);
-            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091981, null);
+            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ca, null);
+            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919a7, null);
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
@@ -274,7 +274,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
-        if (r5 == r4.f1027view) goto L10;
+        if (r5 == r4.f1028view) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001a, code lost:
         if (r4 == r5) goto L10;
@@ -300,7 +300,7 @@ public class ChangeTransform extends Transition {
 
     private void captureValues(TransitionValues transitionValues) {
         Matrix matrix;
-        View view2 = transitionValues.f1027view;
+        View view2 = transitionValues.f1028view;
         if (view2.getVisibility() == 8) {
             return;
         }
@@ -319,20 +319,20 @@ public class ChangeTransform extends Transition {
             ViewUtils.transformMatrixToGlobal(viewGroup, matrix3);
             matrix3.preTranslate(-viewGroup.getScrollX(), -viewGroup.getScrollY());
             transitionValues.values.put(PROPNAME_PARENT_MATRIX, matrix3);
-            transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092596));
-            transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091981));
+            transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ca));
+            transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919a7));
         }
     }
 
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        View view2 = transitionValues2.f1027view;
+        View view2 = transitionValues2.f1028view;
         Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
         ViewUtils.transformMatrixToLocal(viewGroup, matrix);
         GhostView addGhost = GhostViewUtils.addGhost(view2, viewGroup, matrix);
         if (addGhost == null) {
             return;
         }
-        addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1027view);
+        addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1028view);
         Transition transition = this;
         while (true) {
             Transition transition2 = transition.mParent;
@@ -343,8 +343,8 @@ public class ChangeTransform extends Transition {
         }
         transition.addListener(new GhostListener(view2, addGhost));
         if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-            View view3 = transitionValues.f1027view;
-            if (view3 != transitionValues2.f1027view) {
+            View view3 = transitionValues.f1028view;
+            if (view3 != transitionValues2.f1028view) {
                 ViewUtils.setTransitionAlpha(view3, 0.0f);
             }
             ViewUtils.setTransitionAlpha(view2, 1.0f);
@@ -365,7 +365,7 @@ public class ChangeTransform extends Transition {
             return null;
         }
         final Transforms transforms = (Transforms) transitionValues2.values.get(PROPNAME_TRANSFORMS);
-        final View view2 = transitionValues2.f1027view;
+        final View view2 = transitionValues2.f1028view;
         setIdentityTransforms(view2);
         float[] fArr = new float[9];
         matrix.getValues(fArr);
@@ -379,7 +379,7 @@ public class ChangeTransform extends Transition {
 
             private void setCurrentMatrix(Matrix matrix4) {
                 this.mTempMatrix.set(matrix4);
-                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092596, this.mTempMatrix);
+                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ca, this.mTempMatrix);
                 transforms.restore(view2);
             }
 
@@ -394,8 +394,8 @@ public class ChangeTransform extends Transition {
                     if (z && ChangeTransform.this.mUseOverlay) {
                         setCurrentMatrix(matrix3);
                     } else {
-                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092596, null);
-                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091981, null);
+                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ca, null);
+                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919a7, null);
                     }
                 }
                 ViewUtils.setAnimationMatrix(view2, null);
@@ -443,7 +443,7 @@ public class ChangeTransform extends Transition {
             if (z && createTransformAnimator != null && this.mUseOverlay) {
                 createGhostView(viewGroup, transitionValues, transitionValues2);
             } else if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                viewGroup2.endViewTransition(transitionValues.f1027view);
+                viewGroup2.endViewTransition(transitionValues.f1028view);
             }
             return createTransformAnimator;
         }
@@ -463,7 +463,7 @@ public class ChangeTransform extends Transition {
     public void captureStartValues(@NonNull TransitionValues transitionValues) {
         captureValues(transitionValues);
         if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-            ((ViewGroup) transitionValues.f1027view.getParent()).startViewTransition(transitionValues.f1027view);
+            ((ViewGroup) transitionValues.f1028view.getParent()).startViewTransition(transitionValues.f1028view);
         }
     }
 
@@ -477,7 +477,7 @@ public class ChangeTransform extends Transition {
 
     private void setMatricesForParent(TransitionValues transitionValues, TransitionValues transitionValues2) {
         Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-        transitionValues2.f1027view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091981, matrix);
+        transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919a7, matrix);
         Matrix matrix2 = this.mTempMatrix;
         matrix2.reset();
         matrix.invert(matrix2);

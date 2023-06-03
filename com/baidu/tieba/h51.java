@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.p51;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class h51 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+import kotlin.jvm.JvmStatic;
+@Autowired
+/* loaded from: classes6.dex */
+public final class h51 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,80 +32,16 @@ public class h51 {
         }
     }
 
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    @NonNull
+    @JvmStatic
+    @Singleton
+    @Inject(force = false)
+    public static final p51 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
-            }
-            return i > i3 ? i3 : i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new p51.a();
         }
-        return invokeIII.intValue;
-    }
-
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    i = b(activity);
-                } else {
-                    i = (int) (f * 255.0f);
-                }
-                int i2 = a;
-                if (i2 >= 0 && i <= 50) {
-                    return i2;
-                }
-                return i;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
-        }
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
-            a = c(i, 0, 255);
-            int c = c(i, 50, 255);
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static void e(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
-        }
+        return (p51) invokeV.objValue;
     }
 }

@@ -1,41 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.CommonReq;
-import tbclient.VoiceRoomListPage.DataReq;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
-/* loaded from: classes5.dex */
-public class hn7 implements mm5 {
+/* loaded from: classes6.dex */
+public class hn7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
+    public FrsActivity m;
+    public FrsFragment n;
+    public boolean o;
 
-    @Override // com.baidu.tieba.lm5
-    public HashMap<String, String> S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    /* loaded from: classes6.dex */
+    public class a implements ev9.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn7 a;
+
+        public a(hn7 hn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hn7Var;
         }
-        return (HashMap) invokeV.objValue;
+
+        @Override // com.baidu.tieba.ev9.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t();
+            }
+        }
+
+        @Override // com.baidu.tieba.ev9.c
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.t();
+            }
+        }
+
+        @Override // com.baidu.tieba.ev9.c
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.t();
+            }
+        }
     }
 
-    public hn7(long j, long j2) {
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(hn7 hn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                x55.s("userIcon");
+            }
+        }
+    }
+
+    public hn7(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,58 +117,89 @@ public class hn7 implements mm5 {
                 return;
             }
         }
-        this.a = j;
-        this.b = j2;
+        this.o = false;
+        this.m = frsActivity;
     }
 
-    @Override // com.baidu.tieba.lm5
-    public HashMap<String, Object> O() {
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    public hn7(FrsActivity frsActivity, FrsFragment frsFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.m = frsActivity;
+        this.n = frsFragment;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
-            hashMap.put("fid", Long.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(rx4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(a()));
-            hashMap.put("scr_h", Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp())));
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.o) {
+                return true;
+            }
+            FrsFragment frsFragment = this.n;
+            if (frsFragment != null && !frsFragment.I3()) {
+                return true;
+            }
+            return false;
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final double a() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+            if (x55.j()) {
+                return false;
+            }
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            if (!PollingModel.y0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.m.z1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.doubleValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.om5
-    public Object p(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.call_from = Long.valueOf(this.a);
-                builder.fid = Long.valueOf(this.b);
-                CommonReq.Builder builder2 = new CommonReq.Builder();
-                builder2.q_type = Integer.valueOf(rx4.c().e());
-                builder2.scr_dip = Double.valueOf(a());
-                builder2.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp()));
-                builder2.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp()));
-                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
-                builder3.data = builder.build(false);
-                return builder3.build(false);
-            } catch (Exception unused) {
-                BdLog.d("data convert error");
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (PollingModel.y0()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                ev9 ev9Var = new ev9();
+                ev9Var.d(iconPopData);
+                ev9Var.e(new a(this));
+                ev9Var.f(new b(this));
+                x55.m("userIcon");
+                if (!this.o) {
+                    this.n.P4(true);
+                    return;
+                }
+                return;
             }
+            t();
         }
-        return invokeZ.objValue;
     }
 }

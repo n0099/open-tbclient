@@ -36,20 +36,20 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gpa;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.ExcellentAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.k88;
-import com.baidu.tieba.m25;
-import com.baidu.tieba.o25;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.tha;
-import com.baidu.tieba.ub8;
+import com.baidu.tieba.j55;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.nh8;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class TopBubbleSlice extends Slice {
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sg.a().postDelayed(new a(this), 100L);
+                wg.a().postDelayed(new a(this), 100L);
                 this.a.N0(false);
             }
         }
@@ -258,7 +258,7 @@ public class TopBubbleSlice extends Slice {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.t != null && this.a.t.isNotice()) {
                 boolean z = true;
-                k88.b(this.a.t.getVersionKey(), true);
+                zd8.b(this.a.t.getVersionKey(), true);
                 this.a.m.remove(this.a.t);
                 if (this.a.m.size() > 0) {
                     TopBubbleSlice topBubbleSlice = this.a;
@@ -281,7 +281,7 @@ public class TopBubbleSlice extends Slice {
                     return;
                 }
                 this.a.M0();
-                this.a.k.s2().setVisibility(8);
+                this.a.k.u2().setVisibility(8);
             }
         }
     }
@@ -421,9 +421,9 @@ public class TopBubbleSlice extends Slice {
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (topBubbleData = this.a.n.get(i)) == null) {
                 return;
             }
-            k88.b(topBubbleData.getVersionKey(), true);
-            this.a.l.e1(topBubbleData);
-            this.a.l.Z0(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
+            zd8.b(topBubbleData.getVersionKey(), true);
+            this.a.l.d1(topBubbleData);
+            this.a.l.Y0(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
             this.a.u.dismiss();
         }
     }
@@ -464,18 +464,18 @@ public class TopBubbleSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements o25.f {
+    public class h implements l55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m25 a;
+        public final /* synthetic */ j55 a;
         public final /* synthetic */ TopBubbleSlice b;
 
-        public h(TopBubbleSlice topBubbleSlice, m25 m25Var) {
+        public h(TopBubbleSlice topBubbleSlice, j55 j55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleSlice, m25Var};
+                Object[] objArr = {topBubbleSlice, j55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -486,13 +486,13 @@ public class TopBubbleSlice extends Slice {
                 }
             }
             this.b = topBubbleSlice;
-            this.a = m25Var;
+            this.a = j55Var;
         }
 
-        @Override // com.baidu.tieba.o25.f
-        public void M0(o25 o25Var, int i, View view2) {
+        @Override // com.baidu.tieba.l55.f
+        public void M0(l55 l55Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, o25Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, l55Var, i, view2) == null) {
                 if (i != 0) {
                     if (i != 1) {
                         return;
@@ -500,7 +500,7 @@ public class TopBubbleSlice extends Slice {
                     this.b.Q0();
                     this.a.dismiss();
                 } else if (!StringUtils.isNull(this.b.p) && !StringUtils.isNull(this.b.s)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(tha.a(tha.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(gpa.a(gpa.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
                     this.a.dismiss();
                 }
             }
@@ -538,7 +538,7 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             this.a.G0();
-            ub8.a(this.a.j.getPageActivity());
+            nh8.a(this.a.j.getPageActivity());
         }
     }
 
@@ -572,9 +572,9 @@ public class TopBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 j jVar = new j();
                 jVar.a = view2;
-                jVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f0918e8);
-                jVar.c = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f09069c);
-                jVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921fe);
+                jVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f09190e);
+                jVar.c = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a6);
+                jVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092231);
                 jVar.e = (ImageView) view2.findViewById(R.id.bg_view);
                 return jVar;
             }
@@ -614,13 +614,13 @@ public class TopBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 k kVar = new k();
                 kVar.a = view2;
-                kVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c1d);
-                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a54);
+                kVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4b);
+                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a66);
                 kVar.c = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
-                kVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a55);
-                kVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a56);
-                kVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09196a);
+                kVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a67);
+                kVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a68);
+                kVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091990);
                 kVar.b();
                 return kVar;
             }
@@ -631,11 +631,11 @@ public class TopBubbleSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundResource(this.b, R.drawable.pic_mask_chat_notice_bg);
-                SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f0805ec);
-                p45 d = p45.d(this.c);
+                SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f08060f);
+                m75 d = m75.d(this.c);
                 d.m(R.dimen.L_X02);
                 d.o(R.string.J_X05);
-                p45 d2 = p45.d(this.d);
+                m75 d2 = m75.d(this.d);
                 d2.o(R.string.J_X01);
                 d2.f(R.color.CAM_X0207);
             }
@@ -789,7 +789,7 @@ public class TopBubbleSlice extends Slice {
                 if (topBubbleData != null) {
                     boolean isNotice = topBubbleData.isNotice();
                     this.v = isNotice;
-                    if (isNotice && k88.a(this.t.getVersionKey())) {
+                    if (isNotice && zd8.a(this.t.getVersionKey())) {
                         this.m.remove(this.t);
                         if (this.m.size() > 0) {
                             this.v = false;
@@ -809,7 +809,7 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             M0();
-            this.k.s2().setVisibility(8);
+            this.k.u2().setVisibility(8);
         }
     }
 
@@ -849,7 +849,7 @@ public class TopBubbleSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             TopBubbleData topBubbleData = this.t;
             if (topBubbleData != null && topBubbleData.isNotice()) {
-                this.k.d2();
+                this.k.e2();
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.k.getContext(), null, this.t.getJumpTo(), true);
                 tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
@@ -859,10 +859,10 @@ public class TopBubbleSlice extends Slice {
             this.o.b.setExcellentRead();
             TopBubbleData topBubbleData2 = this.t;
             if (topBubbleData2 != null) {
-                if (!k88.a(topBubbleData2.getVersionKey())) {
-                    k88.b(this.t.getVersionKey(), true);
+                if (!zd8.a(topBubbleData2.getVersionKey())) {
+                    zd8.b(this.t.getVersionKey(), true);
                 }
-                this.l.Z0(this.t.getMsgId(), this.t.getMsgKey());
+                this.l.Y0(this.t.getMsgId(), this.t.getMsgKey());
             }
         }
     }
@@ -878,7 +878,7 @@ public class TopBubbleSlice extends Slice {
             if (topBubbleData != null && !topBubbleData.isNotice()) {
                 String versionKey = topBubbleData.getVersionKey();
                 if (!StringUtils.isNull(versionKey) && (split = versionKey.split(":")) != null && split.length == 3) {
-                    o65.m().A(o65.q("excellent_" + this.s), pg.g(split[2].trim(), 0L));
+                    l95.m().A(l95.q("excellent_" + this.s), tg.g(split[2].trim(), 0L));
                 }
             }
         }
@@ -889,10 +889,10 @@ public class TopBubbleSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.j.getPageActivity());
             this.q = tBAlertBuilder;
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0970);
-            this.q.q(this.j.getString(R.string.obfuscated_res_0x7f0f0974));
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f09a6);
+            this.q.q(this.j.getString(R.string.obfuscated_res_0x7f0f09aa));
             this.q.o(true);
-            this.q.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0972, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0973, TBAlertConfig.OperateBtnStyle.MAIN, new i(this)));
+            this.q.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f09a8, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f09a9, TBAlertConfig.OperateBtnStyle.MAIN, new i(this)));
             this.q.i();
             this.q.j(false);
             this.q.z();
@@ -908,19 +908,19 @@ public class TopBubbleSlice extends Slice {
                 if (topBubbleData.isNotice()) {
                     this.o.b.c(this.t, this.v, E0());
                     N0((this.y || !this.w) ? false : false);
-                    this.k.s2().setVisibility(0);
+                    this.k.u2().setVisibility(0);
                     return;
                 } else if (z0(this.t.getVersionKey())) {
                     this.o.b.c(this.t, this.v, E0());
                     N0((this.y || !this.w) ? false : false);
-                    this.k.s2().setVisibility(0);
+                    this.k.u2().setVisibility(0);
                     return;
                 } else {
-                    this.k.s2().setVisibility(8);
+                    this.k.u2().setVisibility(8);
                     return;
                 }
             }
-            this.k.s2().setVisibility(8);
+            this.k.u2().setVisibility(8);
         }
     }
 
@@ -946,8 +946,8 @@ public class TopBubbleSlice extends Slice {
             if (StringUtils.isNull(str) || (split = str.split(":")) == null || split.length != 3) {
                 return true;
             }
-            long g2 = pg.g(split[2].trim(), 0L);
-            if (g2 > o65.m().o(o65.q("excellent_" + this.s), 0L)) {
+            long g2 = tg.g(split[2].trim(), 0L);
+            if (g2 > l95.m().o(l95.q("excellent_" + this.s), 0L)) {
                 return true;
             }
             return false;
@@ -986,10 +986,10 @@ public class TopBubbleSlice extends Slice {
     public final void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f0414), this.j.getString(R.string.obfuscated_res_0x7f0f0970)};
-            m25 m25Var = new m25(this.j);
-            m25Var.i(null, strArr, new h(this, m25Var));
-            m25Var.l();
+            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f041a), this.j.getString(R.string.obfuscated_res_0x7f0f09a6)};
+            j55 j55Var = new j55(this.j);
+            j55Var.i(null, strArr, new h(this, j55Var));
+            j55Var.l();
         }
     }
 
@@ -1010,10 +1010,10 @@ public class TopBubbleSlice extends Slice {
                     N0(false);
                     return;
                 }
-                this.k.s2().setVisibility(8);
+                this.k.u2().setVisibility(8);
                 return;
             }
-            this.k.s2().setVisibility(8);
+            this.k.u2().setVisibility(8);
         }
     }
 
@@ -1052,7 +1052,7 @@ public class TopBubbleSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0945, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d095d, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -1077,7 +1077,7 @@ public class TopBubbleSlice extends Slice {
                 this.u.setFocusable(false);
                 this.u.setOutsideTouchable(true);
                 this.u.setOnDismissListener(new g(this));
-                this.u.setAnimationStyle(R.style.obfuscated_res_0x7f1003f7);
+                this.u.setAnimationStyle(R.style.obfuscated_res_0x7f1003f9);
             }
             this.o.b.measure(0, 0);
             int measuredWidth = this.o.b.getMeasuredWidth();

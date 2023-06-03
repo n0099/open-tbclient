@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,163 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.ubc.UBCManager;
+@Service
 /* loaded from: classes7.dex */
-public class pr9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
-    public static final Pattern g;
+public class pr9 implements PerfSampleManager.IPerfSampleCallback {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "2301";
+    public static String b = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public SpannableStringBuilder e;
-
-    public static boolean k(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends ls5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr9 a;
-
-        public a(pr9 pr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pr9Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b(this.a.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends ls5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr9 a;
-
-        public b(pr9 pr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pr9Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Matcher matcher = pr9.f.matcher(this.a.d);
-                if (matcher.find()) {
-                    try {
-                        String group = matcher.group();
-                        a(group.substring(group.lastIndexOf("/") + 1));
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                Matcher matcher2 = pr9.g.matcher(this.a.d);
-                if (matcher2.find()) {
-                    try {
-                        String group2 = matcher2.group();
-                        a(group2.substring(group2.lastIndexOf("=") + 1));
-                        return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                b(this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends ls5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr9 a;
-
-        public c(pr9 pr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pr9Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null) {
-                    this.a.b.replace("@", "").replace(" ", "");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(pg.g(this.a.d, 0L), false, false)));
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948071794, "Lcom/baidu/tieba/pr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948071794, "Lcom/baidu/tieba/pr9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071794, "Lcom/baidu/tieba/pr9;")) == null) {
+            return;
         }
-        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948071794, "Lcom/baidu/tieba/pr9;");
+        }
     }
 
     public pr9() {
@@ -186,126 +44,24 @@ public class pr9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.e = null;
     }
 
-    public String f() {
+    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
+    public String getSampleFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder e(SpannableString spannableString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.e == null) {
-                this.e = new SpannableStringBuilder();
-            }
-            this.e.append((CharSequence) spannableString);
-            return this.e;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public SpannableString h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return null;
-                            }
-                            if (!this.b.endsWith(" ")) {
-                                this.b += " ";
-                            }
-                            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1738);
-                            String str = string + this.b;
-                            SpannableString spannableString = new SpannableString(str);
-                            spannableString.setSpan(new a(this), string.length(), str.length() - 1, 33);
-                            return spannableString;
-                        }
-                        if (!this.b.endsWith(" ")) {
-                            this.b += " ";
-                        }
-                        SpannableString spannableString2 = new SpannableString(this.b);
-                        spannableString2.setSpan(new c(this), 0, this.b.length() - 1, 33);
-                        return spannableString2;
-                    }
-                    SpannableString spannableString3 = new SpannableString(this.b + " ");
-                    cn face = TbadkCoreApplication.getInst().getFace(this.b);
-                    if (face != null) {
-                        BitmapDrawable j = face.j();
-                        j.setBounds(0, 0, face.r(), face.m());
-                        spannableString3.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
-                    }
-                    return spannableString3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                if (b.equals(uBCManager.getUploadType(a))) {
+                    return a;
                 }
-                if (!this.b.endsWith(" ")) {
-                    this.b += " ";
-                }
-                SpannableString spannableString4 = new SpannableString(this.b);
-                spannableString4.setSpan(new b(this), 0, this.b.length() - 1, 33);
-                return spannableString4;
+                return "";
             }
-            return new SpannableString(this.b);
+            return "";
         }
-        return (SpannableString) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

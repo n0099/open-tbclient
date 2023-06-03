@@ -1,107 +1,116 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class ck7 implements y35 {
+public class ck7 extends in<lv6, CardViewHolder<mn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public mn6 b;
+    public String c;
 
-    public ck7() {
+    /* loaded from: classes5.dex */
+    public class a extends eo6<lv6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ck7 b;
+
+        public a(ck7 ck7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ck7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ck7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, lv6 lv6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, lv6Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.c));
+                UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(view2.getContext()), new String[]{lv6Var.c().score_url}, true);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ck7(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), lv6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.c = str;
     }
 
-    @Override // com.baidu.tieba.y35
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsShield");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.y35
-    public boolean b(@NonNull Map<String, Object> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: t */
+    public CardViewHolder<mn6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            boolean z4 = false;
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "吧内屏蔽弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
-            if (v1 != null && !v1.i4() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                zk8 yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("吧内屏蔽弹窗策略校验失败：FrsFragment为空->");
-                if (v1 == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                sb.append("|");
-                sb.append("Frs是否展示过弹窗->");
-                if (v1 != null && v1.i4()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                sb.append(z3);
-                sb.append("|");
-                sb.append("是否存在FRS数据->");
-                if (TbSingleton.getInstance().getFrsResponseData() != null) {
-                    z4 = true;
-                }
-                sb.append(z4);
-                yunDialogLog.b("YunDialogManager", sb.toString());
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new mn6(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lv6 lv6Var, CardViewHolder<mn6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lv6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().i(lv6Var);
+            cardViewHolder.a().k(new a(this));
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a().h();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

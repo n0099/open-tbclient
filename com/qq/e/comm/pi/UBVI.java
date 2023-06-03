@@ -1,13 +1,10 @@
 package com.qq.e.comm.pi;
 
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface UBVI extends LADI {
-    public static final Map<String, String> ext = new HashMap();
-
     void destroy();
 
     void fetchAd();
@@ -21,4 +18,6 @@ public interface UBVI extends LADI {
     void setLoadAdParams(LoadAdParams loadAdParams);
 
     void setRefresh(int i);
+
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 }

@@ -86,7 +86,7 @@ public class FunNativeAdListenerHelper<K, V> {
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.h.b.onAdClicked(k, listenerHolder.f, new String[0]);
+                listenerHolder.h.b.onAdClicked((ReporterPidLoader<K>) k, listenerHolder.f, new String[0]);
                 listenerHolder.f = true;
                 FunAdInteractionListener funAdInteractionListener = listenerHolder.g;
                 if (funAdInteractionListener != null) {
@@ -123,7 +123,7 @@ public class FunNativeAdListenerHelper<K, V> {
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.h.b.onAdShow(k, listenerHolder.e, new String[0]);
+                listenerHolder.h.b.onAdShow((ReporterPidLoader<K>) k, listenerHolder.e, new String[0]);
                 listenerHolder.e = true;
                 FunAdInteractionListener funAdInteractionListener = listenerHolder.g;
                 if (funAdInteractionListener != null) {

@@ -1,38 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.crashpad.ZeusLogUploader;
-import com.baidu.crashpad.ZwCrashpad;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class u10 {
+/* loaded from: classes8.dex */
+public class u10 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ZwCrashpad.setEnabled(true);
-            File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
-            Context appContext = AppRuntime.getAppContext();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("clientDir", appContext.getApplicationInfo().nativeLibraryDir);
-                jSONObject.put("handlerDir", appContext.getApplicationInfo().nativeLibraryDir);
-                jSONObject.put("dumpCopyDir", processCrashpadDir.getAbsolutePath());
-            } catch (JSONException unused) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158005, "Lcom/baidu/tieba/u10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (jSONObject.length() == 0) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158005, "Lcom/baidu/tieba/u10;");
                 return;
             }
-            ZwCrashpad.doInitGeneric(appContext, jSONObject.toString());
-            ZeusLogUploader.setEnabled(false);
         }
+        a = new String[]{"REVEMEFGREIxQUQwQ0M0Q0E5NzRENUVCQTAxNjUxNDE=", "Qzc3RDVEMDREOTRGNUY1NkM4QTBBNkRDM0RCRjI0MEE="};
+        b = new String[]{"MDAwMDAwMDAwMDAwMDAwMA=="};
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (String str2 : a) {
+                if (str.equalsIgnoreCase(c(str2))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (String str2 : b) {
+                if (TextUtils.equals(c(str2), str)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new String(k10.b(str.getBytes())) : (String) invokeL.objValue;
     }
 }

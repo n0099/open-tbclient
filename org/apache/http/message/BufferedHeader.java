@@ -5,7 +5,7 @@ import org.apache.http.HeaderElement;
 import org.apache.http.ParseException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BufferedHeader implements FormattedHeader {
     public BufferedHeader(CharArrayBuffer charArrayBuffer) throws ParseException {
         throw new RuntimeException("Stub!");

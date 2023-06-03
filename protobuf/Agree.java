@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Agree extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long agreeNum;
@@ -20,7 +20,7 @@ public final class Agree extends Message {
     public static final Long DEFAULT_DISAGREENUM = 0L;
     public static final Long DEFAULT_DIFFAGREENUM = 0L;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<Agree> {
         public Long agreeNum;
         public Integer agreeType;

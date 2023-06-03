@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.o65;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.l95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,13 +86,13 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = getFriendAndStrangerSwitchResMsg.mMaskType;
             if (i > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                o65 m = o65.m();
+                l95 m = l95.m();
                 m.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
             }
             int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
             if (i2 > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
-                o65 m2 = o65.m();
+                l95 m2 = l95.m();
                 m2.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
             }
         }
@@ -110,7 +110,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

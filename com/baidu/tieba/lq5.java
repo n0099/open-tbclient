@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
 /* loaded from: classes6.dex */
-public interface lq5<T> {
-    void a(Intent intent);
+public interface lq5 extends kq5 {
+    boolean C();
 
-    T b(boolean z);
+    String T();
 
-    fq5 c();
+    boolean isNeedUid();
 }

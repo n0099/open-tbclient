@@ -1,87 +1,44 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
 /* loaded from: classes8.dex */
-public class x59 {
+public class x59 extends w59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
-
-    public x59() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x59(k16 k16Var) {
+        super(k16Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k16Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((k16) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(UcCard ucCard) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
-            return;
-        }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
-                }
-            }
-        }
+        p(TbConfig.getContentLineSpace(), 1.0f);
+        j(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        A(0);
+        m(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        n(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        t(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
+        g(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        u(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
+        w(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
+        k(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+        i(vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
     }
 }

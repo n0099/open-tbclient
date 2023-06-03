@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.ks.x;
+import com.fun.module.ks.y;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class KSNativeAdSingleImgH5OpenView extends x {
+public class KSNativeAdSingleImgH5OpenView extends y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView b;
@@ -123,7 +123,7 @@ public class KSNativeAdSingleImgH5OpenView extends x {
         }
     }
 
-    @Override // com.fun.module.ks.x
+    @Override // com.fun.module.ks.y
     public void a(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {

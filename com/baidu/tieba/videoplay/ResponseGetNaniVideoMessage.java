@@ -1,8 +1,11 @@
 package com.baidu.tieba.videoplay;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,10 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String LIVE_CONFIG = "live_config";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public LiveConfig liveConfig;
     public boolean mHasMore;
     public List<VideoItemData> mVideoItemDatas;
 
@@ -38,10 +44,20 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<VideoItemData> getVideoItemDatas() {
+    @Nullable
+    public LiveConfig getLiveConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.liveConfig;
+        }
+        return (LiveConfig) invokeV.objValue;
+    }
+
+    public List<VideoItemData> getVideoItemDatas() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mVideoItemDatas;
         }
         return (List) invokeV.objValue;
@@ -50,7 +66,7 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
     public boolean isHasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mHasMore;
         }
         return invokeV.booleanValue;
@@ -77,6 +93,9 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
                     videoItemData.parseJson(optJSONArray.optString(i2));
                     this.mVideoItemDatas.add(videoItemData);
                 }
+            }
+            if (jSONObject.has("live_config")) {
+                this.liveConfig = (LiveConfig) DataExt.toEntity(jSONObject.getString("live_config"), LiveConfig.class);
             }
         }
     }

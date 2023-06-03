@@ -42,6 +42,7 @@ import com.baidu.ar.record.RecordCallback;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.steploading.IStepLoading;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -315,7 +316,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         StatisticApi.pause();
         e eVar = this.aR;
         if (eVar != null) {
-            eVar.l("pause");
+            eVar.l(DownloadStatisticConstants.UBC_TYPE_PAUSE);
         }
     }
 
@@ -326,7 +327,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         }
         e eVar = this.aR;
         if (eVar != null) {
-            eVar.l("resume");
+            eVar.l(DownloadStatisticConstants.UBC_TYPE_RESUME);
         }
         StatisticApi.resume();
         OrientationManager orientationManager = this.aT;

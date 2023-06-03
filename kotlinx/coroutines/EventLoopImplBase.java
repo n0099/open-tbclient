@@ -1,10 +1,11 @@
 package kotlinx.coroutines;
 
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import kotlin.Deprecated;
+import kotlin.DeprecationLevel;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
@@ -16,16 +17,16 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.internal.ThreadSafeHeap;
 import kotlinx.coroutines.internal.ThreadSafeHeapNode;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0014\b \u0018\u00002\u00020\u00012\u00020\u0002:\u00046789B\u0007¢\u0006\u0004\b5\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\n\u0018\u00010\u0006j\u0004\u0018\u0001`\u0007H\u0002¢\u0006\u0004\b\b\u0010\tJ!\u0010\r\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\n2\n\u0010\f\u001a\u00060\u0006j\u0002`\u0007¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0010\u001a\u00020\u00032\n\u0010\u000f\u001a\u00060\u0006j\u0002`\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u001b\u0010\u0013\u001a\u00020\u00122\n\u0010\u000f\u001a\u00060\u0006j\u0002`\u0007H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0018\u0010\u0005J\u000f\u0010\u0019\u001a\u00020\u0003H\u0004¢\u0006\u0004\b\u0019\u0010\u0005J\u001d\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001a\u001a\u00020\u00152\u0006\u0010\u001c\u001a\u00020\u001b¢\u0006\u0004\b\u001d\u0010\u001eJ\u001f\u0010 \u001a\u00020\u001f2\u0006\u0010\u001a\u001a\u00020\u00152\u0006\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b \u0010!J#\u0010$\u001a\u00020#2\u0006\u0010\"\u001a\u00020\u00152\n\u0010\f\u001a\u00060\u0006j\u0002`\u0007H\u0004¢\u0006\u0004\b$\u0010%J%\u0010(\u001a\u00020\u00032\u0006\u0010\"\u001a\u00020\u00152\f\u0010'\u001a\b\u0012\u0004\u0012\u00020\u00030&H\u0016¢\u0006\u0004\b(\u0010)J\u0017\u0010*\u001a\u00020\u00122\u0006\u0010\u000f\u001a\u00020\u001bH\u0002¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\u0003H\u0014¢\u0006\u0004\b,\u0010\u0005R$\u0010.\u001a\u00020\u00122\u0006\u0010-\u001a\u00020\u00128B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00128T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b2\u0010/R\u0016\u00104\u001a\u00020\u00158T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b3\u0010\u0017¨\u0006:"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase;", "Lkotlinx/coroutines/Delay;", "Lkotlinx/coroutines/EventLoopImplPlatform;", "", "closeQueue", "()V", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "dequeue", "()Ljava/lang/Runnable;", "Lkotlin/coroutines/CoroutineContext;", "context", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, StatConstants.VALUE_TYPE_DISPATCH, "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V", "task", "enqueue", "(Ljava/lang/Runnable;)V", "", "enqueueImpl", "(Ljava/lang/Runnable;)Z", "", "processNextEvent", "()J", "rescheduleAllDelayed", "resetAll", "now", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "delayedTask", "schedule", "(JLkotlinx/coroutines/EventLoopImplBase$DelayedTask;)V", "", "scheduleImpl", "(JLkotlinx/coroutines/EventLoopImplBase$DelayedTask;)I", "timeMillis", "Lkotlinx/coroutines/DisposableHandle;", "scheduleInvokeOnTimeout", "(JLjava/lang/Runnable;)Lkotlinx/coroutines/DisposableHandle;", "Lkotlinx/coroutines/CancellableContinuation;", "continuation", "scheduleResumeAfterDelay", "(JLkotlinx/coroutines/CancellableContinuation;)V", "shouldUnpark", "(Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;)Z", "shutdown", "value", "isCompleted", "()Z", "setCompleted", "(Z)V", "isEmpty", "getNextTime", "nextTime", "<init>", "DelayedResumeTask", "DelayedRunnableTask", "DelayedTask", "DelayedTaskQueue", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\u0018\u0002\b \u0018\u00002\u0002092\u00020::\u00044567B\u0007¢\u0006\u0004\b\u0001\u0010\u0002J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0002J\u0017\u0010\u0007\u001a\n\u0018\u00010\u0005j\u0004\u0018\u0001`\u0006H\u0002¢\u0006\u0004\b\u0007\u0010\bJ!\u0010\f\u001a\u00020\u00032\u0006\u0010\n\u001a\u00020\t2\n\u0010\u000b\u001a\u00060\u0005j\u0002`\u0006¢\u0006\u0004\b\f\u0010\rJ\u001b\u0010\u000f\u001a\u00020\u00032\n\u0010\u000e\u001a\u00060\u0005j\u0002`\u0006H\u0016¢\u0006\u0004\b\u000f\u0010\u0010J\u001b\u0010\u0012\u001a\u00020\u00112\n\u0010\u000e\u001a\u00060\u0005j\u0002`\u0006H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0015\u001a\u00020\u0014H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0017\u0010\u0002J\u000f\u0010\u0018\u001a\u00020\u0003H\u0004¢\u0006\u0004\b\u0018\u0010\u0002J\u001d\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001a¢\u0006\u0004\b\u001c\u0010\u001dJ\u001f\u0010\u001f\u001a\u00020\u001e2\u0006\u0010\u0019\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u001aH\u0002¢\u0006\u0004\b\u001f\u0010 J#\u0010#\u001a\u00020\"2\u0006\u0010!\u001a\u00020\u00142\n\u0010\u000b\u001a\u00060\u0005j\u0002`\u0006H\u0004¢\u0006\u0004\b#\u0010$J%\u0010'\u001a\u00020\u00032\u0006\u0010!\u001a\u00020\u00142\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u00030%H\u0016¢\u0006\u0004\b'\u0010(J\u0017\u0010)\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\u001aH\u0002¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0003H\u0016¢\u0006\u0004\b+\u0010\u0002R$\u0010-\u001a\u00020\u00112\u0006\u0010,\u001a\u00020\u00118B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b-\u0010.\"\u0004\b/\u00100R\u0014\u00101\u001a\u00020\u00118TX\u0094\u0004¢\u0006\u0006\u001a\u0004\b1\u0010.R\u0014\u00103\u001a\u00020\u00148TX\u0094\u0004¢\u0006\u0006\u001a\u0004\b2\u0010\u0016¨\u00068"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase;", "<init>", "()V", "", "closeQueue", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "dequeue", "()Ljava/lang/Runnable;", "Lkotlin/coroutines/CoroutineContext;", "context", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "dispatch", "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V", DownloadStatisticConstants.UBC_VALUE_TASK, "enqueue", "(Ljava/lang/Runnable;)V", "", "enqueueImpl", "(Ljava/lang/Runnable;)Z", "", "processNextEvent", "()J", "rescheduleAllDelayed", "resetAll", "now", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "delayedTask", "schedule", "(JLkotlinx/coroutines/EventLoopImplBase$DelayedTask;)V", "", "scheduleImpl", "(JLkotlinx/coroutines/EventLoopImplBase$DelayedTask;)I", "timeMillis", "Lkotlinx/coroutines/DisposableHandle;", "scheduleInvokeOnTimeout", "(JLjava/lang/Runnable;)Lkotlinx/coroutines/DisposableHandle;", "Lkotlinx/coroutines/CancellableContinuation;", "continuation", "scheduleResumeAfterDelay", "(JLkotlinx/coroutines/CancellableContinuation;)V", "shouldUnpark", "(Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;)Z", "shutdown", "value", "isCompleted", "()Z", "setCompleted", "(Z)V", "isEmpty", "getNextTime", "nextTime", "DelayedResumeTask", "DelayedRunnableTask", "DelayedTask", "DelayedTaskQueue", "kotlinx-coroutines-core", "Lkotlinx/coroutines/EventLoopImplPlatform;", "Lkotlinx/coroutines/Delay;"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public abstract class EventLoopImplBase extends EventLoopImplPlatform implements Delay {
-    public static final AtomicReferenceFieldUpdater _queue$FU = AtomicReferenceFieldUpdater.newUpdater(EventLoopImplBase.class, Object.class, "_queue");
-    public static final AtomicReferenceFieldUpdater _delayed$FU = AtomicReferenceFieldUpdater.newUpdater(EventLoopImplBase.class, Object.class, "_delayed");
-    public volatile Object _queue = null;
-    public volatile Object _delayed = null;
-    public volatile int _isCompleted = 0;
+    public static final /* synthetic */ AtomicReferenceFieldUpdater _queue$FU = AtomicReferenceFieldUpdater.newUpdater(EventLoopImplBase.class, Object.class, "_queue");
+    public static final /* synthetic */ AtomicReferenceFieldUpdater _delayed$FU = AtomicReferenceFieldUpdater.newUpdater(EventLoopImplBase.class, Object.class, "_delayed");
+    public volatile /* synthetic */ Object _queue = null;
+    public volatile /* synthetic */ Object _delayed = null;
+    public volatile /* synthetic */ int _isCompleted = 0;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0004\b\u0082\u0004\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00020\b¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007R\u001c\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\t\u0010\n¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedResumeTask;", "kotlinx/coroutines/EventLoopImplBase$DelayedTask", "", "run", "()V", "", "toString", "()Ljava/lang/String;", "Lkotlinx/coroutines/CancellableContinuation;", "cont", "Lkotlinx/coroutines/CancellableContinuation;", "", "nanoTime", "<init>", "(Lkotlinx/coroutines/EventLoopImplBase;JLkotlinx/coroutines/CancellableContinuation;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\b\u0082\u0004\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\u0010\u0007J\b\u0010\b\u001a\u00020\u0006H\u0016J\b\u0010\t\u001a\u00020\nH\u0016R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000b"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedResumeTask;", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "nanoTime", "", "cont", "Lkotlinx/coroutines/CancellableContinuation;", "", "(Lkotlinx/coroutines/EventLoopImplBase;JLkotlinx/coroutines/CancellableContinuation;)V", "run", "toString", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public final class DelayedResumeTask extends DelayedTask {
         public final CancellableContinuation<Unit> cont;
@@ -44,11 +45,11 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
 
         @Override // kotlinx.coroutines.EventLoopImplBase.DelayedTask
         public String toString() {
-            return super.toString() + this.cont.toString();
+            return Intrinsics.stringPlus(super.toString(), this.cont);
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0004\b\u0002\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\r\u001a\u00020\f\u0012\n\u0010\n\u001a\u00060\bj\u0002`\t¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007R\u001a\u0010\n\u001a\u00060\bj\u0002`\t8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\n\u0010\u000b¨\u0006\u0010"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedRunnableTask;", "kotlinx/coroutines/EventLoopImplBase$DelayedTask", "", "run", "()V", "", "toString", "()Ljava/lang/String;", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Ljava/lang/Runnable;", "", "nanoTime", "<init>", "(JLjava/lang/Runnable;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0002\u0018\u00002\u00020\u0001B\u0019\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\u0010\u0004\u001a\u00060\u0005j\u0002`\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\b\u001a\u00020\tH\u0016J\b\u0010\n\u001a\u00020\u000bH\u0016R\u0012\u0010\u0004\u001a\u00060\u0005j\u0002`\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\f"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedRunnableTask;", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "nanoTime", "", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "(JLjava/lang/Runnable;)V", "run", "", "toString", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class DelayedRunnableTask extends DelayedTask {
         public final Runnable block;
@@ -65,11 +66,11 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
 
         @Override // kotlinx.coroutines.EventLoopImplBase.DelayedTask
         public String toString() {
-            return super.toString() + this.block.toString();
+            return Intrinsics.stringPlus(super.toString(), this.block);
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0011\b \u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004B\u000f\u0012\u0006\u0010*\u001a\u00020\f¢\u0006\u0004\b,\u0010-J\u0018\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0000H\u0096\u0002¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\n\u001a\u00020\t¢\u0006\u0004\b\n\u0010\u000bJ%\u0010\u0012\u001a\u00020\u00062\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u0015\u0010\u0015\u001a\u00020\u00142\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0018\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\u0018\u0010\u0019R\u0018\u0010\u001b\u001a\u0004\u0018\u00010\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR0\u0010#\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001d2\f\u0010\u001e\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u001d8V@VX\u0096\u000e¢\u0006\f\u001a\u0004\b\u001f\u0010 \"\u0004\b!\u0010\"R\"\u0010$\u001a\u00020\u00068\u0016@\u0016X\u0096\u000e¢\u0006\u0012\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u0016\u0010*\u001a\u00020\f8\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b*\u0010+¨\u0006."}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "Ljava/lang/Runnable;", "Ljava/lang/Comparable;", "Lkotlinx/coroutines/DisposableHandle;", "Lkotlinx/coroutines/internal/ThreadSafeHeapNode;", "other", "", "compareTo", "(Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;)I", "", "dispose", "()V", "", "now", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;", "delayed", "Lkotlinx/coroutines/EventLoopImplBase;", "eventLoop", "scheduleTask", "(JLkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;Lkotlinx/coroutines/EventLoopImplBase;)I", "", "timeToExecute", "(J)Z", "", "toString", "()Ljava/lang/String;", "", "_heap", "Ljava/lang/Object;", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "value", "getHeap", "()Lkotlinx/coroutines/internal/ThreadSafeHeap;", "setHeap", "(Lkotlinx/coroutines/internal/ThreadSafeHeap;)V", "heap", "index", "I", "getIndex", "()I", "setIndex", "(I)V", "nanoTime", "J", "<init>", "(J)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\b \u0018\u00002\u00060\u0001j\u0002`\u00022\b\u0012\u0004\u0012\u00020\u00000\u00032\u00020\u00042\u00020\u0005B\r\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0011\u0010\u0018\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u0000H\u0096\u0002J\u0006\u0010\u001a\u001a\u00020\u001bJ\u001e\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u001d\u001a\u00020\u00072\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!J\u000e\u0010\"\u001a\u00020#2\u0006\u0010\u001d\u001a\u00020\u0007J\b\u0010$\u001a\u00020%H\u0016R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R0\u0010\r\u001a\b\u0012\u0002\b\u0003\u0018\u00010\f2\f\u0010\u000b\u001a\b\u0012\u0002\b\u0003\u0018\u00010\f8V@VX\u0096\u000e¢\u0006\f\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u001a\u0010\u0012\u001a\u00020\u0013X\u0096\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u0012\u0010\u0006\u001a\u00020\u00078\u0006@\u0006X\u0087\u000e¢\u0006\u0002\n\u0000¨\u0006&"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "", "Lkotlinx/coroutines/DisposableHandle;", "Lkotlinx/coroutines/internal/ThreadSafeHeapNode;", "nanoTime", "", "(J)V", "_heap", "", "value", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "heap", "getHeap", "()Lkotlinx/coroutines/internal/ThreadSafeHeap;", "setHeap", "(Lkotlinx/coroutines/internal/ThreadSafeHeap;)V", "index", "", "getIndex", "()I", "setIndex", "(I)V", "compareTo", "other", "dispose", "", "scheduleTask", "now", "delayed", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;", "eventLoop", "Lkotlinx/coroutines/EventLoopImplBase;", "timeToExecute", "", "toString", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static abstract class DelayedTask implements Runnable, Comparable<DelayedTask>, DisposableHandle, ThreadSafeHeapNode {
         public Object _heap;
@@ -127,16 +128,18 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
         @Override // kotlinx.coroutines.DisposableHandle
         public final synchronized void dispose() {
             Symbol symbol;
+            DelayedTaskQueue delayedTaskQueue;
             Symbol symbol2;
             Object obj = this._heap;
             symbol = EventLoop_commonKt.DISPOSED_TASK;
             if (obj == symbol) {
                 return;
             }
-            if (!(obj instanceof DelayedTaskQueue)) {
-                obj = null;
+            if (obj instanceof DelayedTaskQueue) {
+                delayedTaskQueue = (DelayedTaskQueue) obj;
+            } else {
+                delayedTaskQueue = null;
             }
-            DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) obj;
             if (delayedTaskQueue != null) {
                 delayedTaskQueue.remove(this);
             }
@@ -147,10 +150,10 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
         @Override // kotlinx.coroutines.internal.ThreadSafeHeapNode
         public ThreadSafeHeap<?> getHeap() {
             Object obj = this._heap;
-            if (!(obj instanceof ThreadSafeHeap)) {
-                obj = null;
+            if (obj instanceof ThreadSafeHeap) {
+                return (ThreadSafeHeap) obj;
             }
-            return (ThreadSafeHeap) obj;
+            return null;
         }
 
         @Override // kotlinx.coroutines.internal.ThreadSafeHeapNode
@@ -194,7 +197,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0005\b\u0000\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0003\u001a\u00020\u00028\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "", "timeNow", "J", "<init>", "(J)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\b\u0000\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005R\u0012\u0010\u0003\u001a\u00020\u00048\u0006@\u0006X\u0087\u000e¢\u0006\u0002\n\u0000¨\u0006\u0006"}, d2 = {"Lkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "Lkotlinx/coroutines/EventLoopImplBase$DelayedTask;", "timeNow", "", "(J)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class DelayedTaskQueue extends ThreadSafeHeap<DelayedTask> {
         @JvmField
@@ -206,27 +209,37 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
     public final boolean isCompleted() {
         return this._isCompleted;
     }
 
     private final void rescheduleAllDelayed() {
-        long nanoTime;
+        Long valueOf;
+        long longValue;
         DelayedTask removeFirstOrNull;
-        TimeSource timeSource = TimeSourceKt.getTimeSource();
-        if (timeSource != null) {
-            nanoTime = timeSource.nanoTime();
+        AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
+        if (timeSource == null) {
+            valueOf = null;
         } else {
-            nanoTime = System.nanoTime();
+            valueOf = Long.valueOf(timeSource.nanoTime());
+        }
+        if (valueOf == null) {
+            longValue = System.nanoTime();
+        } else {
+            longValue = valueOf.longValue();
         }
         while (true) {
             DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
-            if (delayedTaskQueue != null && (removeFirstOrNull = delayedTaskQueue.removeFirstOrNull()) != null) {
-                reschedule(nanoTime, removeFirstOrNull);
+            if (delayedTaskQueue == null) {
+                removeFirstOrNull = null;
             } else {
+                removeFirstOrNull = delayedTaskQueue.removeFirstOrNull();
+            }
+            if (removeFirstOrNull == null) {
                 return;
             }
+            reschedule(longValue, removeFirstOrNull);
         }
     }
 
@@ -269,111 +282,29 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
         rescheduleAllDelayed();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void setCompleted(boolean z) {
+    private final void setCompleted(boolean z) {
         this._isCompleted = z ? 1 : 0;
     }
 
     private final boolean shouldUnpark(DelayedTask delayedTask) {
-        DelayedTask delayedTask2;
+        DelayedTask peek;
         DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
-        if (delayedTaskQueue != null) {
-            delayedTask2 = delayedTaskQueue.peek();
+        if (delayedTaskQueue == null) {
+            peek = null;
         } else {
-            delayedTask2 = null;
+            peek = delayedTaskQueue.peek();
         }
-        if (delayedTask2 == delayedTask) {
+        if (peek == delayedTask) {
             return true;
         }
         return false;
     }
 
-    public final void enqueue(Runnable runnable) {
+    public void enqueue(Runnable runnable) {
         if (enqueueImpl(runnable)) {
             unpark();
         } else {
             DefaultExecutor.INSTANCE.enqueue(runnable);
-        }
-    }
-
-    private final int scheduleImpl(long j, DelayedTask delayedTask) {
-        if (isCompleted()) {
-            return 1;
-        }
-        DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
-        if (delayedTaskQueue == null) {
-            _delayed$FU.compareAndSet(this, null, new DelayedTaskQueue(j));
-            Object obj = this._delayed;
-            if (obj == null) {
-                Intrinsics.throwNpe();
-            }
-            delayedTaskQueue = (DelayedTaskQueue) obj;
-        }
-        return delayedTask.scheduleTask(j, delayedTaskQueue, this);
-    }
-
-    @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation<? super Unit> continuation) {
-        return Delay.DefaultImpls.delay(this, j, continuation);
-    }
-
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    /* renamed from: dispatch */
-    public final void mo2258dispatch(CoroutineContext coroutineContext, Runnable runnable) {
-        enqueue(runnable);
-    }
-
-    public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-        return Delay.DefaultImpls.invokeOnTimeout(this, j, runnable);
-    }
-
-    public final void schedule(long j, DelayedTask delayedTask) {
-        int scheduleImpl = scheduleImpl(j, delayedTask);
-        if (scheduleImpl != 0) {
-            if (scheduleImpl != 1) {
-                if (scheduleImpl != 2) {
-                    throw new IllegalStateException("unexpected result".toString());
-                }
-                return;
-            }
-            reschedule(j, delayedTask);
-        } else if (shouldUnpark(delayedTask)) {
-            unpark();
-        }
-    }
-
-    public final DisposableHandle scheduleInvokeOnTimeout(long j, Runnable runnable) {
-        long nanoTime;
-        long delayToNanos = EventLoop_commonKt.delayToNanos(j);
-        if (delayToNanos < 4611686018427387903L) {
-            TimeSource timeSource = TimeSourceKt.getTimeSource();
-            if (timeSource != null) {
-                nanoTime = timeSource.nanoTime();
-            } else {
-                nanoTime = System.nanoTime();
-            }
-            DelayedRunnableTask delayedRunnableTask = new DelayedRunnableTask(delayToNanos + nanoTime, runnable);
-            schedule(nanoTime, delayedRunnableTask);
-            return delayedRunnableTask;
-        }
-        return NonDisposableHandle.INSTANCE;
-    }
-
-    @Override // kotlinx.coroutines.Delay
-    /* renamed from: scheduleResumeAfterDelay */
-    public void mo2259scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
-        long nanoTime;
-        long delayToNanos = EventLoop_commonKt.delayToNanos(j);
-        if (delayToNanos < 4611686018427387903L) {
-            TimeSource timeSource = TimeSourceKt.getTimeSource();
-            if (timeSource != null) {
-                nanoTime = timeSource.nanoTime();
-            } else {
-                nanoTime = System.nanoTime();
-            }
-            DelayedResumeTask delayedResumeTask = new DelayedResumeTask(delayToNanos + nanoTime, cancellableContinuation);
-            CancellableContinuationKt.disposeOnCancellation(cancellableContinuation, delayedResumeTask);
-            schedule(nanoTime, delayedResumeTask);
         }
     }
 
@@ -403,7 +334,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
                         return;
                     }
                 } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Runnable /* = java.lang.Runnable */");
+                    throw new NullPointerException("null cannot be cast to non-null type java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }");
                 }
             } else {
                 ((LockFreeTaskQueueCore) obj).close();
@@ -428,7 +359,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
                     if (obj != null) {
                         return (Runnable) obj;
                     }
-                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Runnable /* = java.lang.Runnable */");
+                    throw new NullPointerException("null cannot be cast to non-null type java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }");
                 }
             } else if (obj != null) {
                 LockFreeTaskQueueCore lockFreeTaskQueueCore = (LockFreeTaskQueueCore) obj;
@@ -438,7 +369,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
                 }
                 _queue$FU.compareAndSet(this, obj, lockFreeTaskQueueCore.next());
             } else {
-                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Queue<kotlinx.coroutines.Runnable /* = java.lang.Runnable */> /* = kotlinx.coroutines.internal.LockFreeTaskQueueCore<kotlinx.coroutines.Runnable /* = java.lang.Runnable */> */");
+                throw new NullPointerException("null cannot be cast to non-null type kotlinx.coroutines.internal.LockFreeTaskQueueCore<java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }>{ kotlinx.coroutines.EventLoop_commonKt.Queue<java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }> }");
             }
         }
     }
@@ -446,7 +377,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
     @Override // kotlinx.coroutines.EventLoop
     public long getNextTime() {
         DelayedTask peek;
-        long nanoTime;
+        long longValue;
         Symbol symbol;
         if (super.getNextTime() == 0) {
             return 0L;
@@ -464,67 +395,26 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
             }
         }
         DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
-        if (delayedTaskQueue == null || (peek = delayedTaskQueue.peek()) == null) {
+        Long l = null;
+        if (delayedTaskQueue == null) {
+            peek = null;
+        } else {
+            peek = delayedTaskQueue.peek();
+        }
+        if (peek == null) {
             return Long.MAX_VALUE;
         }
         long j = peek.nanoTime;
-        TimeSource timeSource = TimeSourceKt.getTimeSource();
+        AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
         if (timeSource != null) {
-            nanoTime = timeSource.nanoTime();
+            l = Long.valueOf(timeSource.nanoTime());
+        }
+        if (l == null) {
+            longValue = System.nanoTime();
         } else {
-            nanoTime = System.nanoTime();
+            longValue = l.longValue();
         }
-        return RangesKt___RangesKt.coerceAtLeast(j - nanoTime, 0L);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0055  */
-    @Override // kotlinx.coroutines.EventLoop
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public long processNextEvent() {
-        Runnable dequeue;
-        long nanoTime;
-        DelayedTask delayedTask;
-        boolean z;
-        if (processUnconfinedEvent()) {
-            return getNextTime();
-        }
-        DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
-        if (delayedTaskQueue != null && !delayedTaskQueue.isEmpty()) {
-            TimeSource timeSource = TimeSourceKt.getTimeSource();
-            if (timeSource != null) {
-                nanoTime = timeSource.nanoTime();
-            } else {
-                nanoTime = System.nanoTime();
-            }
-            do {
-                synchronized (delayedTaskQueue) {
-                    DelayedTask firstImpl = delayedTaskQueue.firstImpl();
-                    delayedTask = null;
-                    if (firstImpl != null) {
-                        DelayedTask delayedTask2 = firstImpl;
-                        if (delayedTask2.timeToExecute(nanoTime)) {
-                            z = enqueueImpl(delayedTask2);
-                        } else {
-                            z = false;
-                        }
-                        if (z) {
-                            delayedTask = delayedTaskQueue.removeAtImpl(0);
-                        }
-                    }
-                }
-            } while (delayedTask != null);
-            dequeue = dequeue();
-            if (dequeue != null) {
-            }
-            return getNextTime();
-        }
-        dequeue = dequeue();
-        if (dequeue != null) {
-            dequeue.run();
-        }
-        return getNextTime();
+        return RangesKt___RangesKt.coerceAtLeast(j - longValue, 0L);
     }
 
     private final boolean enqueueImpl(Runnable runnable) {
@@ -551,7 +441,7 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
                         return true;
                     }
                 } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Runnable /* = java.lang.Runnable */");
+                    throw new NullPointerException("null cannot be cast to non-null type java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }");
                 }
             } else if (obj != null) {
                 LockFreeTaskQueueCore lockFreeTaskQueueCore2 = (LockFreeTaskQueueCore) obj;
@@ -567,8 +457,161 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
                     _queue$FU.compareAndSet(this, obj, lockFreeTaskQueueCore2.next());
                 }
             } else {
-                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Queue<kotlinx.coroutines.Runnable /* = java.lang.Runnable */> /* = kotlinx.coroutines.internal.LockFreeTaskQueueCore<kotlinx.coroutines.Runnable /* = java.lang.Runnable */> */");
+                throw new NullPointerException("null cannot be cast to non-null type kotlinx.coroutines.internal.LockFreeTaskQueueCore<java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }>{ kotlinx.coroutines.EventLoop_commonKt.Queue<java.lang.Runnable{ kotlinx.coroutines.RunnableKt.Runnable }> }");
             }
+        }
+    }
+
+    private final int scheduleImpl(long j, DelayedTask delayedTask) {
+        if (isCompleted()) {
+            return 1;
+        }
+        DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
+        if (delayedTaskQueue == null) {
+            _delayed$FU.compareAndSet(this, null, new DelayedTaskQueue(j));
+            Object obj = this._delayed;
+            Intrinsics.checkNotNull(obj);
+            delayedTaskQueue = (DelayedTaskQueue) obj;
+        }
+        return delayedTask.scheduleTask(j, delayedTaskQueue, this);
+    }
+
+    @Override // kotlinx.coroutines.Delay
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated without replacement as an internal method never intended for public use")
+    public Object delay(long j, Continuation<? super Unit> continuation) {
+        return Delay.DefaultImpls.delay(this, j, continuation);
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    /* renamed from: dispatch */
+    public final void mo2339dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        enqueue(runnable);
+    }
+
+    public final void schedule(long j, DelayedTask delayedTask) {
+        int scheduleImpl = scheduleImpl(j, delayedTask);
+        if (scheduleImpl != 0) {
+            if (scheduleImpl != 1) {
+                if (scheduleImpl != 2) {
+                    throw new IllegalStateException("unexpected result".toString());
+                }
+                return;
+            }
+            reschedule(j, delayedTask);
+        } else if (shouldUnpark(delayedTask)) {
+            unpark();
+        }
+    }
+
+    public DisposableHandle invokeOnTimeout(long j, Runnable runnable, CoroutineContext coroutineContext) {
+        return Delay.DefaultImpls.invokeOnTimeout(this, j, runnable, coroutineContext);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0065  */
+    @Override // kotlinx.coroutines.EventLoop
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public long processNextEvent() {
+        Runnable dequeue;
+        Long valueOf;
+        long longValue;
+        boolean z;
+        DelayedTask delayedTask;
+        if (processUnconfinedEvent()) {
+            return 0L;
+        }
+        DelayedTaskQueue delayedTaskQueue = (DelayedTaskQueue) this._delayed;
+        if (delayedTaskQueue != null && !delayedTaskQueue.isEmpty()) {
+            AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
+            if (timeSource == null) {
+                valueOf = null;
+            } else {
+                valueOf = Long.valueOf(timeSource.nanoTime());
+            }
+            if (valueOf == null) {
+                longValue = System.nanoTime();
+            } else {
+                longValue = valueOf.longValue();
+            }
+            do {
+                synchronized (delayedTaskQueue) {
+                    DelayedTask firstImpl = delayedTaskQueue.firstImpl();
+                    if (firstImpl == null) {
+                        delayedTask = null;
+                    } else {
+                        DelayedTask delayedTask2 = firstImpl;
+                        if (delayedTask2.timeToExecute(longValue)) {
+                            z = enqueueImpl(delayedTask2);
+                        } else {
+                            z = false;
+                        }
+                        if (z) {
+                            delayedTask = delayedTaskQueue.removeAtImpl(0);
+                        } else {
+                            delayedTask = null;
+                        }
+                    }
+                }
+            } while (delayedTask != null);
+            dequeue = dequeue();
+            if (dequeue == null) {
+            }
+        } else {
+            dequeue = dequeue();
+            if (dequeue == null) {
+                dequeue.run();
+                return 0L;
+            }
+            return getNextTime();
+        }
+    }
+
+    public final DisposableHandle scheduleInvokeOnTimeout(long j, Runnable runnable) {
+        Long valueOf;
+        long longValue;
+        long delayToNanos = EventLoop_commonKt.delayToNanos(j);
+        if (delayToNanos < 4611686018427387903L) {
+            AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
+            if (timeSource == null) {
+                valueOf = null;
+            } else {
+                valueOf = Long.valueOf(timeSource.nanoTime());
+            }
+            if (valueOf == null) {
+                longValue = System.nanoTime();
+            } else {
+                longValue = valueOf.longValue();
+            }
+            DelayedRunnableTask delayedRunnableTask = new DelayedRunnableTask(delayToNanos + longValue, runnable);
+            schedule(longValue, delayedRunnableTask);
+            return delayedRunnableTask;
+        }
+        return NonDisposableHandle.INSTANCE;
+    }
+
+    @Override // kotlinx.coroutines.Delay
+    /* renamed from: scheduleResumeAfterDelay */
+    public void mo2340scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+        Long valueOf;
+        long longValue;
+        long delayToNanos = EventLoop_commonKt.delayToNanos(j);
+        if (delayToNanos < 4611686018427387903L) {
+            AbstractTimeSource timeSource = AbstractTimeSourceKt.getTimeSource();
+            if (timeSource == null) {
+                valueOf = null;
+            } else {
+                valueOf = Long.valueOf(timeSource.nanoTime());
+            }
+            if (valueOf == null) {
+                longValue = System.nanoTime();
+            } else {
+                longValue = valueOf.longValue();
+            }
+            DelayedResumeTask delayedResumeTask = new DelayedResumeTask(delayToNanos + longValue, cancellableContinuation);
+            CancellableContinuationKt.disposeOnCancellation(cancellableContinuation, delayedResumeTask);
+            schedule(longValue, delayedResumeTask);
         }
     }
 }

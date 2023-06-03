@@ -22,6 +22,7 @@ import com.baidu.android.pushservice.message.LocalPushMsg;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.w.m.l;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1717,7 +1718,7 @@ public class d {
             if (Utility.g(context, str) < 52 || (contentResolver = context.getContentResolver()) == null) {
                 str3 = null;
             } else {
-                Uri parse = Uri.parse("content://" + str + ".bdpush/verif");
+                Uri parse = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + str + ".bdpush/verif");
                 String[] strArr = {k.c.name()};
                 StringBuilder sb = new StringBuilder();
                 sb.append(k.c.name());
@@ -1975,7 +1976,7 @@ public class d {
             if (Utility.g(context, str) < 52 || (contentResolver = context.getContentResolver()) == null) {
                 str3 = null;
             } else {
-                Uri parse = Uri.parse("content://" + str + ".bdpush/verif");
+                Uri parse = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + str + ".bdpush/verif");
                 String[] strArr = {k.c.name()};
                 StringBuilder sb = new StringBuilder();
                 sb.append(k.b.name());

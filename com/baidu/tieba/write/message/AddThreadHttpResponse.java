@@ -9,8 +9,7 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.n7a;
+import com.baidu.tieba.cea;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +56,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(n7a.a(toast));
+        BdToastHelper.toast(cea.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +74,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
             addThreadHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addThreadResIdl.data;
             if (dataRes != null) {
-                BdToastData a = n7a.a(dataRes.toast);
+                BdToastData a = cea.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addThreadHttpResponse.resultJSON.put("toast", json);
                 }
@@ -214,7 +213,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                     jSONObject13.put("ifpost", addThreadResIdl.data.anti_stat.ifpost);
                     jSONObject13.put("ifposta", addThreadResIdl.data.anti_stat.ifposta);
                     jSONObject13.put("forbid_flag", addThreadResIdl.data.anti_stat.forbid_flag);
-                    jSONObject13.put(HttpRequest.TBS, addThreadResIdl.data.anti_stat.tbs);
+                    jSONObject13.put("tbs", addThreadResIdl.data.anti_stat.tbs);
                     jSONObject13.put("need_vcode", addThreadResIdl.data.anti_stat.need_vcode);
                     jSONObject13.put("vcode_md5", addThreadResIdl.data.anti_stat.vcode_md5);
                     jSONObject13.put("vcode_pic_url", addThreadResIdl.data.anti_stat.vcode_pic_url);

@@ -1,224 +1,239 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class m7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
 
-    public m7a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = i;
+            this.b = i2;
         }
-        this.g = -1;
-        this.h = false;
-        this.i = false;
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
+    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i = this.c;
-            if (i != 0) {
-                this.e = SkinManager.getColor(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
+                return false;
             }
-            int i2 = this.d;
-            if (i2 != 0) {
-                this.f = SkinManager.getColor(i2);
-            }
-        }
-    }
-
-    public SpannableStringBuilder f(Editable editable) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
-            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.a)) {
-                return null;
-            }
-            String obj = editable.toString();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-            if (this.g >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.g = -1;
-            Iterator<String> it = this.a.iterator();
+            SparseArray sparseArray = new SparseArray();
+            Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
-                String next = it.next();
-                if (!StringUtils.isNull(next)) {
-                    m(spannableStringBuilder, obj, next);
+                a next = it.next();
+                int i = next.a;
+                int i2 = next.b;
+                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
+                    return false;
                 }
+                int pixel = bitmap.getPixel(i, i2);
+                if (sparseArray.get(pixel) != null) {
+                    return false;
+                }
+                next.c = pixel;
+                sparseArray.put(pixel, next);
             }
-            if (this.g < 0 && !z) {
-                return null;
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Bitmap b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            Bitmap bitmap = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                byteArrayOutputStream.close();
+                return bitmap;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return bitmap;
             }
-            ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
-            if (imageSpanArr != null) {
-                for (ImageSpan imageSpan : imageSpanArr) {
-                    if (imageSpan != null) {
-                        spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
+                context.sendBroadcast(intent);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
+            int i3 = i * i2;
+            int i4 = 0;
+            int i5 = 0;
+            for (int i6 = 0; i6 < i2; i6++) {
+                int i7 = 0;
+                while (i7 < i) {
+                    int i8 = iArr[i5];
+                    int i9 = (iArr[i5] & 16711680) >> 16;
+                    int i10 = (iArr[i5] & 65280) >> 8;
+                    int i11 = 255;
+                    int i12 = (iArr[i5] & 255) >> 0;
+                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
+                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
+                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
+                    int i16 = i4 + 1;
+                    if (i13 < 0) {
+                        i13 = 0;
+                    } else if (i13 > 255) {
+                        i13 = 255;
                     }
+                    bArr[i4] = (byte) i13;
+                    if (i6 % 2 == 0 && i5 % 2 == 0) {
+                        int i17 = i3 + 1;
+                        if (i15 < 0) {
+                            i15 = 0;
+                        } else if (i15 > 255) {
+                            i15 = 255;
+                        }
+                        bArr[i3] = (byte) i15;
+                        i3 = i17 + 1;
+                        if (i14 < 0) {
+                            i11 = 0;
+                        } else if (i14 <= 255) {
+                            i11 = i14;
+                        }
+                        bArr[i17] = (byte) i11;
+                    }
+                    i5++;
+                    i7++;
+                    i4 = i16;
                 }
             }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-            this.f = SkinManager.getColor(i);
         }
     }
 
-    public void i(ArrayList<String> arrayList) {
+    public static byte[] e(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
+            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public void j(int i) {
+    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.m7a$a> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<a> f(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-            this.e = SkinManager.getColor(i);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.e != 0 || this.f != 0) {
-                int indexOf = str.indexOf(str2);
-                int length = str2.length();
-                if (indexOf >= 0) {
-                    int i = this.g;
-                    if (i == -1) {
-                        this.g = indexOf + length;
-                    } else {
-                        int i2 = indexOf + length;
-                        if (i2 < i) {
-                            this.g = i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                SparseArray sparseArray = new SparseArray();
+                int i = 0;
+                loop0: for (int i2 = 0; i2 < width; i2++) {
+                    for (int i3 = 0; i3 < height; i3++) {
+                        int pixel = bitmap.getPixel(i2, i3);
+                        a aVar = new a(i2, i3);
+                        if (sparseArray.get(pixel) == null) {
+                            sparseArray.put(pixel, aVar);
+                            i++;
+                        }
+                        if (i == 3) {
+                            break loop0;
                         }
                     }
                 }
-                while (indexOf >= 0) {
-                    if (this.e != 0) {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(this.e), indexOf, indexOf + length, 33);
-                    }
-                    if (this.f != 0) {
-                        spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f), indexOf, indexOf + length, 33);
-                    }
-                    indexOf = str.indexOf(str2, indexOf + 1);
+                ArrayList<a> arrayList = new ArrayList<>();
+                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
+                    arrayList.add(sparseArray.valueAt(i4));
                 }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static byte[] g(int i, int i2, Bitmap bitmap) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
+            int i3 = i * i2;
+            try {
+                int[] iArr = new int[i3];
+                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
+                byte[] bArr = new byte[(i3 * 3) / 2];
+                d(bArr, iArr, i, i2);
+                return bArr;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (byte[]) invokeIIL.objValue;
+    }
+
+    public static Bitmap h(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(f);
+                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+            return null;
+        }
+        return (Bitmap) invokeLF.objValue;
     }
 }

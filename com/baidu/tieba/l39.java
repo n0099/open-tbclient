@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,37 +9,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class l39 {
+public class l39 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public View b;
-    public TBLottieAnimationView c;
-    public TextView d;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
+    public n25 j;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947892087, "Lcom/baidu/tieba/l39;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892087, "Lcom/baidu/tieba/l39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892087, "Lcom/baidu/tieba/l39;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947892087, "Lcom/baidu/tieba/l39;");
-        }
+        k = BdUniqueId.gen();
     }
 
-    public l39(Activity activity) {
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public l39(ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {forumData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,82 +67,45 @@ public final class l39 {
                 return;
             }
         }
-        this.a = activity;
+        this.e = false;
+        if (forumData == null) {
+            return;
+        }
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+        this.j = forumData.getForumShowInfo();
     }
 
-    public final void b(int i) {
+    public l39(h45 h45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
-            }
-            TextView textView = this.d;
-            if (textView != null) {
-                p45.d(textView).w(R.color.CAM_X0108);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h45Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
-                tBLottieAnimationView.cancelAnimation();
-            }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            DefaultLog.getInstance().c("PbFragmentLoadingManager", "隐藏最上层loading");
+        this.e = false;
+        if (h45Var == null) {
+            return;
         }
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public final void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                Intrinsics.checkNotNull(tBLottieAnimationView);
-                if (tBLottieAnimationView.isAnimating()) {
-                    return;
-                }
-            }
-            if (view2 != null) {
-                this.b = view2;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092700);
-                this.c = tBLottieAnimationView2;
-                if (tBLottieAnimationView2 != null) {
-                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
-                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
-                    if (tBLottieAnimationView3 != null) {
-                        tBLottieAnimationView3.setRepeatCount(-1);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
-                    if (tBLottieAnimationView4 != null) {
-                        tBLottieAnimationView4.setSpeed(1.2f);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
-                    if (tBLottieAnimationView5 != null) {
-                        tBLottieAnimationView5.playAnimation();
-                    }
-                }
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092701);
-            }
-            DefaultLog.getInstance().c("PbFragmentLoadingManager", "显示最上层loading");
-        }
+        this.a = h45Var.b;
+        this.b = h45Var.c;
+        this.c = h45Var.j;
+        this.d = h45Var.k;
+        this.f = h45Var.a;
+        this.h = h45Var.f();
+        this.i = h45Var.h();
+        this.j = h45Var.e();
     }
 }

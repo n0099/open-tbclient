@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IThreadManager;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 @Service
-/* loaded from: classes6.dex */
-public class nl implements IWebViewDataDirectoryManager {
+/* loaded from: classes7.dex */
+public class nl implements IThreadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    public Executor a;
 
     public nl() {
         Interceptable interceptable = $ic;
@@ -29,7 +25,17 @@ public class nl implements IWebViewDataDirectoryManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+    }
+
+    @Override // com.baidu.nps.interfa.IThreadManager
+    public void run(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

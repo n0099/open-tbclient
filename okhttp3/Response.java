@@ -10,7 +10,7 @@ import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Response implements Closeable {
     @Nullable
     public final ResponseBody body;
@@ -32,7 +32,7 @@ public final class Response implements Closeable {
     public final Request request;
     public final long sentRequestAtMillis;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         @Nullable
         public ResponseBody body;

@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Looper;
+import android.annotation.SuppressLint;
+import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.a03;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,27 +12,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class u92 extends p92<t92> {
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class u92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a03 a;
-    public final b03 b;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
+    public b d;
+    public BufferedWriter e;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t92 a;
-        public final /* synthetic */ u92 b;
+    }
 
-        public a(u92 u92Var, t92 t92Var) {
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes8.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u92 a;
+
+        public b(u92 u92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u92Var, t92Var};
+                Object[] objArr = {u92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,16 +57,31 @@ public final class u92 extends p92<t92> {
                     return;
                 }
             }
-            this.b = u92Var;
-            this.a = t92Var;
+            this.a = u92Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap p;
+        public /* synthetic */ b(u92 u92Var, a aVar) {
+            this(u92Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p = xm3.p()) != null) {
-                Message.obtain(this.b, 2, t92.a(this.a.b, p)).sendToTarget();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
+                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : this.a.c.entrySet()) {
+                    try {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                this.a.e(jSONObject.toString());
+                y82.i("PropertyLogcat", jSONObject.toString());
+                if (this.a.d != null) {
+                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
+                }
             }
         }
     }
@@ -74,121 +99,95 @@ public final class u92 extends p92<t92> {
                 return;
             }
         }
-        c = qp1.a;
+        boolean z = is1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u92(Looper looper) {
-        super(looper);
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return gj3.n(yb3.g0(), this.a, LocalFilesFilterKt.FILTER_NAME_LOG);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public u92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = a03.a.a("simple_parser");
-        this.b = (b03) a03.a.a("hsv_parser");
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return TextUtils.equals(an3.B(), str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f(t92 t92Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, t92Var) != null) || t92Var == null) {
-            return;
-        }
-        if (c) {
-            Log.d("WhitePageHandler", ">> start to get capture.");
-        }
-        an3.e0(new a(this, t92Var));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p92
-    /* renamed from: c */
-    public void a(t92 t92Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t92Var) != null) || t92Var == null) {
-            return;
-        }
-        if (!e(t92Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + t92Var.b);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                v92.g().i();
+                this.c = null;
+                y82.i("PropertyLogcat", "Stop monitor logcat");
             }
-            return;
+            cs4.d(this.e);
+            this.e = null;
+            return gj3.I(f(), yb3.g0());
         }
-        f(t92Var);
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p92
-    /* renamed from: d */
-    public void b(t92 t92Var) {
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t92Var) != null) || t92Var == null) {
-            return;
-        }
-        if (!e(t92Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + t92Var.b);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
+            try {
+                bufferedWriter.write(str);
+                this.e.write(10);
+                y82.i("PropertyLogcat", "Export logcat success");
+            } catch (IOException e) {
+                y82.d("PropertyLogcat", "Logcat write fail", e);
             }
-            return;
         }
-        Bitmap bitmap = t92Var.d;
-        o82 f = pz2.f();
-        View B = tu2.U().B(t92Var.b);
-        if (bitmap != null && f != null && B != null) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> start parsing capture");
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
+            this.b = i;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c == null) {
+                this.c = v92.g().h();
+                y82.i("PropertyLogcat", "Start monitor logcat");
             }
-            Rect b = pz2.b(bitmap, f, B);
-            this.a.c(pz2.d(f));
-            if (!pz2.h() && this.a.a(bitmap, b)) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is full white screen.");
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    y82.d("PropertyLogcat", "Create log file fail", e);
                 }
-                ga2 ga2Var = new ga2();
-                ga2Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                ga2Var.d(t92Var.b);
-                return;
             }
-            double d = this.b.d(bitmap, b);
-            ga2 ga2Var2 = new ga2();
-            if (pz2.g() && d >= 0.5d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                ga2Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                ga2Var2.d(t92Var.b);
-            } else if (d >= 0.7d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                ga2Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                ga2Var2.d(t92Var.b);
-            } else {
-                v92.b().a();
-            }
-        } else if (c) {
-            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
         }
     }
 }

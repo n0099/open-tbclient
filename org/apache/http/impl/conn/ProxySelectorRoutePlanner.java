@@ -12,7 +12,7 @@ import org.apache.http.conn.routing.HttpRoutePlanner;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
     public ProxySelector proxySelector;
     public SchemeRegistry schemeRegistry;

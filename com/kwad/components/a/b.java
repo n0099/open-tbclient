@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.player.model.YYOption;
 import com.kwad.components.a.b.b;
 import com.kwad.components.a.b.c;
 import com.kwad.sdk.crash.utils.g;
@@ -69,7 +70,7 @@ public final class b {
         if (Build.VERSION.SDK_INT >= 21) {
             HashMap hashMap = new HashMap();
             hashMap.put("Access-Control-Allow-Origin", bVar.PX.PS);
-            hashMap.put("Access-Control-Allow-Credentials", "true");
+            hashMap.put("Access-Control-Allow-Credentials", YYOption.IsLive.VALUE_TRUE);
             hashMap.put("Timing-Allow-Origin", bVar.PX.PT);
             hashMap.put(Headers.CONTENT_TYPE, str);
             hashMap.put("Date", bVar.PX.PV);

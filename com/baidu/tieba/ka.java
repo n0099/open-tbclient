@@ -1,115 +1,419 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.client.socket.coder.CoderException;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public class ka {
+public class ka extends qj {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler o;
     public transient /* synthetic */ FieldHolder $fh;
+    public CoderException c;
+    public SocketMessage d;
+    public volatile int e;
+    public Runnable f;
+    public ma g;
+    public boolean h;
+    public int i;
+    public int j;
+    public long k;
+    public SocketMessageTask l;
+    public long m;
+    public long n;
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b(str, i, -1L, i2, str2, i3, str3);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ka a;
+
+        public a(ka kaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.A();
         }
     }
 
-    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
-        String valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            StringBuilder sb = new StringBuilder(50);
-            if (i != 0 && i2 != 0) {
-                sb.append("cmd = ");
-                sb.append(i);
-                sb.append("\t");
-                sb.append("sequence = ");
-                sb.append(i2);
-                sb.append("\t");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448309015, "Lcom/baidu/tieba/ka;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            sb.append(str3);
-            try {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add("lib");
-                linkedList.add(str);
-                if (i != 0) {
-                    linkedList.add("cmd");
-                    linkedList.add(Integer.valueOf(i));
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    linkedList.add("act");
-                    linkedList.add(str2);
-                }
-                if (i3 != 0) {
-                    linkedList.add("result");
-                    linkedList.add(Integer.valueOf(i3));
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    linkedList.add("comment");
-                    linkedList.add(str3);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448309015, "Lcom/baidu/tieba/ka;");
+                return;
+            }
+        }
+        o = new Handler(Looper.getMainLooper());
+    }
+
+    public final void A() {
+        ma maVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maVar = this.g) != null && this.h) {
+            maVar.A(this);
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.j + 1;
+            this.j = i;
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.i + 1;
+            this.i = i;
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l.d();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            o.removeCallbacks(u());
+        }
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            SocketMessage socketMessage = this.d;
+            if (socketMessage != null) {
+                return socketMessage.getCmd();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int retry = this.l.getRetry();
+            if (retry <= 1) {
+                return 1;
+            }
+            return retry;
+        }
+        return invokeV.intValue;
+    }
+
+    public SocketMessage m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (SocketMessage) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.l.getPriority();
+        }
+        return invokeV.intValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public CoderException r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.c;
+        }
+        return (CoderException) invokeV.objValue;
+    }
+
+    public long s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.k;
+        }
+        return invokeV.longValue;
+    }
+
+    public SocketMessageTask t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.l;
+        }
+        return (SocketMessageTask) invokeV.objValue;
+    }
+
+    public final Runnable u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.f == null) {
+                this.f = new a(this);
+            }
+            return this.f;
+        }
+        return (Runnable) invokeV.objValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.l.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            j();
+            this.h = false;
+        }
+    }
+
+    public final void y() {
+        ma maVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (maVar = this.g) != null && this.h) {
+            maVar.y(this);
+        }
+    }
+
+    public final void z() {
+        ma maVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (maVar = this.g) != null && this.h) {
+            maVar.z(this);
+        }
+    }
+
+    public ka(SocketMessage socketMessage, SocketMessageTask socketMessageTask, ma maVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {socketMessage, socketMessageTask, maVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = null;
+        this.e = 0;
+        this.f = null;
+        this.g = null;
+        this.h = true;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0L;
+        this.l = null;
+        if (socketMessage != null && socketMessageTask != null) {
+            this.l = socketMessageTask;
+            this.d = socketMessage;
+            this.g = maVar;
+            return;
+        }
+        throw new InvalidParameterException("SenderData msg null");
+    }
+
+    @Override // com.baidu.tieba.tk
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            o.removeCallbacks(u());
+            x(i);
+        }
+    }
+
+    public final void x(int i) {
+        ma maVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && (maVar = this.g) != null && this.h) {
+            maVar.x(i, this);
+        }
+    }
+
+    @Override // com.baidu.tieba.tk
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.k == 0) {
+                this.k = System.currentTimeMillis();
+            }
+            int cmd = this.d.getCmd();
+            int i = 0;
+            if (e() != null) {
+                i = e().length;
+            }
+            long clientLogID = this.d.getClientLogID();
+            int i2 = this.e;
+            oa.b("SenderData", cmd, clientLogID, i2, "StartSend", 0, "SenderData: start send size = " + i);
+            o.removeCallbacks(u());
+            if (this.l.getTimeOut() != null) {
+                o.postDelayed(u(), this.l.getTimeOut().b());
+            }
+            z();
+            w9 w9Var = w9.b;
+            if (w9Var != null) {
+                w9Var.a(this.d.getCmd(), "send", this.d.getData());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qj
+    public byte[] d() {
+        InterceptResult invokeV;
+        long clientLogID;
+        int cmd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.k == 0) {
+                this.k = System.currentTimeMillis();
+            }
+            this.c = null;
+            qa f = qa.f();
+            this.e = la.a().b();
+            SocketMessage socketMessage = this.d;
+            if (socketMessage != null) {
+                socketMessage.setSquencedId(this.e);
                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                if (i2 == 0) {
-                    valueOf = null;
+                SocketMessage socketMessage2 = this.d;
+                if (socketMessage2 == null) {
+                    clientLogID = -1;
                 } else {
-                    valueOf = String.valueOf(i2 & 4294967295L);
+                    clientLogID = socketMessage2.getClientLogID();
                 }
-                bdStatisticsManager.newDebug("socket", j, valueOf, linkedList.toArray());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                long j = clientLogID;
+                String valueOf = String.valueOf(this.e & 4294967295L);
+                Object[] objArr = new Object[2];
+                objArr[0] = "cmd";
+                SocketMessage socketMessage3 = this.d;
+                if (socketMessage3 == null) {
+                    cmd = -1;
+                } else {
+                    cmd = socketMessage3.getCmd();
+                }
+                objArr[1] = Integer.valueOf(cmd);
+                bdStatisticsManager.newDebug("seqid", j, valueOf, objArr);
+            }
+            try {
+                return f.e(this.d, this.e, this.l.c(), this.l.getNeedEncrypt());
+            } catch (CoderException e) {
+                this.c = e;
+                return null;
             }
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
-        long j;
-        int i3;
+    @Override // com.baidu.tieba.tk
+    public void c() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            if (message != null) {
-                i3 = message.getCmd();
-                j = message.getClientLogID();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int cmd = this.d.getCmd();
+            if (e() != null) {
+                i = e().length;
             } else {
-                j = 0;
-                i3 = 0;
+                i = 0;
             }
-            b(str, i3, j, i, str2, i2, str3);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                BdStatisticsManager.getInstance().debug("socket", "url", rj.j().q(), "dns_cost", Long.valueOf(rj.j().h()), TiebaStatic.CON_COST, Long.valueOf(rj.j().g()), "remote_ip", rj.j().o(), ETAG.KEY_LOCAL_DNS, rj.j().m(), "local_dns_bak", rj.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            long clientLogID = this.d.getClientLogID();
+            int i2 = this.e;
+            oa.b("SenderData", cmd, clientLogID, i2, "FinishSend", 0, "SenderData: finish send  size = " + i);
+            if (!this.l.b()) {
+                o.removeCallbacks(u());
             }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                xg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(rj.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, bh.a(BdBaseApplication.getInst()));
-                BdStatisticsManager.getInstance().performance("im", statsItem);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            y();
         }
     }
 }

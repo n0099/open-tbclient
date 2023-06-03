@@ -1,175 +1,295 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.database.Cursor;
+import android.app.Application;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.TbadkCore;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.se;
+import com.baidu.behavior.record.api.IBehaviorApi;
+import com.baidu.mobstat.Config;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.common.security.CacheDeviceInfo;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class xi {
     public static /* synthetic */ Interceptable $ic;
+    public static final Application a;
+    public static final DeviceInfoManager b;
+    @NonNull
+    public static final Map<String, String> c;
+    public static aj d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements Comparator<se.b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321756, "Lcom/baidu/tieba/xi;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321756, "Lcom/baidu/tieba/xi;");
+                return;
             }
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(se.b<?> bVar, se.b<?> bVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j = bVar.c;
-                long j2 = bVar2.c;
-                if (j == j2) {
-                    return 0;
-                }
-                if (j > j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
+        a = BdBaseApplication.getInst();
+        b = DeviceInfoManager.INSTANCE;
+        c = new HashMap();
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
-    @SuppressLint({"Range"})
-    public static List<se.b<byte[]>> a(se<byte[]> seVar) {
-        InterceptResult invokeL;
-        Cursor cursor;
+    @NonNull
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, seVar)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                cursor = c(seVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return d(CacheDeviceInfo.JSON_KEY_ANDROID_ID);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d("ie");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d("isi");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d("ma");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d(CacheDeviceInfo.JSON_KEY_MANUFACTURER);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return d("md");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d("oi");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return d("ci");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return d("ov");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"HardwareIds"})
+    public static String d(@NonNull String str) {
+        InterceptResult invokeL;
+        DeviceIdBag androidId;
+        TelephonyManager telephonyManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            aj ajVar = d;
+            String str2 = "";
+            if (ajVar != null && ajVar.isBrowseMode()) {
+                return "";
             }
-            if (cursor == null) {
-                return null;
+            String str3 = c.get(str);
+            if (str3 != null) {
+                return str3;
             }
-            while (cursor.moveToNext()) {
-                try {
-                    se.b bVar = new se.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        og.a(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        og.a(cursor);
+            char c2 = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 3112) {
+                if (hashCode != 3174) {
+                    if (hashCode != 3333) {
+                        if (hashCode != 3356) {
+                            if (hashCode != 3476) {
+                                if (hashCode != 3479) {
+                                    if (hashCode != 3489) {
+                                        if (hashCode != 3546) {
+                                            if (hashCode != 3559) {
+                                                if (hashCode == 104575 && str.equals("isi")) {
+                                                    c2 = '\t';
+                                                }
+                                            } else if (str.equals("ov")) {
+                                                c2 = '\b';
+                                            }
+                                        } else if (str.equals("oi")) {
+                                            c2 = 7;
+                                        }
+                                    } else if (str.equals(CacheDeviceInfo.JSON_KEY_MANUFACTURER)) {
+                                        c2 = 5;
+                                    }
+                                } else if (str.equals("md")) {
+                                    c2 = 6;
+                                }
+                            } else if (str.equals("ma")) {
+                                c2 = 2;
+                            }
+                        } else if (str.equals("ie")) {
+                            c2 = 1;
+                        }
+                    } else if (str.equals("hm")) {
+                        c2 = 4;
                     }
+                } else if (str.equals("ci")) {
+                    c2 = 3;
                 }
+            } else if (str.equals(CacheDeviceInfo.JSON_KEY_ANDROID_ID)) {
+                c2 = 0;
             }
-            og.a(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
-    @SuppressLint({"Range"})
-    public static List<se.b<String>> b(se<String> seVar) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, seVar)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                cursor = c(seVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    se.b bVar = new se.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
+            switch (c2) {
+                case 0:
+                    androidId = b.getAndroidId(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str2 = Config.NULL_DEVICE_ID;
+                    break;
+                case 1:
+                    androidId = b.getIMEI(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str2 = Config.NULL_DEVICE_ID;
+                    break;
+                case 2:
+                    androidId = b.getMacAddress(a, "初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case 3:
+                    androidId = b.getOperator(a, "初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case 4:
+                    androidId = b.getHarmonyVersion(a, "初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case 5:
+                    androidId = b.getManufacturer("初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case 6:
+                    androidId = b.getModel("初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case 7:
+                    androidId = b.getOAID("初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case '\b':
+                    androidId = b.getOsVersion("初始化", "定位问题，安全保障，个性化展示");
+                    break;
+                case '\t':
+                    androidId = new DeviceIdBag();
                     try {
-                        BdLog.e(th);
-                        og.a(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        og.a(cursor);
+                        TbadkCore tbadkCore = (TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE);
+                        if (tbadkCore.permissionUtilIsAgreePrivacyPolicy() && tbadkCore.permissionUtilCheckReadPhoneState(a) && (telephonyManager = (TelephonyManager) a.getSystemService("phone")) != null) {
+                            androidId.deviceId = ApiReplaceUtil.getSubscriberId(telephonyManager);
+                            ((IBehaviorApi) ServiceManager.getService(IBehaviorApi.SERVICE_REFERENCE)).addBehavior(1, "isi", "tieba", "tieba");
+                            break;
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                        break;
                     }
-                }
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + str);
             }
-            og.a(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
+            String h = h(androidId, str2);
+            c.put(str, h);
+            return h;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static Cursor c(se<?> seVar) {
-        InterceptResult invokeL;
+    public static String h(@NonNull DeviceIdBag deviceIdBag, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, seVar)) == null) {
-            if (seVar == null || !(seVar instanceof se.c)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, deviceIdBag, str)) == null) {
+            if (!TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                return deviceIdBag.deviceId;
             }
-            se.c cVar = (se.c) seVar;
-            if (!(cVar.c() instanceof qe)) {
-                return null;
-            }
-            je n = ((qe) cVar.c()).n();
-            return n.q(n.h().f(), cVar.j());
+            return str;
         }
-        return (Cursor) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            DisplayMetrics displayMetrics = BdBaseApplication.getInst().getResources().getDisplayMetrics();
+            int i = 0;
+            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", ((TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE)).tbConfigGetVersion(), String.valueOf(displayMetrics.densityDpi)};
+            StringBuilder sb = new StringBuilder();
+            String str = "";
+            while (i < 5) {
+                String str2 = strArr[i];
+                sb.append(str);
+                sb.append(str2);
+                i++;
+                str = "_";
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void m(aj ajVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, ajVar) == null) {
+            d = ajVar;
+        }
     }
 }

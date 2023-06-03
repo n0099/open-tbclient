@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.h82;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface jt1 {
-    int a();
+    JSONObject a();
 
-    VideoPlayerFactory b();
+    void b(String str);
 
-    int c();
+    void c(CallbackHandler callbackHandler, String str);
 
-    void d(boolean z);
+    void d(CallbackHandler callbackHandler, String str);
 
-    boolean e();
+    void e(String str);
 
-    boolean f();
+    void f(CallbackHandler callbackHandler, String str);
 
-    void g(int i);
-
-    void h(h82.c cVar);
+    void g(CallbackHandler callbackHandler, String str);
 }

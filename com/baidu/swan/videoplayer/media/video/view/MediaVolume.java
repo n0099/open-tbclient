@@ -87,14 +87,14 @@ public final class MediaVolume extends FrameLayout {
     }
 
     public final void d(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08fd, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc4);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091409);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070843);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd7);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091421);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070856);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081414);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081443);
         this.a.setLayoutParams(layoutParams);
         AudioManager audioManager = (AudioManager) context.getSystemService("audio");
         this.d = audioManager;

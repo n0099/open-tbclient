@@ -1,72 +1,170 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class v72 implements w72.b {
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class v72 extends xc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193624, "Lcom/baidu/tieba/v72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948193624, "Lcom/baidu/tieba/v72;");
-                return;
-            }
-        }
-        a = qp1.a;
+    @Override // com.baidu.tieba.xc3
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
     }
 
-    public v72() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v72(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/button");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.w72.b
-    public void a() {
+    @Nullable
+    public final w72 q(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
-            Log.d("SimplePreDownloadCallback", "pre download success");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                y82.c("Component-Action-Button", "params is null");
+                return null;
+            }
+            w72 w72Var = new w72();
+            try {
+                w72Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                y82.d("Component-Action-Button", "model parse exception:", e);
+            }
+            return w72Var;
         }
+        return (w72) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.w72.b
-    public void c() {
+    @Override // com.baidu.tieba.xc3
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, yb3 yb3Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("Component-Action-Button", "insert");
+            }
+            w72 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                y82.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            p72 insert = new u72(context, q).insert();
+            boolean a = insert.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+            }
+            return a;
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w72.b
-    public void b(int i) {
+    @Override // com.baidu.tieba.xc3
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, yb3 yb3Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("Component-Action-Button", "remove");
+            }
+            w72 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                y82.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            u72 u72Var = (u72) l82.a(q);
+            if (u72Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                y82.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            p72 B = u72Var.B();
+            boolean a = B.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+            }
+            return a;
         }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xc3
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, yb3 yb3Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("Component-Action-Button", StickerDataChangeType.UPDATE);
+            }
+            w72 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                y82.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            u72 u72Var = (u72) l82.a(q);
+            if (u72Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                y82.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            p72 update = u72Var.update((u72) q);
+            boolean a = update.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public abstract class eb extends za<SocketMessage, SocketMessageTask> {
+public abstract class eb<T extends ResponsedMessage<?>> extends fb<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract T a(T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public eb(int i) {
@@ -31,8 +32,20 @@ public abstract class eb extends za<SocketMessage, SocketMessageTask> {
                 return;
             }
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.SOCKET) {
-            throw new InvalidParameterException("cmd invalid");
+    }
+
+    public T b(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (t != null) {
+                if (getCmd() == 0 || getCmd() == t.getCmd()) {
+                    return a(t);
+                }
+                return t;
+            }
+            return t;
         }
+        return (T) invokeL.objValue;
     }
 }

@@ -15,27 +15,27 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.k76;
-import com.baidu.tieba.rn;
+import com.baidu.tieba.ob6;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MyConcernTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext b;
     public b c;
-    public k76 d;
+    public ob6 d;
     public HttpMessageListener e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(List<rn> list, boolean z, boolean z2);
+        void a(List<vn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -60,7 +60,7 @@ public class MyConcernTabModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,16 +102,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     z = false;
                 }
                 if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
-                    k76 k76Var = this.a.d;
+                    ob6 ob6Var = this.a.d;
                     if (this.a.a == 1) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    k76Var.e(alaLiveTabMyConcernResponse, z2);
+                    ob6Var.e(alaLiveTabMyConcernResponse, z2);
                     if (this.a.c != null) {
                         b bVar = this.a.c;
-                        List<rn> h = this.a.d.h();
+                        List<vn> h = this.a.d.h();
                         boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                         if (this.a.a == 1) {
                             z3 = true;
@@ -148,7 +148,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new k76(this.b);
+        this.d = new ob6(this.b);
         b0();
         MessageManager.getInstance().registerListener(this.e);
     }

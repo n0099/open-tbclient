@@ -6,99 +6,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.proto.AudioEntity;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes5.dex */
-public final class f4b {
+public class f4b extends l5b<KsFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public Integer c;
-    public Integer d;
 
-    public f4b(AudioEntity audioEntity) {
-        int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f4b(KsFullScreenVideoAd ksFullScreenVideoAd) {
+        super(ksFullScreenVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {audioEntity};
+            Object[] objArr = {ksFullScreenVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String str = audioEntity.audioKey;
-        Integer num = audioEntity.startFrame;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = 0;
-        }
-        this.a = i;
-        Integer num2 = audioEntity.endFrame;
-        this.b = num2 != null ? num2.intValue() : 0;
-        Integer num3 = audioEntity.startTime;
-        if (num3 != null) {
-            num3.intValue();
-        }
-        Integer num4 = audioEntity.totalTime;
-        if (num4 != null) {
-            num4.intValue();
-        }
     }
 
-    public final int a() {
+    @Override // com.baidu.tieba.l5b
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
+            }
+            return ((KsFullScreenVideoAd) a).getECPM();
         }
-        return invokeV.intValue;
+        return invokeV.doubleValue;
     }
 
-    public final Integer b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l5b
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
-        return (Integer) invokeV.objValue;
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsFullScreenVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    public final Integer c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l5b
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void e(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.d = num;
-        }
-    }
-
-    public final void f(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.c = num;
-        }
+        ((KsFullScreenVideoAd) a).setBidEcpm((int) j);
     }
 }

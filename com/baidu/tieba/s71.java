@@ -1,44 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s71 extends o71 {
+public class s71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    @NonNull
+    public List<a> c;
 
-    @Override // com.baidu.tieba.s81, com.baidu.tieba.da1
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public int[] a;
+        public String b;
 
-    @Override // com.baidu.tieba.s81
-    public boolean k1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.s81
-    public boolean v0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        @Nullable
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = b(jSONObject.optString("range"));
+                aVar.b = jSONObject.optString("color");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
         }
-        return invokeV.booleanValue;
+
+        @Nullable
+        public static int[] b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String[] split = str.split("_");
+                if (split.length != 2) {
+                    return null;
+                }
+                try {
+                    int parseInt = Integer.parseInt(split[0]);
+                    int parseInt2 = Integer.parseInt(split[1]);
+                    if (parseInt < 0 || parseInt >= parseInt2) {
+                        return null;
+                    }
+                    return new int[]{parseInt, parseInt2};
+                } catch (NumberFormatException unused) {
+                    return null;
+                }
+            }
+            return (int[]) invokeL.objValue;
+        }
     }
 
     public s71() {
@@ -51,7 +97,34 @@ public class s71 extends o71 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+    }
+
+    @Nullable
+    public static s71 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            s71 s71Var = new s71();
+            try {
+                s71Var.a = jSONObject.optString("text");
+                s71Var.b = jSONObject.optString("color");
+                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        x21.b(s71Var.c, a.a(optJSONArray.getJSONObject(i)));
+                    }
+                }
+            } catch (JSONException unused) {
+            }
+            return s71Var;
+        }
+        return (s71) invokeL.objValue;
     }
 }

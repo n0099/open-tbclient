@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj5;
+import com.baidu.tieba.cn5;
 /* loaded from: classes4.dex */
 public class InitBearAdViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -22,7 +22,7 @@ public class InitBearAdViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            aj5.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0889, (ViewGroup) null, false));
+            cn5.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d08a2, (ViewGroup) null, false));
         } catch (Exception e) {
             BdLog.e(e);
         }

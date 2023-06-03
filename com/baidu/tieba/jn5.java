@@ -1,73 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes6.dex */
-public class jn5 {
+public final class jn5 {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static final jn5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, in5> a;
 
-    public static String a(ArrayList<String> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!ListUtils.isEmpty(arrayList)) {
-                arrayList2.addAll(arrayList);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889080, "Lcom/baidu/tieba/jn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!TextUtils.isEmpty(str)) {
-                arrayList2.add(str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889080, "Lcom/baidu/tieba/jn5;");
+                return;
             }
-            List<String> c = c(arrayList2, i);
-            if (!ListUtils.isEmpty(c)) {
-                return b(c);
-            }
-            return null;
         }
-        return (String) invokeLLI.objValue;
+        b = new jn5();
     }
 
-    public static String b(List<String> list) {
+    public jn5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull in5 in5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, in5Var) == null) {
+            b.a.put(str, in5Var);
+        }
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
-                    }
-                    if (z) {
-                        sb.append("_");
-                    }
-                    sb.append(str);
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (T) b.a.get(str);
         }
-        return (String) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public static List<String> c(List<String> list, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count > 0 && i >= 0 && count > i) {
-                return ListUtils.subList(list, count - i, count);
-            }
-            return list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (T) Objects.requireNonNull(b(str));
         }
-        return (List) invokeLI.objValue;
+        return (T) invokeL.objValue;
     }
 }

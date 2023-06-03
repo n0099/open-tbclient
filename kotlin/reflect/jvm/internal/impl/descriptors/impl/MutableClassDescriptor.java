@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -112,7 +111,7 @@ public class MutableClassDescriptor extends ClassDescriptorBase {
                 objArr[0] = "modality";
                 break;
             case 9:
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
                 break;
             case 12:
                 objArr[0] = "supertype";
@@ -223,13 +222,13 @@ public class MutableClassDescriptor extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2037getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2092getCompanionObjectDescriptor() {
         return null;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2038getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2093getUnsubstitutedPrimaryConstructor() {
         return null;
     }
 

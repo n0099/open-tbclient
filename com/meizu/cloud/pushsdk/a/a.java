@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.a.b;
 import com.meizu.cloud.pushsdk.d.a.c;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static c a(Context context) {
         c cVar = new c();

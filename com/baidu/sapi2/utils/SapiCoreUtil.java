@@ -36,22 +36,22 @@ public class SapiCoreUtil {
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
     public static final String TAG = "SapiCoreUtil";
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00db, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00da, code lost:
         if (r1 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00dc, code lost:
         r1.destroy();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ed, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ec, code lost:
         if (r1 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00f0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ef, code lost:
         if (r3 != 0) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f2, code lost:
         return false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:?, code lost:
         return true;
      */
     @TargetApi(4)
@@ -61,30 +61,30 @@ public class SapiCoreUtil {
     public static boolean chmodFile(Context context, File file) {
         Process process = null;
         String str = null;
-        process = null;
+        Process process2 = null;
         int i = -1;
         try {
             try {
                 Runtime runtime = Runtime.getRuntime();
                 String packageName = context.getPackageName();
-                Process process2 = null;
+                Process process3 = null;
                 while (!packageName.equals(file.getName())) {
                     try {
                         if (file.isDirectory()) {
-                            process2 = runtime.exec("chmod 701 " + file);
+                            process3 = runtime.exec("chmod 701 " + file);
                         } else {
-                            process2 = runtime.exec("chmod 664 " + file);
+                            process3 = runtime.exec("chmod 664 " + file);
                         }
                         file = file.getParentFile();
                     } catch (Exception e) {
                         e = e;
-                        process = process2;
+                        process = process3;
                         Log.e(e);
                     } catch (Throwable th) {
                         th = th;
-                        process = process2;
-                        if (process != null) {
-                            process.destroy();
+                        process2 = process3;
+                        if (process2 != null) {
+                            process2.destroy();
                         }
                         throw th;
                     }
@@ -103,16 +103,16 @@ public class SapiCoreUtil {
                         SapiContext.getInstance().setPackageDirExecutePer(parseExecutePer);
                     }
                 } else {
-                    process = process2;
+                    process = process3;
                 }
                 if (process != null) {
                     i = process.waitFor();
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 

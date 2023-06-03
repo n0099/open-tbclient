@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.view.View;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface dq4 {
+public class dq4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(b bVar);
-
-        void b(b bVar, int i, int i2);
-
-        void c(b bVar, int i, int i2, int i3);
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
+        }
+        return invokeLI.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(MediaPlayer mediaPlayer);
-
-        dq4 b();
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
     }
-
-    void a(a aVar);
-
-    void b(a aVar);
-
-    Bitmap getBitmap();
-
-    View getView();
-
-    void release();
-
-    void setAspectRatio(int i);
-
-    void setVideoSize(int i, int i2);
 }

@@ -1,422 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity;
-import com.baidu.tieba.jv1;
+import android.util.Log;
+import com.baidu.swan.bdtls.Certificate;
+import com.baidu.swan.bdtls.DH;
+import com.baidu.swan.bdtls.RSA;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.memory.PooledByteBuffer;
-import com.facebook.common.memory.PooledByteBufferInputStream;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.BaseDataSubscriber;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imageformat.ImageFormat;
-import com.facebook.imageformat.ImageFormatChecker;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@Singleton
-@Service
+import com.google.protobuf.ByteString;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public class kv3 implements au1 {
+public class kv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.au1
-    public void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, genericDraweeHierarchy, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.au1
-    public ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map) {
+    public static gv3 a(jv3 jv3Var, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, imageRequestBuilder, map)) == null) ? imageRequestBuilder : (ImageRequestBuilder) invokeLL.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements jv1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(kv3 kv3Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kv3Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jv3Var, bArr)) == null) {
+            gv3 gv3Var = null;
+            if (jv3Var == null || bArr == null || bArr.length == 0) {
+                return null;
             }
-            this.a = context;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements bo3<OutputStream, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PooledByteBufferInputStream a;
-
-        public b(PooledByteBufferInputStream pooledByteBufferInputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pooledByteBufferInputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pooledByteBufferInputStream;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bo3
-        /* renamed from: b */
-        public Boolean a(OutputStream outputStream) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
-                if (kp4.g(this.a, outputStream) > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class c extends BaseDataSubscriber<CloseableReference<PooledByteBuffer>> implements Runnable, j43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public final JSONObject b;
-        public final /* synthetic */ kv3 c;
-
-        public c(kv3 kv3Var, Context context, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kv3Var, context, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = kv3Var;
-            this.a = context;
-            this.b = jSONObject;
-        }
-
-        @Override // com.baidu.tieba.j43
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
-                return;
-            }
-            this.c.l(this.a, this.b, this);
-        }
-
-        public final void c(boolean z) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (z) {
-                    i = R.string.obfuscated_res_0x7f0f141c;
-                } else {
-                    i = R.string.obfuscated_res_0x7f0f1419;
-                }
-                y83.f(this.a, i).v();
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
-                c(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.j43
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                c(false);
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onNewResultImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, dataSource) != null) || !dataSource.isFinished()) {
-                return;
-            }
-            CloseableReference<PooledByteBuffer> result = dataSource.getResult();
-            if (result == null) {
-                c(false);
-                return;
-            }
-            PooledByteBufferInputStream pooledByteBufferInputStream = new PooledByteBufferInputStream(result.get());
             try {
-                c(kv3.m(this.a, pooledByteBufferInputStream));
-            } finally {
-                CloseableReference.closeSafely(result);
-                kp4.d(pooledByteBufferInputStream);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                kv3.j(this.a, this);
-            }
-        }
-    }
-
-    public kv3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void j(Context context, j43 j43Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j43Var) == null) {
-            i43.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, j43Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.au1
-    public void a(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
-            PictureWallpaperActivity.J(context, jSONObject.optString("imageUrl"), jSONObject.optString(Config.LAUNCH_REFERER));
-        }
-    }
-
-    public static boolean m(Context context, PooledByteBufferInputStream pooledByteBufferInputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, pooledByteBufferInputStream)) == null) {
-            try {
-                ImageFormat imageFormat = ImageFormatChecker.getImageFormat(pooledByteBufferInputStream);
-                if (imageFormat != null) {
-                    String fileExtension = imageFormat.getFileExtension();
-                    if (!TextUtils.isEmpty(fileExtension)) {
-                        String format = String.format("IMG_%s.%s", new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.CHINA).format(new Date()), fileExtension);
-                        String format2 = String.format("image/%s", fileExtension);
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            return n(context, pooledByteBufferInputStream, format2, format);
-                        }
-                        String str = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Image" + File.separator + format;
-                        boolean q = em3.q(str, new b(pooledByteBufferInputStream));
-                        if (q) {
-                            em3.r(context, str);
-                        }
-                        return q;
+                if (bArr[0] != 2) {
+                    return null;
+                }
+                gv3 gv3Var2 = new gv3();
+                try {
+                    Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
+                    if (parseFrom == null) {
+                        return null;
                     }
-                }
-                return false;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            } finally {
-                kp4.d(pooledByteBufferInputStream);
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean n(@NonNull Context context, @NonNull InputStream inputStream, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, inputStream, str, str2)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("_display_name", str2);
-            contentValues.put("mime_type", str);
-            if (Build.VERSION.SDK_INT >= 29) {
-                contentValues.put("relative_path", Environment.DIRECTORY_PICTURES + "/Image/");
-            } else {
-                contentValues.put("_data", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath() + "/Image");
-            }
-            Uri insert = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-            if (insert == null) {
-                g62.o("FacadeSwanAppImageImpl", "insert uri is null");
-                return false;
-            }
-            try {
-                OutputStream openOutputStream = context.getContentResolver().openOutputStream(insert);
-                if (openOutputStream == null) {
-                    kp4.d(openOutputStream);
-                    return false;
-                }
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read != -1) {
-                        openOutputStream.write(bArr, 0, read);
-                    } else {
-                        kp4.d(openOutputStream);
-                        return true;
+                    gv3Var2.a(parseFrom);
+                    List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
+                    if (extensionsList == null) {
+                        return null;
                     }
+                    for (Bdtls$Extension bdtls$Extension : extensionsList) {
+                        int type = bdtls$Extension.getType();
+                        byte[] byteArray = bdtls$Extension.getData().toByteArray();
+                        if (type == 0) {
+                            byte[] decrypt = RSA.decrypt(byteArray);
+                            int a = yu3.a(decrypt);
+                            byte[] dHSecretKey = DH.getDHSecretKey(a, jv3Var.d().intValue(), jv3Var.f().intValue());
+                            jv3Var.l(dHSecretKey);
+                            jv3Var.p(Integer.valueOf(a));
+                            if (uu3.a) {
+                                Log.d("BDTLS", "GroupId=" + jv3Var.d());
+                                Log.d("BDTLS", "client dh pubkey secret=" + jv3Var.f());
+                                Log.d("BDTLS", "client dh pubkey=" + jv3Var.e());
+                                Log.d("BDTLS", "server dh pubkey=" + a);
+                                Log.d("BDTLS", "server dh raw pubkey=" + yu3.d(decrypt));
+                                Log.d("BDTLS", "aeskey=" + yu3.d(dHSecretKey));
+                            }
+                        }
+                    }
+                    if (parseFrom.getSKR() == null) {
+                        return null;
+                    }
+                    Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
+                    newBuilder.u(parseFrom.getSKR());
+                    Bdtls$ApplicationData build = newBuilder.build();
+                    jv3Var.t(build.toByteArray());
+                    if (jv3Var.c() == null) {
+                        return null;
+                    }
+                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
+                    if (uu3.a) {
+                        Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
+                        Log.d("BDTLS", "expireTime=" + currentTimeMillis);
+                    }
+                    jv3Var.r(currentTimeMillis);
+                    if (parseFrom.getCipherSuite() != null) {
+                        jv3Var.q(parseFrom.getCipherSuite().toByteArray());
+                    }
+                    if (w53.c()) {
+                        new fv3().edit().putString("secretKey", Arrays.toString(jv3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
+                        return gv3Var2;
+                    }
+                    return gv3Var2;
+                } catch (Exception e) {
+                    e = e;
+                    gv3Var = gv3Var2;
+                    if (uu3.a) {
+                        e.printStackTrace();
+                        Log.d("BDTLS", "exception=" + e.getMessage());
+                    }
+                    return gv3Var;
                 }
-            } catch (IOException unused) {
-                kp4.d(null);
-                return false;
-            } catch (Throwable th) {
-                kp4.d(null);
-                throw th;
+            } catch (Exception e2) {
+                e = e2;
             }
         } else {
-            return invokeLLLL.booleanValue;
+            return (gv3) invokeLL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.au1
-    public void b(Context context, JSONObject jSONObject) {
+    public static byte[] b(jv3 jv3Var, gv3 gv3Var) {
+        InterceptResult invokeLL;
+        byte[] encrypt;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        int optInt = jSONObject.optInt("index");
-        JSONArray optJSONArray = jSONObject.optJSONArray("urls");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            int length = optJSONArray.length();
-            ArrayList<MediaModel> arrayList = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                String optString = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString)) {
-                    arrayList.add(new ImageModel(optString));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jv3Var, gv3Var)) == null) {
+            if (gv3Var == null) {
+                return null;
+            }
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
+            newBuilder.v(currentTimeMillis);
+            newBuilder.w(ByteString.copyFrom(bArr));
+            Bdtls$Random build = newBuilder.build();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            jv3Var.m(Integer.valueOf(dHGroupId));
+            jv3Var.o(Integer.valueOf(dHSecret));
+            jv3Var.n(Integer.valueOf(dHPublicKey));
+            byte[] g = yu3.g(dHPublicKey);
+            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
+                return null;
+            }
+            byte[] bytes = es4.a(Certificate.getSignature(fv2.c()), "", false).getBytes(StandardCharsets.UTF_8);
+            LinkedList linkedList = new LinkedList();
+            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
+            newBuilder2.v(0);
+            newBuilder2.u(ByteString.copyFrom(encrypt));
+            linkedList.offer(newBuilder2.build());
+            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
+            newBuilder3.v(1);
+            newBuilder3.u(ByteString.copyFrom(new byte[]{0}));
+            linkedList.offer(newBuilder3.build());
+            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
+            newBuilder4.v(2);
+            newBuilder4.u(ByteString.copyFrom(yu3.g(dHGroupId)));
+            linkedList.offer(newBuilder4.build());
+            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
+            newBuilder5.v(3);
+            newBuilder5.u(ByteString.copyFrom(bytes));
+            linkedList.offer(newBuilder5.build());
+            if (w53.c()) {
+                if (tv3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
+                    newBuilder6.v(4);
+                    newBuilder6.u(ByteString.copyFrom(tv3.getContext().b().getBytes()));
+                    linkedList.offer(newBuilder6.build());
+                }
+                if (tv3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
+                    newBuilder7.v(5);
+                    newBuilder7.u(ByteString.copyFrom(zr4.f().getBytes()));
+                    linkedList.offer(newBuilder7.build());
                 }
             }
-            k(context, arrayList, optInt);
-        }
-    }
-
-    @Override // com.baidu.tieba.au1
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, jSONObject) == null) {
-            jv1 v = ns2.v();
-            if (v.i()) {
-                String optString = jSONObject.optString("imageUrl");
-                if (!TextUtils.isEmpty(optString)) {
-                    v.C(context, new kv1().H(optString).I(true), new a(this, context));
-                    return;
-                } else {
-                    y83.g(context, "保存失败").v();
-                    return;
-                }
+            if (uu3.a) {
+                Log.d("BDTLS", "groupId encode=" + dHGroupId);
+                Log.d("BDTLS", "secretC encode=" + dHSecret);
+                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
+                Log.d("BDTLS", "signature encode=" + new String(bytes));
             }
-            new c(this, context, jSONObject).run();
-        }
-    }
-
-    @Override // com.baidu.tieba.au1
-    public void d(Context context, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048579, this, context, strArr, i) == null) && strArr != null && strArr.length > 0) {
-            ArrayList<MediaModel> arrayList = new ArrayList<>(strArr.length);
-            for (String str : strArr) {
-                arrayList.add(new ImageModel(str));
+            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                newBuilder8.m((Bdtls$Extension) it.next());
             }
-            k(context, arrayList, i);
+            newBuilder8.B(build);
+            newBuilder8.l(ByteString.copyFrom(vu3.c));
+            byte[] byteArray = newBuilder8.build().toByteArray();
+            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(byteArray);
+            return allocate.array();
         }
-    }
-
-    public final void k(Context context, ArrayList<MediaModel> arrayList, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, context, arrayList, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putParcelableArrayList("mediaModels", arrayList);
-            bundle.putInt("previewPosition", i);
-            bundle.putString("previewFrom", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
-            Intent intent = new Intent(context, SwanAppAlbumPreviewActivity.class);
-            intent.putExtra("launchParams", bundle);
-            context.startActivity(intent);
-        }
-    }
-
-    public final void l(Context context, JSONObject jSONObject, BaseDataSubscriber<CloseableReference<PooledByteBuffer>> baseDataSubscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, jSONObject, baseDataSubscriber) == null) {
-            String optString = jSONObject.optString("imageUrl");
-            String optString2 = jSONObject.optString(Config.LAUNCH_REFERER);
-            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(optString));
-            HashMap hashMap = new HashMap();
-            if (!TextUtils.isEmpty(optString2)) {
-                hashMap.put(Config.LAUNCH_REFERER, optString2);
-            }
-            ns2.C().e(newBuilderWithSource, hashMap);
-            Fresco.getImagePipeline().fetchEncodedImage(newBuilderWithSource.build(), context).subscribe(baseDataSubscriber, UiThreadImmediateExecutorService.getInstance());
-        }
+        return (byte[]) invokeLL.objValue;
     }
 }

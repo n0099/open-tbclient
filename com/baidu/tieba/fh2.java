@@ -1,32 +1,109 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.webkit.ValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class fh2 implements eh2 {
+public final class fh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile fh2 g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, gh2> a;
-    public HashMap<String, ArrayList<ValueCallback<String>>> b;
-    public String c;
-    public HttpManager d;
-    public final Object e;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static int a = -1;
+        public static int b = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-804501316, "Lcom/baidu/tieba/fh2$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-804501316, "Lcom/baidu/tieba/fh2$a;");
+            }
+        }
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b == -1) {
+                    fv2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
+                    b = 0;
+                }
+                if (b != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (fh2.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
+                    String a2 = a();
+                    char c = 65535;
+                    int hashCode = a2.hashCode();
+                    if (hashCode != 251117829) {
+                        if (hashCode != 547804557) {
+                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
+                                c = 1;
+                            }
+                        } else if (a2.equals("debug_ab")) {
+                            c = 2;
+                        }
+                    } else if (a2.equals("debug_on_app_launch")) {
+                        c = 0;
+                    }
+                    if (c == 0) {
+                        return true;
+                    }
+                    if (c == 1) {
+                        return false;
+                    }
+                }
+                if (a < 0) {
+                    fv2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
+                    a = 0;
+                }
+                if (fh2.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
+                }
+                if (a != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,155 +118,28 @@ public class fh2 implements eh2 {
                 return;
             }
         }
-        f = qp1.a;
+        a = is1.a;
     }
 
-    public static fh2 e() {
-        InterceptResult invokeV;
+    public static void b(x83 x83Var, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (fh2.class) {
-                    if (g == null) {
-                        g = new fh2();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(65538, null, x83Var, bundle) == null) {
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
             }
-            return g;
-        }
-        return (fh2) invokeV.objValue;
-    }
-
-    public fh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            Bundle bundle2 = new Bundle();
+            bundle2.putBundle("swan_app_on_launch_event", bundle);
+            q83 q83Var = new q83(122, bundle2);
+            if (!x83Var.T() && a.c()) {
+                x83Var.f0(q83Var.h());
+            } else {
+                o83 e = o83.e();
+                q83Var.b(x83Var.b);
+                q83Var.p(true);
+                e.h(q83Var);
             }
-        }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.d = os2.l().a();
-        this.c = os2.f().a();
-    }
-
-    @Override // com.baidu.tieba.eh2
-    public void a(String str, String str2) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).onReceiveValue(str2);
-                        if (f) {
-                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void g(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                valueCallback.onReceiveValue(null);
-                return;
-            }
-            try {
-                String d = d(str);
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                File file = new File(d(str));
-                if (file.exists() && !file.isDirectory()) {
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(d);
-                        return;
-                    }
-                    return;
-                }
-                synchronized (this.e) {
-                    if (!f(str)) {
-                        c(str);
-                    }
-                    b(str, valueCallback);
-                }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void b(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(valueCallback);
-                return;
-            }
-            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
-            arrayList.add(valueCallback);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
-            }
-            gh2 gh2Var = new gh2(this.d, this.c, str, this);
-            this.a.put(str, gh2Var);
-            gh2Var.e();
-        }
-    }
-
-    public final String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c + os2.f().c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eh2
-    public void fail(int i, String str) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).onReceiveValue("");
-                    }
-                    this.a.remove(str);
-                }
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
             }
         }
     }

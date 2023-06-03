@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.searchbox.player.helper.ViewOpUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class kx0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jx0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized jx0 a() {
-        InterceptResult invokeV;
-        jx0 jx0Var;
+    public static boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (kx0.class) {
-                if (a == null) {
-                    a = new jx0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        e21.b(ViewOpUtils.TAG, "removeView " + view2.hashCode());
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception e) {
+                        e21.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
+                        return true;
+                    }
                 }
-                jx0Var = a;
+                return false;
             }
-            return jx0Var;
+            return false;
         }
-        return (jx0) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

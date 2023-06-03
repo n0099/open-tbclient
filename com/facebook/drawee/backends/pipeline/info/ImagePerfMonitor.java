@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImagePerfMonitor implements ImagePerfNotifier {
     public final Supplier<Boolean> mAsyncLogging;
     public boolean mEnabled;

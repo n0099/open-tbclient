@@ -1,57 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class mv3 {
+public class mv3<T> extends ov3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public bl4.c f;
+    public String g;
+    public int h;
 
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ov3
+    public void e(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
         }
-        return invokeLLL.intValue;
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ov3
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
-        return (Uri) invokeLL.objValue;
-    }
-
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            return null;
-        }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
-            return 0;
-        }
-        return invokeLLLL.intValue;
     }
 
     public mv3() {
@@ -64,7 +46,69 @@ public class mv3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = null;
+        this.e = null;
+        this.f = null;
+    }
+
+    @Override // com.baidu.tieba.ov3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            k(this.d, this.e, this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.ov3
+    public void h(byte[] bArr) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                if (!TextUtils.equals(b(), "GET")) {
+                    str = "Bdtls";
+                } else {
+                    str = Base64.encodeToString(bArr, 2);
+                }
+                hashMap.put("Bdtls", str);
+            } else {
+                hashMap.put("Bdtls-Downgrade", "1");
+            }
+            this.f.a(hashMap, bArr, this.d);
+        }
+    }
+
+    public void k(String str, String str2, bl4.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, cVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.d = str;
+        this.e = str2;
+        this.f = cVar;
+        if (str2 == null) {
+            this.g = "GET";
+        } else {
+            this.g = "POST";
+        }
+        if (uu3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
+        }
+        a(this.e);
     }
 }

@@ -1,48 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class q56 {
+public class q56 extends uj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    @Override // com.baidu.tieba.uj0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ns2.M().a();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
     }
 
-    public static void b() {
-        int i;
+    public q56() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            if (a()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(boolean z) {
+    @Override // com.baidu.tieba.uj0
+    public boolean b(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yj0Var, map, ck0Var)) == null) {
+            super.b(context, yj0Var, map, ck0Var);
+            return fm9.d(context, yj0Var.d());
         }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,189 +1,162 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wo4 extends SQLiteOpenHelper {
+public class wo4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, wo4> d;
+    public static Map<String, Map<String, wo4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wo4(Context context) {
-        super(context.getApplicationContext(), "OpenStat.db", (SQLiteDatabase.CursorFactory) null, 5);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948277293, "Lcom/baidu/tieba/wo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948277293, "Lcom/baidu/tieba/wo4;");
+                return;
+            }
+        }
+        d = new HashMap();
+        e = new HashMap();
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public wo4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-    }
-
-    public final void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
         }
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    @Nullable
+    public static synchronized wo4 e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void c(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void d(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL("CREATE TABLE event (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowhandle INTEGER,eventid TEXT,begintime LONG,content TEXT,reserve1 TEXT,reserve2 TEXT,extend TEXT );");
-            sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
-            sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
-            sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            bp4.f().putString("ubc_version_md5", "0");
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(this.a.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getReadableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getReadableDatabase();
-                } catch (Exception unused) {
-                    new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
-                    sQLiteDatabase = null;
-                }
-            }
-            return sQLiteDatabase;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getWritableDatabase();
-                    try {
-                        sQLiteDatabase.enableWriteAheadLogging();
-                    } catch (Exception unused) {
-                        new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
-                        return sQLiteDatabase;
-                    }
-                } catch (Exception unused2) {
-                    sQLiteDatabase = null;
-                }
-            }
-            return sQLiteDatabase;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new File(this.a.getDatabasePath("OpenStat.db").getPath()).length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i == 4) {
-                                b(sQLiteDatabase);
-                            }
-                        } else {
-                            a(sQLiteDatabase);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (wo4.class) {
+                wo4 wo4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    wo4 wo4Var2 = d.get(str2);
+                    if (wo4Var2 != null) {
+                        if (TextUtils.equals(str, wo4Var2.a)) {
+                            wo4Var = wo4Var2;
                         }
-                    } else {
-                        c(sQLiteDatabase);
                     }
-                } else {
-                    d(sQLiteDatabase);
+                    return wo4Var;
                 }
-                i++;
+                return null;
             }
         }
+        return (wo4) invokeLL.objValue;
+    }
+
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static synchronized wo4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        wo4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (wo4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (wo4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, wo4> b(@NonNull String str) {
+        InterceptResult invokeL;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (wo4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static synchronized Map<String, wo4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, wo4> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (wo4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            wo4 wo4Var = new wo4(str, abiType);
+                            map.put(wo4Var.b, wo4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 }

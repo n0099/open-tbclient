@@ -1,9 +1,8 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface ph5 {
-    void a();
-
-    void onLoadFail();
-
-    void onLoadSuccess();
+    void a(List<Bitmap> list);
 }

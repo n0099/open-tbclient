@@ -1,60 +1,60 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes7.dex */
-public class rh4 implements oh4<di4> {
+public class rh4 extends sh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
-
-    public rh4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rh4(@NonNull Context context) {
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0ebf), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.oh4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.sh4
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) && latLng != null && latLng2 != null) {
+            Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+            buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+            buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+            buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+            buildUpon.appendQueryParameter(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, str);
+            buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+            buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+            buildUpon.appendQueryParameter("dname", str2);
+            buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+            buildUpon.appendQueryParameter("t", "0");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, buildUpon.build());
+            intent.setPackage("com.autonavi.minimap");
+            context.startActivity(intent);
         }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
-        }
-        return (String) invokeV.objValue;
     }
 }

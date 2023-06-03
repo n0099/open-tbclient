@@ -18,6 +18,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ext.manage.MutexPopManager;
 import com.baidu.android.ext.manage.PopItem;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.widget.ImmersionHelper;
 import com.baidu.tieba.R;
@@ -228,9 +229,9 @@ public class PopupWindow implements PopItem {
             if (i == -1) {
                 if (this.mIsDropdown) {
                     if (this.mAboveAnchor) {
-                        return R.style.obfuscated_res_0x7f100179;
+                        return R.style.obfuscated_res_0x7f10017b;
                     }
-                    return R.style.obfuscated_res_0x7f100178;
+                    return R.style.obfuscated_res_0x7f10017a;
                 }
                 return 0;
             }
@@ -519,7 +520,7 @@ public class PopupWindow implements PopItem {
             this.mContext = view2.getContext();
         }
         if (this.mWindowManager == null && this.mContentView != null && (context = this.mContext) != null) {
-            this.mWindowManager = (WindowManager) context.getSystemService("window");
+            this.mWindowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
     }
 
@@ -662,7 +663,7 @@ public class PopupWindow implements PopItem {
             }
         };
         this.mContext = context;
-        this.mWindowManager = (WindowManager) context.getSystemService("window");
+        this.mWindowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.android.common.ui.style.R.styleable.PopupWindow, i, i2);
         this.mBackground = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
@@ -914,7 +915,7 @@ public class PopupWindow implements PopItem {
         if (view2 != null) {
             Context context = view2.getContext();
             this.mContext = context;
-            this.mWindowManager = (WindowManager) context.getSystemService("window");
+            this.mWindowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
         setContentView(view2);
         setWidth(i);

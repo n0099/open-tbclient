@@ -1,71 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.card.view.HeadWorldCupFlagLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.afx.TbAlphaVideo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tbadk.switchs.NickNameActivitySwitch;
-import com.baidu.tbadk.switchs.WorldCupEnableSwitch;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.jz;
+import com.baidu.tieba.uz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
 /* loaded from: classes5.dex */
-public class cz8 {
+public class cz8 extends yy8<l45, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
-    public static double b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId c;
+    public TbPageContext<?> d;
+    public boolean e;
+    public bo f;
+    public eo6<ThreadData> g;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
+    public class a extends eo6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr9 a;
-        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ cz8 b;
 
-        public a(sr9 sr9Var, TbPageContext tbPageContext) {
+        public a(cz8 cz8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sr9Var, tbPageContext};
+                Object[] objArr = {cz8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,950 +51,159 @@ public class cz8 {
                     return;
                 }
             }
-            this.a = sr9Var;
-            this.b = tbPageContext;
+            this.b = cz8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                xn6.b().d(true);
+                this.b.B(view2, threadData);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements fo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cz8 a;
+
+        public b(cz8 cz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cz8Var;
+        }
+
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.p() != null && this.a.p().getPortrait() != null && !TextUtils.isEmpty(this.a.p().getPortrait())) {
-                String str2 = null;
-                if (this.a.q0() != null) {
-                    str2 = this.a.q0().getFigureUrl();
-                    str = this.a.q0().getBackgroundValue();
-                } else {
-                    str = null;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (vnVar instanceof l45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((l45) vnVar).t;
+                threadData.objType = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), threadData);
                 }
-                yy5.a(this.b, this.a.p().getPortrait(), str2, str);
+                Context context = view2.getContext();
+                String z1 = this.a.b.getOrignalPage().z1();
+                if (this.a.s()) {
+                    str = "3";
+                } else {
+                    str = "2";
+                }
+                ThreadCardUtils.jumpToPB(threadData, context, 17, false, z1, str);
+                threadCardViewHolder.a().p(new uz.a(1));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947692168, "Lcom/baidu/tieba/cz8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947692168, "Lcom/baidu/tieba/cz8;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
-        b = 3.88d;
+        this.e = true;
+        this.g = new a(this);
+        this.d = tbPageContext;
+        this.c = bdUniqueId2;
     }
 
-    public static void a(TbAlphaVideo tbAlphaVideo, View view2) {
+    public void C(bo boVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, tbAlphaVideo, view2) == null) && tbAlphaVideo != null && view2 != null) {
-            int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds150);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (g * b), g);
-            layoutParams.addRule(11);
-            tbAlphaVideo.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, boVar) == null) {
+            this.f = boVar;
         }
     }
 
-    public static void b(TbRichTextView tbRichTextView, View view2, boolean z, int i) {
-        int i2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: A */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l45 l45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbRichTextView, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && tbRichTextView != null && view2 != null) {
-            int l = ((((ri.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight()) - i;
-            if (tbRichTextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) tbRichTextView.getLayoutParams();
-                l = (l - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin;
-            }
-            if (z) {
-                i2 = l(R.dimen.tbds90);
-            } else {
-                i2 = 0;
-            }
-            int i3 = l - i2;
-            tbRichTextView.getLayoutStrategy().r(i3);
-            tbRichTextView.getLayoutStrategy().J = i3 - l(R.dimen.tbds122);
-            tbRichTextView.getLayoutStrategy().q((int) (l * 1.618f));
-        }
-    }
-
-    public static void c(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, View view2, View.OnTouchListener onTouchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, pbCommenFloorItemViewHolder, sr9Var, view2, onTouchListener) == null) {
-            d(pbCommenFloorItemViewHolder, sr9Var, view2, !TextUtils.isEmpty(sr9Var.s()), onTouchListener);
-        }
-    }
-
-    public static void d(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, View view2, boolean z, View.OnTouchListener onTouchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbCommenFloorItemViewHolder, sr9Var, view2, Boolean.valueOf(z), onTouchListener}) == null) {
-            if (!TextUtils.isEmpty(sr9Var.s()) && z) {
-                u5a.c(sr9Var, pbCommenFloorItemViewHolder.q);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.r.getLayoutParams();
-                layoutParams.topMargin = l(R.dimen.obfuscated_res_0x7f0701d5);
-                layoutParams.bottomMargin = l(R.dimen.obfuscated_res_0x7f0701d5);
-                pbCommenFloorItemViewHolder.r.setLayoutParams(layoutParams);
-                if (!TextUtils.isEmpty(sr9Var.x())) {
-                    pbCommenFloorItemViewHolder.s.setVisibility(0);
-                    pbCommenFloorItemViewHolder.s.k(tt4.a(sr9Var.x()));
-                    a(pbCommenFloorItemViewHolder.s, view2);
-                } else {
-                    pbCommenFloorItemViewHolder.s.setVisibility(8);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l45Var, threadCardViewHolder})) == null) {
+            if (l45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = l45Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(l45Var.t);
+                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.g);
+                vy8.c(this, l45Var);
+                wy wyVar = (wy) threadCardViewHolder.a().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) wyVar.f.d.getLayoutParams();
+                layoutParams.width = l45Var.u;
+                layoutParams.height = l45Var.v;
+                if (wyVar.f.d.getVisibility() != 8) {
+                    wyVar.f.d.setLayoutParams(layoutParams);
                 }
-                pbCommenFloorItemViewHolder.q.p0(sr9Var.s());
-            } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.r.getLayoutParams();
-                layoutParams2.bottomMargin = 0;
-                layoutParams2.topMargin = 0;
-                pbCommenFloorItemViewHolder.r.setLayoutParams(layoutParams2);
-                pbCommenFloorItemViewHolder.q.setPadding(0, 0, 0, 0);
-                pbCommenFloorItemViewHolder.q.p0(null);
-                pbCommenFloorItemViewHolder.s.setVisibility(8);
+                return threadCardViewHolder.getView();
             }
-            if (onTouchListener != null) {
-                pbCommenFloorItemViewHolder.q.setTextViewOnTouchListener(onTouchListener);
-            }
-            pbCommenFloorItemViewHolder.q.setTextViewCheckSelection(false);
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public static void e(bz8 bz8Var, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, ThreadData threadData) {
-        boolean z;
+    public final void B(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65541, null, bz8Var, pbCommenFloorItemViewHolder, sr9Var, threadData) == null) && pbCommenFloorItemViewHolder != null && sr9Var != null) {
-            boolean z2 = true;
-            if (sr9Var.D() > 0 && threadData != null && !threadData.isBjh()) {
-                String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0acd), Integer.valueOf(sr9Var.D()));
-                pbCommenFloorItemViewHolder.C.setVisibility(0);
-                pbCommenFloorItemViewHolder.C.setText(format);
-                z = true;
-            } else {
-                pbCommenFloorItemViewHolder.C.setVisibility(8);
-                z = false;
-            }
-            td5 V = sr9Var.V();
-            z2 = (V == null || StringUtils.isNull(V.b()) || threadData == null || threadData.isBjh()) ? false : false;
-            if (z) {
-                pbCommenFloorItemViewHolder.l.setVisibility(0);
-            } else {
-                pbCommenFloorItemViewHolder.l.setVisibility(8);
-            }
-            if (z2) {
-                pbCommenFloorItemViewHolder.m.setVisibility(0);
-            } else {
-                pbCommenFloorItemViewHolder.m.setVisibility(8);
-            }
-            if (StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(sr9Var.l0()), "yyyy"))) {
-                pbCommenFloorItemViewHolder.k.setText(StringHelper.getFormatTimeShort(sr9Var.l0()));
-            } else {
-                pbCommenFloorItemViewHolder.k.setText(StringHelper.getFormatTime(sr9Var.l0()));
-            }
-            if (z2) {
-                pbCommenFloorItemViewHolder.n.setVisibility(0);
-                pbCommenFloorItemViewHolder.n.setText(V.b());
-                return;
-            }
-            pbCommenFloorItemViewHolder.n.setVisibility(8);
-        }
-    }
-
-    public static void f(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, ThreadData threadData, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{pbCommenFloorItemViewHolder, sr9Var, threadData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && pbCommenFloorItemViewHolder != null && sr9Var != null && sr9Var.n() != null) {
-            if (threadData != null) {
-                sr9Var.n().threadId = threadData.getTid();
-                sr9Var.n().forumId = String.valueOf(threadData.getFid());
-            }
-            if (i == 0) {
-                sr9Var.n().objType = 1;
-            } else {
-                sr9Var.n().objType = 2;
-            }
-            sr9Var.n().isInPost = true;
-            pbCommenFloorItemViewHolder.o.E(z);
-            if (threadData != null && threadData.isUgcThreadType()) {
-                pbCommenFloorItemViewHolder.o.setAgreeAlone(true);
-            }
-            pbCommenFloorItemViewHolder.o.setData(sr9Var.n());
-        }
-    }
-
-    public static void g(bz8 bz8Var, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, View view2, boolean z, boolean z2, boolean z3, TbRichTextView.u uVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{bz8Var, pbCommenFloorItemViewHolder, sr9Var, view2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), uVar}) == null) && pbCommenFloorItemViewHolder != null && sr9Var != null) {
-            Activity pageActivity = bz8Var.getPageContext().getPageActivity();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.r.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            }
-            layoutParams.rightMargin = ri.g(pageActivity, R.dimen.M_W_X007);
-            layoutParams.leftMargin = ri.g(pageActivity, R.dimen.tbds148);
-            boolean z4 = false;
-            layoutParams.topMargin = 0;
-            layoutParams.bottomMargin = 0;
-            if (z) {
-                pbCommenFloorItemViewHolder.q.p0(null);
-                pbCommenFloorItemViewHolder.q.setBackgroundDrawable(null);
-                pbCommenFloorItemViewHolder.q.getLayoutStrategy().h(R.drawable.transparent_bg);
-            } else {
-                pbCommenFloorItemViewHolder.q.getLayoutStrategy().h(R.drawable.icon_click);
-            }
-            pbCommenFloorItemViewHolder.q.getLayoutStrategy().z(R.drawable.pic_video);
-            pbCommenFloorItemViewHolder.q.getLayoutStrategy().m(ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-            if (!TextUtils.isEmpty(sr9Var.s()) && z) {
-                z4 = true;
-            }
-            u5a.b(sr9Var, pbCommenFloorItemViewHolder.q, z4);
-            pbCommenFloorItemViewHolder.q.getLayoutStrategy().n(ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X002));
-            pbCommenFloorItemViewHolder.q.getLayoutStrategy().k(ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X001));
-            b(pbCommenFloorItemViewHolder.q, view2, !StringUtils.isNull(sr9Var.s()), layoutParams.leftMargin + layoutParams.rightMargin);
-            pbCommenFloorItemViewHolder.r.setLayoutParams(layoutParams);
-            pbCommenFloorItemViewHolder.q.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-            pbCommenFloorItemViewHolder.q.setIsFromCDN(z2);
-            pbCommenFloorItemViewHolder.q.setText(sr9Var.a0(), true, uVar);
-            SparseArray sparseArray = (SparseArray) pbCommenFloorItemViewHolder.q.getTag();
-            if (sparseArray == null) {
-                sparseArray = new SparseArray();
-            }
-            sparseArray.put(R.id.tag_clip_board, sr9Var);
-            sparseArray.put(R.id.tag_is_subpb, Boolean.valueOf(z3));
-            pbCommenFloorItemViewHolder.c.setTag(R.id.tag_from, sparseArray);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0102  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x010d  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0116  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0157  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0161  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x01bb  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x01c5  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0202  */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0223  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x0237  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x023d  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void h(bz8 bz8Var, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, View view2, ThreadData threadData, boolean z) {
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        boolean z8;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{bz8Var, pbCommenFloorItemViewHolder, sr9Var, view2, threadData, Boolean.valueOf(z)}) == null) {
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.tag_clip_board, sr9Var);
-            sparseArray.put(R.id.tag_load_sub_data, sr9Var);
-            sparseArray.put(R.id.tag_load_sub_view, view2);
-            sparseArray.put(R.id.tag_forbid_user_post_id, sr9Var.O());
-            sparseArray.put(R.id.pb_dialog_item_zan_1, pbCommenFloorItemViewHolder.o);
-            sparseArray.put(R.id.pb_dialog_item_reply, pbCommenFloorItemViewHolder.y);
-            sparseArray.put(R.id.pb_dialog_item_share, pbCommenFloorItemViewHolder.z);
-            boolean z9 = true;
-            if (sr9Var.p() != null && !StringUtils.isNull(sr9Var.p().getVirtualUserUrl())) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (bz8Var.c0() != 0 && !n(threadData)) {
-                if (bz8Var.c0() != 1002 && bz8Var.c0() != 3) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (bz8Var.c0() != 3 && !threadData.isUgcThreadType()) {
-                    z4 = true;
-                    z5 = true;
-                } else {
-                    z4 = false;
-                    z5 = false;
-                }
-                if (sr9Var.p() != null) {
-                    String userId = sr9Var.p().getUserId();
-                    if (UtilHelper.isCurrentAccount(userId)) {
-                        z3 = false;
-                    }
-                    if (userId == null || userId.equals("0") || userId.length() == 0) {
-                        z3 = false;
-                    }
-                }
-            } else {
-                z3 = false;
-                z4 = false;
-                z5 = false;
-            }
-            if (threadData != null && threadData.getAuthor() != null && sr9Var.p() != null) {
-                String userId2 = threadData.getAuthor().getUserId();
-                String userId3 = sr9Var.p().getUserId();
-                if (UtilHelper.isCurrentAccount(userId2)) {
-                    if (UtilHelper.isCurrentAccount(userId3)) {
-                        z4 = true;
-                        z6 = false;
-                        z7 = true;
-                    } else {
-                        z4 = true;
-                        z6 = true;
-                        z7 = false;
-                    }
-                    z8 = true;
-                    if (sr9Var.p() != null && UtilHelper.isCurrentAccount(sr9Var.p().getUserId())) {
-                        z4 = true;
-                        z7 = true;
-                    }
-                    if (z2) {
-                        z3 = false;
-                        z4 = false;
-                        z6 = false;
-                    }
-                    if (sr9Var.D() != 1) {
-                        i = 0;
-                    } else {
-                        i = 1;
-                    }
-                    if (!z3) {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(bz8Var.c0()));
-                        if (sr9Var.p() != null) {
-                            sparseArray.put(R.id.tag_forbid_user_name, sr9Var.p().getUserName());
-                            sparseArray.put(R.id.tag_forbid_user_name_show, sr9Var.p().getName_show());
-                            sparseArray.put(R.id.tag_forbid_user_portrait, sr9Var.p().getPortrait());
-                        }
-                    } else {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.FALSE);
-                    }
-                    if (!z6) {
-                        sparseArray.put(R.id.tag_user_mute_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_is_mem, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
-                        if (sr9Var.p() != null) {
-                            sparseArray.put(R.id.tag_user_mute_mute_userid, sr9Var.p().getUserId());
-                            sparseArray.put(R.id.tag_user_mute_mute_username, sr9Var.p().getUserName());
-                            sparseArray.put(R.id.tag_user_mute_mute_nameshow, sr9Var.p().getName_show());
-                        }
-                        if (threadData != null) {
-                            sparseArray.put(R.id.tag_user_mute_thread_id, threadData.getId());
-                        }
-                        sparseArray.put(R.id.tag_user_mute_post_id, sr9Var.O());
-                    } else {
-                        sparseArray.put(R.id.tag_user_mute_visible, Boolean.FALSE);
-                    }
-                    if (!z4) {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(sr9Var.v0()));
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(bz8Var.c0()));
-                        sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z7));
-                        sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i));
-                        sparseArray.put(R.id.tag_del_post_id, sr9Var.O());
-                    } else {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.FALSE);
-                    }
-                    sparseArray.put(R.id.tag_mul_del_post_type, Boolean.valueOf(z5));
-                    sparseArray.put(R.id.tag_is_self_post, Boolean.valueOf(z8));
-                    if (pbCommenFloorItemViewHolder.Y == 0) {
-                        z9 = false;
-                    }
-                    sparseArray.put(R.id.tag_is_subpb, Boolean.valueOf(z9));
-                    pbCommenFloorItemViewHolder.q.setTag(sparseArray);
-                    pbCommenFloorItemViewHolder.s.setTag(sparseArray);
-                    if (!z) {
-                        pbCommenFloorItemViewHolder.m0.setTag(sparseArray);
-                        return;
-                    } else {
-                        pbCommenFloorItemViewHolder.m0.setTag(null);
-                        return;
-                    }
-                }
-            }
-            z6 = false;
-            z7 = false;
-            z8 = false;
-            if (sr9Var.p() != null) {
-                z4 = true;
-                z7 = true;
-            }
-            if (z2) {
-            }
-            if (sr9Var.D() != 1) {
-            }
-            if (!z3) {
-            }
-            if (!z6) {
-            }
-            if (!z4) {
-            }
-            sparseArray.put(R.id.tag_mul_del_post_type, Boolean.valueOf(z5));
-            sparseArray.put(R.id.tag_is_self_post, Boolean.valueOf(z8));
-            if (pbCommenFloorItemViewHolder.Y == 0) {
-            }
-            sparseArray.put(R.id.tag_is_subpb, Boolean.valueOf(z9));
-            pbCommenFloorItemViewHolder.q.setTag(sparseArray);
-            pbCommenFloorItemViewHolder.s.setTag(sparseArray);
-            if (!z) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+            vy8.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                vy8.e(threadData);
             }
         }
     }
 
-    public static void i(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, View view2, sr9 sr9Var, boolean z, boolean z2) {
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{pbCommenFloorItemViewHolder, view2, sr9Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                pbCommenFloorItemViewHolder.i0.setVisibility(0);
-                pbCommenFloorItemViewHolder.l0.setVisibility(0);
-                pbCommenFloorItemViewHolder.b0.setVisibility(4);
-                if (!z2 && !sr9Var.h0) {
-                    pbCommenFloorItemViewHolder.u.setVisibility(8);
-                }
-                if (sr9Var.h0) {
-                    pbCommenFloorItemViewHolder.h0.setVisibility(8);
-                } else {
-                    pbCommenFloorItemViewHolder.h0.bringToFront();
-                    pbCommenFloorItemViewHolder.h0.setVisibility(0);
-                }
-            } else {
-                pbCommenFloorItemViewHolder.i0.setVisibility(8);
-                pbCommenFloorItemViewHolder.h0.setVisibility(8);
-                pbCommenFloorItemViewHolder.l0.setVisibility(8);
-                if (z2) {
-                    pbCommenFloorItemViewHolder.b0.setVisibility(0);
-                } else {
-                    pbCommenFloorItemViewHolder.u.setVisibility(0);
-                }
-                sr9Var.Y0(false);
-            }
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.tag_load_sub_data, sr9Var);
-            sparseArray.put(R.id.tag_load_sub_view, view2);
-            pbCommenFloorItemViewHolder.h0.setTag(sparseArray);
-            pbCommenFloorItemViewHolder.l0.setTag(sparseArray);
-            pbCommenFloorItemViewHolder.l0.setAlpha(0.5f);
-            if (sr9Var.h0) {
-                pbCommenFloorItemViewHolder.l0.setOnClickListener(null);
-            }
-            if (sr9Var != null) {
-                View view3 = pbCommenFloorItemViewHolder.l0;
-                if (!sr9Var.x0() && !sr9Var.h0) {
-                    i = R.color.transparent;
-                } else {
-                    i = R.color.CAM_X0201;
-                }
-                SkinManager.setBackgroundColor(view3, i);
-                EMTextView eMTextView = pbCommenFloorItemViewHolder.j0;
-                boolean x0 = sr9Var.x0();
-                int i4 = R.color.CAM_X0304;
-                if (x0) {
-                    i2 = R.color.CAM_X0304;
-                } else {
-                    i2 = R.color.CAM_X0107;
-                }
-                SkinManager.setViewTextColor(eMTextView, i2);
-                ImageView imageView = pbCommenFloorItemViewHolder.k0;
-                if (sr9Var.x0()) {
-                    i3 = R.drawable.icon_pure_pb_del_select;
-                } else {
-                    i3 = R.drawable.icon_pure_pb_del_normal;
-                }
-                if (!sr9Var.x0()) {
-                    i4 = R.color.CAM_X0107;
-                }
-                WebPManager.setPureDrawable(imageView, i3, i4, null);
-            }
-        }
-    }
-
-    public static void j(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var) {
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, pbCommenFloorItemViewHolder, sr9Var) == null) {
-            if (sr9Var != null && sr9Var.p() != null && sr9Var.h0() != null) {
-                TbRichText a0 = sr9Var.a0();
-                if (a0 != null && StringUtils.isNull(a0.toString()) && StringUtils.isNull(sr9Var.s())) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (sr9Var.p().getSmallTailThemeData() != null) {
-                    str = sr9Var.p().getSmallTailThemeData().getPropsId();
-                } else {
-                    str = "";
-                }
-                pbCommenFloorItemViewHolder.J.setTag(R.id.tag_pb_small_tail_theme_id, str);
-                pbCommenFloorItemViewHolder.K.setTag(R.id.tag_pb_small_tail_theme_id, str);
-                h59.c(sr9Var.h0(), pbCommenFloorItemViewHolder.J, pbCommenFloorItemViewHolder.K, pbCommenFloorItemViewHolder.L, false, false, z, sr9Var.p().getSmallTailThemeData());
-                return;
-            }
-            pbCommenFloorItemViewHolder.J.setVisibility(8);
-            pbCommenFloorItemViewHolder.K.setVisibility(8);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:157:0x048e  */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x0497  */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x0499  */
-    /* JADX WARN: Removed duplicated region for block: B:168:0x04ac  */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x04ed  */
-    /* JADX WARN: Removed duplicated region for block: B:174:0x04f7  */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x054f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void k(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var, View view2, int i, bz8 bz8Var, ThreadData threadData, boolean z) {
-        String str;
-        String str2;
-        int i2;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        boolean z8;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{pbCommenFloorItemViewHolder, sr9Var, view2, Integer.valueOf(i), bz8Var, threadData, Boolean.valueOf(z)}) == null) && pbCommenFloorItemViewHolder != null && sr9Var != null) {
-            boolean z9 = false;
-            if (sr9Var.R) {
-                SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.e, R.color.CAM_X0204);
-                pbCommenFloorItemViewHolder.e.setVisibility(0);
-            } else {
-                pbCommenFloorItemViewHolder.e.setVisibility(8);
-            }
-            if (threadData != null && threadData.getAuthor() != null) {
-                str = threadData.getAuthor().getUserId();
-            } else {
-                str = null;
-            }
-            pbCommenFloorItemViewHolder.p.setTag(null);
-            pbCommenFloorItemViewHolder.p.setUserId(null);
-            pbCommenFloorItemViewHolder.g.setText((CharSequence) null);
-            pbCommenFloorItemViewHolder.E.getHeadView().setUserId(null);
-            pbCommenFloorItemViewHolder.q.setIsHost(false);
-            if (sr9Var.p() != null) {
-                if (str != null && !str.equals("0") && str.equals(sr9Var.p().getUserId())) {
-                    pbCommenFloorItemViewHolder.q.setIsHost(true);
-                }
-                ArrayList<IconData> iconInfo = sr9Var.p().getIconInfo();
-                ArrayList<IconData> tShowInfoNew = sr9Var.p().getTShowInfoNew();
-                UserIconBox userIconBox = pbCommenFloorItemViewHolder.G;
-                if (userIconBox != null) {
-                    userIconBox.setTag(R.id.tag_user_id, sr9Var.p().getUserId());
-                    pbCommenFloorItemViewHolder.G.setOnClickListener(bz8Var.I0().c);
-                    int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-                    int g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    UserIconBox userIconBox2 = pbCommenFloorItemViewHolder.G;
-                    i4 = R.id.tag_user_id;
-                    userIconBox2.g(iconInfo, 2, g, g, g2);
-                } else {
-                    i4 = R.id.tag_user_id;
-                }
-                if (pbCommenFloorItemViewHolder.F != null) {
-                    if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
-                        pbCommenFloorItemViewHolder.F.setTag(tShowInfoNew.get(0).getUrl());
-                    }
-                    pbCommenFloorItemViewHolder.F.setOnClickListener(bz8Var.I0().e);
-                    int g3 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-                    pbCommenFloorItemViewHolder.F.h(tShowInfoNew, 3, g3, g3, ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
-                }
-                if (ListUtils.isEmpty(tShowInfoNew) && !sr9Var.p().isBigV()) {
-                    if (UbsABTestHelper.isPBPlanA()) {
-                        if (DeviceInfoUtil.isMate30()) {
-                            o19.I(pbCommenFloorItemViewHolder.g);
-                        } else {
-                            p45.d(pbCommenFloorItemViewHolder.g).C(R.string.F_X02);
-                        }
-                        SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0108, 1);
-                    } else {
-                        SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0106, 1);
-                    }
-                } else {
-                    SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0301, 1);
-                }
-                String avater = sr9Var.p().getAvater();
-                pbCommenFloorItemViewHolder.g.setTag(i4, sr9Var.p().getUserId());
-                pbCommenFloorItemViewHolder.g.setTag(R.id.tag_user_name, sr9Var.p().getUserName());
-                pbCommenFloorItemViewHolder.g.setTag(R.id.tag_virtual_user_url, sr9Var.p().getVirtualUserUrl());
-                String name_show = sr9Var.p().getName_show();
-                String userName = sr9Var.p().getUserName();
-                if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
-                    pbCommenFloorItemViewHolder.g.setText(ow8.b(bz8Var.getPageContext().getPageActivity(), pbCommenFloorItemViewHolder.g.getText().toString()));
-                    pbCommenFloorItemViewHolder.g.setGravity(16);
-                    pbCommenFloorItemViewHolder.g.setTag(R.id.tag_nick_name_activity, ow8.a());
-                    SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0312, 1);
-                }
-                if (sr9Var.p().getPendantData() != null && !StringUtils.isNull(sr9Var.p().getPendantData().getImgUrl())) {
-                    pbCommenFloorItemViewHolder.E.setBigVDimenSize(R.dimen.tbds36);
-                    pbCommenFloorItemViewHolder.E.i(sr9Var.p());
-                    pbCommenFloorItemViewHolder.p.setVisibility(8);
-                    pbCommenFloorItemViewHolder.E.setVisibility(0);
-                    pbCommenFloorItemViewHolder.E.getHeadView().N(avater, 28, false);
-                    pbCommenFloorItemViewHolder.E.getHeadView().setUserId(sr9Var.p().getUserId());
-                    pbCommenFloorItemViewHolder.E.getHeadView().setUserName(sr9Var.p().getUserName());
-                    pbCommenFloorItemViewHolder.E.i(sr9Var.p());
-                } else {
-                    pbCommenFloorItemViewHolder.p.setGodIconWidth(R.dimen.tbds36);
-                    UtilHelper.showHeadImageViewBigV(pbCommenFloorItemViewHolder.p, sr9Var.p(), 4);
-                    pbCommenFloorItemViewHolder.p.setUserId(sr9Var.p().getUserId());
-                    pbCommenFloorItemViewHolder.p.setUserName(sr9Var.p().getUserName(), sr9Var.o0());
-                    pbCommenFloorItemViewHolder.p.setTag(R.id.tag_virtual_user_url, sr9Var.p().getVirtualUserUrl());
-                    pbCommenFloorItemViewHolder.p.setImageDrawable(null);
-                    pbCommenFloorItemViewHolder.p.N(avater, 28, false);
-                    pbCommenFloorItemViewHolder.p.setVisibility(0);
-                    pbCommenFloorItemViewHolder.E.setVisibility(8);
-                }
-                p(pbCommenFloorItemViewHolder.i, sr9Var, str, threadData);
-            }
-            String str3 = "";
-            if (!bz8Var.y0() || sr9Var.p() == null) {
-                str2 = "";
-                i2 = 0;
-            } else {
-                i2 = sr9Var.p().getLevel_id();
-                str2 = sr9Var.p().getLevelName();
-            }
-            if (threadData != null && threadData.isUgcThreadType()) {
-                i2 = 0;
-            }
-            if (i2 > 0) {
-                pbCommenFloorItemViewHolder.D.setVisibility(0);
-                pbCommenFloorItemViewHolder.D.setLevel(i2, str2);
-            } else {
-                pbCommenFloorItemViewHolder.D.setVisibility(8);
-            }
-            if (pbCommenFloorItemViewHolder.G.getChildCount() != 1) {
-                pbCommenFloorItemViewHolder.G.getChildCount();
-            }
-            pbCommenFloorItemViewHolder.i.getVisibility();
-            pbCommenFloorItemViewHolder.F.getChildCount();
-            int l = o19.l();
-            if (sr9Var.p() != null) {
-                str3 = sr9Var.p().getName_show();
-            }
-            int e = lt5.e(str3);
-            if (sr9Var.p() != null && !StringUtils.isNull(sr9Var.p().getSealPrefix())) {
-                int i5 = l - 2;
-                if (e > i5) {
-                    str3 = lt5.m(str3, i5) + StringHelper.STRING_MORE;
-                }
-            } else if (e > l) {
-                str3 = lt5.m(str3, l) + StringHelper.STRING_MORE;
-            }
-            if (sr9Var.p() != null && !StringUtils.isNull(sr9Var.p().getSealPrefix())) {
-                pbCommenFloorItemViewHolder.g.setText(m(bz8Var, sr9Var.p().getSealPrefix(), str3));
-            } else {
-                pbCommenFloorItemViewHolder.g.setText(str3);
-            }
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.tag_clip_board, sr9Var);
-            sparseArray.put(R.id.tag_load_sub_data, sr9Var);
-            sparseArray.put(R.id.tag_load_sub_view, view2);
-            sparseArray.put(R.id.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray.put(R.id.tag_pb_floor_number, Integer.valueOf(sr9Var.D()));
-            sparseArray.put(R.id.tag_forbid_user_post_id, sr9Var.O());
-            if (sr9Var.p() != null && !StringUtils.isNull(sr9Var.p().getVirtualUserUrl())) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (threadData != null && bz8Var.c0() != 0 && !n(threadData)) {
-                if (bz8Var.c0() != 1002 && bz8Var.c0() != 3) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (bz8Var.c0() != 3 && !threadData.isBjh()) {
-                    z4 = true;
-                    z5 = true;
-                } else {
-                    z4 = false;
-                    z5 = false;
-                }
-                if (sr9Var != null && sr9Var.p() != null) {
-                    String userId = sr9Var.p().getUserId();
-                    if (UtilHelper.isCurrentAccount(userId)) {
-                        z3 = false;
-                    }
-                    if (userId == null || userId.equals("0") || userId.length() == 0) {
-                        z3 = false;
-                    }
-                }
-            } else {
-                z3 = false;
-                z4 = false;
-                z5 = false;
-            }
-            if (threadData != null && threadData.getAuthor() != null && sr9Var.p() != null) {
-                String userId2 = threadData.getAuthor().getUserId();
-                String userId3 = sr9Var.p().getUserId();
-                if (UtilHelper.isCurrentAccount(userId2)) {
-                    if (UtilHelper.isCurrentAccount(userId3)) {
-                        z6 = false;
-                        z4 = true;
-                        z7 = true;
-                    } else {
-                        z6 = true;
-                        z4 = true;
-                        z7 = false;
-                    }
-                    z8 = true;
-                    if (sr9Var != null && sr9Var.p() != null && UtilHelper.isCurrentAccount(sr9Var.p().getUserId())) {
-                        z4 = true;
-                        z7 = true;
-                    }
-                    if (z2) {
-                        z3 = false;
-                        z6 = false;
-                        z4 = false;
-                    }
-                    if (sr9Var.D() != 1) {
-                        i3 = 0;
-                    } else {
-                        i3 = 1;
-                    }
-                    if (threadData != null && threadData.isUgcThreadType()) {
-                        z3 = false;
-                        z6 = false;
-                    }
-                    if (!z3) {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(bz8Var.c0()));
-                        if (sr9Var.p() != null) {
-                            sparseArray.put(R.id.tag_forbid_user_name, sr9Var.p().getUserName());
-                            sparseArray.put(R.id.tag_forbid_user_name_show, sr9Var.p().getName_show());
-                            sparseArray.put(R.id.tag_forbid_user_portrait, sr9Var.p().getPortrait());
-                        }
-                    } else {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.FALSE);
-                    }
-                    if (!z6) {
-                        sparseArray.put(R.id.tag_user_mute_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_is_mem, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
-                        if (sr9Var.p() != null) {
-                            sparseArray.put(R.id.tag_user_mute_mute_userid, sr9Var.p().getUserId());
-                            sparseArray.put(R.id.tag_user_mute_mute_username, sr9Var.p().getUserName());
-                            sparseArray.put(R.id.tag_user_mute_mute_nameshow, sr9Var.p().getName_show());
-                        }
-                        sparseArray.put(R.id.tag_user_mute_thread_id, threadData.getId());
-                        sparseArray.put(R.id.tag_user_mute_post_id, sr9Var.O());
-                    } else {
-                        sparseArray.put(R.id.tag_user_mute_visible, Boolean.FALSE);
-                    }
-                    if (!z4 && threadData != null) {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(bz8Var.c0()));
-                        sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z7));
-                        sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i3));
-                        sparseArray.put(R.id.tag_del_post_id, sr9Var.O());
-                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf((z || sr9Var.v0()) ? true : true));
-                    } else {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.FALSE);
-                    }
-                    sparseArray.put(R.id.tag_mul_del_post_type, Boolean.valueOf(z5));
-                    sparseArray.put(R.id.tag_is_self_post, Boolean.valueOf(z8));
-                    pbCommenFloorItemViewHolder.q.setTag(sparseArray);
-                    pbCommenFloorItemViewHolder.s.setTag(sparseArray);
-                }
-            }
-            z6 = false;
-            z7 = false;
-            z8 = false;
-            if (sr9Var != null) {
-                z4 = true;
-                z7 = true;
-            }
-            if (z2) {
-            }
-            if (sr9Var.D() != 1) {
-            }
-            if (threadData != null) {
-                z3 = false;
-                z6 = false;
-            }
-            if (!z3) {
-            }
-            if (!z6) {
-            }
-            if (!z4) {
-            }
-            sparseArray.put(R.id.tag_should_delete_visible, Boolean.FALSE);
-            sparseArray.put(R.id.tag_mul_del_post_type, Boolean.valueOf(z5));
-            sparseArray.put(R.id.tag_is_self_post, Boolean.valueOf(z8));
-            pbCommenFloorItemViewHolder.q.setTag(sparseArray);
-            pbCommenFloorItemViewHolder.s.setTag(sparseArray);
-        }
-    }
-
-    public static int l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            a.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
-        }
-        return invokeI.intValue;
-    }
-
-    public static boolean n(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: z */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isBlocked();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            jz.b bVar = new jz.b(this.d.getPageActivity(), false);
+            wy wyVar = new wy(this.d.getPageActivity());
+            wyVar.setFrom("index");
+            wyVar.u(this.e);
+            bVar.n(wyVar);
+            jz k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
+            k.s(17);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.c);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static SpannableStringBuilder m(bz8 bz8Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, bz8Var, str, str2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (str2 == null) {
-                return spannableStringBuilder;
-            }
-            if (str != null) {
-                arrayList.add(new ij6.a(str, R.drawable.pic_smalldot_title));
-                return ij6.h(bz8Var.getPageContext().getPageActivity(), str2, arrayList, true);
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLLL.objValue;
-    }
-
-    public static void q(TbPageContext<?> tbPageContext, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, sr9 sr9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65553, null, tbPageContext, pbCommenFloorItemViewHolder, sr9Var) == null) && sr9Var != null && WorldCupEnableSwitch.isOn()) {
-            pbCommenFloorItemViewHolder.o.setAgreeAlone(true);
-            pbCommenFloorItemViewHolder.A0.setVisibility(0);
-            pbCommenFloorItemViewHolder.A0.setImageResource(R.drawable.obfuscated_res_0x7f0809d8);
-            pbCommenFloorItemViewHolder.A0.setOnClickListener(new a(sr9Var, tbPageContext));
-            HeadWorldCupFlagLayout headWorldCupFlagLayout = pbCommenFloorItemViewHolder.B0;
-            if (headWorldCupFlagLayout != null) {
-                headWorldCupFlagLayout.b(sr9Var.p());
-            }
-        }
-    }
-
-    public static void o(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65551, null, pbCommenFloorItemViewHolder) != null) || pbCommenFloorItemViewHolder == null) {
-            return;
-        }
-        if (pbCommenFloorItemViewHolder.a != TbadkCoreApplication.getInst().getSkinType()) {
-            if (UbsABTestHelper.isPBPlanA()) {
-                if (DeviceInfoUtil.isMate30()) {
-                    o19.I(pbCommenFloorItemViewHolder.g);
-                } else {
-                    p45.d(pbCommenFloorItemViewHolder.g).C(R.string.F_X02);
-                }
-                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0108, 1);
-            } else {
-                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.g, R.color.CAM_X0106, 1);
-            }
-            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.k, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.l, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.m, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.C, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.n, R.color.CAM_X0109, 1);
-            pbCommenFloorItemViewHolder.q.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            pbCommenFloorItemViewHolder.t.b();
-            if (pbCommenFloorItemViewHolder.s.getVisibility() == 0) {
-                pbCommenFloorItemViewHolder.s.g(TbadkCoreApplication.getInst().getSkinType());
-            }
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.y, R.drawable.obfuscated_res_0x7f080b5b, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.z, R.drawable.obfuscated_res_0x7f080b5c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            pbCommenFloorItemViewHolder.v.setVisibility(8);
-            pbCommenFloorItemViewHolder.w.setVisibility(8);
-            pbCommenFloorItemViewHolder.x.setVisibility(8);
-            pbCommenFloorItemViewHolder.M.setVisibility(8);
-            pbCommenFloorItemViewHolder.T.setVisibility(8);
-            pbCommenFloorItemViewHolder.q.setFestivalTipViewSkin();
-            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.I, R.color.CAM_X0203);
-        }
-        pbCommenFloorItemViewHolder.a = TbadkCoreApplication.getInst().getSkinType();
-    }
-
-    public static void p(TextView textView, sr9 sr9Var, String str, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65552, null, textView, sr9Var, str, threadData) == null) {
-            if (textView == null && sr9Var == null) {
-                return;
-            }
-            textView.setTag(sr9Var);
-            if (threadData != null && threadData.isUgcThreadType()) {
-                textView.setVisibility(8);
-                textView.setTag(null);
-            } else if (sr9Var.p() != null) {
-                MetaData p = sr9Var.p();
-                if (str != null && !str.equals("0") && str.equals(p.getUserId())) {
-                    textView.setVisibility(0);
-                    textView.setAlpha(1.0f);
-                    textView.setText(R.string.host_name);
-                    textView.setBackgroundColor(0);
-                    p45 d = p45.d(textView);
-                    d.o(R.string.J_X04);
-                    d.m(R.dimen.L_X01);
-                    d.w(R.color.CAM_X0302);
-                    d.l(R.color.CAM_X0302);
-                } else if (p.getIs_bawu() == 1 && sr9Var.w0()) {
-                    p45 d2 = p45.d(textView);
-                    d2.w(R.color.CAM_X0101);
-                    d2.o(R.string.J_X04);
-                    d2.f(R.color.CAM_X0302);
-                    textView.setVisibility(0);
-                    textView.setText(R.string.brand_official);
-                } else if (p.getIs_bawu() == 1 && "manager".equals(p.getBawu_type())) {
-                    p45 d3 = p45.d(textView);
-                    d3.w(R.color.CAM_X0101);
-                    d3.o(R.string.J_X04);
-                    d3.f(R.color.CAM_X0302);
-                    textView.setVisibility(0);
-                    textView.setText(R.string.bawu_member_bazhu_tip);
-                } else if (p.getIs_bawu() == 1 && PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(p.getBawu_type())) {
-                    p45 d4 = p45.d(textView);
-                    d4.w(R.color.CAM_X0101);
-                    d4.o(R.string.J_X04);
-                    d4.f(R.color.CAM_X0302);
-                    textView.setVisibility(0);
-                    textView.setText(R.string.bawu_member_xbazhu_tip);
-                } else if (p.getIs_bawu() == 1 && "pri_content_assist".equals(p.getBawu_type())) {
-                    p45 d5 = p45.d(textView);
-                    d5.w(R.color.CAM_X0101);
-                    d5.o(R.string.J_X04);
-                    d5.f(R.color.CAM_X0302);
-                    textView.setVisibility(0);
-                    textView.setText(R.string.bawu_content_assist_tip);
-                } else if (p.getIs_bawu() == 1 && "pri_manage_assist".equals(p.getBawu_type())) {
-                    p45 d6 = p45.d(textView);
-                    d6.w(R.color.CAM_X0101);
-                    d6.o(R.string.J_X04);
-                    d6.f(R.color.CAM_X0302);
-                    textView.setVisibility(0);
-                    textView.setText(R.string.bawu_manage_assist_tip);
-                } else {
-                    textView.setVisibility(8);
-                }
-            } else {
-                textView.setVisibility(8);
-            }
-        }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 }

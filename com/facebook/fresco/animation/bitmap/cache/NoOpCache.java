@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NoOpCache implements BitmapFrameCache {
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     public void clear() {

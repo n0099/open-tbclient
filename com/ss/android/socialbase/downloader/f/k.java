@@ -4,6 +4,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.h.e;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -758,7 +759,7 @@ public class k implements f, c.a {
     }
 
     private void k() {
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onComplete");
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", GameAssistConstKt.TYPE_CALLBACK_COMPLETE);
         this.c.c();
         synchronized (this.s) {
             this.s.notify();

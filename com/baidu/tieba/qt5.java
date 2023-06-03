@@ -1,55 +1,70 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.jz;
+import com.baidu.tieba.uz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class qt5 {
+public class qt5 extends rt5<l45, ThreadCardViewHolder<l45>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Activity a;
-    @NonNull
-    public final ViewGroup b;
-    @NonNull
-    public int[] c;
-    @Nullable
-    public c d;
-    @Nullable
-    public d e;
+    public eo6<l45> g;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(@NonNull MotionEvent motionEvent);
+    public class a extends eo6<l45> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qt5 b;
+
+        public a(qt5 qt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qt5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, l45 l45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, l45Var) == null) {
+                this.b.u(view2, l45Var);
+            }
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface d {
-        boolean a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class b implements fo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qt5 a;
 
-        public a(qt5 qt5Var) {
+        public b(qt5 qt5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,157 +82,101 @@ public class qt5 {
             this.a = qt5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                this.a.P(view2, vnVar);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final List<Rect> a;
-        public final /* synthetic */ qt5 b;
-
-        public b(qt5 qt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = qt5Var;
-            this.a = new ArrayList();
-        }
-
-        @Override // android.view.View.OnTouchListener
-        @SuppressLint({"ClickableViewAccessibility"})
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (this.b.e != null && !this.b.e.a()) {
-                    return false;
-                }
-                this.a.clear();
-                int[] iArr = new int[2];
-                int[] iArr2 = this.b.c;
-                int length = iArr2.length;
-                int i = 0;
-                while (true) {
-                    z = true;
-                    if (i >= length) {
-                        break;
-                    }
-                    View findViewById = this.b.a.findViewById(iArr2[i]);
-                    if (findViewById != null) {
-                        findViewById.getLocationOnScreen(iArr);
-                        this.a.add(new Rect(iArr[0], iArr[1], iArr[0] + findViewById.getWidth(), iArr[1] + findViewById.getHeight()));
-                    }
-                    i++;
-                }
-                if (motionEvent.getAction() == 0) {
-                    int rawX = (int) motionEvent.getRawX();
-                    int rawY = (int) motionEvent.getRawY();
-                    Iterator<Rect> it = this.a.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().contains(rawX, rawY)) {
-                                break;
-                            }
-                        } else {
-                            z = false;
-                            break;
-                        }
-                    }
-                    if (!z && this.b.d != null) {
-                        this.b.d.a(motionEvent);
-                    }
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public qt5(@NonNull Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qt5(TbPageContext tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_ARTICLE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new int[0];
-        this.a = activity;
-        this.b = (ViewGroup) activity.findViewById(16908290);
+        this.g = new a(this);
     }
 
-    public static qt5 g(@NonNull Activity activity) {
+    public final void P(View view2, vn vnVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, vnVar) == null) && (vnVar instanceof l45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            ThreadData threadData = ((l45) vnVar).t;
+            threadData.objType = 1;
+            ThreadCardUtils.jumpToPB((f15) threadData, view2.getContext(), C(), false);
+            ((ThreadCardViewHolder) view2.getTag()).a().p(new uz.a(1));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: Q */
+    public ThreadCardViewHolder<l45> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            return new qt5(activity);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            jz.b bVar = new jz.b(this.c.getPageActivity());
+            xx xxVar = new xx(this.c.getPageActivity());
+            xxVar.z(this.mPageId);
+            xxVar.B(this.c);
+            bVar.o(xxVar);
+            bVar.n(new vx(this.c.getPageActivity()));
+            bVar.h(new fy(this.c.getPageActivity()));
+            lz lzVar = new lz(this.c.getPageActivity());
+            l15 l15Var = new l15();
+            l15Var.b = x();
+            l15Var.h = y();
+            lzVar.B(l15Var);
+            lzVar.D(A());
+            lzVar.I(B());
+            lzVar.E(C());
+            bVar.m(lzVar);
+            bVar.l().i(vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds35));
+            bVar.l().b(R.drawable.addresslist_item_bg);
+            bVar.l().h(vi.g(this.c.getPageActivity(), R.dimen.tbds17));
+            jz k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.d);
+            k.s(C());
+            ThreadCardViewHolder<l45> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return (qt5) invokeL.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    @NonNull
-    public qt5 i(@Nullable c cVar) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: R */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l45 l45Var, ThreadCardViewHolder<l45> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-            this.d = cVar;
-            return this;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l45Var, threadCardViewHolder})) == null) {
+            if (l45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
+                l45Var.t.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(l45Var);
+                threadCardViewHolder.a().q(this.g);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                N(threadCardViewHolder.getView(), l45Var, i, i);
+                return threadCardViewHolder.getView();
+            }
+            return null;
         }
-        return (qt5) invokeL.objValue;
-    }
-
-    @NonNull
-    public qt5 j(@IdRes int... iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
-            this.c = iArr;
-            return this;
-        }
-        return (qt5) invokeL.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.post(new a(this));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View view2 = new View(this.a);
-            view2.setOnTouchListener(new b(this));
-            this.b.addView(view2, new ViewGroup.LayoutParams(-1, -1));
-        }
+        return (View) invokeCommon.objValue;
     }
 }

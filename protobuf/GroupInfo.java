@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class GroupInfo extends Message {
     public static final Integer DEFAULT_ACTIVEDAY;
     public static final String DEFAULT_ALBUM = "";
@@ -110,7 +110,7 @@ public final class GroupInfo extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_FORUMID = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<GroupInfo> {
         public Integer activeDay;
         public String album;

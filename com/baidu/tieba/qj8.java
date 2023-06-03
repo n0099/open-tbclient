@@ -1,87 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qj8 {
+public final class qj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, qj8> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948093866, "Lcom/baidu/tieba/qj8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948093866, "Lcom/baidu/tieba/qj8;");
-                return;
-            }
-        }
-        f = new HashMap<>();
-    }
-
-    public qj8() {
+    public qj8(String tag) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tag};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.a = tag;
     }
 
-    public static qj8 a(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("_");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            sb.append(str);
-            return f.get(sb.toString());
-        }
-        return (qj8) invokeJL.objValue;
+    public /* synthetic */ qj8(String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "LogAbility" : str);
     }
 
-    public void b() {
-        String str;
+    public void a(String log) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("_");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
-            }
-            sb.append(str);
-            f.put(sb.toString(), this);
+        if (interceptable == null || interceptable.invokeL(1048576, this, log) == null) {
+            Intrinsics.checkNotNullParameter(log, "log");
+            Log.d(this.a, log);
         }
     }
 }

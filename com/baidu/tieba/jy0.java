@@ -1,20 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.utils.BdNetUtils;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.nadcore.player.tail.AdVideoTailFrameView;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,259 +11,156 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jy0 extends gy0 implements View.OnClickListener {
+public class jy0 extends by0 implements AdVideoTailFrameView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout e;
-    public LinearLayout f;
-    public TextView g;
-    public Button h;
-    public LinearLayout i;
-    public TextView j;
-    public boolean k;
+    public AdVideoTailFrameView b;
+    public Object c;
 
-    public jy0() {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jy0(lz0 lz0Var, Object obj) {
+        super(lz0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lz0Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((lz0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = true;
-        FrameLayout frameLayout = new FrameLayout(this.c);
-        this.e = frameLayout;
-        frameLayout.setVisibility(4);
+        this.c = obj;
     }
 
-    public final void N() {
-        LinearLayout linearLayout;
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (linearLayout = this.i) != null) {
-            linearLayout.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean z = this.c instanceof zr0;
         }
     }
 
-    public final void O() {
-        LinearLayout linearLayout;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (linearLayout = this.f) != null) {
-            linearLayout.setVisibility(4);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null && this.c != null) {
+            g();
         }
     }
 
-    @Override // com.baidu.tieba.ly0
-    @NonNull
-    public View getContentView() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mw0
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new int[]{4, 5, 2, 3, 8};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.i == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_kernel_error, null);
-                this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bdc);
-                this.j = textView;
-                textView.setOnClickListener(this);
-                this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdVideoTailFrameView adVideoTailFrameView = this.b;
+            if (adVideoTailFrameView != null && adVideoTailFrameView.q()) {
+                return true;
             }
-            this.j.setText(R.string.nad_bdvideoplayer_tip_kernel_error);
-            R(u().V0());
-            this.i.setVisibility(0);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.y();
         }
     }
 
-    public void Q() {
+    public void m() {
+        AdVideoTailFrameView adVideoTailFrameView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !this.k) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.t();
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
+    public void b() {
+        lz0 lz0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Object obj = this.c;
+            if (obj instanceof zr0) {
+                if ("ad_full_video".equals(((zr0) obj).s)) {
+                    if (this.a != null && h() && this.a.O()) {
+                        if (this.a.u().V0()) {
+                            this.a.H(lw0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                        } else {
+                            this.a.u().y().G(0);
+                        }
+                    }
+                } else if ("ad_append_video".equals(((zr0) this.c).s) && (lz0Var = this.a) != null && lz0Var.O()) {
+                    this.b.u(ClogBuilder.LogType.CLOSE.type, "", "");
+                    this.a.R(8);
+                    this.a.P();
+                    this.a.H(kw0.w("layer_event_ad_finish"));
+                    if (!this.a.u().a0()) {
+                        this.a.H(lw0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
             return;
         }
-        if (this.f == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092602);
-            Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090488);
-            this.h = button;
-            button.setOnClickListener(this);
-            this.e.addView(this.f, new FrameLayout.LayoutParams(-1, -1));
+        if (this.b == null) {
+            AdVideoTailFrameView adVideoTailFrameView = new AdVideoTailFrameView(this.a.getContentView().getContext(), this.a, d());
+            this.b = adVideoTailFrameView;
+            this.a.N(adVideoTailFrameView);
         }
-        S(u().V0());
-        H(bv0.w(LayerEvent.ACTION_NET_ERROR_SHOW));
-        this.f.setVisibility(0);
-        u().y().y(true);
-    }
-
-    public final void R(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            Drawable[] compoundDrawables = this.j.getCompoundDrawables();
-            if (z) {
-                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp));
-            } else {
-                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp));
-            }
-            this.j.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
+        this.b.n(d());
+        this.b.setCallBack(this);
+        Object obj = this.c;
+        if (obj != null) {
+            this.b.setData(obj);
+            this.b.x();
         }
     }
 
-    @Override // com.baidu.tieba.yx0, com.baidu.tieba.mw0
-    public void k(@NonNull lv0 lv0Var) {
-        char c;
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lv0Var) == null) {
-            String c2 = lv0Var.c();
-            int hashCode = c2.hashCode();
-            if (hashCode != -552621273) {
-                if (hashCode != -552580917) {
-                    if (hashCode == 1409909918 && c2.equals(LayerEvent.ACTION_SWITCH_FLOATING)) {
-                        c = 2;
-                    }
-                    c = 65535;
-                } else {
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                    c = 0;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            lz0 lz0Var = this.a;
+            if (lz0Var != null && lz0Var.u().o1() != null && this.a.u().o1().getVideoAd() != null && this.a.u().o1().getVideoAd().fullItemAdData != null) {
+                return true;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        N();
-                        O();
-                        return;
-                    }
-                    return;
-                }
-                if (this.f != null) {
-                    S(false);
-                }
-                if (this.i != null) {
-                    R(false);
-                    return;
-                }
-                return;
-            }
-            if (this.f != null) {
-                S(true);
-            }
-            if (this.i != null) {
-                R(true);
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.s(z);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void k(boolean z) {
+        AdVideoTailFrameView adVideoTailFrameView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090488 || view2.getId() == R.id.obfuscated_res_0x7f091bdc) {
-                if (!BdNetUtils.f()) {
-                    ViewGroup n = u().n();
-                    if (n != null && u().n1().a()) {
-                        x31.a().a(n.getContext(), R.string.nad_bdvideoplayer_tip_net_error);
-                        return;
-                    }
-                    return;
-                }
-                N();
-                O();
-                this.e.setVisibility(4);
-                u().m0();
-                H(bv0.w(LayerEvent.ACTION_CLICK_RETRY));
-            }
-        }
-    }
-
-    public final void S(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-            if (z) {
-                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_102dp);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_32dp);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_31dp);
-            } else {
-                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_66dp);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24_33dp);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24dp);
-            }
-            this.h.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.yx0, com.baidu.tieba.mw0
-    public void d(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, lv0Var) == null) && PlayerEvent.ACTION_ON_ERROR.equals(lv0Var.c()) && !u().U0()) {
-            this.e.setVisibility(0);
-            u().y().j(this);
-            if (!BdNetUtils.f()) {
-                Q();
-                N();
-                return;
-            }
-            P();
-            O();
-        }
-    }
-
-    @Override // com.baidu.tieba.yx0, com.baidu.tieba.mw0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PREPARING) {
-                u().y().i(this);
-                O();
-                N();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yx0, com.baidu.tieba.mw0
-    public void q(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, lv0Var) == null) {
-            if (ControlEvent.ACTION_RESUME.equals(lv0Var.c()) || ControlEvent.ACTION_SHOW_TIP.equals(lv0Var.c()) || ControlEvent.ACTION_START.equals(lv0Var.c())) {
-                u().y().i(this);
-                N();
-                O();
-            }
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
+            adVideoTailFrameView.n(z);
         }
     }
 }

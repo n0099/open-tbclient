@@ -1,71 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class uh2 implements fv2 {
+/* loaded from: classes8.dex */
+public class uh2 extends xk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210922, "Lcom/baidu/tieba/uh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948210922, "Lcom/baidu/tieba/uh2;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
+    public String q;
 
     public uh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.fv2
-    public void a(boolean z, Activity activity) {
-        long j;
+    @Override // com.baidu.tieba.wk4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && wh2.a() && !z) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (super.a() && !TextUtils.isEmpty(this.q)) {
+                return true;
             }
-            boolean B = xm3.B();
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
-            }
-            if (B) {
-                boolean n = yh2.n();
-                g62.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
-                sh2.c().d().u(null, n, 16);
-                yh2.p(false);
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

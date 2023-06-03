@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -371,7 +372,7 @@ public class ColumnLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if ("vertical".equals(str)) {
+            if (LiveConfig.CUT_LIST_VERTICAL_KEY.equals(str)) {
                 return 1;
             }
             return 0;
@@ -419,7 +420,7 @@ public class ColumnLayout extends ViewGroup {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ColumnLayout);
             String string = obtainStyledAttributes.getString(0);
             if (string == null) {
-                string = "vertical";
+                string = LiveConfig.CUT_LIST_VERTICAL_KEY;
             }
             if (h.matcher(string).matches()) {
                 this.d = new int[3];

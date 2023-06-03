@@ -16,6 +16,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -85,7 +86,7 @@ public class NetWorkUtils {
             _3G = new NetType("_3G", 3, "3g");
             _4G = new NetType("_4G", 4, "4g");
             _5G = new NetType("_5G", 5, "5g");
-            NetType netType = new NetType("UNKOWN", 6, "unknow");
+            NetType netType = new NetType("UNKOWN", 6, DownloadStatisticConstants.UBC_VALUE_UNKNOW);
             UNKOWN = netType;
             $VALUES = new NetType[]{NONE, WIFI, _2G, _3G, _4G, _5G, netType};
         }

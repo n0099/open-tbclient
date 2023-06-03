@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.storage;
 
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Arrays;
 import java.util.List;
@@ -485,7 +486,7 @@ public class LockBasedStorageManager implements StorageManager {
             if (i != 2) {
                 objArr[1] = "kotlin/reflect/jvm/internal/impl/storage/LockBasedStorageManager$LockBasedNotNullLazyValue";
             } else {
-                objArr[1] = "invoke";
+                objArr[1] = DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST;
             }
             if (i != 2) {
                 objArr[2] = "<init>";
@@ -534,7 +535,7 @@ public class LockBasedStorageManager implements StorageManager {
             if (i != 2) {
                 objArr[1] = "kotlin/reflect/jvm/internal/impl/storage/LockBasedStorageManager$LockBasedNotNullLazyValueWithPostCompute";
             } else {
-                objArr[1] = "invoke";
+                objArr[1] = DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST;
             }
             if (i != 2) {
                 objArr[2] = "<init>";
@@ -683,7 +684,7 @@ public class LockBasedStorageManager implements StorageManager {
             if (i != 3) {
                 objArr[1] = "kotlin/reflect/jvm/internal/impl/storage/LockBasedStorageManager$MapBasedMemoizedFunctionToNotNull";
             } else {
-                objArr[1] = "invoke";
+                objArr[1] = DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST;
             }
             if (i != 3) {
                 objArr[2] = "<init>";

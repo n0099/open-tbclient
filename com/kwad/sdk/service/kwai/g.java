@@ -7,7 +7,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface g {
     void load(@NonNull Context context, ImageView imageView, Object obj, @DrawableRes int i, @DrawableRes int i2);
 

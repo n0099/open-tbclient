@@ -3,7 +3,7 @@ package com.bun.supplier;
 import androidx.annotation.Keep;
 @Keep
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IdSupplier {
     @Keep
     String getAAID();

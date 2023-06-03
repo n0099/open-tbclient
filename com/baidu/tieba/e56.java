@@ -1,282 +1,235 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.constraintlayout.motion.utils.Easing;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class e56 implements ys1 {
+public class e56 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity a;
+    public boolean b;
+    public List<AccountData> c;
+    public View.OnClickListener d;
 
     /* loaded from: classes5.dex */
-    public static class a implements BdUniDispatchSchemeController.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    }
 
-        public a(Context context) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+
+        public b(e56 e56Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {e56Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = context;
         }
 
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(WebViewActivityConfig.FROM_SCHEMA, true);
-                yu4.w(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true, bundle);
-            }
+        public /* synthetic */ b(e56 e56Var, a aVar) {
+            this(e56Var);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685379, "Lcom/baidu/tieba/e56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685379, "Lcom/baidu/tieba/e56;");
-                return;
-            }
-        }
-        a = qp1.a;
-        b = NewUrlSchemaHelper.SCHEME;
-    }
-
-    public e56() {
+    public e56(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = baseActivity;
+        this.c = null;
+        this.b = false;
+        this.d = onClickListener;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<AccountData> list = this.c;
+            if (list != null) {
+                i = list.size();
+            } else {
+                i = 0;
+            }
+            return i + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(List<AccountData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.c = list;
         }
     }
 
-    public static String b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        String str5;
-        String str6;
-        Object opt;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (TextUtils.isEmpty(next) || (opt = jSONObject.opt(next)) == null) {
-                    return null;
-                }
-                String obj = opt.toString();
-                sb.append(next + "=" + Uri.encode(obj) + "&");
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                str4 = "/" + str4;
-            }
-            if (TextUtils.equals(str3, "NA")) {
-                str5 = "";
-            } else {
-                str5 = "/" + str3;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = str5 + str4;
-            }
-            String str7 = b;
-            if (TextUtils.isEmpty(str2)) {
-                if (!TextUtils.isEmpty(str)) {
-                    str7 = str7 + str;
-                }
-            } else {
-                String substring = str2.substring(1, str2.length());
-                if (TextUtils.isEmpty(str)) {
-                    str6 = str7 + substring;
-                } else {
-                    str6 = str7 + str + "/" + substring;
-                }
-                str7 = str6;
-            }
-            StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
-            String str8 = str7 + "?" + ((Object) sb2);
-            if (a) {
-                Log.i("DefaultInnerSkip", "encodeParams: " + ((Object) sb2));
-            }
-            return str8;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
-        return (String) invokeLLLLL.objValue;
     }
 
-    public static boolean d(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && context != null) {
-                if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
-                    Uri parse = Uri.parse(str);
-                    if (BdUniDispatchSchemeController.isUniScheme(parse)) {
-                        BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new a(context));
-                    } else {
-                        yu4.r(context, parse);
-                    }
-                    return true;
-                }
-                if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
-                    Uri parse2 = Uri.parse(str);
-                    if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                        el5.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
-                        return true;
-                    }
-                }
-                return UtilHelper.dealOneScheme(context, str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<AccountData> list = this.c;
+            if (list != null && i >= 0 && i < list.size()) {
+                return this.c.get(i);
             }
-            return false;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.ys1
-    public zk3 a(Context context, String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
-            if (context == null) {
-                zk3 zk3Var = new zk3();
-                zk3Var.f("Context exception");
-                return zk3Var;
-            } else if (TextUtils.isEmpty(str5)) {
-                return c(str5);
-            } else {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "NA";
-                }
-                if ("icashwebview".equals(str4) && !StringUtils.isNull(str5)) {
-                    try {
-                        String optString = new JSONObject(str5).optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            e(optString);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    zk3 zk3Var2 = new zk3();
-                    zk3Var2.f("invoke failed");
-                    return zk3Var2;
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (getItemId(i) >= 0) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            try {
                 try {
-                    JSONObject jSONObject = new JSONObject(str5);
-                    jSONObject.put("launchMode", Easing.STANDARD_NAME);
-                    String b2 = b(str, str2, str3, str4, jSONObject);
-                    boolean d = d(context, b2);
-                    if (a) {
-                        Log.i("DefaultInnerSkip", "result = " + d + "\n拼接后的uri is: " + b2);
+                    if (view2 == null) {
+                        if (getItemViewType(i) == 0) {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090062);
+                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090082);
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09085f);
+                            bVar.d = textView;
+                            m75.d(textView).w(R.color.CAM_X0105);
+                            bVar.d.setOnClickListener(this.d);
+                            view2.setTag(bVar);
+                            m75.d(bVar.a).w(R.color.CAM_X0105);
+                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
+                        } else {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013c);
+                            view2.setTag(bVar);
+                            m75.d(bVar.b).w(R.color.CAM_X0302);
+                        }
+                    } else {
+                        bVar = (b) view2.getTag();
                     }
-                    if (d) {
-                        return null;
+                    if (getItemViewType(i) == 0) {
+                        AccountData accountData = (AccountData) getItem(i);
+                        bVar.c.setVisibility(8);
+                        bVar.d.setVisibility(8);
+                        bVar.d.setTag(accountData);
+                        if (accountData != null) {
+                            bVar.a.setText(accountData.getAccountNameShow());
+                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                                bVar.c.setVisibility(0);
+                            }
+                            if (this.b) {
+                                bVar.d.setVisibility(0);
+                            }
+                        }
                     }
-                    zk3 zk3Var3 = new zk3();
-                    zk3Var3.f("invoke failed");
-                    return zk3Var3;
-                } catch (JSONException e2) {
-                    if (a) {
-                        Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
-                    }
-                    return c(str5);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
+                return view2;
+            } finally {
+                m75.d(view2).f(R.color.CAM_X0205);
             }
         }
-        return (zk3) invokeCommon.objValue;
-    }
-
-    public final zk3 c(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            zk3 zk3Var = new zk3();
-            zk3Var.k(5L);
-            zk3Var.i(1L);
-            StringBuilder sb = new StringBuilder();
-            sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
-            if (TextUtils.isEmpty(str)) {
-                str2 = " empty";
-            } else {
-                str2 = "";
-            }
-            sb.append(str2);
-            sb.append(" parameter:");
-            sb.append(str);
-            sb.append("\n");
-            sb.append(" appId:");
-            sb.append(f93.K().getAppId());
-            sb.append("\n");
-            sb.append(" curPage:");
-            sb.append(tu2.U().T());
-            sb.append("\n");
-            zk3Var.f(sb.toString());
-            return zk3Var;
-        }
-        return (zk3) invokeL.objValue;
-    }
-
-    public final void e(String str) {
-        g93 M;
-        b63 y;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (M = g93.M()) == null || (y = M.y()) == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_param_url", str);
-        y.W(bundle, g56.class);
+        return (View) invokeILL.objValue;
     }
 }

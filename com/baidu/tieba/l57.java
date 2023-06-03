@@ -1,177 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.k4a;
-import com.baidu.tieba.k57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class l57 {
+public final class l57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public k57 c;
-    public v59 d;
-    public k4a e;
-    public e f;
+    public String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final Object e;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof l57) {
+                l57 l57Var = (l57) obj;
+                return Intrinsics.areEqual(this.a, l57Var.a) && Intrinsics.areEqual(this.b, l57Var.b) && Intrinsics.areEqual(this.c, l57Var.c) && Intrinsics.areEqual(this.d, l57Var.d) && Intrinsics.areEqual(this.e, l57Var.e);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements k57.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l57 a;
-
-        public a(l57 l57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l57Var;
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            String str = this.b;
+            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.d;
+            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
+            Object obj = this.e;
+            return hashCode4 + (obj != null ? obj.hashCode() : 0);
         }
-
-        @Override // com.baidu.tieba.k57.b
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 0, 0L);
-            }
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements RemoveFansController.IResultCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l57 a;
-
-        public b(l57 l57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l57Var;
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
         }
-
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 1, j);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements k4a.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l57 a;
-
-        public c(l57 l57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l57Var;
-        }
-
-        @Override // com.baidu.tieba.k4a.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.c.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements k4a.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l57 a;
-
-        public d(l57 l57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l57Var;
-        }
-
-        @Override // com.baidu.tieba.k4a.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.dismiss();
-        }
-    }
-
-    public l57(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public l57(String type, String str, String str2, String str3, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {type, str, str2, str3, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,62 +74,47 @@ public class l57 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        k57 k57Var = new k57(tbPageContext, bdUniqueId);
-        this.c = k57Var;
-        k57Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = obj;
     }
 
-    public void f(long j) {
+    public final Object a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return invokeV.objValue;
     }
 
-    public void g(e eVar) {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d() {
-        k4a k4aVar;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k4aVar = this.e) != null) {
-            k4aVar.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e() {
+    public final String getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                k4a k4aVar = new k4a(this.a.getContext());
-                this.e = k4aVar;
-                k4aVar.h(this.a.getString(R.string.obfuscated_res_0x7f0f04b8));
-                ArrayList arrayList = new ArrayList();
-                k4a.b bVar = new k4a.b(this.a.getString(R.string.obfuscated_res_0x7f0f04b2), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.g(new d(this));
-                this.e.f(arrayList);
-                v59 v59Var = new v59(this.a.getPageActivity(), this.e.b());
-                this.d = v59Var;
-                v59Var.a(0.7f);
-            }
-            this.d.show();
-        }
+        return (String) invokeV.objValue;
     }
 }

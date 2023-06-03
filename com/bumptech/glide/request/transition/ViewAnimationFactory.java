@@ -5,12 +5,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     public Transition<R> transition;
     public final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public final Animation animation;
 
@@ -24,7 +24,7 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public final int animationId;
 

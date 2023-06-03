@@ -9,7 +9,6 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,7 +138,7 @@ public class DrawTextUtil {
                 int breakText = paint.breakText(str, 0, length, true, width, sMeasuredWidth) + 0;
                 if (breakText != length) {
                     if (breakText - 1 <= str.length()) {
-                        str = str.substring(0, i2) + StringHelper.STRING_MORE;
+                        str = str.substring(0, i2) + "...";
                     } else {
                         str = null;
                     }

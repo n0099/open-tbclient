@@ -1,6 +1,7 @@
 package kotlinx.coroutines.flow;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -12,32 +13,35 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.DelayKt;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$delayEach$1", f = "Migration.kt", i = {0}, l = {425}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$delayEach$1", f = "Migration.kt", i = {}, l = {TbConfig.PB_IMAGE_DIP_MAX_WIDTH}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes10.dex */
 public final class FlowKt__MigrationKt$delayEach$1<T> extends SuspendLambda implements Function2<T, Continuation<? super Unit>, Object> {
     public final /* synthetic */ long $timeMillis;
-    public Object L$0;
     public int label;
-    public Object p$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__MigrationKt$delayEach$1(long j, Continuation continuation) {
+    public FlowKt__MigrationKt$delayEach$1(long j, Continuation<? super FlowKt__MigrationKt$delayEach$1> continuation) {
         super(2, continuation);
         this.$timeMillis = j;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-        FlowKt__MigrationKt$delayEach$1 flowKt__MigrationKt$delayEach$1 = new FlowKt__MigrationKt$delayEach$1(this.$timeMillis, continuation);
-        flowKt__MigrationKt$delayEach$1.p$0 = obj;
-        return flowKt__MigrationKt$delayEach$1;
+        return new FlowKt__MigrationKt$delayEach$1(this.$timeMillis, continuation);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((FlowKt__MigrationKt$delayEach$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke2((FlowKt__MigrationKt$delayEach$1<T>) obj, continuation);
+    }
+
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Object invoke2(T t, Continuation<? super Unit> continuation) {
+        return ((FlowKt__MigrationKt$delayEach$1) create(t, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -52,9 +56,7 @@ public final class FlowKt__MigrationKt$delayEach$1<T> extends SuspendLambda impl
             }
         } else {
             ResultKt.throwOnFailure(obj);
-            Object obj2 = this.p$0;
             long j = this.$timeMillis;
-            this.L$0 = obj2;
             this.label = 1;
             if (DelayKt.delay(j, this) == coroutine_suspended) {
                 return coroutine_suspended;

@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a19;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.o05;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.d79;
+import com.baidu.tieba.l35;
+import com.baidu.tieba.q9;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,18 +42,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public LinearLayout j;
     public ImageView k;
     public TextView l;
-    public o05 m;
-    public o05 n;
-    public o05 o;
+    public l35 m;
+    public l35 n;
+    public l35 o;
     public TbPageContext p;
     public int q;
-    public a19 r;
+    public d79 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(a19 a19Var);
+        void a(d79 d79Var);
     }
 
     /* loaded from: classes7.dex */
@@ -83,7 +83,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.p.getPageActivity()) || !ri.F()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.p.getPageActivity()) || !vi.F()) {
                 return;
             }
             if (this.a.s != null) {
@@ -92,17 +92,17 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             PbPageNewsInfoHolder pbPageNewsInfoHolder = this.a;
             if (view2 == pbPageNewsInfoHolder.b) {
                 if (pbPageNewsInfoHolder.m != null && !TextUtils.isEmpty(this.a.m.a)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.p.getPageActivity()), new String[]{this.a.m.a});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.p.getPageActivity()), new String[]{this.a.m.a});
                     TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.a.m.a));
                 }
             } else if (view2 == pbPageNewsInfoHolder.g) {
                 BdLog.e("link: " + this.a.n.a);
                 if (this.a.n != null && !TextUtils.isEmpty(this.a.n.a)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.p.getPageActivity()), new String[]{this.a.n.a});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.p.getPageActivity()), new String[]{this.a.n.a});
                     TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.a.n.a));
                 }
             } else if (view2 == pbPageNewsInfoHolder.j && pbPageNewsInfoHolder.o != null && !TextUtils.isEmpty(this.a.o.a)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.p.getPageActivity()), new String[]{this.a.o.a});
+                UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.p.getPageActivity()), new String[]{this.a.o.a});
                 TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.a.o.a));
             }
         }
@@ -130,18 +130,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.t = new a(this);
         this.p = tbPageContext;
         this.s = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a45);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a71);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a71);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9d);
         this.c = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f7);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252b);
         this.e = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f4);
-        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091890);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092528);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918b6);
         this.h = (ImageView) view2.findViewById(R.id.news_info_img);
         this.i = (TextView) view2.findViewById(R.id.news_info_text);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dac);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dad);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dae);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dbe);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dbf);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dc0);
         i(this.t);
     }
 
@@ -149,7 +149,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.q != i) {
-            hx4 layoutMode = this.p.getLayoutMode();
+            d05 layoutMode = this.p.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -170,44 +170,44 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(a19 a19Var) {
+    public void g(d79 d79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, a19Var) != null) || a19Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, d79Var) != null) || d79Var == null) {
             return;
         }
-        this.r = a19Var;
-        o05 o05Var = a19Var.b1;
-        this.m = o05Var;
-        this.n = a19Var.c1;
-        this.o = a19Var.d1;
-        if (o05Var != null) {
-            this.c.N(o05Var.d, 10, false);
+        this.r = d79Var;
+        l35 l35Var = d79Var.b1;
+        this.m = l35Var;
+        this.n = d79Var.c1;
+        this.o = d79Var.d1;
+        if (l35Var != null) {
+            this.c.N(l35Var.d, 10, false);
             this.e.setText(this.m.b);
             this.f.setText(this.m.e);
             this.d.setText(this.m.f);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0812f1);
-            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f081053);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f08131f);
+            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f08107a);
         } else {
             this.b.setVisibility(8);
         }
-        o05 o05Var2 = this.n;
-        if (o05Var2 != null) {
-            this.i.setText(o05Var2.b);
+        l35 l35Var2 = this.n;
+        if (l35Var2 != null) {
+            this.i.setText(l35Var2.b);
             SkinManager.setBackgroundResource(this.h, R.drawable.icon_frs_news);
         } else {
             this.g.setVisibility(8);
             this.i.setVisibility(8);
             this.h.setVisibility(8);
         }
-        o05 o05Var3 = this.o;
-        if (o05Var3 != null) {
-            this.l.setText(o05Var3.b);
+        l35 l35Var3 = this.o;
+        if (l35Var3 != null) {
+            this.l.setText(l35Var3.b);
             SkinManager.setBackgroundResource(this.k, R.drawable.icon_frs_game);
         } else {
             this.j.setVisibility(8);
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(a19Var);
+        this.a.setTag(d79Var);
     }
 }

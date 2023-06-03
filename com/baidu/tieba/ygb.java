@@ -1,179 +1,280 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.media.AudioManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public class ygb extends BaseAdapter {
+public final class ygb {
     public static /* synthetic */ Interceptable $ic;
+    public static long o;
+    public static int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public List<ifb> c;
-    public PayUIKitConfig d;
+    public TransVodProxy a;
+    public AudioManager b;
+    public boolean c;
+    public ArrayList<MediaSample> d;
+    public boolean e;
+    public boolean f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public long l;
+    public AtomicLong m;
+    public AtomicLong n;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public ImageView c;
-        public TextView d;
-
-        public a(ygb ygbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ygbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948330613, "Lcom/baidu/tieba/ygb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948330613, "Lcom/baidu/tieba/ygb;");
         }
     }
 
-    public ygb(Context context, PayUIKitConfig payUIKitConfig, List<ifb> list) {
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ygb(TransVodProxy transVodProxy, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, payUIKitConfig, list};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {transVodProxy, context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = context;
-        this.c = list;
-        this.d = payUIKitConfig;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ifb getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.get(i);
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.d = new ArrayList<>();
+        this.e = false;
+        this.f = false;
+        this.g = 0L;
+        this.h = 0L;
+        this.i = 0L;
+        this.j = 0L;
+        this.k = 0;
+        this.l = 50L;
+        this.m = new AtomicLong(0L);
+        this.n = new AtomicLong(0L);
+        this.a = transVodProxy;
+        long b = b();
+        this.l = b;
+        if (b == 0) {
+            this.l = ggb.a();
+            TLog.l(this, "jitter set avdelta " + this.l);
         }
-        return (ifb) invokeI.objValue;
+        TLog.l(this, "jitter avdelta " + this.l);
+        this.b = (AudioManager) context.getSystemService("audio");
     }
 
-    public void c(int i) {
+    public static void c(MediaSample mediaSample, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeLI(65539, null, mediaSample, i) == null) {
+            d(mediaSample, i, zeb.a() - o);
         }
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void d(MediaSample mediaSample, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_way_choose, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.way_tv_title);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_select);
-                aVar.b = (ImageView) view2.findViewById(R.id.recharge_way_bg);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_tips);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mediaSample, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            switch (i) {
+                case 0:
+                    mediaSample.r = (int) j;
+                    return;
+                case 1:
+                    mediaSample.j = j;
+                    return;
+                case 2:
+                    mediaSample.k = j;
+                    return;
+                case 3:
+                    mediaSample.l = j;
+                    return;
+                case 4:
+                    mediaSample.v = j;
+                    return;
+                case 5:
+                    mediaSample.x = j;
+                    return;
+                case 6:
+                    mediaSample.w = j;
+                    return;
+                case 7:
+                default:
+                    return;
+                case 8:
+                    mediaSample.y = j;
+                    return;
+                case 9:
+                    mediaSample.A = j;
+                    return;
+                case 10:
+                    mediaSample.z = j;
+                    return;
+                case 11:
+                    mediaSample.B = j;
+                    return;
             }
-            ifb item = getItem(i);
-            aVar.a.setText(item.a());
-            PayType payType = item.a;
-            if (PayType.ALI_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_zhifubao_icon);
-            } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_weixin_icon);
-            } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxmkj_icon);
-            } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_unionpay_icon);
-            } else if (PayType.QQ_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_qqpay_icon);
-            } else if (PayType.DXM_PAY_H5.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            }
-            aVar.a.setTextColor(this.a.getResources().getColor(R.color.pay_ui_font_color_6));
-            if (this.b == i) {
-                if (kgb.a.b(this.d)) {
-                    i2 = R.drawable.pay_ui_pay_way_item_select;
-                } else {
-                    i2 = R.drawable.pay_ui_pay_way_item_select_y;
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                for (int i = 0; i < this.d.size(); i++) {
+                    fgb.f().e(this.d.get(i));
                 }
-                aVar.c.setBackgroundResource(i2);
-            } else {
-                aVar.c.setBackgroundResource(R.drawable.pay_ui_pay_way_item_unselect);
+                this.d.clear();
             }
-            if (TextUtils.isEmpty(item.c)) {
-                aVar.d.setVisibility(8);
-            } else {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.c);
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void e(MediaSample mediaSample) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample) == null) {
+            synchronized (this) {
+                this.k++;
+                if (mediaSample.c) {
+                    this.n.set(mediaSample.z - mediaSample.l);
+                    if (mediaSample.l <= this.g) {
+                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] audio pts error lastAduioPts=" + this.g + " sample.Pts=" + mediaSample.l);
+                    } else if (this.k % 50 == 0) {
+                        TLog.h("[avsync]", "audio pts: " + mediaSample.l + " audio delta: " + this.n.get());
+                    }
+                    this.f = true;
+                    this.h = mediaSample.z;
+                    this.g = mediaSample.l;
+                } else {
+                    this.m.set(mediaSample.z - mediaSample.l);
+                    this.e = true;
+                    if (mediaSample.l + 150 <= this.i) {
+                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] video pts error lastVideo=" + this.i + " sample.Pts=" + mediaSample.l);
+                    } else if (this.k % 50 == 0) {
+                        TLog.h("[avsync]", "video pts: " + mediaSample.l + " video delta: " + this.m.get());
+                    }
+                    this.i = mediaSample.l;
+                    this.j = mediaSample.z;
+                }
+                int i2 = 30;
+                if (ugb.w() < 12) {
+                    i2 = 60;
+                    i = -90;
+                } else {
+                    i = 0;
+                }
+                if (this.k > i2) {
+                    if (this.e && this.f) {
+                        long j = (this.n.get() + this.l) - this.m.get();
+                        if (Math.abs(this.j - this.h) > 500 || Math.abs(this.g - this.i) > 1000) {
+                            TLog.h("[avsync]", "[avsync] detla: " + j + " arender: " + this.h + "vrender: " + this.j + " apts: " + this.g + " vpts: " + this.i + " renderDiff:" + (this.h - this.j) + " ptsDiff:" + (this.g - this.i));
+                        }
+                        TLog.h("[avsync]", "updateAVDelta, audio delta: " + this.n.get() + " mDelta:" + this.l + " video delta: " + this.m.get() + " extraDelta " + ((this.n.get() + this.l) - this.m.get()) + " xDelta " + i);
+                        this.a.w(this.n.get() + this.l + ((long) i), this.m.get());
+                    }
+                    this.k = 0;
+                    this.e = false;
+                    this.f = false;
+                }
+                g();
+                MediaSample a = fgb.f().a(null);
+                a.b(mediaSample);
+                a.F = this.c;
+                this.d.add(a);
+                if (mediaSample.e || this.d.size() > 200 || mediaSample.N > 0 || mediaSample.O) {
+                    this.a.m((MediaSample[]) this.d.toArray(new MediaSample[this.d.size()]));
+                    a();
+                }
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                a();
+                this.e = false;
+                this.f = false;
+                this.g = 0L;
+                this.i = 0L;
+                this.h = 0L;
+                this.j = 0L;
+            }
+        }
+    }
+
+    public final void g() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i2 = p + 1;
+            p = i2;
+            if (i2 > 1000) {
+                try {
+                    i = this.b.getStreamVolume(3);
+                } catch (Exception unused) {
+                    TLog.l(this, "getStreamVolume Exception");
+                    i = 0;
+                }
+                String str = YYOption.IsLive.VALUE_TRUE;
+                if (i == 0) {
+                    this.c = true;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("audio playback is mute ");
+                    if (!this.c) {
+                        str = "false";
+                    }
+                    sb.append(str);
+                    TLog.l(this, sb.toString());
+                } else {
+                    this.c = false;
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("audio playback is mute ");
+                    if (!this.c) {
+                        str = "false";
+                    }
+                    sb2.append(str);
+                    TLog.l(this, sb2.toString());
+                }
+                p = 0;
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.kwai.adclient.kscommerciallogger.kwai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void I(String str, String str2);
 

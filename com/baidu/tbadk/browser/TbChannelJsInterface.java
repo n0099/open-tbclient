@@ -5,14 +5,18 @@ import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.TbChannelJsInterface;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +86,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.xu4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.px4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,7 +98,7 @@ public final class TbChannelJsInterface {
                     }
                 }
             };
-            sg.a().postDelayed(this.delayReportRunnable, 10000L);
+            wg.a().postDelayed(this.delayReportRunnable, 10000L);
         }
     }
 
@@ -135,7 +139,7 @@ public final class TbChannelJsInterface {
     private void removeDelayReportRunnable() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.delayReportRunnable != null) {
-            sg.a().removeCallbacks(this.delayReportRunnable);
+            wg.a().removeCallbacks(this.delayReportRunnable);
             this.delayReportRunnable = null;
         }
     }
@@ -202,36 +206,48 @@ public final class TbChannelJsInterface {
 
     @JavascriptInterface
     public String getInitData() {
-        boolean z;
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int i = 1;
             try {
                 if (this.switchOn && !this.isAlreadyReport && isValidUrl(this.mUrl)) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("logId", this.mLogId);
-                    jSONObject.put("url", this.mUrl);
-                    jSONObject.put("clientType", "Android");
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("logId", this.mLogId);
+                    jSONObject2.put("url", this.mUrl);
+                    jSONObject2.put("clientType", "Android");
                     if (!URLUtil.isNetworkUrl(this.mUrl)) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    jSONObject.put("isOfflinePackage", z);
-                    jSONObject.put(u.x, this.operationStartTime);
-                    jSONObject.put("wvst", this.webViewInitStartTime);
-                    jSONObject.put("wvft", this.webViewInitFinishTime);
-                    jSONObject.put("lst", this.loadUrlStartTime);
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("perfData", jSONObject);
-                    String jSONObject3 = jSONObject2.toString();
-                    addDelayReportRunnable(jSONObject.toString());
-                    return jSONObject3;
+                    jSONObject2.put("isOfflinePackage", z);
+                    jSONObject2.put(u.x, this.operationStartTime);
+                    jSONObject2.put("wvst", this.webViewInitStartTime);
+                    jSONObject2.put("wvft", this.webViewInitFinishTime);
+                    jSONObject2.put("lst", this.loadUrlStartTime);
+                    jSONObject.put("perfData", jSONObject2);
+                    addDelayReportRunnable(jSONObject2.toString());
                 }
-                return "";
             } catch (Exception unused) {
-                return "";
             }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject3.put("clientType", "2");
+                jSONObject3.put("clientVersion", TbConfig.getVersion());
+                jSONObject3.put("skin", SkinManager.getCurrentSkinTypeString());
+                if (!TbadkCoreApplication.isLogin()) {
+                    i = 0;
+                }
+                jSONObject3.put("isLogin", i);
+                jSONObject.put("baseData", jSONObject3);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }

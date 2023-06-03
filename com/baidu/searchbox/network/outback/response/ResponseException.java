@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.outback.response;
 import android.text.TextUtils;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseException {
     public static final String CANCELED = "Canceled";
     public static final String NO_NETWORK = " no network connected";

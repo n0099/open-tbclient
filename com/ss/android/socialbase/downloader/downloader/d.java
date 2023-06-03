@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.SparseArray;
+import com.baidu.searchbox.download.manager.DownloadManager;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.ac;
@@ -475,7 +476,7 @@ public class d {
             try {
                 Intent intent = new Intent(c.N(), DownloadHandleService.class);
                 intent.setAction("com.ss.android.downloader.action.PROCESS_NOTIFY");
-                intent.putExtra("extra_download_id", i);
+                intent.putExtra(DownloadManager.EXTRA_DOWNLOAD_ID, i);
                 c.N().startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();

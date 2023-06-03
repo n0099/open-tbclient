@@ -1,10 +1,17 @@
 package com.baidu.tieba;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
 /* loaded from: classes5.dex */
 public interface fz2 {
-    void a(JSONObject jSONObject) throws JSONException;
+    void onGetCurrentSong(String str);
 
-    boolean isValid();
+    void onGetDownloadProgress(int i);
+
+    void onGetDuration(int i);
+
+    void onGetPosition(int i, int i2);
+
+    void onInvokeFailed();
+
+    void onStateChanged(BgMusicPlayState bgMusicPlayState);
 }

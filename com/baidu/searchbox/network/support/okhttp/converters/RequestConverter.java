@@ -4,7 +4,7 @@ import java.util.Map;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestConverter {
     public static Request toOks(com.baidu.searchbox.network.outback.core.Request request) {
         ConverterUtils.requireNonNull(request, "request should not be null");

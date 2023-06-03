@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser.moshi;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.EOFException;
 import java.io.IOException;
@@ -504,12 +504,12 @@ public final class JsonUtf8Reader extends JsonReader {
                 str2 = "NULL";
             } else {
                 i = 6;
-                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                str = "false";
                 str2 = "FALSE";
             }
         } else {
             i = 5;
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
             str2 = "TRUE";
         }
         int length = str.length();

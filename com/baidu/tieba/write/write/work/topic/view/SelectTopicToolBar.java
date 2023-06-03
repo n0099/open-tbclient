@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m08;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.b68;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class SelectTopicToolBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView.Adapter<d> a;
-    public final List<m08> b;
+    public final List<b68> b;
     public int c;
     public long d;
     public SelectTopicToolItem e;
@@ -70,19 +70,19 @@ public class SelectTopicToolBar extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem.b
-        public void a(@NonNull m08 m08Var) {
+        public void a(@NonNull b68 b68Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m08Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, b68Var) == null) {
                 if (this.a.c == 1) {
                     z = true;
                 } else {
                     z = false;
                 }
-                m08Var.k(z);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, m08Var));
-                if (m08Var.j() && this.a.c == 1) {
-                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", m08Var.d().longValue()));
+                b68Var.k(z);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, b68Var));
+                if (b68Var.j() && this.a.c == 1) {
+                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", b68Var.d().longValue()));
                 }
             }
         }
@@ -164,7 +164,7 @@ public class SelectTopicToolBar extends LinearLayout {
         public void onBindViewHolder(@NonNull d dVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) {
-                dVar.a.c((m08) this.a.b.get(i));
+                dVar.a.c((b68) this.a.b.get(i));
             }
         }
 
@@ -179,7 +179,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 SelectTopicToolItem selectTopicToolItem = new SelectTopicToolItem(viewGroup.getContext());
                 if (this.a.c == 1) {
                     selectTopicToolItem.setFromBar(true);
-                    selectTopicToolItem.setPadding(0, ri.g(this.a.getContext(), R.dimen.M_H_X005), 0, ri.g(this.a.getContext(), R.dimen.M_H_X007));
+                    selectTopicToolItem.setPadding(0, vi.g(this.a.getContext(), R.dimen.M_H_X005), 0, vi.g(this.a.getContext(), R.dimen.M_H_X007));
                 }
                 selectTopicToolItem.setItemClickListener(this.a.h);
                 return new d(selectTopicToolItem);
@@ -195,9 +195,9 @@ public class SelectTopicToolBar extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
                 super.onViewAttachedToWindow(dVar);
                 int adapterPosition = dVar.getAdapterPosition();
-                m08 m08Var = (m08) this.a.b.get(adapterPosition);
-                if (adapterPosition != 0 && m08Var.j()) {
-                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", m08Var.d().longValue()));
+                b68 b68Var = (b68) this.a.b.get(adapterPosition);
+                if (adapterPosition != 0 && b68Var.j()) {
+                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", b68Var.d().longValue()));
                 }
             }
         }
@@ -260,14 +260,14 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.d = j;
             for (int i = 0; i < this.b.size(); i++) {
-                m08 m08Var = this.b.get(i);
-                if (m08Var != null) {
-                    if (j == m08Var.d().longValue()) {
+                b68 b68Var = this.b.get(i);
+                if (b68Var != null) {
+                    if (j == b68Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    m08Var.m(z);
+                    b68Var.m(z);
                 }
             }
             RecyclerView.Adapter<d> adapter = this.a;
@@ -351,26 +351,26 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.c = i;
             if (i == 1) {
-                this.e.setPadding(0, ri.g(getContext(), R.dimen.M_H_X005), 0, ri.g(getContext(), R.dimen.M_H_X007));
+                this.e.setPadding(0, vi.g(getContext(), R.dimen.M_H_X005), 0, vi.g(getContext(), R.dimen.M_H_X007));
             }
         }
     }
 
-    public void e(List<m08> list) {
+    public void e(List<b68> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.b.clear();
             this.b.addAll(list);
             for (int i = 0; i < this.b.size(); i++) {
-                m08 m08Var = this.b.get(i);
-                if (m08Var != null) {
-                    if (this.d == m08Var.d().longValue()) {
+                b68 b68Var = this.b.get(i);
+                if (b68Var != null) {
+                    if (this.d == b68Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    m08Var.m(z);
+                    b68Var.m(z);
                 }
             }
             this.a.notifyDataSetChanged();
@@ -411,8 +411,8 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e.d();
             this.a.notifyDataSetChanged();
-            p45.d(this.f).f(R.color.CAM_X0401);
-            p45.d(this).f(R.color.CAM_X0201);
+            m75.d(this.f).f(R.color.CAM_X0401);
+            m75.d(this).f(R.color.CAM_X0201);
         }
     }
 }

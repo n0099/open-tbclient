@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import java.math.BigInteger;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface r40 {
-    BigInteger a();
+    String a();
 
-    BigInteger b();
+    String a(Context context);
+
+    long b();
+
+    String b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
 }

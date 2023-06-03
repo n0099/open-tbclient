@@ -1,75 +1,34 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mj2<T> extends gj2 {
+public final class mj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public T c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947974516, "Lcom/baidu/tieba/mj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947974516, "Lcom/baidu/tieba/mj2;");
-                return;
-            }
+    public static gj2 a(nj2 nj2Var, dk2 dk2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, nj2Var, dk2Var, v8ThreadDelegatePolicy)) == null) {
+            oj2 a = fv2.B0().a(nj2Var);
+            gj2 a2 = a.a(nj2Var.a(), dk2Var, v8ThreadDelegatePolicy);
+            a2.H0(a.getUserAgent());
+            return a2;
         }
-        e = qp1.a;
+        return (gj2) invokeLLL.objValue;
     }
 
-    public mj2() {
+    public static gj2 b(nj2 nj2Var, dk2 dk2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nj2Var, dk2Var, v8ThreadDelegatePolicy)) == null) {
+            gj2 a = a(nj2Var, dk2Var, v8ThreadDelegatePolicy);
+            a.p0();
+            return a;
         }
-        this.d = true;
-        this.a = "message";
-    }
-
-    @Override // com.baidu.tieba.gj2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
-                }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
-            }
-        }
+        return (gj2) invokeLLL.objValue;
     }
 }

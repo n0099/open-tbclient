@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
@@ -266,7 +267,7 @@ public class m2 {
                     jSONObject.put("94", t0Var.c("94"));
                     jSONObject.put("95", t0Var.c("95"));
                     jSONObject.put("98", t0Var.c("98"));
-                    jSONObject.put("100", t0Var.c("100"));
+                    jSONObject.put(YYOption.UrlProtocol.USER, t0Var.c(YYOption.UrlProtocol.USER));
                     jSONObject.put("105", t0Var.c("105"));
                     if (a.a(f3.Z, 1) == 1) {
                         r0 r0Var = new r0(this.a, 0);

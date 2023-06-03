@@ -17,11 +17,11 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070884);
-        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070885);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070897);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070898);
         Paint paint = new Paint();
         this.c = paint;
-        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060b0c));
+        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060b23));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

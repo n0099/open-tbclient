@@ -117,27 +117,6 @@ public class BIMConversationStudio extends BIMConversation {
         }
     }
 
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMcastSetListener) == null) {
-            if (this.mCastType == 2) {
-                ConversationStudioManImpl.getInstance(this.mContext).endWithCompletion(this.session.getContacter(), iMcastSetListener);
-            } else {
-                UnLoginCastService unLoginCastService = this.mCastService;
-                if (unLoginCastService != null) {
-                    unLoginCastService.stopService(0);
-                }
-                iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
-            }
-            try {
-                unregisterLiveMsgReceiveListener(Long.valueOf(this.mCastId).longValue());
-            } catch (NumberFormatException e) {
-                LogUtils.e(TAG, "Exception ", e);
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void beginWithCompletion(long j, boolean z, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
@@ -188,6 +167,27 @@ public class BIMConversationStudio extends BIMConversation {
                 });
             } else {
                 beginOtherCastType(iMcastSetListener);
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMcastSetListener) == null) {
+            if (this.mCastType == 2) {
+                ConversationStudioManImpl.getInstance(this.mContext).endWithCompletion(this.session.getContacter(), iMcastSetListener);
+            } else {
+                UnLoginCastService unLoginCastService = this.mCastService;
+                if (unLoginCastService != null) {
+                    unLoginCastService.stopService(0);
+                }
+                iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
+            }
+            try {
+                unregisterLiveMsgReceiveListener(Long.valueOf(this.mCastId).longValue());
+            } catch (NumberFormatException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

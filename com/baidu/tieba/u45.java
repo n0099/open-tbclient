@@ -1,87 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u45 implements s45 {
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.VideoInfo;
+/* loaded from: classes8.dex */
+public class u45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.s45
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public u45() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s45
-    public v45 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            v45 v45Var = new v45();
-            v45Var.c(R.drawable.icon_banner_n);
-            v45Var.g(R.drawable.icon_banner_s);
-            v45Var.h(R.dimen.obfuscated_res_0x7f070388);
-            v45Var.d(81);
-            v45Var.e(R.dimen.obfuscated_res_0x7f070388);
-            return v45Var;
-        }
-        return (v45) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s45
-    public y45 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            y45 y45Var = new y45();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                y45Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703af));
-            }
-            return y45Var;
-        }
-        return (y45) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s45
-    public TbImageView d(Context context) {
+    public static VideoInfo a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                VideoInfo.Builder builder = new VideoInfo.Builder();
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
+                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
+                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
+                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
+                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
+                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
+                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
+                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
+                builder.media_subtitle = jSONObject.optString("media_subtitle");
+                builder.video_desc = new ArrayList();
+                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        builder.video_desc.add(t45.a(optJSONArray.optJSONObject(i)));
+                    }
+                }
+                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
+                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
+                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
+                builder.video_h265 = t45.a(jSONObject.optJSONObject("video_h265"));
+                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
+                builder.mcn_ad_card = d35.a(jSONObject.optJSONObject("mcn_ad_card"));
+                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
+                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
+                return builder.build(true);
+            }
+            return null;
         }
-        return (TbImageView) invokeL.objValue;
+        return (VideoInfo) invokeL.objValue;
     }
 }

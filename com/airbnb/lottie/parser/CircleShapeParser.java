@@ -7,10 +7,11 @@ import com.airbnb.lottie.model.animatable.AnimatablePointValue;
 import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.content.CircleShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class CircleShapeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", ClarityUrlList.ClarityUrl.KEY_HD, "d");
 
     public static CircleShape parse(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
         boolean z;

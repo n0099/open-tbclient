@@ -1,166 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class ke1 {
+public class ke1 extends he1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ke1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, me1> a;
+    public final TextView f;
+    public final TextView g;
 
-    public ke1() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ke1 b;
+
+        public a(ke1 ke1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ke1Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                tj0.c(this.a.h.d, this.b.getContext());
+                n31.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).i(ClogBuilder.Area.BUTTON).p(this.a.f.d));
+                zd1 zd1Var = this.b.d;
+                if (zd1Var != null) {
+                    zd1Var.b(this.a);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ke1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.g = (TextView) a(R.id.feed_ad_operate_command_app_name);
+        this.f = (TextView) a(R.id.nad_feed_ad_operate_command_button);
+        k();
     }
 
-    public static ke1 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.he1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ke1.class) {
-                    if (b == null) {
-                        b = new ke1();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            he1.d(adBaseModel);
+            k();
+            String str = adBaseModel.h.b.a;
+            if (!TextUtils.isEmpty(str)) {
+                this.g.setText(str);
+                this.g.setVisibility(0);
+            } else {
+                this.g.setVisibility(8);
             }
-            return b;
-        }
-        return (ke1) invokeV.objValue;
-    }
-
-    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
-            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
-            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeLLL.objValue);
-    }
-
-    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
-            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
-        }
-    }
-
-    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
-            for (Object obj : objArr2) {
-                if (!arrayList.contains(obj)) {
-                    arrayList.add(obj);
-                }
+            this.f.setText(adBaseModel.h.c);
+            if (!TextUtils.isEmpty(adBaseModel.h.d)) {
+                this.f.setVisibility(0);
+                this.f.setOnClickListener(new a(this, adBaseModel));
+                return;
             }
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
-            for (int i = 0; i < objArr3.length; i++) {
-                objArr3[i] = arrayList.get(i);
-            }
-            return objArr3;
-        }
-        return (Object[]) invokeLL.objValue;
-    }
-
-    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
-            List list = (List) field.get(obj);
-            list.addAll((List) field.get(obj2));
-            field.set(obj, list);
-            Field b2 = ze1.b(obj.getClass(), "nativeLibraryPathElements");
-            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+            this.f.setVisibility(8);
         }
     }
 
-    public static ClassLoader g(me1 me1Var, me1 me1Var2) {
-        InterceptResult invokeLL;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, me1Var, me1Var2)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                h(me1Var, me1Var2);
-                return me1Var;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !(b() instanceof AdBaseModel)) {
+            return;
         }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static ClassLoader h(me1 me1Var, me1 me1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, me1Var, me1Var2)) == null) {
-            Field b2 = ze1.b(me1.class, "pathList");
-            try {
-                Object obj = b2.get(me1Var);
-                Field b3 = ze1.b(obj.getClass(), "dexElements");
-                Field b4 = ze1.b(obj.getClass(), "nativeLibraryDirectories");
-                Object[] objArr = (Object[]) b3.get(obj);
-                Object obj2 = b2.get(me1Var2);
-                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    f(b4, obj, obj2);
-                } else {
-                    e(b4, obj, obj2);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return me1Var;
+        this.g.setTextColor(getResources().getColor(R.color.NAD_FC1));
+        this.f.setTextColor(getResources().getColor(R.color.NAD_FC13));
+        if (this.f.getBackground() instanceof GradientDrawable) {
+            ((GradientDrawable) this.f.getBackground()).setColor(getResources().getColor(R.color.NAD_GC52));
+            ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.NAD_GC53));
+            return;
         }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public me1 b(BundleInfo bundleInfo, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
-            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
-            me1 me1Var = new me1(ue1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), ue1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), ue1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                me1 me1Var2 = this.a.get(bundleInfo.getGroupName());
-                if (me1Var2 == null) {
-                    this.a.put(bundleInfo.getGroupName(), me1Var);
-                    return me1Var;
-                }
-                g(me1Var2, me1Var);
-                return me1Var2;
-            }
-            return me1Var;
-        }
-        return (me1) invokeLL.objValue;
+        this.f.setBackground(getResources().getDrawable(R.drawable.nad_progress_button_bg));
     }
 }

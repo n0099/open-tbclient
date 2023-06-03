@@ -12,13 +12,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final boolean mDataSourceLazy;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
@@ -32,7 +32,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public int mIndexOfDataSourceWithResult;
         public int mNumberOfDataSources;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public int mIndex;
 

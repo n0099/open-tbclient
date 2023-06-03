@@ -1,141 +1,150 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pt6 {
+public final class pt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public RankListViewController.RankListViewHolder c;
-    public TextView d;
-    public TextView e;
-    public String f;
-    public int g;
-    public View.OnClickListener h;
+    public List<? extends nt6> a;
+    public List<? extends Object> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948073623, "Lcom/baidu/tieba/pt6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948073623, "Lcom/baidu/tieba/pt6;");
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pt6 a;
+        public final boolean a;
 
-        public a(pt6 pt6Var) {
+        public a(boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pt6Var};
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pt6Var;
+            this.a = z;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public final boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.load_error_retry);
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
-                if (this.a.g == 0) {
-                    return;
-                }
-                if (this.a.g == 2) {
-                    StatisticItem statisticItem = new StatisticItem("c13658");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem);
-                } else if (this.a.g == 1) {
-                    StatisticItem statisticItem2 = new StatisticItem("c13669");
-                    statisticItem2.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem2);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
+            return invokeV.booleanValue;
         }
     }
 
-    public pt6(TbPageContext tbPageContext, View view2) {
+    public pt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f09275d));
-        this.c = rankListViewHolder;
-        rankListViewHolder.l(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090de4);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d48);
-        this.e = textView;
-        textView.setTextSize(0, ri.g(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.d.setOnClickListener(this.h);
+        this.a = CollectionsKt__CollectionsKt.emptyList();
+        this.b = CollectionsKt__CollectionsKt.emptyList();
     }
 
-    public void d(int i) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.nt6>, java.util.List<com.baidu.tieba.nt6> */
+    public final List<nt6> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.i(i);
-            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void f(int i) {
+    public final List<Object> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void e(st6 st6Var) {
-        rt6 rt6Var;
-        MetaData metaData;
+    public final a a(ws6 item, zu6 timer, qs6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, st6Var) == null) {
-            if (st6Var != null && (rt6Var = st6Var.c) != null && (metaData = rt6Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.b.setVisibility(0);
-                this.c.e(st6Var.c);
-                this.c.h();
-                this.f = st6Var.e;
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            Iterator<? extends nt6> it = this.a.iterator();
+            int i = 0;
+            boolean z = false;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                nt6 next = it.next();
+                boolean b = next.b(item, timer, config);
+                if (b) {
+                    i = next.a();
+                    z = b;
+                    break;
+                }
+                z = b;
             }
-            this.b.setVisibility(8);
+            return new a(z, i);
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final void d(List<? extends nt6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.a = list;
+        }
+    }
+
+    public final void e(List<? extends Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.b = list;
         }
     }
 }

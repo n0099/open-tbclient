@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public final class CyberTaskExcutor {
-    public static CyberTaskExcutor a;
-    public final int b = 2;
-    public final int c = 7;
-    public final int d = 120;
-    public ExecutorService e = new ThreadPoolExecutor(2, 7, 120, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
-    public ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+    public final int a;
+    public final int b;
+    public final int c;
+    public ExecutorService d;
+    public ExecutorService e;
+    public ExecutorService f;
 
     /* loaded from: classes3.dex */
     public static class a implements ThreadFactory {
@@ -38,33 +38,41 @@ public final class CyberTaskExcutor {
         }
     }
 
-    public CyberTaskExcutor() {
-        ExecutorService executorService = this.e;
-        if (executorService == null || !(executorService instanceof ThreadPoolExecutor)) {
-            return;
-        }
-        ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static final CyberTaskExcutor a = new CyberTaskExcutor();
     }
 
-    @Keep
-    public static synchronized CyberTaskExcutor getInstance() {
-        CyberTaskExcutor cyberTaskExcutor;
-        synchronized (CyberTaskExcutor.class) {
-            if (a == null) {
-                a = new CyberTaskExcutor();
-            }
-            cyberTaskExcutor = a;
+    public CyberTaskExcutor() {
+        this.a = 2;
+        this.b = 7;
+        this.c = 120;
+        this.d = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
+        this.e = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+        this.f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single-high", 5));
+        ExecutorService executorService = this.d;
+        if (executorService != null && (executorService instanceof ThreadPoolExecutor)) {
+            ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
         }
-        return cyberTaskExcutor;
     }
 
     @Keep
     public void execute(Runnable runnable) {
-        this.e.execute(runnable);
+        this.d.execute(runnable);
+    }
+
+    @Keep
+    public void executeSingleHighThread(Runnable runnable) {
+        this.f.execute(runnable);
     }
 
     @Keep
     public void executeSingleThread(Runnable runnable) {
-        this.f.execute(runnable);
+        this.e.execute(runnable);
+    }
+
+    @Keep
+    public static CyberTaskExcutor getInstance() {
+        return b.a;
     }
 }

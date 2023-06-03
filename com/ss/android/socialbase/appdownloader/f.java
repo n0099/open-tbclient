@@ -31,7 +31,9 @@ public class f {
     public IDownloadFileUriProvider Q;
     public r R;
     public boolean S;
-    public af T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public af f1225T;
     public boolean U;
     public JSONObject V;
     public String W;
@@ -146,7 +148,7 @@ public class f {
     }
 
     public af Q() {
-        return this.T;
+        return this.f1225T;
     }
 
     public List<m> R() {

@@ -10,7 +10,7 @@ import java.util.Map;
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
-    public Map<String, String> B;
+    public Map<String, String> A;
     public CyberPlayerManager.OnPreparedListener a;
     public CyberPlayerManager.OnCompletionListener b;
     public CyberPlayerManager.OnBufferingUpdateListener c;
@@ -20,6 +20,7 @@ public class MediaInstanceState {
     public CyberPlayerManager.OnMediaSourceChangedListener g;
     public Surface h;
     public CyberPlayerManager.HttpDNS i;
+    public Uri z;
     public int j = -1;
     public int k = 0;
     public float l = -1.0f;
@@ -31,14 +32,13 @@ public class MediaInstanceState {
     public boolean r = false;
     public boolean s = false;
     public boolean t = false;
-    public boolean u = false;
+    public int u = 0;
     public boolean v = false;
     public int w = -1;
     public int x = 0;
     public int y = 0;
-    public Uri z = null;
-    public String A = null;
-    public int C = Integer.MIN_VALUE;
+    public int B = Integer.MIN_VALUE;
+    public CyberPlayerManager.MediaSourceSwitchMode C = CyberPlayerManager.MediaSourceSwitchMode.MEDIASOURCE_SWITCH_ABR_MODE;
     public String D = null;
     public String E = null;
 
@@ -71,18 +71,7 @@ public class MediaInstanceState {
     }
 
     public Map<String, String> getInstanceHeader() {
-        return this.B;
-    }
-
-    public int getInstanceStaticsCount(boolean z) {
-        if (z) {
-            int i = this.x + 1;
-            this.x = i;
-            return i;
-        }
-        int i2 = this.y + 1;
-        this.y = i2;
-        return i2;
+        return this.A;
     }
 
     public Surface getInstanceSurface() {
@@ -93,18 +82,21 @@ public class MediaInstanceState {
         return this.z;
     }
 
-    public String getInstanceUrl() {
-        return this.A;
-    }
-
     public float getLRVolume() {
         float f = this.l;
         float f2 = this.m;
-        return f > f2 ? f : f2;
+        if (f <= f2) {
+            return f2;
+        }
+        return f;
     }
 
-    public int getMediaSourceRank() {
+    public CyberPlayerManager.MediaSourceSwitchMode getMediaSourceSwitchMode() {
         return this.C;
+    }
+
+    public int getMediaSourceSwitchRank() {
+        return this.B;
     }
 
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
@@ -139,16 +131,6 @@ public class MediaInstanceState {
         return this.E;
     }
 
-    public boolean getPlayStateByType(int i) {
-        if (i == 0) {
-            return this.r;
-        }
-        if (i == 1) {
-            return this.s;
-        }
-        return false;
-    }
-
     public long getPlayedTime() {
         return this.n;
     }
@@ -157,16 +139,15 @@ public class MediaInstanceState {
         return this.t;
     }
 
-    public boolean isProcessDied() {
-        return this.u;
-    }
-
     public boolean isRemote() {
         return this.v;
     }
 
     public boolean needActiveInstance() {
-        return this.w == 0;
+        if (this.w == 0) {
+            return true;
+        }
+        return false;
     }
 
     public void release() {
@@ -179,16 +160,33 @@ public class MediaInstanceState {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.B = null;
+        this.A = null;
         this.z = null;
+    }
+
+    public int getInstanceStaticsCount(boolean z) {
+        if (z) {
+            int i = this.x + 1;
+            this.x = i;
+            return i;
+        }
+        int i2 = this.y + 1;
+        this.y = i2;
+        return i2;
+    }
+
+    public boolean getPlayStateByType(int i) {
+        if (i == 0) {
+            return this.r;
+        }
+        if (i == 1) {
+            return this.s;
+        }
+        return false;
     }
 
     public void setClarityInfo(String str) {
         this.D = str;
-    }
-
-    public void setMediaSourceRank(int i) {
-        this.C = i;
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
@@ -223,21 +221,6 @@ public class MediaInstanceState {
         this.E = str;
     }
 
-    public void setProcessDied(boolean z) {
-        this.u = z;
-    }
-
-    public void updateDataSource(Context context, Uri uri, Map<String, String> map) {
-        this.q = context;
-        this.z = uri;
-        this.B = map;
-    }
-
-    public void updateDataSource(String str, Map<String, String> map) {
-        this.A = str;
-        this.B = map;
-    }
-
     public void updateDecoderMode(int i) {
         this.p = i;
     }
@@ -254,14 +237,6 @@ public class MediaInstanceState {
         this.w = i;
     }
 
-    public void updatePlayStateByType(int i, boolean z) {
-        if (i == 0) {
-            this.r = z;
-        } else if (i == 1) {
-            this.s = z;
-        }
-    }
-
     public void updatePlayedTime(long j) {
         this.n = j;
     }
@@ -274,15 +249,35 @@ public class MediaInstanceState {
         this.v = z;
     }
 
+    public void updateSurface(Surface surface) {
+        this.h = surface;
+    }
+
+    public void setMediaSourceSwitchInfo(int i, CyberPlayerManager.MediaSourceSwitchMode mediaSourceSwitchMode) {
+        this.C = mediaSourceSwitchMode;
+        this.B = i;
+    }
+
+    public void updatePlayStateByType(int i, boolean z) {
+        if (i == 0) {
+            this.r = z;
+        } else if (i == 1) {
+            this.s = z;
+        }
+    }
+
     public void updateSeekPos(int i, int i2) {
         if (i >= i2 - 100) {
-            i = 0;
+            this.j = 0;
+        } else {
+            this.j = i;
         }
-        this.j = i;
         this.k = i2;
     }
 
-    public void updateSurface(Surface surface) {
-        this.h = surface;
+    public void updateDataSource(Context context, Uri uri, Map<String, String> map) {
+        this.q = context;
+        this.z = uri;
+        this.A = map;
     }
 }

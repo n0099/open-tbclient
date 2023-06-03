@@ -1,5 +1,5 @@
 package com.baidu.searchbox.permission;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionConstants {
     public static final String DANGEROUS_PERMISSION_CAMERA = "camera";
     public static final String DANGEROUS_PERMISSION_CONTACT = "contact";

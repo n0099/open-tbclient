@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface cu4 {
-    void a(List<au4> list);
+public class cu4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onPreLoad();
+    public static void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, obj) == null) {
+        }
+    }
 }

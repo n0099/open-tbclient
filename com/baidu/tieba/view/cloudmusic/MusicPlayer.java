@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p5a;
+import com.baidu.tieba.eca;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MusicPlayer {
     public static /* synthetic */ Interceptable $ic;
     public static MusicPlayer c;
@@ -23,7 +23,7 @@ public class MusicPlayer {
     public MediaPlayer a;
     public MusicPlayerState b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a();
     }
@@ -44,7 +44,7 @@ public class MusicPlayer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class MusicPlayerState {
         public static final /* synthetic */ MusicPlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,7 +117,7 @@ public class MusicPlayer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                p5a.b().d(this.a);
+                eca.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();

@@ -2,11 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.ke2;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,79 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class pe2 {
+public class pe2 extends ae2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final xe2 b;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-
-        public a(String str, boolean z, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (pe2.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                Set<String> m = qe2.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (pe2.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = pe2.b(this.c, this.a, str);
-                        je2 d = je2.d();
-                        String str2 = this.c;
-                        ke2.b a = ke2.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            qe2.k().s(this.a, str);
-                            pe2.d(this.a, str);
-                        }
-                    }
-                    if (pe2.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -101,57 +30,45 @@ public class pe2 {
                 return;
             }
         }
-        a = qp1.a;
-        b = ze2.a();
+        l = is1.a;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pe2(boolean z, boolean z2) {
+        super(z, z2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (l) {
+            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
+        }
+    }
+
+    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
+            if (this.e == null || this.e.b == null) {
                 return false;
             }
-            return b.c(str, str2, str3);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
-            } else {
-                g93 q = f93.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
-                }
+            if (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) {
+                return false;
             }
+            return true;
         }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
-        }
+        return invokeLL.booleanValue;
     }
 }

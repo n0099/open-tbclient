@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u31 {
+/* loaded from: classes8.dex */
+public class u31 extends s31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p31 a;
-    public BaseExecutorCell b;
 
     public u31() {
         Interceptable interceptable = $ic;
@@ -28,37 +26,40 @@ public class u31 {
                 return;
             }
         }
-        this.a = new p31();
-        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+        d(TiePlusStat.RichTextType.STAT_KEY, "every");
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((k31) this.b).j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
+    @Override // com.baidu.tieba.s31, com.baidu.tieba.t31
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ElasticTask b = this.a.b();
-            if (b == null || !this.b.c(b)) {
-                return false;
+            String sb = this.a.toString();
+            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
+                return super.isValid();
             }
-            this.a.e(b);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(Runnable runnable, String str, int i) {
+    public u31 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
-            this.a.c(runnable, str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("c_id", str);
+            return this;
         }
+        return (u31) invokeL.objValue;
+    }
+
+    public u31 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d("extra_param", str);
+            return this;
+        }
+        return (u31) invokeL.objValue;
     }
 }

@@ -1,29 +1,29 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import android.content.Context;
+/* loaded from: classes7.dex */
 public interface noa {
     void a(int i);
 
-    void b(String str);
+    String b(boolean z);
 
-    boolean c();
+    String c(String str);
 
-    noa d();
+    int d();
 
-    void e(boolean z);
+    String e(String str);
 
-    void f(String str);
+    Context getAppContext();
 
-    void g(String str);
+    int getInt(String str, int i);
 
-    String getAAID();
+    long getLong(String str, long j);
 
-    String getOAID();
+    boolean isDebug();
 
-    int getStatusCode();
+    void putInt(String str, int i);
 
-    String getVAID();
+    void putLong(String str, long j);
 
-    void h(boolean z);
-
-    boolean isSupport();
+    void putString(String str, String str2);
 }

@@ -1,47 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.ContentProviderClient;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import com.baidu.tieba.n50;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.math.BigInteger;
 /* loaded from: classes6.dex */
-public class m50 {
+public class m50 implements s50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BigInteger a;
+    public BigInteger b;
 
-    public static void a(Context context, n50.a aVar) {
-        Bundle call;
+    public m50(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
-                if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
-                    if (acquireContentProviderClient != null) {
-                        call = acquireContentProviderClient.call("getOAID", null, null);
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            acquireContentProviderClient.close();
-                        } else {
-                            acquireContentProviderClient.release();
-                        }
-                    } else {
-                        call = null;
-                    }
-                } else {
-                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
-                }
-                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
-            } catch (Throwable unused) {
-                aVar.a(false, null);
-            }
         }
+        this.a = new BigInteger(bArr);
+        this.b = new BigInteger(bArr2);
+    }
+
+    @Override // com.baidu.tieba.s50
+    public BigInteger a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BigInteger) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s50
+    public BigInteger b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BigInteger) invokeV.objValue;
     }
 }

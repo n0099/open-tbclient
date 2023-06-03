@@ -1,43 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class r54 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public s54[] changedTouches;
-    @V8JavascriptField
-    public long timeStamp;
-    @V8JavascriptField
-    public s54[] touches;
 
-    public r54() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String toString() {
+    public static synchronized int a() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (r54.class) {
+                i = a;
+                a = i + 1;
+            }
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

@@ -2,55 +2,34 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.hx9;
+import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class aj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static aj5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<Integer, Object> a;
-    public final t05 b;
+    public yi5 a;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        Object build();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947617117, "Lcom/baidu/tieba/aj5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947617117, "Lcom/baidu/tieba/aj5;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public class a extends gx5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aj5 a;
+        public final /* synthetic */ yi5 a;
 
-        public a(aj5 aj5Var) {
+        public a(aj5 aj5Var, yi5 yi5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aj5Var};
+                Object[] objArr = {aj5Var, yi5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,99 +39,143 @@ public class aj5 {
                     return;
                 }
             }
-            this.a = aj5Var;
+            this.a = yi5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.gx5
+        public Object doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Long.valueOf(m88.w().j(this.a.a().a));
             }
+            return invokeV.objValue;
         }
     }
 
-    public aj5() {
+    public aj5(yi5 yi5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yi5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new t05();
-        wb.b().a("clearMainTabViewCache", new a(this));
+        this.a = yi5Var;
     }
 
-    public static aj5 e() {
+    public void d(hx9.h hVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
+            return;
+        }
+        yi5 yi5Var = this.a;
+        if (yi5Var != null && yi5Var.a() != null) {
+            hx9.n(this.a.a().a, hVar);
+        } else {
+            hVar.a(null);
+        }
+    }
+
+    public void e(String str) {
+        yi5 yi5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (yi5Var = this.a) != null && yi5Var.a() != null) {
+            hx9.x(this.a.a().a, str);
+        }
+    }
+
+    public final ChatMessage a(String str, long j) {
+        InterceptResult invokeLJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            ChatMessage b = b();
+            if (b == null) {
+                return null;
+            }
+            b.setCustomGroupType(2);
+            b.setMsgType(1);
+            b.setContent(str);
+            long b2 = hb8.b(j);
+            b.setMsgId(b2);
+            b.setRecordId(b2);
+            b.setTime(System.currentTimeMillis() / 1000);
+            UserData userData = new UserData();
+            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
+            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
+            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
+            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
+            b.setUserInfo(userData);
+            try {
+                j2 = tg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            } catch (Exception unused) {
+                j2 = 0;
+            }
+            b.setUserId(j2);
+            MsgLocalData msgLocalData = new MsgLocalData();
+            msgLocalData.setStatus((short) 1);
+            msgLocalData.setErrno(0L);
+            msgLocalData.setRetry(0L);
+            msgLocalData.setUpload_offset(null);
+            b.setLocalData(msgLocalData);
+            return b;
+        }
+        return (ChatMessage) invokeLJ.objValue;
+    }
+
+    public ChatMessage b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (aj5.class) {
-                    if (c == null) {
-                        c = new aj5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yi5 yi5Var = this.a;
+            if (yi5Var != null && yi5Var.a() != null) {
+                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
+                personalChatMessage.setBornTime(System.currentTimeMillis());
+                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
+                UserData userData = new UserData();
+                userData.setUserId(this.a.a().a);
+                userData.setPortrait(this.a.a().c);
+                userData.setName_show(this.a.a().b);
+                personalChatMessage.setToUserInfo(userData);
+                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
+                return personalChatMessage;
+            }
+            return null;
+        }
+        return (ChatMessage) invokeV.objValue;
+    }
+
+    public /* synthetic */ void c(String str, Object obj) {
+        if (obj instanceof Long) {
+            r98.k().t(a(str, ((Long) obj).longValue()));
+            e("");
+        }
+    }
+
+    public void f(yi5 yi5Var, final String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, yi5Var, str) == null) {
+            this.a = yi5Var;
+            kx5.c(new a(this, yi5Var), new kw5() { // from class: com.baidu.tieba.zi5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.kw5
+                public final void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        aj5.this.c(str, obj);
                     }
                 }
-            }
-            return c;
+            });
         }
-        return (aj5) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.a();
-            this.a.clear();
-        }
-    }
-
-    public t05 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (t05) invokeV.objValue;
-    }
-
-    public void a(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-            this.a.put(Integer.valueOf(i), obj);
-        }
-    }
-
-    public Object c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return this.a.get(Integer.valueOf(i));
-        }
-        return invokeI.objValue;
-    }
-
-    public Object d(int i, b bVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, bVar)) == null) {
-            Object obj = this.a.get(Integer.valueOf(i));
-            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && bVar != null) {
-                obj = bVar.build();
-            }
-            this.a.remove(Integer.valueOf(i));
-            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("ViewCache must have return value.");
-            }
-            return obj;
-        }
-        return invokeIL.objValue;
     }
 }

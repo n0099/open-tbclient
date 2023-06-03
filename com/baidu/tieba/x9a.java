@@ -1,113 +1,62 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
+import android.content.Context;
+import android.widget.EditText;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x9a {
+public class x9a extends ei5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EditText t;
 
-    public static void a(int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x9a(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_type", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static boolean d() {
+    public EditText g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
         }
-        return invokeV.booleanValue;
+        return (EditText) invokeV.objValue;
     }
 
-    public static boolean e() {
+    public VideoPlayInputContainer h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TimeHelper.getDayDifference(System.currentTimeMillis(), o65.m().o("key_check_is_question_thread_time", 0L)) > 7) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (VideoPlayInputContainer) this.m;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
-        }
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).closeLoadingDialog();
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).closeLoadingDialog();
-        }
-    }
-
-    public static void h(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
-            return;
-        }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f0422);
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).showLoadingDialog(string);
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).showLoadingDialog(string);
-        }
+        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

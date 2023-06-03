@@ -1,22 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SchoolRecomUserInfo;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class c15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
+    public final LinkedList<d15> a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c15 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-941093020, "Lcom/baidu/tieba/c15$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-941093020, "Lcom/baidu/tieba/c15$b;");
+                    return;
+                }
+            }
+            a = new c15(null);
+        }
+    }
 
     public c15() {
         Interceptable interceptable = $ic;
@@ -31,67 +61,54 @@ public class c15 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = -1;
+        this.a = new LinkedList<>();
     }
 
-    public String a() {
+    public static c15 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (c15) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
+    public /* synthetic */ c15(a aVar) {
+        this();
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final d15 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Iterator<d15> it = this.a.iterator();
+            while (it.hasNext()) {
+                d15 next = it.next();
+                if (next.b() == i) {
+                    return next;
+                }
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (d15) invokeI.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    @MainThread
+    public void b(int i) {
+        d15 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
+            a2.run();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void d(@Nullable BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            Iterator<d15> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().a(bdUniqueId);
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, schoolRecomUserInfo) != null) || schoolRecomUserInfo == null) {
-            return;
-        }
-        this.a = StringUtils.string(schoolRecomUserInfo.uid);
-        this.b = schoolRecomUserInfo.uname;
-        this.c = schoolRecomUserInfo.portrait;
-        this.d = schoolRecomUserInfo.institute;
-        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

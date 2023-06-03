@@ -51,7 +51,7 @@ public class BubbleBaseView {
     public boolean mIsShadowDeviate = true;
 
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0183;
+        return R.layout.obfuscated_res_0x7f0d0189;
     }
 
     public void updateViewUI() {
@@ -115,7 +115,7 @@ public class BubbleBaseView {
                 return i2;
             }
         }
-        return AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06037b);
+        return AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06037f);
     }
 
     public int getBgColorDay() {
@@ -310,7 +310,7 @@ public class BubbleBaseView {
     @SuppressLint({"UseCompatLoadingForColorStateLists"})
     public void initLinkBubble() {
         final Resources resources = AppRuntime.getAppContext().getResources();
-        this.mBubbleText.setLinkTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f06075f));
+        this.mBubbleText.setLinkTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f06076b));
         this.mBubbleText.setHighlightColor(0);
         CustomLinkMovementMethod customLinkMovementMethod = new CustomLinkMovementMethod();
         customLinkMovementMethod.setLinkMovementListener(new CustomLinkMovementMethod.OnLinkMovementListener() { // from class: com.baidu.searchbox.ui.bubble.views.BubbleBaseView.1
@@ -321,9 +321,9 @@ public class BubbleBaseView {
             @Override // com.baidu.searchbox.ui.CustomLinkMovementMethod.OnLinkMovementListener
             public void onNoLinkTouch(TextView textView, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    BubbleBaseView.this.mBubbleText.setLinkTextColor(resources.getColor(R.color.obfuscated_res_0x7f0604c8));
+                    BubbleBaseView.this.mBubbleText.setLinkTextColor(resources.getColor(R.color.obfuscated_res_0x7f0604cd));
                 } else {
-                    BubbleBaseView.this.mBubbleText.setLinkTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f06075f));
+                    BubbleBaseView.this.mBubbleText.setLinkTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f06076b));
                 }
             }
         });
@@ -341,12 +341,12 @@ public class BubbleBaseView {
         View inflate = LayoutInflater.from(this.mAnchorView.getContext()).inflate(getBubbleViewResId(), this.mRootView, false);
         this.mBubbleView = inflate;
         inflate.setVisibility(4);
-        this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f5);
-        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0920a1);
-        this.mArrowUp = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f1);
-        this.mArrowDown = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904ee);
-        this.mArrowLeft = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904ef);
-        this.mArrowRight = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f0);
+        this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fc);
+        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0920cf);
+        this.mArrowUp = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f8);
+        this.mArrowDown = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f5);
+        this.mArrowLeft = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f6);
+        this.mArrowRight = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f7);
         int bgColor = getBgColor();
         MaskViewGroup maskViewGroup = this.mShadow;
         if (maskViewGroup != null) {

@@ -1,5 +1,5 @@
 package com.bumptech.glide.request;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface RequestCoordinator {
     boolean canNotifyCleared(Request request);
 
@@ -15,7 +15,7 @@ public interface RequestCoordinator {
 
     void onRequestSuccess(Request request);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum RequestState {
         RUNNING(false),
         PAUSED(false),

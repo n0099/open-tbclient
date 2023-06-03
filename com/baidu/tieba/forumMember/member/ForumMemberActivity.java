@@ -6,14 +6,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.g87;
-import com.baidu.tieba.o67;
-import com.baidu.tieba.o97;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.u97;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.z97;
+import com.baidu.tieba.cf7;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.jd7;
+import com.baidu.tieba.pb7;
+import com.baidu.tieba.re7;
+import com.baidu.tieba.u95;
+import com.baidu.tieba.vn;
+import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,20 +22,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements y65.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements u95.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u97 a;
+    public xe7 a;
     public String b;
     public String c;
-    public List<rn> d;
-    public o67 e;
-    public c67 f;
-    public o97 g;
+    public List<vn> d;
+    public pb7 e;
+    public db7 f;
+    public re7 g;
     public NoNetworkView.b h;
 
     /* loaded from: classes5.dex */
-    public class a implements o97 {
+    public class a implements re7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,16 +58,16 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.a = forumMemberActivity;
         }
 
-        @Override // com.baidu.tieba.o97
-        public void a(int i, int i2, z97 z97Var, ArrayList<rn> arrayList) {
+        @Override // com.baidu.tieba.re7
+        public void a(int i, int i2, cf7 cf7Var, ArrayList<vn> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), z97Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), cf7Var, arrayList}) == null) {
                 this.a.e.d();
                 this.a.e.c();
                 if (arrayList != null) {
-                    Iterator<rn> it = arrayList.iterator();
+                    Iterator<vn> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof g87) {
+                        if (it.next() instanceof jd7) {
                             it.remove();
                         }
                     }
@@ -76,8 +76,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     this.a.e.e();
                     this.a.d = arrayList;
                     this.a.e.f(this.a.d);
-                } else if (ListUtils.isEmpty(this.a.d) && z97Var != null) {
-                    this.a.e.l(z97Var.f);
+                } else if (ListUtils.isEmpty(this.a.d) && cf7Var != null) {
+                    this.a.e.l(cf7Var.f);
                 }
             }
         }
@@ -108,7 +108,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void e(boolean z) {
+        public void i(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.e.b(z);
@@ -141,7 +141,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.h = new b(this);
     }
 
-    @Override // com.baidu.tieba.y65.g
+    @Override // com.baidu.tieba.u95.g
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -181,10 +181,10 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 this.c = bundle.getString("forum_id", "");
                 this.b = bundle.getString("forum_name", "");
             }
-            u97 u97Var = new u97();
-            this.a = u97Var;
-            u97Var.b = this.c;
-            u97Var.a = this.b;
+            xe7 xe7Var = new xe7();
+            this.a = xe7Var;
+            xe7Var.b = this.c;
+            xe7Var.a = this.b;
         }
     }
 
@@ -202,9 +202,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.f.s();
-            o67 o67Var = this.e;
-            if (o67Var != null) {
-                o67Var.i();
+            pb7 pb7Var = this.e;
+            if (pb7Var != null) {
+                pb7Var.i();
             }
         }
     }
@@ -224,12 +224,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             C1(bundle);
-            o67 o67Var = new o67(this);
-            this.e = o67Var;
-            o67Var.j(this.h);
-            c67 c67Var = new c67();
-            this.f = c67Var;
-            c67Var.C(getUniqueId());
+            pb7 pb7Var = new pb7(this);
+            this.e = pb7Var;
+            pb7Var.j(this.h);
+            db7 db7Var = new db7();
+            this.f = db7Var;
+            db7Var.C(getUniqueId());
             this.f.init();
             this.f.R(this.g);
             D1();

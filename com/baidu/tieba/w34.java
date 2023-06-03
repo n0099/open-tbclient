@@ -1,113 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w34 extends hj2 {
+public class w34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w34(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
+            ((NotificationManager) context.getSystemService("notification")).cancel(i);
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
     }
 
-    public static hj2 t(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return new w34("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
-        }
-        return (hj2) invokeLL.objValue;
-    }
-
-    public static hj2 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return new w34("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
-        }
-        return (hj2) invokeLL.objValue;
-    }
-
-    public static hj2 u(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                str = "show";
-            } else {
-                str = "hide";
-            }
-            return new w34("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
-        }
-        return (hj2) invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.gj2
-    public String o(String str) {
+    public static final Bitmap b(Drawable drawable) {
         InterceptResult invokeL;
-        char c;
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode != -2011830027) {
-                if (hashCode != -774049378) {
-                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (drawable.getOpacity() != -1) {
+                config = Bitmap.Config.ARGB_8888;
             } else {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
+                config = Bitmap.Config.RGB_565;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return "";
-                    }
-                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
-                }
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
-            }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(ul3.b(ul3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return createBitmap;
         }
-        return (String) invokeL.objValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
+        NotificationCompat.Builder builder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            if (Build.VERSION.SDK_INT >= 26) {
+                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
+                builder = new NotificationCompat.Builder(context, String.valueOf(i));
+            } else {
+                builder = new NotificationCompat.Builder(context);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                z34.c("notifyShow", str3, str4);
+            }
+            if (pendingIntent != null) {
+                builder.setContentIntent(pendingIntent);
+            }
+            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080183);
+            if (bitmap == null) {
+                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080183));
+            }
+            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
+        }
     }
 }

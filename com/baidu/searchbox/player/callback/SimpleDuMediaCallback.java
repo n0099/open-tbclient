@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import com.baidu.searchbox.player.kernel.IKernelPlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SimpleDuMediaCallback implements IKernelPlayer {
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onBufferingUpdate(int i) {
@@ -19,6 +19,10 @@ public class SimpleDuMediaCallback implements IKernelPlayer {
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public boolean onInfo(int i, int i2, Object obj) {
         return false;
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onKernelPreDetach() {
     }
 
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer

@@ -1,157 +1,197 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailItemVH;
+import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
+import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kd7 extends en<qd7, ForumRuleDetailItemVH> {
+public class kd7 {
     public static /* synthetic */ Interceptable $ic;
+    public static kd7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public TbRichText b;
-    public List<rn> c;
+    public FrsLinkHashMap<String, Long> a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnLongClickListener {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ kd7 b;
+        public final /* synthetic */ kd7 a;
 
-        public a(kd7 kd7Var, int i) {
+        public a(kd7 kd7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kd7Var, Integer.valueOf(i)};
+                Object[] objArr = {kd7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = kd7Var;
-            this.a = i;
+            this.a = kd7Var;
         }
 
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
+            FrsHotTopicListData frsHotTopicListData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.b.c != null) {
-                    rn rnVar = (rn) this.b.c.get(this.a);
-                    if (rnVar instanceof qd7) {
-                        hi.a(TbRichTextView.c0(((qd7) rnVar).b(), false).toString());
-                        ri.P(this.b.a, R.string.obfuscated_res_0x7f0f0788);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                z45.d();
+                we<String> f = z45.f("tb.frs_hottopic", "");
+                if (f != null) {
+                    String str = f.get("hot_topic_key");
+                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
+                        this.a.a = frsHotTopicListData.mSceneMap;
                     }
                 }
-                return false;
+                return null;
             }
-            return invokeL.booleanValue;
+            return (Void) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kd7 a;
+
+        public b(kd7 kd7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kd7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kd7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                z45.d();
+                we<String> f = z45.f("tb.frs_hottopic", "");
+                if (f == null) {
+                    return null;
+                }
+                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
+                frsHotTopicListData.mSceneMap = this.a.a;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
+                if (!StringUtils.isNull(jsonStrWithObject)) {
+                    f.g("hot_topic_key", jsonStrWithObject);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    public kd7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: u */
-    public ForumRuleDetailItemVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static kd7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02f6, viewGroup, false));
-            this.viewholder = forumRuleDetailItemVH;
-            return forumRuleDetailItemVH;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (kd7.class) {
+                    if (b == null) {
+                        b = new kd7();
+                    }
+                }
+            }
+            return b;
         }
-        return (ForumRuleDetailItemVH) invokeL.objValue;
+        return (kd7) invokeV.objValue;
     }
 
-    public void y(List<rn> list) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.c = list;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b bVar = new b(this);
+            bVar.setPriority(3);
+            bVar.execute(new Void[0]);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qd7 qd7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
-        x(i, view2, viewGroup, qd7Var, forumRuleDetailItemVH);
-        return view2;
+    public final void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            a aVar = new a(this);
+            aVar.setPriority(3);
+            aVar.execute(new Void[0]);
+        }
     }
 
-    public View x(int i, View view2, ViewGroup viewGroup, qd7 qd7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
-        InterceptResult invokeCommon;
+    public boolean c(String str, long j) {
+        InterceptResult invokeLJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qd7Var, forumRuleDetailItemVH})) == null) {
-            if (qd7Var != null && this.a != null) {
-                forumRuleDetailItemVH.c(qd7Var.a());
-                if (!StringUtils.isNull(qd7Var.c())) {
-                    z = true;
-                    forumRuleDetailItemVH.c.setVisibility(0);
-                    forumRuleDetailItemVH.c.setText(qd7Var.c());
-                } else {
-                    forumRuleDetailItemVH.c.setVisibility(8);
-                    z = false;
-                }
-                if (qd7Var.b() != null && !StringUtils.isNull(qd7Var.b().toString())) {
-                    forumRuleDetailItemVH.d.setVisibility(0);
-                    if (!z) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.d.getLayoutParams();
-                        layoutParams.topMargin = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-                        forumRuleDetailItemVH.d.setLayoutParams(layoutParams);
-                    }
-                    TbRichText c0 = TbRichTextView.c0(qd7Var.b(), false);
-                    this.b = c0;
-                    forumRuleDetailItemVH.d.setText(c0);
-                } else {
-                    forumRuleDetailItemVH.d.setVisibility(8);
-                }
-                forumRuleDetailItemVH.d.setOnLongClickListener(new a(this, i));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            if (this.a == null) {
+                this.a = new FrsLinkHashMap<>();
+                e(str, j);
             }
-            return view2;
+            if (StringUtils.isNull(str) || this.a.isEmpty()) {
+                return false;
+            }
+            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, Long> next = it.next();
+                    if (next != null && str.equals(next.getKey())) {
+                        z = true;
+                        break;
+                    }
+                } else {
+                    z = false;
+                    break;
+                }
+            }
+            if (z && this.a.get(str).longValue() == j) {
+                return false;
+            }
+            this.a.put(str, Long.valueOf(j));
+            f();
+            return true;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLJ.booleanValue;
     }
 }

@@ -1,78 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-/* loaded from: classes4.dex */
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+/* loaded from: classes5.dex */
 public class b0b {
     public static /* synthetic */ Interceptable $ic;
+    public static final n5b<Reporter> a;
+    public static final n5b<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
 
-    public b0b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592565, "Lcom/baidu/tieba/b0b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947592565, "Lcom/baidu/tieba/b0b;");
                 return;
             }
         }
-        this.a = str;
-        this.b = a(str);
+        a = new a();
+        b = new b();
     }
 
-    public static int a(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            return Arrays.hashCode(objArr);
-        }
-        return invokeL.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends n5b<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static b0b b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new b0b(str);
-        }
-        return (b0b) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (obj != null && b0b.class == obj.getClass()) {
-                return TextUtils.equals(this.a, ((b0b) obj).a);
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.n5b
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new g0b("https://rpe.xdplt.com/evt/", true);
+            }
+            return invokeV.objValue;
+        }
     }
 
-    public final int hashCode() {
+    /* loaded from: classes5.dex */
+    public static class b extends n5b<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.n5b
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new d0b("https://rpd.xdplt.com/evt/");
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
+    public static Reporter a() {
         InterceptResult invokeV;
+        Reporter reporter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            n5b<Reporter> n5bVar = a;
+            synchronized (n5bVar) {
+                if (n5bVar.a == null) {
+                    n5bVar.a = n5bVar.a();
+                }
+                reporter = n5bVar.a;
+            }
+            return reporter;
         }
-        return invokeV.intValue;
+        return (Reporter) invokeV.objValue;
     }
 }

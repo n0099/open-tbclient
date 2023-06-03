@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes.dex */
 public final class NavUtils {
     public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";
@@ -57,7 +56,7 @@ public final class NavUtils {
             activity.navigateUpTo(intent);
             return;
         }
-        intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        intent.addFlags(67108864);
         activity.startActivity(intent);
         activity.finish();
     }

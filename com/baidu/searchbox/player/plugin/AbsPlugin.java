@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
+import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsPlugin implements IPlugin {
     public Context mContext;
     public IMessenger mMessenger;
@@ -21,7 +21,6 @@ public abstract class AbsPlugin implements IPlugin {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @PublicMethod
     public int getType() {
         return 1;
     }
@@ -88,7 +87,6 @@ public abstract class AbsPlugin implements IPlugin {
     }
 
     @Nullable
-    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         PluginManager pluginManager = this.mPluginManager;
         if (pluginManager != null) {
@@ -97,13 +95,11 @@ public abstract class AbsPlugin implements IPlugin {
         return null;
     }
 
-    @PublicMethod
     public Context getContext() {
         return this.mContext;
     }
 
     @Nullable
-    @PublicMethod
     public PluginManager getPluginManager() {
         return this.mPluginManager;
     }
@@ -116,6 +112,12 @@ public abstract class AbsPlugin implements IPlugin {
         if (this.mMessenger != null) {
             videoEvent.setSender(this);
             this.mMessenger.notifyEvent(videoEvent);
+        }
+    }
+
+    public void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
+        if (getBindPlayer() != null) {
+            getBindPlayer().addInterceptor(iVideoEventInterceptor);
         }
     }
 
@@ -136,8 +138,13 @@ public abstract class AbsPlugin implements IPlugin {
         }
     }
 
+    public void removeInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
+        if (getBindPlayer() != null) {
+            getBindPlayer().removeInterceptor(iVideoEventInterceptor);
+        }
+    }
+
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @PublicMethod
     public void sendEvent(VideoEvent videoEvent) {
         sendVideoEvent(videoEvent);
     }

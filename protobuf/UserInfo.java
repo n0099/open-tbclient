@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UserInfo extends Message {
     public static final String DEFAULT_BJHAVATAR = "";
     public static final Integer DEFAULT_BUSINESSACCOUNT;
@@ -66,7 +66,7 @@ public final class UserInfo extends Message {
     public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_SEX = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
         public String bjhAvatar;
         public Integer businessaccount;

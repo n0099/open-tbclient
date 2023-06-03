@@ -1,90 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.SharedPreferences;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jh5 implements lh5 {
+public class jh5 implements nh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
 
-    public jh5(Context context) {
+    public jh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.d.setText(R.string.frs_forum_bcast_return_info);
-        b();
     }
 
-    @Override // com.baidu.tieba.lh5
-    public void b() {
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.b, R.drawable.pic_float_return_broadcast32);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        }
-    }
-
-    @Override // com.baidu.tieba.lh5
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+            tm9 n = tm9.n();
+            if (i == 3) {
+                n.v(downloadData);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+            } else {
+                n.B(downloadData);
             }
-            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
+            kh5.a(downloadData);
+            tm9.n().y(downloadData);
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lh5
-    public void onClick() {
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadSucceed(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+            return;
         }
+        String[] tag = downloadData.getTag();
+        if (tag != null && tag.length == 3) {
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
+        }
+        kh5.c(downloadData);
+        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        tm9.n().y(downloadData);
+        if (downloadData.isNeedInvokeApk()) {
+            String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+            if (downloadData.getApkDownloadData() != null) {
+                ez4.c().a(downloadData.getApkDownloadData().getPackageName(), downloadData.getName(), Integer.toString(downloadData.getSource()), downloadData.getUrl());
+            }
+            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), str);
+        }
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putLong(downloadData.getId(), downloadData.getSize());
+            edit.commit();
+        }
+        tm9.n().C(downloadData);
+        tm9.n().y(downloadData);
     }
 }

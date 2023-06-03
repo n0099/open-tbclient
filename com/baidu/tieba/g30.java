@@ -1,136 +1,127 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.ABTestConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class g30<T> implements k20<T> {
+public class g30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public final CountDownLatch b;
-    public b<T> c;
-    public a d;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Bundle a;
+    public static boolean a(Object obj, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
+            if (obj instanceof Boolean) {
+                return ((Boolean) obj).booleanValue();
+            }
+            return z;
+        }
+        return invokeLZ.booleanValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String f(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
+            if (obj != null) {
+                return String.valueOf(obj);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static double b(Object obj, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{obj, Double.valueOf(d)})) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Double) {
+                        return ((Double) obj).doubleValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).doubleValue();
+                    }
+                    if (obj instanceof String) {
+                        return Double.valueOf((String) obj).doubleValue();
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getDoubleSwitch exception " + e);
+                    }
                 }
             }
+            return d;
         }
+        return invokeCommon.doubleValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public Bundle b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static int c(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, obj, i)) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Integer) {
+                        return ((Integer) obj).intValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).intValue();
+                    }
+                    if (obj instanceof String) {
+                        return Integer.parseInt((String) obj);
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getIntSwitch exception " + e);
+                    }
                 }
             }
+            return i;
         }
+        return invokeLI.intValue;
     }
 
-    public g30() {
+    public static long e(Object obj, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, j)) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Long) {
+                        return ((Long) obj).longValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).longValue();
+                    }
+                    if (obj instanceof String) {
+                        return (long) Double.parseDouble((String) obj);
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getLongSwitch exception " + e);
+                    }
+                }
             }
+            return j;
         }
-        this.a = false;
-        this.b = new CountDownLatch(1);
-        this.c = null;
-        this.d = null;
+        return invokeLJ.longValue;
     }
 
-    public b<T> a() {
-        InterceptResult invokeV;
+    public static int d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (b) invokeV.objValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                this.b.await(i, TimeUnit.MILLISECONDS);
-                if (this.d == null) {
-                    this.d = new a();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
             }
-            return this.a;
         }
-        return invokeI.booleanValue;
-    }
-
-    public a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k20
-    public void onError(int i, Throwable th, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, th, bundle) == null) {
-            a aVar = new a();
-            this.d = aVar;
-            aVar.a = bundle;
-            this.a = false;
-            this.b.countDown();
-        }
-    }
-
-    @Override // com.baidu.tieba.k20
-    public void onResult(T t, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, t, bundle) == null) {
-            b<T> bVar = new b<>();
-            this.c = bVar;
-            bVar.a = t;
-            bVar.b = bundle;
-            this.a = true;
-            this.b.countDown();
-        }
+        return invokeL.intValue;
     }
 }

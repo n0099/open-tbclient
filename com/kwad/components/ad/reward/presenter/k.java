@@ -48,9 +48,9 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams2;
             if (layoutParams.height == -1) {
-                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052b);
+                i = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070538);
             } else {
-                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052a);
+                int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070537);
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
                     WeakReference<View> weakReference = this.pZ;
@@ -81,11 +81,11 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public Animator gZ() {
         ValueAnimator valueAnimator;
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07052d));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07053a));
         Drawable background = this.nC.getBackground();
         if (background instanceof ColorDrawable) {
             final ColorDrawable colorDrawable = (ColorDrawable) background;
-            valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06078c), getContext().getResources().getColor(R.color.obfuscated_res_0x7f06078d));
+            valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079d), getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079e));
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reward.presenter.k.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -105,10 +105,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (viewGroup == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912e4);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fc);
         this.nC = imageView;
-        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06078c));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912e5);
+        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079d));
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fd);
         this.pV.setOnClickListener(this);
     }
 
@@ -145,8 +145,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public final void aq() {
         super.aq();
         if (this.pV == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0912ea);
-            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f0912e9));
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091302);
+            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091301));
             initView();
         }
         if (!this.nM.fy()) {
@@ -154,7 +154,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         } else if (com.kwad.sdk.core.response.a.b.e(getContext(), this.nM.mAdTemplate)) {
             a(new ViewGroup.LayoutParams(-1, -1));
         } else {
-            a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070512)));
+            a(new ViewGroup.LayoutParams(-1, this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07051f)));
         }
         this.nM.a(this.mPlayEndPageListener);
     }

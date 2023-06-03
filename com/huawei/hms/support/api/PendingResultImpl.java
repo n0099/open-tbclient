@@ -349,7 +349,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
                     hashMap.put("result", String.valueOf(i));
                     R r = this.result;
                     if (r != null && r.getStatus() != null) {
-                        hashMap.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(this.result.getStatus().getStatusCode()));
+                        hashMap.put("statusCode", String.valueOf(this.result.getStatus().getStatusCode()));
                     }
                 }
                 hashMap.put("version", "0");

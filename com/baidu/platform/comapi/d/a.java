@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.d;
 import android.content.Context;
 import android.content.pm.Signature;
 import android.os.Build;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,10 +58,10 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
-                    if (context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", 134217728).signingInfo.hasMultipleSigners()) {
-                        signatureArr = context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", 134217728).signingInfo.getApkContentsSigners();
+                    if (context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.hasMultipleSigners()) {
+                        signatureArr = context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getApkContentsSigners();
                     } else {
-                        signatureArr = context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", 134217728).signingInfo.getSigningCertificateHistory();
+                        signatureArr = context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getSigningCertificateHistory();
                     }
                 } else {
                     signatureArr = context.getPackageManager().getPackageInfo("com.baidu.BaiduMap", 64).signatures;

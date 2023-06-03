@@ -1,80 +1,145 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.td1;
+import com.baidu.tieba.vd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xd1 {
+public class xd1 extends td1 {
     public static /* synthetic */ Interceptable $ic;
-    public static xd1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public wj1<ISignatureVerifier> a;
+    public FrameLayout i;
+    public a j;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uj1 b2 = uj1.b();
-            this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a extends td1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948296420, "Lcom/baidu/tieba/xd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948296420, "Lcom/baidu/tieba/xd1;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        b = new xd1();
+
+        @Override // com.baidu.tieba.vd1.a
+        public vd1 f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new xd1(context);
+            }
+            return (vd1) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.vd1.a
+        public /* bridge */ /* synthetic */ vd1.a q(int i) {
+            y(i);
+            return this;
+        }
+
+        public a x(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.q(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.td1.b, com.baidu.tieba.vd1.a
+        public vd1 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                xd1 xd1Var = (xd1) super.a();
+                xd1Var.o(this);
+                return xd1Var;
+            }
+            return (vd1) invokeV.objValue;
+        }
     }
 
-    public xd1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xd1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
     }
 
-    public static xd1 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.td1
+    public View i(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.nad_view_ssl_certificate_dialog, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
+            n();
+            return inflate;
         }
-        return (xd1) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public ISignatureVerifier b() {
-        InterceptResult invokeV;
+    public void o(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.j = aVar;
         }
-        return (ISignatureVerifier) invokeV.objValue;
+    }
+
+    public final void n() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.j) != null) {
+            this.i.addView(aVar.g);
+        }
     }
 }

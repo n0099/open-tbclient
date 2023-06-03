@@ -6,12 +6,12 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.ac;
-import com.baidu.tieba.cn;
 import com.baidu.tieba.ec;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.ic;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.ng;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,16 +47,16 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public cn getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.qg
+    public gn getFromLocal(String str, String str2, int i, int i2, ng ngVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ngVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             boolean z = false;
             byte[] bArr = new byte[0];
-            ec createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
-            cn cnVar = null;
+            ic createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            gn gnVar = null;
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -65,13 +65,13 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             createDiskPicOperate.setIsFormatData(false);
             createDiskPicOperate.setLock(bArr);
             createDiskPicOperate.setSdCard(false);
-            if (jgVar != null) {
+            if (ngVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                jgVar.a = diskCancelWorker;
+                ngVar.a = diskCancelWorker;
             }
-            if (!ac.f().a(createDiskPicOperate)) {
-                ig.f(false, 0L);
+            if (!ec.f().a(createDiskPicOperate)) {
+                mg.f(false, 0L);
                 return null;
             }
             int i3 = 2000;
@@ -85,15 +85,15 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
                 }
             }
             if (createDiskPicOperate.isSuccess()) {
-                cnVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
+                gnVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
             }
-            if (cnVar != null) {
+            if (gnVar != null) {
                 z = true;
             }
-            ig.f(z, System.currentTimeMillis() - currentTimeMillis);
-            return cnVar;
+            mg.f(z, System.currentTimeMillis() - currentTimeMillis);
+            return gnVar;
         }
-        return (cn) invokeCommon.objValue;
+        return (gn) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -111,7 +111,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ri.j(TbadkCoreApplication.getInst().getApp());
+            return vi.j(TbadkCoreApplication.getInst().getApp());
         }
         return invokeV.intValue;
     }
@@ -121,7 +121,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ri.l(TbadkCoreApplication.getInst().getApp());
+            return vi.l(TbadkCoreApplication.getInst().getApp());
         }
         return invokeV.intValue;
     }
@@ -143,18 +143,18 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             return;
         }
         boolean booleanValue = ((Boolean) objArr[2]).booleanValue();
-        ec ecVar = new ec("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        ecVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        ecVar.setSubFolder(true);
-        ecVar.setData(bArr);
-        ecVar.setSdCard(false);
-        ecVar.setGif(booleanValue);
-        ac.f().a(ecVar);
-        jg jgVar = (jg) objArr[3];
-        if (jgVar != null) {
+        ic icVar = new ic("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+        icVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+        icVar.setSubFolder(true);
+        icVar.setData(bArr);
+        icVar.setSdCard(false);
+        icVar.setGif(booleanValue);
+        ec.f().a(icVar);
+        ng ngVar = (ng) objArr[3];
+        if (ngVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(ecVar);
-            jgVar.a = diskCancelWorker;
+            diskCancelWorker.setOperate(icVar);
+            ngVar.a = diskCancelWorker;
         }
     }
 }

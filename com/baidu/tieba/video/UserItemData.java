@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UserItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<UserItemData> CREATOR;
@@ -43,7 +43,7 @@ public class UserItemData implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<UserItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

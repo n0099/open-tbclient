@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.ubc;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.session.VideoSessionManager;
+import com.baidu.searchbox.player.utils.BasicVideoParserKt;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -35,8 +36,16 @@ public class PlayerSpeedTracker {
         FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_AFTER_INIT_PLAYER_TO_START);
     }
 
+    public static void endInitItemPart(@NonNull String str) {
+        FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_ITEM);
+    }
+
     public static void endInitLayerPart(@NonNull String str) {
         FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LAYER);
+    }
+
+    public static void endInitListPart(@NonNull String str) {
+        FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LIST);
     }
 
     public static void endInitPlayerEnvPart(@NonNull String str) {
@@ -56,7 +65,13 @@ public class PlayerSpeedTracker {
     }
 
     public static void endSchemeDispatchPart(@NonNull String str) {
+        FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_VIDEO_SCHEME_DISPATCH);
         FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_SCHEME_DISPATCH);
+    }
+
+    public static void endUnitedSchemeDispatchPart(@NonNull String str) {
+        FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_UNITED_SCHEME_DISPATCH);
+        FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_VIDEO_SCHEME_DISPATCH);
     }
 
     public static boolean hasCreateFlow(@Nullable String str) {
@@ -71,8 +86,16 @@ public class PlayerSpeedTracker {
         FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_AFTER_INIT_PLAYER_TO_START);
     }
 
+    public static void startInitItemPart(@NonNull String str) {
+        FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_ITEM);
+    }
+
     public static void startInitLayerPart(@NonNull String str) {
         FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LAYER);
+    }
+
+    public static void startInitListPart(@NonNull String str) {
+        FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LIST);
     }
 
     public static void startInitPlayerEnvPart(@NonNull String str) {
@@ -89,6 +112,7 @@ public class PlayerSpeedTracker {
 
     public static void startSchemeDispatchPart(@NonNull String str) {
         FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_SCHEME_DISPATCH);
+        FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_UNITED_SCHEME_DISPATCH);
     }
 
     public static void endCustomPart(@NonNull String str, @NonNull String str2) {
@@ -121,7 +145,7 @@ public class PlayerSpeedTracker {
             extStatisticsLogClone.put("prepareTime", bDVideoPlayerUbcContent.getPlayerPrepareTime());
         }
         jSONObject.put("source", extStatisticsLogClone.optString("mtNew"));
-        jSONObject.put("value", extStatisticsLogClone.optString("pdRec"));
+        jSONObject.put("value", extStatisticsLogClone.optString(BasicVideoParserKt.PD_REC));
         return BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, jSONObject);
     }
 }

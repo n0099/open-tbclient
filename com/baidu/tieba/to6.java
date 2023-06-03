@@ -1,57 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class to6 extends e0 {
+public class to6 extends uo6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId Q0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qo6 d;
 
-    public abstract void j();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187982, "Lcom/baidu/tieba/to6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187982, "Lcom/baidu/tieba/to6;");
+                return;
+            }
+        }
+        Q0 = BdUniqueId.gen();
+    }
 
-    public to6(qo6 danmakuContext) {
+    @Override // com.baidu.tieba.uo6, com.baidu.tieba.mo6, com.baidu.tieba.f15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uo6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Q0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public to6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {danmakuContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.d = danmakuContext;
+        this.a = threadData;
     }
 
-    @Override // com.baidu.tieba.e0
-    @CallSuper
-    public void g(b0 engine) {
+    public static boolean X(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final qo6 i() {
-        InterceptResult invokeV;
+    public StatisticItem b0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem d = d(str);
+            d.delete("obj_type");
+            d.delete("obj_type");
+            d.param("obj_type", 3);
+            return d;
         }
-        return (qo6) invokeV.objValue;
+        return (StatisticItem) invokeL.objValue;
     }
 }

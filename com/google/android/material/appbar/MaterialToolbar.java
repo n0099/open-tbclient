@@ -16,7 +16,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class MaterialToolbar extends Toolbar {
-    public static final int DEF_STYLE_RES = 2131755944;
+    public static final int DEF_STYLE_RES = 2131755946;
 
     public MaterialToolbar(@NonNull Context context) {
         this(context, null);
@@ -48,7 +48,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040791);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04079b);
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

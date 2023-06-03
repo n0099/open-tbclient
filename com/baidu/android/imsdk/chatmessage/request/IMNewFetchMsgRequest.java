@@ -20,6 +20,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -137,7 +138,7 @@ public class IMNewFetchMsgRequest extends BaseHttpRequest {
                     jSONObject.put("from_action", this.mFromAction);
                 }
                 if (4 == this.mCategory && (json = MessageExt.getInstance().toJson()) != null && json.length() > 0) {
-                    jSONObject.put("ext_info", URLEncoder.encode(json.toString()));
+                    jSONObject.put(MigrateStatisticUtils.EXT_INFO, URLEncoder.encode(json.toString()));
                 }
                 jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
                 jSONObject.put("account_type", this.mLoginType);

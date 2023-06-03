@@ -1,62 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes7.dex */
-public abstract class s80 {
-    public static /* synthetic */ Interceptable $ic;
+public class s80 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "liteUBC";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public t80 b;
 
-    public abstract InputStream b() throws Exception;
-
-    public abstract void c(t80 t80Var);
-
-    public abstract boolean d() throws IOException;
-
-    public abstract t80 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
-
-    public abstract void f(r80 r80Var) throws IOException;
-
-    public s80(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105150, "Lcom/baidu/tieba/s80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105150, "Lcom/baidu/tieba/s80;");
                 return;
             }
         }
-        this.b = null;
-        this.a = context;
+        b = i80.d().b();
     }
 
-    public t80 a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        return (t80) invokeV.objValue;
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        }
     }
 }

@@ -1,27 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class vv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uv3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized uv3 a() {
-        InterceptResult invokeV;
-        uv3 uv3Var;
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (vv3.class) {
-                if (a == null) {
-                    a = new uv3();
-                }
-                uv3Var = a;
-            }
-            return uv3Var;
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
+            uv3.a().edit().putLong("latest_update_time", j).apply();
         }
-        return (uv3) invokeV.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.browser.core.util;
 import android.os.Environment;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -158,7 +159,7 @@ public final class BdLog {
                 return;
             }
         }
-        d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "log" + File.separator;
+        d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + LocalFilesFilterKt.FILTER_NAME_LOG + File.separator;
         StringBuilder sb = new StringBuilder();
         sb.append(d);
         sb.append("baiduliulanqi_log.txt");

@@ -284,7 +284,7 @@ public class h {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("POST");
-                httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
+                httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
                 httpsURLConnection.setHostnameVerifier(new a(url));
                 httpsURLConnection.setRequestProperty("connection", "close");
                 httpsURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);

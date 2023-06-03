@@ -31,10 +31,10 @@ public class OneKeyLoginView extends LinearLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0147a extends OneKeyLoginCallback {
+        public class C0152a extends OneKeyLoginCallback {
             public final /* synthetic */ long a;
 
-            public C0147a(long j) {
+            public C0152a(long j) {
                 this.a = j;
             }
 
@@ -89,7 +89,7 @@ public class OneKeyLoginView extends LinearLayout {
                     Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                     return;
                 }
-                CoreViewRouter.getInstance().loadOneKeyLogin(OneKeyLoginView.this.a, new C0147a(System.currentTimeMillis()));
+                CoreViewRouter.getInstance().loadOneKeyLogin(OneKeyLoginView.this.a, new C0152a(System.currentTimeMillis()));
                 return;
             }
             Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");

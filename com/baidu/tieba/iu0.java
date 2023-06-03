@@ -1,67 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes6.dex */
-public class iu0 extends ou0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface iu0 extends eu0, gu0 {
+    public static final a a = vc1.a;
 
-    public iu0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        iu0 a(Context context, int i);
+
+        iu0 b(Context context, int i, @Nullable ju0 ju0Var);
     }
 
-    @Override // com.baidu.tieba.ou0
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return q().V();
-        }
-        return invokeV.booleanValue;
-    }
+    void a(fu0 fu0Var);
 
-    @Override // com.baidu.tieba.ou0
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            N(q().V());
-        }
-    }
+    void attachToContainer(@NonNull ViewGroup viewGroup);
 
-    @Override // com.baidu.tieba.ou0
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean E = E();
-            if (E && y01.c(getContext()) == 0) {
-                y01.d(getContext(), (int) (y01.b(getContext()) * 0.35d));
-            }
-            M(E);
-            boolean z = !E;
-            N(z);
-            Q(z);
-        }
-    }
+    void c(@NonNull xr0 xr0Var);
 
-    public void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            q().w0(z);
-        }
-    }
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

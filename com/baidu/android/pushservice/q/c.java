@@ -6,8 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -261,7 +259,7 @@ public class c {
             }
         }
         if (Build.VERSION.SDK_INT <= 8) {
-            System.setProperty("http.keepAlive", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+            System.setProperty("http.keepAlive", "false");
         }
     }
 
@@ -607,7 +605,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, httpURLConnection)) == null) {
             String headerField = httpURLConnection.getHeaderField("Content-Encoding");
-            return !TextUtils.isEmpty(headerField) && headerField.contains(StatConstants.VALUE_TYPE_ZIP);
+            return !TextUtils.isEmpty(headerField) && headerField.contains("zip");
         }
         return invokeL.booleanValue;
     }

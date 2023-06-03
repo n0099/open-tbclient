@@ -1,58 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.oa2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class na2 extends ha2<JSONObject, g12> {
+/* loaded from: classes7.dex */
+public class na2 implements oa2.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995658, "Lcom/baidu/tieba/na2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947995658, "Lcom/baidu/tieba/na2;");
+                return;
+            }
+        }
+        a = is1.a;
+    }
 
     public na2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.la2
-    @NonNull
-    /* renamed from: c */
-    public g12 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oa2.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new g12(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new g12(202, "data is required");
-            }
-            String optString = optJSONObject.optString("content");
-            String optString2 = optJSONObject.optString("type");
-            String optString3 = optJSONObject.optString("source");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                g62.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
-                l92.d().e(j92.a(optString2, optString, optString3));
-                return new g12(0);
-            }
-            return new g12(202);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
+            Log.d("SimplePreDownloadCallback", "pre download success");
         }
-        return (g12) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oa2.b
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
+        }
+    }
+
+    @Override // com.baidu.tieba.oa2.b
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
+        }
     }
 }

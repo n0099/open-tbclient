@@ -11,7 +11,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GenericDraweeHierarchyBuilder {
     public static final int DEFAULT_FADE_DURATION = 150;
     @Nullable

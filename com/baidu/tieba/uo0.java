@@ -1,24 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final /* synthetic */ class uo0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class uo0 {
     public static /* synthetic */ Interceptable $ic;
+    public static vo0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_WEB.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 2;
-        int[] iArr2 = new int[WebEventTypeEnum.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
-        $EnumSwitchMapping$1[WebEventTypeEnum.WEB_DESTROY.ordinal()] = 2;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948217587, "Lcom/baidu/tieba/uo0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948217587, "Lcom/baidu/tieba/uo0;");
+        }
+    }
+
+    public uo0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static vo0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (uo0.class) {
+                    if (a == null) {
+                        a = (vo0) ServiceManager.getService(vo0.a);
+                    }
+                    if (a == null) {
+                        a = vo0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (vo0) invokeV.objValue;
     }
 }

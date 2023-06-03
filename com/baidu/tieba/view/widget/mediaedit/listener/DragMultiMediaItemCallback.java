@@ -3,15 +3,15 @@ package com.baidu.tieba.view.widget.mediaedit.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mda;
 import com.baidu.tieba.view.widget.mediaedit.adapter.MultiMediaAdapter;
-import com.baidu.tieba.x6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public int b;
     public boolean c;
     public MultiMediaAdapter d;
-    public x6a e;
+    public mda e;
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean canDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
@@ -38,12 +38,12 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         }
     }
 
-    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, x6a x6aVar) {
+    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, mda mdaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, multiMediaAdapter, x6aVar};
+            Object[] objArr = {str, str2, multiMediaAdapter, mdaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         }
         this.c = false;
         this.d = multiMediaAdapter;
-        this.e = x6aVar;
+        this.e = mdaVar;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -78,9 +78,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
                     this.e.c(this.a, this.b);
                 }
             }
-            x6a x6aVar = this.e;
-            if (x6aVar != null) {
-                x6aVar.setDragMode(-1, 0);
+            mda mdaVar = this.e;
+            if (mdaVar != null) {
+                mdaVar.setDragMode(-1, 0);
             }
         }
     }
@@ -102,9 +102,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             viewHolder.itemView.getLocationOnScreen(iArr);
             viewHolder.itemView.getLocationInWindow(new int[2]);
             this.d.o(true);
-            x6a x6aVar = this.e;
-            if (x6aVar != null) {
-                x6aVar.setDragMode(this.a, iArr[0]);
+            mda mdaVar = this.e;
+            if (mdaVar != null) {
+                mdaVar.setDragMode(this.a, iArr[0]);
             }
         }
     }

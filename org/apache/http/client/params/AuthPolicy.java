@@ -1,6 +1,6 @@
 package org.apache.http.client.params;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AuthPolicy {
     public static final String BASIC = "Basic";
     public static final String DIGEST = "Digest";

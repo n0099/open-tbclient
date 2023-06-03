@@ -12,7 +12,6 @@ import com.baidu.ar.callback.IError;
 import com.baidu.ar.ihttp.IProgressCallback;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +35,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static void d(String str, int i) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str);
-        hashMap.put(Constants.KEYS.RET, Integer.valueOf(i));
+        hashMap.put("ret", Integer.valueOf(i));
         ARPMessage.getInstance().sendMessage(5003, hashMap);
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ix7;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix7 tabFeedData;
+    public w28 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -54,9 +54,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
             if (getError() != 0 || activityPageResIdl.data == null) {
                 return;
             }
-            ix7 ix7Var = new ix7();
-            this.tabFeedData = ix7Var;
-            ix7Var.j(activityPageResIdl.data);
+            w28 w28Var = new w28();
+            this.tabFeedData = w28Var;
+            w28Var.j(activityPageResIdl.data);
         }
     }
 }

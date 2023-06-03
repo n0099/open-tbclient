@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,7 +188,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0280);
+            setContentView(R.layout.obfuscated_res_0x7f0d0287);
             initView();
             y1();
             registerListener(this.k);
@@ -198,13 +198,13 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f05f1));
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0625));
             EmotionRecommendFragment emotionRecommendFragment = new EmotionRecommendFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean("need_check_login", true);
             emotionRecommendFragment.setArguments(bundle);
             this.g.add(emotionRecommendFragment);
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f05f2));
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0626));
             ForumEmotionFragment forumEmotionFragment = new ForumEmotionFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.j);
@@ -212,23 +212,23 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.g.add(forumEmotionFragment);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = navigationBar;
-            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f03c3));
+            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f03c9));
             this.c = addTextButtonByDefTextColor;
-            addTextButtonByDefTextColor.setTextSize(0, ri.g(this, R.dimen.obfuscated_res_0x7f07020f));
+            addTextButtonByDefTextColor.setTextSize(0, vi.g(this, R.dimen.obfuscated_res_0x7f07020f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
             this.d = imageView;
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
-            this.d.setPadding(0, ri.g(this, R.dimen.obfuscated_res_0x7f0701d5), ri.g(this, R.dimen.obfuscated_res_0x7f0703a8), ri.g(this, R.dimen.obfuscated_res_0x7f0701d5));
+            this.d.setPadding(0, vi.g(this, R.dimen.obfuscated_res_0x7f0701d5), vi.g(this, R.dimen.obfuscated_res_0x7f0703b3), vi.g(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.d.setLayoutParams(layoutParams);
-            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0291, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090975);
+            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0298, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090986);
             this.e = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(ri.g(this, R.dimen.obfuscated_res_0x7f070207), ri.g(this, R.dimen.obfuscated_res_0x7f0701e8), ri.g(this, R.dimen.obfuscated_res_0x7f0701e8), ri.g(this, R.dimen.obfuscated_res_0x7f0701e8), ri.g(this, R.dimen.obfuscated_res_0x7f0701e8), ri.g(this, R.dimen.obfuscated_res_0x7f070224), ri.g(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
+            commonPagerSlidingTabStrip.k(vi.g(this, R.dimen.obfuscated_res_0x7f070207), vi.g(this, R.dimen.obfuscated_res_0x7f0701e8), vi.g(this, R.dimen.obfuscated_res_0x7f0701e8), vi.g(this, R.dimen.obfuscated_res_0x7f0701e8), vi.g(this, R.dimen.obfuscated_res_0x7f0701e8), vi.g(this, R.dimen.obfuscated_res_0x7f070224), vi.g(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909b1);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090976);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909c2);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090987);
             this.a = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.h = new b(this, getSupportFragmentManager());
@@ -241,7 +241,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.mSkinType = i;
-            hx4 layoutMode = getLayoutMode();
+            d05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -276,7 +276,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             } else if (view2 == this.d) {
                 int i = 0;
                 if (!ListUtils.isEmpty(this.g) && (this.g.get(0) instanceof EmotionRecommendFragment)) {
-                    i = ((EmotionRecommendFragment) this.g.get(0)).L1();
+                    i = ((EmotionRecommendFragment) this.g.get(0)).M1();
                 }
                 sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i)));
             }

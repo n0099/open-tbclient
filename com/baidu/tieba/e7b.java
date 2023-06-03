@@ -1,130 +1,248 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.platform.comapi.map.NodeType;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.common.StringUtils;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CodingErrorAction;
-import org.apache.http.protocol.HTTP;
-import org.java_websocket.exceptions.InvalidDataException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.FatalException;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public class e7b {
     public static /* synthetic */ Interceptable $ic;
-    public static CodingErrorAction a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Context b;
+    public volatile int c;
+    public com.google.a.b.a.a.a.a d;
+    public BroadcastReceiver e;
+    public Context f;
+    public final ServiceConnection g;
+    public final AtomicReference<v6b> h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688665, "Lcom/baidu/tieba/e7b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public e7b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947688665, "Lcom/baidu/tieba/e7b;");
+        }
+    }
+
+    public static Bundle l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public final void p() {
+        v6b andSet;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
+            andSet.a();
+        }
+    }
+
+    public final synchronized void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                Log.i("ARCore-InstallService", "Install service disconnected");
+                this.c = l7b.a;
+                this.d = null;
+                p();
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public e7b(byte b) {
+        this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Byte.valueOf(b)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = CodingErrorAction.REPORT;
-        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        this.a = new ArrayDeque();
+        this.c = l7b.a;
+        this.g = new g7b(this);
+        this.h = new AtomicReference<>();
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public static void b(Activity activity, Bundle bundle, f7b f7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean b(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
-            return c(byteBuffer, 0);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return str.getBytes(StringUtils.UTF8);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean c(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
-            int remaining = byteBuffer.remaining();
-            if (remaining < i) {
-                return false;
-            }
-            int i2 = 0;
-            while (i < remaining) {
-                int[] iArr = b;
-                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
-                if (i2 == 1) {
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, f7bVar) == null) {
+            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
+            if (pendingIntent != null) {
+                try {
+                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
+                    return;
+                } catch (IntentSender.SendIntentException e) {
+                    f7bVar.b(new FatalException("Installation Intent failed", e));
+                    return;
                 }
-                i++;
             }
-            return true;
+            Log.e("ARCore-InstallService", "Did not get pending intent.");
+            f7bVar.b(new FatalException("Installation intent failed to unparcel."));
         }
-        return invokeLI.booleanValue;
     }
 
-    public static String d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public final synchronized void k(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            try {
-                return new String(bArr, i, i2, HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
+            synchronized (this) {
+                int i = this.c - 1;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            runnable.run();
+                        }
+                        return;
+                    }
+                    this.a.offer(runnable);
+                    return;
+                }
+                throw new com.google.ar.core.ab();
             }
         }
-        return (String) invokeLII.objValue;
     }
 
-    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
-        InterceptResult invokeL;
+    public static void n(Activity activity, f7b f7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
-            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
-            newDecoder.onMalformedInput(a);
-            newDecoder.onUnmappableCharacter(a);
+        if (interceptable == null || interceptable.invokeLL(65545, null, activity, f7bVar) == null) {
             try {
-                byteBuffer.mark();
-                String charBuffer = newDecoder.decode(byteBuffer).toString();
-                byteBuffer.reset();
-                return charBuffer;
-            } catch (CharacterCodingException e) {
-                throw new InvalidDataException(1007, e);
+                activity.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=com.google.ar.core")));
+            } catch (ActivityNotFoundException e) {
+                f7bVar.b(new FatalException("Failed to launch installer.", e));
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public synchronized void e(Context context, ArCoreApk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
+            synchronized (this) {
+                try {
+                    k(new h7b(this, context, aVar));
+                } catch (com.google.ar.core.ab unused) {
+                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
+                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                }
+            }
+        }
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                p();
+                int i = this.c - 1;
+                if (i == 1 || i == 2) {
+                    this.b.unbindService(this.g);
+                    this.b = null;
+                    this.c = l7b.a;
+                }
+                if (this.e != null) {
+                    this.f.unregisterReceiver(this.e);
+                }
+            }
+        }
+    }
+
+    public void c(Activity activity, f7b f7bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f7bVar) == null) {
+            v6b v6bVar = new v6b(activity, f7bVar);
+            v6b andSet = this.h.getAndSet(v6bVar);
+            if (andSet != null) {
+                andSet.a();
+            }
+            v6bVar.start();
+            if (this.e == null) {
+                i7b i7bVar = new i7b(this, f7bVar);
+                this.e = i7bVar;
+                this.f = activity;
+                activity.registerReceiver(i7bVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
+            }
+            try {
+                k(new j7b(this, activity, f7bVar));
+            } catch (com.google.ar.core.ab unused) {
+                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
+                n(activity, f7bVar);
+            }
+        }
+    }
+
+    public synchronized void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            synchronized (this) {
+                this.b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
+                    this.c = l7b.b;
+                    return;
+                }
+                this.c = l7b.a;
+                this.b = null;
+                Log.w("ARCore-InstallService", "bindService returned false.");
+                context.unbindService(this.g);
+            }
+        }
+    }
+
+    public final synchronized void f(IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
+            synchronized (this) {
+                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
+                Log.i("ARCore-InstallService", "Install service connected");
+                this.d = a;
+                this.c = l7b.c;
+                for (Runnable runnable : this.a) {
+                    runnable.run();
+                }
+            }
+        }
     }
 }

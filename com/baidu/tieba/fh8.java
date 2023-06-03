@@ -1,62 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.interest.data.RecentClientInfo;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class fh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<int[]> a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public dh8 a;
-    public RecentClientInfo b;
 
-    public fh8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764243, "Lcom/baidu/tieba/fh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947764243, "Lcom/baidu/tieba/fh8;");
+                return;
             }
         }
+        a = new ArrayList();
+        b = SkinManager.getColor(R.color.CAM_X0304);
     }
 
-    public dh8 a() {
-        InterceptResult invokeV;
+    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, spannableStringBuilder)) == null) {
+            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
+                for (int[] iArr : a) {
+                    int i = iArr[0];
+                    int i2 = iArr[1];
+                    if (i < spannableStringBuilder.length() && i2 <= spannableStringBuilder.length() && i >= 0 && i2 >= 0) {
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(b), i, i2, 18);
+                    }
+                }
+            }
+            return spannableStringBuilder;
         }
-        return (dh8) invokeV.objValue;
+        return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public RecentClientInfo b() {
-        InterceptResult invokeV;
+    public static void b(List<AtUserInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (RecentClientInfo) invokeV.objValue;
-    }
-
-    public void c(dh8 dh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dh8Var) == null) {
-            this.a = dh8Var;
-        }
-    }
-
-    public void d(RecentClientInfo recentClientInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
-            this.b = recentClientInfo;
+        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
+            a.clear();
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (AtUserInfo atUserInfo : list) {
+                if (atUserInfo != null) {
+                    int atPosition = atUserInfo.getAtPosition();
+                    a.add(new int[]{atPosition, atUserInfo.getAtName().length() + atPosition + 1});
+                }
+            }
         }
     }
 }

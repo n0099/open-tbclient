@@ -9,13 +9,13 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.yj1;
+import com.baidu.tieba.hl1;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LokiTrackUISaver {
     public static final String SEPERATOR = "\t";
     public static final String SEPERATOR_ARROR = "->";
@@ -48,7 +48,7 @@ public class LokiTrackUISaver {
             file.mkdirs();
         }
         if (mTempTraceFile == null) {
-            mTempTraceFile = new File(file, yj1.b() + ".tmp");
+            mTempTraceFile = new File(file, hl1.b() + ".tmp");
         }
         return mTempTraceFile;
     }

@@ -3,7 +3,6 @@ package com.baidu.spswitch.emotion.resource;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.spswitch.emotion.EmotionUtils;
@@ -500,7 +499,7 @@ public class EmotionResourceProvider implements IResourceProvider {
                     fileInputStream = null;
                 }
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, IMAudioTransRequest.CHARSET));
+                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, "utf-8"));
                     try {
                         for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                             sb.append(readLine);
@@ -612,7 +611,7 @@ public class EmotionResourceProvider implements IResourceProvider {
                 fileInputStream = null;
             }
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, IMAudioTransRequest.CHARSET));
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, "utf-8"));
                 try {
                     try {
                         for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {

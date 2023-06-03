@@ -23,8 +23,8 @@ public abstract class ds extends aj.a {
     }
 
     public static void a(Context context, hp hpVar) {
-        dl m303a = dm.a().m303a();
-        String a = m303a == null ? "" : m303a.a();
+        dl m358a = dm.a().m358a();
+        String a = m358a == null ? "" : m358a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hpVar.a())) {
             return;
         }
@@ -45,7 +45,7 @@ public abstract class ds extends aj.a {
             try {
                 try {
                     File file2 = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m783a(file2);
+                    y.m838a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         lock = randomAccessFile.getChannel().lock();
@@ -130,11 +130,11 @@ public abstract class ds extends aj.a {
     }
 
     private String c() {
-        return "dc_job_result_time_" + mo240a();
+        return "dc_job_result_time_" + mo295a();
     }
 
     private String d() {
-        return "dc_job_result_" + mo240a();
+        return "dc_job_result_" + mo295a();
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.aj.a.a()Ljava/lang/String; */
@@ -142,19 +142,19 @@ public abstract class ds extends aj.a {
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.aj.a.a()Ljava/lang/String; */
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m305a() {
-        return Cdo.a(this.f235a, String.valueOf(mo240a()), this.a);
+    public boolean m360a() {
+        return Cdo.a(this.f235a, String.valueOf(mo295a()), this.a);
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m306b() {
+    public boolean m361b() {
         return true;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m307c() {
+    public boolean m362c() {
         return false;
     }
 
@@ -164,14 +164,14 @@ public abstract class ds extends aj.a {
         if (TextUtils.isEmpty(b)) {
             return;
         }
-        if (m305a()) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("DC run job mutual: " + mo240a());
+        if (m360a()) {
+            com.xiaomi.channel.commonutils.logger.b.m175a("DC run job mutual: " + mo295a());
             return;
         }
-        dl m303a = dm.a().m303a();
-        String a = m303a == null ? "" : m303a.a();
-        if (!TextUtils.isEmpty(a) && m306b()) {
-            if (m307c()) {
+        dl m358a = dm.a().m358a();
+        String a = m358a == null ? "" : m358a.a();
+        if (!TextUtils.isEmpty(a) && m361b()) {
+            if (m362c()) {
                 SharedPreferences sharedPreferences = this.f235a.getSharedPreferences("mipush_extra", 0);
                 if (bo.a(b).equals(sharedPreferences.getString(d(), null))) {
                     long j = sharedPreferences.getLong(c(), 0L);

@@ -30,7 +30,7 @@ import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements c {
     public final Context a;
     public final PushNotificationBuilder b;
@@ -379,7 +379,7 @@ public abstract class a implements c {
         sb.append("ANRequest On other Thread down load largeIcon ");
         sb.append(str);
         sb.append("image ");
-        sb.append(b.a() != null ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0);
+        sb.append(b.a() != null ? "success" : "fail");
         DebugLogger.i("AbstractPushNotification", sb.toString());
         return (Bitmap) b.a();
     }

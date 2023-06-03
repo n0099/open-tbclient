@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ci2 extends ProviderDelegation {
+public class ci2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,8 +31,9 @@ public class ci2 extends ProviderDelegation {
                 return;
             }
         }
-        ns2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        c = is1.a;
+        fv2.g0().getSwitch("swan_sailor_init_delay", false);
+        d = false;
     }
 
     public ci2() {
@@ -46,45 +46,31 @@ public class ci2 extends ProviderDelegation {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
     }
 
-    public static void c(mi2 mi2Var) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, mi2Var) != null) || !a || mi2Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c) {
+                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+            }
+            return d;
         }
-        if (ProcessUtils.isMainProcess()) {
-            di2.a(mi2Var).b();
-            li2.b().a(mi2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", mi2Var.a);
-        bundle.putStringArrayList("recovery_app_list", mi2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), ci2.class, bundle);
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
-            }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            mi2 mi2Var = new mi2();
-            mi2Var.a = i;
-            if (stringArrayList != null) {
-                mi2Var.b = stringArrayList;
-            }
-            di2.a(mi2Var).b();
-            li2.b().a(mi2Var.a);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
         }
-        return (Bundle) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

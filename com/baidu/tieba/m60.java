@@ -1,21 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import java.io.IOException;
+import android.content.Context;
+import com.baidu.tieba.o60;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public interface m60 {
+public class m60 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        Response a(Request request) throws IOException;
-
-        @Nullable
-        t60 connection();
-
-        Request request();
+    public static String a(Context context, o60.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aVar)) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                if (cls != null) {
+                    Object newInstance = cls.newInstance();
+                    Method method = cls.getMethod("getOAID", Context.class);
+                    method.setAccessible(true);
+                    if (newInstance != null && method != null) {
+                        String str = (String) method.invoke(newInstance, context);
+                        aVar.a(true, str);
+                        return str;
+                    }
+                }
+            } catch (Throwable unused) {
+                aVar.a(false, null);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
-
-    Response a(a aVar) throws IOException;
 }

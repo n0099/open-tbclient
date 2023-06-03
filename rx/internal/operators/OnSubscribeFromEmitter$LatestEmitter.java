@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.d8b;
-import com.baidu.tieba.o7b;
+import com.baidu.tieba.dnb;
+import com.baidu.tieba.omb;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 4023437720691792495L;
     public volatile boolean done;
@@ -12,8 +12,8 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
     public final AtomicReference<Object> queue;
     public final AtomicInteger wip;
 
-    public OnSubscribeFromEmitter$LatestEmitter(o7b<? super T> o7bVar) {
-        super(o7bVar);
+    public OnSubscribeFromEmitter$LatestEmitter(omb<? super T> ombVar) {
+        super(ombVar);
         this.queue = new AtomicReference<>();
         this.wip = new AtomicInteger();
     }
@@ -38,7 +38,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
-        o7b<? super T> o7bVar = this.actual;
+        omb<? super T> ombVar = this.actual;
         AtomicReference<Object> atomicReference = this.queue;
         int i2 = 1;
         do {
@@ -49,7 +49,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                 i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i == 0) {
                     break;
-                } else if (o7bVar.isUnsubscribed()) {
+                } else if (ombVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
                 } else {
@@ -72,13 +72,13 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                     } else if (z2) {
                         break;
                     } else {
-                        o7bVar.onNext((Object) NotificationLite.e(andSet));
+                        ombVar.onNext((Object) NotificationLite.e(andSet));
                         j2++;
                     }
                 }
             }
             if (i == 0) {
-                if (o7bVar.isUnsubscribed()) {
+                if (ombVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
                 }
@@ -98,7 +98,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                 }
             }
             if (j2 != 0) {
-                d8b.g(this, j2);
+                dnb.g(this, j2);
             }
             i2 = this.wip.addAndGet(-i2);
         } while (i2 != 0);

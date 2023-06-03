@@ -37,25 +37,26 @@ import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
 import com.baidu.live.framework.view.LiveFeedPageRoundRect;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.service.FloatingService;
 import com.baidu.searchbox.live.interfaces.service.LiveBdTlsScrollService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa0;
-import com.baidu.tieba.ca0;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.ec0;
-import com.baidu.tieba.fb0;
-import com.baidu.tieba.gb0;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.ib0;
-import com.baidu.tieba.ka0;
-import com.baidu.tieba.s90;
-import com.baidu.tieba.sb0;
-import com.baidu.tieba.t90;
-import com.baidu.tieba.tc0;
-import com.baidu.tieba.u90;
-import com.baidu.tieba.v90;
+import com.baidu.tieba.bb0;
+import com.baidu.tieba.bd0;
+import com.baidu.tieba.cb0;
+import com.baidu.tieba.ce0;
+import com.baidu.tieba.db0;
+import com.baidu.tieba.eb0;
+import com.baidu.tieba.jb0;
+import com.baidu.tieba.lb0;
+import com.baidu.tieba.nb0;
+import com.baidu.tieba.nd0;
+import com.baidu.tieba.oc0;
+import com.baidu.tieba.pc0;
+import com.baidu.tieba.qd0;
+import com.baidu.tieba.rc0;
+import com.baidu.tieba.tb0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -76,14 +77,16 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public l L;
     public String Q;
     public LiveFeedInterstModel R;
-    public ILiveFeedOther.LiveFeedStatusListener T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public ILiveFeedOther.LiveFeedStatusListener f1041T;
     public ILiveFeedRefresh.OnRefreshListener U;
-    public fb0 a0;
-    public fb0 b0;
+    public oc0 a0;
+    public oc0 b0;
     public View t;
     public RecyclerView u;
     public View v;
-    public aa0 w;
+    public jb0 w;
     public BdSwipeRefreshLayout x;
     public LoadingView y;
     public ErrorView z;
@@ -150,7 +153,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (LiveSubTabFragment.this.x != null) {
                 LiveSubTabFragment.this.x.setRefreshing(true);
             }
-            LiveSubTabFragment.this.N1();
+            LiveSubTabFragment.this.O1();
         }
     }
 
@@ -175,7 +178,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                         LiveSubTabFragment.this.r.onSlideLoadMore(LiveSubTabFragment.this.m, LiveSubTabFragment.this.o);
                     }
                 }
-                LiveSubTabFragment.this.e3();
+                LiveSubTabFragment.this.f3();
             }
         }
 
@@ -184,7 +187,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (LiveSubTabFragment.this.S != null) {
                 LiveSubTabFragment.this.S.onTLSScrolled(i, i2);
             }
-            this.a = LiveSubTabFragment.this.G1();
+            this.a = LiveSubTabFragment.this.H1();
             boolean z = true;
             if (Math.abs(i2) <= 1) {
                 return;
@@ -208,14 +211,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         @Override // com.baidu.live.business.model.LiveFeedInterstModel.OnInterestDataLoadCallback
         public void onFail(int i, String str, Map<String, String> map) {
             LiveFeedPageSdk.liveLog("errCode :  errMsg " + str);
-            LiveSubTabFragment.this.I3();
+            LiveSubTabFragment.this.J3();
         }
 
         @Override // com.baidu.live.business.model.LiveFeedInterstModel.OnInterestDataLoadCallback
         public void onSuccess(LiveFeedData liveFeedData, Map<String, String> map) {
             if (liveFeedData != null) {
-                LiveSubTabFragment.this.r3(liveFeedData);
-                LiveSubTabFragment.this.I3();
+                LiveSubTabFragment.this.s3(liveFeedData);
+                LiveSubTabFragment.this.J3();
                 return;
             }
             onFail(-100, "数据解析失败", map);
@@ -229,14 +232,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
 
         @Override // java.lang.Runnable
         public void run() {
-            LiveSubTabFragment.this.k3();
-            LiveSubTabFragment.this.f3();
+            LiveSubTabFragment.this.l3();
+            LiveSubTabFragment.this.g3();
             LiveSubTabFragment.this.c0 = false;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g extends ib0 {
+    public class g extends rc0 {
         public final /* synthetic */ LiveRoomEntity a;
 
         public g(LiveRoomEntity liveRoomEntity) {
@@ -246,37 +249,37 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onVideoSizeChanged(int i, int i2) {
             LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
-            liveSubTabFragment.g3(i, i2, this.a, liveSubTabFragment.a0);
+            liveSubTabFragment.h3(i, i2, this.a, liveSubTabFragment.a0);
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onEnd(int i) {
-            LiveSubTabFragment.this.P3();
+            LiveSubTabFragment.this.Q3();
             if (i == 307) {
                 LiveSubTabFragment.this.e0.add(Integer.valueOf(LiveSubTabFragment.this.Y));
                 LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
                 liveSubTabFragment.Y = Math.max(liveSubTabFragment.Y, LiveSubTabFragment.this.Z) + 1;
-                LiveSubTabFragment.this.c3();
+                LiveSubTabFragment.this.d3();
             }
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onError(int i, int i2, String str) {
             Log.e("LiveSubTabFragment", "player1 onError: " + str);
-            LiveSubTabFragment.this.P3();
+            LiveSubTabFragment.this.Q3();
             LiveSubTabFragment.this.e0.add(Integer.valueOf(LiveSubTabFragment.this.Y));
             LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
             liveSubTabFragment.Y = Math.max(liveSubTabFragment.Y, LiveSubTabFragment.this.Z) + 1;
-            LiveSubTabFragment.this.c3();
+            LiveSubTabFragment.this.d3();
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onInfo(int i, int i2) {
             LiveFeedPageRoundRect liveFeedPageRoundRect;
             if (i == 904) {
-                LiveSubTabFragment.this.Q3();
+                LiveSubTabFragment.this.R3();
                 View findViewByPosition = LiveSubTabFragment.this.u.getLayoutManager().findViewByPosition(LiveSubTabFragment.this.Y);
-                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091511)) != null) {
+                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09152e)) != null) {
                     LiveSubTabFragment.this.a0.attachToContainer(liveFeedPageRoundRect);
                 }
             }
@@ -284,17 +287,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onPause() {
-            LiveSubTabFragment.this.P3();
+            LiveSubTabFragment.this.Q3();
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onResume() {
-            LiveSubTabFragment.this.Q3();
+            LiveSubTabFragment.this.R3();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h extends ib0 {
+    public class h extends rc0 {
         public final /* synthetic */ LiveRoomEntity a;
 
         public h(LiveRoomEntity liveRoomEntity) {
@@ -304,37 +307,37 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onVideoSizeChanged(int i, int i2) {
             LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
-            liveSubTabFragment.g3(i, i2, this.a, liveSubTabFragment.b0);
+            liveSubTabFragment.h3(i, i2, this.a, liveSubTabFragment.b0);
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onEnd(int i) {
-            LiveSubTabFragment.this.R3();
+            LiveSubTabFragment.this.S3();
             if (i == 307) {
                 LiveSubTabFragment.this.e0.add(Integer.valueOf(LiveSubTabFragment.this.Z));
                 LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
                 liveSubTabFragment.Z = Math.max(liveSubTabFragment.Y, LiveSubTabFragment.this.Z) + 1;
-                LiveSubTabFragment.this.d3();
+                LiveSubTabFragment.this.e3();
             }
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onError(int i, int i2, String str) {
             Log.e("LiveSubTabFragment", "player2 onError: " + str);
-            LiveSubTabFragment.this.R3();
+            LiveSubTabFragment.this.S3();
             LiveSubTabFragment.this.e0.add(Integer.valueOf(LiveSubTabFragment.this.Z));
             LiveSubTabFragment liveSubTabFragment = LiveSubTabFragment.this;
             liveSubTabFragment.Z = Math.max(liveSubTabFragment.Y, LiveSubTabFragment.this.Z) + 1;
-            LiveSubTabFragment.this.d3();
+            LiveSubTabFragment.this.e3();
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onInfo(int i, int i2) {
             LiveFeedPageRoundRect liveFeedPageRoundRect;
             if (i == 904) {
-                LiveSubTabFragment.this.S3();
+                LiveSubTabFragment.this.T3();
                 View findViewByPosition = LiveSubTabFragment.this.u.getLayoutManager().findViewByPosition(LiveSubTabFragment.this.Z);
-                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091511)) != null) {
+                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09152e)) != null) {
                     LiveSubTabFragment.this.b0.attachToContainer(liveFeedPageRoundRect);
                 }
             }
@@ -342,23 +345,23 @@ public class LiveSubTabFragment extends LiveBaseFragment {
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onPause() {
-            LiveSubTabFragment.this.R3();
+            LiveSubTabFragment.this.S3();
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onResume() {
-            LiveSubTabFragment.this.S3();
+            LiveSubTabFragment.this.T3();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class i implements ka0 {
+    public class i implements tb0 {
         public i() {
         }
 
-        @Override // com.baidu.tieba.ka0
+        @Override // com.baidu.tieba.tb0
         public void a(View view2) {
-            LiveSubTabFragment.this.H3(false, true, null);
+            LiveSubTabFragment.this.I3(false, true, null);
         }
     }
 
@@ -383,7 +386,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
 
         @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
         public void onHeaderReserveClick(@Nullable String str) {
-            LiveSubTabFragment.this.B3(str);
+            LiveSubTabFragment.this.C3(str);
         }
 
         @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
@@ -476,7 +479,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (liveSubTabFragment == null) {
                 return;
             }
-            liveSubTabFragment.y3(i, str, map);
+            liveSubTabFragment.z3(i, str, map);
         }
 
         @Override // com.baidu.live.business.model.ILiveFeedModel.OnDataLoadCallback
@@ -485,7 +488,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (liveSubTabFragment == null) {
                 return;
             }
-            liveSubTabFragment.z3(liveFeedData, map);
+            liveSubTabFragment.A3(liveFeedData, map);
         }
     }
 
@@ -509,9 +512,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
         this.e0.clear();
         this.d0.removeCallbacksAndMessages(null);
-        O3(false);
+        P3(false);
         this.L = null;
-        I3();
+        J3();
         this.M = 0L;
         this.R = null;
         LiveSubTabAdapter liveSubTabAdapter = this.B;
@@ -521,7 +524,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         this.t = null;
     }
 
-    public static LiveSubTabFragment w3(Bundle bundle) {
+    public static LiveSubTabFragment x3(Bundle bundle) {
         LiveSubTabFragment liveSubTabFragment = new LiveSubTabFragment();
         if (bundle != null) {
             liveSubTabFragment.setArguments(bundle);
@@ -529,18 +532,18 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return liveSubTabFragment;
     }
 
-    public void K3(l lVar) {
+    public void L3(l lVar) {
         this.L = lVar;
     }
 
-    public void L3(ILiveFeedModel iLiveFeedModel) {
+    public void M3(ILiveFeedModel iLiveFeedModel) {
         this.h = iLiveFeedModel;
         this.i = new m(this);
         this.j = this.h.getInitResource();
     }
 
-    public void b3(ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener) {
-        this.T = liveFeedStatusListener;
+    public void c3(ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener) {
+        this.f1041T = liveFeedStatusListener;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -548,12 +551,12 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         super.onActivityCreated(bundle);
     }
 
-    public final int p3(LiveFeedWrapData liveFeedWrapData) {
-        return q3(liveFeedWrapData, null);
+    public final int q3(LiveFeedWrapData liveFeedWrapData) {
+        return r3(liveFeedWrapData, null);
     }
 
-    public void T3(String str, String str2) {
-        if (!hc0.a(str) && !hc0.a(str2) && str.equals(this.m)) {
+    public void U3(String str, String str2) {
+        if (!qd0.a(str) && !qd0.a(str2) && str.equals(this.m)) {
             this.o = str2;
             LiveSubTabAdapter liveSubTabAdapter = this.B;
             if (liveSubTabAdapter != null) {
@@ -562,31 +565,31 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public void i3(LiveFeedWrapData liveFeedWrapData, int i2) {
+    public void j3(LiveFeedWrapData liveFeedWrapData, int i2) {
         LiveBaseFragment.a aVar;
         if (liveFeedWrapData != null && (aVar = this.r) != null) {
             aVar.onFeedStabilityLog(liveFeedWrapData, i2);
         }
     }
 
-    public int j3(StaggeredGridLayoutManager staggeredGridLayoutManager, boolean z) {
+    public int k3(StaggeredGridLayoutManager staggeredGridLayoutManager, boolean z) {
         int i2 = !z ? 1 : 0;
         if (LiveFeedAbTest.a()) {
-            return n3(staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[i2], staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[i2], staggeredGridLayoutManager);
+            return o3(staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[i2], staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[i2], staggeredGridLayoutManager);
         }
-        return o3(staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[i2], staggeredGridLayoutManager.findLastVisibleItemPositions(null)[i2], staggeredGridLayoutManager);
+        return p3(staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[i2], staggeredGridLayoutManager.findLastVisibleItemPositions(null)[i2], staggeredGridLayoutManager);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         super.onViewCreated(view2, bundle);
         this.G = true;
-        x3("day");
+        y3("day");
     }
 
-    public final int n3(int i2, int i3, StaggeredGridLayoutManager staggeredGridLayoutManager) {
+    public final int o3(int i2, int i3, StaggeredGridLayoutManager staggeredGridLayoutManager) {
         while (i2 <= i3) {
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ec0.b(this.C, i2);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) nd0.b(this.C, i2);
             if (liveRoomEntity != null && liveRoomEntity.canAutoPlay() && !liveRoomEntity.isTopicRoom()) {
                 return i2;
             }
@@ -595,101 +598,188 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return -1;
     }
 
-    public final void g3(int i2, int i3, LiveRoomEntity liveRoomEntity, fb0 fb0Var) {
+    public final void h3(int i2, int i3, LiveRoomEntity liveRoomEntity, oc0 oc0Var) {
         if (liveRoomEntity != null && liveRoomEntity.isYYShow()) {
             if (i2 > i3) {
-                fb0Var.setVideoScalingMode(2);
+                oc0Var.setVideoScalingMode(2);
                 return;
             } else {
-                fb0Var.setVideoScalingMode(0);
+                oc0Var.setVideoScalingMode(0);
                 return;
             }
         }
-        fb0Var.setVideoScalingMode(0);
+        oc0Var.setVideoScalingMode(0);
     }
 
-    public void A3() {
+    public final void A3(LiveFeedData liveFeedData, Map<String, String> map) {
+        boolean z;
+        LiveFeedWrapData liveFeedWrapData;
+        RecyclerView recyclerView;
+        if (String.valueOf(1).equals(map.get("refresh_type"))) {
+            ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener = this.s;
+            if (onLoadMoreListener != null) {
+                onLoadMoreListener.onLoadMoreEnd();
+            }
+        } else {
+            ILiveFeedRefresh.OnRefreshListener onRefreshListener = this.U;
+            if (onRefreshListener != null) {
+                onRefreshListener.onPullRefreshEnd();
+            }
+        }
+        if (liveFeedData != null && !qd0.a(liveFeedData.resource)) {
+            LiveFeedConfig liveFeedConfig = liveFeedData.feedConfig;
+            if (liveFeedConfig != null) {
+                this.Q = liveFeedConfig.minorUfoUrl;
+            }
+            if (liveFeedData.isMinor) {
+                eb0 eb0Var = new eb0();
+                eb0Var.b = liveFeedData.isMinor;
+                eb0Var.c = this.Q;
+                eb0Var.b(this.J);
+                bd0.a().b(eb0Var);
+            }
+            if (liveFeedData.resource.contains(SpeedStatsUtils.UBC_VALUE_BANNER) && liveFeedData.bannerWrapData != null) {
+                bb0 bb0Var = new bb0();
+                bb0Var.b = liveFeedData.bannerWrapData;
+                bb0Var.b(this.J);
+                bd0.a().b(bb0Var);
+            }
+            if (liveFeedData.resource.contains("follow") && liveFeedData.followWrapData != null) {
+                db0 db0Var = new db0();
+                db0Var.b = liveFeedData.followWrapData;
+                db0Var.b(this.J);
+                bd0.a().b(db0Var);
+            }
+            LiveFeedWrapData liveFeedWrapData2 = liveFeedData.feedWrapData;
+            String str = "";
+            if (liveFeedWrapData2 != null) {
+                if (J1(liveFeedWrapData2.tab, liveFeedWrapData2.subTab, liveFeedWrapData2.refreshType)) {
+                    this.q = "";
+                    this.l = liveFeedData.feedWrapData.sessionId;
+                    LiveFeedReserveWrapData liveFeedReserveWrapData = null;
+                    if (liveFeedData.resource.contains("reserve")) {
+                        liveFeedReserveWrapData = liveFeedData.reserveWrapData;
+                    }
+                    j3(liveFeedData.feedWrapData, r3(liveFeedData.feedWrapData, liveFeedReserveWrapData));
+                    z = !nd0.c(liveFeedData.feedWrapData.roomInfoList);
+                } else {
+                    z = false;
+                }
+                LiveFeedWrapData liveFeedWrapData3 = liveFeedData.feedWrapData;
+                this.H = liveFeedWrapData3.hasMore;
+                this.k = liveFeedWrapData3.refreshIndex;
+                if (liveFeedWrapData3.isBigRefresh()) {
+                    bd0.a().b(new cb0(this.J));
+                }
+            } else {
+                this.H = false;
+                z = false;
+            }
+            K3();
+            if (nd0.c(this.C) && !z) {
+                EmptyView emptyView = this.A;
+                int i2 = liveFeedData.errno;
+                LiveFeedWrapData liveFeedWrapData4 = liveFeedData.feedWrapData;
+                String str2 = liveFeedData.logId;
+                if (liveFeedWrapData4 != null) {
+                    str = liveFeedWrapData4.sessionId;
+                }
+                O3(emptyView, i2, liveFeedWrapData4, str2, str, liveFeedData.resource);
+                return;
+            }
+            N3(this.x);
+            if (liveFeedData != null && (liveFeedWrapData = liveFeedData.feedWrapData) != null && liveFeedWrapData.isBigRefresh() && (recyclerView = this.u) != null) {
+                recyclerView.smoothScrollBy(0, 1);
+                this.u.smoothScrollBy(0, -1);
+                return;
+            }
+            return;
+        }
+        z3(-100, "数据解析失败", map);
+    }
+
+    public void B3() {
         LiveSubTabAdapter liveSubTabAdapter = this.B;
         if (liveSubTabAdapter != null) {
             liveSubTabAdapter.notifyDataSetChanged();
         }
     }
 
-    public void C3() {
+    public void D3() {
         LiveBaseFragment.a aVar = this.r;
         if (aVar != null) {
             aVar.onTabPageHideLog(this.m, this.o);
         }
     }
 
-    public void D3() {
-        if (ca0.f(getContext()) && ca0.h(getContext())) {
-            e3();
+    public void E3() {
+        if (lb0.f(getContext()) && lb0.h(getContext())) {
+            f3();
             return;
         }
-        fb0 fb0Var = this.a0;
-        if (fb0Var != null) {
-            fb0Var.detachFromContainer();
+        oc0 oc0Var = this.a0;
+        if (oc0Var != null) {
+            oc0Var.detachFromContainer();
             this.a0.stop();
         }
-        fb0 fb0Var2 = this.b0;
-        if (fb0Var2 != null) {
-            fb0Var2.detachFromContainer();
+        oc0 oc0Var2 = this.b0;
+        if (oc0Var2 != null) {
+            oc0Var2.detachFromContainer();
             this.b0.stop();
         }
     }
 
-    public void E3() {
+    public void F3() {
         LiveFeedPageSdk.liveLog("LiveSubTabFragment onParentPause :  tab " + this.m + "  subTab " + this.o);
         this.f0 = true;
-        O3(true);
+        P3(true);
     }
 
-    public void F3() {
+    public void G3() {
         LiveFeedPageSdk.liveLog("LiveSubTabFragment onParentResume :  tab " + this.m + "  subTab " + this.o);
         this.f0 = false;
-        e3();
+        f3();
     }
 
     @Override // com.baidu.live.business.base.LiveBaseFragment
-    public RecyclerView H1() {
+    public RecyclerView I1() {
         return this.u;
     }
 
-    public final void I3() {
+    public final void J3() {
         this.N = 0L;
         this.P = -1;
         this.O = null;
     }
 
-    public final void J3() {
+    public final void K3() {
         BdSwipeRefreshLayout bdSwipeRefreshLayout = this.x;
         if (bdSwipeRefreshLayout != null) {
             bdSwipeRefreshLayout.setRefreshing(false);
         }
         this.F = 0;
-        if (this.B != null && !ec0.c(this.C)) {
+        if (this.B != null && !nd0.c(this.C)) {
             this.B.s(this.H);
             LiveSubTabAdapter liveSubTabAdapter = this.B;
             liveSubTabAdapter.notifyItemChanged(liveSubTabAdapter.getItemCount() - 1);
         }
         this.c0 = true;
-        e3();
+        f3();
     }
 
-    public final void P3() {
+    public final void Q3() {
         if (this.r != null) {
-            this.r.onItemPlayerEnd(1, this.m, this.o, this.Y, (LiveRoomEntity) ec0.b(this.C, this.Y));
+            this.r.onItemPlayerEnd(1, this.m, this.o, this.Y, (LiveRoomEntity) nd0.b(this.C, this.Y));
         }
     }
 
-    public final void R3() {
+    public final void S3() {
         if (this.r != null) {
-            this.r.onItemPlayerEnd(2, this.m, this.o, this.Y, (LiveRoomEntity) ec0.b(this.C, this.Y));
+            this.r.onItemPlayerEnd(2, this.m, this.o, this.Y, (LiveRoomEntity) nd0.b(this.C, this.Y));
         }
     }
 
-    public final void e3() {
+    public final void f3() {
         LiveFeedConfig liveFeedConfig;
         if (!"recommend".equals(this.e) && (liveFeedConfig = this.c) != null && liveFeedConfig.supportPlay() && !this.f0 && !LiveFeedAbTest.b()) {
             this.d0.removeCallbacks(this.g0);
@@ -697,16 +787,16 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final void f3() {
+    public final void g3() {
         FloatingService floatingService = (FloatingService) ServiceManager.getService(FloatingService.Companion.getSERVICE_REFERENCE());
-        if ((floatingService != null && floatingService.isFloatViewShowing()) || !ca0.h(getContext())) {
+        if ((floatingService != null && floatingService.isFloatViewShowing()) || !lb0.h(getContext())) {
             return;
         }
-        c3();
         d3();
+        e3();
     }
 
-    public boolean h3() {
+    public boolean i3() {
         RecyclerView recyclerView = this.u;
         if (recyclerView != null) {
             return recyclerView.canScrollVertically(1);
@@ -714,7 +804,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return false;
     }
 
-    public LiveFeedInterstModel l3() {
+    public LiveFeedInterstModel m3() {
         if (this.R == null) {
             this.R = new LiveFeedInterstModel();
         }
@@ -729,7 +819,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         this.y.e();
     }
 
-    public final void s3() {
+    public final void t3() {
         LiveSubTabAdapter liveSubTabAdapter = new LiveSubTabAdapter(getContext(), this.e, this.m, this.o);
         this.B = liveSubTabAdapter;
         liveSubTabAdapter.r(this.c);
@@ -737,11 +827,11 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         this.u.setAdapter(this.B);
     }
 
-    public boolean u3() {
+    public boolean v3() {
         return this.H;
     }
 
-    public final boolean v3() {
+    public final boolean w3() {
         LiveFeedConfig.PlayConfig playConfig;
         LiveFeedConfig liveFeedConfig = this.c;
         if (liveFeedConfig != null && (playConfig = liveFeedConfig.playConfig) != null && playConfig.maxPlayCount == 1) {
@@ -750,7 +840,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return false;
     }
 
-    public final void B3(String str) {
+    public final void C3(String str) {
         boolean z;
         if (this.B == null) {
             return;
@@ -801,7 +891,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public void M3(View view2) {
+    public void N3(View view2) {
         int i2;
         int i3;
         ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener;
@@ -826,16 +916,16 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.z.d(8);
             this.A.b(8);
             this.y.setVisibility(8);
-            if (view2 == this.z && (liveFeedStatusListener4 = this.T) != null) {
+            if (view2 == this.z && (liveFeedStatusListener4 = this.f1041T) != null) {
                 liveFeedStatusListener4.onError();
             }
-            if (view2 == this.A && (liveFeedStatusListener3 = this.T) != null) {
+            if (view2 == this.A && (liveFeedStatusListener3 = this.f1041T) != null) {
                 liveFeedStatusListener3.onEmpty();
             }
-            if (view2 == this.y && (liveFeedStatusListener2 = this.T) != null) {
+            if (view2 == this.y && (liveFeedStatusListener2 = this.f1041T) != null) {
                 liveFeedStatusListener2.onLoading();
             }
-            if (view2 == this.x && (liveFeedStatusListener = this.T) != null) {
+            if (view2 == this.x && (liveFeedStatusListener = this.f1041T) != null) {
                 liveFeedStatusListener.onLoadSuccess();
                 return;
             }
@@ -868,10 +958,10 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final void r3(LiveFeedData liveFeedData) {
+    public final void s3(LiveFeedData liveFeedData) {
         LiveFeedWrapData liveFeedWrapData;
-        if (liveFeedData != null && (liveFeedWrapData = liveFeedData.feedWrapData) != null && this.P != -1 && !ec0.c(liveFeedWrapData.roomInfoList)) {
-            LiveFeedPageSdk.liveLog("yjl_feed_tag", "===>>  handleInterestData ListUtils.isEmpty(feedData.feedWrapData.roomInfoList): " + ec0.c(liveFeedData.feedWrapData.roomInfoList));
+        if (liveFeedData != null && (liveFeedWrapData = liveFeedData.feedWrapData) != null && this.P != -1 && !nd0.c(liveFeedWrapData.roomInfoList)) {
+            LiveFeedPageSdk.liveLog("yjl_feed_tag", "===>>  handleInterestData ListUtils.isEmpty(feedData.feedWrapData.roomInfoList): " + nd0.c(liveFeedData.feedWrapData.roomInfoList));
             for (LiveRoomEntity liveRoomEntity : liveFeedData.feedWrapData.roomInfoList) {
                 liveRoomEntity.hasInterest = true;
             }
@@ -886,11 +976,11 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public void x3(String str) {
+    public void y3(String str) {
         if (this.G) {
-            this.t.setBackgroundColor(tc0.f().a(getContext(), this.e, "color_F5F5F51"));
+            this.t.setBackgroundColor(ce0.f().a(getContext(), this.e, "color_F5F5F51"));
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{tc0.f().a(getContext(), this.e, "color_white1"), tc0.f().a(getContext(), this.e, "color_F5F5F51")});
+            gradientDrawable.setColors(new int[]{ce0.f().a(getContext(), this.e, "color_white1"), ce0.f().a(getContext(), this.e, "color_F5F5F51")});
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
             this.v.setBackgroundDrawable(gradientDrawable);
@@ -898,9 +988,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (liveSubTabAdapter != null) {
                 liveSubTabAdapter.notifyDataSetChanged();
             }
-            aa0 aa0Var = this.w;
-            if (aa0Var != null) {
-                aa0Var.y(this.e);
+            jb0 jb0Var = this.w;
+            if (jb0Var != null) {
+                jb0Var.y(this.e);
             }
             ErrorView errorView = this.z;
             if (errorView != null) {
@@ -917,7 +1007,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public void G3() {
+    public void H3() {
         LiveFeedConfig.InterestInsert interestInsert;
         boolean z;
         LiveBaseFragment.a aVar = this.r;
@@ -945,68 +1035,68 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             LiveFeedPageSdk.liveLog("yjl_feed_tag", "interestInsert.duration * 1000 : " + (interestInsert.duration * 1000));
             LiveFeedPageSdk.liveLog("yjl_feed_tag", "overTime : " + z + " hasInsertOverTimes： " + z2 + " statusLiving： " + isStatusLiving + " \t mCurrentClickItemRoomEntity.hasInterest : " + this.O.hasInterest);
             if (isStatusLiving && z2 && z && !z3 && !z4) {
-                LiveFeedInterstModel l3 = l3();
+                LiveFeedInterstModel m3 = m3();
                 LiveRoomEntity liveRoomEntity2 = this.O;
-                l3.reqInterestData(liveRoomEntity2.sessionId, liveRoomEntity2.liveTag, liveRoomEntity2.feedTag, this.X);
+                m3.reqInterestData(liveRoomEntity2.sessionId, liveRoomEntity2.liveTag, liveRoomEntity2.feedTag, this.X);
             }
         }
     }
 
-    public final void t3() {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f0921db);
+    public final void u3() {
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f09220e);
         this.x = bdSwipeRefreshLayout;
         bdSwipeRefreshLayout.setScene(this.e);
         this.x.setOnRefreshListener(this.V);
-        RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f0921da);
+        RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f09220d);
         this.u = recyclerView;
         recyclerView.setLayoutManager(new FixedStaggeredGridLayoutManager(2, 1));
         this.u.setItemAnimator(null);
-        int b2 = ca0.b(getContext(), 7.0f);
+        int b2 = lb0.b(getContext(), 7.0f);
         if (LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-            b2 = ca0.b(getContext(), 8.0f);
+            b2 = lb0.b(getContext(), 8.0f);
         }
         this.u.addItemDecoration(new LiveItemDecoration(b2));
         this.u.setOverScrollMode(2);
         this.u.addOnScrollListener(this.W);
-        aa0 aa0Var = new aa0(getContext());
-        this.w = aa0Var;
-        aa0Var.z(this.e);
+        jb0 jb0Var = new jb0(getContext());
+        this.w = jb0Var;
+        jb0Var.z(this.e);
         this.x.setProgressView(this.w);
         this.w.y(this.e);
-        LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f0921d9);
+        LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f09220c);
         this.y = loadingView;
         loadingView.c(this.e);
-        ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f0921d8);
+        ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f09220b);
         this.z = errorView;
         errorView.c(this.e);
-        EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f0921d7);
+        EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f09220a);
         this.A = emptyView;
         emptyView.a(this.e);
         this.z.setActionCallback(new i());
-        this.v = this.t.findViewById(R.id.obfuscated_res_0x7f091520);
+        this.v = this.t.findViewById(R.id.obfuscated_res_0x7f09153d);
         if (LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-            int b3 = ca0.b(getContext(), 9.0f);
+            int b3 = lb0.b(getContext(), 9.0f);
             this.u.setPadding(b3, 0, b3, 0);
             this.v.setVisibility(8);
             this.x.setEnabled(false);
         }
-        s3();
+        t3();
     }
 
-    public void H3(boolean z, boolean z2, ILiveFeedRefresh.OnRefreshListener onRefreshListener) {
-        boolean O1;
+    public void I3(boolean z, boolean z2, ILiveFeedRefresh.OnRefreshListener onRefreshListener) {
+        boolean P1;
         if (onRefreshListener != null) {
             this.U = onRefreshListener;
         }
         if (this.h != null) {
             if (z) {
-                O1 = N1();
+                P1 = O1();
             } else {
-                O1 = O1();
+                P1 = P1();
             }
-            if (O1 && this.x != null) {
+            if (P1 && this.x != null) {
                 if (this.C.isEmpty()) {
-                    M3(this.y);
+                    N3(this.y);
                 }
                 RecyclerView recyclerView = this.u;
                 if (recyclerView != null && recyclerView.getChildCount() > 0) {
@@ -1019,10 +1109,26 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final int o3(int i2, int i3, StaggeredGridLayoutManager staggeredGridLayoutManager) {
+    @Override // androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        LiveFeedPageSdk.liveLog("LiveSubTabFragment onCreateView :  tab " + this.m + "  subTab " + this.o);
+        View view2 = this.t;
+        if (view2 == null) {
+            this.t = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05c3, viewGroup, false);
+            u3();
+        } else {
+            ViewGroup viewGroup2 = (ViewGroup) view2.getParent();
+            if (viewGroup2 != null) {
+                viewGroup2.removeView(this.t);
+            }
+        }
+        return this.t;
+    }
+
+    public final int p3(int i2, int i3, StaggeredGridLayoutManager staggeredGridLayoutManager) {
         View childAt;
         for (int i4 = i2; i4 <= i3; i4++) {
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ec0.b(this.C, i4);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) nd0.b(this.C, i4);
             if (liveRoomEntity != null && liveRoomEntity.canAutoPlay() && !liveRoomEntity.isTopicRoom() && (childAt = staggeredGridLayoutManager.getChildAt(i4 - i2)) != null) {
                 childAt.getLocationOnScreen(new int[2]);
                 Rect rect = new Rect();
@@ -1035,73 +1141,59 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return -1;
     }
 
-    @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        LiveFeedPageSdk.liveLog("LiveSubTabFragment onCreateView :  tab " + this.m + "  subTab " + this.o);
-        View view2 = this.t;
-        if (view2 == null) {
-            this.t = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05b5, viewGroup, false);
-            t3();
-        } else {
-            ViewGroup viewGroup2 = (ViewGroup) view2.getParent();
-            if (viewGroup2 != null) {
-                viewGroup2.removeView(this.t);
-            }
-        }
-        return this.t;
-    }
-
     @Override // com.baidu.live.business.base.LiveBaseFragment
-    public void K1(boolean z) {
+    public void L1(boolean z) {
         LiveFeedPageSdk.liveLog("LiveSubTabFragment onFragmentShow :" + z + "  tab " + this.m + "  subTab " + this.o);
         if (z) {
             lazyLoad();
-            G3();
+            H3();
             return;
         }
-        C3();
-        O3(false);
+        D3();
+        P3(false);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0053  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void N3(View view2, int i2, LiveFeedWrapData liveFeedWrapData, String str, String str2, String str3) {
+    public final void O3(View view2, int i2, LiveFeedWrapData liveFeedWrapData, String str, String str2, String str3) {
+        JSONObject jSONObject;
         LiveFeedWrapData liveFeedWrapData2;
+        LiveFeedWrapData liveFeedWrapData3;
         if (!"recommend".equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-            LiveFeedWrapData liveFeedWrapData3 = null;
-            String b2 = ea0.b(LiveFeedWrapData.getFeedCacheKey(this.m, this.o), "");
+            LiveFeedWrapData liveFeedWrapData4 = null;
+            String b2 = nb0.b(LiveFeedWrapData.getFeedCacheKey(this.m, this.o), "");
             if (!TextUtils.isEmpty(b2)) {
                 try {
-                    JSONObject jSONObject = new JSONObject(b2);
-                    LiveFeedWrapData liveFeedWrapData4 = new LiveFeedWrapData();
-                    try {
-                        liveFeedWrapData4.parserJson(jSONObject, -1, true);
-                        liveFeedWrapData4.isCacheData = true;
-                        liveFeedWrapData2 = liveFeedWrapData4;
-                    } catch (JSONException unused) {
-                        liveFeedWrapData3 = liveFeedWrapData4;
-                        ea0.g(LiveFeedWrapData.getFeedCacheKey(this.m, this.o));
-                        liveFeedWrapData2 = liveFeedWrapData3;
-                        if (liveFeedWrapData2 == null) {
-                        }
-                    }
-                } catch (JSONException unused2) {
+                    jSONObject = new JSONObject(b2);
+                    liveFeedWrapData2 = new LiveFeedWrapData();
+                } catch (JSONException unused) {
                 }
-                if (liveFeedWrapData2 == null) {
-                    M3(view2);
+                try {
+                    liveFeedWrapData2.parserJson(jSONObject, -1, true);
+                    liveFeedWrapData2.isCacheData = true;
+                    liveFeedWrapData3 = liveFeedWrapData2;
+                } catch (JSONException unused2) {
+                    liveFeedWrapData4 = liveFeedWrapData2;
+                    nb0.g(LiveFeedWrapData.getFeedCacheKey(this.m, this.o));
+                    liveFeedWrapData3 = liveFeedWrapData4;
+                    if (liveFeedWrapData3 == null) {
+                    }
+                }
+                if (liveFeedWrapData3 == null) {
+                    N3(view2);
                     return;
                 }
-                p3(liveFeedWrapData2);
-                this.H = liveFeedWrapData2.hasMore;
-                this.l = liveFeedWrapData2.sessionId;
-                J3();
-                if (ec0.c(liveFeedWrapData2.roomInfoList)) {
-                    M3(view2);
+                q3(liveFeedWrapData3);
+                this.H = liveFeedWrapData3.hasMore;
+                this.l = liveFeedWrapData3.sessionId;
+                K3();
+                if (nd0.c(liveFeedWrapData3.roomInfoList)) {
+                    N3(view2);
                 } else {
-                    M3(this.x);
+                    N3(this.x);
                     LiveBaseFragment.a aVar = this.r;
                     if (aVar != null) {
                         aVar.onShowToast("服务器太累了，请稍后重试");
@@ -1109,29 +1201,29 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 }
                 LiveBaseFragment.a aVar2 = this.r;
                 if (aVar2 != null) {
-                    aVar2.onHitCache(this.m, this.o, str2, str, str3, i2, liveFeedWrapData2, liveFeedWrapData);
+                    aVar2.onHitCache(this.m, this.o, str2, str, str3, i2, liveFeedWrapData3, liveFeedWrapData);
                     return;
                 }
                 return;
             }
-            liveFeedWrapData2 = liveFeedWrapData3;
-            if (liveFeedWrapData2 == null) {
+            liveFeedWrapData3 = liveFeedWrapData4;
+            if (liveFeedWrapData3 == null) {
             }
         } else {
-            M3(view2);
+            N3(view2);
         }
     }
 
-    public final void O3(boolean z) {
+    public final void P3(boolean z) {
         this.d0.removeCallbacks(this.g0);
         if (z) {
-            fb0 fb0Var = this.a0;
-            if (fb0Var != null) {
-                fb0Var.stop();
+            oc0 oc0Var = this.a0;
+            if (oc0Var != null) {
+                oc0Var.stop();
                 this.d0.postDelayed(new k(), 500L);
-                fb0 fb0Var2 = this.b0;
-                if (fb0Var2 != null) {
-                    fb0Var2.stop();
+                oc0 oc0Var2 = this.b0;
+                if (oc0Var2 != null) {
+                    oc0Var2.stop();
                     this.d0.postDelayed(new a(), 500L);
                     return;
                 }
@@ -1139,30 +1231,30 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             }
             return;
         }
-        fb0 fb0Var3 = this.a0;
-        if (fb0Var3 != null) {
-            fb0Var3.detachFromContainer();
+        oc0 oc0Var3 = this.a0;
+        if (oc0Var3 != null) {
+            oc0Var3.detachFromContainer();
             this.a0.setPlayerListener(null);
             this.a0 = null;
         }
-        fb0 fb0Var4 = this.b0;
-        if (fb0Var4 != null) {
-            fb0Var4.detachFromContainer();
+        oc0 oc0Var4 = this.b0;
+        if (oc0Var4 != null) {
+            oc0Var4.detachFromContainer();
             this.b0.setPlayerListener(null);
             this.b0 = null;
         }
     }
 
-    public final int m3(StaggeredGridLayoutManager staggeredGridLayoutManager) {
+    public final int n3(StaggeredGridLayoutManager staggeredGridLayoutManager) {
         if (LiveFeedAbTest.a()) {
-            return n3(Math.min(staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[0], staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[1]), Math.max(staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[0], staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[1]), staggeredGridLayoutManager);
+            return o3(Math.min(staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[0], staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(null)[1]), Math.max(staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[0], staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(null)[1]), staggeredGridLayoutManager);
         }
-        return o3(Math.min(staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[0], staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[1]), Math.max(staggeredGridLayoutManager.findLastVisibleItemPositions(null)[0], staggeredGridLayoutManager.findLastVisibleItemPositions(null)[1]), staggeredGridLayoutManager);
+        return p3(Math.min(staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[0], staggeredGridLayoutManager.findFirstVisibleItemPositions(null)[1]), Math.max(staggeredGridLayoutManager.findLastVisibleItemPositions(null)[0], staggeredGridLayoutManager.findLastVisibleItemPositions(null)[1]), staggeredGridLayoutManager);
     }
 
-    public final void Q3() {
+    public final void R3() {
         if (this.r != null) {
-            this.r.onItemPlayerStart(1, this.m, this.o, this.Y, (LiveRoomEntity) ec0.b(this.C, this.Y));
+            this.r.onItemPlayerStart(1, this.m, this.o, this.Y, (LiveRoomEntity) nd0.b(this.C, this.Y));
         }
         int i2 = this.Y;
         if (i2 >= 0 && i2 < this.C.size()) {
@@ -1170,9 +1262,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final void S3() {
+    public final void T3() {
         if (this.r != null) {
-            this.r.onItemPlayerStart(2, this.m, this.o, this.Y, (LiveRoomEntity) ec0.b(this.C, this.Y));
+            this.r.onItemPlayerStart(2, this.m, this.o, this.Y, (LiveRoomEntity) nd0.b(this.C, this.Y));
         }
         int i2 = this.Z;
         if (i2 >= 0 && i2 < this.C.size()) {
@@ -1180,16 +1272,16 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final void k3() {
+    public final void l3() {
         RecyclerView recyclerView = this.u;
         if (recyclerView != null && recyclerView.getLayoutManager() != null) {
-            if (v3()) {
-                this.Y = m3((StaggeredGridLayoutManager) this.u.getLayoutManager());
+            if (w3()) {
+                this.Y = n3((StaggeredGridLayoutManager) this.u.getLayoutManager());
                 this.Z = -1;
                 return;
             }
-            this.Y = j3((StaggeredGridLayoutManager) this.u.getLayoutManager(), true);
-            this.Z = j3((StaggeredGridLayoutManager) this.u.getLayoutManager(), false);
+            this.Y = k3((StaggeredGridLayoutManager) this.u.getLayoutManager(), true);
+            this.Z = k3((StaggeredGridLayoutManager) this.u.getLayoutManager(), false);
         }
     }
 
@@ -1203,17 +1295,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (bdSwipeRefreshLayout != null) {
             bdSwipeRefreshLayout.setRefreshing(false);
         }
-        O3(true);
+        P3(true);
     }
 
-    public final void c3() {
+    public final void d3() {
         View findViewByPosition;
         RecyclerView recyclerView = this.u;
         if (recyclerView != null && recyclerView.getLayoutManager() != null && (findViewByPosition = this.u.getLayoutManager().findViewByPosition(this.Y)) != null && this.Y < this.C.size()) {
-            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091511);
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ec0.b(this.C, this.Y);
+            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09152e);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) nd0.b(this.C, this.Y);
             if (this.a0 == null) {
-                fb0 a2 = gb0.a(String.valueOf(this.J));
+                oc0 a2 = pc0.a(String.valueOf(this.J));
                 this.a0 = a2;
                 a2.setVideoScalingMode(0);
                 this.a0.mute(true);
@@ -1231,7 +1323,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     return;
                 }
                 this.Y = Math.max(this.Y, this.Z) + 1;
-                c3();
+                d3();
                 return;
             }
             if (this.a0.getVideoUrl() == null && !TextUtils.isEmpty(this.C.get(this.Y).playUrl)) {
@@ -1251,14 +1343,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
     }
 
-    public final void d3() {
+    public final void e3() {
         View findViewByPosition;
         RecyclerView recyclerView = this.u;
         if (recyclerView != null && recyclerView.getLayoutManager() != null && (findViewByPosition = this.u.getLayoutManager().findViewByPosition(this.Z)) != null && this.Z < this.C.size()) {
-            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091511);
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ec0.b(this.C, this.Z);
+            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09152e);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) nd0.b(this.C, this.Z);
             if (this.b0 == null) {
-                fb0 a2 = gb0.a(String.valueOf(this.J));
+                oc0 a2 = pc0.a(String.valueOf(this.J));
                 this.b0 = a2;
                 a2.setVideoScalingMode(0);
                 this.b0.mute(true);
@@ -1276,7 +1368,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     return;
                 }
                 this.Z = Math.max(this.Y, this.Z) + 1;
-                d3();
+                e3();
                 return;
             }
             if (this.b0.getVideoUrl() == null && !TextUtils.isEmpty(this.C.get(this.Z).playUrl)) {
@@ -1303,26 +1395,26 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.I = false;
             LiveFeedWrapData liveFeedWrapData = this.b;
             if (liveFeedWrapData != null && this.m.equals(liveFeedWrapData.tab) && this.o.equals(this.b.subTab)) {
-                i3(this.b, q3(this.b, this.d));
+                j3(this.b, r3(this.b, this.d));
                 LiveFeedWrapData liveFeedWrapData2 = this.b;
                 this.H = liveFeedWrapData2.hasMore;
                 this.l = liveFeedWrapData2.sessionId;
-                J3();
-                if (ec0.c(this.C) && ec0.c(this.b.roomInfoList)) {
+                K3();
+                if (nd0.c(this.C) && nd0.c(this.b.roomInfoList)) {
                     EmptyView emptyView = this.A;
                     LiveFeedWrapData liveFeedWrapData3 = this.b;
-                    N3(emptyView, 0, liveFeedWrapData3, "", liveFeedWrapData3.sessionId, this.j);
+                    O3(emptyView, 0, liveFeedWrapData3, "", liveFeedWrapData3.sessionId, this.j);
                     return;
                 }
-                M3(this.x);
+                N3(this.x);
                 return;
             }
-            M1();
+            N1();
             RecyclerView recyclerView = this.u;
             if (recyclerView != null && recyclerView.getChildCount() > 0) {
                 this.u.scrollToPosition(0);
             }
-            M3(this.y);
+            N3(this.y);
         }
     }
 
@@ -1339,7 +1431,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         this.m = liveTabEntity.type;
         this.n = liveTabEntity.channelId;
         String str2 = "";
-        if (ec0.c(liveTabEntity.subTabList)) {
+        if (nd0.c(liveTabEntity.subTabList)) {
             str = "";
         } else {
             str = "";
@@ -1362,7 +1454,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         this.g = true;
     }
 
-    public final int q3(LiveFeedWrapData liveFeedWrapData, LiveFeedReserveWrapData liveFeedReserveWrapData) {
+    public final int r3(LiveFeedWrapData liveFeedWrapData, LiveFeedReserveWrapData liveFeedReserveWrapData) {
         if (liveFeedWrapData == null) {
             return 0;
         }
@@ -1370,15 +1462,15 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.C.clear();
             this.D.clear();
             this.e0.clear();
-            I3();
+            J3();
             this.M = 0L;
         }
-        if (ec0.c(liveFeedWrapData.roomInfoList)) {
+        if (nd0.c(liveFeedWrapData.roomInfoList)) {
             return 0;
         }
         ArrayList arrayList = new ArrayList();
         for (LiveRoomEntity liveRoomEntity : liveFeedWrapData.roomInfoList) {
-            if (liveRoomEntity != null && !hc0.a(liveRoomEntity.roomId) && this.D.add(liveRoomEntity.roomId)) {
+            if (liveRoomEntity != null && !qd0.a(liveRoomEntity.roomId) && this.D.add(liveRoomEntity.roomId)) {
                 arrayList.add(liveRoomEntity);
             }
         }
@@ -1400,17 +1492,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         return size;
     }
 
-    public final void y3(int i2, String str, Map<String, String> map) {
-        if (map != null && I1(map.get("tab"), map.get("subtab"), Integer.valueOf(map.get("refresh_type")).intValue())) {
+    public final void z3(int i2, String str, Map<String, String> map) {
+        if (map != null && J1(map.get("tab"), map.get("subtab"), Integer.valueOf(map.get("refresh_type")).intValue())) {
             this.q = "";
             this.H = false;
-            J3();
+            K3();
             if (String.valueOf(0).equals(map.get("refresh_type"))) {
                 ILiveFeedRefresh.OnRefreshListener onRefreshListener = this.U;
                 if (onRefreshListener != null) {
                     onRefreshListener.onPullRefreshEnd();
                 }
-                N3(this.z, i2, null, "", map.get("session_id"), map.get("resource"));
+                O3(this.z, i2, null, "", map.get("session_id"), map.get(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE));
                 return;
             }
             ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener = this.s;
@@ -1422,92 +1514,5 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 aVar.onShowToast("服务器太累了，请稍后重试");
             }
         }
-    }
-
-    public final void z3(LiveFeedData liveFeedData, Map<String, String> map) {
-        boolean z;
-        LiveFeedWrapData liveFeedWrapData;
-        RecyclerView recyclerView;
-        if (String.valueOf(1).equals(map.get("refresh_type"))) {
-            ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener = this.s;
-            if (onLoadMoreListener != null) {
-                onLoadMoreListener.onLoadMoreEnd();
-            }
-        } else {
-            ILiveFeedRefresh.OnRefreshListener onRefreshListener = this.U;
-            if (onRefreshListener != null) {
-                onRefreshListener.onPullRefreshEnd();
-            }
-        }
-        if (liveFeedData != null && !hc0.a(liveFeedData.resource)) {
-            LiveFeedConfig liveFeedConfig = liveFeedData.feedConfig;
-            if (liveFeedConfig != null) {
-                this.Q = liveFeedConfig.minorUfoUrl;
-            }
-            if (liveFeedData.isMinor) {
-                v90 v90Var = new v90();
-                v90Var.b = liveFeedData.isMinor;
-                v90Var.c = this.Q;
-                v90Var.b(this.J);
-                sb0.a().b(v90Var);
-            }
-            if (liveFeedData.resource.contains(SpeedStatsUtils.UBC_VALUE_BANNER) && liveFeedData.bannerWrapData != null) {
-                s90 s90Var = new s90();
-                s90Var.b = liveFeedData.bannerWrapData;
-                s90Var.b(this.J);
-                sb0.a().b(s90Var);
-            }
-            if (liveFeedData.resource.contains("follow") && liveFeedData.followWrapData != null) {
-                u90 u90Var = new u90();
-                u90Var.b = liveFeedData.followWrapData;
-                u90Var.b(this.J);
-                sb0.a().b(u90Var);
-            }
-            LiveFeedWrapData liveFeedWrapData2 = liveFeedData.feedWrapData;
-            String str = "";
-            if (liveFeedWrapData2 != null) {
-                if (I1(liveFeedWrapData2.tab, liveFeedWrapData2.subTab, liveFeedWrapData2.refreshType)) {
-                    this.q = "";
-                    this.l = liveFeedData.feedWrapData.sessionId;
-                    LiveFeedReserveWrapData liveFeedReserveWrapData = null;
-                    if (liveFeedData.resource.contains("reserve")) {
-                        liveFeedReserveWrapData = liveFeedData.reserveWrapData;
-                    }
-                    i3(liveFeedData.feedWrapData, q3(liveFeedData.feedWrapData, liveFeedReserveWrapData));
-                    z = !ec0.c(liveFeedData.feedWrapData.roomInfoList);
-                } else {
-                    z = false;
-                }
-                LiveFeedWrapData liveFeedWrapData3 = liveFeedData.feedWrapData;
-                this.H = liveFeedWrapData3.hasMore;
-                this.k = liveFeedWrapData3.refreshIndex;
-                if (liveFeedWrapData3.isBigRefresh()) {
-                    sb0.a().b(new t90(this.J));
-                }
-            } else {
-                this.H = false;
-                z = false;
-            }
-            J3();
-            if (ec0.c(this.C) && !z) {
-                EmptyView emptyView = this.A;
-                int i2 = liveFeedData.errno;
-                LiveFeedWrapData liveFeedWrapData4 = liveFeedData.feedWrapData;
-                String str2 = liveFeedData.logId;
-                if (liveFeedWrapData4 != null) {
-                    str = liveFeedWrapData4.sessionId;
-                }
-                N3(emptyView, i2, liveFeedWrapData4, str2, str, liveFeedData.resource);
-                return;
-            }
-            M3(this.x);
-            if (liveFeedData != null && (liveFeedWrapData = liveFeedData.feedWrapData) != null && liveFeedWrapData.isBigRefresh() && (recyclerView = this.u) != null) {
-                recyclerView.smoothScrollBy(0, 1);
-                this.u.smoothScrollBy(0, -1);
-                return;
-            }
-            return;
-        }
-        y3(-100, "数据解析失败", map);
     }
 }

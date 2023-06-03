@@ -1,52 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.tieba.a80;
+import com.baidu.tieba.n70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class l70 implements j70, k70 {
+public class l70 implements n70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public final x70 a;
+    public u70 b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.j70
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.j70
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.j70
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public l70(Context context) {
+    public l70(s70 s70Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {s70Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,76 +35,62 @@ public class l70 implements j70, k70 {
                 return;
             }
         }
-        this.a = context;
+        a80.b b = a80.b();
+        b.c(s70Var);
+        this.a = b.b();
     }
 
-    @Override // com.baidu.tieba.k70
-    public void a(int i, byte[] bArr) {
+    @Override // com.baidu.tieba.n70
+    public Response a(n70.a aVar) throws IOException {
+        InterceptResult invokeL;
+        long contentLength;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
-            String str = new String(bArr);
-            r70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("action=");
-            sb.append("zubc");
-            sb.append("&appname=");
-            sb.append(RetrieveReportRequest.APP_NAME);
-            sb.append("&uid=");
-            sb.append(h70.d().a());
-            sb.append("&ua=");
-            sb.append(s70.e(this.a));
-            sb.append("&appversion=");
-            sb.append(s70.f(this.a));
-            if (h70.d().c() != p70.a) {
-                sb.append("&debug=");
-                sb.append("1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            if (!this.c) {
+                d80 d80Var = (d80) aVar;
+                Request request = aVar.request();
+                NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+                if (request.body() == null) {
+                    contentLength = 0;
+                } else {
+                    contentLength = request.body().contentLength();
+                }
+                networkStatRecord.requestBodyLength = contentLength;
+                u70 c = c(request);
+                this.b = c;
+                return d80Var.b(request, c);
             }
-            return sb.toString();
+            throw new IOException("The request has been cancelled.");
         }
-        return (String) invokeV.objValue;
+        return (Response) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.j70
-    public Map<String, String> getHeaders() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+            u70 u70Var = this.b;
+            if (u70Var != null) {
+                u70Var.disconnect();
+            }
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
+            return this.c;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.j70
-    public String getHost() {
-        InterceptResult invokeV;
-        String str;
+    public final u70 c(Request request) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (h70.d().c() != p70.a) {
-                str = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox";
-            } else {
-                str = "https://tcbox.baidu.com/ztbox";
-            }
-            return str + "?" + b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
+            return this.a.a(request);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k70
-    public void onSuccess(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bArr) == null) {
-            String str = new String(bArr);
-            r70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
+        return (u70) invokeL.objValue;
     }
 }

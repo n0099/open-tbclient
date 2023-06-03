@@ -206,12 +206,12 @@ public class au implements at, InvocationHandler {
     }
 
     public static void b(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m120a("mdid:" + str);
+        com.xiaomi.channel.commonutils.logger.b.m175a("mdid:" + str);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo205a() {
+    public String mo260a() {
         a("getOAID");
         if (this.f119a == null) {
             return null;
@@ -221,7 +221,7 @@ public class au implements at, InvocationHandler {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo206a() {
+    public boolean mo261a() {
         a("isSupported");
         return this.f119a != null && Boolean.TRUE.equals(this.f119a.f124a);
     }

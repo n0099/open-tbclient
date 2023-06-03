@@ -1,5 +1,6 @@
 package com.qq.e.ads.cfg;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,15 +20,17 @@ public class VideoOption {
     public final boolean e;
     public final boolean f;
     public final boolean g;
+    public final int h;
+    public final int i;
 
     /* renamed from: com.qq.e.ads.cfg.VideoOption$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AutoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALWAYS = 1;
@@ -50,7 +53,7 @@ public class VideoOption {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,6 +64,8 @@ public class VideoOption {
         public boolean e;
         public boolean f;
         public boolean g;
+        public int h;
+        public int i;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -144,10 +149,30 @@ public class VideoOption {
             return (Builder) invokeZ.objValue;
         }
 
+        public Builder setMaxVideoDuration(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.h = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setMinVideoDuration(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.i = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
         public Builder setNeedCoverImage(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
                 this.d = z;
                 return this;
             }
@@ -157,59 +182,11 @@ public class VideoOption {
         public Builder setNeedProgressBar(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
                 this.c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
-        }
-    }
-
-    @Deprecated
-    /* loaded from: classes9.dex */
-    public static final class VideoADContainerRender {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int DEV = 2;
-        public static final int SDK = 1;
-        public static final int UNKNOWN = 0;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public VideoADContainerRender() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    @Deprecated
-    /* loaded from: classes9.dex */
-    public static final class VideoPlayPolicy {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int AUTO = 1;
-        public static final int MANUAL = 2;
-        public static final int UNKNOWN = 0;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public VideoPlayPolicy() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
     }
 
@@ -235,6 +212,8 @@ public class VideoOption {
         this.e = builder.e;
         this.f = builder.f;
         this.g = builder.g;
+        this.h = builder.h;
+        this.i = builder.i;
     }
 
     public /* synthetic */ VideoOption(Builder builder, AnonymousClass1 anonymousClass1) {
@@ -253,10 +232,22 @@ public class VideoOption {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
+    public int getMaxVideoDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public int getMinVideoDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : invokeV.intValue;
+    }
+
     public JSONObject getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.a));
@@ -273,30 +264,30 @@ public class VideoOption {
     public boolean isDetailPageMuted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     public boolean isEnableDetailPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public boolean isEnableUserControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     public boolean isNeedCoverImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     public boolean isNeedProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.booleanValue;
     }
 }

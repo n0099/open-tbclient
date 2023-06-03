@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ap7 extends gw7 {
+@Service
+/* loaded from: classes5.dex */
+public class ap7 implements j65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mj8 c;
+
+    @Override // com.baidu.tieba.j65
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsForumManage" : (String) invokeV.objValue;
+    }
 
     public ap7() {
         Interceptable interceptable = $ic;
@@ -28,33 +34,13 @@ public class ap7 extends gw7 {
         }
     }
 
-    public final void a() {
-        List<Object> list;
+    @Override // com.baidu.tieba.j65
+    public Class<? extends h65> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null) {
-            rq9.e(list, 2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return zo7.class;
         }
-    }
-
-    private void update() {
-        mj8 mj8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (mj8Var = this.c) != null && mj8Var.d()) {
-            List<ICardInfo> c = this.c.c();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(c);
-            this.c.hasMore();
-            this.c.a();
-        }
-    }
-
-    public void b(mj8 mj8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mj8Var) == null) {
-            this.c = mj8Var;
-            update();
-            a();
-        }
+        return (Class) invokeV.objValue;
     }
 }

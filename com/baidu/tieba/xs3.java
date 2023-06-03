@@ -1,102 +1,30 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Headers;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes8.dex */
-public class xs3 extends ws3 {
+public class xs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback d;
-    public JSONObject e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-
-    /* loaded from: classes8.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xs3 a;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(xs3 xs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xs3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (cs3.a) {
-                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
-                }
-                if (this.a.d != null) {
-                    if (exc instanceof IOException) {
-                        this.a.d.onFailure(null, (IOException) exc);
-                    } else {
-                        this.a.d.onFailure(null, new IOException(exc));
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.a.n(null, response);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -111,211 +39,155 @@ public class xs3 extends ws3 {
                 return;
             }
         }
-        k = qp1.a;
+        a = is1.a;
     }
 
-    public final void p() {
+    public static List<String> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j++;
-            o(this.g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
+            arrayList.add("hao123.com");
+            arrayList.add("nuomi.com");
+            arrayList.add("baifubao.com");
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public xs3(g93 g93Var, JSONObject jSONObject, String str, Callback callback) {
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g93Var, jSONObject, str, callback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return b(str, HttpRequest.BDUSS, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return b(str, "PTOKEN", str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            if (TextUtils.isEmpty(str3)) {
+                i = -8;
+            } else {
+                i = 8;
+            }
+            calendar.add(1, i);
+            return c(str, str2, str3, calendar.getTime(), false);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String c(String str, String str2, String str3, Date date, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("=");
+            sb.append(str3);
+            sb.append(";domain=");
+            sb.append(str);
+            sb.append(";path=/;expires=");
+            sb.append(simpleDateFormat.format(date));
+            sb.append(";httponly");
+            if (z) {
+                str4 = ";secure";
+            } else {
+                str4 = "";
+            }
+            sb.append(str4);
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void f(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            CookieManager.getInstance().setCookie(str, str2);
+            if (z) {
+                CookieSyncManager.getInstance().sync();
             }
         }
-        this.d = callback;
-        this.f = str;
-        m(jSONObject);
-        d(this.e.optString("method"));
     }
 
-    @Override // com.baidu.tieba.ws3
-    public void e(IOException iOException) {
-        Callback callback;
+    public static void g(Context context, String str, List<String> list) {
+        String a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) && (callback = this.d) != null) {
-            callback.onFailure(null, iOException);
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
+            if (list == null) {
+                if (a) {
+                    Log.w("SwanAppCookieUtils", "bduss domains is invalid");
+                    return;
+                }
+                return;
+            }
+            for (String str2 : list) {
+                if (TextUtils.isEmpty(str)) {
+                    a2 = qp3.k(str2, HttpRequest.BDUSS, "deleted", 0L);
+                } else {
+                    a2 = a(str2, str);
+                }
+                f("http://www." + str2, a2, false);
+            }
         }
     }
 
-    public final void l(HttpRequest httpRequest) {
+    public static void j(Context context, String str, List<String> list) {
+        String d;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, httpRequest) != null) || httpRequest == null) {
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
+            if (list == null) {
+                if (a) {
+                    Log.w("SwanAppCookieUtils", "ptoken domains is invalid");
+                    return;
+                }
+                return;
+            }
+            for (String str2 : list) {
+                if (TextUtils.isEmpty(str)) {
+                    d = qp3.k(str2, "PTOKEN", "deleted", 0L);
+                } else {
+                    d = d(str2, str);
+                }
+                f("http://www." + str2, d, false);
+            }
+        }
+    }
+
+    public static void h(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, null, context) != null) || context == null) {
             return;
         }
-        httpRequest.executeAsync(new a(this));
+        String i = zr3.i(context);
+        String r = zr3.r(context);
+        g(context, i, e());
+        j(context, r, e());
     }
 
-    public final void m(JSONObject jSONObject) {
+    public static void i(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.e = jSONObject;
-            this.h = jSONObject.optString("url");
-            JSONObject optJSONObject = this.e.optJSONObject("ext");
-            if (optJSONObject != null) {
-                this.i = optJSONObject.optString("customHost");
-            }
-        }
-    }
-
-    public void o(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.g = str;
-            JSONObject jSONObject = this.e;
-            if (jSONObject != null) {
-                str2 = jSONObject.optString("data");
-            } else {
-                str2 = "";
-            }
-            a(str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ws3
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (cs3.a) {
-                Log.d("BdtlsRequestApi", "onRequestError=" + i);
-            }
-            Callback callback = this.d;
-            if (callback != null) {
-                callback.onFailure(null, new IOException("request error  code : " + i));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ws3
-    public void h(byte[] bArr) {
-        JSONObject jSONObject;
-        HttpRequest httpRequest;
-        Callback callback;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject = new JSONObject(this.e.toString());
-                try {
-                    Uri parse = Uri.parse(this.h);
-                    String path = parse.getPath();
-                    String query = parse.getQuery();
-                    if (TextUtils.isEmpty(this.i)) {
-                        str = ds3.b;
-                    } else {
-                        str = this.i + "/bdtls";
-                    }
-                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
-                    String str3 = "";
-                    if (TextUtils.isEmpty(path)) {
-                        path = "";
-                    }
-                    sb.append(path);
-                    if (!TextUtils.isEmpty(query)) {
-                        str3 = "?" + query;
-                    }
-                    sb.append(str3);
-                    if (k) {
-                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                    if (this.a) {
-                        if (TextUtils.equals(b(), "GET")) {
-                            str2 = Base64.encodeToString(bArr, 2);
-                        } else {
-                            jSONObject.putOpt("data", bArr);
-                            str2 = "Bdtls";
-                        }
-                        optJSONObject.put("Bdtls", str2);
-                    }
-                    jSONObject.putOpt("header", optJSONObject);
-                    jSONObject.putOpt("url", sb.toString());
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject2 = jSONObject;
-                    if (k) {
-                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
-                    }
-                    jSONObject = jSONObject2;
-                    httpRequest = (HttpRequest) uy1.C(jSONObject, this.f).first;
-                    if (httpRequest == null) {
-                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
-                    }
-                    l(httpRequest);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-            httpRequest = (HttpRequest) uy1.C(jSONObject, this.f).first;
-            if (httpRequest == null && (callback = this.d) != null) {
-                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
-            }
-            l(httpRequest);
-        }
-    }
-
-    public final void n(Call call, Response response) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
-            Headers headers = response.headers();
-            if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-                is3.l().m().s(0);
-                if (is3.l().m().b()) {
-                    is3.l().m().a();
-                    i(true);
-                    p();
-                    return;
-                }
-                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
-                return;
-            }
-            is3.l().m().k();
-            if (this.a) {
-                ResponseBody body = response.body();
-                String g = g(body.bytes());
-                if (cs3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
-                }
-                if (this.b == 1) {
-                    Buffer buffer = new Buffer();
-                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
-                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    Callback callback = this.d;
-                    if (callback != null) {
-                        callback.onResponse(call, build);
-                    }
-                    this.j = 0;
-                    return;
-                } else if (this.j < 3) {
-                    p();
-                    return;
-                } else {
-                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
-                    this.j = 0;
-                    return;
-                }
-            }
-            Callback callback2 = this.d;
-            if (callback2 != null) {
-                callback2.onResponse(call, response);
-            }
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            h(context);
         }
     }
 }

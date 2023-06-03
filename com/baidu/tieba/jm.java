@@ -1,59 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
 /* loaded from: classes6.dex */
 public class jm {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308426, "Lcom/baidu/tieba/jm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (str.contains(".so")) {
-                String[] split = str.split("\\.");
-                StringBuilder sb = new StringBuilder();
-                if (gi.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
-                }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308426, "Lcom/baidu/tieba/jm;");
+                return;
             }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return a(str) + File.separator + str;
-        }
-        return (String) invokeL.objValue;
+        a = String.format("aps_%s", "137");
     }
 }

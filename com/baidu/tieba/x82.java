@@ -1,79 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class x82 implements w82 {
+public class x82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, dy1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<w82> a;
 
-    public x82() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254167, "Lcom/baidu/tieba/x82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948254167, "Lcom/baidu/tieba/x82;");
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
+        a = is1.a;
+        b = new HashMap(2);
     }
 
-    @Override // com.baidu.tieba.w82
-    public void a() {
-        List<w82> list;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (w82 w82Var : this.a) {
-                w82Var.a();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
+        }
+    }
+
+    public static dy1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
             }
+            y82.n(true);
+            return si2.U().f0().b(AppRuntime.getAppContext());
         }
+        return (dy1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w82
-    public void b() {
-        List<w82> list;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (w82 w82Var : this.a) {
-                w82Var.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return w82.b(a42.a(b0.b));
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.w82
-    public void c() {
-        List<w82> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (w82 w82Var : this.a) {
-                w82Var.c();
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+                return false;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(@NonNull w82 w82Var) {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized dy1 b() {
+        InterceptResult invokeV;
+        String str;
+        dy1 dy1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, w82Var) == null) {
-            this.a.add(w82Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (x82.class) {
+                yb3 b0 = yb3.b0();
+                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
+                    str = b0.getAppId();
+                    String a2 = a42.a(str);
+                    dy1Var = b.get(a2);
+                    if (dy1Var == null) {
+                        e();
+                        dy1Var = a();
+                        b.put(a2, dy1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
+                        }
+                    }
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
+                }
+                str = "_no_id_";
+                String a22 = a42.a(str);
+                dy1Var = b.get(a22);
+                if (dy1Var == null) {
+                }
+                if (a) {
+                }
+            }
+            return dy1Var;
         }
+        return (dy1) invokeV.objValue;
     }
 
-    public void e(@NonNull w82 w82Var) {
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, w82Var) == null) {
-            this.a.remove(w82Var);
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (x82.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        dy1 dy1Var = b.get(str);
+                        if (dy1Var != null) {
+                            dy1Var.D();
+                        }
+                    }
+                    b.clear();
+                }
+            }
         }
     }
 }

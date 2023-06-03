@@ -1,12 +1,18 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public abstract class dy0 extends gu0 {
+public class dy0 implements ox0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,16 +30,14 @@ public abstract class dy0 extends gu0 {
         }
     }
 
-    public ss0 q() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ox0
+    @NonNull
+    public qx0 a(Map<String, String> map, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rs0 g = super.g();
-            if (g != null) {
-                return (ss0) g;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
+            return new ky0(map, obj);
         }
-        return (ss0) invokeV.objValue;
+        return (qx0) invokeLL.objValue;
     }
 }

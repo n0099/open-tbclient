@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tieba.pp;
-import com.baidu.tieba.rp;
+import com.baidu.tieba.hq;
+import com.baidu.tieba.jq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0007\u0018\u00002\u00020\u0001B3\u0012\u0006\u0010\u000e\u001a\u00020\r\u0012\u0006\u0010\u0018\u001a\u00020\u0017\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012\u0012\b\b\u0002\u0010\n\u001a\u00020\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0019\u0010\u0006\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\tR\u0019\u0010\n\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\u0004R\u0019\u0010\u000e\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016R\u0019\u0010\u0018\u001a\u00020\u00178\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001b¨\u0006\u001e"}, d2 = {"Lcom/baidu/bdtask/component/buoy/TaskBuoyViewData;", "Lcom/baidu/bdtask/framework/ui/buoy/BuoyViewData;", "", "toString", "()Ljava/lang/String;", "Lcom/baidu/bdtask/component/buoy/TaskSingleProcess;", "curProcess", "Lcom/baidu/bdtask/component/buoy/TaskSingleProcess;", "getCurProcess", "()Lcom/baidu/bdtask/component/buoy/TaskSingleProcess;", "extra", "Ljava/lang/String;", "getExtra", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "getTaskStatus", "()Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "Lcom/baidu/bdtask/model/response/TaskProcessData;", "totalProcess", "Lcom/baidu/bdtask/model/response/TaskProcessData;", "getTotalProcess", "()Lcom/baidu/bdtask/model/response/TaskProcessData;", "Lcom/baidu/bdtask/component/buoy/TaskBuoyUIConfig;", "uiConfig", "Lcom/baidu/bdtask/component/buoy/TaskBuoyUIConfig;", "getUiConfig", "()Lcom/baidu/bdtask/component/buoy/TaskBuoyUIConfig;", "<init>", "(Lcom/baidu/bdtask/ctrl/model/TaskStatus;Lcom/baidu/bdtask/component/buoy/TaskBuoyUIConfig;Lcom/baidu/bdtask/component/buoy/TaskSingleProcess;Lcom/baidu/bdtask/model/response/TaskProcessData;Ljava/lang/String;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class TaskBuoyViewData extends BuoyViewData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rp curProcess;
+    public final jq curProcess;
     public final String extra;
     public final TaskStatus taskStatus;
     public final TaskProcessData totalProcess;
-    public final pp uiConfig;
+    public final hq uiConfig;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBuoyViewData(TaskStatus taskStatus, pp ppVar, rp rpVar, TaskProcessData taskProcessData, String str) {
-        super(ppVar.c(), ppVar.g(), ppVar.a(), ppVar.e(), ppVar.d(), ppVar.f(), rpVar.a(), rpVar.b(), ppVar.b());
+    public TaskBuoyViewData(TaskStatus taskStatus, hq hqVar, jq jqVar, TaskProcessData taskProcessData, String str) {
+        super(hqVar.c(), hqVar.g(), hqVar.a(), hqVar.e(), hqVar.d(), hqVar.f(), jqVar.a(), jqVar.b(), hqVar.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskStatus, ppVar, rpVar, taskProcessData, str};
+            Object[] objArr = {taskStatus, hqVar, jqVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,23 +44,23 @@ public final class TaskBuoyViewData extends BuoyViewData {
             }
         }
         this.taskStatus = taskStatus;
-        this.uiConfig = ppVar;
-        this.curProcess = rpVar;
+        this.uiConfig = hqVar;
+        this.curProcess = jqVar;
         this.totalProcess = taskProcessData;
         this.extra = str;
     }
 
-    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, pp ppVar, rp rpVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskStatus, ppVar, rpVar, taskProcessData, (i & 16) != 0 ? "" : str);
+    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, hq hqVar, jq jqVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskStatus, hqVar, jqVar, taskProcessData, (i & 16) != 0 ? "" : str);
     }
 
-    public final rp getCurProcess() {
+    public final jq getCurProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.curProcess;
         }
-        return (rp) invokeV.objValue;
+        return (jq) invokeV.objValue;
     }
 
     public final String getExtra() {
@@ -90,13 +90,13 @@ public final class TaskBuoyViewData extends BuoyViewData {
         return (TaskProcessData) invokeV.objValue;
     }
 
-    public final pp getUiConfig() {
+    public final hq getUiConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.uiConfig;
         }
-        return (pp) invokeV.objValue;
+        return (hq) invokeV.objValue;
     }
 
     public String toString() {

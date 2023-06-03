@@ -2,7 +2,7 @@ package com.baidu.platform.core.d;
 
 import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,9 +55,9 @@ public class e extends com.baidu.platform.base.e {
             this.a.a("uids", poiDetailSearchOption.getUids());
             com.baidu.platform.util.a aVar = this.a;
             if (poiDetailSearchOption.isExtendAdcode()) {
-                str = "true";
+                str = YYOption.IsLive.VALUE_TRUE;
             } else {
-                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                str = "false";
             }
             aVar.a("extensions_adcode", str);
             this.a.a("output", "json");

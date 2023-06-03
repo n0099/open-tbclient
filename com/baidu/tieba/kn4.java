@@ -1,21 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kn4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kn4 {
+    @Nullable
+    JSONObject a(@Nullable in4<JSONObject> in4Var);
 
-    public static Drawable a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            return context.getDrawable(i);
-        }
-        return (Drawable) invokeLI.objValue;
-    }
+    @Nullable
+    JSONArray b(@Nullable in4<JSONArray> in4Var);
 }

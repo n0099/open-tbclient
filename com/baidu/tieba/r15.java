@@ -2,20 +2,17 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes7.dex */
 public class r15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
     public r15() {
         Interceptable interceptable = $ic;
@@ -27,52 +24,31 @@ public class r15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = "";
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            this.a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.b = jSONObject.optString("link", "");
+            jSONObject.optInt("badge_id", 0);
+            jSONObject.optString("badge_url", "");
+            jSONObject.optString(AlbumActivityConfig.FROM_WEB_VIEW);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void d(Topic topic) {
+    public void b(Badges badges) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, topic) != null) || topic == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, badges) != null) || badges == null) {
             return;
         }
-        this.a = topic.is_lpost.intValue();
-        topic.topic_type.intValue();
-        this.b = topic.link;
+        badges.badge_id.intValue();
+        String str = badges.badge_url;
+        String str2 = badges.webview;
     }
 }

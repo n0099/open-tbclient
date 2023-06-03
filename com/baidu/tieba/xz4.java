@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
 /* loaded from: classes8.dex */
 public class xz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public int b;
+    public int c;
 
     public xz4() {
         Interceptable interceptable = $ic;
@@ -30,47 +26,34 @@ public class xz4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
+        this.a = 1500;
+        this.b = 3000;
+        this.c = 6000;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            this.b = jSONObject.optInt("class_id", 0);
-            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            jSONObject.optInt("wifiSlow", -1);
+            jSONObject.optInt("threeGSlow", -1);
+            jSONObject.optInt("twoGSlow", -1);
+            int optInt = jSONObject.optInt("wifiLog", -1);
+            if (optInt > 0) {
+                this.a = optInt;
+            }
+            int optInt2 = jSONObject.optInt("threeGLog", -1);
+            if (optInt2 > 0) {
+                this.b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGLog", -1);
+            if (optInt3 > 0) {
+                this.c = optInt3;
+            }
+            jSONObject.optInt("mobile_cdn_switch", 1);
+        } catch (Exception unused) {
         }
-    }
-
-    public void d(Classify classify) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, classify) != null) || classify == null) {
-            return;
-        }
-        this.b = classify.class_id.intValue();
-        this.a = classify.class_name;
     }
 }

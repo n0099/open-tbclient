@@ -1,67 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ly9 extends BaseAdapter {
+public class ly9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ny9> a;
-    public TbPageContext<?> b;
+    public bh a;
+    public String b;
+    public boolean c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ly9(TbPageContext<?> tbPageContext) {
+    public ly9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,85 +32,131 @@ public class ly9 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ny9 getItem(int i) {
-        InterceptResult invokeI;
+    public void a() {
+        oy9 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<ny9> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long e = this.a.e();
+            if (e > 3000) {
+                ny9 ny9Var = c.f;
+                ny9Var.a += e;
+                ny9Var.b++;
+                my9.b(c, 10);
             }
-            return null;
         }
-        return (ny9) invokeI.objValue;
     }
 
-    public void b(List<ny9> list) {
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        oy9 c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
+            return;
+        }
+        if (z) {
+            ny9 ny9Var = c.d;
+            if (ny9Var == null) {
+                return;
+            }
+            ny9Var.b++;
+            if (z2) {
+                ny9Var.a += j2;
+                ny9Var.d += j;
+            } else {
+                ny9Var.c++;
+            }
+        } else {
+            ny9 ny9Var2 = c.e;
+            if (ny9Var2 == null) {
+                return;
+            }
+            ny9Var2.b++;
+            if (z2) {
+                ny9Var2.a += j3;
+                ny9Var2.d += j;
+            } else {
+                ny9Var2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            my9.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                bh bhVar = new bh("dbg");
+                bhVar.b("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
+                } else {
+                    str2 = "1";
+                }
+                bhVar.b("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                bhVar.b("isHttp", str3);
+                bhVar.b("timeCost", String.valueOf(j2));
+                bhVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                bhVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
+                bhVar.b("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", bhVar);
+            }
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final oy9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ny9> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+            return my9.e(this.b, d(), this.c);
         }
-        return invokeV.intValue;
+        return (oy9) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            ny9 item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d026e, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090937);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.img_default_100);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090936);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09246b);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0908e3);
-                view2.setTag(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
             }
-            if (item != null) {
-                aVar.a.N(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                o65 m = o65.m();
-                if (item.c() - m.o("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(4);
-                }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
-                }
+            if (netType == 1) {
+                return "WIFI";
             }
-            this.b.getLayoutMode().k(view2);
-            return view2;
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.g();
+        }
+    }
+
+    public void e(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new bh("dbg");
+            my9.c(str, d(), z);
+        }
     }
 }

@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class h70 {
+import java.io.IOException;
+import java.net.URISyntaxException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
+/* loaded from: classes6.dex */
+public class h70 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile h70 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Context c;
-    public boolean d;
 
     public h70() {
         Interceptable interceptable = $ic;
@@ -29,75 +24,24 @@ public class h70 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "";
     }
 
-    public static h70 d() {
-        InterceptResult invokeV;
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (h70.class) {
-                    if (e == null) {
-                        e = new h70();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            try {
+                return chain.proceed(chain.request());
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
                 }
-            }
-            return e;
-        }
-        return (h70) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void e(Context context, String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b = str;
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            this.a = i;
-            this.d = z;
-        }
-    }
-
-    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (!TextUtils.isEmpty(this.b) && this.c != null && jSONArray != null && jSONArray.length() != 0) {
-                n70.b(this.c, jSONArray, z, z2, z3);
-            } else {
-                r70.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
+                throw e;
             }
         }
+        return (Response) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
     public final List<DecodedResult> queue;
 

@@ -1,144 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.regex.Matcher;
 /* loaded from: classes5.dex */
-public final class gb5 extends kn6 {
+public class gb5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UpdateAttentionMessage.a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947788175, "Lcom/baidu/tieba/gb5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947788175, "Lcom/baidu/tieba/gb5;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        /* renamed from: com.baidu.tieba.gb5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static final class C0309a extends CustomMessageListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0309a() {
-                super(2001115);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-                UpdateAttentionMessage updateAttentionMessage;
-                UpdateAttentionMessage.a data;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                    Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                    if (responsedMessage instanceof UpdateAttentionMessage) {
-                        updateAttentionMessage = (UpdateAttentionMessage) responsedMessage;
-                    } else {
-                        updateAttentionMessage = null;
-                    }
-                    if (updateAttentionMessage != null && (data = updateAttentionMessage.getData()) != null) {
-                        jn6.b().b(new gb5(data));
-                    }
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final void a(TbPageContext<?> pageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pageContext) == null) {
-                Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-                pageContext.registerListener(new C0309a());
-            }
-        }
-    }
-
-    public gb5(UpdateAttentionMessage.a attentionModel) {
+    @Nullable
+    public static String a(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {attentionModel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            while (i < str.length()) {
+                str = str.substring(i);
+                Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(str);
+                if (!matcher.find()) {
+                    break;
+                }
+                matcher.group(1).trim();
+                matcher.group(2).trim();
+                String trim = matcher.group(3).trim();
+                if (i != 0) {
+                    sb.append(",");
+                }
+                sb.append(trim);
+                i = matcher.end();
+            }
+            return sb.toString();
         }
-        Intrinsics.checkNotNullParameter(attentionModel, "attentionModel");
-        this.a = attentionModel;
+        return (String) invokeL.objValue;
     }
 
-    public final UpdateAttentionMessage.a a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            String a = a(str);
+            if (!TextUtils.isEmpty(a)) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_SUCESSED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", str2).param(TiebaStatic.Params.FRIEND_UID, a));
+            }
         }
-        return (UpdateAttentionMessage.a) invokeV.objValue;
     }
 }

@@ -65,7 +65,9 @@ public class k {
     public static int Q = 10000;
     public static float R = 0.5f;
     public static float S = 0.0f;
-    public static float T = 0.1f;
+
+    /* renamed from: T  reason: collision with root package name */
+    public static float f1048T = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;

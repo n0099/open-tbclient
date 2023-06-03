@@ -1,110 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
-    public Runnable c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<vu9> e;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vu9 a;
-
-        public a(vu9 vu9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vu9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vu9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.a.b = true;
-                } else {
-                    this.a.a();
-                }
-            }
-        }
-    }
-
-    public vu9(MainTabActivity mainTabActivity, ju9 ju9Var) {
+    public vu9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ju9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
-        this.a = mainTabActivity;
     }
 
-    public void a() {
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getNewUserRedPackageData() != null) {
-            TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-            this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
-            TbSingleton.getInstance().setNewUserRedPackageData(null);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            this.b = false;
-            sg.a().removeCallbacks(this.c);
-            sg.a().postDelayed(this.c, 200L);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sg.a().removeCallbacks(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sg.a().removeCallbacks(this.c);
-            sg.a().postDelayed(this.c, 200L);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
+            }
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<vu9> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    vu9 vu9Var = new vu9();
+                    vu9Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(vu9Var);
+                }
+                this.e = arrayList;
+            }
         }
     }
 }

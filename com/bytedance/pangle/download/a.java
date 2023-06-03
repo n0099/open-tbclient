@@ -5,18 +5,18 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static volatile a a;
 
     @SuppressLint({"MissingPermission"})
-    public static EnumC0533a a(Context context) {
+    public static EnumC0553a a(Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                 int type = activeNetworkInfo.getType();
                 if (1 == type) {
-                    return EnumC0533a.WIFI;
+                    return EnumC0553a.WIFI;
                 }
                 if (type == 0) {
                     switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -29,27 +29,27 @@ public final class a {
                         case 12:
                         case 14:
                         case 15:
-                            return EnumC0533a.MOBILE_3G;
+                            return EnumC0553a.MOBILE_3G;
                         case 4:
                         case 7:
                         case 11:
                         default:
-                            return EnumC0533a.MOBILE;
+                            return EnumC0553a.MOBILE;
                         case 13:
-                            return EnumC0533a.MOBILE_4G;
+                            return EnumC0553a.MOBILE_4G;
                     }
                 }
-                return EnumC0533a.MOBILE;
+                return EnumC0553a.MOBILE;
             }
-            return EnumC0533a.NONE;
+            return EnumC0553a.NONE;
         } catch (Throwable unused) {
-            return EnumC0533a.MOBILE;
+            return EnumC0553a.MOBILE;
         }
     }
 
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public enum EnumC0533a {
+    /* loaded from: classes9.dex */
+    public enum EnumC0553a {
         UNKNOWN(-1),
         NONE(0),
         MOBILE(1),
@@ -60,7 +60,7 @@ public final class a {
         
         public final int h;
 
-        EnumC0533a(int i2) {
+        EnumC0553a(int i2) {
             this.h = i2;
         }
     }

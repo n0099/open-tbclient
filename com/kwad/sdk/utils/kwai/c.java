@@ -20,7 +20,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+import org.chromium.net.NetError;
+/* loaded from: classes10.dex */
 public final class c {
     public static final int PAGE_SIZE;
     public static final int apA;
@@ -54,10 +55,10 @@ public final class c {
     public boolean apY = true;
     public final Executor apZ = new f();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static int aqb = 11;
-        public static final C0659c aqc = new C0659c(11);
+        public static final C0679c aqc = new C0679c(11);
         public final String apC;
         public int apX = 0;
         public b[] aqd;
@@ -79,27 +80,27 @@ public final class c {
 
         public final c Bq() {
             String str = this.apC + this.name;
-            c ei = C0659c.ei(str);
+            c ei = C0679c.ei(str);
             if (ei == null) {
                 synchronized (a.class) {
-                    ei = C0659c.ei(str);
+                    ei = C0679c.ei(str);
                     if (ei == null) {
                         ei = new c(this.apC, this.name, this.aqd, this.apX);
-                        C0659c.b(str, ei);
+                        C0679c.b(str, ei);
                     }
                 }
             }
-            Integer num = C0659c.aqh.get(str);
+            Integer num = C0679c.aqh.get(str);
             if (num != null) {
-                C0659c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
+                C0679c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
             } else {
-                C0659c.aqh.put(str, 1);
+                C0679c.aqh.put(str, 1);
             }
             return ei;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b<T> {
         String Br();
 
@@ -109,14 +110,14 @@ public final class c {
     }
 
     /* renamed from: com.kwad.sdk.utils.kwai.c$c  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0659c {
+    /* loaded from: classes10.dex */
+    public static class C0679c {
         public static Map<String, c> aqe;
         public static List<String> aqf;
         public static int aqg;
         public static Map<String, Integer> aqh;
 
-        public C0659c(int i) {
+        public C0679c(int i) {
             int size = getSize(i);
             aqe = new ConcurrentHashMap(size);
             aqh = new HashMap(size);
@@ -189,7 +190,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         void a(String str, Exception exc);
 
@@ -198,7 +199,7 @@ public final class c {
         void i(String str, String str2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e implements Comparable<e> {
         public int end;
         public int start;
@@ -220,7 +221,7 @@ public final class c {
     static {
         int Bu = h.Bu();
         PAGE_SIZE = Bu;
-        apz = Bu - 192;
+        apz = Bu + NetError.ERR_REQUEST_TIMED_OUT;
         int max = Math.max(Bu << 1, 16384);
         apA = max;
         apB = max << 1;
@@ -490,7 +491,7 @@ public final class c {
                         } else if (b3 == 7) {
                             Object string2 = z ? bVar.getString(i5) : bVar.getBytes(i5);
                             map = this.apO;
-                            cVar = new a.C0658a(i, i4 + 2, string2, i5, z);
+                            cVar = new a.C0678a(i, i4 + 2, string2, i5, z);
                         } else if (z) {
                             String string3 = bVar.getString(i5);
                             map = this.apO;
@@ -984,7 +985,7 @@ public final class c {
                 str2 = obj;
                 length = bArr.length;
             }
-            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0658a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
+            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0678a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
             Bk();
         }
     }
@@ -1212,9 +1213,9 @@ public final class c {
         }
     }
 
-    private byte[] a(a.C0658a c0658a) {
+    private byte[] a(a.C0678a c0678a) {
         try {
-            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0658a.value));
+            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0678a.value));
             return ab != null ? ab : apy;
         } catch (Exception e2) {
             b(e2);
@@ -1273,7 +1274,7 @@ public final class c {
         if (bArr == null) {
             remove(str);
         } else {
-            a(str, bArr, bArr, (a.C0658a) this.apO.get(str), (byte) 7);
+            a(str, bArr, bArr, (a.C0678a) this.apO.get(str), (byte) 7);
         }
     }
 
@@ -1692,11 +1693,11 @@ public final class c {
                     valueOf = jVar.value;
                     break;
                 case 7:
-                    a.C0658a c0658a = (a.C0658a) value;
-                    boolean z2 = c0658a.apu;
-                    jVar = c0658a;
+                    a.C0678a c0678a = (a.C0678a) value;
+                    boolean z2 = c0678a.apu;
+                    jVar = c0678a;
                     if (z2) {
-                        valueOf = a(c0658a);
+                        valueOf = a(c0678a);
                         break;
                     }
                     valueOf = jVar.value;
@@ -1879,8 +1880,8 @@ public final class c {
         this.apG = null;
         this.apJ = null;
         this.apK = null;
-        C0659c c0659c = a.aqc;
-        C0659c.remove(this.apC + this.name);
+        C0679c c0679c = a.aqc;
+        C0679c.remove(this.apC + this.name);
     }
 
     public final synchronized void remove(String str) {

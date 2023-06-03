@@ -32,6 +32,7 @@ import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceSDKManager;
 import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.listener.IInitCallback;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.FH;
@@ -81,7 +82,7 @@ public class PassFaceRecogManager implements PassBiometric {
         @Override // com.baidu.pass.face.platform.listener.IInitCallback
         public void initFailure(int i, String str) {
             if (i == -1) {
-                this.b.setResultCode(PassBiometricResult.ERROR_CODE_LACK_SO_ERROR);
+                this.b.setResultCode(-211);
                 this.b.setResultMsg(PassBiometricResult.ERROR_MSG_LACK_SO_ERROR);
             } else {
                 this.b.setResultCode(PassBiometricResult.ERROR_CODE_SYSTEM_VERSION_LOW_ERROR);
@@ -290,7 +291,7 @@ public class PassFaceRecogManager implements PassBiometric {
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_SO_ERROR);
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
             } else if (!f()) {
-                passFaceRecogResult.setResultCode(PassBiometricResult.ERROR_CODE_CONFIG_ERROR);
+                passFaceRecogResult.setResultCode(-210);
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_CONFIG_ERROR);
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
             } else if (this.b) {
@@ -300,7 +301,7 @@ public class PassFaceRecogManager implements PassBiometric {
                 }
                 context.startActivity(intent);
             } else if (this.a == null) {
-                passFaceRecogResult.setResultCode(PassBiometricResult.ERROR_CODE_NOT_INIT_PASS_SDK);
+                passFaceRecogResult.setResultCode(-213);
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_NOT_INIT_PASS_SDK);
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
             } else if (!this.a.isAgreeDangerousProtocol()) {
@@ -318,7 +319,7 @@ public class PassFaceRecogManager implements PassBiometric {
                 FaceSDKManager.getInstance().initialize(this.a.getApplication(), this.a.licenseID, this.a.licenseFileName, new a(context, passFaceRecogResult, passFaceRecogCallback));
             }
         } catch (NoClassDefFoundError unused) {
-            passFaceRecogResult.setResultCode(PassBiometricResult.ERROR_CODE_NOT_IMPORT_VIS_SDK);
+            passFaceRecogResult.setResultCode(-212);
             passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_NOT_IMPORT_VIS_SDK);
             passFaceRecogCallback.onFailure(passFaceRecogResult);
         }
@@ -329,7 +330,7 @@ public class PassFaceRecogManager implements PassBiometric {
             throw new IllegalArgumentException("PassFaceRecogDTO.passProductId can't be empty");
         }
         if (TextUtils.isEmpty(passFaceRecogDTO.serviceType)) {
-            passFaceRecogDTO.serviceType = "1008";
+            passFaceRecogDTO.serviceType = DownloadStatisticConstants.DOWNLOAD_WINDOWN_UBC_ID;
         }
         if (TextUtils.isEmpty(passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID))) {
             passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, passFaceRecogDTO.passProductId);

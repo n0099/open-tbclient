@@ -1,206 +1,174 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.data.QuestionTagListData;
-import com.baidu.tieba.write.write.message.QuestionTagListRequestMessage;
-import com.baidu.tieba.write.write.message.QuestionTagListResponseMessage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes8.dex */
 public class zca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<rn> a;
-    public b b;
-    public String c;
-    public String d;
-    public boolean e;
-    public int f;
-    public final HttpMessageListener g;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z, List<rn> list);
-
-        void b(boolean z);
-
-        void c(boolean z, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356529, "Lcom/baidu/tieba/zca;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948356529, "Lcom/baidu/tieba/zca;");
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
+    public static class a implements bda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zca a;
+        public final /* synthetic */ bda a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zca zcaVar, int i) {
-            super(i);
+        public a(bda bdaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zcaVar, Integer.valueOf(i)};
+                Object[] objArr = {bdaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zcaVar;
+            this.a = bdaVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.bda
+        public void a(int i, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuestionTagListResponseMessage)) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                bda bdaVar = this.a;
+                if (bdaVar != null) {
+                    bdaVar.a(i, bitmap);
+                }
+                tua.d("single-frameResult: " + i);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements bda {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bda a;
+
+        public b(bda bdaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdaVar;
+        }
+
+        @Override // com.baidu.tieba.bda
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                bda bdaVar = this.a;
+                if (bdaVar != null) {
+                    bdaVar.a(i, bitmap);
+                }
+                tua.d("multi-frameResult: " + i);
+            }
+        }
+    }
+
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
+        }
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, bda bdaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bdaVar}) == null) && vlogEditManager != null && context != null && i > 0) {
+            kda kdaVar = new kda();
+            kdaVar.a = vlogEditManager.getDuration();
+            kdaVar.b = i;
+            kdaVar.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) yua.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
                 return;
             }
-            QuestionTagListData questionTagListData = ((QuestionTagListResponseMessage) httpResponsedMessage).data;
-            boolean z = false;
-            if (httpResponsedMessage.getError() == 0 && questionTagListData != null) {
-                if (!ListUtils.isEmpty(questionTagListData.b)) {
-                    this.a.a.addAll(questionTagListData.b);
-                }
-                zca zcaVar = this.a;
-                if (questionTagListData.a == 1) {
-                    z = true;
-                }
-                zcaVar.e = z;
-                if (this.a.e) {
-                    zca.c(this.a);
-                }
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.e, this.a.a);
-                }
-            } else if (this.a.b != null) {
-                b bVar = this.a.b;
-                if (this.a.f != 1) {
-                    z = true;
-                }
-                bVar.c(z, TbadkApplication.getInst().getString(R.string.new_text_no_search_result));
+            kdaVar.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
             }
-        }
-    }
-
-    public zca() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            kdaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
             }
-        }
-        this.a = new ArrayList();
-        this.f = 1;
-        this.g = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST);
-        g();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_TAG_LIST);
-            tbHttpMessageTask.setResponsedClass(QuestionTagListResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            kdaVar.d = i3;
+            eda.f().i(kdaVar, new b(bdaVar));
         }
     }
 
-    public static /* synthetic */ int c(zca zcaVar) {
-        int i = zcaVar.f;
-        zcaVar.f = i + 1;
-        return i;
-    }
-
-    public boolean h(boolean z) {
-        InterceptResult invokeZ;
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, bda bdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            if (!z && !this.e) {
-                return false;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bdaVar}) == null) && multiMediaData != null && context != null && i > 0) {
+            lda ldaVar = new lda();
+            ldaVar.b = i;
+            ldaVar.a = multiMediaData.originalDuration;
+            ldaVar.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
             }
-            k();
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.b(false);
-                return true;
+            ldaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
             }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void i(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
-            this.f = 1;
-            this.e = false;
-            this.a.clear();
-            k();
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.b(true);
-            }
-        }
-    }
-
-    public void l(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.g);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new QuestionTagListRequestMessage().setSearchWords(this.c).setCategory(this.d).setPage(this.f));
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+            ldaVar.d = i3;
+            eda.f().j(ldaVar, new a(bdaVar));
         }
     }
 }

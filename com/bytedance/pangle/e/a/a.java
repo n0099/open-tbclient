@@ -2,7 +2,7 @@ package com.bytedance.pangle.e.a;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public int a;
     public b b;

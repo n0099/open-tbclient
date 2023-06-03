@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class N0 {
     public static /* synthetic */ Interceptable $ic;
@@ -48,11 +47,11 @@ public class N0 {
             this.c = m0;
             this.d = info;
             try {
-                Log.e(MiPushClient.COMMAND_REGISTER, "b111:" + this.b);
+                Log.e("register", "b111:" + this.b);
                 if (!this.b) {
                     this.e.sendEmptyMessage(1101);
                 }
-                Log.e(MiPushClient.COMMAND_REGISTER, "b2222");
+                Log.e("register", "b2222");
                 ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
                 viewTreeObserver.addOnScrollChangedListener(new F0(this, m0));
                 viewTreeObserver.addOnGlobalFocusChangeListener(new G0(this, m0));

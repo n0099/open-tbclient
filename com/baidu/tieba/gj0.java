@@ -1,48 +1,97 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface gj0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "config");
-    public static final gj0 b = new a();
+public class gj0 extends oe1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    @NonNull
-    ij0 a();
-
-    /* loaded from: classes5.dex */
-    public static class a implements gj0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public gj0(AdBaseModel adBaseModel, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adBaseModel, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = adBaseModel;
+        this.b = view2;
+    }
 
-        @Override // com.baidu.tieba.gj0
-        @NonNull
-        public ij0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ij0.a;
+    @Override // com.baidu.tieba.oe1
+    public void a(String str) {
+        AdBaseModel adBaseModel;
+        qr0 qr0Var;
+        lr0 lr0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (qr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(qr0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
+            clogBuilder.j(str);
+            mr0 mr0Var = adBaseModel.m;
+            if (mr0Var != null && (lr0Var = mr0Var.q) != null) {
+                clogBuilder.v(lr0Var.a);
             }
-            return (ij0) invokeV.objValue;
+            clogBuilder.p(adBaseModel.f.d);
+            n31.b(clogBuilder);
+        }
+    }
+
+    @Override // com.baidu.tieba.oe1
+    public void b(@NonNull wr0 wr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wr0Var) == null) {
+            if (wr0Var.c) {
+                tj0.b(wr0Var.a);
+                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
+            }
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
+    }
+
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        qr0 qr0Var;
+        lr0 lr0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (qr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(qr0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.j(str);
+            mr0 mr0Var = adBaseModel.m;
+            if (mr0Var != null && (lr0Var = mr0Var.q) != null) {
+                clogBuilder.v(lr0Var.a);
+            }
+            clogBuilder.p(adBaseModel.f.d);
+            n31.b(clogBuilder);
         }
     }
 }

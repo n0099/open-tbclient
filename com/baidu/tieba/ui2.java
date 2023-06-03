@@ -1,81 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ti2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes7.dex */
-public class ui2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class ui2 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static final Set<String> b;
-    public static final Set<String> c;
-    public static final Map<String, ti2> d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948211883, "Lcom/baidu/tieba/ui2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948211883, "Lcom/baidu/tieba/ui2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ui2(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/getRegionData");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        b = new HashSet(a);
-        c = new HashSet(b);
-        d = new HashMap();
-        e = false;
     }
 
-    public static ti2 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            c();
-            return d.get(str);
-        }
-        return (ti2) invokeL.objValue;
-    }
-
-    public static ti2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ti2.b bVar = new ti2.b();
-            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(ns2.w0().a());
-            bVar.b(ns2.w0().d());
-            return bVar.a();
-        }
-        return (ti2) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!e) {
-                for (String str : c) {
-                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        d.put(str, b());
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            e = true;
+            String b = jo3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                if (vd3.b) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
+                return false;
+            }
         }
+        return invokeLLLL.booleanValue;
     }
 }

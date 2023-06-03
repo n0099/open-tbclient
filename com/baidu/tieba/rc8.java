@@ -1,257 +1,365 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingActivity;
-import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingModel;
-import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import protobuf.QueryUserInfos.DataRes;
-import protobuf.QueryUserInfos.IconInfo;
-import tbclient.PermissionList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class rc8 {
+public class rc8 implements vc8, xc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PersonalTalkSettingActivity a;
-    public final NavigationBar b;
-    public final View c;
-    public final HeadImageView d;
-    public final TextView e;
-    public final UserIconBox f;
-    public final TextView g;
-    public ImageView h;
-    public TbSettingTextTipView i;
-    public TbSettingTextTipView j;
-    public TbSettingTextTipView k;
-    public RelativeLayout l;
-    public View m;
-    public PersonalTalkSettingViewSettingView n;
+    @NonNull
+    public TbPageContext a;
+    public CustomMessageListener b;
+    public boolean c;
+    public long d;
+    public boolean e;
+    public yc8 f;
+    public List<tc8> g;
+    public List<tc8> h;
+    public xc8 i;
 
-    public rc8(PersonalTalkSettingActivity personalTalkSettingActivity) {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rc8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(rc8 rc8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rc8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rc8Var;
+        }
+
+        /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+        public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+            hd8 hd8Var;
+            ChatRoomInfo a;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map)) {
+                Map map = (Map) customResponsedMessage.getData();
+                for (tc8 tc8Var : this.a.g) {
+                    if ((tc8Var instanceof hd8) && (a = (hd8Var = (hd8) tc8Var).a()) != null && map.containsKey(Long.valueOf(a.getRoomId()))) {
+                        hd8Var.c((ChatRoomInfo) map.get(Long.valueOf(a.getRoomId())));
+                    }
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            onMessage2((CustomResponsedMessage) customResponsedMessage);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public rc8(@NonNull TbPageContext tbPageContext, long j, boolean z) {
+        this(tbPageContext, j, false, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {personalTalkSettingActivity};
+            newInitContext.initArgs = r8;
+            Object[] objArr = {tbPageContext, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TbPageContext) objArr2[0], ((Long) objArr2[1]).longValue(), ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = personalTalkSettingActivity;
-        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d071c);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b69);
-        this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1548));
-        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f092092);
-        this.n = personalTalkSettingViewSettingView;
-        personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09272b);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921ab);
-        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921ac);
-        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09013d);
-        this.i.setOnClickListener(this.a);
-        this.j.setOnClickListener(this.a);
-        this.k.setOnClickListener(this.a);
-        this.l.setOnClickListener(this.a);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091ba6);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setGodIconWidth(R.dimen.tbds47);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091002);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091000);
-        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09270c);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0908f8);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(PersonalTalkSettingModel personalTalkSettingModel) {
-        String nameShow;
-        int i;
+    public rc8(@NonNull TbPageContext tbPageContext, long j, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.f0() != null) {
-            DataRes f0 = personalTalkSettingModel.f0();
-            TextView textView = this.e;
-            String str = "";
-            if (StringUtils.isNull(personalTalkSettingModel.getNameShow())) {
-                nameShow = f0.name + "";
-            } else {
-                nameShow = personalTalkSettingModel.getNameShow();
-            }
-            textView.setText(nameShow);
-            if (f0.sex.intValue() == 1) {
-                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
-            } else if (f0.sex.intValue() == 2) {
-                if (f0.iconInfo.size() > 0 && f0.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
-                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                } else {
-                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
-                }
-            } else {
-                i = 9;
-                if (personalTalkSettingModel.h0() != null) {
-                    str = qc8.a(personalTalkSettingModel.h0());
-                }
-                if (StringUtils.isNull(str)) {
-                    str = f0.intro;
-                }
-                this.g.setText(str);
-                if (this.f == null) {
-                    LinkedList linkedList = new LinkedList();
-                    for (IconInfo iconInfo : f0.iconInfo) {
-                        IconData iconData = new IconData();
-                        iconData.setIconName(iconInfo.name);
-                        iconData.setIcon(iconInfo.iconUrl);
-                        linkedList.add(iconData);
-                    }
-                    this.f.g(linkedList, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            i = 8;
-            if (personalTalkSettingModel.h0() != null) {
-            }
-            if (StringUtils.isNull(str)) {
-            }
-            this.g.setText(str);
-            if (this.f == null) {
-            }
         }
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.a = tbPageContext;
+        this.c = z;
+        this.d = j;
+        this.e = z2;
     }
 
-    public void a(PermissionList permissionList) {
+    @Override // com.baidu.tieba.vc8
+    public void c(@NonNull xc8 xc8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, permissionList) == null) && permissionList != null && this.n != null) {
-            StringBuilder sb = new StringBuilder();
-            if (permissionList.follow.intValue() == 1) {
-                sb.append("关注、");
-            }
-            if (permissionList.interact.intValue() == 1) {
-                sb.append("互动、");
-            }
-            if (permissionList.chat.intValue() == 1) {
-                sb.append("私信");
-                this.m.setVisibility(8);
-                this.n.a.setVisibility(8);
-                this.n.b.setVisibility(8);
-            } else {
-                this.n.a.setVisibility(0);
-                this.n.b.setVisibility(0);
-            }
-            if (!StringUtils.isNull(sb.toString()) && sb.length() > 0) {
-                sb.insert(0, "禁止");
-            } else {
-                sb.delete(0, sb.length());
-            }
-            String sb2 = sb.toString();
-            if (!StringUtils.isNull(sb2) && sb2.endsWith("、")) {
-                sb2 = sb2.substring(0, sb2.length() - 1);
-            }
-            this.k.setTip(sb2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xc8Var) == null) {
+            this.i = xc8Var;
         }
     }
 
-    public void b(boolean z) {
+    public void h(List<tc8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.n.a(z);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
+        this.g.clear();
+        this.g.addAll(list);
+        this.i.f(0, d());
     }
 
-    public void e(boolean z) {
+    public void p(yc8 yc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.n.c(z);
+        if (interceptable == null || interceptable.invokeL(1048592, this, yc8Var) == null) {
+            this.f = yc8Var;
         }
     }
 
-    public void f(BdSwitchView.b bVar) {
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+    @Override // com.baidu.tieba.xc8
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
-            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 > 0) {
+            getItemsCount();
+            int i3 = (i2 + i) - 1;
+            int i4 = 0;
+            while (i3 >= i && i3 < getItemsCount()) {
+                this.g.remove(i3);
+                i3--;
+                i4++;
+            }
+            xc8 xc8Var = this.i;
+            if (xc8Var != null) {
+                xc8Var.a(i, i4);
+            }
         }
     }
 
-    public void c(PersonalTalkSettingModel personalTalkSettingModel) {
-        String str;
+    public void j(List<?> list, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.f0() != null && (str = personalTalkSettingModel.f0().portrait) != null && str.length() > 0) {
-            this.d.setImageResource(0);
-            UtilHelper.showHeadImageViewBigV(this.d, personalTalkSettingModel.h0());
-            this.d.setTag(null);
-            this.d.setPageId(this.a.getUniqueId());
-            this.d.N(str, 12, false);
+        if ((interceptable == null || interceptable.invokeLZ(1048586, this, list, z) == null) && !ListUtils.isEmpty(list) && this.i != null) {
+            this.e = z;
+            List<tc8> m = m(list);
+            if (m == null) {
+                return;
+            }
+            this.g.clear();
+            this.g.addAll(m);
+            this.i.f(0, d());
         }
     }
 
-    public void d(int i) {
+    public void k(List<?> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.getLayoutMode().k(this.c);
-            this.b.onChangeSkinType(this.a.getPageContext(), i);
-            p45 d = p45.d(this.e);
-            d.C(R.string.F_X02);
-            d.B(R.dimen.T_X04);
-            d.w(R.color.CAM_X0105);
-            p45 d2 = p45.d(this.g);
-            d2.C(R.string.F_X01);
-            d2.B(R.dimen.T_X08);
-            d2.w(R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        if ((interceptable == null || interceptable.invokeLZ(1048587, this, list, z) == null) && !ListUtils.isEmpty(list) && this.i != null) {
+            this.e = z;
+            List<tc8> m = m(list);
+            if (ListUtils.isEmpty(m)) {
+                return;
+            }
+            int itemsCount = getItemsCount();
+            this.g.clear();
+            this.i.a(0, itemsCount);
+            this.g.addAll(m);
+            this.i.b(0, d());
         }
     }
 
-    public void h(PersonalTalkSettingModel personalTalkSettingModel) {
+    @Override // com.baidu.tieba.xc8
+    public void b(int i, @NonNull List<tc8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && this.i != null && !ListUtils.isEmpty(list)) {
+            this.i.b(i, list);
+        }
+    }
+
+    @Override // com.baidu.tieba.xc8
+    public void f(int i, @NonNull List<tc8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048582, this, i, list) != null) || list.isEmpty()) {
+            return;
+        }
+        this.g.addAll(i, list);
+        xc8 xc8Var = this.i;
+        if (xc8Var != null) {
+            xc8Var.f(i, list);
+        }
+    }
+
+    @Override // com.baidu.tieba.vc8
+    @NonNull
+    public List<tc8> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Collections.unmodifiableList(this.g);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc8
+    public void detach() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.vc8
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c) {
+            if (this.b == null) {
+                this.b = new a(this, 2921766);
+            }
+            MessageManager.getInstance().registerListener(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.vc8
+    public int getItemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || ListUtils.isEmpty(this.g)) {
+            return;
+        }
+        b(0, d());
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || ListUtils.isEmpty(this.g)) {
+            return;
+        }
+        this.h.clear();
+        this.h.addAll(new ArrayList(this.g));
+        this.g.clear();
+    }
+
+    @Nullable
+    public final gd8 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (ListUtils.isEmpty(this.h)) {
+                return null;
+            }
+            for (tc8 tc8Var : this.h) {
+                if ((tc8Var instanceof gd8) && str != null) {
+                    gd8 gd8Var = (gd8) tc8Var;
+                    if (str.equals(gd8Var.a())) {
+                        return gd8Var;
+                    }
+                }
+            }
+            return null;
+        }
+        return (gd8) invokeL.objValue;
+    }
+
+    @Nullable
+    public final List<hd8> n(@Nullable List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof ChatRoomInfo) {
+                    arrayList.add(new hd8((ChatRoomInfo) obj, this.e));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Nullable
+    public final List<tc8> m(@Nullable List list) {
+        InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null) {
-            a(personalTalkSettingModel.g0());
-            b(personalTalkSettingModel.isNotify());
-            if (u58.a(String.valueOf(personalTalkSettingModel.getUid())) > 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-            e(z);
-            g(personalTalkSettingModel);
-            c(personalTalkSettingModel);
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof ChatGroupInfo) {
+                    ChatGroupInfo chatGroupInfo = (ChatGroupInfo) obj;
+                    List<hd8> n = n(chatGroupInfo.getRoomInfoList());
+                    if (n != null) {
+                        if (TextUtils.isEmpty(chatGroupInfo.getName())) {
+                            arrayList.add(0, new gd8(n, "", "", false, true, this.e, this.a, this.f));
+                        } else {
+                            gd8 i2 = i(chatGroupInfo.getGroupId());
+                            String name = chatGroupInfo.getName();
+                            String groupId = chatGroupInfo.getGroupId();
+                            if (i2 != null && i2.d()) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            arrayList.add(new gd8(n, name, groupId, z, this.e, this.a, this.f));
+                        }
+                    }
+                } else if (obj instanceof id8) {
+                    id8 id8Var = (id8) obj;
+                    arrayList.add(new fd8(id8Var.a(), id8Var.b(), this.d));
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

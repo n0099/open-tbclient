@@ -1,159 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.gson.Holder;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.jz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmClassMappingKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KClass;
-import kotlin.reflect.KClassifier;
-import kotlin.reflect.KParameter;
-import kotlin.reflect.full.KClasses;
-import kotlin.reflect.jvm.ReflectJvmMapping;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bu5 {
+public class bu5 extends rt5<l45, ThreadCardViewHolder<l45>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eo6<l45> g;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ Object a(KParameter kParameter) {
-        return e(kParameter);
+    /* loaded from: classes5.dex */
+    public class a extends eo6<l45> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bu5 b;
+
+        public a(bu5 bu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bu5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, l45 l45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, l45Var) == null) {
+                super.a(view2, l45Var);
+                if (l45Var != null && l45Var.getThreadData() != null && !ListUtils.isEmpty(l45Var.getThreadData().getLinkDataList()) && l45Var.getThreadData().getLinkDataList().get(0) != null) {
+                    Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                    if (!TextUtils.isEmpty(l45Var.getThreadData().getLinkDataList().get(0).linkUrl) && (currentActivity instanceof TbPageContextSupport)) {
+                        UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{l45Var.getThreadData().getLinkDataList().get(0).linkUrl});
+                    }
+                    this.b.u(view2, l45Var);
+                }
+            }
+        }
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ KClass d(TypeToken typeToken) {
-        return h(typeToken);
+    /* loaded from: classes5.dex */
+    public class b implements fo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bu5 a;
+
+        public b(bu5 bu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bu5Var;
+        }
+
+        @Override // com.baidu.tieba.fo
+        public void b(View view2, vn vnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, vnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (vnVar instanceof l45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                l45 l45Var = (l45) vnVar;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), l45Var);
+                }
+            }
+        }
     }
 
-    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_SINGLE_LINK);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: P */
+    public ThreadCardViewHolder<l45> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            if (rawType != null) {
-                return JvmClassMappingKt.getKotlinClass(rawType);
-            }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            jz.b bVar = new jz.b(this.c.getPageActivity(), false);
+            bVar.h(new fz(this.c.getPageActivity()));
+            jz k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            k.s(C());
+            ThreadCardViewHolder<l45> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return (KClass) invokeL.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
-        return f(kParameter, cls);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
-        return g(typeToken, kParameter);
-    }
-
-    public static final Object e(KParameter kParameter) {
-        InterceptResult invokeL;
-        KClass kClass;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: Q */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l45 l45Var, ThreadCardViewHolder<l45> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
-            if (kParameter.getType().isMarkedNullable()) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l45Var, threadCardViewHolder})) == null) {
+            if (l45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = l45Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(l45Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
             }
-            KClassifier classifier = kParameter.getType().getClassifier();
-            if (classifier instanceof KClass) {
-                kClass = (KClass) classifier;
-            } else {
-                kClass = null;
-            }
-            if (kClass == null) {
-                return null;
-            }
-            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
-                    return "";
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
-                    return Boolean.FALSE;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
-                    return (byte) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
-                    return (char) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
-                    return Double.valueOf(0.0d);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
-                    return Float.valueOf(0.0f);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
-                    return 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
-                    return 0L;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
-                    return (short) 0;
-                }
-                return Holder.OBJECT;
-            }
-            return Holder.ARRAY;
+            return null;
         }
-        return invokeL.objValue;
-    }
-
-    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
-        InterceptResult invokeLL;
-        Field field;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
-            String name = kParameter.getName();
-            if (name == null) {
-                return CollectionsKt__CollectionsKt.emptyList();
-            }
-            SerializedName serializedName = null;
-            try {
-                field = cls.getDeclaredField(name);
-            } catch (NoSuchFieldException unused) {
-                field = null;
-            }
-            if (field != null) {
-                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
-            }
-            if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                if (serializedName != null) {
-                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
-                }
-                return CollectionsKt__CollectionsJVMKt.listOf(name);
-            }
-            return CollectionsKt__CollectionsKt.emptyList();
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
-            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
-            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
-            return resolveParameterType;
-        }
-        return (TypeToken) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

@@ -23,9 +23,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tieba.R;
-import com.baidu.tieba.apa;
-import com.baidu.tieba.yoa;
-import com.baidu.tieba.zoa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.validation.view.ValidationTimeoutView;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ExternalWebviewActivity extends Activity implements yoa, View.OnClickListener {
+public class ExternalWebviewActivity extends Activity implements lwa, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebView a;
@@ -92,12 +92,12 @@ public class ExternalWebviewActivity extends Activity implements yoa, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                apa a = apa.a(str2);
+                nwa a = nwa.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = zoa.b().a(a.b());
+                BaseInterpreter a2 = mwa.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -272,7 +272,7 @@ public class ExternalWebviewActivity extends Activity implements yoa, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.yoa
+    @Override // com.baidu.tieba.lwa
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
@@ -363,7 +363,7 @@ public class ExternalWebviewActivity extends Activity implements yoa, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09247a) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0924ae) {
             finish();
         }
     }
@@ -380,8 +380,8 @@ public class ExternalWebviewActivity extends Activity implements yoa, View.OnCli
             this.b = (ValidationLoadingView) findViewById(R.id.validation_loading_view);
             this.c = (ValidationTimeoutView) findViewById(R.id.validation_timeout_view);
             this.d = (TextView) findViewById(R.id.tv_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09247a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092495);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ae);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924c9);
             h();
             this.d.setText(com.baidu.validation.a.a.a(this.f));
             this.e.setOnClickListener(this);

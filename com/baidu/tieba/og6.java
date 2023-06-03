@@ -1,31 +1,35 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public final class og6 {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class og6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lw4 a;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public List<qg6> l;
+    public int m;
+    public long n;
 
     public og6() {
         Interceptable interceptable = $ic;
@@ -37,187 +41,210 @@ public final class og6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.m = -1;
+        this.l = new ArrayList();
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<qg6> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.l == null) {
+                this.l = new ArrayList();
+            }
+            return this.l;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.c == 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.c == 10) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
+            this.c = jSONObject.optInt("type");
+            this.d = jSONObject.optInt("mark_id");
+            this.e = jSONObject.optString("mark_name");
+            this.g = jSONObject.optString("description");
+            this.i = jSONObject.optInt("wear_status");
+            this.f = jSONObject.optString("mark_pic");
+            this.h = jSONObject.optInt("mark_rank");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+            jSONObject.optInt("weight");
+            this.j = jSONObject.optString("next_level_diff");
+            jSONObject.optString("mark_dir_level");
+            this.k = jSONObject.optString("expire_text");
+            jSONObject.optString(DiskUpdateListener.BEGIN_TIME);
+            jSONObject.optString("end_time");
+            JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    qg6 qg6Var = new qg6();
+                    qg6Var.e(optJSONArray.optJSONObject(i));
+                    this.l.add(qg6Var);
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
+            if (optJSONObject != null) {
+                this.m = tg.e(optJSONObject.optString("props_id"), -1);
+                this.n = tg.g(optJSONObject.optString("price"), 0L);
+                optJSONObject.optString("buy_cycle");
+                optJSONObject.optInt("buy_staus");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("nobility_info");
+            if (optJSONObject2 != null) {
+                optJSONObject2.optInt("nobility_type");
+                optJSONObject2.optString("nobility_type_name");
             }
         }
     }
 
-    public void c() {
-        lw4 lw4Var;
+    public void o(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lw4Var = this.a) != null) {
-            lw4Var.h();
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "0".equals(Uri.parse(str).getQueryParameter("useOfflinePackage"));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return str + str2;
-            }
-            return str + str2 + "?" + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final void d(WebView webView, Uri uri, vg6 vg6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, uri, vg6Var) == null) && !zh6.a(vg6Var.b) && webView != null) {
-            if (this.a == null) {
-                this.a = new lw4();
-            }
-            Map<String, String> a = cf6.a(uri);
-            Iterator<String> it = vg6Var.b.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                Uri parse = Uri.parse(next);
-                for (String str : parse.getQueryParameterNames()) {
-                    String queryParameter = parse.getQueryParameter(str);
-                    if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
-                        next = next.replace(queryParameter, cf6.c(a, queryParameter));
-                    }
-                }
-                OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-                offlineBridgeData.type = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
-                offlineBridgeData.url = next;
-                offlineBridgeData.module = vg6Var.c;
-                offlineBridgeData.begin = System.currentTimeMillis();
-                lw4 lw4Var = this.a;
-                if (lw4Var != null) {
-                    lw4Var.j(webView, offlineBridgeData, null);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public final void e(String str, String str2, boolean z, String str3, String str4) {
-        String str5;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), str3, str4}) == null) {
-            pf6 a = pf6.a(HybridStatisticKey.KEY_OFFLINE_PACKAGE);
-            a.c("obj_name", str3);
-            a.c("obj_source", str);
-            a.c("obj_locate", str2);
-            a.c("obj_param1", str4);
-            Pair[] pairArr = new Pair[2];
-            if (z) {
-                str5 = "1";
-            } else {
-                str5 = "0";
-            }
-            pairArr[0] = Pair.create("is_proxy", str5);
-            pairArr[1] = Pair.create("is_new_hybrid", "1");
-            a.c(TiebaStatic.Params.OBJ_PARAM2, ci6.a(pairArr));
-            a.d();
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.i = i;
         }
-    }
-
-    public final String f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            Uri parse = Uri.parse(str);
-            vg6 f = ng6.d().f(parse);
-            if (f == null) {
-                e(str, "without_bundle", false, "", "");
-                return null;
-            }
-            String n = mg6.l().n(f.c);
-            if (TextUtils.isEmpty(f.c)) {
-                str2 = "none";
-            } else {
-                str2 = f.c;
-            }
-            String str3 = str2;
-            if (TextUtils.isEmpty(n)) {
-                n = "0.0.0.0";
-            }
-            String str4 = n;
-            if (!f.g) {
-                e(str, "processing_bundle", f.h, str3, str4);
-                return null;
-            }
-            String str5 = f.d;
-            if (!TextUtils.isEmpty(str5) && !str5.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
-                str5 = f.d + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-            }
-            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str4)) {
-                String str6 = mg6.l().k() + "/" + str3 + "/" + str4 + "/";
-                if (!new File(str6, str5).exists()) {
-                    f.g = false;
-                    e(str, "path_not_found", f.h, str3, str4);
-                    return null;
-                }
-                f.g = true;
-                f.e = "file://" + str6;
-                ng6.d().a(ei6.c(str), f);
-                if (!f.h && !zh6.a(f.b)) {
-                    d(webView, parse, f);
-                }
-                e(str, "success", f.h, str3, str4);
-                if (f.h) {
-                    return str;
-                }
-                return a(f.e, str5, parse.getQuery());
-            }
-            f.g = false;
-            e(str, "config_error", f.h, str3, str4);
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @NonNull
-    public Pair<Boolean, String> g(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    return Pair.create(Boolean.FALSE, str);
-                }
-                e(str, "start", false, "", "");
-                if (!QuickWebViewSwitch.getInOn()) {
-                    ng6.d().g(str);
-                    e(str, "close_offline", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else if (b(str)) {
-                    ng6.d().g(str);
-                    e(str, "dev_mode", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else {
-                    String str2 = null;
-                    try {
-                        str2 = f(webView, str);
-                    } catch (Exception unused) {
-                        e(str, "exception", false, "", "");
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        return Pair.create(Boolean.TRUE, str2);
-                    }
-                    ng6.d().g(str);
-                    return Pair.create(Boolean.FALSE, str);
-                }
-            }
-            return Pair.create(Boolean.TRUE, str);
-        }
-        return (Pair) invokeLL.objValue;
     }
 }

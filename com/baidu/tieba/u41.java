@@ -1,49 +1,51 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
-public class u41 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes8.dex */
+public class u41 implements x41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScheduledExecutorService a;
+    public ScheduledExecutorService b;
 
-    public static String a(String str, byte[] bArr, boolean z) {
-        InterceptResult invokeLLZ;
+    public u41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, str, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(str);
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLLZ.objValue;
+        this.a = new ScheduledThreadPoolExecutor(15);
+        this.b = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.x41
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
-        return (String) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.x41
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            this.b.schedule(runnable, j, TimeUnit.MILLISECONDS);
+        }
     }
 }

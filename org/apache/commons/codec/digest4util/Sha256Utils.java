@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Sha256Utils {
     @SuppressLint({"BDThrowableCheck"})
     public static String toHash(byte[] bArr, boolean z) {

@@ -5,14 +5,13 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tieba.mw;
-import com.baidu.tieba.ww;
+import com.baidu.tieba.ex;
+import com.baidu.tieba.qx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +136,7 @@ public class BdZeusUpdate {
                 ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
                 if (byteArrayOutputStream != null) {
                     try {
-                        String byteArrayOutputStream2 = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
+                        String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
                         Log.d(EngineManager.LOG_TAG, "received data = ".concat(String.valueOf(byteArrayOutputStream2)));
                         if (byteArrayOutputStream2.length() > 0) {
                             JSONObject jSONObject = new JSONObject(byteArrayOutputStream2);
@@ -244,7 +243,7 @@ public class BdZeusUpdate {
             } else if (bdZeusUpdate.d) {
                 return;
             } else {
-                if (ww.d(context)) {
+                if (qx.d(context)) {
                     BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(bdZeusUpdate, context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
@@ -322,7 +321,7 @@ public class BdZeusUpdate {
                 d(sb, "sdk", sdkVersionName);
             }
             String cuid = BdSailorPlatform.getInstance().getCuid();
-            String f = !TextUtils.isEmpty(cuid) ? ww.f(cuid) : "";
+            String f = !TextUtils.isEmpty(cuid) ? qx.f(cuid) : "";
             if (!TextUtils.isEmpty(f)) {
                 d(sb, "cuid", f);
             }
@@ -338,7 +337,7 @@ public class BdZeusUpdate {
             stringBuffer.append(i);
             stringBuffer.append("_");
             stringBuffer.append(str4.replace("_", "-"));
-            String f2 = ww.f(stringBuffer.toString().replace(" ", "-"));
+            String f2 = qx.f(stringBuffer.toString().replace(" ", "-"));
             if (!TextUtils.isEmpty(f2)) {
                 d(sb, BdZeusUtil.URL_KEY_MACHINE, f2);
             }
@@ -427,64 +426,64 @@ public class BdZeusUpdate {
             inputStream = context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()));
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (Exception unused) {
-            } catch (Throwable th2) {
-                byteArrayOutputStream = null;
-                th = th2;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                String trim = new String(byteArrayOutputStream.toByteArray()).trim();
                 try {
-                    byteArrayOutputStream.close();
-                } catch (Exception unused2) {
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception unused3) {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
                     }
-                }
-                return trim;
-            } catch (Exception unused4) {
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (Exception unused5) {
-                    }
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                        return BdZeusUtil.DEFAULT_TNNUMBER;
-                    } catch (Exception unused6) {
-                        return BdZeusUtil.DEFAULT_TNNUMBER;
-                    }
-                }
-                return BdZeusUtil.DEFAULT_TNNUMBER;
-            } catch (Throwable th3) {
-                th = th3;
-                if (byteArrayOutputStream != null) {
+                    String trim = new String(byteArrayOutputStream.toByteArray()).trim();
                     try {
                         byteArrayOutputStream.close();
-                    } catch (Exception unused7) {
+                    } catch (Exception unused) {
                     }
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception unused8) {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception unused2) {
+                        }
                     }
+                    return trim;
+                } catch (Exception unused3) {
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    if (byteArrayOutputStream2 != null) {
+                        try {
+                            byteArrayOutputStream2.close();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return BdZeusUtil.DEFAULT_TNNUMBER;
+                        } catch (Exception unused5) {
+                            return BdZeusUtil.DEFAULT_TNNUMBER;
+                        }
+                    }
+                    return BdZeusUtil.DEFAULT_TNNUMBER;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (byteArrayOutputStream != null) {
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (Exception unused6) {
+                        }
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception unused7) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception unused8) {
+            } catch (Throwable th3) {
+                byteArrayOutputStream = null;
+                th = th3;
             }
         } catch (Exception unused9) {
             inputStream = null;
@@ -540,7 +539,7 @@ public class BdZeusUpdate {
             }
             if (z) {
                 try {
-                    float a2 = mw.a() / 1024.0f;
+                    float a2 = ex.a() / 1024.0f;
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
                     if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;

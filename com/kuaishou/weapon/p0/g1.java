@@ -13,7 +13,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,7 +101,7 @@ public class g1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String[] strArr = {BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, "global", ClientCookie.SECURE_ATTR};
+            String[] strArr = {"system", "global", ClientCookie.SECURE_ATTR};
             JSONObject jSONObject = new JSONObject();
             for (int i = 0; i < 3; i++) {
                 try {

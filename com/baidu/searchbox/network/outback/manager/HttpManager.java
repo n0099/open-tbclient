@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.outback.manager;
 import android.content.Context;
 import com.baidu.searchbox.network.outback.base.AbstractHttpManager;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HttpManager extends AbstractHttpManager {
     public static volatile HttpManager httpManager;
 

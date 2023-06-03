@@ -6,7 +6,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class HttpResponseWriter extends AbstractMessageWriter {
     public HttpResponseWriter(SessionOutputBuffer sessionOutputBuffer, LineFormatter lineFormatter, HttpParams httpParams) {
         super(null, null, null);

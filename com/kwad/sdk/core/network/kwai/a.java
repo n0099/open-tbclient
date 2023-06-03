@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, String str2, boolean z) {
         OutputStream outputStream;

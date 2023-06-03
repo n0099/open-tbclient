@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.a0.f;
 import com.baidu.android.pushservice.a0.i;
 import com.baidu.android.pushservice.g;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -118,7 +118,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    return new JSONObject(str).optJSONObject("response_params").optInt(Constants.KEYS.RET);
+                    return new JSONObject(str).optJSONObject("response_params").optInt("ret");
                 } catch (JSONException unused) {
                 }
             }
@@ -130,7 +130,7 @@ public class c {
     public final String a(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, hashMap)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, hashMap)) == null) {
             TreeSet<String> treeSet = new TreeSet(hashMap.keySet());
             StringBuilder sb = new StringBuilder();
             for (String str3 : treeSet) {
@@ -146,7 +146,7 @@ public class c {
     public final HashMap<String, String> a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.c(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
             long currentTimeMillis = System.currentTimeMillis() / 1000;

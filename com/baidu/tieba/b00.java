@@ -1,84 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
-/* loaded from: classes4.dex */
-public final class b00 implements c00 {
+import java.util.Arrays;
+/* loaded from: classes5.dex */
+public class b00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public f00[] a;
 
-    public b00(int i) {
+    public b00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = new f00[]{new g00(8, 0), new h00(0, 1), new h00(1, 1), new g00(7, 1)};
     }
 
-    @Override // com.baidu.tieba.c00
-    public int a(int i) {
-        InterceptResult invokeI;
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.tieba.c00
-    public void a(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
-    }
-
-    @Override // com.baidu.tieba.c00
-    public int b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
+        e00 e00Var = new e00();
+        byte[] b = c00.b(bArr, bArr.length + ((this.a.length + 1) * e00.b));
+        c00.a(b, e00Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            f00[] f00VarArr = this.a;
+            if (i >= f00VarArr.length) {
+                return Arrays.copyOf(e00Var.b(), e00.b);
             }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
-                }
-            }
-            return i3;
+            f00 f00Var = f00VarArr[i];
+            i++;
+            int length = bArr.length + (e00.b * i);
+            e00Var.a(f00Var.b(b, 0, length), f00Var.a(), f00Var.c(), f00Var.d());
+            c00.a(b, e00Var.b(), length);
         }
-        return invokeLII.intValue;
     }
 }

@@ -1,375 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class de3<ResultDataT> {
+public class de3 extends ce3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final je3<ResultDataT> a;
-    public final Set<zn3<je3<ResultDataT>>> b;
-    public final LinkedList<fe3> c;
-    public boolean d;
-    public boolean e;
 
-    public abstract void i();
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
-
-    public de3<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (de3) invokeL.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends fe3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ de3 c;
-
-        public a(de3 de3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = de3Var;
-        }
-
-        @Override // com.baidu.tieba.fe3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.k()) {
-                    return true;
-                }
-                ee3.k("initialPrepare failed", Boolean.TRUE);
-                throw new OAuthException(10001);
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends fe3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ de3 c;
-
-        public b(de3 de3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = de3Var;
-        }
-
-        @Override // com.baidu.tieba.fe3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.c.j()) {
-                    ee3.k("finalPrepare failed", Boolean.TRUE);
-                    if (de3.f) {
-                        throw new OAuthException(10001);
-                    }
-                    return true;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn3 a;
-        public final /* synthetic */ de3 b;
-
-        public c(de3 de3Var, zn3 zn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de3Var, zn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = de3Var;
-            this.a = zn3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            zn3 zn3Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zn3Var = this.a) != null) {
-                zn3Var.a(this.b.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701623, "Lcom/baidu/tieba/de3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947701623, "Lcom/baidu/tieba/de3;");
-                return;
-            }
-        }
-        f = qp1.a;
-    }
-
-    public final synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                i();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = new b(this);
-            bVar.h(this);
-            bVar.g();
-            this.e = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(null);
-        }
-    }
-
-    @NonNull
-    public de3 call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TaskState.INIT == e()) {
-                s(TaskState.CALLING);
-                n();
-            }
-            return this;
-        }
-        return (de3) invokeV.objValue;
-    }
-
-    public TaskState e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.b;
-        }
-        return (TaskState) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a aVar = new a(this);
-            aVar.h(this);
-            aVar.g();
-            this.d = true;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (zn3<je3<ResultDataT>> zn3Var : this.b) {
-                ee3.l(new c(this, zn3Var));
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.b = TaskState.INIT;
-            this.d = false;
-            this.e = false;
-        }
-    }
-
-    public de3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public de3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/isFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new je3<>();
-        this.b = new HashSet();
-        this.c = new LinkedList<>();
-        this.d = false;
-        this.e = false;
     }
 
-    public void d(@Nullable Exception exc) {
+    @Override // com.baidu.tieba.ce3
+    public boolean j(yb3 yb3Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (exc instanceof OAuthException) {
-                this.a.c = (OAuthException) exc;
-            } else if (exc != null) {
-                ee3.t("OAuthTask#finish", exc.getMessage());
-                this.a.c = new OAuthException(exc, 10001);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, yb3Var, unitedSchemeEntity)) == null) {
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
+                return false;
             }
-            if (!this.a.c() && f && exc != null) {
-                exc.printStackTrace();
-            }
-            s(TaskState.FINISHED);
-            ee3.k(toString(), Boolean.FALSE);
-            g();
-            this.b.clear();
-        }
-    }
-
-    public de3 h(@NonNull fe3 fe3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fe3Var)) == null) {
-            fe3Var.h(this);
-            this.c.offer(fe3Var);
-            return this;
-        }
-        return (de3) invokeL.objValue;
-    }
-
-    public void l(fe3 fe3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, fe3Var) == null) {
-            if (fe3Var.c()) {
-                n();
-            } else {
-                d(fe3Var.b());
-            }
-        }
-    }
-
-    public de3<ResultDataT> o(zn3<je3<ResultDataT>> zn3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zn3Var)) == null) {
-            if (this.a.b.isCallbackAvailable()) {
-                this.b.add(zn3Var);
-            }
-            return this;
-        }
-        return (de3) invokeL.objValue;
-    }
-
-    public void r(ResultDataT resultdatat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
-            this.a.a = resultdatat;
-        }
-    }
-
-    public final void s(TaskState taskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.b = taskState;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TaskState.CALLING.equals(e())) {
-                if (f) {
-                    ee3.k("IllegalState on prepare", Boolean.FALSE);
+            try {
+                JSONObject jSONObject = new JSONObject(param);
+                if (this.d) {
+                    optString = yb3Var.O();
+                } else {
+                    optString = jSONObject.optString("appid");
                 }
-            } else if (!this.d) {
-                f();
-            } else if (!this.c.isEmpty()) {
-                this.c.poll().g();
-            } else if (!this.e) {
-                b();
-            } else {
-                a();
+                this.c = optString;
+                return !TextUtils.isEmpty(optString);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
         }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ce3
+    public void k(yb3 yb3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yb3Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (wi2.n(this.c)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("isFavor", i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ce3
+    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
+            String optString = yo3.d(unitedSchemeEntity.getParam("params")).optString("invokeFrom");
+            if (TextUtils.isEmpty(optString)) {
+                return false;
+            }
+            return TextUtils.equals(optString, "boxjs");
+        }
+        return invokeL.booleanValue;
     }
 }

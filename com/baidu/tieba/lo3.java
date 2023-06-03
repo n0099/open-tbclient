@@ -2,9 +2,10 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,47 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
+    public static List<String> b;
+    public static List<String> c;
+    public static final Object d;
+    public static int e;
+    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public List<b> c;
-    public List<b> d;
-    public int[] e;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final boolean a;
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public float b;
-        public float c;
-        public float d;
-        public float e;
-        public float f;
-        public final /* synthetic */ lo3 g;
-
-        public b(lo3 lo3Var) {
+        public a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lo3Var};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,33 +48,7 @@ public class lo3 {
                     return;
                 }
             }
-            this.g = lo3Var;
-        }
-
-        public /* synthetic */ b(lo3 lo3Var, a aVar) {
-            this(lo3Var);
-        }
-
-        public JSONObject i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("x", xm3.P(this.b));
-                    jSONObject.put("y", xm3.P(this.c));
-                    jSONObject.put("clientX", xm3.P(this.d - this.g.e[0]));
-                    jSONObject.put("clientY", xm3.P(this.e - this.g.e[1]));
-                    jSONObject.put("identifier", this.a);
-                    jSONObject.put(TTDownloadField.TT_FORCE, this.f);
-                } catch (JSONException e) {
-                    if (lo3.f) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
+            this.a = z;
         }
     }
 
@@ -105,216 +65,267 @@ public class lo3 {
                 return;
             }
         }
-        f = qp1.a;
+        a = is1.a;
+        b = new ArrayList();
+        c = new ArrayList();
+        d = new Object();
+        e = 0;
+        f = 0;
     }
 
-    public String e() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e()) {
+                if (a) {
+                    Log.d("SwanAppCompat", "has used ab description");
+                }
+                return true;
+            }
+            return !mk3.a().getBoolean("swan_app_js_native_ab_update_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "on App upgrade");
+            }
+            if (jj4.b() != null && fo4.b()) {
+                jj4.b().i().putString("key_online_description_fix_version", "0");
+            }
+            mk3.a().putBoolean("swan_app_js_native_ab_update_key", true);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start release descriptions");
+            }
+            synchronized (d) {
+                e = 0;
+                b = new ArrayList();
+                c = new ArrayList();
+            }
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start prepare ab description");
+            }
+            synchronized (d) {
+                l(true);
+                l(false);
+            }
+            if (a) {
+                Log.d("SwanAppCompat", "end prepare ab description");
+            }
+        }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            y82.c("JsNative", f + "-true");
+            return f + "-true-" + str + "-" + c();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            synchronized (d) {
+                if (b != null) {
+                    sb.append("v8list:{");
+                    for (String str : b) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (str.length() > 100) {
+                                sb.append(str.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    sb.append("},");
+                }
+                if (c != null) {
+                    sb.append("weblist:{");
+                    for (String str2 : c) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            if (str2.length() > 100) {
+                                sb.append(str2.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str2);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    sb.append("}");
+                }
+            }
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public lo3(MotionEvent motionEvent) {
+    public static String d(int i, String str) {
+        InterceptResult invokeIL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {motionEvent};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "error";
-        this.b = 0L;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new int[2];
-        h(motionEvent, "");
-    }
-
-    public final void g(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) && !TextUtils.equals(this.a, "touchend") && !TextUtils.equals(this.a, "touchcancel")) {
-            try {
-                int pointerCount = motionEvent.getPointerCount();
-                for (int i = 0; i < pointerCount; i++) {
-                    if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
-                        this.c.add(d(motionEvent, i));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            f = 0;
+            if (e == 1) {
+                y82.i("SwanAppCompat", "type support default");
+                f = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_WEB)) {
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else {
+                if (a() && !mw2.b().isEmpty()) {
+                    synchronized (d) {
+                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
+                            list = b;
+                        } else {
+                            list = c;
+                        }
+                        if (list != null && list.size() > 0) {
+                            if (a) {
+                                Log.d("SwanAppCompat", "support ab js native descriptions");
+                            }
+                            e = 2;
+                            f = 2;
+                            return list.get(i);
+                        } else if (list != null) {
+                            f = 3;
+                        } else {
+                            f = 4;
+                        }
                     }
                 }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
+                if (a) {
+                    Log.d("SwanAppCompat", "use default descriptions");
                 }
+                e = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
             }
         }
+        return (String) invokeIL.objValue;
     }
 
-    public lo3(MotionEvent motionEvent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {motionEvent, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = "error";
-        this.b = 0L;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new int[2];
-        h(motionEvent, str);
-    }
-
-    public b d(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, i)) == null) {
-            int pointerId = motionEvent.getPointerId(i);
-            b bVar = new b(this, null);
-            bVar.a = pointerId;
-            bVar.b = motionEvent.getX(i);
-            bVar.c = motionEvent.getY(i);
-            bVar.d = (motionEvent.getRawX() + bVar.b) - motionEvent.getX();
-            bVar.e = (motionEvent.getRawY() + bVar.c) - motionEvent.getY();
-            bVar.f = motionEvent.getPressure(i);
-            return bVar;
-        }
-        return (b) invokeLI.objValue;
-    }
-
-    public JSONObject c() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                if (!this.c.isEmpty()) {
-                    for (b bVar : this.c) {
-                        if (bVar != null) {
-                            jSONArray.put(bVar.i());
-                        }
-                    }
-                }
-                JSONArray jSONArray2 = new JSONArray();
-                if (!this.d.isEmpty()) {
-                    for (b bVar2 : this.d) {
-                        if (bVar2 != null) {
-                            jSONArray2.put(bVar2.i());
-                        }
-                    }
-                }
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.b);
-                jSONObject.put("touches", jSONArray);
-                jSONObject.put("changedTouches", jSONArray2);
-            } catch (JSONException e) {
-                if (f) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
+                return true;
             }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void f(MotionEvent motionEvent) {
-        boolean z;
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
-            try {
-                if (motionEvent.getActionMasked() == 2) {
-                    z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return !np3.f("3.320.0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return !np3.f("3.120.2");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
+            Log.e("JsNative", f + "-true");
+        }
+    }
+
+    public static void l(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("start prepare ab description :");
+                if (z) {
+                    str = V8Engine.TYPE_V8;
                 } else {
-                    z = false;
+                    str = AlbumActivityConfig.FROM_WEB_VIEW;
                 }
-                if (!z) {
-                    this.d.add(d(motionEvent, motionEvent.getActionIndex()));
+                sb.append(str);
+                Log.d("SwanAppCompat", sb.toString());
+            }
+            jq3 jq3Var = new jq3(z);
+            String a2 = mw2.a();
+            String string = mk3.a().getString("swan_app_js_native_ab_sign", null);
+            if (!TextUtils.equals(a2, string)) {
+                if (a) {
+                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
+                }
+                if (!jq3Var.a(3)) {
                     return;
                 }
-                int pointerCount = motionEvent.getPointerCount();
-                for (int i = 0; i < pointerCount; i++) {
-                    this.d.add(d(motionEvent, i));
+                mk3.a().putString("swan_app_js_native_ab_sign", a2);
+            } else if (mk3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
+                if (!jq3Var.a(3)) {
+                    return;
                 }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
+                mk3.a().putBoolean("swan_app_js_native_ab_update_key", false);
+            }
+            List<String> d2 = jq3Var.d();
+            if (d2 != null) {
+                m(d2, z);
             }
         }
     }
 
-    public void i(int[] iArr) {
+    public static void m(List<String> list, boolean z) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
-            this.e = iArr;
-            if (f) {
-                Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
-            }
+        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
+            return;
         }
-    }
-
-    public final void h(MotionEvent motionEvent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, motionEvent, str) == null) {
-            int actionMasked = motionEvent.getActionMasked();
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked != 2) {
-                        if (actionMasked != 3) {
-                            if (actionMasked != 5) {
-                                if (actionMasked != 6) {
-                                    this.a = "error";
-                                } else {
-                                    this.a = "touchpointerup";
-                                    f(motionEvent);
-                                }
-                            } else {
-                                this.a = "touchpointerdown";
-                                f(motionEvent);
-                            }
-                        } else {
-                            this.a = "touchcancel";
-                            f(motionEvent);
-                        }
-                    } else {
-                        this.a = "touchmove";
-                        f(motionEvent);
-                    }
-                } else {
-                    this.a = "touchend";
-                    f(motionEvent);
-                }
+        if (z) {
+            b = list;
+        } else {
+            c = list;
+        }
+        if (a) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("has update descriptions, list :");
+            sb.append(list.toString());
+            sb.append(" type :");
+            if (z) {
+                str = V8Engine.TYPE_V8;
             } else {
-                this.a = "touchstart";
-                f(motionEvent);
+                str = AlbumActivityConfig.FROM_WEB_VIEW;
             }
-            this.b = motionEvent.getEventTime();
-            if (!TextUtils.isEmpty(str)) {
-                this.a = str;
-            }
-            g(motionEvent);
-            if (TextUtils.equals(this.a, "touchpointerdown")) {
-                this.a = "touchstart";
-            }
-            if (TextUtils.equals(this.a, "touchpointerup")) {
-                this.a = "touchend";
-            }
+            sb.append(str);
+            Log.d("SwanAppCompat", sb.toString());
         }
     }
 }

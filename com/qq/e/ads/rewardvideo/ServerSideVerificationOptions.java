@@ -6,22 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import org.json.JSONObject;
+/* loaded from: classes10.dex */
 public class ServerSideVerificationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TRANS_ID = "transId";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public final JSONObject c;
 
     /* renamed from: com.qq.e.ads.rewardvideo.ServerSideVerificationOptions$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,6 +86,7 @@ public class ServerSideVerificationOptions {
                 return;
             }
         }
+        this.c = new JSONObject();
         this.a = builder.a;
         this.b = builder.b;
     }
@@ -98,9 +101,15 @@ public class ServerSideVerificationOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
+    public JSONObject getOptions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (JSONObject) invokeV.objValue;
+    }
+
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

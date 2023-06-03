@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.mo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GoodsWin;
 /* loaded from: classes7.dex */
-public class ro7 {
+public class ro7 extends h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Integer a;
-    public String b;
 
     public ro7() {
         Interceptable interceptable = $ic;
@@ -28,23 +29,28 @@ public class ro7 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h65
+    public void a(@NonNull Context context, @NonNull z55 z55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.intValue() == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, z55Var) == null) {
+            if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示群聊引导弹窗失败：当前Activity非FrsActivity");
+                x55.s("frsGroupChatGuide");
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(GoodsWin goodsWin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, goodsWin) == null) {
-            this.a = goodsWin.show;
-            this.b = goodsWin.goods_url;
+            FrsFragment v1 = ((FrsActivity) context).v1();
+            if (v1 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示群聊引导弹窗失败：当前FrsFragment为空");
+                x55.s("frsGroupChatGuide");
+                return;
+            }
+            mo5.b O3 = v1.O3();
+            if (O3 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示群聊引导弹窗失败：当前OptFragment为空");
+                x55.s("frsGroupChatGuide");
+            } else if (!O3.Y0()) {
+                x55.s("frsGroupChatGuide");
+            }
         }
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class nk8 {
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public final class nk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public final ArrayList<String> b;
+    public boolean c;
 
     public nk8() {
         Interceptable interceptable = $ic;
@@ -23,27 +25,44 @@ public class nk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = R.drawable.obfuscated_res_0x7f0808ef;
+        this.b = xk8.a();
     }
 
-    public void a(JSONObject jSONObject) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("error");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("errno");
-            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            this.a = optString;
-            if (!StringUtils.isNull(optString)) {
-                this.a = optJSONObject.optString("errmsg");
-            }
+        return invokeV.intValue;
+    }
+
+    public final ArrayList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 }

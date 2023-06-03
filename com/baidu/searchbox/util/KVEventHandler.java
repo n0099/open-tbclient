@@ -7,12 +7,12 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tieba.op1;
+import com.baidu.tieba.gs1;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class KVEventHandler extends op1 {
+public class KVEventHandler extends gs1 {
     public static final String KV_ERROR_UPLOAD_TASK_NAME = "uploadKVFailEvent";
     public static final String TAG = "KVEventHandler";
     public static final String UBC_FILE_NAME_KEY = "file_name";
@@ -67,7 +67,7 @@ public class KVEventHandler extends op1 {
                 JSONObject jSONObject2 = new JSONObject();
                 int length = (int) (SwanKV.getSwanKVFileByName(AppRuntime.getAppContext(), str, KVStorageRuntime.getKVStorageControl().getKVStoragePath()).length() / 1024);
                 jSONObject2.put(UBC_LEFT_SPACE_KEY, String.valueOf((int) ((StorageUtils.getAvailableExternalMemorySize() / 1024) / 1024)));
-                jSONObject2.put(UBC_FILE_SIZE_KEY, String.valueOf(length));
+                jSONObject2.put("file_size", String.valueOf(length));
                 jSONObject.put("ext", jSONObject2);
             }
         } catch (JSONException unused) {
@@ -75,7 +75,7 @@ public class KVEventHandler extends op1 {
         sUbcManager.onEvent(UBC_ID_KV_ERROR_EVENT, jSONObject);
     }
 
-    @Override // com.baidu.tieba.op1
+    @Override // com.baidu.tieba.gs1
     public void onKVCatchError(final int i, final String str, final String str2) {
         super.onKVCatchError(i, str, str2);
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.util.KVEventHandler.1

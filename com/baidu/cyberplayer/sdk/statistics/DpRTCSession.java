@@ -10,7 +10,11 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
 public class DpRTCSession {
-    public c a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+    public c a = new c(20488);
+
+    public synchronized void upload() {
+        DpSessionDatasUploader.getInstance().upload(toJson(), "sailor_monitor");
+    }
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
         this.a.a(jSONObject);
@@ -29,12 +33,6 @@ public class DpRTCSession {
         }
     }
 
-    public synchronized void add(int i, String str, String str2) {
-        if (20488 == i) {
-            this.a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
-        }
-    }
-
     public synchronized void add(int i, HashMap<String, String> hashMap) {
         if (hashMap != null) {
             if (hashMap.size() > 0) {
@@ -42,6 +40,12 @@ public class DpRTCSession {
                     add(i, entry.getKey(), entry.getValue());
                 }
             }
+        }
+    }
+
+    public synchronized void add(int i, String str, String str2) {
+        if (20488 == i) {
+            this.a.a(new e(20488, str, str2));
         }
     }
 
@@ -63,9 +67,5 @@ public class DpRTCSession {
         jSONObject2.remove("cuid");
         CyberLog.i("DpRTCSession", "toJson rtc session = " + jSONObject2.toString());
         return jSONObject;
-    }
-
-    public synchronized void upload() {
-        DpSessionDatasUploader.getInstance().upload(toJson(), "sailor_monitor");
     }
 }

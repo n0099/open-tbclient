@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.kb5;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class p35 extends k35 {
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class p35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public i35 c;
+    public int d;
+    public int e;
+    public boolean f;
+    public String g;
+    public int h;
+    public String i;
+    public int j;
 
     public p35() {
         Interceptable interceptable = $ic;
@@ -29,81 +37,100 @@ public final class p35 extends k35 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a35.s("homeLiveRemind");
-        }
-    }
-
-    @Override // com.baidu.tieba.k35
-    public void a(Context context, c35 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                int i = 0;
-                LiveRemindRecommendData c = b65.a().c(0);
-                HashMap hashMap = new HashMap();
-                if (c.getRemindType() == 1) {
-                    i = 3;
-                } else if (c.getRemindType() == 2) {
-                    i = 4;
-                } else if (c.getRemindType() == 3) {
-                    i = 2;
-                }
-                String liveIconSrc = c.getLiveIconSrc();
-                Intrinsics.checkNotNullExpressionValue(liveIconSrc, "liveRecData.liveIconSrc");
-                hashMap.put("view_top_params_key_image_url", liveIconSrc);
-                String liveIconScheme = c.getLiveIconScheme();
-                Intrinsics.checkNotNullExpressionValue(liveIconScheme, "liveRecData.liveIconScheme");
-                hashMap.put("view_top_params_key_schema", liveIconScheme);
-                String userName = c.getUserName();
-                Intrinsics.checkNotNullExpressionValue(userName, "liveRecData.userName");
-                hashMap.put("view_top_params_user_name", userName);
-                String desc = c.getDesc();
-                Intrinsics.checkNotNullExpressionValue(desc, "liveRecData.desc");
-                hashMap.put("view_top_params_key_desc", desc);
-                Long roomId = c.getRoomId();
-                Intrinsics.checkNotNullExpressionValue(roomId, "liveRecData.roomId");
-                hashMap.put("view_top_params_room_id", roomId);
-                String btnText = c.getBtnText();
-                Intrinsics.checkNotNullExpressionValue(btnText, "liveRecData.btnText");
-                hashMap.put("view_top_params_btn_text", btnText);
-                String title = c.getTitle();
-                Intrinsics.checkNotNullExpressionValue(title, "liveRecData.title");
-                hashMap.put("view_top_params_key_title", title);
-                String feedId = c.getFeedId();
-                Intrinsics.checkNotNullExpressionValue(feedId, "liveRecData.feedId");
-                hashMap.put("view_top_params_key_nid", feedId);
-                YyExtData yyExtData = c.getYyExtData();
-                Intrinsics.checkNotNullExpressionValue(yyExtData, "liveRecData.yyExtData");
-                hashMap.put("view_top_params_key_yyext", yyExtData);
-                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
-                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                lb5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new kb5.h() { // from class: com.baidu.tieba.h35
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.kb5.h
-                    public final void dismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            p35.b();
-                        }
-                    }
-                });
-                c65.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-                a35.m("homeLiveRemind");
                 return;
             }
-            a35.s("homeLiveRemind");
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new i35();
+    }
+
+    public ArrayList<UserData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<UserData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            boolean z = true;
+            if (jSONObject.optJSONObject("page") != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.b.add(userData2);
+                    }
+                }
+                this.c.i(jSONObject.optJSONObject("page"));
+                if (this.c != null) {
+                    this.d = this.c.a();
+                    this.e = this.c.f();
+                    if (this.c.b() != 1) {
+                        z = false;
+                    }
+                    this.f = z;
+                }
+                jSONObject.optInt("tafriendnum", 0);
+                jSONObject.optInt("commonfriendnum", 0);
+            } else {
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        UserData userData3 = new UserData();
+                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.a.add(userData3);
+                    }
+                }
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        UserData userData4 = new UserData();
+                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
+                        userData4.mAttentionType = 1;
+                        userData4.setHave_attention(1);
+                        this.b.add(userData4);
+                    }
+                }
+                this.d = jSONObject.optInt("pn");
+                this.e = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM, 0);
+                if (jSONObject.optInt("has_more", 0) != 1) {
+                    z = false;
+                }
+                this.f = z;
+                this.j = jSONObject.optInt("follow_list_switch", 0);
+            }
+            this.i = jSONObject.optString("tips_text");
+            this.h = jSONObject.optInt("type", 0);
+            this.g = jSONObject.optString("block_text");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

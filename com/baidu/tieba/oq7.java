@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,27 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.Userlike.ConcernData;
-/* loaded from: classes6.dex */
-public class oq7 extends d15 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+/* loaded from: classes7.dex */
+public final class oq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer h;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean f;
-    public List<MetaData> g;
-
-    @Override // com.baidu.tieba.d15, com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,92 +32,110 @@ public class oq7 extends d15 {
                 return;
             }
         }
-        h = 6;
+        a = new a(null);
     }
 
-    public oq7() {
+    @JvmStatic
+    public static final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a.b(str);
+        }
+    }
+
+    @JvmStatic
+    public static final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.c(str);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.g = new ArrayList();
-    }
 
-    @Override // com.baidu.tieba.d15
-    public List<MetaData> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d15, com.baidu.tieba.jy4
-    public h05 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new h05();
-        }
-        return (h05) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d15, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return d15.e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static boolean f(ConcernData concernData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
-            if (concernData == null) {
-                return false;
+        public final void a(StatisticItem statisticItem, String str) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, statisticItem, str) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    statisticItem.param("fid", str);
+                }
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             }
-            return concernData.recom_type.equals(h);
         }
-        return invokeL.booleanValue;
-    }
 
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
+        @JvmStatic
+        public final void d(String str, String str2) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15896");
+                if (str2 != null && str2.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    statisticItem.param("obj_param1", str2);
+                }
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
         }
-    }
 
-    @Override // com.baidu.tieba.d15
-    public void d(List<User> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
-            int min = Math.min(list.size(), 10);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.g.add(metaData);
+        @JvmStatic
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15889");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15888");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15895");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
             }
         }
     }

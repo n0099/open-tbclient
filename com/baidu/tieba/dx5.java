@@ -1,230 +1,243 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class dx5 extends NotificationHelper {
+public class dx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    @NonNull
+    public final Handler a;
+    public final int b;
+    public final long c;
+    public int d;
+    @Nullable
+    public Runnable e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface c<T> {
+        void call(boolean z, T t);
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b implements c<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ dx5 b;
 
-        public b() {
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b bVar = this.a;
+                    bVar.b.k(bVar.a);
+                }
+            }
+        }
+
+        public b(dx5 dx5Var, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dx5Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = dx5Var;
+            this.a = cVar;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dx5.c
+        public void call(boolean z, Void r6) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
+                this.b.e = new a(this);
+                this.b.a.postDelayed(this.b.e, this.b.c);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final dx5 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Callable a;
+        public final /* synthetic */ dx5 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-846893847, "Lcom/baidu/tieba/dx5$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-846893847, "Lcom/baidu/tieba/dx5$c;");
+        public a(dx5 dx5Var, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dx5Var, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new dx5(null);
+            this.b = dx5Var;
+            this.a = callable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.l(this.a);
+            }
         }
     }
 
-    public dx5() {
+    public dx5(int i, int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashMap();
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = i;
+        this.c = timeUnit.toMillis(i2);
     }
 
-    public final PendingIntent d() {
+    public void i(@NonNull c<c<Void>> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            h();
+            k(cVar);
+        }
+    }
+
+    public void j(@NonNull Callable<Boolean> callable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
+            h();
+            l(callable);
+        }
+    }
+
+    @NonNull
+    public static dx5 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.baidu.tieba.downloadmanager.DownloadManagerActivity");
-                Intent intent = new Intent();
-                intent.setClass(getContext(), cls);
-                intent.putExtra(DownloadManagerActivityConfig.CURRENT_TAB, 3);
-                return PendingIntent.getActivity(getContext(), 0, intent, 134217728);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (PendingIntent) invokeV.objValue;
-    }
-
-    public /* synthetic */ dx5(a aVar) {
-        this();
-    }
-
-    public final int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (g(str)) {
-                return b.get(str).a;
-            }
-            return str.hashCode();
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return b.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && g(str)) {
-            NotificationHelper.cancelNotification(getContext(), b(str));
-            b.remove(str);
-        }
-    }
-
-    public static dx5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new dx5(10, 1000, TimeUnit.MILLISECONDS);
         }
         return (dx5) invokeV.objValue;
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return TbadkCoreApplication.getInst().getApplicationContext();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Runnable runnable = this.e;
+            if (runnable != null) {
+                this.a.removeCallbacks(runnable);
+                this.e = null;
+            }
+            this.d = 0;
         }
-        return (Context) invokeV.objValue;
     }
 
-    public synchronized void a(String str, String str2) {
+    public final void k(@NonNull c<c<Void>> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (g(str)) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            try {
+                if (this.d < this.b) {
+                    boolean z = true;
+                    int i = this.d + 1;
+                    this.d = i;
+                    if (i < this.b) {
+                        z = false;
+                    }
+                    cVar.call(z, new b(this, cVar));
                 }
-                b bVar = new b(null);
-                bVar.a = b(str);
-                bVar.b = str2;
-                b.put(str, bVar);
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
             }
         }
     }
 
-    public final void e(DownloadData downloadData, boolean z) {
-        int i;
+    public final void l(@NonNull Callable<Boolean> callable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, downloadData, z) == null) && downloadData.getId() != null && g(downloadData.getId())) {
-            float length = ((float) downloadData.getLength()) / ((float) downloadData.getSize());
-            if (z) {
-                i = 100;
-            } else {
-                i = (int) (length * 100.0f);
-            }
-            b bVar = b.get(downloadData.getId());
-            if (bVar != null) {
-                NotificationHelper.showProgressNotification(getContext(), bVar.a, "", i, "", bVar.b, d(), false);
-            }
-            if (!z) {
-                i(downloadData, i);
-            }
-        }
-    }
-
-    public void f(List<DownloadData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && list.size() != 0) {
-            for (DownloadData downloadData : list) {
-                if (downloadData != null) {
-                    int status = downloadData.getStatus();
-                    if (status != 0) {
-                        if (status == 1 || status == 5) {
-                            e(downloadData, false);
-                        }
-                    } else {
-                        e(downloadData, true);
+        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+            try {
+                if (this.d < this.b) {
+                    this.d++;
+                    if (!callable.call().booleanValue()) {
+                        a aVar = new a(this, callable);
+                        this.e = aVar;
+                        this.a.postDelayed(aVar, this.c);
                     }
                 }
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
             }
-        }
-    }
-
-    public final void i(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, downloadData, i) == null) && downloadData != null && g(downloadData.getId())) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putInt(downloadData.getId() + downloadData.getName(), i);
-            edit.apply();
         }
     }
 }

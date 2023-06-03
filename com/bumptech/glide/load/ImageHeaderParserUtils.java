@@ -12,16 +12,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ImageHeaderParserUtils {
     public static final int MARK_READ_LIMIT = 5242880;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OrientationReader {
         int getOrientation(ImageHeaderParser imageHeaderParser) throws IOException;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface TypeReader {
         ImageHeaderParser.ImageType getType(ImageHeaderParser imageHeaderParser) throws IOException;
     }

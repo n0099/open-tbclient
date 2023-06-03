@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,10 +93,10 @@ public class GroupChatUserReplyView extends RelativeLayout {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p45 d = p45.d(this.b);
+            m75 d = m75.d(this.b);
             d.o(R.string.deprecated_J_X18);
             d.f(R.color.CAM_X0207);
-            p45 d2 = p45.d(this.d);
+            m75 d2 = m75.d(this.d);
             d2.w(R.color.CAM_X0108);
             d2.B(R.dimen.T_X08);
         }
@@ -176,14 +176,14 @@ public class GroupChatUserReplyView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (context = this.a) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03cb, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092750);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09274f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ded);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03d6, (ViewGroup) this, true);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092788);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092787);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e1b);
         this.d = textView;
         textView.setTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X08));
-        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09274e);
-        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09274d);
+        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092786);
+        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092785);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 }

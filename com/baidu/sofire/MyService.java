@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.b.c;
@@ -160,7 +161,7 @@ public class MyService extends Service {
                 return 2;
             }
             try {
-                Bundle bundleExtra = intent.getBundleExtra("bundle");
+                Bundle bundleExtra = intent.getBundleExtra(StateManager.KEY_STATE);
                 if (bundleExtra != null) {
                     String[] stringArray = bundleExtra.getStringArray("appkey");
                     int i3 = bundleExtra.getInt("key");

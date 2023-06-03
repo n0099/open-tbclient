@@ -3,17 +3,22 @@ package kotlinx.coroutines.flow.internal;
 import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlinx.coroutines.internal.Symbol;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0007\"\u001c\u0010\u0001\u001a\u00020\u00008\u0000@\u0001X\u0081\u0004¢\u0006\f\n\u0004\b\u0001\u0010\u0002\u0012\u0004\b\u0003\u0010\u0004\"\u001c\u0010\u0005\u001a\u00020\u00008\u0000@\u0001X\u0081\u0004¢\u0006\f\n\u0004\b\u0005\u0010\u0002\u0012\u0004\b\u0006\u0010\u0004¨\u0006\u0007"}, d2 = {"Lkotlinx/coroutines/internal/Symbol;", "DONE", "Lkotlinx/coroutines/internal/Symbol;", "DONE$annotations", "()V", "NULL", "NULL$annotations", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\"\u0016\u0010\u0000\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0002\u0010\u0003\"\u0016\u0010\u0004\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0005\u0010\u0003\"\u0016\u0010\u0006\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0007\u0010\u0003¨\u0006\b"}, d2 = {"DONE", "Lkotlinx/coroutines/internal/Symbol;", "getDONE$annotations", "()V", "NULL", "getNULL$annotations", "UNINITIALIZED", "getUNINITIALIZED$annotations", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class NullSurrogateKt {
     @JvmField
     public static final Symbol NULL = new Symbol("NULL");
     @JvmField
+    public static final Symbol UNINITIALIZED = new Symbol("UNINITIALIZED");
+    @JvmField
     public static final Symbol DONE = new Symbol("DONE");
 
-    public static /* synthetic */ void DONE$annotations() {
+    public static /* synthetic */ void getDONE$annotations() {
     }
 
-    public static /* synthetic */ void NULL$annotations() {
+    public static /* synthetic */ void getNULL$annotations() {
+    }
+
+    public static /* synthetic */ void getUNINITIALIZED$annotations() {
     }
 }

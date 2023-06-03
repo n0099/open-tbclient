@@ -1,71 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class mq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
 
-    public mq8(g9<?> g9Var) {
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, map) != null) || ui.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.param(str2, map.get(str2));
             }
         }
-        this.b = "7a7c80";
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("7a7c80");
-        this.a.add("f55925");
-        this.a.add("ff5460");
-        this.a.add("cc3314");
-        this.a.add("26bf85");
-        this.a.add("33aaff");
-        this.a.add("3385ff");
-        this.a.add("3668b2");
-        this.a.add("673699");
+        TiebaStatic.log(statisticItem);
     }
 
-    public List<String> a() {
-        InterceptResult invokeV;
+    public static void b(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(65537, null, map) != null) || map == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        HashMap hashMap = new HashMap();
+        String remove = map.remove("key");
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str));
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
+        a(remove, hashMap);
     }
 }

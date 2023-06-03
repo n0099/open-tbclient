@@ -67,9 +67,9 @@ public class DeserializedPackageMemberScope extends DeserializedMemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedMemberScope, kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2101getContributedClassifier(Name name, LookupLocation lookupLocation) {
         recordLookup(name, lookupLocation);
-        return super.mo2046getContributedClassifier(name, lookupLocation);
+        return super.mo2101getContributedClassifier(name, lookupLocation);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

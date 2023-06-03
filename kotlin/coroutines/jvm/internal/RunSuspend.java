@@ -15,11 +15,11 @@ public final class RunSuspend implements Continuation<Unit> {
     public final void await() {
         synchronized (this) {
             while (true) {
-                Result<Unit> m1976getResultxLWZpok = m1976getResultxLWZpok();
-                if (m1976getResultxLWZpok == null) {
+                Result<Unit> m2031getResultxLWZpok = m2031getResultxLWZpok();
+                if (m2031getResultxLWZpok == null) {
                     wait();
                 } else {
-                    ResultKt.throwOnFailure(m1976getResultxLWZpok.m798unboximpl());
+                    ResultKt.throwOnFailure(m2031getResultxLWZpok.m853unboximpl());
                 }
             }
         }
@@ -31,14 +31,14 @@ public final class RunSuspend implements Continuation<Unit> {
     }
 
     /* renamed from: getResult-xLWZpok  reason: not valid java name */
-    public final Result<Unit> m1976getResultxLWZpok() {
+    public final Result<Unit> m2031getResultxLWZpok() {
         return this.result;
     }
 
     @Override // kotlin.coroutines.Continuation
     public void resumeWith(Object obj) {
         synchronized (this) {
-            this.result = Result.m788boximpl(obj);
+            this.result = Result.m843boximpl(obj);
             notifyAll();
             Unit unit = Unit.INSTANCE;
         }

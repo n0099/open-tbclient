@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static c d;
     public final Map<String, a> a = new ConcurrentHashMap();
@@ -28,7 +28,7 @@ public final class c {
         return d;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public String a;
         public final Set<PluginBroadcastReceiver> b = new CopyOnWriteArraySet();

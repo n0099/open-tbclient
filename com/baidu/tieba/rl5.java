@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class rl5 implements yk5<LiveRemindDataEvent> {
+public abstract class rl5 implements ql5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract InputStream b() throws IOException;
 
     public rl5() {
         Interceptable interceptable = $ic;
@@ -27,20 +28,17 @@ public class rl5 implements yk5<LiveRemindDataEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk5
-    /* renamed from: a */
-    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ql5
+    public final synchronized ml5 a() throws IOException {
+        InterceptResult invokeV;
+        nl5 nl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
-            if (liveRemindDataEvent == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                nl5Var = new nl5(b());
             }
-            b65.a().d(liveRemindDataEvent.liveRemindData);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
-            return true;
+            return nl5Var;
         }
-        return invokeL.booleanValue;
+        return (ml5) invokeV.objValue;
     }
 }

@@ -7,13 +7,17 @@ import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
+import kotlin.ResultKt;
 import kotlin.coroutines.Continuation;
+import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.internal.LowPriorityInOverloadResolution;
+import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.ExperimentalCoroutinesApi;
 import kotlinx.coroutines.InternalCoroutinesApi;
-import kotlinx.coroutines.ObsoleteCoroutinesApi;
+import kotlinx.coroutines.internal.StackTraceRecoveryKt;
 import kotlinx.coroutines.selects.SelectClause1;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\n\bf\u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00012\u00020\u0002J\u000f\u0010\u0004\u001a\u00020\u0003H\u0017¢\u0006\u0004\b\u0004\u0010\u0005J\u001b\u0010\u0004\u001a\u00020\b2\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u0006H'¢\u0006\u0004\b\u0004\u0010\tJ!\u0010\u0004\u001a\u00020\u00032\u0010\b\u0002\u0010\u0007\u001a\n\u0018\u00010\nj\u0004\u0018\u0001`\u000bH&¢\u0006\u0004\b\u0004\u0010\fJ\u0016\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00000\rH¦\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0011\u0010\u0010\u001a\u0004\u0018\u00018\u0000H&¢\u0006\u0004\b\u0010\u0010\u0011J\u0013\u0010\u0012\u001a\u00028\u0000H¦@ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013J\u001c\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u0014H§@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u0015\u0010\u0013J\u0015\u0010\u0016\u001a\u0004\u0018\u00018\u0000H§@ø\u0001\u0000¢\u0006\u0004\b\u0016\u0010\u0013R\u001c\u0010\u0017\u001a\u00020\b8&@'X§\u0004¢\u0006\f\u0012\u0004\b\u0019\u0010\u0005\u001a\u0004\b\u0017\u0010\u0018R\u001c\u0010\u001a\u001a\u00020\b8&@'X§\u0004¢\u0006\f\u0012\u0004\b\u001b\u0010\u0005\u001a\u0004\b\u001a\u0010\u0018R\u001c\u0010\u001f\u001a\b\u0012\u0004\u0012\u00028\u00000\u001c8&@&X¦\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u001eR+\u0010\"\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00140\u001c8&@'X§\u0004ø\u0001\u0000¢\u0006\f\u0012\u0004\b!\u0010\u0005\u001a\u0004\b \u0010\u001eR$\u0010%\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u001c8&@'X§\u0004¢\u0006\f\u0012\u0004\b$\u0010\u0005\u001a\u0004\b#\u0010\u001e\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006&"}, d2 = {"Lkotlinx/coroutines/channels/ReceiveChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlin/Any;", "", "cancel", "()V", "", "cause", "", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "(Ljava/util/concurrent/CancellationException;)V", "Lkotlinx/coroutines/channels/ChannelIterator;", "iterator", "()Lkotlinx/coroutines/channels/ChannelIterator;", "poll", "()Ljava/lang/Object;", StatConstants.VALUE_TYPE_RECEIVE, "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ValueOrClosed;", "receiveOrClosed", "receiveOrNull", "isClosedForReceive", "()Z", "isClosedForReceive$annotations", "isEmpty", "isEmpty$annotations", "Lkotlinx/coroutines/selects/SelectClause1;", "getOnReceive", "()Lkotlinx/coroutines/selects/SelectClause1;", "onReceive", "getOnReceiveOrClosed", "onReceiveOrClosed$annotations", "onReceiveOrClosed", "getOnReceiveOrNull", "onReceiveOrNull$annotations", "onReceiveOrNull", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlinx.coroutines.selects.SelectInstance;
+@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\bf\u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00012\u00020\u0002J\b\u0010\u0014\u001a\u00020\u0015H\u0017J\u0014\u0010\u0014\u001a\u00020\u00042\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u0017H'J\u001a\u0010\u0014\u001a\u00020\u00152\u0010\b\u0002\u0010\u0016\u001a\n\u0018\u00010\u0018j\u0004\u0018\u0001`\u0019H&J\u000f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00028\u00000\u001bH¦\u0002J\u000f\u0010\u001c\u001a\u0004\u0018\u00018\u0000H\u0017¢\u0006\u0002\u0010\u001dJ\u0011\u0010\u001e\u001a\u00028\u0000H¦@ø\u0001\u0000¢\u0006\u0002\u0010\u001fJ\"\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u000fH¦@ø\u0001\u0000ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b!\u0010\u001fJ\u0013\u0010\"\u001a\u0004\u0018\u00018\u0000H\u0097@ø\u0001\u0000¢\u0006\u0002\u0010\u001fJ\u001e\u0010#\u001a\b\u0012\u0004\u0012\u00028\u00000\u000fH&ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b$\u0010\u001dR\u001a\u0010\u0003\u001a\u00020\u00048&X§\u0004¢\u0006\f\u0012\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0003\u0010\u0007R\u001a\u0010\b\u001a\u00020\u00048&X§\u0004¢\u0006\f\u0012\u0004\b\t\u0010\u0006\u001a\u0004\b\b\u0010\u0007R\u0018\u0010\n\u001a\b\u0012\u0004\u0012\u00028\u00000\u000bX¦\u0004¢\u0006\u0006\u001a\u0004\b\f\u0010\rR!\u0010\u000e\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u000f0\u000bX¦\u0004ø\u0001\u0000¢\u0006\u0006\u001a\u0004\b\u0010\u0010\rR\"\u0010\u0011\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u000b8VX\u0097\u0004¢\u0006\f\u0012\u0004\b\u0012\u0010\u0006\u001a\u0004\b\u0013\u0010\r\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b¡\u001e0\u0001¨\u0006%"}, d2 = {"Lkotlinx/coroutines/channels/ReceiveChannel;", ExifInterface.LONGITUDE_EAST, "", "isClosedForReceive", "", "isClosedForReceive$annotations", "()V", "()Z", "isEmpty", "isEmpty$annotations", "onReceive", "Lkotlinx/coroutines/selects/SelectClause1;", "getOnReceive", "()Lkotlinx/coroutines/selects/SelectClause1;", "onReceiveCatching", "Lkotlinx/coroutines/channels/ChannelResult;", "getOnReceiveCatching", "onReceiveOrNull", "getOnReceiveOrNull$annotations", "getOnReceiveOrNull", "cancel", "", "cause", "", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "iterator", "Lkotlinx/coroutines/channels/ChannelIterator;", "poll", "()Ljava/lang/Object;", StatConstants.VALUE_TYPE_RECEIVE, "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "receiveCatching", "receiveCatching-JP2dKIU", "receiveOrNull", "tryReceive", "tryReceive-PtdJZtk", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public interface ReceiveChannel<E> {
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
@@ -26,7 +30,7 @@ public interface ReceiveChannel<E> {
 
     SelectClause1<E> getOnReceive();
 
-    SelectClause1<ValueOrClosed<E>> getOnReceiveOrClosed();
+    SelectClause1<ChannelResult<E>> getOnReceiveCatching();
 
     SelectClause1<E> getOnReceiveOrNull();
 
@@ -36,21 +40,28 @@ public interface ReceiveChannel<E> {
 
     ChannelIterator<E> iterator();
 
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'tryReceive'. Please note that the provided replacement does not rethrow channel's close cause as 'poll' did, for the precise replacement please refer to the 'poll' documentation", replaceWith = @ReplaceWith(expression = "tryReceive().getOrNull()", imports = {}))
     E poll();
 
     Object receive(Continuation<? super E> continuation);
 
-    @InternalCoroutinesApi
-    Object receiveOrClosed(Continuation<? super ValueOrClosed<? extends E>> continuation);
+    /* renamed from: receiveCatching-JP2dKIU */
+    Object mo2291receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation);
 
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Deprecated in favor of receiveOrClosed and receiveOrNull extension", replaceWith = @ReplaceWith(expression = "receiveOrNull", imports = {"kotlinx.coroutines.channels.receiveOrNull"}))
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in favor of 'receiveCatching'. Please note that the provided replacement does not rethrow channel's close cause as 'receiveOrNull' did, for the detailed replacement please refer to the 'receiveOrNull' documentation", replaceWith = @ReplaceWith(expression = "receiveCatching().getOrNull()", imports = {}))
     @LowPriorityInOverloadResolution
-    @ObsoleteCoroutinesApi
     Object receiveOrNull(Continuation<? super E> continuation);
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    /* renamed from: tryReceive-PtdJZtk */
+    Object mo2292tryReceivePtdJZtk();
+
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes10.dex */
     public static final class DefaultImpls {
+        @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in favor of onReceiveCatching extension", replaceWith = @ReplaceWith(expression = "onReceiveCatching", imports = {}))
+        public static /* synthetic */ void getOnReceiveOrNull$annotations() {
+        }
+
         @ExperimentalCoroutinesApi
         public static /* synthetic */ void isClosedForReceive$annotations() {
         }
@@ -59,14 +70,27 @@ public interface ReceiveChannel<E> {
         public static /* synthetic */ void isEmpty$annotations() {
         }
 
-        @InternalCoroutinesApi
-        public static /* synthetic */ void onReceiveOrClosed$annotations() {
+        public static <E> SelectClause1<E> getOnReceiveOrNull(final ReceiveChannel<? extends E> receiveChannel) {
+            return new SelectClause1<E>() { // from class: kotlinx.coroutines.channels.ReceiveChannel$onReceiveOrNull$1
+                @Override // kotlinx.coroutines.selects.SelectClause1
+                @InternalCoroutinesApi
+                public <R> void registerSelectClause1(SelectInstance<? super R> selectInstance, Function2<? super E, ? super Continuation<? super R>, ? extends Object> function2) {
+                    receiveChannel.getOnReceiveCatching().registerSelectClause1(selectInstance, new ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1(function2, null));
+                }
+            };
         }
 
-        @Deprecated(level = DeprecationLevel.WARNING, message = "Deprecated in favor of onReceiveOrClosed and onReceiveOrNull extension", replaceWith = @ReplaceWith(expression = "onReceiveOrNull", imports = {"kotlinx.coroutines.channels.onReceiveOrNull"}))
-        @LowPriorityInOverloadResolution
-        @ObsoleteCoroutinesApi
-        public static /* synthetic */ void onReceiveOrNull$annotations() {
+        @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'tryReceive'. Please note that the provided replacement does not rethrow channel's close cause as 'poll' did, for the precise replacement please refer to the 'poll' documentation", replaceWith = @ReplaceWith(expression = "tryReceive().getOrNull()", imports = {}))
+        public static <E> E poll(ReceiveChannel<? extends E> receiveChannel) {
+            Object mo2292tryReceivePtdJZtk = receiveChannel.mo2292tryReceivePtdJZtk();
+            if (ChannelResult.m2308isSuccessimpl(mo2292tryReceivePtdJZtk)) {
+                return (E) ChannelResult.m2304getOrThrowimpl(mo2292tryReceivePtdJZtk);
+            }
+            Throwable m2302exceptionOrNullimpl = ChannelResult.m2302exceptionOrNullimpl(mo2292tryReceivePtdJZtk);
+            if (m2302exceptionOrNullimpl == null) {
+                return null;
+            }
+            throw StackTraceRecoveryKt.recoverStackTrace(m2302exceptionOrNullimpl);
         }
 
         public static /* synthetic */ void cancel$default(ReceiveChannel receiveChannel, CancellationException cancellationException, int i, Object obj) {
@@ -88,6 +112,52 @@ public interface ReceiveChannel<E> {
                 return receiveChannel.cancel(th);
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: cancel");
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
+        /* JADX WARN: Removed duplicated region for block: B:14:0x0037  */
+        @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in favor of 'receiveCatching'. Please note that the provided replacement does not rethrow channel's close cause as 'receiveOrNull' did, for the detailed replacement please refer to the 'receiveOrNull' documentation", replaceWith = @ReplaceWith(expression = "receiveCatching().getOrNull()", imports = {}))
+        @LowPriorityInOverloadResolution
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static <E> Object receiveOrNull(ReceiveChannel<? extends E> receiveChannel, Continuation<? super E> continuation) {
+            ReceiveChannel$receiveOrNull$1 receiveChannel$receiveOrNull$1;
+            int i;
+            Object mo2291receiveCatchingJP2dKIU;
+            if (continuation instanceof ReceiveChannel$receiveOrNull$1) {
+                receiveChannel$receiveOrNull$1 = (ReceiveChannel$receiveOrNull$1) continuation;
+                int i2 = receiveChannel$receiveOrNull$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    receiveChannel$receiveOrNull$1.label = i2 - Integer.MIN_VALUE;
+                    Object obj = receiveChannel$receiveOrNull$1.result;
+                    Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                    i = receiveChannel$receiveOrNull$1.label;
+                    if (i == 0) {
+                        if (i == 1) {
+                            ResultKt.throwOnFailure(obj);
+                            mo2291receiveCatchingJP2dKIU = ((ChannelResult) obj).m2310unboximpl();
+                        } else {
+                            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                        }
+                    } else {
+                        ResultKt.throwOnFailure(obj);
+                        receiveChannel$receiveOrNull$1.label = 1;
+                        mo2291receiveCatchingJP2dKIU = receiveChannel.mo2291receiveCatchingJP2dKIU(receiveChannel$receiveOrNull$1);
+                        if (mo2291receiveCatchingJP2dKIU == coroutine_suspended) {
+                            return coroutine_suspended;
+                        }
+                    }
+                    return ChannelResult.m2303getOrNullimpl(mo2291receiveCatchingJP2dKIU);
+                }
+            }
+            receiveChannel$receiveOrNull$1 = new ReceiveChannel$receiveOrNull$1(continuation);
+            Object obj2 = receiveChannel$receiveOrNull$1.result;
+            Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+            i = receiveChannel$receiveOrNull$1.label;
+            if (i == 0) {
+            }
+            return ChannelResult.m2303getOrNullimpl(mo2291receiveCatchingJP2dKIU);
         }
     }
 }

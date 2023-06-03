@@ -1,530 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextWatcher;
-import android.view.ContextThemeWrapper;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
+import android.media.MediaFormat;
+import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.PayViewInfo;
-import tv.athena.revenue.payui.view.IViewEventListener;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes5.dex */
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.log.TLog;
+import java.nio.ByteBuffer;
+@TargetApi(16)
+/* loaded from: classes6.dex */
 public final class hhb {
     public static /* synthetic */ Interceptable $ic;
-    public static final hhb a;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            if (i == 22 || i == 53) {
+                return true;
             }
-            this.a = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.text.InputFilter
-        /* renamed from: a */
-        public final String filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (Intrinsics.areEqual(charSequence, ".")) {
-                    if (spanned.toString().length() == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        return "0.";
-                    }
-                }
-                if (StringsKt__StringsKt.contains$default((CharSequence) spanned.toString(), (CharSequence) ".", false, 2, (Object) null)) {
-                    int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) spanned.toString(), ".", 0, false, 6, (Object) null);
-                    String obj = spanned.toString();
-                    if (obj != null) {
-                        String substring = obj.substring(indexOf$default);
-                        Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.String).substring(startIndex)");
-                        if (substring.length() == this.a + 1) {
-                            return "";
-                        }
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                    }
-                }
-                return null;
+            switch (i) {
+                case 35:
+                case 36:
+                case 37:
+                case 38:
+                case 39:
+                case 40:
+                case 41:
+                case 42:
+                case 43:
+                case 44:
+                case 45:
+                case 46:
+                    return true;
+                default:
+                    return false;
             }
-            return (String) invokeCommon.objValue;
         }
+        return invokeI.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ghb a;
-
-        public b(ghb ghbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ghbVar;
+    public static long j(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j2 - 1;
+            return (j + j3) & (~j3);
         }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public final void onDismiss(DialogInterface dialogInterface) {
-            ghb ghbVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (ghbVar = this.a) != null) {
-                ghbVar.a(CancelType.ON_DIALOG_DISMISS);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ghb a;
-
-        public c(ghb ghbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ghbVar;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public final void onCancel(DialogInterface dialogInterface) {
-            ghb ghbVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (ghbVar = this.a) != null) {
-                ghbVar.a(CancelType.ON_DIALOG_CANCEL);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PayDialogType a;
-        public final /* synthetic */ chb b;
-        public final /* synthetic */ IViewEventListener c;
-        public final /* synthetic */ ghb d;
-
-        public d(PayDialogType payDialogType, chb chbVar, IViewEventListener iViewEventListener, ghb ghbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {payDialogType, chbVar, iViewEventListener, ghbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = payDialogType;
-            this.b = chbVar;
-            this.c = iViewEventListener;
-            this.d = ghbVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                PayViewInfo payViewInfo = new PayViewInfo();
-                payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
-                payViewInfo.payDialogType = this.a;
-                payViewInfo.viewDialog = this.b;
-                IViewEventListener iViewEventListener = this.c;
-                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
-                    return;
-                }
-                ghb ghbVar = this.d;
-                if (ghbVar != null) {
-                    ghbVar.a(CancelType.EMPTY_AREA_CLICK);
-                }
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class e implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ ghb b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ chb d;
-        public final /* synthetic */ TextView e;
-
-        public e(EditText editText, ghb ghbVar, Activity activity, chb chbVar, TextView textView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editText, ghbVar, activity, chbVar, textView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editText;
-            this.b = ghbVar;
-            this.c = activity;
-            this.d = chbVar;
-            this.e = textView;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (i == 6) {
-                    hhb hhbVar = hhb.a;
-                    EditText etInput = this.a;
-                    Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
-                    boolean e = hhbVar.e(etInput.getText().toString());
-                    if (e) {
-                        if (this.b != null) {
-                            EditText etInput2 = this.a;
-                            Intrinsics.checkExpressionValueIsNotNull(etInput2, "etInput");
-                            int c = hhb.a.c(this.c, etInput2.getText().toString());
-                            if (c > 0) {
-                                this.b.b(c);
-                                tfb.a(this.c, this.a);
-                            } else {
-                                RLog.error("InputDialogManager", "tOnEditorAction amount <= 0", new Object[0]);
-                            }
-                        }
-                        this.d.dismiss();
-                    }
-                    if (e) {
-                        i2 = R.color.pay_ui_color_858585;
-                    } else {
-                        i2 = R.color.pay_ui_color_FF3355;
-                    }
-                    this.e.setTextColor(this.c.getResources().getColor(i2));
-                }
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class f implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TextView a;
-        public final /* synthetic */ TextView b;
-        public final /* synthetic */ EditText c;
-        public final /* synthetic */ TextView d;
-        public final /* synthetic */ Activity e;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public f(TextView textView, TextView textView2, EditText editText, TextView textView3, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {textView, textView2, editText, textView3, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = textView;
-            this.b = textView2;
-            this.c = editText;
-            this.d = textView3;
-            this.e = activity;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            double c;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (editable != null && !Intrinsics.areEqual(editable.toString(), "")) {
-                    if (Intrinsics.areEqual(editable.toString(), "0")) {
-                        this.c.setText("");
-                        TextView btnOk = this.b;
-                        Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");
-                        btnOk.setEnabled(false);
-                        return;
-                    }
-                    boolean e = hhb.a.e(editable.toString());
-                    TextView btnOk2 = this.b;
-                    Intrinsics.checkExpressionValueIsNotNull(btnOk2, "btnOk");
-                    btnOk2.setEnabled(e);
-                    if (jgb.c(editable.toString()) >= 10000) {
-                        String str = jgb.a(c / 10000.0f) + (char) 19975;
-                        TextView tvInputAmount = this.a;
-                        Intrinsics.checkExpressionValueIsNotNull(tvInputAmount, "tvInputAmount");
-                        tvInputAmount.setText(str);
-                    } else {
-                        TextView tvInputAmount2 = this.a;
-                        Intrinsics.checkExpressionValueIsNotNull(tvInputAmount2, "tvInputAmount");
-                        tvInputAmount2.setText(editable);
-                    }
-                    if (e) {
-                        i = R.color.pay_ui_color_858585;
-                    } else {
-                        i = R.color.pay_ui_color_FF3355;
-                    }
-                    this.d.setTextColor(this.e.getResources().getColor(i));
-                    return;
-                }
-                TextView tvInputAmount3 = this.a;
-                Intrinsics.checkExpressionValueIsNotNull(tvInputAmount3, "tvInputAmount");
-                tvInputAmount3.setText("");
-                TextView btnOk3 = this.b;
-                Intrinsics.checkExpressionValueIsNotNull(btnOk3, "btnOk");
-                btnOk3.setEnabled(false);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ Activity b;
-
-        public g(EditText editText, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editText, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editText;
-            this.b = activity;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.requestFocus();
-                Activity activity = this.b;
-                if (activity != null) {
-                    tfb.b(activity, this.a);
-                    return;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PayDialogType a;
-        public final /* synthetic */ chb b;
-        public final /* synthetic */ IViewEventListener c;
-        public final /* synthetic */ ghb d;
-
-        public h(PayDialogType payDialogType, chb chbVar, IViewEventListener iViewEventListener, ghb ghbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {payDialogType, chbVar, iViewEventListener, ghbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = payDialogType;
-            this.b = chbVar;
-            this.c = iViewEventListener;
-            this.d = ghbVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                PayViewInfo payViewInfo = new PayViewInfo();
-                payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
-                payViewInfo.payDialogType = this.a;
-                payViewInfo.viewDialog = this.b;
-                IViewEventListener iViewEventListener = this.c;
-                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
-                    return;
-                }
-                ghb ghbVar = this.d;
-                if (ghbVar != null) {
-                    ghbVar.a(CancelType.BUTTOM_AREA_CLICK);
-                }
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class i implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ghb a;
-        public final /* synthetic */ EditText b;
-        public final /* synthetic */ Activity c;
-        public final /* synthetic */ chb d;
-
-        public i(ghb ghbVar, EditText editText, Activity activity, chb chbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghbVar, editText, activity, chbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ghbVar;
-            this.b = editText;
-            this.c = activity;
-            this.d = chbVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a != null) {
-                    EditText etInput = this.b;
-                    Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
-                    int c = hhb.a.c(this.c, etInput.getText().toString());
-                    if (c > 0) {
-                        this.a.b(c);
-                        tfb.a(this.c, this.b);
-                    } else {
-                        RLog.error("InputDialogManager", "btnOk amount <= 0", new Object[0]);
-                    }
-                }
-                this.d.dismiss();
-            }
-        }
+        return invokeCommon.longValue;
     }
 
     static {
@@ -540,156 +71,268 @@ public final class hhb {
                 return;
             }
         }
-        a = new hhb();
+        a = new byte[]{0, 0, 0, 1};
     }
 
-    public hhb() {
+    public static MediaFormat a(AVframe aVframe) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVframe)) == null) {
+            MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", aVframe.g, aVframe.h);
+            createAudioFormat.setInteger("channel-layout", (int) aVframe.i);
+            createAudioFormat.setInteger("channel-count", aVframe.h);
+            byte[] bArr = aVframe.o;
+            if (bArr != null) {
+                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
+                allocateDirect.put(aVframe.o);
+                allocateDirect.flip();
+                createAudioFormat.setByteBuffer("csd-0", allocateDirect);
             }
+            return createAudioFormat;
         }
+        return (MediaFormat) invokeL.objValue;
     }
 
-    public final int c(Context context, String str) {
-        InterceptResult invokeLL;
-        int i2;
-        boolean z;
+    public static MediaFormat b(int i, int i2, ByteBuffer byteBuffer, boolean z) {
+        InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (str == null) {
-                Toast.makeText(context, (int) R.string.pay_ui_string_pls_input_correct_recharge_amount, 1).show();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Boolean.valueOf(z)})) == null) {
+            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
+            if (byteBuffer != null) {
+                createVideoFormat.setByteBuffer("csd-0", g(byteBuffer));
+                createVideoFormat.setByteBuffer("csd-1", f(byteBuffer));
+            }
+            if (z) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("createAVCFormat width=");
+                sb.append(i);
+                sb.append(" height=");
+                sb.append(i2);
+                sb.append(" buffer=null? ");
+                if (byteBuffer == null) {
+                    str = "y";
+                } else {
+                    str = "n";
+                }
+                sb.append(str);
+                TLog.h("[transvod]", sb.toString());
+            }
+            return createVideoFormat;
+        }
+        return (MediaFormat) invokeCommon.objValue;
+    }
+
+    public static MediaFormat c(int i, int i2, ByteBuffer byteBuffer, boolean z) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Boolean.valueOf(z)})) == null) {
+            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(MimeTypes.VIDEO_H265, i, i2);
+            if (byteBuffer != null) {
+                byteBuffer = h(byteBuffer);
+                createVideoFormat.setByteBuffer("csd-0", byteBuffer);
+            }
+            if (z) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("createHevcFormat width=");
+                sb.append(i);
+                sb.append(" height=");
+                sb.append(i2);
+                sb.append(" buffer=null?");
+                if (byteBuffer == null) {
+                    str = "y";
+                } else {
+                    str = "n";
+                }
+                sb.append(str);
+                TLog.h("[transvod]", sb.toString());
+            }
+            return createVideoFormat;
+        }
+        return (MediaFormat) invokeCommon.objValue;
+    }
+
+    public static int d(byte[] bArr, ByteBuffer byteBuffer) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, byteBuffer)) == null) {
+            byteBuffer.limit();
+            if (bArr == null || bArr.length <= 0) {
                 return 0;
             }
-            int length = str.length() - 1;
-            int i3 = 0;
-            boolean z2 = false;
-            while (i3 <= length) {
-                if (!z2) {
-                    i2 = i3;
-                } else {
-                    i2 = length;
-                }
-                if (str.charAt(i2) <= ' ') {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z2) {
-                    if (!z) {
-                        z2 = true;
-                    } else {
-                        i3++;
+            int length = bArr.length - 1;
+            int i2 = 0;
+            while (true) {
+                if (i2 <= bArr.length - 4) {
+                    byte b = bArr[i2 + 0];
+                    byte[] bArr2 = a;
+                    if (b == bArr2[0] && bArr[i2 + 1] == bArr2[1] && bArr[i2 + 2] == bArr2[2] && bArr[i2 + 3] == bArr2[3]) {
+                        i2 += 4;
+                        i = i2;
+                        break;
                     }
-                } else if (!z) {
+                    i2++;
+                } else {
+                    i = -1;
                     break;
-                } else {
-                    length--;
                 }
             }
-            try {
-                int parseInt = Integer.parseInt(str.subSequence(i3, length + 1).toString());
-                if (parseInt <= 0) {
-                    Toast.makeText(context, (int) R.string.pay_ui_string_pls_input_correct_recharge_amount, 1).show();
-                    return 0;
-                } else if (parseInt > 500000) {
-                    Toast.makeText(context, (int) R.string.pay_ui_string_pay_error_oversize, 1).show();
-                    return 0;
-                } else {
-                    return parseInt;
+            while (true) {
+                if (i2 > bArr.length - 4) {
+                    break;
                 }
-            } catch (Exception unused) {
-                Toast.makeText(context, (int) R.string.pay_ui_string_pls_input_correct_recharge_amount, 1).show();
-                return 0;
+                byte b2 = bArr[i2 + 0];
+                byte[] bArr3 = a;
+                if (b2 == bArr3[0] && bArr[i2 + 1] == bArr3[1] && bArr[i2 + 2] == bArr3[2] && bArr[i2 + 3] == bArr3[3]) {
+                    length = i2 - 1;
+                    break;
+                }
+                i2++;
             }
+            byteBuffer.putInt(bArr.length + 3);
+            byteBuffer.put((byte) 1);
+            byteBuffer.put(bArr[i + 1]);
+            byteBuffer.put(bArr[i + 2]);
+            byteBuffer.put(bArr[i + 3]);
+            byteBuffer.put((byte) -1);
+            byteBuffer.put(ExifInterface.MARKER_APP1);
+            int i3 = (length - i) + 1;
+            byteBuffer.putShort((short) i3);
+            byteBuffer.put(bArr, i, i3);
+            byteBuffer.put((byte) 1);
+            byteBuffer.putShort((short) ((bArr.length - length) - 5));
+            byteBuffer.put(bArr, length + 5, (bArr.length - length) - 5);
+            return bArr.length + 7;
         }
         return invokeLL.intValue;
     }
 
-    public final InputFilter d(int i2) {
-        InterceptResult invokeI;
+    public static ByteBuffer e(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        boolean z;
+        boolean z2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            return new a(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i, i2)) == null) {
+            if (bArr != null) {
+                if (bArr.length < 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (bArr.length < i) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!(z | z2)) {
+                    int length = bArr.length - 1;
+                    int i4 = 0;
+                    while (true) {
+                        if (i <= bArr.length - 4) {
+                            byte b = bArr[i + 0];
+                            byte[] bArr2 = a;
+                            if (b == bArr2[0] && bArr[i + 1] == bArr2[1] && bArr[i + 2] == bArr2[2] && bArr[i + 3] == bArr2[3]) {
+                                i4++;
+                                if (i4 == i2) {
+                                    i += 4;
+                                    i3 = i;
+                                    break;
+                                }
+                                i += 4;
+                            } else {
+                                i++;
+                            }
+                        } else {
+                            i3 = -1;
+                            break;
+                        }
+                    }
+                    while (true) {
+                        if (i > bArr.length - 4) {
+                            break;
+                        }
+                        byte b2 = bArr[i + 0];
+                        byte[] bArr3 = a;
+                        if (b2 == bArr3[0] && bArr[i + 1] == bArr3[1] && bArr[i + 2] == bArr3[2] && bArr[i + 3] == bArr3[3]) {
+                            length = i - 1;
+                            break;
+                        }
+                        i++;
+                    }
+                    if (length >= i3 && i3 != -1) {
+                        int i5 = (length - i3) + 1;
+                        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(a.length + i5);
+                        allocateDirect.put(a);
+                        allocateDirect.put(bArr, i3, i5);
+                        return (ByteBuffer) allocateDirect.flip();
+                    }
+                }
+            }
+            return null;
         }
-        return (InputFilter) invokeI.objValue;
+        return (ByteBuffer) invokeLII.objValue;
     }
 
-    public final boolean e(String str) {
+    public static ByteBuffer f(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            double c2 = jgb.c(str);
-            if (c2 < 0.1d || c2 > 500000.0d) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
+            if (byteBuffer.hasArray()) {
+                return e(byteBuffer.array(), byteBuffer.arrayOffset(), 2);
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (ByteBuffer) invokeL.objValue;
     }
 
-    public final Dialog f(Activity activity, ghb ghbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType) {
-        InterceptResult invokeCommon;
-        int i2;
+    public static ByteBuffer g(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, ghbVar, iViewEventListener, payDialogType, payUIKitConfig, payFlowType})) == null) {
-            if (!mgb.a.a(activity)) {
-                RLog.error("InputDialogManager", "showSimpleNumberInputDialog ActivityInvalid....", new Object[0]);
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            if (byteBuffer.hasArray()) {
+                return e(byteBuffer.array(), byteBuffer.arrayOffset(), 1);
             }
-            chb chbVar = new chb(activity, R.style.obfuscated_res_0x7f100163, payFlowType);
-            chbVar.setCancelable(true);
-            chbVar.setCanceledOnTouchOutside(true);
-            chbVar.show();
-            chbVar.setOnDismissListener(new b(ghbVar));
-            chbVar.setOnCancelListener(new c(ghbVar));
-            Window window = chbVar.getWindow();
-            View inflate = LayoutInflater.from(new ContextThemeWrapper(activity, kgb.a.a(payUIKitConfig))).inflate(R.layout.pay_ui_dialog_input_number, (ViewGroup) null, false);
-            if (window == null) {
-                Intrinsics.throwNpe();
-            }
-            window.setContentView(inflate);
-            window.clearFlags(131072);
-            window.setSoftInputMode(21);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100160);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Intrinsics.checkExpressionValueIsNotNull(attributes, "window.getAttributes()");
-            attributes.width = -1;
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.findViewById(R.id.obfuscated_res_0x7f091e6f).setOnClickListener(new d(payDialogType, chbVar, iViewEventListener, ghbVar));
-            TextView textView = (TextView) window.findViewById(R.id.tv_amount_hint);
-            TextView textView2 = (TextView) window.findViewById(R.id.tv_input_amount);
-            EditText etInput = (EditText) window.findViewById(R.id.et_input_text);
-            TextView btnOk = (TextView) window.findViewById(R.id.btn_pay);
-            Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");
-            btnOk.setEnabled(false);
-            Button button = (Button) window.findViewById(R.id.obfuscated_res_0x7f0904a6);
-            View findViewById = window.findViewById(R.id.ll_content);
-            if (kgb.a.b(payUIKitConfig)) {
-                i2 = R.drawable.pay_ui_bg_pay_common_bottom_dialog_red_bg;
-            } else {
-                i2 = R.drawable.pay_ui_bg_pay_common_bottom_dialog_yellow_bg;
-            }
-            findViewById.setBackgroundResource(i2);
-            String string = activity.getResources().getString(R.string.pay_ui_string_custom_amount);
-            Intrinsics.checkExpressionValueIsNotNull(string, "mContext.getResources().…_ui_string_custom_amount)");
-            Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
-            etInput.setHint(string);
-            etInput.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8), d(2)});
-            etInput.setOnEditorActionListener(new e(etInput, ghbVar, activity, chbVar, textView));
-            etInput.addTextChangedListener(new f(textView2, btnOk, etInput, textView, activity));
-            etInput.postDelayed(new g(etInput, activity), 100L);
-            button.setOnClickListener(new h(payDialogType, chbVar, iViewEventListener, ghbVar));
-            btnOk.setOnClickListener(new i(ghbVar, etInput, activity, chbVar));
-            return chbVar;
+            return null;
         }
-        return (Dialog) invokeCommon.objValue;
+        return (ByteBuffer) invokeL.objValue;
+    }
+
+    public static ByteBuffer h(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, byteBuffer)) == null) {
+            int limit = byteBuffer.mark().limit();
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(byteBuffer.remaining());
+            allocateDirect.put(byteBuffer);
+            byteBuffer.reset().limit(limit);
+            return allocateDirect;
+        }
+        return (ByteBuffer) invokeL.objValue;
+    }
+
+    public static int k(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, byteBuffer, byteBuffer2, z)) == null) {
+            int limit = byteBuffer.mark().limit();
+            int i = 0;
+            while (byteBuffer.position() < limit) {
+                int i2 = byteBuffer.getInt();
+                try {
+                    byteBuffer.limit(byteBuffer.position() + i2);
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+                byteBuffer2.put(a).put(byteBuffer);
+                byteBuffer.limit(limit);
+                i += i2 + a.length;
+            }
+            byteBuffer.reset().limit(limit);
+            return i;
+        }
+        return invokeLLZ.intValue;
     }
 }

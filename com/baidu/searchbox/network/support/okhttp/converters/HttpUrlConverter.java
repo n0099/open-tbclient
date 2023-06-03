@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.support.okhttp.converters;
 
 import com.baidu.searchbox.network.outback.core.UrlWrapper;
 import okhttp3.HttpUrl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HttpUrlConverter {
     public static HttpUrl.Builder deepCopyBuilder(com.baidu.searchbox.network.outback.core.HttpUrl httpUrl) {
         HttpUrl.Builder builder = new HttpUrl.Builder();

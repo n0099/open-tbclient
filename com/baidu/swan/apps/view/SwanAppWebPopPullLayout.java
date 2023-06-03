@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.tieba.qp1;
+import com.baidu.tieba.is1;
 /* loaded from: classes4.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
-    public static final boolean f = qp1.a;
+    public static final boolean f = is1.a;
     public final ViewDragHelper a;
     public final int b;
     @Nullable
@@ -36,7 +36,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
 
         void c();
 
-        void d(float f);
+        void onPull(float f);
     }
 
     /* loaded from: classes4.dex */
@@ -69,7 +69,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
             if (SwanAppWebPopPullLayout.this.c != null) {
-                SwanAppWebPopPullLayout.this.c.d(i2 / SwanAppWebPopPullLayout.this.getHeight());
+                SwanAppWebPopPullLayout.this.c.onPull(i2 / SwanAppWebPopPullLayout.this.getHeight());
             }
         }
 

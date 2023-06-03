@@ -26,7 +26,7 @@ import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     public static final int REPLACEMENT_CHARACTER = 65533;
@@ -63,7 +63,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return true;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;

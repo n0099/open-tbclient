@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.behavior.record.BehaviorServiceFetcher;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePlayUrlServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
-import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
-import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
-import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
-import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
-import com.baidu.searchbox.live.video.VideoInsertLiveServiceFetcher;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.retrieve.core.task.FetchTaskFetcher;
-import com.baidu.searchbox.retrieve.core.task.UploadTaskFetcher;
-import com.baidu.searchbox.retrieve.inter.IFetchTask;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.retrieve.stats.service.StatServiceFetcher;
-import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
-import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
-import com.baidu.tbadk.abtest.helper.ThreadExperimentFetcher;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.nad.jni.NADNativeHelper;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.atomData.AbsMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,176 +23,598 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
-import com.baidu.webkit.sdk.WebView;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<ServiceReference, kk1<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947945655, "Lcom/baidu/tieba/lk1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ lk1 b;
+
+        public a(lk1 lk1Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lk1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947945655, "Lcom/baidu/tieba/lk1;");
-                return;
+            this.b = lk1Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String f = this.b.f(this.a, currentTimeMillis);
+                String f2 = this.b.f(this.a, 86400000 + currentTimeMillis);
+                String f3 = this.b.f(this.a, 172800000 + currentTimeMillis);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(AbsMsgImageActivityConfig.CURRENT_URL, f);
+                    jSONObject.put("tomorrow_url", f2);
+                    jSONObject.put("after_tomorrow_url", f3);
+                    jSONObject.put("cache_time", currentTimeMillis);
+                } catch (JSONException unused) {
+                }
+                k31.a().b("splash_sp_name").i("splash_query_cache_url", jSONObject.toString(), false);
             }
         }
-        a = new ConcurrentHashMap<>();
-        d();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final lk1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-629985607, "Lcom/baidu/tieba/lk1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-629985607, "Lcom/baidu/tieba/lk1$b;");
+                    return;
+                }
+            }
+            a = new lk1(null);
+        }
     }
 
     public lk1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static <T> T a(ServiceReference serviceReference) {
+    public static lk1 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (lk1) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && nk1.u()) {
+            h("query");
+        }
+    }
+
+    public /* synthetic */ lk1(a aVar) {
+        this();
+    }
+
+    public String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
-            kk1<?> kk1Var = a.get(serviceReference);
-            if (kk1Var != null) {
-                return (T) kk1Var.getService();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return f(str, System.currentTimeMillis());
         }
-        return (T) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <T> void b(ServiceReference serviceReference, kk1<T> kk1Var) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, kk1Var) == null) {
-            a.put(serviceReference, kk1Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            o41.d(new a(this, str), "cache splash request url");
         }
     }
 
-    public static <T> void c(String str, String str2, Class<? extends kk1<T>> cls) {
+    public final void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || ak1.a().d() == null || !ak1.a().d().has("client_ext") || (optJSONObject = ak1.a().d().optJSONObject("client_ext")) == null) {
+            return;
+        }
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
             try {
-                b(new ServiceReference(str, str2), cls.newInstance());
-            } catch (IllegalAccessException e) {
+                jSONObject.put(next, optJSONObject.opt(next));
+            } catch (JSONException e) {
                 e.printStackTrace();
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
             }
         }
     }
 
-    public static void d() {
+    public final String j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            c("AlaLiveSdk", "IMSdkService", dk8.class);
-            c("AlaLiveSdk", "IMSdkServicePerson", ek8.class);
-            c("AlaSquare", "SecondFloorService", c86.class);
-            c(IFetchTask.NAME_SPACE, "report", FetchTaskFetcher.class);
-            c("Frames", "ISafetyConfig", mf6.class);
-            c("Frames", "JsPromptBridge", gf6.class);
-            c("Frs", "FrsService", s87.class);
-            c("HotTopic", "HotTopicRequest", gz5.class);
-            c("ImMessageCenter", "ChatBoxDialogService", y68.class);
-            c("ImMessageCenter", "ChatFloatEntranceService", w78.class);
-            c("ImMessageCenter", "GroupChatService", v68.class);
-            c(WebView.LOGTAG, "EMManagerProvider", ff6.class);
-            c(WebView.LOGTAG, "IPrefetchManager", df6.class);
-            c(WebView.LOGTAG, "IPrerenderManager", ef6.class);
-            c(WebView.LOGTAG, "IWebViewFactoryService", ye6.class);
-            c("abtest", "service", AbTestServiceFetcher.class);
-            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
-            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
-            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
-            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
-            c("feed", "component.resolver", jl6.class);
-            c("feed", "widget.resolver", kl6.class);
-            c("live", DI.AB_NAME, tm8.class);
-            c("live", DI.ACCOUNT, hm8.class);
-            c("live", DI.APP_INFO_NAME, jm8.class);
-            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, dn8.class);
-            c("live", DI.EXT.EXT_LIVE_LOG, kn8.class);
-            c("live", DI.FOLLOW_STATUS, zm8.class);
-            c("live", DI.LIGHTBROWSER_VIEW, om8.class);
-            c("live", DI.LIVE_CUSTOM_SETTINGS, eo8.class);
-            c("live", DI.LIVE_EVENT_DISPATCHER, xm8.class);
-            c("live", DI.LIVE_INSERT_VIDEO, VideoInsertLiveServiceFetcher.class);
-            c("live", DI.LIVE_LIKE, fn8.class);
-            c("live", DI.LIVE_LOCATION, in8.class);
-            c("live", DI.LIVE_PLAY_URL, LivePlayUrlServiceFetcher.class);
-            c("live", DI.LIVE_REAL_AUTH, lm8.class);
-            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, sn8.class);
-            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, vm8.class);
-            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, wm8.class);
-            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
-            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
-            c("live", "net", mn8.class);
-            c("live", DI.PAY_CHANNEL, rm8.class);
-            c("live", DI.LIVE_PLAYER, zn8.class);
-            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
-            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
-            c("live", DI.ROUTER_NAME, co8.class);
-            c("live", "share", io8.class);
-            c("live", DI.TB.SHARE_CHANNEL, go8.class);
-            c("live", DI.THIRD_PART_ACCOUNT, ko8.class);
-            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, lo8.class);
-            c("live", DI.YY.THIRD_PART_WX_RECHARGE, no8.class);
-            c("live", "toast", po8.class);
-            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
-            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
-            c("live", DI.YYPAY.YY_PAY, pn8.class);
-            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
-            c(com.baidu.searchbox.live.game.interfaces.DI.MODULE_NAME, "common", bn8.class);
-            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
-            c("module_home", "SpriteResourceService", mn9.class);
-            c("nad.business", "rewardVideoLpTaskCenter", ao0.class);
-            c("nad.core", "adRequester", m11.class);
-            c("nad.core", "browserDownload", ok0.class);
-            c("nad.core", "cmd", p36.class);
-            c("nad.core", "config", q36.class);
-            c("nad.core", "crius", ak0.class);
-            c("nad.core", "deviceInfo.bag", c.class);
-            c("nad.core", "deviceInfoInner", gh0.class);
-            c("nad.core", "eventbus", fm0.class);
-            c("nad.core", "exp", um0.class);
-            c("nad.core", "ipdx", jh0.class);
-            c("nad.core", "loadImage", pg0.class);
-            c("nad.core", "loadVideo", ix0.class);
-            c("nad.core", "maxUI", s36.class);
-            c("nad.core", "nativeCookieMgr", m81.class);
-            c("nad.core", "navBarTool", u36.class);
-            c("nad.core", "splash.config", v36.class);
-            c("nad.core", "splash.host", w36.class);
-            c("nad.core", "thirdService", t36.class);
-            c("nad.core", "uad", x36.class);
-            c(StatConstants.VALUE_FROM_RETRIEVE, "stat", StatServiceFetcher.class);
-            c(StatConstants.VALUE_FROM_RETRIEVE, StatConstants.VALUE_TYPE_UPLOAD, UploadTaskFetcher.class);
-            c("speed", "runtime", SpeedRuntimeProvider.class);
-            c("tbBaseEmotion", "EmotionService", hs6.class);
-            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
-            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
-            c("tbadkcore", "ISoProcess", am5.class);
-            c("tbadkcore", "IThreadExperiment", ThreadExperimentFetcher.class);
-            c("tbadkcore", "tbadkcore", u06.class);
-            c("tieba.core", "eventbus", ph8.class);
-            c("tieba.core", "eventbus.autorelease", oh8.class);
-            c("ubc", UBC.TAG, sga.class);
-            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, opa.class);
-            c("yaLog", "yaLogConfig", nqa.class);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            int a2 = b61.a(j, System.currentTimeMillis());
+            if (a2 >= 2) {
+                return k31.a().b("splash_sp_name").getString("after_tomorrow_reason", "");
+            }
+            if (a2 == 1) {
+                return k31.a().b("splash_sp_name").getString("tomorrow_reason", "");
+            }
+            return k31.a().b("splash_sp_name").getString("current_reason", "");
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public final void b(HashMap<String, String> hashMap) {
+        String p;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            sk0 a2 = kk0.a();
+            if (TextUtils.isEmpty(a2.p())) {
+                p = a2.w();
+            } else {
+                p = a2.p();
+            }
+            hashMap.put("ver", p);
+            hashMap.put("sv", "1.0");
+            hashMap.put("uid", a2.t());
+            hashMap.put(TiebaStatic.Params.BDID, a2.o());
+            hashMap.put("cuid", a2.g());
+            String e = cl0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
+            }
+            String h = cl0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                hashMap.put("ov", h);
+            }
+            String b2 = cl0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("imei", b2);
+            }
+            hashMap.put("ua", a2.q());
+            hashMap.put("fmt", "json");
+            hashMap.put("apna", a2.packageName());
+            hashMap.put("eid", a2.i());
+            hashMap.put("st", "1");
+            hashMap.put("ot", "2");
+            hashMap.put("nt", String.valueOf(new ht0().c()));
+            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
+            hashMap.put("is_https", "1");
+            String a3 = cl0.c().a(false);
+            if (!TextUtils.isEmpty(a3)) {
+                hashMap.put(HttpRequest.ANDROID_ID, a3);
+            }
+            hashMap.put("from", ak1.a().from());
+            hashMap.put("cfrom", ak1.a().a());
+            hashMap.put("User-Agent", kk0.e());
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(19:4|5|6|(1:8)|9|(3:46|47|(15:49|(6:52|(2:54|(4:56|(1:58)|59|(1:61))(2:62|(1:64)))|65|(2:67|68)(1:70)|69|50)|71|12|(2:14|(4:(1:17)|18|19|20)(1:44))(1:45)|21|(1:23)(1:38)|24|(1:26)|27|(1:29)|30|31|32|34))|11|12|(0)(0)|21|(0)(0)|24|(0)|27|(0)|30|31|32|34) */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00fb A[Catch: JSONException -> 0x027e, TryCatch #3 {JSONException -> 0x027e, blocks: (B:11:0x005b, B:13:0x0061, B:14:0x0066, B:16:0x006c, B:18:0x0086, B:20:0x00a3, B:22:0x00a9, B:23:0x00ae, B:25:0x00b4, B:26:0x00ba, B:28:0x00c0, B:29:0x00c1, B:31:0x00d2, B:34:0x00dd, B:36:0x00fb, B:40:0x012c), top: B:72:0x005b }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01aa A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01b3 A[Catch: all -> 0x01bc, TRY_ENTER, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01d7 A[Catch: JSONException -> 0x0282, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0212 A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
+        int i;
+        lk1 lk1Var;
+        String defaultUserAgent;
+        String a2;
+        String f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+            long j2 = j;
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject = new JSONObject();
+                if (o8.f().h()) {
+                    jSONObject.put("k", "cmd");
+                    jSONObject.put("v", str2);
+                    jSONArray.put(jSONObject);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
+                jSONObject2.put("v", "5.11.0.5");
+                jSONArray.put(jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                List<ok1> s = mk1.s();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                JSONArray jSONArray2 = new JSONArray();
+                if (s != null) {
+                    try {
+                        if (s.size() > 0) {
+                            Iterator<ok1> it = s.iterator();
+                            i = 0;
+                            while (it.hasNext()) {
+                                ok1 next = it.next();
+                                JSONObject jSONObject4 = new JSONObject();
+                                Iterator<ok1> it2 = it;
+                                jSONObject4.put("k", next.c);
+                                if (!TextUtils.isEmpty(next.c)) {
+                                    int h = mk1.h(next, false, 0, j2);
+                                    Log.e("RequestUrlManager", "onAdSuccess: " + h);
+                                    if (h == 0) {
+                                        if (next.m()) {
+                                            x21.b(arrayList2, next.c);
+                                        }
+                                        if (next.k()) {
+                                            x21.b(arrayList, next.c);
+                                        }
+                                    } else if (next.m()) {
+                                        i |= h;
+                                    }
+                                }
+                                jSONObject4.put("r", String.valueOf(next.x));
+                                if (next.m()) {
+                                    jSONArray2.put(jSONObject4);
+                                }
+                                j2 = j;
+                                it = it2;
+                            }
+                            jSONObject3.put("d", jSONArray2);
+                            jSONObject3.put("s", qk1.d());
+                            jSONArray.put(new JSONObject());
+                            if (!TextUtils.equals(str2, "query")) {
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("k", "ukey");
+                                jSONObject5.put("v", TextUtils.join(",", arrayList));
+                                jSONArray.put(jSONObject5);
+                                JSONObject jSONObject6 = new JSONObject();
+                                jSONObject6.put("k", "xz_ukey");
+                                jSONObject6.put("v", TextUtils.join(",", arrayList2));
+                                jSONArray.put(jSONObject6);
+                                if (arrayList2.isEmpty()) {
+                                    if (i == 0) {
+                                        i = 1;
+                                    }
+                                    String valueOf = String.valueOf(i);
+                                    BaseVM.d = valueOf;
+                                    lk1Var = this;
+                                    lk1Var.n(j, valueOf);
+                                } else {
+                                    lk1Var = this;
+                                    BaseVM.d = "";
+                                }
+                            } else {
+                                lk1Var = this;
+                            }
+                            JSONObject jSONObject7 = new JSONObject();
+                            jSONObject7.put("k", "logid");
+                            jSONObject7.put("v", String.valueOf(j));
+                            jSONArray.put(jSONObject7);
+                            JSONObject jSONObject8 = new JSONObject();
+                            jSONObject8.put("k", "uid");
+                            jSONObject8.put("v", kk0.a().t());
+                            jSONArray.put(jSONObject8);
+                            JSONObject jSONObject9 = new JSONObject();
+                            jSONObject9.put("k", MigrateStatisticUtils.EXT_INFO);
+                            JSONObject jSONObject10 = new JSONObject();
+                            jSONObject10.put("ipdx", uo0.a().a());
+                            jSONObject10.put("update_mark", NADNativeHelper.b());
+                            jSONObject10.put("boot_mark", NADNativeHelper.a());
+                            lk1Var.a(jSONObject10);
+                            if (Build.VERSION.SDK_INT >= 19) {
+                                defaultUserAgent = mk0.c().a();
+                            } else {
+                                defaultUserAgent = WebSettings.getDefaultUserAgent(kk0.b());
+                            }
+                            jSONObject10.put("sys_ua", defaultUserAgent);
+                            a2 = a61.b().a();
+                            if (!TextUtils.isEmpty(a2)) {
+                                jSONObject10.put("custom_ua", a2);
+                            }
+                            jSONObject10.put("adinfo", jSONObject3);
+                            jSONObject9.put("v", jSONObject10.toString());
+                            jSONArray.put(jSONObject9);
+                            JSONObject jSONObject11 = new JSONObject();
+                            jSONObject11.put("k", AdExtParam.KEY_IADEX);
+                            jSONObject11.put("v", kk0.d().m());
+                            jSONArray.put(jSONObject11);
+                            f = cl0.c().f(false);
+                            if (!TextUtils.isEmpty(f)) {
+                                JSONObject jSONObject12 = new JSONObject();
+                                jSONObject12.put("k", "oaid_v");
+                                jSONObject12.put("v", f);
+                                jSONArray.put(jSONObject12);
+                            }
+                            JSONObject jSONObject13 = new JSONObject();
+                            jSONObject13.put("k", "encoded_ua_new");
+                            jSONObject13.put("v", URLEncoder.encode(kk0.e(), "utf-8"));
+                            jSONArray.put(jSONObject13);
+                            JSONObject jSONObject14 = new JSONObject();
+                            jSONObject14.put("k", "boot_type");
+                            jSONObject14.put("v", "__boot_type__");
+                            jSONArray.put(jSONObject14);
+                            JSONObject jSONObject15 = new JSONObject();
+                            jSONObject15.put("k", "hot_background_time");
+                            jSONObject15.put("v", "__hot_background_time__");
+                            jSONArray.put(jSONObject15);
+                            JSONObject jSONObject16 = new JSONObject();
+                            jSONObject16.put("k", "is_block_shake_gesture");
+                            jSONObject16.put("v", "__is_block_shake_gesture__");
+                            jSONArray.put(jSONObject16);
+                            hashMap.put("ext", jSONArray.toString());
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+                i = 0;
+                jSONObject3.put("d", jSONArray2);
+                jSONObject3.put("s", qk1.d());
+                jSONArray.put(new JSONObject());
+                if (!TextUtils.equals(str2, "query")) {
+                }
+                JSONObject jSONObject72 = new JSONObject();
+                jSONObject72.put("k", "logid");
+                jSONObject72.put("v", String.valueOf(j));
+                jSONArray.put(jSONObject72);
+                JSONObject jSONObject82 = new JSONObject();
+                jSONObject82.put("k", "uid");
+                jSONObject82.put("v", kk0.a().t());
+                jSONArray.put(jSONObject82);
+                JSONObject jSONObject92 = new JSONObject();
+                jSONObject92.put("k", MigrateStatisticUtils.EXT_INFO);
+                JSONObject jSONObject102 = new JSONObject();
+                jSONObject102.put("ipdx", uo0.a().a());
+                jSONObject102.put("update_mark", NADNativeHelper.b());
+                jSONObject102.put("boot_mark", NADNativeHelper.a());
+                lk1Var.a(jSONObject102);
+                if (Build.VERSION.SDK_INT >= 19) {
+                }
+                jSONObject102.put("sys_ua", defaultUserAgent);
+                a2 = a61.b().a();
+                if (!TextUtils.isEmpty(a2)) {
+                }
+                jSONObject102.put("adinfo", jSONObject3);
+                jSONObject92.put("v", jSONObject102.toString());
+                jSONArray.put(jSONObject92);
+                JSONObject jSONObject112 = new JSONObject();
+                jSONObject112.put("k", AdExtParam.KEY_IADEX);
+                jSONObject112.put("v", kk0.d().m());
+                jSONArray.put(jSONObject112);
+                f = cl0.c().f(false);
+                if (!TextUtils.isEmpty(f)) {
+                }
+                JSONObject jSONObject132 = new JSONObject();
+                jSONObject132.put("k", "encoded_ua_new");
+                jSONObject132.put("v", URLEncoder.encode(kk0.e(), "utf-8"));
+                jSONArray.put(jSONObject132);
+                JSONObject jSONObject142 = new JSONObject();
+                jSONObject142.put("k", "boot_type");
+                jSONObject142.put("v", "__boot_type__");
+                jSONArray.put(jSONObject142);
+                JSONObject jSONObject152 = new JSONObject();
+                jSONObject152.put("k", "hot_background_time");
+                jSONObject152.put("v", "__hot_background_time__");
+                jSONArray.put(jSONObject152);
+                JSONObject jSONObject162 = new JSONObject();
+                jSONObject162.put("k", "is_block_shake_gesture");
+                jSONObject162.put("v", "__is_block_shake_gesture__");
+                jSONArray.put(jSONObject162);
+                hashMap.put("ext", jSONArray.toString());
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        }
+    }
+
+    public final String d(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
+            if (map != null && map.size() != 0) {
+                URI create = URI.create(str);
+                if (TextUtils.isEmpty(create.getQuery())) {
+                    query = "";
+                } else {
+                    query = create.getQuery();
+                }
+                StringBuilder sb = new StringBuilder(query);
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append('&');
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                try {
+                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String f(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
+            String a2 = wj1.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append(a2);
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str2 = "?action=update";
+            } else {
+                str2 = "?action=query";
+            }
+            sb.append(str2);
+            String sb2 = sb.toString();
+            String i = i(str);
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str3 = String.valueOf(nk1.o());
+            } else {
+                str3 = "1";
+            }
+            hashMap.put("ac", str3);
+            hashMap.put("pid", i);
+            hashMap.put("product_id ", kk0.a().s());
+            b(hashMap);
+            c(hashMap, i, str, j);
+            return d(sb2, hashMap);
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                String optString = ak1.a().d().optString("na_cpc_update_pid");
+                if (TextUtils.isEmpty(optString)) {
+                    return ak1.a().e();
+                }
+                return optString;
+            }
+            return nk1.l();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String k(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (TextUtils.equals(str, "query")) {
+                str2 = l(str);
+                Log.d("RequestUrlManager", " getQueryUrl from cache url ： " + str2);
+            } else {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = e(str);
+                Log.d("RequestUrlManager", " getQueryUrl NOCache url ： " + str2);
+            }
+            String replace = str2.replace("__boot_type__", String.valueOf(gk1.b())).replace("__hot_background_time__", String.valueOf((System.currentTimeMillis() - gk1.a()) / 1000));
+            if (nk1.M()) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            return replace.replace("__is_block_shake_gesture__", str3);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String l(String str) {
+        InterceptResult invokeL;
+        String optString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            String string = k31.a().b("splash_sp_name").getString("splash_query_cache_url", "");
+            if (TextUtils.isEmpty(string)) {
+                return "";
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                long optLong = jSONObject.optLong("cache_time");
+                int a2 = b61.a(optLong, System.currentTimeMillis());
+                if (a2 >= 2) {
+                    optString = jSONObject.optString("after_tomorrow_url");
+                } else if (a2 == 1) {
+                    optString = jSONObject.optString("tomorrow_url");
+                } else {
+                    optString = jSONObject.optString(AbsMsgImageActivityConfig.CURRENT_URL);
+                }
+                String str2 = optString;
+                if (!TextUtils.isEmpty(str2)) {
+                    BaseVM.d = j(optLong);
+                    if (vh0.a) {
+                        return str2 + "&cache_time=" + (optLong / 1000);
+                    }
+                    return str2;
+                }
+                return str2;
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void n(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
+            int a2 = b61.a(System.currentTimeMillis(), j);
+            if (a2 >= 2) {
+                k31.a().b("splash_sp_name").h("after_tomorrow_reason", str);
+            } else if (a2 == 1) {
+                k31.a().b("splash_sp_name").h("tomorrow_reason", str);
+            } else {
+                k31.a().b("splash_sp_name").h("current_reason", str);
+            }
         }
     }
 }

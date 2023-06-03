@@ -23,7 +23,7 @@ public class TailFrameView extends KSFrameLayout {
     /* loaded from: classes9.dex */
     public static class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d04dc);
+            super(R.layout.obfuscated_res_0x7f0d04e8);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
@@ -40,7 +40,7 @@ public class TailFrameView extends KSFrameLayout {
         public ImageView xh;
 
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d04dd);
+            super(R.layout.obfuscated_res_0x7f0d04e9);
         }
 
         private void jm() {
@@ -52,9 +52,9 @@ public class TailFrameView extends KSFrameLayout {
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void E(Context context) {
             super.E(context);
-            this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0913eb);
-            this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0913ec);
-            this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0913ed);
+            this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091403);
+            this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091404);
+            this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091405);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
@@ -69,7 +69,7 @@ public class TailFrameView extends KSFrameLayout {
         public View xi;
 
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d04de);
+            super(R.layout.obfuscated_res_0x7f0d04ea);
         }
 
         private void jm() {
@@ -86,7 +86,7 @@ public class TailFrameView extends KSFrameLayout {
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void E(Context context) {
             super.E(context);
-            this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0927a9);
+            this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0927e1);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
@@ -96,7 +96,7 @@ public class TailFrameView extends KSFrameLayout {
                 this.xi.setVisibility(8);
                 this.bq.setVisibility(8);
                 View view2 = this.wU;
-                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060793));
+                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f0607a4));
             }
             jm();
         }
@@ -105,7 +105,7 @@ public class TailFrameView extends KSFrameLayout {
     /* loaded from: classes9.dex */
     public static class d extends com.kwad.components.ad.reward.widget.tailframe.a {
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d04df);
+            super(R.layout.obfuscated_res_0x7f0d04eb);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
@@ -113,7 +113,7 @@ public class TailFrameView extends KSFrameLayout {
             super.a(adTemplate, jSONObject, bVar);
             if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
                 View view2 = this.wU;
-                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060793));
+                view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f0607a4));
                 this.wV.setVisibility(8);
                 this.bq.setVisibility(8);
             }

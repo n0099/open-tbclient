@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yy0 extends jy0 {
+public class yy0 implements bz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,33 +21,34 @@ public class yy0 extends jy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getContentView().setClickable(false);
-    }
-
-    @Override // com.baidu.tieba.jy0
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.P();
-            LinearLayout linearLayout = this.i;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.jy0
-    public void Q() {
+    @Override // com.baidu.tieba.bz0
+    @NonNull
+    public uy0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.Q();
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -812096555) {
+                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("CyberSysPlayer")) {
+                    c = 1;
+                }
+                c = 65535;
             }
+            if (c != 0) {
+                return new ez0();
+            }
+            return new wy0();
         }
+        return (uy0) invokeL.objValue;
     }
 }

@@ -19,6 +19,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
@@ -224,10 +225,10 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("wap_tpl", this.x);
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
         hashMap.put("u", this.u);
-        if (z2 && !"true".equals(this.w)) {
-            hashMap.put(TTDownloadField.TT_FORCE, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+        if (z2 && !YYOption.IsLive.VALUE_TRUE.equals(this.w)) {
+            hashMap.put(TTDownloadField.TT_FORCE, "false");
         } else {
-            hashMap.put(TTDownloadField.TT_FORCE, "true");
+            hashMap.put(TTDownloadField.TT_FORCE, YYOption.IsLive.VALUE_TRUE);
         }
         String str2 = str + SapiUtils.mapToUrlParams(hashMap, false) + "#app_auth";
         Log.d(y, "url = " + str2);

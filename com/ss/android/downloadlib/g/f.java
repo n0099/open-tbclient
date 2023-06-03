@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.g;
 
 import androidx.annotation.NonNull;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.ss.android.socialbase.appdownloader.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONArray;
@@ -144,7 +143,7 @@ public class f {
         int i2;
         if (downloadInfo != null) {
             try {
-                jSONObject.putOpt(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(downloadInfo.getTotalBytes()));
+                jSONObject.putOpt("total_bytes", Long.valueOf(downloadInfo.getTotalBytes()));
                 jSONObject.putOpt("cur_bytes", Long.valueOf(downloadInfo.getCurBytes()));
                 jSONObject.putOpt("chunk_count", Integer.valueOf(downloadInfo.getChunkCount()));
                 jSONObject.putOpt("app_name", downloadInfo.getTitle());

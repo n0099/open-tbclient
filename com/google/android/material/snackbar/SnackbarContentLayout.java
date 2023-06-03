@@ -101,8 +101,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f092148);
-        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f092147);
+        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f09217a);
+        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f092179);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:
@@ -129,8 +129,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 super.onMeasure(i, i2);
             }
         }
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702bf);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702be);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ca);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c9);
         boolean z2 = false;
         if (this.messageView.getLayout().getLineCount() > 1) {
             z = true;

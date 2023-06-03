@@ -1,209 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.cert.CertificateParsingException;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Pattern;
-import javax.net.ssl.SSLException;
-import okhttp3.CertificatePinner;
-/* loaded from: classes5.dex */
-public class i3b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes6.dex */
+public class i3b implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ j3b.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ j3b h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803985, "Lcom/baidu/tieba/i3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947803985, "Lcom/baidu/tieba/i3b;");
+    public i3b(j3b j3bVar, j3b.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {j3bVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        b = strArr;
-        Arrays.sort(strArr);
+        this.h = j3bVar;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
-            String[] d = d(x509Certificate);
-            String[] f = f(x509Certificate);
-            o3b.b("", "cn is : " + Arrays.toString(d));
-            o3b.b("", "san is : " + Arrays.toString(f));
-            b(str, d, f, z);
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
-        boolean z2;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
-                linkedList.add(strArr[0]);
-            }
-            if (strArr2 != null) {
-                for (String str2 : strArr2) {
-                    if (str2 != null) {
-                        linkedList.add(str2);
-                    }
-                }
-            }
-            if (!linkedList.isEmpty()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
-                Iterator it = linkedList.iterator();
-                boolean z3 = false;
-                while (it.hasNext()) {
-                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
-                    stringBuffer.append(" <");
-                    stringBuffer.append(lowerCase2);
-                    stringBuffer.append('>');
-                    if (it.hasNext()) {
-                        stringBuffer.append(" OR");
-                    }
-                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
-                        if (endsWith && z) {
-                            if (e(lowerCase) == e(lowerCase2)) {
-                                z3 = true;
-                                continue;
-                            } else {
-                                z3 = false;
-                                continue;
-                            }
-                        } else {
-                            z3 = endsWith;
-                            continue;
-                        }
-                    } else {
-                        z3 = lowerCase.equals(lowerCase2);
-                        continue;
-                    }
-                    if (z3) {
-                        break;
-                    }
-                }
-                if (z3) {
-                    return;
-                }
-                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
-            }
-            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = str.length();
-            if (length < 7 || length > 9) {
-                return true;
-            }
-            int i = length - 3;
-            if (str.charAt(i) != '.') {
-                return true;
-            }
-            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
         }
-        return invokeL.booleanValue;
     }
 
-    public static String[] d(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
-            List<String> d = new h3b(x509Certificate.getSubjectX500Principal()).d("cn");
-            if (!d.isEmpty()) {
-                String[] strArr = new String[d.size()];
-                d.toArray(strArr);
-                return strArr;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (str.charAt(i2) == '.') {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return a.matcher(str).matches();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] f(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Collection<List<?>> collection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                collection = x509Certificate.getSubjectAlternativeNames();
-            } catch (CertificateParsingException e) {
-                o3b.c("", "Error parsing certificate.", e);
-                collection = null;
-            }
-            if (collection != null) {
-                for (List<?> list : collection) {
-                    if (((Integer) list.get(0)).intValue() == 2) {
-                        linkedList.add((String) list.get(1));
-                    }
-                }
-            }
-            if (linkedList.isEmpty()) {
-                return null;
-            }
-            String[] strArr = new String[linkedList.size()];
-            linkedList.toArray(strArr);
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
     }
 }

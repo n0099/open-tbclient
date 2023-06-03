@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j65;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.g95;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.v05;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
                 if (basePersonInfoActivity.i && basePersonInfoActivity.m != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    j65.g(this.a.getPageContext().getPageActivity(), 200, false);
+                    g95.g(this.a.getPageContext().getPageActivity(), 200, false);
                 }
                 this.a.finish();
             }
@@ -157,7 +157,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
-                basePersonInfoActivity.c = zx4.a(basePersonInfoActivity.P1()) % 3;
+                basePersonInfoActivity.c = v05.a(basePersonInfoActivity.P1()) % 3;
                 int P1 = this.a.P1();
                 if (P1 != 2) {
                     if (P1 != 3) {
@@ -218,7 +218,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        zx4.c(this.a.P1(), BasePersonInfoActivity.t[this.a.c]);
+                        v05.c(this.a.P1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
                         basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.icon_toast_info);
@@ -228,7 +228,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0db6));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0def));
             }
         }
     }
@@ -298,7 +298,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    public int G1() {
+    public int F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -385,7 +385,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.h = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
-        fragmentTabIndicator.setMinimumHeight(ri.g(getActivity(), R.dimen.obfuscated_res_0x7f07040f));
+        fragmentTabIndicator.setMinimumHeight(vi.g(getActivity(), R.dimen.obfuscated_res_0x7f07041a));
         cVar.b = fragmentTabIndicator;
         this.n.b(cVar);
     }
@@ -393,13 +393,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public final void T1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090361);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090364);
             this.k = navigationBar;
             if (this.i) {
                 if (this.m == 23011) {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b46));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b7f));
                 } else {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f12f3));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1345));
                 }
             } else {
                 navigationBar.setCenterTextTitle(String.format(L1(), this.e));
@@ -409,12 +409,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (this.g && this.m != 23003 && !this.i) {
                 ImageView imageView = (ImageView) this.k.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
                 this.l = imageView;
-                SkinManager.setNavbarIconSrc(imageView, r[zx4.a(P1()) - 1], q[zx4.a(P1()) - 1]);
+                SkinManager.setNavbarIconSrc(imageView, r[v05.a(P1()) - 1], q[v05.a(P1()) - 1]);
                 this.l.setOnClickListener(new b(this));
             }
             this.b = new int[]{0, 1};
             this.o = D1(this, this.g);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090362);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090365);
             this.n = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.n.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
@@ -459,22 +459,22 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
             this.d = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c07);
+                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c40);
                 this.g = true;
             } else {
                 this.g = false;
                 int i = this.f;
                 if (i != 1) {
                     if (i != 2) {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1520);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1572);
                     } else {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f133c);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f138e);
                     }
                 } else {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0962);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0998);
                 }
             }
-            if (qi.isEmpty(this.d)) {
+            if (ui.isEmpty(this.d)) {
                 finish();
                 return;
             }
@@ -550,7 +550,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.i && this.m != 23011) {
-                    j65.g(getPageContext().getPageActivity(), 200, false);
+                    g95.g(getPageContext().getPageActivity(), 200, false);
                 }
                 finish();
                 return true;

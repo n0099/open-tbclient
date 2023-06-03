@@ -30,7 +30,6 @@ import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -348,7 +347,7 @@ public class MediaChatMessageManager implements IChatMessageManager {
                 if (deleteChatMsg(chatMsg) >= 0) {
                     return 0;
                 }
-                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                return -1009;
             }
             long[] jArr = {chatMsg.getMsgId()};
             ChatObject chatObject = new ChatObject(this.mAppContext, chatMsg.getCategory(), chatMsg.getContacter());

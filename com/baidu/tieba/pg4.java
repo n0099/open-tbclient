@@ -1,90 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ji4;
-import java.util.List;
-import org.json.JSONArray;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface pg4 {
-    qj4 A();
+public class pg4 extends kg4<ky2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int B();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061068, "Lcom/baidu/tieba/pg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948061068, "Lcom/baidu/tieba/pg4;");
+                return;
+            }
+        }
+        boolean z = is1.a;
+    }
 
-    void C();
+    public pg4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void D(vk4 vk4Var);
+    public static pg4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new pg4();
+        }
+        return (pg4) invokeV.objValue;
+    }
 
-    String E();
+    @Override // com.baidu.tieba.kg4
+    public boolean b(Context context, ky2 ky2Var, hy2 hy2Var, yb3 yb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ky2Var, hy2Var, yb3Var, jSONObject)) == null) {
+            return e(context, ky2Var, hy2Var, yb3Var, jSONObject);
+        }
+        return invokeLLLLL.booleanValue;
+    }
 
-    int F(String str, int i);
-
-    void G(String str, String str2, Throwable th);
-
-    void H(jl4 jl4Var);
-
-    String I();
-
-    String J(int i);
-
-    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
-
-    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
-
-    pi4 M();
-
-    float a();
-
-    String b();
-
-    String c();
-
-    void d(byte[] bArr);
-
-    String e();
-
-    CookieManager f();
-
-    String g();
-
-    String h();
-
-    ip4 i();
-
-    long j(int i);
-
-    void k(JSONArray jSONArray, String str, String str2);
-
-    List<zh4> l(String str, long j);
-
-    void m(String str, String str2, ji4.c cVar);
-
-    pi4 n();
-
-    boolean o(boolean z, @NonNull JSONArray jSONArray);
-
-    void p(String str, JSONObject jSONObject, fi4 fi4Var, List<gi4> list);
-
-    String q();
-
-    boolean r(@Nullable hi4 hi4Var);
-
-    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
-
-    void t(yl4 yl4Var, om4 om4Var);
-
-    String u();
-
-    String v(int i);
-
-    long w(int i);
-
-    boolean x();
-
-    void y(String str, String str2);
-
-    void z(String str, String str2, String str3, boolean z);
+    public final boolean e(Context context, ky2 ky2Var, hy2 hy2Var, yb3 yb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ky2Var, hy2Var, yb3Var, jSONObject)) == null) {
+            y82.i("map", "GetRegionAction start");
+            gy1 A = lx2.T().A(ky2Var.c);
+            if (!(A instanceof ey1)) {
+                y82.c("map", "WebViewManager is null");
+                return false;
+            }
+            ih4 d = hg4.b().c((ey1) A).d(ky2Var.b);
+            if (d == null) {
+                y82.c("map", "can not find map by id " + ky2Var.b);
+                return false;
+            }
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            y82.i("map", "GetRegionAction end");
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
+    }
 }

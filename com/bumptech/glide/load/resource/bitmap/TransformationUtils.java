@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TransformationUtils {
     public static final Lock BITMAP_DRAWABLE_LOCK;
     public static final Paint CIRCLE_CROP_BITMAP_PAINT;
@@ -35,7 +35,7 @@ public final class TransformationUtils {
     public static final Paint DEFAULT_PAINT = new Paint(6);
     public static final Paint CIRCLE_CROP_SHAPE_PAINT = new Paint(7);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DrawRoundedCornerFn {
         void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF);
     }
@@ -71,7 +71,7 @@ public final class TransformationUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NoLock implements Lock {
         @Override // java.util.concurrent.locks.Lock
         public void lock() {

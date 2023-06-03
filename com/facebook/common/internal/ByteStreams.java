@@ -8,11 +8,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ByteStreams {
     public static final int BUF_SIZE = 4096;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FastByteArrayOutputStream extends ByteArrayOutputStream {
         public FastByteArrayOutputStream() {
         }

@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -133,7 +132,7 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
                     case 3:
                     case 10:
                     case 16:
-                        objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                        objArr[0] = "visibility";
                         break;
                     case 4:
                     case 11:
@@ -384,7 +383,7 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
                     objArr[0] = "modality";
                     break;
                 case 6:
-                    objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                    objArr[0] = "visibility";
                     break;
                 case 8:
                     objArr[0] = "kind";

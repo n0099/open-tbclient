@@ -1,43 +1,78 @@
 package com.baidu.tieba;
 
-import android.media.AudioManager;
-import android.media.SoundPool;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.w2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class m2 implements t1 {
+public class m2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SoundPool a;
-    public final int b;
+    public int a;
+    public int b;
 
-    public m2(SoundPool soundPool, AudioManager audioManager, int i) {
+    public m2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {soundPool, audioManager, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new z6(8);
-        this.a = soundPool;
-        this.b = i;
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.v6
-    public void dispose() {
+    public boolean a(MotionEvent motionEvent, w2 w2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.unload(this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, motionEvent, w2Var)) == null) {
+            if ((motionEvent.getSource() & 2) == 0) {
+                return false;
+            }
+            int action = motionEvent.getAction() & 255;
+            long nanoTime = System.nanoTime();
+            synchronized (w2Var) {
+                if (action != 7) {
+                    if (action == 8) {
+                        b(w2Var, 3, 0, 0, (int) (-Math.signum(motionEvent.getAxisValue(10))), (int) (-Math.signum(motionEvent.getAxisValue(9))), nanoTime);
+                    }
+                } else {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    if (x != this.a || y != this.b) {
+                        b(w2Var, 4, x, y, 0, 0, nanoTime);
+                        this.a = x;
+                        this.b = y;
+                    }
+                }
+            }
+            w0.a.getGraphics().c();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void b(w2 w2Var, int i, int i2, int i3, int i4, int i5, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{w2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            w2.f e = w2Var.g.e();
+            e.a = j;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.e = i4;
+            e.f = i5;
+            w2Var.j.add(e);
         }
     }
 }

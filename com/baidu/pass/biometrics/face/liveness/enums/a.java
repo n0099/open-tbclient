@@ -8,8 +8,8 @@ public class a extends TimerTask {
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.enums.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0125a implements Runnable {
-        public RunnableC0125a() {
+    public class RunnableC0130a implements Runnable {
+        public RunnableC0130a() {
         }
 
         @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public class a extends TimerTask {
     public void run() {
         CircleProgressView circleProgressView = this.a;
         if (circleProgressView != null) {
-            circleProgressView.post(new RunnableC0125a());
+            circleProgressView.post(new RunnableC0130a());
         }
     }
 }

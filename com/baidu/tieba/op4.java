@@ -1,89 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes6.dex */
-public class op4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public abstract class op4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public abstract View g(View view2, String str, Context context, AttributeSet attributeSet);
+
+    public op4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException unused) {
-                    i = 0;
-                }
-                if (i != -1) {
-                    byteArrayOutputStream.write(bArr, 0, i);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    kp4.d(byteArrayOutputStream);
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
         }
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    kp4.d(inputStream);
-                    return str;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                kp4.d(inputStream);
-                throw th;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
             }
-            kp4.d(inputStream);
-            return null;
+            super.onCreate(bundle);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View g = g(null, str, context, attributeSet);
+            if (g == null) {
+                return super.onCreateView(str, context, attributeSet);
             }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
+            return g;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeLLL.objValue;
     }
 }

@@ -1,78 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class hx7 extends jy4 {
+/* loaded from: classes6.dex */
+public class hx7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jy4
-    public h05 getNegFeedBackData() {
-        InterceptResult invokeV;
+    public static boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (h05) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839170, "Lcom/baidu/tieba/hx7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947839170, "Lcom/baidu/tieba/hx7;");
-                return;
+            int i = threadData.threadType;
+            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
+                return false;
             }
+            return true;
         }
-        a = BdUniqueId.gen();
+        return invokeL.booleanValue;
     }
 
-    public hx7() {
+    public static void b(f15 f15Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{f15Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && f15Var != null && f15Var.getThreadData() != null && context != null) {
+            ThreadData threadData = f15Var.getThreadData();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, ImageViewerConfig.FROM_GAME_VIDEO, 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+            createFromThreadCfg.setFrom("from_game_video");
+            createFromThreadCfg.setForumName(threadData.getForum_name());
+            createFromThreadCfg.setStartFrom(i);
+            createFromThreadCfg.setVideoOriginArea(rect);
+            if (f15Var.getPbInputLocate() != null) {
+                createFromThreadCfg.addLocateParam(f15Var.getPbInputLocate());
             }
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && a(threadData)) {
+                createFromThreadCfg.setNeedPreLoad(true);
+                hd7.update(threadData);
+            }
+            createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
+            createFromThreadCfg.setJumpGodReply(z);
+            qn6.a(threadData.getTid());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void c(mo6 mo6Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, mo6Var, i) != null) || mo6Var == null) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        int i2 = 1;
+        StatisticItem n = mo6Var.n("c13488", true);
+        if (n != null) {
+            if (mo6Var.getThreadData() != null) {
+                ThreadData threadData = mo6Var.getThreadData();
+                if (threadData.getTopAgreePost() == null || (threadData.getTopAgreePost().a0() == null && threadData.getTopAgreePost().s0() == null)) {
+                    i2 = 0;
+                }
+                n.param("obj_name", i2);
+                if (threadData.getAuthor() != null) {
+                    n.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
+                }
+            }
+            n.param("obj_type", i);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void d(mo6 mo6Var, int i) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65539, null, mo6Var, i) == null) && mo6Var != null && mo6Var.getThreadData() != null && vo6.P(mo6Var.a) && (n = mo6Var.n("c13494", true)) != null) {
+            n.param("obj_type", i);
+            TbSingleton.getInstance().setCurrentClickTime(System.currentTimeMillis());
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void e(mo6 mo6Var, int i) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, mo6Var, i) == null) && mo6Var != null && vo6.P(mo6Var.a) && (n = mo6Var.n("c13495", true)) != null) {
+            n.param("obj_type", i);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void f(mo6 mo6Var, int i) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, mo6Var, i) == null) && mo6Var != null && mo6Var.getThreadData() != null && (n = mo6Var.n("c13496", true)) != null) {
+            n.param("obj_type", i);
+            TiebaStatic.log(n);
+        }
     }
 }

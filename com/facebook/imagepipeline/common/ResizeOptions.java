@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.common;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResizeOptions {
     public static final float DEFAULT_ROUNDUP_FRACTION = 0.6666667f;
     public final int height;

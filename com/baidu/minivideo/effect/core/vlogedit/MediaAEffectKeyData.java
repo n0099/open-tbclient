@@ -113,7 +113,7 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public MediaAEffectKeyData m34clone() {
+    public MediaAEffectKeyData m48clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

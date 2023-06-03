@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public final BaseNCodec baseNCodec;
     public final BaseNCodec.Context context;

@@ -2,7 +2,7 @@ package com.bytedance.pangle.util;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k {
     public static final /* synthetic */ boolean a = !k.class.desiredAssertionStatus();
     public static final Object b = new Object();

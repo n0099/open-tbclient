@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
@@ -171,7 +170,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
             String str = this.TAG;
             RLog.info(str, "cancelAllRequest key:" + key + " cmd:" + value.getReqCommand());
             if (value instanceof RequestJob) {
-                cancel(value.getReqCommand(), key, ErrorCode.CLIENT_CANCEL_REQUEST, "取消请求");
+                cancel(value.getReqCommand(), key, -800, "取消请求");
             }
         }
         int size2 = this.requestJobList.size();

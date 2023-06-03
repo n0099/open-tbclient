@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TogetherHi extends Message {
     public static final String DEFAULT_ALBUMNAME = "";
     public static final String DEFAULT_LOCATION = "";
@@ -34,7 +34,7 @@ public final class TogetherHi extends Message {
     public static final Integer DEFAULT_NUMJOIN = 0;
     public static final List<String> DEFAULT_PICURLS = Collections.emptyList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<TogetherHi> {
         public Long albumId;
         public String albumName;

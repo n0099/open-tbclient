@@ -1,104 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qa5 {
+public final class qa5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qa5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ra5> a;
+    public ItemData a;
+    public final int b;
+    public final String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948085124, "Lcom/baidu/tieba/qa5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948085124, "Lcom/baidu/tieba/qa5;");
-                return;
+            if (obj instanceof qa5) {
+                qa5 qa5Var = (qa5) obj;
+                return Intrinsics.areEqual(this.a, qa5Var.a) && this.b == qa5Var.b && Intrinsics.areEqual(this.c, qa5Var.c);
             }
+            return false;
         }
-        b = new qa5();
+        return invokeL.booleanValue;
     }
 
-    public qa5() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public qa5(ItemData item, int i, String tid) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item, Integer.valueOf(i), tid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = item;
+        this.b = i;
+        this.c = tid;
     }
 
-    public static qa5 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final ItemData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return b;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
-            qa5 qa5Var = new qa5();
-            qa5Var.a(optJSONObject);
-            return qa5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (qa5) invokeL.objValue;
+        return (ItemData) invokeV.objValue;
     }
 
-    public ra5 b(String str) {
-        InterceptResult invokeL;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !StringUtils.isNull(str)) {
-                return this.a.get(str);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (ra5) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public final void a(JSONObject jSONObject) {
-        int length;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (optJSONArray != null) {
-            this.a = new HashMap<>();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    ra5 g = ra5.g(optJSONObject);
-                    if (!StringUtils.isNull(g.f())) {
-                        this.a.put(g.f(), g);
-                    }
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

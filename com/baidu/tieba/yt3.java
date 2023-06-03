@@ -1,142 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.ExceptionCode;
 /* loaded from: classes8.dex */
-public class yt3 implements rt3 {
+public class yt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt3 a;
-    public int b;
-    public boolean c;
 
-    public yt3(@NonNull Context context) {
+    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
+        InterceptResult invokeCommon;
+        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1;
-        c(context);
-    }
-
-    public final void e(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            xt3 f = eu3.f();
-            int i2 = f.a;
-            if (i2 < 1) {
-                i2 = 10;
-            }
-            if (f.a() <= 0) {
-                a = ExceptionCode.CRASH_EXCEPTION;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
+            Bundle bundle = new Bundle();
+            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
+                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
             } else {
-                a = f.a();
+                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
             }
-            int f2 = this.a.f(i2, a, i2, a);
-            this.b = f2;
-            if (f2 != -1) {
-                this.a.e(f2, i);
-            }
+            bundle.putString("auth_tip", str);
+            bundle.putBoolean("is_night", z);
+            bundle.putParcelable("quick_login_info", quickLoginInfo);
+            bundle.putString("app_id", str3);
+            bundle.putString("launch_from", str2);
+            swanAppPhoneLoginDialog.setArguments(bundle);
+            return swanAppPhoneLoginDialog;
         }
-    }
-
-    @Override // com.baidu.tieba.rt3
-    public void a() {
-        zt3 zt3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (zt3Var = this.a) != null && zt3Var.c()) {
-            this.c = false;
-            if (this.a.b()) {
-                g();
-            } else {
-                f();
-            }
-        }
-    }
-
-    public final void f() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.j(this.b);
-        }
-    }
-
-    public final void g() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.i(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.rt3
-    public void b(int i) {
-        zt3 zt3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (zt3Var = this.a) != null && zt3Var.c()) {
-            this.c = true;
-            if (this.a.b()) {
-                e(i);
-            } else {
-                d(i);
-            }
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = zt3.a(context);
-        }
-    }
-
-    public final void d(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int g = this.a.g();
-            this.b = g;
-            if (g != -1) {
-                xt3 f = eu3.f();
-                int i2 = f.a;
-                if (i2 < 1) {
-                    i2 = 10;
-                }
-                if (f.a() <= 0) {
-                    a = ExceptionCode.CRASH_EXCEPTION;
-                } else {
-                    a = f.a();
-                }
-                int i3 = i2;
-                this.a.h(this.b, 0, i3, -1, -1, -1);
-                this.a.h(this.b, 2, i3, i2, -1, -1);
-                int i4 = a;
-                this.a.h(this.b, 4, i4, -1, -1, -1);
-                this.a.h(this.b, 6, i4, a, -1, -1);
-                this.a.h(this.b, 15, i2, i2, i2, i2);
-                this.a.h(this.b, 17, a, a, a, a);
-                this.a.e(this.b, i);
-            }
-        }
+        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
     }
 }

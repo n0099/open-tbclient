@@ -1,19 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes5.dex */
-public interface i65 {
-    void a(Context context);
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class i65 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public gl1<j65> a;
 
-    void b(Context context, int i);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            el1 b = el1.b();
+            this.a = b;
+            b.a(new k65());
+        }
+    }
 
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    public i65() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
 }

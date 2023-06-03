@@ -10,14 +10,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
@@ -229,7 +227,7 @@ public final class StatusBarUtil {
                 return 0;
             }
             Context applicationContext = context.getApplicationContext();
-            int identifier = applicationContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = applicationContext.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             if (identifier <= 0) {
                 return 0;
             }
@@ -297,7 +295,7 @@ public final class StatusBarUtil {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams attributes = this.window.getAttributes();
             if (this.transparentStatusBar) {
-                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+                attributes.flags |= 67108864;
             } else {
                 attributes.flags &= -67108865;
             }

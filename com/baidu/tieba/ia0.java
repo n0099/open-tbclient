@@ -1,120 +1,213 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$event_timestamp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
-public final class ia0 {
+public class ia0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ia0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947846641, "Lcom/baidu/tieba/ia0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947846641, "Lcom/baidu/tieba/ia0;");
-                return;
-            }
-        }
-        a = new ia0();
+    public final int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
     }
 
     public ia0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final Drawable a(Context context, String str, String str2) {
+    public final byte[] a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            if (i == 1) {
+                return g(bArr);
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public aa0 b(aa0 aa0Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aa0Var, z)) == null) {
+            aa0Var.p = z;
+            h(aa0Var, f(aa0Var.i, aa0Var.j, aa0Var.o, d(false)), a(aa0Var.a, d(false)));
+            return aa0Var;
+        }
+        return (aa0) invokeLZ.objValue;
+    }
+
+    public aa0 c(Context context, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
+            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
+            aa0 aa0Var = new aa0();
+            aa0Var.o = random;
+            boolean z2 = true;
+            aa0Var.p = true;
+            aa0Var.i = 1L;
+            aa0Var.j = j;
+            if (j == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aa0Var.m = z;
+            if (j != 3) {
+                z2 = false;
+            }
+            aa0Var.l = z2;
+            h(aa0Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
+            return aa0Var;
+        }
+        return (aa0) invokeLJ.objValue;
+    }
+
+    public final byte[] e(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
+        LcmPb$LcmRequest build;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 4) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
+                newBuilder.v(j);
+                newBuilder.u(2);
+                LcmPb$LcmNotify build2 = newBuilder.build();
+                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
+                newBuilder2.C(build2);
+                return newBuilder2.build().toByteArray();
+            }
+            if (j2 == 1) {
+                try {
+                    LcmPb$Common lcmPb$Common = (LcmPb$Common) ra0.c(context, false);
+                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder3.y(j);
+                    newBuilder3.w(lcmPb$Common);
+                    newBuilder3.B(ua0.j(context));
+                    newBuilder3.A(System.currentTimeMillis());
+                    newBuilder3.z(q90.c(context));
+                    newBuilder3.x(ua0.d(context));
+                    build = newBuilder3.build();
+                    ta0.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                } catch (Exception unused) {
+                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder4.y(j);
+                    newBuilder4.B(ua0.j(context));
+                    newBuilder4.A(System.currentTimeMillis());
+                    newBuilder4.z(q90.c(context));
+                    newBuilder4.x(ua0.d(context));
+                    build = newBuilder4.build();
+                }
+            } else if (j2 == 2) {
+                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
+                newBuilder5.y(j);
+                newBuilder5.A(System.currentTimeMillis());
+                build = newBuilder5.build();
+            } else {
+                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
+                newBuilder6.y(j);
+                newBuilder6.A(System.currentTimeMillis());
+                build = newBuilder6.build();
+            }
+            ta0.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
+            newBuilder7.D(build);
+            return newBuilder7.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] f(long j, long j2, long j3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
+            RpcMetaPb$event_timestamp.b newBuilder = RpcMetaPb$event_timestamp.newBuilder();
+            newBuilder.t(v90.a(true));
+            newBuilder.u(System.currentTimeMillis());
+            RpcMetaPb$event_timestamp build = newBuilder.build();
+            RpcMetaPb$RpcRequestMeta.b newBuilder2 = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder2.v(j3);
+            newBuilder2.y(j);
+            newBuilder2.w(j2);
+            newBuilder2.x(1);
+            newBuilder2.l(build);
+            RpcMetaPb$RpcRequestMeta build2 = newBuilder2.build();
+            RpcMetaPb$RpcMeta.b newBuilder3 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder3.E(build2);
+            newBuilder3.D(j3);
+            newBuilder3.C(i);
+            newBuilder3.z(1);
+            return newBuilder3.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final aa0 h(aa0 aa0Var, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{tc0.f().a(context, str, "color_gradient_1"), tc0.f().a(context, str, "color_gradient_2")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            return gradientDrawable;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, aa0Var, bArr, bArr2)) == null) {
+            try {
+                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
+                allocate.put((byte) 108);
+                allocate.put((byte) 99);
+                allocate.put((byte) 112);
+                allocate.put((byte) 1);
+                allocate.putInt(bArr.length + bArr2.length);
+                allocate.putInt(bArr.length);
+                allocate.put(bArr);
+                allocate.put(bArr2);
+                aa0Var.a = allocate.array();
+            } catch (Exception unused) {
+            }
+            return aa0Var;
         }
-        return (Drawable) invokeLLL.objValue;
-    }
-
-    public final Drawable d(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{tc0.f().a(context, str, "color_gradient_2"), tc0.f().a(context, str, "color_gradient_1")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeLLL.objValue;
-    }
-
-    public final Drawable b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = ca0.b(context, 7.0f);
-            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
-            gradientDrawable.setColors(new int[]{tc0.f().a(context, str, "color_F5F5F53"), tc0.f().a(context, str, "color_F5F5F53")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    public final Drawable c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = ca0.b(context, 18.0f);
-            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
-            gradientDrawable.setColors(new int[]{tc0.f().a(context, str, "color_main_bg"), tc0.f().a(context, str, "color_main_bg")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    public final Drawable e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = ca0.b(context, 7.0f);
-            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
-            gradientDrawable.setColors(new int[]{tc0.f().a(context, str, "color_FF33552"), tc0.f().a(context, str, "color_FF33552")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeLL.objValue;
+        return (aa0) invokeLLL.objValue;
     }
 }

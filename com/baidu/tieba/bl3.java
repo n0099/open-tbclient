@@ -1,118 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public final class bl3<ValueT> {
+public class bl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
+    public static final Pattern c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public ValueT b;
-    public a<ValueT> c;
 
-    /* loaded from: classes5.dex */
-    public interface a<ValueT> {
-        ValueT update() throws IllegalStateException;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.dl3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public bl3(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947648768, "Lcom/baidu/tieba/bl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947648768, "Lcom/baidu/tieba/bl3;");
                 return;
             }
         }
-        this.a = str;
-        dl3.a().h(this);
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+        c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
     }
 
-    public boolean update(a<ValueT> aVar) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!c(str) && !d(str)) {
                 return false;
             }
-            try {
-                if (!update((bl3<ValueT>) aVar.update())) {
-                    return false;
-                }
-                return true;
-            } catch (IllegalStateException e) {
-                g62.o("Tracer", "index update IllegalStateException " + e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public CharSequence a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.b;
-            if (valuet == null) {
-                return "";
-            }
-            return valuet.toString();
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public boolean update() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return update((a) this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public bl3<ValueT> b(a<ValueT> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.c = aVar;
-            update();
-            return this;
-        }
-        return (bl3) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.dl3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean update(ValueT valuet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
-            this.b = valuet;
-            dl3.a().e(this);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str).matches();
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!f(str) && !e(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return c.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '[') {
+                int i = length - 1;
+                if (str.charAt(i) == ']') {
+                    str = str.substring(1, i);
+                }
+            }
+            return a(str);
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -7,26 +7,25 @@ import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a\u0013\u0010\u0001\u001a\u00020\u0000H\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0001\u0010\u0002\u001a\u0013\u0010\u0004\u001a\u00020\u0000*\u00020\u0003H\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006"}, d2 = {"", "yield", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlin/coroutines/CoroutineContext;", "checkCompletion", "(Lkotlin/coroutines/CoroutineContext;)V", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlinx.coroutines.internal.DispatchedContinuation;
+import kotlinx.coroutines.internal.DispatchedContinuationKt;
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u001a\u0011\u0010\u0000\u001a\u00020\u0001H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0002\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0003"}, d2 = {"yield", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class YieldKt {
-    public static final void checkCompletion(CoroutineContext coroutineContext) {
-        Job job = (Job) coroutineContext.get(Job.Key);
-        if (job != null && !job.isActive()) {
-            throw job.getCancellationException();
-        }
-    }
-
     public static final Object yield(Continuation<? super Unit> continuation) {
+        DispatchedContinuation dispatchedContinuation;
         Object obj;
         CoroutineContext context = continuation.getContext();
-        checkCompletion(context);
+        JobKt.ensureActive(context);
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation);
-        if (!(intercepted instanceof DispatchedContinuation)) {
-            intercepted = null;
+        if (intercepted instanceof DispatchedContinuation) {
+            dispatchedContinuation = (DispatchedContinuation) intercepted;
+        } else {
+            dispatchedContinuation = null;
         }
-        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) intercepted;
-        if (dispatchedContinuation != null) {
+        if (dispatchedContinuation == null) {
+            obj = Unit.INSTANCE;
+        } else {
             if (dispatchedContinuation.dispatcher.isDispatchNeeded(context)) {
                 dispatchedContinuation.dispatchYield$kotlinx_coroutines_core(context, Unit.INSTANCE);
             } else {
@@ -41,8 +40,6 @@ public final class YieldKt {
                 }
             }
             obj = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        } else {
-            obj = Unit.INSTANCE;
         }
         if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             DebugProbesKt.probeCoroutineSuspended(continuation);

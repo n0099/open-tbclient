@@ -1,18 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
-import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class de8 implements x27 {
+public final class de8 extends le8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.le8
+    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+        }
+    }
+
+    @Override // com.baidu.tieba.le8
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "no_response" : (String) invokeV.objValue;
+    }
 
     public de8() {
         Interceptable interceptable = $ic;
@@ -26,21 +41,5 @@ public final class de8 implements x27 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.x27
-    public List<f37<?, ?>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PersonalTextMsgTemplate("text_left"));
-            arrayList.add(new PersonalTextMsgTemplate("text_right"));
-            arrayList.add(new lg8("loading_left"));
-            arrayList.add(new mg8("voice_left"));
-            arrayList.add(new PersonalImageMsgTemplate("image_left"));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

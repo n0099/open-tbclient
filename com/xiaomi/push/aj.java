@@ -26,7 +26,7 @@ public class aj {
     /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract String mo240a();
+        public abstract String mo295a();
     }
 
     /* loaded from: classes10.dex */
@@ -73,7 +73,7 @@ public class aj {
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
         synchronized (this.f98a) {
-            scheduledFuture = this.f99a.get(aVar.mo240a());
+            scheduledFuture = this.f99a.get(aVar.mo295a());
         }
         return scheduledFuture;
     }
@@ -87,7 +87,7 @@ public class aj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m199a(a aVar) {
+    public boolean m254a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -103,7 +103,7 @@ public class aj {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo240a());
+        String a2 = a(aVar.mo295a());
         ak akVar = new ak(this, aVar, z, a2);
         if (!z) {
             long abs = Math.abs(System.currentTimeMillis() - this.f97a.getLong(a2, 0L)) / 1000;
@@ -114,7 +114,7 @@ public class aj {
         try {
             ScheduledFuture<?> scheduleAtFixedRate = this.f100a.scheduleAtFixedRate(akVar, i2, i, TimeUnit.SECONDS);
             synchronized (this.f98a) {
-                this.f99a.put(aVar.mo240a(), scheduleAtFixedRate);
+                this.f99a.put(aVar.mo295a(), scheduleAtFixedRate);
             }
             return true;
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class aj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m200a(String str) {
+    public boolean m255a(String str) {
         synchronized (this.f98a) {
             ScheduledFuture scheduledFuture = this.f99a.get(str);
             if (scheduledFuture == null) {
@@ -141,7 +141,7 @@ public class aj {
         }
         ScheduledFuture<?> schedule = this.f100a.schedule(new al(this, aVar), i, TimeUnit.SECONDS);
         synchronized (this.f98a) {
-            this.f99a.put(aVar.mo240a(), schedule);
+            this.f99a.put(aVar.mo295a(), schedule);
         }
         return true;
     }

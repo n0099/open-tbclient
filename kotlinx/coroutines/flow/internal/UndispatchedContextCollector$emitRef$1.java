@@ -2,6 +2,7 @@ package kotlinx.coroutines.flow.internal;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.qq.e.comm.adevent.AdEventType;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -12,17 +13,18 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.flow.FlowCollector;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.UndispatchedContextCollector$emitRef$1", f = "ChannelFlow.kt", i = {0}, l = {161}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.flow.internal.UndispatchedContextCollector$emitRef$1", f = "ChannelFlow.kt", i = {}, l = {AdEventType.VIDEO_PRELOADED}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes10.dex */
 public final class UndispatchedContextCollector$emitRef$1<T> extends SuspendLambda implements Function2<T, Continuation<? super Unit>, Object> {
-    public final /* synthetic */ FlowCollector $downstream;
-    public Object L$0;
+    public final /* synthetic */ FlowCollector<T> $downstream;
+    public /* synthetic */ Object L$0;
     public int label;
-    public Object p$0;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.flow.FlowCollector<? super T> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UndispatchedContextCollector$emitRef$1(FlowCollector flowCollector, Continuation continuation) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public UndispatchedContextCollector$emitRef$1(FlowCollector<? super T> flowCollector, Continuation<? super UndispatchedContextCollector$emitRef$1> continuation) {
         super(2, continuation);
         this.$downstream = flowCollector;
     }
@@ -30,17 +32,24 @@ public final class UndispatchedContextCollector$emitRef$1<T> extends SuspendLamb
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         UndispatchedContextCollector$emitRef$1 undispatchedContextCollector$emitRef$1 = new UndispatchedContextCollector$emitRef$1(this.$downstream, continuation);
-        undispatchedContextCollector$emitRef$1.p$0 = obj;
+        undispatchedContextCollector$emitRef$1.L$0 = obj;
         return undispatchedContextCollector$emitRef$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((UndispatchedContextCollector$emitRef$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke2((UndispatchedContextCollector$emitRef$1<T>) obj, continuation);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlinx.coroutines.flow.FlowCollector */
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Object invoke2(T t, Continuation<? super Unit> continuation) {
+        return ((UndispatchedContextCollector$emitRef$1) create(t, continuation)).invokeSuspend(Unit.INSTANCE);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlinx.coroutines.flow.FlowCollector<T> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
@@ -54,11 +63,9 @@ public final class UndispatchedContextCollector$emitRef$1<T> extends SuspendLamb
             }
         } else {
             ResultKt.throwOnFailure(obj);
-            Object obj2 = this.p$0;
-            FlowCollector flowCollector = this.$downstream;
-            this.L$0 = obj2;
+            Object obj2 = this.L$0;
             this.label = 1;
-            if (flowCollector.emit(obj2, this) == coroutine_suspended) {
+            if (this.$downstream.emit(obj2, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         }

@@ -12,6 +12,7 @@ import com.baidu.livesdk.api.im.live.LiveMessageBean;
 import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
@@ -152,7 +153,7 @@ public class LiveMessageParser {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0035 A[Catch: Exception -> 0x002f, TryCatch #0 {Exception -> 0x002f, blocks: (B:4:0x0017, B:6:0x0024, B:14:0x0035, B:15:0x0054, B:24:0x0078, B:26:0x0088, B:27:0x008e, B:29:0x00a0, B:30:0x00a6, B:32:0x00ac, B:33:0x00b2, B:35:0x00db, B:36:0x00e1, B:38:0x00eb, B:39:0x00f1, B:41:0x00fb, B:42:0x0101, B:44:0x0131, B:45:0x0137, B:47:0x013f, B:17:0x005b, B:19:0x0067, B:22:0x0074, B:9:0x002b), top: B:51:0x0017, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0035 A[Catch: Exception -> 0x002f, TryCatch #1 {Exception -> 0x002f, blocks: (B:4:0x0017, B:6:0x0024, B:14:0x0035, B:15:0x0053, B:24:0x0077, B:26:0x0087, B:27:0x008d, B:29:0x009f, B:30:0x00a5, B:32:0x00ab, B:33:0x00b1, B:35:0x00d9, B:36:0x00df, B:38:0x00e9, B:39:0x00ef, B:41:0x00f9, B:42:0x00ff, B:44:0x012f, B:45:0x0135, B:47:0x013d, B:17:0x005a, B:19:0x0066, B:22:0x0073, B:9:0x002b), top: B:53:0x0017, inners: #0, #2 }] */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -270,7 +271,7 @@ public class LiveMessageParser {
                 jSONObject4 = null;
             }
             if (jSONObject4 != null) {
-                String optString = jSONObject4.optString("word");
+                String optString = jSONObject4.optString(DownloadStatisticConstants.UBC_VALUE_WORD);
                 LiveMessageBean.Txt txt = new LiveMessageBean.Txt();
                 txt.word = optString;
                 messageBody.txt = txt;
@@ -525,7 +526,7 @@ public class LiveMessageParser {
                 if (liveMessageBean.message_body == null) {
                     str = "";
                     str2 = "txt";
-                    str3 = "word";
+                    str3 = DownloadStatisticConstants.UBC_VALUE_WORD;
                 } else {
                     JSONObject jSONObject2 = new JSONObject();
                     LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
@@ -534,12 +535,12 @@ public class LiveMessageParser {
                     } else {
                         JSONObject jSONObject3 = new JSONObject();
                         str = "";
-                        jSONObject3.put("word", messageBody2.txt.word);
+                        jSONObject3.put(DownloadStatisticConstants.UBC_VALUE_WORD, messageBody2.txt.word);
                         jSONObject2.put("txt", jSONObject3);
                     }
                     if (liveMessageBean.message_body.pic == null) {
                         str2 = "txt";
-                        str3 = "word";
+                        str3 = DownloadStatisticConstants.UBC_VALUE_WORD;
                     } else {
                         JSONObject jSONObject4 = new JSONObject();
                         JSONObject jSONObject5 = new JSONObject();
@@ -548,7 +549,7 @@ public class LiveMessageParser {
                         jSONObject5.put("height", messageBody2.pic.origin.height);
                         jSONObject5.put("url", messageBody2.pic.origin.url);
                         JSONObject jSONObject6 = new JSONObject();
-                        str3 = "word";
+                        str3 = DownloadStatisticConstants.UBC_VALUE_WORD;
                         jSONObject6.put("width", messageBody2.pic.thumbnail.width);
                         jSONObject6.put("height", messageBody2.pic.thumbnail.height);
                         jSONObject6.put("url", messageBody2.pic.thumbnail.url);

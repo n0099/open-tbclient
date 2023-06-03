@@ -3,7 +3,6 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.adp.ApsConstants;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -12,33 +11,33 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b41;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.f41;
-import com.baidu.tieba.hj0;
-import com.baidu.tieba.j21;
-import com.baidu.tieba.k21;
-import com.baidu.tieba.p11;
-import com.baidu.tieba.y31;
-import com.baidu.tieba.z31;
+import com.baidu.tieba.h51;
+import com.baidu.tieba.i51;
+import com.baidu.tieba.k51;
+import com.baidu.tieba.m51;
+import com.baidu.tieba.o51;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.s31;
+import com.baidu.tieba.t31;
+import com.baidu.tieba.y21;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ClogBuilder extends j21 {
-    public final JSONObject c = p11.c(null);
+public class ClogBuilder extends s31 {
+    public final JSONObject c = y21.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.h21, com.baidu.tieba.k21
+    @Override // com.baidu.tieba.q31, com.baidu.tieba.t31
     public void a() {
-        hj0 hj0Var = (hj0) ServiceManager.getService(hj0.a);
-        if (hj0Var != null) {
-            A(hj0Var.a(this.c.optString("extra_param")));
+        qk0 qk0Var = (qk0) ServiceManager.getService(qk0.a);
+        if (qk0Var != null) {
+            A(qk0Var.a(this.c.optString("extra_param")));
         }
         g();
     }
@@ -48,7 +47,7 @@ public class ClogBuilder extends j21 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.j21, com.baidu.tieba.k21
+    @Override // com.baidu.tieba.s31, com.baidu.tieba.t31
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -321,40 +320,40 @@ public class ClogBuilder extends j21 {
         return this;
     }
 
-    @Override // com.baidu.tieba.h21, com.baidu.tieba.k21
-    public <T extends k21> T b(String str, String str2) {
+    @Override // com.baidu.tieba.q31, com.baidu.tieba.t31
+    public <T extends t31> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.h21
-    public <T extends k21> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.q31
+    public <T extends t31> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        p11.f(this.c, str, obj);
+        y21.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!z31.a) {
+        if (!i51.a) {
             return;
         }
-        f41 f41Var = (f41) y31.a().a(f41.class);
-        if (f41Var != null) {
-            f41Var.a(h());
+        o51 o51Var = (o51) h51.a().a(o51.class);
+        if (o51Var != null) {
+            o51Var.a(h());
         }
-        b41 b41Var = (b41) y31.a().a(b41.class);
-        if (b41Var != null) {
-            b41Var.a(h());
+        k51 k51Var = (k51) h51.a().a(k51.class);
+        if (k51Var != null) {
+            k51Var.a(h());
         }
-        d41 d41Var = (d41) y31.a().a(d41.class);
-        if (d41Var != null) {
-            d41Var.a(h());
+        m51 m51Var = (m51) h51.a().a(m51.class);
+        if (m51Var != null) {
+            m51Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.j21, com.baidu.tieba.h21, com.baidu.tieba.k21
+    @Override // com.baidu.tieba.s31, com.baidu.tieba.q31, com.baidu.tieba.t31
     @NonNull
     public String toString() {
         super.toString();
@@ -364,7 +363,7 @@ public class ClogBuilder extends j21 {
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(this.c);
-            String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
+            String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
             if (this.a.length() > 0) {
                 this.a.append('&');
             }

@@ -1,74 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.sendtool.SendView;
+import com.baidu.tbadk.editortools.sendtool.SendViewBtnStyle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public interface ek5 {
-    public static final a a = a.a;
+public class ek5 extends ei5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    rn6 a();
-
-    String b();
-
-    String c();
-
-    String d();
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-830270531, "Lcom/baidu/tieba/ek5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-830270531, "Lcom/baidu/tieba/ek5$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("module_home", "SpriteResourceService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ek5(Context context, boolean z) {
+        super(context, (String) null, 4);
+        fi5 sendView;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = false;
+        this.n = 2;
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        if (z) {
+            sendView = new SendViewBtnStyle(context);
+        } else {
+            sendView = new SendView(context);
+        }
+        this.m = sendView;
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
+    }
 
-        public final ek5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Object service = ServiceManager.getService(b);
-                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
-                return (ek5) service;
-            }
-            return (ek5) invokeV.objValue;
+    public void g(int i) {
+        fi5 fi5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (fi5Var = this.m) != null && (fi5Var instanceof TextView)) {
+            ((TextView) fi5Var).setText(i);
         }
     }
 }

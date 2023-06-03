@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,14 +46,14 @@ public class VideoTabRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ri.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(vi.i(TbadkCoreApplication.getInst()));
             builder.new_net_type = Integer.valueOf(this.new_net_type);
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ss5.a(builder, true);
+                uw5.a(builder, true);
             }
             RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
             builder2.data = builder.build(false);

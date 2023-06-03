@@ -1,52 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tg0 extends li0 {
+public final class tg0 {
     public static /* synthetic */ Interceptable $ic;
+    public static fg0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.li0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public int c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public boolean j;
+        public boolean k;
+        public boolean l;
+        public int m;
+        public int n;
+        public JSONObject o;
+        public JSONObject p;
 
-    public tg0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.li0
-    public boolean b(@NonNull Context context, @NonNull pi0 pi0Var, @Nullable Map<String, Object> map, @Nullable ti0 ti0Var) {
-        InterceptResult invokeLLLL;
+    public static void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pi0Var, map, ti0Var)) == null) {
-            super.b(context, pi0Var, map, ti0Var);
-            gk0.k().b(pi0Var, ti0Var);
-            return true;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("sdk_version", Integer.valueOf(cg0.h()));
+                if (jSONObject2.length() > 0) {
+                    jSONObject2.put("debug_info", jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            fg0 fg0Var = a;
+            if (fg0Var != null) {
+                fg0Var.report(str, jSONObject2);
+            }
         }
-        return invokeLLLL.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.ufosdk;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,7 +46,7 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, requestBody)) == null) {
             try {
-                Request.Builder addHeader = new Request.Builder().url(str).post(requestBody).addHeader("Accept-Charset", IMAudioTransRequest.CHARSET).addHeader(CameraActivityConfig.KEY_CONTENT_TYPE, IMAudioTransRequest.CHARSET);
+                Request.Builder addHeader = new Request.Builder().url(str).post(requestBody).addHeader("Accept-Charset", "utf-8").addHeader(CameraActivityConfig.KEY_CONTENT_TYPE, "utf-8");
                 if (b == null) {
                     b = "UfoSDK/4.1.9.1 (" + c.a() + " " + c.b() + SmallTailInfo.EMOTION_SUFFIX;
                 }

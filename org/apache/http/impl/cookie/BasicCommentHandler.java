@@ -3,7 +3,7 @@ package org.apache.http.impl.cookie;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicCommentHandler extends AbstractCookieAttributeHandler {
     public BasicCommentHandler() {
         throw new RuntimeException("Stub!");

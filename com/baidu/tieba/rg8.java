@@ -1,84 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class rg8 {
+public class rg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<qg8<ChatMsg, ve8<?>>> a;
-    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
-    public rg8() {
+    public static qh8 a(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, recyclerView, i)) == null) {
+            return new qh8(context, recyclerView, new pg8(), new qg8(), i, 1);
         }
-        this.a = new SparseArray<>();
-        this.b = new HashMap<>();
+        return (qh8) invokeLLI.objValue;
     }
 
-    public final void a(int i, qg8<ChatMsg, ve8<?>> converter) {
+    public static qh8 b(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
-            Intrinsics.checkNotNullParameter(converter, "converter");
-            this.a.put(i, converter);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
+            return new qh8(context, recyclerView, new pg8(), new qg8(), i, 2);
         }
+        return (qh8) invokeLLI.objValue;
     }
 
-    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
+    public static ph8 c(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            this.b.put(sdkMsg, Integer.valueOf(i));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, recyclerView, i)) == null) {
+            return new ph8(context, recyclerView, new pg8(), new qg8(), i, 1);
         }
-    }
-
-    public final ChatMsg c(ve8<?> tbMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            qg8<ChatMsg, ve8<?>> qg8Var = this.a.get(tbMsg.e().getType());
-            if (qg8Var == null) {
-                return null;
-            }
-            return qg8Var.b(tbMsg);
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
-    public final ve8<?> d(ChatMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Integer num = this.b.get(sdkMsg.getClass());
-            if (num == null) {
-                return null;
-            }
-            qg8<ChatMsg, ve8<?>> qg8Var = this.a.get(num.intValue());
-            if (qg8Var == null) {
-                return null;
-            }
-            return qg8Var.a(sdkMsg);
-        }
-        return (ve8) invokeL.objValue;
+        return (ph8) invokeLLI.objValue;
     }
 }

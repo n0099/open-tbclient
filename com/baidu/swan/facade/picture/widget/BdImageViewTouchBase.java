@@ -47,19 +47,19 @@ public abstract class BdImageViewTouchBase extends ImageView {
 
     /* loaded from: classes4.dex */
     public interface e {
-        double a(double d, double d2, double d3, double d4);
+        double easeInOut(double d, double d2, double d3, double d4);
 
-        double b(double d, double d2, double d3, double d4);
+        double easeOut(double d, double d2, double d3, double d4);
     }
 
     /* loaded from: classes4.dex */
     public interface f {
-        void a(Drawable drawable);
+        void onDrawableChanged(Drawable drawable);
     }
 
     /* loaded from: classes4.dex */
     public interface g {
-        void a(boolean z, int i, int i2, int i3, int i4);
+        void onLayoutChanged(boolean z, int i, int i2, int i3, int i4);
     }
 
     @Override // android.view.View
@@ -115,11 +115,11 @@ public abstract class BdImageViewTouchBase extends ImageView {
         @Override // java.lang.Runnable
         public void run() {
             double min = Math.min(this.c, System.currentTimeMillis() - this.d);
-            double a = BdImageViewTouchBase.this.a.a(min, 0.0d, this.e, this.c);
-            double a2 = BdImageViewTouchBase.this.a.a(min, 0.0d, this.f, this.c);
-            BdImageViewTouchBase.this.t(a - this.a, a2 - this.b);
-            this.a = a;
-            this.b = a2;
+            double easeOut = BdImageViewTouchBase.this.a.easeOut(min, 0.0d, this.e, this.c);
+            double easeOut2 = BdImageViewTouchBase.this.a.easeOut(min, 0.0d, this.f, this.c);
+            BdImageViewTouchBase.this.t(easeOut - this.a, easeOut2 - this.b);
+            this.a = easeOut;
+            this.b = easeOut2;
             if (min < this.c) {
                 BdImageViewTouchBase.this.e.post(this);
                 return;
@@ -153,7 +153,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
         @Override // java.lang.Runnable
         public void run() {
             float min = Math.min(this.a, (float) (System.currentTimeMillis() - this.b));
-            BdImageViewTouchBase.this.B(this.d + ((float) BdImageViewTouchBase.this.a.b(min, 0.0d, this.c, this.a)), this.e, this.f);
+            BdImageViewTouchBase.this.B(this.d + ((float) BdImageViewTouchBase.this.a.easeInOut(min, 0.0d, this.c, this.a)), this.e, this.f);
             if (min < this.a) {
                 BdImageViewTouchBase.this.e.post(this);
                 return;
@@ -167,13 +167,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
     /* loaded from: classes4.dex */
     public class d implements e {
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
-        public double a(double d, double d2, double d3, double d4) {
-            double d5 = (d / d4) - 1.0d;
-            return (d3 * ((d5 * d5 * d5) + 1.0d)) + d2;
-        }
-
-        @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
-        public double b(double d, double d2, double d3, double d4) {
+        public double easeInOut(double d, double d2, double d3, double d4) {
             double d5;
             double d6 = d / (d4 / 2.0d);
             if (d6 < 1.0d) {
@@ -183,6 +177,12 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 d5 = (d3 / 2.0d) * ((d7 * d7 * d7) + 2.0d);
             }
             return d5 + d2;
+        }
+
+        @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
+        public double easeOut(double d, double d2, double d3, double d4) {
+            double d5 = (d / d4) - 1.0d;
+            return (d3 * ((d5 * d5 * d5) + 1.0d)) + d2;
         }
 
         public d() {
@@ -196,7 +196,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void e(Drawable drawable) {
         f fVar = this.w;
         if (fVar != null) {
-            fVar.a(drawable);
+            fVar.onDrawableChanged(drawable);
         }
     }
 
@@ -507,7 +507,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void f(int i, int i2, int i3, int i4) {
         g gVar = this.x;
         if (gVar != null) {
-            gVar.a(true, i, i2, i3, i4);
+            gVar.onLayoutChanged(true, i, i2, i3, i4);
         }
     }
 

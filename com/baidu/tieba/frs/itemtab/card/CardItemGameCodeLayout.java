@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.v75;
-import com.baidu.tieba.vg7;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.py;
+import com.baidu.tieba.ra5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes5.dex */
-public class CardItemGameCodeLayout extends RelativeLayout implements ux {
+public class CardItemGameCodeLayout extends RelativeLayout implements py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -69,7 +69,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ux {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ListUtils.isEmpty(this.a.g)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(14)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ra5(14)));
                 if (this.a.e == null) {
                     this.a.e = new GameCodeListDialog(view2.getContext());
                 }
@@ -148,27 +148,27 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ux {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X005), ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X005));
+            setPadding(vi.g(context, R.dimen.M_W_X006), vi.g(context, R.dimen.M_H_X005), vi.g(context, R.dimen.M_W_X006), vi.g(context, R.dimen.M_H_X005));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.g(context, R.dimen.tbds62), ri.g(context, R.dimen.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(vi.g(context, R.dimen.tbds62), vi.g(context, R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(15);
             this.a.setLayoutParams(layoutParams);
             addView(this.a);
             this.b = new TextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams2.setMargins(ri.g(context, R.dimen.tbds23), 0, 0, 0);
+            layoutParams2.setMargins(vi.g(context, R.dimen.tbds23), 0, 0, 0);
             layoutParams2.addRule(1, this.a.getId());
             layoutParams2.addRule(15);
             this.b.setLayoutParams(layoutParams2);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f0));
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0826));
             addView(this.b);
             ImageView imageView2 = new ImageView(context);
             this.d = imageView2;
             imageView2.setId(2);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ri.g(context, R.dimen.tbds42), ri.g(context, R.dimen.tbds42));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(vi.g(context, R.dimen.tbds42), vi.g(context, R.dimen.tbds42));
             layoutParams3.addRule(11);
             layoutParams3.addRule(15);
             this.d.setLayoutParams(layoutParams3);
@@ -183,20 +183,20 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            p45 d = p45.d(this.b);
+            m75 d = m75.d(this.b);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X07);
-            p45 d2 = p45.d(this.c);
+            m75 d2 = m75.d(this.c);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X08);
-            p45 d3 = p45.d(this);
+            m75 d3 = m75.d(this);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f08098e, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0809b1, WebPManager.ResourceStateType.NORMAL);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             GameCodeListDialog gameCodeListDialog = this.e;
             if (gameCodeListDialog != null) {
@@ -205,17 +205,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ux {
         }
     }
 
-    public void setData(vg7 vg7Var) {
+    public void setData(yl7 yl7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vg7Var) != null) || vg7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl7Var) != null) || yl7Var == null) {
             return;
         }
-        this.f = vg7Var.d();
-        this.g = vg7Var.c();
+        this.f = yl7Var.d();
+        this.g = yl7Var.c();
         if (this.f != 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f9), Integer.valueOf(this.f)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ff), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16d5));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f172f));
         }
     }
 }

@@ -1,82 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.os.CountDownTimer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m66 extends en<l87, FrsNoListItemViewHolder> {
+public class m66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final int b;
+    public b a;
+    public CountDownTimer b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m66(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), l87.b);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(long j, long j2);
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends CountDownTimer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ m66 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(m66 m66Var, long j, long j2, long j3) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m66Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m66Var;
+            this.a = j3;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.b();
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b.a != null) {
+                this.b.a.a(this.a, j);
+            }
+        }
+    }
+
+    public m66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = (ri.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070411);
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l87 l87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, l87Var, frsNoListItemViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b() {
+        CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.b;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.b) != null) {
+            countDownTimer.cancel();
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, l87 l87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l87Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getResources().getString(R.string.no_data_common_txt)));
-            frsNoListItemViewHolder.d.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = j / 1000;
+            long j3 = j2 / 3600;
+            StringBuilder sb = new StringBuilder();
+            if (j3 > 0) {
+                if (j3 < 10) {
+                    sb.append("0");
+                }
+                sb.append(j3);
+                sb.append(":");
+            }
+            Long.signum(j3);
+            long j4 = j2 - (j3 * 3600);
+            long j5 = j4 / 60;
+            if (j5 < 10) {
+                sb.append("0");
+            }
+            sb.append(j5);
+            sb.append(":");
+            long j6 = j4 - (j5 * 60);
+            if (j6 < 10) {
+                sb.append("0");
+            }
+            sb.append(j6);
+            return sb.toString();
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            b();
+            this.b = new a(this, j2, 1000L, j).start();
+        }
     }
 }

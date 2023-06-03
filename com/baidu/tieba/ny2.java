@@ -1,57 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ny2 extends iy2 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ny2 extends ky2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ry2 A;
+    public double B;
+    public int C;
+    public String z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ny2(String str) {
-        super(str);
+    public ny2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.z = "";
+        this.C = 1000;
     }
 
-    private void update(yx2 yx2Var, ay2 ay2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.ky2, com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, this, yx2Var, ay2Var, unitedSchemeEntity, callbackHandler) == null) {
-            yx2Var.A(ay2Var);
-            yx2Var.z(ay2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("markerId");
+        ry2 ry2Var = new ry2();
+        this.A = ry2Var;
+        ry2Var.a(jSONObject.optJSONObject("destination"));
+        jSONObject.optBoolean("autoRotate");
+        this.B = jSONObject.optDouble("rotate");
+        this.C = Math.abs(jSONObject.optInt("duration", this.C));
     }
 
-    @Override // com.baidu.tieba.iy2
-    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ry2 ry2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
-            g62.i("video", "update, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
-            update(yx2Var, ay2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (ry2Var = this.A) != null && ry2Var.isValid()) {
+                return true;
+            }
+            return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 }

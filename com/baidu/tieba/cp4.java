@@ -1,113 +1,78 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
 public class cp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseIntArray b;
-    public ArrayList<String> c;
-    public long d;
-    public long e;
-    public String f;
-    public boolean g;
 
-    public cp4() {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
-        this.g = false;
-        this.a = new JSONArray();
-        this.b = new SparseIntArray();
-        this.c = new ArrayList<>();
-        this.d = 0L;
-        this.e = 0L;
-        this.f = "0";
+        return (String) invokeLLZ.objValue;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.a.toString().getBytes().length >= i) {
-                return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a = a(messageDigest.digest(), "", z);
+                            cs4.d(fileInputStream);
+                            return a;
+                        }
+                    }
+                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                    cs4.d(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    cs4.d(fileInputStream2);
+                    throw th;
+                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !this.c.contains(str)) {
-            this.c.add(str);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.length() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.b.put(i, i2);
-        }
-    }
-
-    public final void g(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.d;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.d = j;
-            }
-            if (j2 > this.e) {
-                this.e = j2;
-            }
+        } else {
+            return (String) invokeLZ.objValue;
         }
     }
 }

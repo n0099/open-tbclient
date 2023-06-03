@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,22 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Iterator;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import okhttp3.Headers;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class i03 extends db3 {
+/* loaded from: classes6.dex */
+public class i03 implements g03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, Long> c;
+    public BitmapRegionDecoder a;
+    public final Object b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,235 +44,161 @@ public class i03 extends db3 {
                 return;
             }
         }
-        d = Sets.newHashSet("REFERER", "USER-AGENT");
+        c = is1.a;
     }
 
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ns2.q().a().getCookie(".baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i03(da3 da3Var, String str) {
-        super(da3Var, str);
+    public i03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
+        this.b = new Object();
     }
 
-    public void j(@NonNull JSONObject jSONObject, String str) throws JSONException {
-        String str2;
+    @Override // com.baidu.tieba.g03
+    public boolean isReady() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        String optString = jSONObject.optString("Cookie");
-        if (TextUtils.isEmpty(optString)) {
-            jSONObject.put("Cookie", str);
-            return;
-        }
-        if (optString.endsWith(ParamableElem.DIVIDE_PARAM)) {
-            str2 = optString + str;
-        } else {
-            str2 = optString + ParamableElem.DIVIDE_PARAM + str;
-        }
-        jSONObject.put("Cookie", str2);
-    }
-
-    public boolean k(g93 g93Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g93Var, unitedSchemeEntity)) == null) {
-            if (g93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            }
-            JSONObject a = db3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("cb"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal cb");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("url"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal url");
-                return false;
-            } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapRegionDecoder bitmapRegionDecoder = this.a;
+            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
                 return true;
             }
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void r(String str, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.g03
+    public void recycle() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && jSONObject != null && jSONObject != null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.recycle();
+        }
+    }
+
+    @Override // com.baidu.tieba.g03
+    public Point a(Context context, Bitmap bitmap) throws Exception {
+        InputStream inputStream;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("header", jSONObject);
-                HashMap hashMap = new HashMap();
-                hashMap.put("data", jSONObject2.toString());
-                tu2.U().u(new hj2(str, hashMap));
-            } catch (JSONException e) {
-                if (db3.b) {
-                    e.printStackTrace();
+                inputStream = b(bitmap);
+                try {
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                    cs4.d(inputStream);
+                    return new Point(this.a.getWidth(), this.a.getHeight());
+                } catch (Throwable th) {
+                    th = th;
+                    cs4.d(inputStream);
+                    throw th;
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
             }
+        } else {
+            return (Point) invokeLL.objValue;
         }
     }
 
-    public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g03
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decodeRegion(Rect rect, int i) {
+        InterceptResult invokeLI;
+        Bitmap decodeRegion;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null && jSONObject.length() >= 1) {
-                HashMap<String, String> hashMap = new HashMap<>();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next) && !d.contains(next.toUpperCase())) {
-                        String optString = jSONObject.optString(next);
-                        if (TextUtils.isEmpty(optString)) {
-                            optString = "";
-                        }
-                        hashMap.put(next, optString);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
+            synchronized (this.b) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = i;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                decodeRegion = this.a.decodeRegion(rect, options);
+                if (decodeRegion == null) {
+                    if (!c) {
+                        y82.k("SkiaImageRegionDecoder", "bitmap is null");
+                    } else {
+                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
                     }
                 }
-                return hashMap;
             }
-            return null;
+            return decodeRegion;
         }
-        return (HashMap) invokeL.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public JSONObject t(int i) {
-        InterceptResult invokeI;
+    public InputStream b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-                                }
-                                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal upload file over size.");
-                            }
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "HTTP method is invalid");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
+            if (bitmap.hasAlpha()) {
+                compressFormat = Bitmap.CompressFormat.PNG;
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.g03
+    public Point init(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Resources resourcesForApplication;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else {
+                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                        try {
+                            i = Integer.parseInt(pathSegments.get(0));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
                         }
-                        return UnitedSchemeUtility.wrapCallbackParams(202, "request:fail parameter error: arrayBuffer of data exceed size limit.");
                     }
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
+                    i = 0;
                 }
-                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(0);
-        }
-        return (JSONObject) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> m(@Nullable JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, jSONObject, z)) == null) {
-            HashMap<String, String> l = l(jSONObject);
-            if (z) {
-                if (l == null) {
-                    l = new HashMap<>();
-                }
-                l.put("Referer", vy1.d());
-            }
-            return l;
-        }
-        return (HashMap) invokeLZ.objValue;
-    }
-
-    public static JSONObject s(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
+                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            } else if (uri2.startsWith("file:///android_asset/")) {
+                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            } else if (uri2.startsWith("file://")) {
+                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            } else {
+                InputStream inputStream = null;
+                try {
+                    inputStream = context.getContentResolver().openInputStream(uri);
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                } finally {
+                    cs4.d(inputStream);
                 }
             }
-            return jSONObject;
+            return new Point(this.a.getWidth(), this.a.getHeight());
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public JSONObject n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
-                }
-            } catch (JSONException e) {
-                if (db3.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final long p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
-            }
-            try {
-                return this.c.get(str).longValue();
-            } catch (Exception unused) {
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.c != null && !TextUtils.isEmpty(str)) {
-            this.c.remove(str);
-        }
+        return (Point) invokeLL.objValue;
     }
 }

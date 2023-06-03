@@ -1,137 +1,110 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z33 {
+public final class z33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<Pair<String, Pair<String, String>>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308975, "Lcom/baidu/tieba/z33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static final class a implements v33 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ String b;
+
+        public a(Function1 function1, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function1, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948308975, "Lcom/baidu/tieba/z33;");
-                return;
-            }
+            this.a = function1;
+            this.b = str;
         }
-        boolean z = qp1.a;
-        a = z;
-        if (z) {
-            ArrayList arrayList = new ArrayList();
-            b = arrayList;
-            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
-        }
-    }
 
-    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            mf3 c = zf3.c("770");
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    nf3.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
-                }
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("type", str2);
-                jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", wl3.c());
-                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "0";
-                }
-                jSONObject2.put("scene", str3);
-                yf3.a(jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            nf3.f(c, jSONObject.toString());
-            nf3.c(c);
-            b(str, list, b);
-        }
-    }
-
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            sb.append("小程序PMS下载耗时Log：");
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    sb.append("\n");
-                    sb.append(ubcFlowEvent.g());
-                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                    sb.append(ubcFlowEvent.a);
-                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
-                }
-            }
-            sb.append("\n");
-            sb.append("耗时计算开始：>>>>>>>>>>>>");
-            for (Pair<String, Pair<String, String>> pair : list2) {
-                if (pair != null) {
-                    String str2 = (String) pair.first;
-                    Object obj = pair.second;
-                    String str3 = (String) ((Pair) obj).first;
-                    String str4 = (String) ((Pair) obj).second;
-                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
-                        long longValue = ((Long) hashMap.get(str3)).longValue();
-                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
-                        sb.append("\n");
-                        sb.append("耗时：");
-                        sb.append(format);
-                        sb.append(" >>> ");
-                        sb.append(str2);
-                        sb.append("，计算方式：");
-                        sb.append(str4);
-                        sb.append(" - ");
-                        sb.append(str3);
+        @Override // com.baidu.tieba.v33
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray a = z33.a();
+                if (a != null && a.length() != 0) {
+                    int length = a.length();
+                    for (int i = 0; i < length; i++) {
+                        if (Intrinsics.areEqual(this.b, a.get(i))) {
+                            Function1 function1 = this.a;
+                            if (function1 != null) {
+                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
+                                return;
+                            }
+                            return;
+                        }
                     }
+                    Function1 function12 = this.a;
+                    if (function12 != null) {
+                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
+                        return;
+                    }
+                    return;
+                }
+                Function1 function13 = this.a;
+                if (function13 != null) {
+                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
                 }
             }
-            Log.i("SwanAppPMS", sb.toString());
         }
+    }
+
+    public static final /* synthetic */ JSONArray a() {
+        return c();
+    }
+
+    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
+            u33.g().z(new a(function1, str));
+        }
+    }
+
+    public static final JSONArray c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String q = b0.e0().q("note_data_pay_check_list", "");
+            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return new JSONObject(q).optJSONArray("pay_keys");
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

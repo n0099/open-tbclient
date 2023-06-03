@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class t0b {
+public class t0b implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public boolean a;
+    public final /* synthetic */ f1b b;
+    public final /* synthetic */ q0b c;
 
-    public t0b(Context context, String str) {
+    public t0b(q0b q0bVar, f1b f1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {q0bVar, f1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,48 +31,44 @@ public class t0b {
                 return;
             }
         }
-        if (context != null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
-                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
-                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean(str, true);
-                    edit.apply();
-                }
-                context = createDeviceProtectedStorageContext;
-            }
-            this.a = context.getSharedPreferences(str, 0);
-            return;
-        }
-        throw new NullPointerException("context is null!");
+        this.c = q0bVar;
+        this.b = f1bVar;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        SharedPreferences.Editor edit;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
-                return edit.remove(str).commit();
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdClicked((q0b) this.b, this.a, new String[0]);
+            this.a = true;
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        SharedPreferences.Editor edit;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
-                return edit.putString(str, str2).commit();
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdShow((q0b) this.b, false, new String[0]);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
+            this.c.onError(i, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.c.onAdLoaded(this.b, new String[0]);
+        }
     }
 }

@@ -33,15 +33,16 @@ import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService;
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.ee1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
+import com.baidu.tieba.nf1;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveYYPluginManager {
     public static final int ENTRANCE_PAY_RELEASE_SUPPORT_MIN_VER = 607500000;
     public static final String KET_HOST_EVENT_USER_CANCEL_LOAD_PROGRESS = "user_cancel_load_progress";
@@ -79,7 +80,7 @@ public class LiveYYPluginManager {
     public static final String[] NPS_PLUGIN_SUB_PKG_GROUP = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib", "com.baidu.searchbox.yylive.createlive", "com.baidu.searchbox.yylive.game", YY_NPS_YYLIB_PKG_NAME, "com.baidu.searchbox.yylive.audiolive", "com.baidu.searchbox.yylive.friends"};
     public static final String[] YY_PLUGIN_LIST = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib", "com.baidu.searchbox.yylive.createlive", "com.baidu.searchbox.yylive.game", YY_NPS_YYLIB_PKG_NAME, "com.baidu.searchbox.yylive.audiolive", "com.baidu.searchbox.yylive.friends"};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
@@ -91,26 +92,26 @@ public class LiveYYPluginManager {
     public void onPluginLoadedState(String str, boolean z, String str2) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static final LiveYYPluginManager INSTANCE = new LiveYYPluginManager();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new be1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str) {
             }
-        }, new de1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
-            @Override // com.baidu.tieba.de1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
-                if (ee1Var != null) {
-                    ee1Var.onResult(1);
+        }, new mf1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+            @Override // com.baidu.tieba.mf1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, nf1 nf1Var) {
+                if (nf1Var != null) {
+                    nf1Var.onResult(1);
                 }
             }
         }, 1);
@@ -983,7 +984,7 @@ public class LiveYYPluginManager {
                     }
                     LiveYYPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
                 }
-            }, "onDiskClearCacheChange", "", LiveNpsRuntime.getApplication(), false);
+            }, GameAssistConstKt.METHOD_DISK_CLEAR_CACHE_CHANGE, "", LiveNpsRuntime.getApplication(), false);
             return;
         }
         try {

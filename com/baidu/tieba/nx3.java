@@ -1,44 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+@Autowired
+/* loaded from: classes7.dex */
 public class nx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public int c;
 
-    public nx3() {
+    @Inject(force = false)
+    public static ox3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return n96.a();
         }
-        this.a = DownloadState.NOT_START;
-        this.c = Integer.parseInt("0");
+        return (ox3) invokeV.objValue;
     }
 
-    public static nx3 a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static px3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            nx3 nx3Var = new nx3();
-            nx3Var.b = str2;
-            return nx3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new wr3();
         }
-        return (nx3) invokeLL.objValue;
+        return (px3) invokeV.objValue;
     }
 }

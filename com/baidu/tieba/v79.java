@@ -1,78 +1,213 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.text.SpannableStringBuilder;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class v79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bea a;
+    public bea b;
+    public EditText c;
+    public EditText d;
+    public PostWriteCallBackData e;
 
-    public static void a(l79 l79Var, TbPageContext<?> tbPageContext) {
-        Uri parse;
-        String str;
+    public v79() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, l79Var, tbPageContext) == null) && l79Var != null && tbPageContext != null) {
-            int i = l79Var.m;
-            boolean z = false;
-            if (i == 1) {
-                if (!TextUtils.isEmpty(l79Var.g)) {
-                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{l79Var.g});
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        bea beaVar = new bea();
+        this.a = beaVar;
+        beaVar.j(R.color.CAM_X0101);
+        this.a.h(R.color.cp_cont_h_alpha85);
+        bea beaVar2 = new bea();
+        this.b = beaVar2;
+        beaVar2.j(R.color.CAM_X0101);
+        this.b.h(R.color.cp_cont_h_alpha85);
+    }
+
+    public void a(boolean z) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
+            int selectionEnd = this.c.getSelectionEnd();
+            SpannableStringBuilder f = this.a.f(this.c.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.a.l(true);
+                this.c.setText(f);
+                if (z && this.a.b() >= 0) {
+                    this.c.requestFocus();
+                    this.c.setSelection(this.a.b());
+                } else {
+                    this.c.setSelection(selectionEnd);
                 }
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(l79Var.g) && (parse = Uri.parse(l79Var.g)) != null) {
-                    String queryParameter = parse.getQueryParameter("paramfromna");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        l79Var.g = b(l79Var.g, queryParameter);
-                    }
-                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
-                        str = parse.getQueryParameter("title");
-                        z = true;
-                    } else {
-                        str = "";
-                    }
-                    yu4.F(z, tbPageContext.getPageActivity(), str, l79Var.g);
+                bea beaVar = this.a;
+                if (beaVar.b() < 0) {
+                    z2 = false;
                 }
-            } else if (i == 3 && !TextUtils.isEmpty(l79Var.g)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, l79Var.g));
+                beaVar.k(z2);
             }
         }
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    public void b(boolean z) {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
-                StringBuilder sb = new StringBuilder(str);
-                boolean z = false;
-                for (String str3 : split) {
-                    if ("skin".equalsIgnoreCase(str3)) {
-                        sb.append("&skin=");
-                        sb.append(SkinManager.getCurrentSkinTypeString());
-                    } else if ("user_id".equalsIgnoreCase(str3)) {
-                        sb.append("&user_id=");
-                        sb.append(TbadkCoreApplication.getCurrentAccountId());
-                    } else if ("comparams".equalsIgnoreCase(str3)) {
-                        z = true;
-                    }
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
+            int selectionEnd = this.d.getSelectionEnd();
+            SpannableStringBuilder f = this.b.f(this.d.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.b.l(true);
+                this.d.setText(f);
+                if (z && this.b.b() >= 0) {
+                    this.d.requestFocus();
+                    this.d.setSelection(this.b.b());
+                } else {
+                    this.d.setSelection(selectionEnd);
                 }
-                if (z) {
-                    return en5.g(sb.toString());
+                bea beaVar = this.b;
+                if (beaVar.b() < 0) {
+                    z2 = false;
                 }
-                return sb.toString();
+                beaVar.k(z2);
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.n(null);
+            this.a.i(null);
+            this.a.k(false);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.n(null);
+            this.b.i(null);
+            this.b.k(false);
+        }
+    }
+
+    public bea e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (bea) invokeV.objValue;
+    }
+
+    public EditText f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public bea g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (bea) invokeV.objValue;
+    }
+
+    public PostWriteCallBackData h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (PostWriteCallBackData) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.g();
+            this.b.g();
+            if (this.a.d()) {
+                a(false);
+            }
+            if (this.b.d()) {
+                b(false);
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public void k(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.a.i(postWriteCallBackData.getSensitiveWords());
+        this.a.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.a.a())) {
+            return;
+        }
+        a(true);
+        this.e = postWriteCallBackData;
+    }
+
+    public void l(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.b.i(postWriteCallBackData.getSensitiveWords());
+        this.b.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.b.a())) {
+            return;
+        }
+        b(true);
+    }
+
+    public void m(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
+            this.c = editText;
+        }
+    }
+
+    public void n(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
+            this.d = editText;
+        }
     }
 }

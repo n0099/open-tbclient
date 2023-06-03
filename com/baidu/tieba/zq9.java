@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class zq9 {
+public class zq9 implements g20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public Integer d;
 
     public zq9() {
         Interceptable interceptable = $ic;
@@ -28,15 +29,13 @@ public class zq9 {
         }
     }
 
-    public void a(SmartApp smartApp) {
+    @Override // com.baidu.tieba.g20
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, smartApp) != null) || smartApp == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
-        String str = smartApp.avatar;
-        this.a = smartApp.name;
-        this.b = smartApp.id;
-        this.c = smartApp.link;
-        this.d = smartApp.is_game;
+        return (String) invokeV.objValue;
     }
 }

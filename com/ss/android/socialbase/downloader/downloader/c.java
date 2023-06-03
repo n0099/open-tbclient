@@ -46,7 +46,9 @@ public class c {
     public static boolean Q;
     public static final List<com.ss.android.socialbase.downloader.depend.k> R;
     public static final List<ab> S;
-    public static int T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public static int f1226T;
     public static boolean U;
     public static boolean V;
     public static r W;
@@ -91,13 +93,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public interface InterfaceC0732a {
+        public interface InterfaceC0749a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0732a interfaceC0732a);
+        t a(InterfaceC0749a interfaceC0749a);
 
         m b();
     }
@@ -141,7 +143,7 @@ public class c {
     }
 
     public static int D() {
-        return T;
+        return f1226T;
     }
 
     @NonNull
@@ -856,7 +858,7 @@ public class c {
                 D = true;
             }
             if (downloaderBuilder.getDownloadExpSwitch() != 0) {
-                T = downloaderBuilder.getDownloadExpSwitch();
+                f1226T = downloaderBuilder.getDownloadExpSwitch();
             }
             if (downloaderBuilder.getDownloadSetting() != null) {
                 a(downloaderBuilder.getDownloadSetting());

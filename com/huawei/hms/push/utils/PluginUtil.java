@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -228,7 +229,7 @@ public class PluginUtil {
     public static void onNotificationArrived(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, str2) == null) {
-            e.a(context, str, str2, "100");
+            e.a(context, str, str2, YYOption.UrlProtocol.USER);
         }
     }
 

@@ -19,15 +19,15 @@ public final class z extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo695a() {
+    public String mo750a() {
         return "send app absent message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo412a() {
+    public void mo467a() {
         try {
-            ah.a(this.f1012a, ah.a(this.a.b(), this.a.m565a()));
+            ah.a(this.f1012a, ah.a(this.a.b(), this.a.m620a()));
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             this.f1012a.a(10, e);

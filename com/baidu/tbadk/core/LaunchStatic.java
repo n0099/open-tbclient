@@ -1,6 +1,9 @@
 package com.baidu.tbadk.core;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
@@ -32,24 +35,25 @@ import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.cm5;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.el5;
-import com.baidu.tieba.ev4;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.d68;
+import com.baidu.tieba.eq5;
+import com.baidu.tieba.gp5;
+import com.baidu.tieba.i88;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
+import com.baidu.tieba.j75;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.o08;
-import com.baidu.tieba.oh5;
-import com.baidu.tieba.ps9;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.ob8;
+import com.baidu.tieba.qk5;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.t28;
+import com.baidu.tieba.uc7;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.z58;
+import com.baidu.tieba.wx4;
+import com.baidu.tieba.y75;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -176,6 +180,39 @@ public class LaunchStatic {
         }
     }
 
+    /* loaded from: classes4.dex */
+    public static class d extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbadkCoreApplication val$application;
+
+        public d(TbadkCoreApplication tbadkCoreApplication) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbadkCoreApplication};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.val$application = tbadkCoreApplication;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.val$application.isMainProcess(false)) {
+                this.val$application.notifyPageCountDelta(intent.getIntExtra("countDelta", 0), intent.getStringExtra("activityClassName"));
+            }
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -192,19 +229,20 @@ public class LaunchStatic {
         b();
         d();
         c();
-        ps9.a();
-        z58.a();
-        o08.a();
+        bz9.a();
+        ob8.a();
+        d68.a();
         ImMemoryCacheRegister.i();
-        t28.i();
-        ev4.h();
+        i88.i();
+        wx4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        m45.d();
-        b55.a();
-        cx4.d();
+        j75.d();
+        y75.a();
+        yz4.d();
         a();
         e();
+        f();
         testTitans();
     }
 
@@ -214,9 +252,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            oh5.d().f();
-            ar9.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, ar9.a(TbConfig.GET_PAY_CONFIG, 303039));
+            qk5.d().f();
+            mx9.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, mx9.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -239,7 +277,7 @@ public class LaunchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(TbadkCoreApplication.getInst());
+            Fresco.initialize(TbadkCoreApplication.getInst(), uc7.a());
         }
     }
 
@@ -247,17 +285,28 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
-                el5.f().l(SyncDataEvent.class, new cm5());
+                gp5.f().l(SyncDataEvent.class, new eq5());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            d dVar = new d(inst);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.tieba.baidu.pagecount");
+            inst.registerReceiver(dVar, intentFilter);
+        }
+    }
+
     @Keep
     public static void testTitans() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             BdLog.d("testTitans");
         }
     }

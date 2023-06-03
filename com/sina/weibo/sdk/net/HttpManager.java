@@ -26,7 +26,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOUNDARY;

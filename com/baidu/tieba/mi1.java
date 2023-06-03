@@ -1,105 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class mi1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0525, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c07)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    public static void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
-            return;
-        }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
-        }
-    }
-
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0524, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c06);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c07);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b2));
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973524, "Lcom/baidu/tieba/mi1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            textView.setText(str);
-            return inflate;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947973524, "Lcom/baidu/tieba/mi1;");
+                return;
+            }
         }
-        return (View) invokeCommon.objValue;
+        if (mh1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+        }
     }
 
-    public static void d(Context context, int i, String str) {
+    public mi1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
     }
 
-    public static void e(Context context, int i, String str) {
+    public void a(hh1 hh1Var, gh1 gh1Var, fh1 fh1Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hh1Var, gh1Var, fh1Var) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+                for (Map.Entry<String, String> entry : hh1Var.c().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                }
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setReadTimeout(5000);
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry<String, String> entry2 : gh1Var.c().entrySet()) {
+                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
+                    sb.append(entry2.getKey());
+                    sb.append("=");
+                    sb.append(encode);
+                    sb.append("&");
+                }
+                byte[] bytes = sb.toString().getBytes();
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+                httpURLConnection.connect();
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.write(bytes);
+                    dataOutputStream.flush();
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (fh1Var != null) {
+                        if (responseCode >= 200 && responseCode <= 299) {
+                            fh1Var.c(null);
+                        } else {
+                            fh1Var.a(null, 119501, null);
+                        }
+                    }
+                    vi1.a(dataOutputStream);
+                } catch (Throwable unused) {
+                    if (fh1Var != null) {
+                        try {
+                            fh1Var.a(null, 119501, null);
+                        } catch (Throwable th) {
+                            vi1.a(dataOutputStream);
+                            throw th;
+                        }
+                    }
+                    vi1.a(dataOutputStream);
+                }
+            } catch (Throwable unused2) {
+                dataOutputStream = null;
+            }
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
     }
 }

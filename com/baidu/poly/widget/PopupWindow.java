@@ -15,10 +15,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oh1;
-import com.baidu.tieba.vf1;
+import com.baidu.tieba.eh1;
+import com.baidu.tieba.xi1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -253,7 +254,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = oh1.d;
+        P = xi1.d;
         Q = new int[]{16842922};
     }
 
@@ -282,9 +283,9 @@ public class PopupWindow {
             if (i == -1) {
                 if (this.d) {
                     if (this.G) {
-                        return R.style.obfuscated_res_0x7f100179;
+                        return R.style.obfuscated_res_0x7f10017b;
                     }
-                    return R.style.obfuscated_res_0x7f100178;
+                    return R.style.obfuscated_res_0x7f10017a;
                 }
                 return 0;
             }
@@ -413,8 +414,8 @@ public class PopupWindow {
         this.K = -1;
         this.M = new a(this);
         this.a = context;
-        this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vf1.PopupWindow, i, i2);
+        this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, eh1.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;
@@ -475,7 +476,7 @@ public class PopupWindow {
         if (view2 != null) {
             Context context = view2.getContext();
             this.a = context;
-            this.b = (WindowManager) context.getSystemService("window");
+            this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
         x(view2);
         C(i);
@@ -645,7 +646,7 @@ public class PopupWindow {
             this.a = view2.getContext();
         }
         if (this.b == null && this.e != null && (context = this.a) != null) {
-            this.b = (WindowManager) context.getSystemService("window");
+            this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
     }
 

@@ -20,17 +20,21 @@ public class a {
             return this.a;
         }
 
-        public void a(Object obj) {
-            this.b = obj;
-        }
-
         public Object b() {
             return this.b;
+        }
+
+        public void a(Object obj) {
+            this.b = obj;
         }
     }
 
     public void a() {
         this.a.clear();
+    }
+
+    public ArrayList<C0090a> b() {
+        return this.a;
     }
 
     public void a(String str, Object obj) {
@@ -43,9 +47,5 @@ public class a {
             }
         }
         this.a.add(new C0090a(str, obj));
-    }
-
-    public ArrayList<C0090a> b() {
-        return this.a;
     }
 }

@@ -1,5 +1,5 @@
 package com.bytedance.pangle.res.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static void a(g gVar) {
         int i;

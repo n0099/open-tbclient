@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.at9;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.tm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,15 +139,15 @@ public final class SpriteNotificationEdgeFloat {
                 }
                 c = this.this$0.c();
                 c.addView(this.$view);
-                tm9 tm9Var = new tm9(this.$activity);
+                at9 at9Var = new at9(this.$activity);
                 c2 = this.this$0.c();
-                tm9Var.I(c2);
-                tm9Var.w(this.$gravity);
-                tm9Var.E(this.$startX);
-                tm9Var.F(this.$startY);
-                tm9Var.d(this.$canDrag);
-                tm9Var.B(this.$pageSupportList);
-                return tm9Var.c();
+                at9Var.M(c2);
+                at9Var.y(this.$gravity);
+                at9Var.I(this.$startX);
+                at9Var.J(this.$startY);
+                at9Var.d(this.$canDrag);
+                at9Var.D(this.$pageSupportList);
+                return at9Var.c();
             }
         });
     }
@@ -187,7 +187,7 @@ public final class SpriteNotificationEdgeFloat {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b().C();
+            b().D();
         }
     }
 }

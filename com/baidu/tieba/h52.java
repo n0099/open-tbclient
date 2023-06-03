@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class h52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class h52 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static CanvasView a(d42 d42Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, d42Var)) == null) {
-            g52 g52Var = (g52) t52.a(d42Var);
-            if (g52Var == null) {
-                g62.c("Component-Canvas-Utils", "get canvas view fail: find a null component");
-                return null;
-            }
-            return g52Var.i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
-        return (CanvasView) invokeL.objValue;
+    }
+
+    public h52() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) {
+            f52Var.f.reset();
+        }
     }
 }

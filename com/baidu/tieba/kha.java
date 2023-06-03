@@ -1,12 +1,11 @@
 package com.baidu.tieba;
-
-import android.util.JsonWriter;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface kha {
-    JSONObject a() throws JSONException;
+    void i(String str);
 
-    void b(JsonWriter jsonWriter) throws IOException;
+    void k(String str);
+
+    void u(String str);
+
+    void v(String str);
 }

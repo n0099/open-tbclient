@@ -1,182 +1,78 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
-import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public class ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Type[] a;
+    public Type b;
+    public Class<?> c;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final kd a(Object obj) {
-        InterceptResult invokeL;
-        ObjectOutputStream objectOutputStream;
-        Exception e;
+    public ee(Type type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            ObjectOutputStream objectOutputStream2 = 0;
-            if (obj == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (obj instanceof Boolean) {
-                return new ed(((Boolean) obj).booleanValue());
-            }
-            if (obj instanceof Bundle) {
-                return new fd((Bundle) obj);
-            }
-            if (obj instanceof Byte) {
-                return new gd(((Byte) obj).byteValue());
-            }
-            if (obj instanceof Character) {
-                return new hd(((Character) obj).charValue());
-            }
-            if (obj instanceof Double) {
-                return new id(((Double) obj).doubleValue());
-            }
-            if (obj instanceof Float) {
-                return new jd(((Float) obj).floatValue());
-            }
-            if (obj instanceof Integer) {
-                return new ld(((Integer) obj).intValue());
-            }
-            if (obj instanceof JSONArray) {
-                return new md((JSONArray) obj);
-            }
-            if (obj instanceof JSONObject) {
-                return new nd((JSONObject) obj);
-            }
-            if (obj instanceof Long) {
-                return new pd(((Long) obj).longValue());
-            }
-            if (obj instanceof Short) {
-                return new vd(((Short) obj).shortValue());
-            }
-            if (obj instanceof String) {
-                return new xd((String) obj);
-            }
-            if (obj instanceof SparseArray) {
-                return new wd((SparseArray) obj);
-            }
-            if (obj instanceof List) {
-                return new od((List) obj);
-            }
-            if (obj instanceof Queue) {
-                return new td((Queue) obj);
-            }
-            if (obj instanceof Set) {
-                return new ud((Set) obj);
-            }
-            if (obj instanceof Map) {
-                return new qd((Map) obj);
-            }
-            if (obj instanceof Message) {
-                return new sd((Message) obj);
-            }
-            if (obj.getClass().isArray()) {
-                return new dd(obj);
-            }
-            if (obj instanceof CharSequence) {
-                return new xd(((CharSequence) obj).toString());
-            }
-            if (obj instanceof Serializable) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    try {
-                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                        try {
-                            objectOutputStream.writeObject(obj);
-                            objectOutputStream.flush();
-                            dd ddVar = new dd(byteArrayOutputStream.toByteArray());
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                            return ddVar;
-                        } catch (Exception e4) {
-                            e = e4;
-                            e.printStackTrace();
-                            rd rdVar = new rd(obj);
-                            if (objectOutputStream != null) {
-                                try {
-                                    objectOutputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                            return rdVar;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        objectOutputStream2 = interceptable;
-                        if (objectOutputStream2 != 0) {
-                            try {
-                                objectOutputStream2.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e9) {
-                    objectOutputStream = null;
-                    e = e9;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (objectOutputStream2 != 0) {
-                    }
-                    byteArrayOutputStream.close();
-                    throw th;
-                }
-            } else if (obj instanceof IBinder) {
-                return new rd(obj);
-            } else {
-                if (obj instanceof Parcelable) {
-                    return new rd(obj);
-                }
-                return new rd(obj);
-            }
-        } else {
-            return (kd) invokeL.objValue;
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (type instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type;
+            this.a = parameterizedType.getActualTypeArguments();
+            Type rawType = parameterizedType.getRawType();
+            this.b = rawType;
+            Type[] typeArr = this.a;
+            if (typeArr != null && typeArr.length > 0) {
+                try {
+                    this.c = (Class) rawType;
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            return;
+        }
+        try {
+            this.c = (Class) type;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public Class<?> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Type[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Type[]) invokeV.objValue;
     }
 }

@@ -34,8 +34,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.qq.e.comm.constants.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
 import com.tencent.connect.common.UIListenerManager;
@@ -130,7 +129,7 @@ public class AuthAgent extends BaseApi {
 
         private View a(Context context, Drawable drawable, String str, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             float f = displayMetrics.density;
             RelativeLayout relativeLayout = new RelativeLayout(context);
             ImageView imageView = new ImageView(context);
@@ -385,14 +384,14 @@ public class AuthAgent extends BaseApi {
             }
             JSONObject jSONObject = (JSONObject) obj;
             try {
-                int i = jSONObject.getInt(Constants.KEYS.RET);
+                int i = jSONObject.getInt("ret");
                 if (i == 0) {
                     string = "success";
                 } else {
                     string = jSONObject.getString("msg");
                 }
                 if (this.a != null) {
-                    this.a.onComplete(new JSONObject().put(Constants.KEYS.RET, i).put("msg", string));
+                    this.a.onComplete(new JSONObject().put("ret", i).put("msg", string));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -445,7 +444,7 @@ public class AuthAgent extends BaseApi {
                 String string4 = jSONObject.getString("pf");
                 if (string4 != null) {
                     try {
-                        this.d.getSharedPreferences(com.tencent.connect.common.Constants.PREFERENCE_PF, 0).edit().putString("pf", string4).commit();
+                        this.d.getSharedPreferences(Constants.PREFERENCE_PF, 0).edit().putString("pf", string4).commit();
                     } catch (Exception e) {
                         e.printStackTrace();
                         SLog.e("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e);
@@ -518,7 +517,7 @@ public class AuthAgent extends BaseApi {
         if (BaseApi.isOEM) {
             a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
         } else {
-            a2.putString("pf", com.tencent.connect.common.Constants.DEFAULT_PF);
+            a2.putString("pf", Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", i.b(f.a(), str));
@@ -527,7 +526,7 @@ public class AuthAgent extends BaseApi {
         a2.putString("response_type", "token");
         a2.putString("redirect_uri", "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
-        a2.putString(SetImageWatermarkTypeReqMsg.SWITCH, "1");
+        a2.putString("switch", "1");
         a2.putString("compat_v", "1");
         if (z2) {
             a2.putString("style", "qr");
@@ -626,33 +625,33 @@ public class AuthAgent extends BaseApi {
             if (BaseApi.isOEM) {
                 a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
             } else {
-                a2.putString("pf", com.tencent.connect.common.Constants.DEFAULT_PF);
+                a2.putString("pf", Constants.DEFAULT_PF);
             }
             a2.putString("need_pay", "1");
             a(a2, map);
-            a2.putString(com.tencent.connect.common.Constants.KEY_APP_NAME, i.a(f.a()));
-            b2.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, "action_login");
-            b2.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, a2);
+            a2.putString(Constants.KEY_APP_NAME, i.a(f.a()));
+            b2.putExtra(Constants.KEY_ACTION, "action_login");
+            b2.putExtra(Constants.KEY_PARAMS, a2);
             b2.putExtra("appid", this.c.getAppId());
-            a2.putString(com.tencent.connect.common.Constants.KEY_PPSTS, i.a(activity, a(a2)));
+            a2.putString(Constants.KEY_PPSTS, i.a(activity, a(a2)));
             if (a(b2)) {
                 this.a = new b(this.a);
-                UIListenerManager.getInstance().setListenerWithRequestcode(com.tencent.connect.common.Constants.REQUEST_LOGIN, this.a);
+                UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_LOGIN, this.a);
                 if (fragment != null) {
                     SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity fragment");
-                    a(fragment, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
+                    a(fragment, b2, Constants.REQUEST_LOGIN, map);
                 } else {
                     SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity activity");
-                    a(activity, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
+                    a(activity, b2, Constants.REQUEST_LOGIN, map);
                 }
                 SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, found activity for loginIntent");
-                d.a().a(0, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+                d.a().a(0, "LOGIN_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
                 objArr[0] = "0";
                 objArr[1] = 1;
                 return true;
             }
         }
-        d.a().a(1, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
+        d.a().a(1, "LOGIN_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
         SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, no target activity for loginIntent");
         return false;
     }

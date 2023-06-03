@@ -1,85 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
 /* loaded from: classes5.dex */
-public class dp7 implements lq5<ActivityPageReqIdl> {
+public class dp7 extends h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final fq5 b;
 
-    @Override // com.baidu.tieba.lq5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
-    }
-
-    public dp7(String str, String str2) {
+    public dp7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new fq5(false);
-        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.lq5
-    public fq5 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h65
+    public void a(@NonNull Context context, @NonNull z55 z55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (fq5) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lq5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) ri.i(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(rx4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ss5.a(builder, true);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, z55Var) == null) {
+            if (TbSingleton.getInstance().getFrsResponseData() == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前没有FRS吧数据");
+                x55.s("frsShield");
+            } else if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前Activity非FrsActivity");
+                x55.s("frsShield");
+            } else {
+                if (!kq7.d(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).v1())) {
+                    x55.s("frsShield");
                 }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
             }
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

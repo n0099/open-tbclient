@@ -1,170 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.HorizontalListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class o1a extends e9 {
+/* loaded from: classes7.dex */
+public class o1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public HorizontalListView b;
-    public l1a c;
-    public w0a d;
-    public y0a e;
+    public final MainTabActivity a;
+    public CurrencySwitchTDouYBeanDialog b;
 
-    public void B(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o1a a;
-
-        public a(o1a o1aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o1aVar;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                g1a g1aVar = (g1a) this.a.d.getItem(i);
-                if (this.a.e != null) {
-                    this.a.e.h(g1aVar);
-                }
-                if (this.a.c != null && this.a.c.Q() != null) {
-                    this.a.c.Q().setFilter(g1aVar);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o1a(g9 g9Var, l1a l1aVar) {
-        super(g9Var);
+    public o1a(MainTabActivity mainTabActivity, v0a v0aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var, l1aVar};
+            Object[] objArr = {mainTabActivity, v0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = l1aVar;
-        View inflate = LayoutInflater.from(g9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0276, (ViewGroup) null);
-        this.a = inflate;
-        inflate.getResources();
-        C();
+        this.a = mainTabActivity;
     }
 
-    public void G(g1a g1aVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g1aVar) == null) {
-            this.d.b(g1aVar);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
+            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
+            this.b = currencySwitchTDouYBeanDialog;
+            currencySwitchTDouYBeanDialog.showDialog();
         }
     }
 
-    public void H(y0a y0aVar) {
+    public void b() {
+        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, y0aVar) == null) {
-            this.e = y0aVar;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (currencySwitchTDouYBeanDialog = this.b) != null) {
+            currencySwitchTDouYBeanDialog.onDestroy();
         }
-    }
-
-    public void I(List<g1a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.d.c(list);
-            this.b.setAdapter((ListAdapter) this.d);
-        }
-    }
-
-    public View A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090953);
-            this.d = new w0a();
-            I(y0a.c(this.a.getContext()));
-            this.b.setOnItemClickListener(new a(this));
-        }
-    }
-
-    public g1a z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            for (g1a g1aVar : this.d.a()) {
-                if (g1aVar != null && StringHelper.equals(g1aVar.c, str)) {
-                    return g1aVar;
-                }
-            }
-            return null;
-        }
-        return (g1a) invokeL.objValue;
     }
 }

@@ -1,33 +1,159 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.downloader.ResourceDownloader;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.browser.exception.UnzipErrorException;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class sg6 extends BdAsyncTask<Void, Void, qg6> {
+public class sg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
+    public TbPageContext a;
+    public b b;
+    public BdAsyncTask c;
+    public HttpMessageListener d;
 
-    public sg6(String str, ye9 ye9Var) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sg6 a;
+
+        /* renamed from: com.baidu.tieba.sg6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0451a extends BdAsyncTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ List a;
+            public final /* synthetic */ HttpResponsedMessage b;
+            public final /* synthetic */ a c;
+
+            public C0451a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, list, httpResponsedMessage};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = list;
+                this.b = httpResponsedMessage;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Object doInBackground(Object[] objArr) {
+                InterceptResult invokeL;
+                AlaDynamicGift alaDynamicGift;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                    for (vn vnVar : this.a) {
+                        if (vnVar instanceof AlaEnterEffectData) {
+                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) vnVar;
+                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
+                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
+                                    alaEnterEffectData.downLoadStatus = 100;
+                                } else {
+                                    alaEnterEffectData.downLoadStatus = 101;
+                                }
+                            }
+                        }
+                    }
+                    return null;
+                }
+                return invokeL.objValue;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onCancelled() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.onCancelled();
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    super.onPostExecute(obj);
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(sg6 sg6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sg6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sg6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
+                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
+                List<vn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
+                if (ListUtils.isEmpty(effectList)) {
+                    this.a.b.a(alaGetEnterEffectResponsedMessage);
+                    return;
+                }
+                this.a.c = new C0451a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+            }
+        }
+    }
+
+    public sg6(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, ye9Var};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,115 +163,27 @@ public class sg6 extends BdAsyncTask<Void, Void, qg6> {
                 return;
             }
         }
-        this.a = str;
-        this.c = ye9Var.c();
-        this.b = ye9Var.a();
-        this.d = ye9Var.b();
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    public static void c(String str, ye9 ye9Var) {
+    public void c() {
+        BdAsyncTask bdAsyncTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, ye9Var) == null) {
-            sg6 sg6Var = new sg6(str, ye9Var);
-            sg6Var.setPriority(4);
-            sg6Var.execute(new Void[0]);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
+            bdAsyncTask.cancel();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public qg6 doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        boolean z;
-        qg6 qg6Var;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            File file = new File(mg6.l().m(), this.a);
-            if (!bi6.a(file)) {
-                xh6.b("newHybrid", "离线包下载失败：" + this.a + "->目录创建失败");
-            }
-            File file2 = new File(file, this.c + ".zip");
-            if (!file2.exists()) {
-                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
-            } else {
-                z = true;
-            }
-            if (!z) {
-                bi6.c(file2);
-                xh6.b("newHybrid", "离线包下载失败:网络下载异常：" + this.a);
-                mg6.t("download bundle", "download_error", this.a, this.c, ci6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
-                return null;
-            } else if (!ai6.d(file2, this.d)) {
-                bi6.c(file2);
-                xh6.b("newHybrid", "离线包目md5验证失败：" + this.a);
-                mg6.t("download bundle", "md5_error", this.a, this.c, ci6.a(Pair.create("detail", this.d + "_" + ai6.b(file2))));
-                return null;
-            } else {
-                File file3 = new File(mg6.l().k(), this.a);
-                if (!e(file2, file3, this.c)) {
-                    mg6.t("download bundle", "unzip_error", this.a, this.c, "");
-                    return null;
-                }
-                File file4 = new File(file3, this.c);
-                Map<String, vg6> b = tg6.b(file4);
-                if (tg6.f(file4, b)) {
-                    qg6Var = new qg6(file4, this.c, b);
-                } else {
-                    qg6Var = null;
-                }
-                if (qg6Var != null && qg6Var.c()) {
-                    mg6.i(mg6.l().k(), this.c, this.a);
-                    mg6.i(mg6.l().m(), this.c + ".zip", this.a);
-                    return qg6Var;
-                }
-                bi6.b(file4);
-                xh6.b("newHybrid", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            this.a.sendMessage(httpMessage);
         }
-        return (qg6) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public void onPostExecute(qg6 qg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qg6Var) == null) {
-            super.onPostExecute(qg6Var);
-            if (qg6Var != null) {
-                mg6.l().v(this.a, qg6Var.b());
-                mg6.l().s();
-                ng6.d().j(this.a, qg6Var.a());
-                ng6.d().c(this.a);
-                mg6.t("download bundle", "success", this.a, qg6Var.b(), "");
-            } else {
-                mg6.l().h(this.a);
-                mg6.l().s();
-                ng6.d().h(this.a);
-            }
-            lg6.b(qg6Var, this.a);
-        }
-    }
-
-    public final boolean e(File file, File file2, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
-            File file3 = new File(file2, str);
-            if (!file3.exists()) {
-                try {
-                    fi6.c(file, file3);
-                    return true;
-                } catch (UnzipErrorException e) {
-                    bi6.b(file2);
-                    xh6.b("newHybrid", "离线包资源解压缩失败：" + e);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
     }
 }

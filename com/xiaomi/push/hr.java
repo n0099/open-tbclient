@@ -1,7 +1,6 @@
 package com.xiaomi.push;
 
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes10.dex */
 public enum hr {
@@ -32,7 +31,7 @@ public enum hr {
     UploadClientLog("upload_client_log"),
     NotificationBarInfo("notification_bar_info"),
     SyncMIID("sync_miid"),
-    UploadTinyData(StatConstants.VALUE_TYPE_UPLOAD),
+    UploadTinyData("upload"),
     CancelPushMessage("clear_push_message"),
     CancelPushMessageACK("clear_push_message_ack"),
     DisablePushMessage("disable_push"),

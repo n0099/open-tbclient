@@ -16,6 +16,7 @@ import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,7 +61,7 @@ public class ToastCustom {
             }
         }
         this.mContext = context;
-        this.mWM = (WindowManager) context.getSystemService("window");
+        this.mWM = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         this.mHandler = new Handler(Looper.getMainLooper());
         this.mCancelRunnable = new Runnable(this) { // from class: com.baidu.android.ext.widget.toast.ToastCustom.1
             public static /* synthetic */ Interceptable $ic;
@@ -113,7 +114,7 @@ public class ToastCustom {
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100439;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10043c;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
         WindowManager.LayoutParams layoutParams2 = this.mWinParams;
@@ -415,7 +416,7 @@ public class ToastCustom {
                 }
             };
             this.mNextView.setClickable(true);
-            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f090709);
+            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f090713);
             if (findViewById != null) {
                 findViewById.setOnClickListener(onClickListener);
             } else {

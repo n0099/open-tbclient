@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

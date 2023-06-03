@@ -34,6 +34,7 @@ import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapSurfaceView;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -433,7 +434,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     public static void a(Context context) {
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
     }
 
     private void d(Context context) {
@@ -484,23 +485,6 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (baiduMapOptions != null && (point = baiduMapOptions.k) != null) {
             this.l = point;
         }
-    }
-
-    public void onCreate(Context context, Bundle bundle) {
-        if (bundle == null) {
-            return;
-        }
-        MapStatus mapStatus = (MapStatus) bundle.getParcelable("mapstatus");
-        if (this.l != null) {
-            this.l = (Point) bundle.getParcelable("scalePosition");
-        }
-        if (this.m != null) {
-            this.m = (Point) bundle.getParcelable("zoomPosition");
-        }
-        this.y = bundle.getBoolean("mZoomControlEnabled");
-        this.z = bundle.getBoolean("mScaleControlEnabled");
-        setPadding(bundle.getInt("paddingLeft"), bundle.getInt("paddingTop"), bundle.getInt("paddingRight"), bundle.getInt("paddingBottom"));
-        a(context, new BaiduMapOptions().mapStatus(mapStatus));
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions, String str) {
@@ -580,6 +564,23 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 this.f.getBaseMap().b(str, "");
             }
         }
+    }
+
+    public void onCreate(Context context, Bundle bundle) {
+        if (bundle == null) {
+            return;
+        }
+        MapStatus mapStatus = (MapStatus) bundle.getParcelable("mapstatus");
+        if (this.l != null) {
+            this.l = (Point) bundle.getParcelable("scalePosition");
+        }
+        if (this.m != null) {
+            this.m = (Point) bundle.getParcelable("zoomPosition");
+        }
+        this.y = bundle.getBoolean("mZoomControlEnabled");
+        this.z = bundle.getBoolean("mScaleControlEnabled");
+        setPadding(bundle.getInt("paddingLeft"), bundle.getInt("paddingTop"), bundle.getInt("paddingRight"), bundle.getInt("paddingBottom"));
+        a(context, new BaiduMapOptions().mapStatus(mapStatus));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

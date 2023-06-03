@@ -146,7 +146,7 @@ public class MaterialCardViewHelper {
         if (this.clickableForegroundDrawable == null) {
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
             this.clickableForegroundDrawable = layerDrawable;
-            layerDrawable.setId(2, R.id.obfuscated_res_0x7f091766);
+            layerDrawable.setId(2, R.id.obfuscated_res_0x7f09178a);
         }
         return this.clickableForegroundDrawable;
     }
@@ -326,15 +326,15 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.CardView, i, R.style.obfuscated_res_0x7f1000fe);
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.CardView, i, R.style.obfuscated_res_0x7f100100);
         if (obtainStyledAttributes.hasValue(3)) {
             builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d3);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d4);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e1);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e2);
         obtainStyledAttributes.recycle();
     }
 
@@ -424,7 +424,7 @@ public class MaterialCardViewHelper {
             DrawableCompat.setTintList(wrap, this.checkedIconTint);
         }
         if (this.clickableForegroundDrawable != null) {
-            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091766, createCheckedIconLayer());
+            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f09178a, createCheckedIconLayer());
         }
     }
 

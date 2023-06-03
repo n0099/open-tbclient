@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,7 +65,7 @@ public class SingleSquareActivityConfig extends IntentConfig {
             StringBuilder sb = new StringBuilder();
             sb.append(PAGE_NAME);
             try {
-                sb.append(URLEncoder.encode("|", IMAudioTransRequest.CHARSET));
+                sb.append(URLEncoder.encode("|", "utf-8"));
             } catch (Exception e) {
                 e.printStackTrace();
                 sb.append("|");

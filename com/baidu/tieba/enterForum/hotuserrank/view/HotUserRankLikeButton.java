@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.p85
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.lb5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                n75 n75Var = new n75();
-                n75Var.v(R.color.CAM_X0109);
-                setConfig(n75Var);
+                ja5 ja5Var = new ja5();
+                ja5Var.v(R.color.CAM_X0109);
+                setConfig(ja5Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,22 +95,22 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                n75 n75Var2 = new n75();
-                n75Var2.t(R.color.CAM_X0302);
-                setConfig(n75Var2);
+                ja5 ja5Var2 = new ja5();
+                ja5Var2.t(R.color.CAM_X0302);
+                setConfig(ja5Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e1));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e5));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = ri.g(getContext(), R.dimen.tbds196);
+                    layoutParams.width = vi.g(getContext(), R.dimen.tbds196);
                     setLayoutParams(layoutParams);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = ri.g(getContext(), R.dimen.tbds156);
+                    layoutParams2.width = vi.g(getContext(), R.dimen.tbds156);
                     setLayoutParams(layoutParams2);
                 }
             }

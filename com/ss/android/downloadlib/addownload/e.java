@@ -31,7 +31,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e implements f, m.a {
     public static final String a = "e";
     public WeakReference<Context> e;
@@ -54,17 +54,17 @@ public class e implements f, m.a {
     public d d = new d(this.b);
     public final boolean s = com.ss.android.socialbase.downloader.g.a.c().a("ttdownloader_callback_twice");
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(long j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends AsyncTask<String, Void, DownloadInfo> {
         public c() {
         }

@@ -37,52 +37,52 @@ public class SapiDeviceUtils {
         }
         try {
             fileInputStream = new FileInputStream("/system/etc/hosts");
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-        }
-        try {
-            byte[] bArr = new byte[fileInputStream.available()];
-            fileInputStream.read(bArr);
-            String str = new String(bArr);
-            if (!TextUtils.isEmpty(str)) {
-                if (str.contains("passport.baidu.com")) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e) {
-                        Log.e(Log.TAG, e.toString());
+            try {
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str = new String(bArr);
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.contains("passport.baidu.com")) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e) {
+                            Log.e(Log.TAG, e.toString());
+                        }
+                        return true;
                     }
-                    return true;
                 }
-            }
-            try {
-                fileInputStream.close();
-            } catch (Exception e2) {
-                Log.e(Log.TAG, e2.toString());
-            }
-            return false;
-        } catch (Throwable th3) {
-            th = th3;
-            try {
-                Log.e(Log.TAG, th.toString());
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e3) {
-                        Log.e(Log.TAG, e3.toString());
-                    }
+                try {
+                    fileInputStream.close();
+                } catch (Exception e2) {
+                    Log.e(Log.TAG, e2.toString());
                 }
                 return false;
-            } catch (Throwable th4) {
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e4) {
-                        Log.e(Log.TAG, e4.toString());
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    Log.e(Log.TAG, th.toString());
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e3) {
+                            Log.e(Log.TAG, e3.toString());
+                        }
                     }
+                    return false;
+                } catch (Throwable th3) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e4) {
+                            Log.e(Log.TAG, e4.toString());
+                        }
+                    }
+                    throw th3;
                 }
-                throw th4;
             }
+        } catch (Throwable th4) {
+            fileInputStream = null;
+            th = th4;
         }
     }
 

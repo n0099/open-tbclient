@@ -1,42 +1,36 @@
 package com.baidu.tieba;
 
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.media.AudioManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class q01 {
+public class q01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
 
-    public static final boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
+    public q01() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            AudioManager a = y01.a(context);
-            if (a != null) {
-                z = a.isWiredHeadsetOn();
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            v01.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
-            if (!z && !z2) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        this.b = "";
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
     }
 }

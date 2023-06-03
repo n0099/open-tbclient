@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f87;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.id7;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,8 +151,8 @@ public class ForumTabSelectedView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
-                ri.z(this.a.getContext(), this.a);
-                f87.a(this.a.h.getPageActivity(), this.a.h);
+                vi.z(this.a.getContext(), this.a);
+                id7.a(this.a.h.getPageActivity(), this.a.h);
             }
         }
     }
@@ -224,9 +224,9 @@ public class ForumTabSelectedView extends LinearLayout {
                 return findViewById;
             }
             View view2 = new View(getContext());
-            int g = ri.g(getContext(), R.dimen.tbds21);
+            int g = vi.g(getContext(), R.dimen.tbds21);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g, g);
-            layoutParams.setMargins(0, 0, ri.g(getContext(), R.dimen.tbds10), 0);
+            layoutParams.setMargins(0, 0, vi.g(getContext(), R.dimen.tbds10), 0);
             layoutParams.gravity = 5;
             view2.setLayoutParams(layoutParams);
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0301);
@@ -248,13 +248,13 @@ public class ForumTabSelectedView extends LinearLayout {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i);
                     if (tabAt != null && (tabAt.getCustomView() instanceof FrameLayout) && (h = h(tabAt, null)) != null) {
                         h.k();
-                        n75 n75Var = (n75) h.getStyleConfig();
+                        ja5 ja5Var = (ja5) h.getStyleConfig();
                         if (tabAt.isSelected()) {
-                            n75Var.t(R.color.CAM_X0302);
+                            ja5Var.t(R.color.CAM_X0302);
                         } else if (n(tabAt)) {
-                            n75Var.v(R.color.CAM_X0302);
+                            ja5Var.v(R.color.CAM_X0302);
                         } else {
-                            n75Var.v(R.color.CAM_X0107);
+                            ja5Var.v(R.color.CAM_X0107);
                         }
                     }
                 }
@@ -291,9 +291,9 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorUnSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            n75 n75Var = (n75) h(tab, null).getStyleConfig();
+            ja5 ja5Var = (ja5) h(tab, null).getStyleConfig();
             if (!n(tab)) {
-                n75Var.v(R.color.CAM_X0107);
+                ja5Var.v(R.color.CAM_X0107);
             }
         }
     }
@@ -315,7 +315,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             j(this.d);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b80, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080ba4, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -356,11 +356,11 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            ((n75) h(tab, null).getStyleConfig()).t(R.color.CAM_X0302);
+            ((ja5) h(tab, null).getStyleConfig()).t(R.color.CAM_X0302);
             View g = g(tab);
             if (g != null) {
                 g.setVisibility(8);
-                o65.m().w("send_thread_forum_section_gaokao_red_dot", false);
+                l95.m().w("send_thread_forum_section_gaokao_red_dot", false);
             }
         }
     }
@@ -400,20 +400,20 @@ public class ForumTabSelectedView extends LinearLayout {
             if (frsTabItemData == null) {
                 return null;
             }
-            int g = ri.g(getContext(), R.dimen.M_W_X002);
-            ri.g(getContext(), R.dimen.tbds25);
-            int g2 = ri.g(getContext(), R.dimen.M_W_X006);
-            int g3 = ri.g(getContext(), R.dimen.M_H_X003);
+            int g = vi.g(getContext(), R.dimen.M_W_X002);
+            vi.g(getContext(), R.dimen.tbds25);
+            int g2 = vi.g(getContext(), R.dimen.M_W_X006);
+            int g3 = vi.g(getContext(), R.dimen.M_H_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(getContext());
-            n75 n75Var = new n75();
-            n75Var.m(g2);
-            n75Var.o(g3);
+            ja5 ja5Var = new ja5();
+            ja5Var.m(g2);
+            ja5Var.o(g3);
             if (frsTabItemData.tabId == 505) {
-                n75Var.v(R.color.CAM_X0302);
+                ja5Var.v(R.color.CAM_X0302);
             } else {
-                n75Var.v(R.color.CAM_X0107);
+                ja5Var.v(R.color.CAM_X0107);
             }
-            tBSpecificationBtn2.setConfig(n75Var);
+            tBSpecificationBtn2.setConfig(ja5Var);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(g, 0, g, 0);
             tBSpecificationBtn2.setLayoutParams(layoutParams);
@@ -427,9 +427,9 @@ public class ForumTabSelectedView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new ImageView(getContext());
-            int g = ri.g(getContext(), R.dimen.tbds31);
+            int g = vi.g(getContext(), R.dimen.tbds31);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g, g);
-            layoutParams.setMargins(ri.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
+            layoutParams.setMargins(vi.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
             this.b.setOnClickListener(this.i);
             addView(this.b);
@@ -439,9 +439,9 @@ public class ForumTabSelectedView extends LinearLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0304, (ViewGroup) null);
+            this.d = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d030c, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(ri.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
+            layoutParams.setMargins(vi.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             this.d.setLayoutParams(layoutParams);
             addView(this.d);
             this.d.setOnTabSelectedListener(this.g);
@@ -453,8 +453,8 @@ public class ForumTabSelectedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c = new EMTextView(getContext());
             this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            p45.d(this.c).B(R.dimen.T_X08);
-            this.c.setText(R.string.obfuscated_res_0x7f0f079c);
+            m75.d(this.c).B(R.dimen.T_X08);
+            this.c.setText(R.string.obfuscated_res_0x7f0f07d2);
             this.c.setOnClickListener(this.i);
             addView(this.c);
         }
@@ -499,7 +499,7 @@ public class ForumTabSelectedView extends LinearLayout {
                             h = h(tabAt, frsTabItemData);
                             frameLayout.addView(h);
                             boolean z = true;
-                            if ((o65.m().i("send_thread_forum_section_gaokao_red_dot", true) && frsTabItemData.tabType == 102) ? false : false) {
+                            if ((l95.m().i("send_thread_forum_section_gaokao_red_dot", true) && frsTabItemData.tabType == 102) ? false : false) {
                                 frameLayout.addView(g(tabAt));
                             }
                         } else {
@@ -517,7 +517,7 @@ public class ForumTabSelectedView extends LinearLayout {
                     }
                 }
             }
-            int g = ri.g(getContext(), R.dimen.M_W_X004);
+            int g = vi.g(getContext(), R.dimen.M_W_X004);
             linearLayout.setPadding(g, 0, g, 0);
         }
     }

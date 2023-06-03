@@ -103,12 +103,10 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     public void putString(String str, String str2) {
-        verifyLength(str, str2);
         this.mSp.edit().putString(str, str2).apply();
     }
 
     public void putStringSet(String str, Set<String> set) {
-        verifyAllLength(str, set);
         this.mSp.edit().putStringSet(str, set).apply();
     }
 

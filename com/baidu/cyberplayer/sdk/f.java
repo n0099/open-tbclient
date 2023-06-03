@@ -1,292 +1,399 @@
 package com.baidu.cyberplayer.sdk;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
+import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
+import com.baidu.cyberplayer.sdk.loader.CyberClassLoader;
+import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
+import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
+import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
+import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
+import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
+import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
+import com.baidu.cyberplayer.sdk.videodownload.VideoSourceBean;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class f {
-    public int a = 0;
-    public int b = 0;
-    public int c = 1;
-    public int d = 1;
-    public int e = 0;
-    public int f = 0;
-    public int g = 0;
-    public int h = 0;
-    public int i = 0;
-    public int j;
-    public float[] k;
-    public float[] l;
+    public static CyberPlayerCoreProvider a = null;
+    public static volatile boolean b = false;
+    public static volatile boolean c = false;
+    public static CyberPlayerManager.OnPrefetchListener e;
+    public static Class<?> i;
+    public static String d = "com.baidu.media.duplayer";
+    public static final String f = d + ".CyberVRRenderProviderImpl";
+    public static final String g = d + ".MediaInstanceManagerImpl";
+    public static final String h = d + ".CyberPlayerCoreImpl";
 
-    public f() {
-        this.j = 0;
-        this.k = r3;
-        float[] fArr = {1.0f, 1.0f};
-        this.l = r3;
-        float[] fArr2 = {0.0f, 0.0f};
-        this.j = 2;
+    public static int a(int i2, int i3, int i4) {
+        if (a(1)) {
+            return a.getDeviceHDRSupported(i2, i3, i4);
+        }
+        return -1;
     }
 
-    public void a() {
-        this.a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        float[] fArr = this.k;
-        fArr[0] = 1.0f;
-        fArr[1] = 1.0f;
-        this.j = 2;
+    public static int a(String str, int i2, int i3, int i4, Map<String, String> map) {
+        if (a(1)) {
+            return a.getDevicePlayQualityScore(str, i2, i3, i4, map);
+        }
+        if (i3 * i4 < 921600) {
+            return 100;
+        }
+        return -1;
     }
 
-    public boolean a(int i) {
-        if (this.f != i) {
-            this.f = i;
-            this.g = ((this.e + 360) - i) % 360;
+    public static CyberVRRenderProvider a(Context context) {
+        if (i == null) {
+            try {
+                i = Class.forName(f, false, context.getClassLoader());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                i = null;
+            }
+        }
+        Class<?> cls = i;
+        if (cls == null) {
+            return null;
+        }
+        try {
+            return (CyberVRRenderProvider) cls.getConstructor(Context.class).newInstance(context);
+        } catch (Exception e3) {
+            e3.printStackTrace();
+            CyberLog.e("CyberPlayerCoreInvoker", "create CyberVRRender failed");
+            return null;
+        }
+    }
+
+    public static PlayerProvider a(int i2, CyberPlayerManager.HttpDNS httpDNS) {
+        if (a(1)) {
+            return a.createCyberPlayer(i2, httpDNS);
+        }
+        return null;
+    }
+
+    public static CaptureManagerProvider a(Context context, int i2, int i3, int i4, int i5, int i6) {
+        if (a(33)) {
+            return a.createCaptureManager(context, i2, i3, i4, i5, i6);
+        }
+        return null;
+    }
+
+    public static RTCVideoViewProvider a(Context context, AttributeSet attributeSet) {
+        if (a(33)) {
+            return a.createRTCVideoView(context, attributeSet);
+        }
+        return null;
+    }
+
+    public static String a() {
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = a;
+        if (cyberPlayerCoreProvider != null) {
+            return cyberPlayerCoreProvider.getCoreVersion();
+        }
+        return "";
+    }
+
+    public static ExtractorProvider b() {
+        if (a(1)) {
+            return a.createCyberExtractor();
+        }
+        return null;
+    }
+
+    public static MediaInstanceManagerProvider c() {
+        if (a(1)) {
+            return a.createInstanceManager();
+        }
+        return null;
+    }
+
+    public static CyberAudioRecorder d() {
+        if (a(5)) {
+            return a.createCyberAudioRecorder();
+        }
+        return null;
+    }
+
+    public static RTCRoomProvider e() {
+        if (a(33)) {
+            return a.createRTCRoom();
+        }
+        return null;
+    }
+
+    public static DlnaProvider f() {
+        if (a(1)) {
+            return a.createDlna();
+        }
+        return null;
+    }
+
+    public static boolean g() {
+        if (a != null) {
             return true;
         }
         return false;
     }
 
-    public boolean a(int i, int i2) {
-        if (this.a == i && this.b == i2) {
-            return false;
+    public static void h() {
+        if (a(1)) {
+            a.updateCfg();
         }
-        this.a = i;
-        this.b = i2;
-        return true;
     }
 
-    public boolean a(int i, int i2, int i3, int i4) {
-        if (this.h == i && i2 == this.i && this.c == i3 && this.d == i4) {
-            return false;
+    public static long i() {
+        long d2 = com.baidu.cyberplayer.sdk.remote.h.a().d();
+        if (d2 < 0) {
+            if (!a(1)) {
+                return 0L;
+            }
+            return a.calculateFolderSizeCanBeCleared();
         }
-        this.h = i;
-        this.i = i2;
-        if (i4 == 0 || i3 == 0) {
-            this.c = 1;
-            this.d = 1;
+        return d2;
+    }
+
+    public static long j() {
+        if (a(1)) {
+            return a.caculateFolderSize();
+        }
+        return 0L;
+    }
+
+    public static HashMap<Integer, Long> k() {
+        if (a(1)) {
+            return a.getSystemInfraInfo();
+        }
+        return null;
+    }
+
+    public static boolean l() {
+        if (a(1)) {
+            return a.downgrade();
+        }
+        return false;
+    }
+
+    public static void m() {
+        if (!b && a(1) && CyberPlayerManager.getNetHandleListener() != null) {
+            long longValue = CyberPlayerManager.getNetHandleListener().getKerNetHandle().longValue();
+            if (longValue != 0 && a.kernelNetInit(longValue) == 0) {
+                b = true;
+            }
+        }
+    }
+
+    public static void n() {
+        if (!c && a(1) && CyberPlayerManager.getNetHandleListener() != null) {
+            long longValue = CyberPlayerManager.getNetHandleListener().getPcdnNetHandle().longValue();
+            if (longValue != 0 && a.pcdnNetInit(longValue) == 0) {
+                c = true;
+            }
+        }
+    }
+
+    public static String a(String str, VideoSourceBean videoSourceBean) {
+        if (a(1)) {
+            return a.startDownload(str, videoSourceBean);
+        }
+        return str;
+    }
+
+    public static Map<String, String> a(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
+        if (a(1)) {
+            return a.getLibsVersion(libsVersionType);
+        }
+        return null;
+    }
+
+    public static void b(long j) {
+        if (a(1)) {
+            a.cleanFileCacheWithThreshold(j);
+        }
+    }
+
+    public static void c(long j) {
+        if (a(1)) {
+            a.updateStorageQuota(j);
+        }
+    }
+
+    public static void d(String str) {
+        if (a(1)) {
+            a.setWorkDir(str);
+        }
+    }
+
+    public static void e(String str) {
+        if (a(1)) {
+            a.pauseDownload(str);
+        }
+    }
+
+    public static void f(String str) {
+        if (a(1)) {
+            a.cancelDownload(str);
+        }
+    }
+
+    public static void g(String str) {
+        if (a(1)) {
+            a.deleteDownload(str);
+        }
+    }
+
+    public static void a(long j) {
+        if (a(1)) {
+            a.cleanFilecacheWithTimeExpired(j);
+        }
+    }
+
+    public static void b(String str) {
+        if (a(1)) {
+            a.stopPrefetch(str);
+        }
+    }
+
+    public static boolean c(String str) {
+        int a2 = com.baidu.cyberplayer.sdk.remote.h.a().a(str);
+        if (a2 < 0) {
+            if (!a(1)) {
+                return false;
+            }
+            return a.hasCacheFile(str);
+        } else if (a2 != 1) {
+            return false;
         } else {
-            this.c = i3;
-            this.d = i4;
+            return true;
         }
-        return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bc, code lost:
-        if (r5 > r3) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0100, code lost:
-        if (0.5625f > r3) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0107, code lost:
-        if (0.75f > r3) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
-        if (0.8f > r3) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0111, code lost:
-        r3 = r3 / r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0113, code lost:
-        r5 = r0 / r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0118, code lost:
-        if (r5 > r3) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
-        if (r5 > r3) goto L25;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ba  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00c0  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00c9  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00db  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00fc  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x010a  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0116  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x011b A[PHI: r4 r7 
-      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]
-      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x011f  */
+    public static synchronized void a(Context context, ClassLoader classLoader, String str, CyberPlayerManager.InstallListener2 installListener2) throws Exception {
+        synchronized (f.class) {
+            if (a == null) {
+                try {
+                    CyberPlayerCoreProvider cyberPlayerCoreProvider = (CyberPlayerCoreProvider) Class.forName(h, true, classLoader).newInstance();
+                    a = cyberPlayerCoreProvider;
+                    cyberPlayerCoreProvider.init(context, str);
+                    a.setInstallListener(installListener2);
+                    if (a != null) {
+                        CyberClassLoader.addNativeLibraryDirectories(classLoader, a.getLibsSearchPath());
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    a = null;
+                    throw e2;
+                }
+            }
+        }
+    }
+
+    public static void a(CyberPlayerManager.OnPrefetchListener onPrefetchListener) {
+        if (q.o()) {
+            e = onPrefetchListener;
+            return;
+        }
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = a;
+        if (cyberPlayerCoreProvider != null) {
+            cyberPlayerCoreProvider.addPrefetchListener(onPrefetchListener);
+        }
+    }
+
+    public static void b(boolean z) {
+        if (a(33) && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_RTC, false)) {
+            a.enableRTCCaptureDebug(z);
+        }
+    }
+
+    public static void a(CyberVideoDownloader.DownloadListener downloadListener) {
+        if (a(1)) {
+            a.setDownloadListener(downloadListener);
+        }
+    }
+
+    public static void a(String str) {
+        if (!com.baidu.cyberplayer.sdk.remote.h.a().b(str) && a(1)) {
+            a.updatePlayerConfig(str);
+        }
+    }
+
+    public static void a(String str, int i2, long j, String str2, PrefetchOptions prefetchOptions) {
+        if (a(1)) {
+            a.sendGlobalCommond(str, i2, j, str2, prefetchOptions);
+        }
+    }
+
+    public static void a(String str, String str2) {
+        if (a(1)) {
+            a.setOption(str, str2);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0064 A[Catch: Exception -> 0x0087, TryCatch #0 {Exception -> 0x0087, blocks: (B:3:0x0002, B:6:0x0026, B:8:0x002d, B:16:0x0058, B:18:0x0064, B:19:0x006b, B:12:0x0037, B:14:0x0040), top: B:22:0x0002 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b() {
-        int i;
-        float f;
-        int i2;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        if (this.a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
-            return;
-        }
-        int i3 = this.j;
-        boolean z = i3 == 0 || i3 == 2;
-        float f7 = 1.0f;
-        float f8 = (this.b * 1.0f) / this.a;
-        float f9 = (this.i * 1.0f) / this.h;
-        int i4 = this.g;
-        if ((i4 != 90 && i4 != 270) || (i = this.i) == 0) {
-            if (z) {
-                f = this.d * 1.0f;
-                i2 = this.c;
-                f9 *= f / i2;
+    public static void a(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions) {
+        String str5;
+        String str6;
+        try {
+            if (!com.baidu.cyberplayer.sdk.remote.h.a().a(str, str2, str3, i2, i3, i4, str4, i5, i6, i7, i8, prefetchOptions, e) && a(1)) {
+                if (TextUtils.isEmpty(str2)) {
+                    str6 = "dumedia/7.39.93.45";
+                } else if (str2.indexOf("dumedia") == -1) {
+                    str6 = str2 + " dumedia/" + SDKVersion.VERSION;
+                } else {
+                    str5 = str2;
+                    m();
+                    n();
+                    if (q.o()) {
+                        a.addPrefetchListener(e);
+                    }
+                    a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4, i5, i6, i7, i8, prefetchOptions);
+                }
+                str5 = str6;
+                m();
+                n();
+                if (q.o()) {
+                }
+                a.prefetch(str, str5, str3, i2, i3, i4, httpDNS, str4, i5, i6, i7, i8, prefetchOptions);
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
-            float f10 = 0.0f;
-            switch (this.j) {
-            }
-            float[] fArr = this.k;
-            fArr[0] = f7;
-            fArr[1] = f3;
-            float[] fArr2 = this.l;
-            fArr2[0] = f10;
-            fArr2[1] = f2;
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f7 + " sy:" + f3 + " translateX:" + f10 + " translateY:" + f2);
+        } catch (Exception unused) {
         }
-        f9 = (this.h * 1.0f) / i;
-        if (z) {
-            f = this.c * 1.0f;
-            i2 = this.d;
-            f9 *= f / i2;
-        }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
-        float f102 = 0.0f;
-        switch (this.j) {
-            case 1:
-                f2 = 0.0f;
-                f3 = 1.0f;
-                break;
-            case 3:
-                f4 = 0.8f;
-                break;
-            case 4:
-                f4 = 0.75f;
-                break;
-            case 5:
-                f4 = 0.5625f;
-                break;
-            case 6:
-                float f11 = (this.h * 1.0f) / this.a;
-                f3 = (this.i * 1.0f) / this.b;
-                f7 = f11;
-                f2 = 0.0f;
-                break;
-            case 7:
-                if (f9 <= f8) {
-                    f5 = f8 / f9;
-                    f6 = 1.0f - f5;
-                    f102 = f6;
-                    f7 = f5;
-                    f2 = 0.0f;
-                    f3 = 1.0f;
-                    break;
-                }
-                f3 = f9 / f8;
-                f2 = 0.0f;
-                break;
-            case 8:
-                if (f9 <= f8) {
-                    f5 = f8 / f9;
-                    f6 = f5 - 1.0f;
-                    f102 = f6;
-                    f7 = f5;
-                    f2 = 0.0f;
-                    f3 = 1.0f;
-                    break;
-                }
-                f3 = f9 / f8;
-                f2 = 0.0f;
-                break;
-            case 9:
-                if (f9 > f8) {
-                    f3 = f9 / f8;
-                    f2 = f3 - 1.0f;
-                    break;
-                }
-                f5 = f8 / f9;
-                f7 = f5;
-                f2 = 0.0f;
-                f3 = 1.0f;
-                break;
-            case 10:
-                if (f9 > f8) {
-                    f3 = f9 / f8;
-                    f2 = 1.0f - f3;
-                    break;
-                }
-                f5 = f8 / f9;
-                f7 = f5;
-                f2 = 0.0f;
-                f3 = 1.0f;
-                break;
-        }
-        float[] fArr3 = this.k;
-        fArr3[0] = f7;
-        fArr3[1] = f3;
-        float[] fArr22 = this.l;
-        fArr22[0] = f102;
-        fArr22[1] = f2;
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f7 + " sy:" + f3 + " translateX:" + f102 + " translateY:" + f2);
     }
 
-    public boolean b(int i) {
-        if (this.e != i) {
-            this.e = i;
-            this.g = ((360 - this.f) + i) % 360;
-            return true;
+    public static void a(boolean z) {
+        if (a(33) && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_RTC, false)) {
+            a.setRTCVerbose(z);
+        }
+    }
+
+    public static boolean a(int i2) {
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = a;
+        if (cyberPlayerCoreProvider != null) {
+            return cyberPlayerCoreProvider.isLoaded(i2);
         }
         return false;
     }
 
-    public boolean c(int i) {
-        if (this.j != i) {
-            this.j = i;
+    public static boolean a(int i2, Map<String, String> map) throws FileNotFoundException {
+        CyberPlayerCoreProvider cyberPlayerCoreProvider = a;
+        if (cyberPlayerCoreProvider != null) {
+            cyberPlayerCoreProvider.loadlibs(i2, map);
+        }
+        return a(i2);
+    }
+
+    public static boolean a(byte[] bArr, int i2, byte[] bArr2) {
+        if (a(1)) {
+            a.duplayerEncrypt(bArr, i2, bArr2);
             return true;
         }
         return false;
-    }
-
-    public float[] c() {
-        return this.k;
-    }
-
-    public int d() {
-        return this.j;
-    }
-
-    public float[] e() {
-        return this.l;
-    }
-
-    public boolean f() {
-        int i = this.j;
-        return i == 7 || i == 8 || i == 9 || i == 10;
-    }
-
-    public int g() {
-        return this.g;
-    }
-
-    public int h() {
-        return this.h;
-    }
-
-    public int i() {
-        return this.i;
-    }
-
-    public int j() {
-        return this.a;
-    }
-
-    public int k() {
-        return this.b;
     }
 }

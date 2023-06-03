@@ -1,44 +1,57 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class et6 {
+public abstract class et6 extends i0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RecommendForumInfo> a;
-    public List<String> b;
-    public Page c;
-    public String d;
+    public final bt6 d;
 
-    public et6() {
+    public abstract void j();
+
+    public et6(bt6 danmakuContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {danmakuContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
+    }
+
+    @Override // com.baidu.tieba.i0
+    @CallSuper
+    public void g(f0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
         }
     }
 
-    public void a(DataRes dataRes) {
+    public final bt6 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        this.d = dataRes.class_name;
-        this.c = dataRes.page;
-        this.b = dataRes.page_structure;
-        this.a = dataRes.forum_info;
+        return (bt6) invokeV.objValue;
     }
 }

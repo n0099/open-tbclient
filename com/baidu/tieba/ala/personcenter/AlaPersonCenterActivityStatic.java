@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.d97;
-import com.baidu.tieba.xa6;
+import com.baidu.tieba.bf6;
+import com.baidu.tieba.ge7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,16 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof d97)) {
+            if (!(data instanceof ge7)) {
                 return;
             }
-            d97 d97Var = (d97) data;
-            xa6 xa6Var = new xa6();
-            xa6Var.i(d97Var.c());
-            xa6Var.j(d97Var.d());
-            xa6Var.h(d97Var.b());
-            xa6Var.k(d97Var.e());
-            xa6Var.g(d97Var);
+            ge7 ge7Var = (ge7) data;
+            bf6 bf6Var = new bf6();
+            bf6Var.i(ge7Var.c());
+            bf6Var.j(ge7Var.d());
+            bf6Var.h(ge7Var.b());
+            bf6Var.k(ge7Var.e());
+            bf6Var.g(ge7Var);
         }
     }
 

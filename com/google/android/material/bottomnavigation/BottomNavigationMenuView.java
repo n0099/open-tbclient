@@ -353,11 +353,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         this.selectedItemPosition = 0;
         this.badgeDrawables = new SparseArray<>(5);
         Resources resources = getResources();
-        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b);
-        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029c);
-        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070295);
-        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070296);
-        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070299);
+        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a6);
+        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a7);
+        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a0);
+        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a1);
+        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a4);
         this.itemTextColorDefault = createDefaultColorStateList(16842808);
         AutoTransition autoTransition = new AutoTransition();
         this.set = autoTransition;

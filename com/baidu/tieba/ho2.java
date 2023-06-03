@@ -7,18 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes5.dex */
-public class ho2 extends an2<rp2> {
+/* loaded from: classes6.dex */
+public class ho2 extends yj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.an2
-    @NonNull
-    public String b() {
+    @Override // com.baidu.tieba.ck3
+    public long getMaxSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 52428800L;
+        }
+        return invokeV.longValue;
     }
 
     public ho2() {
@@ -35,18 +36,14 @@ public class ho2 extends an2<rp2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+    @Override // com.baidu.tieba.yj3
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rp2Var) == null) {
-            String str = command.what;
-            d(rp2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                rp2Var.l0(((Boolean) obj).booleanValue());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return io2.p();
         }
+        return (String) invokeV.objValue;
     }
 }

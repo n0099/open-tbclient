@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.permission.DangerousPermissionConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,206 +13,231 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class rx2 {
+public class rx2 implements px2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
+    public final long a;
+    public final boolean b;
+    public long c;
+    public volatile boolean d;
+    @NonNull
+    public final List<px2> e;
+    public final Runnable f;
+    public final Runnable g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136925, "Lcom/baidu/tieba/rx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rx2 a;
+
+        public a(rx2 rx2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136925, "Lcom/baidu/tieba/rx2;");
-                return;
+            this.a = rx2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
             }
         }
-        boolean z = qp1.a;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rx2 a;
+
+        public b(rx2 rx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rx2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rx2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-446175106, "Lcom/baidu/tieba/rx2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-446175106, "Lcom/baidu/tieba/rx2$c;");
+                    return;
+                }
+            }
+            a = new rx2(null);
+        }
     }
 
     public rx2() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 60000;
-        this.b = "aac";
-        this.c = 1;
-        this.d = 8000;
-        this.e = 16000;
-        this.f = 1;
-    }
-
-    public static rx2 a(JSONObject jSONObject, rx2 rx2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, rx2Var)) == null) {
-            if (jSONObject != null && jSONObject.length() > 0) {
-                rx2Var = new rx2();
-                rx2Var.a = jSONObject.optInt("duration", 60000);
-                String optString = jSONObject.optString("format");
-                rx2Var.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    rx2Var.b = "aac";
-                }
-                rx2Var.c = jSONObject.optInt("numberOfChannels", 1);
-                rx2Var.d = jSONObject.optInt("sampleRate", 8000);
-                int optInt = jSONObject.optInt("encodeBitRate");
-                rx2Var.e = optInt;
-                if (optInt == 0) {
-                    int i = rx2Var.d;
-                    if (i != 8000) {
-                        if (i != 16000) {
-                            if (i == 44100) {
-                                rx2Var.e = 64000;
-                            }
-                        } else {
-                            rx2Var.e = 24000;
-                        }
-                    } else {
-                        rx2Var.e = 16000;
-                    }
-                }
-                rx2Var.f = b(jSONObject.optString("audioSource", "auto"));
-                rx2Var.g = jSONObject.optString("cb");
-            }
-            return rx2Var;
+        long millis = TimeUnit.SECONDS.toMillis(wx2.b.a());
+        this.a = millis;
+        if (millis >= 0 && wx2.b.e()) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (rx2) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int b(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -401509030:
-                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 108103:
-                    if (str.equals(DangerousPermissionConstants.DANGEROUS_PERMISSION_MIC)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1059882026:
-                    if (str.equals("voice_recognition")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1611170697:
-                    if (str.equals("voice_communication")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        this.b = z;
+        this.c = 0L;
+        this.d = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.e = new ArrayList();
+        if (wx2.b.e()) {
+            if (wx2.b.d()) {
+                this.e.add(new sx2());
             }
-            if (c != 0 && c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c != 4) {
-                            return -1;
-                        }
-                        return 6;
-                    }
-                    return 7;
-                }
-                return 5;
+            if (wx2.b.b()) {
+                this.e.add(new tx2());
             }
-            return 1;
+            if (wx2.b.c()) {
+                this.e.add(new qx2());
+            }
         }
-        return invokeL.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0087, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x008a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject c() {
+    public /* synthetic */ rx2(a aVar) {
+        this();
+    }
+
+    public static px2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            if (i <= 600000 && i >= 0) {
-                int i2 = this.c;
-                boolean z = true;
-                if (i2 != 1 && i2 != 2) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-                }
-                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-                }
-                int i3 = this.d;
-                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-                }
-                if (!TextUtils.equals(this.b, "pcm")) {
-                    if ((r3 = this.d) != 8000) {
-                        if (z) {
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-                        }
-                    } else if (z) {
-                    }
-                }
-                if (this.f < 0) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-                }
-                return null;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c.a;
         }
-        return (JSONObject) invokeV.objValue;
+        return (px2) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void d() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.c;
+            if (this.b && !this.d && ProcessUtils.isSwanProcess() && pp3.C(true)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            y82.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
+            if (z) {
+                for (px2 px2Var : this.e) {
+                    y82.i("SwanBackStageManager", "performPause for strategy=" + px2Var);
+                    px2Var.onPause();
+                }
+                this.d = true;
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void e() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.b && this.d) {
+                z = true;
+            } else {
+                z = false;
+            }
+            y82.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
+            for (px2 px2Var : this.e) {
+                y82.i("SwanBackStageManager", "performResume for strategy=" + px2Var);
+                px2Var.onResume();
+            }
+            this.d = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.px2
+    @AnyThread
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            y82.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
+            if (this.b) {
+                this.c = System.currentTimeMillis();
+                Handler M = xb3.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                M.postDelayed(this.f, this.a);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.px2
+    @AnyThread
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            y82.i("SwanBackStageManager", "onResume: enable=" + this.b);
+            if (this.b) {
+                Handler M = xb3.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                sp3.e0(this.g);
+            }
+        }
     }
 }

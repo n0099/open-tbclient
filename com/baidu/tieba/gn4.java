@@ -1,22 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class gn4 {
+public abstract class gn4 implements jn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a<D> {
-        void a(mn4<D> mn4Var);
+    @Override // com.baidu.tieba.jn4
+    public void a(JSONArray jSONArray, tj4 tj4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, tj4Var, tj4Var2, tj4Var3) == null) {
+        }
+    }
 
-        void b(mn4<D> mn4Var, D d);
-
-        mn4<D> onCreateLoader(int i, Bundle bundle);
+    @Override // com.baidu.tieba.jn4
+    public void b(JSONObject jSONObject, tj4 tj4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, tj4Var, tj4Var2, tj4Var3) == null) {
+        }
     }
 
     public gn4() {

@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes3.dex */
@@ -62,7 +61,7 @@ public final class bo {
     }
 
     public static String b(byte[] bArr) throws UnsupportedEncodingException {
-        return a(bArr, IMAudioTransRequest.CHARSET);
+        return a(bArr, "utf-8");
     }
 
     public static byte[] a(byte[] bArr, int i) {

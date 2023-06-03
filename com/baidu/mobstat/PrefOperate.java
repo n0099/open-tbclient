@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 /* loaded from: classes3.dex */
 public class PrefOperate {
     public static String getAppKey(Context context) {
@@ -25,7 +25,7 @@ public class PrefOperate {
         SendStrategyEnum sendStrategyEnum = SendStrategyEnum.APP_START;
         try {
             String a = bw.a(context, Config.EXCEPTION_LOG_META_NAME);
-            if (!TextUtils.isEmpty(a) && "true".equals(a)) {
+            if (!TextUtils.isEmpty(a) && YYOption.IsLive.VALUE_TRUE.equals(a)) {
                 ExceptionAnalysis.getInstance().openExceptionAnalysis(context, false);
             }
         } catch (Exception unused) {
@@ -60,9 +60,9 @@ public class PrefOperate {
         try {
             String a4 = bw.a(context, Config.ONLY_WIFI_META_NAME);
             if (!TextUtils.isEmpty(a4)) {
-                if ("true".equals(a4)) {
+                if (YYOption.IsLive.VALUE_TRUE.equals(a4)) {
                     bp.a().a(context, true);
-                } else if (CommandUBCHelper.COMMAND_UBC_VALUE_FALSE.equals(a4)) {
+                } else if ("false".equals(a4)) {
                     bp.a().a(context, false);
                 }
             }

@@ -1,40 +1,41 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bh9 {
+public class bh9 implements dba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
+    public TbPageContext a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public bh9() {
+    public bh9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,85 +45,91 @@ public class bh9 {
                 return;
             }
         }
-        this.k = false;
+        this.b = 1;
+        this.c = 2;
+        this.d = false;
+        this.a = tbPageContext;
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+    @Override // com.baidu.tieba.dba
+    public void a(View view2, m07 m07Var) {
+        int i;
+        int i2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, m07Var) != null) || m07Var == null) {
             return;
         }
-        int i = advertAppInfo.m;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.p;
-            this.g = advertAppInfo.o;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        UserData userData = null;
+        Bundle bundle = m07Var.b;
+        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
+            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            return jSONObject.toString();
+            this.b = i;
+            if (userData.isGod()) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            this.c = i2;
+            if (this.b == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.d = z;
         }
-        return (String) invokeV.objValue;
+        switch (m07Var.a) {
+            case 2:
+                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
+                return;
+            case 3:
+                if (userData == null) {
+                    return;
+                }
+                qx4.x(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                return;
+            case 4:
+                if (userData == null) {
+                    return;
+                }
+                if (m07Var instanceof ae9) {
+                    TiebaStatic.log(new StatisticItem("c11586"));
+                } else {
+                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
+                return;
+            case 5:
+                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
+                return;
+            case 6:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
+                return;
+            case 7:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
+                return;
+            default:
+                return;
+        }
     }
 }

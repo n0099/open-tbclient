@@ -1,14 +1,17 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface r81 {
+    void a();
+
+    void b();
+
+    void c();
+
     void d();
 
-    boolean f();
+    void dismiss();
 
-    Activity getActivity();
+    void e();
 
-    Intent getIntent();
+    void f();
 }

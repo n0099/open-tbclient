@@ -2,7 +2,7 @@ package com.google.gson.stream;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.google.gson.Gson;
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
@@ -10,6 +10,7 @@ import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Arrays;
 import kotlin.text.Typography;
 import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes9.dex */
@@ -154,26 +155,6 @@ public class JsonReader implements Closeable {
             return;
         }
         throw new NullPointerException("in == null");
-    }
-
-    private void push(int i) {
-        int i2 = this.stackSize;
-        int[] iArr = this.stack;
-        if (i2 == iArr.length) {
-            int[] iArr2 = new int[i2 * 2];
-            int[] iArr3 = new int[i2 * 2];
-            String[] strArr = new String[i2 * 2];
-            System.arraycopy(iArr, 0, iArr2, 0, i2);
-            System.arraycopy(this.pathIndices, 0, iArr3, 0, this.stackSize);
-            System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
-            this.stack = iArr2;
-            this.pathIndices = iArr3;
-            this.pathNames = strArr;
-        }
-        int[] iArr4 = this.stack;
-        int i3 = this.stackSize;
-        this.stackSize = i3 + 1;
-        iArr4[i3] = i;
     }
 
     private void skipQuotedValue(char c) throws IOException {
@@ -597,12 +578,12 @@ public class JsonReader implements Closeable {
                 str2 = "NULL";
             } else {
                 i = 6;
-                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                str = "false";
                 str2 = "FALSE";
             }
         } else {
             i = 5;
-            str = "true";
+            str = YYOption.IsLive.VALUE_TRUE;
             str2 = "TRUE";
         }
         int length = str.length();
@@ -1111,6 +1092,21 @@ public class JsonReader implements Closeable {
             return j;
         }
         throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
+    }
+
+    private void push(int i) {
+        int i2 = this.stackSize;
+        int[] iArr = this.stack;
+        if (i2 == iArr.length) {
+            int i3 = i2 * 2;
+            this.stack = Arrays.copyOf(iArr, i3);
+            this.pathIndices = Arrays.copyOf(this.pathIndices, i3);
+            this.pathNames = (String[]) Arrays.copyOf(this.pathNames, i3);
+        }
+        int[] iArr2 = this.stack;
+        int i4 = this.stackSize;
+        this.stackSize = i4 + 1;
+        iArr2[i4] = i;
     }
 
     private IOException syntaxError(String str) throws IOException {

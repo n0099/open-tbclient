@@ -1,127 +1,89 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qm4 extends jn4 {
+public class qm4 extends el4<wm4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public tj4 d;
+    @Nullable
+    public tj4 e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ int c;
-
-        public a(String[] strArr, Activity activity, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = strArr;
-            this.b = activity;
-            this.c = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
-            }
-        }
-    }
-
-    public static void e(Activity activity) {
+    @Override // com.baidu.tieba.el4
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                rm4.a(activity);
-            } else {
-                activity.finish();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
     }
 
-    public static boolean f(@NonNull Activity activity, @NonNull String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.el4
+    /* renamed from: u */
+    public boolean e(wm4 wm4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return sm4.a(activity, str);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, wm4Var)) == null) ? wm4Var != null : invokeL.booleanValue;
     }
 
-    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qm4(tj4 tj4Var, en4 en4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3) {
+        super(tj4Var, en4Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                sm4.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tj4Var, en4Var, tj4Var2, tj4Var3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((tj4) objArr2[0], (en4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = tj4Var2;
+        this.e = tj4Var3;
     }
 
-    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.el4
+    /* renamed from: w */
+    public wm4 t(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                um4.startActivity(activity, intent, bundle);
-            } else {
-                activity.startActivity(intent);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            return fp4.q(jSONObject);
         }
+        return (wm4) invokeL.objValue;
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.el4
+    /* renamed from: v */
+    public sk4 s(wm4 wm4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                um4.startActivityForResult(activity, intent, i, bundle);
-            } else {
-                activity.startActivityForResult(intent, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wm4Var)) == null) {
+            this.a.E();
+            zo4.e(this.b.a(), wm4Var.a);
+            tj4 tj4Var = this.a;
+            if (tj4Var == this.d || tj4Var == this.e) {
+                tj4Var = null;
             }
+            ln4.c(wm4Var.b, tj4Var, this.d, this.e);
+            return null;
         }
+        return (sk4) invokeL.objValue;
     }
 }

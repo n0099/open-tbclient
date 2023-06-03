@@ -40,7 +40,7 @@ public class a extends ViewGroup {
 
     /* renamed from: com.baidu.sapi2.views.logindialog.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0149a implements TextWatcher {
+    public class C0154a implements TextWatcher {
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -49,7 +49,7 @@ public class a extends ViewGroup {
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
 
-        public C0149a() {
+        public C0154a() {
         }
 
         @Override // android.text.TextWatcher
@@ -198,7 +198,7 @@ public class a extends ViewGroup {
     }
 
     public void b() {
-        C0149a c0149a = new C0149a();
+        C0154a c0154a = new C0154a();
         b bVar = new b();
         this.j.clear();
         for (int i = 0; i < this.b; i++) {
@@ -229,7 +229,7 @@ public class a extends ViewGroup {
             }
             editText.setId(i);
             editText.setEms(1);
-            editText.addTextChangedListener(c0149a);
+            editText.addTextChangedListener(c0154a);
             addView(editText, i);
             this.j.add(editText);
         }

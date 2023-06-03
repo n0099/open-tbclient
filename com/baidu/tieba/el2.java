@@ -4,14 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class el2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fl2 a;
-    public String b;
-    public Map<String, Object> c;
+    public int a;
+    public ArrayList<String> b;
 
     public el2() {
         Interceptable interceptable = $ic;
@@ -23,7 +22,10 @@ public class el2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = new ArrayList<>();
     }
 }

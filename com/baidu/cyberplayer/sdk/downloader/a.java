@@ -2,8 +2,10 @@ package com.baidu.cyberplayer.sdk.downloader;
 
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.downloader.b;
-import com.baidu.cyberplayer.sdk.o;
+import com.baidu.cyberplayer.sdk.q;
+import com.baidu.cyberplayer.sdk.utils.d;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.File;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class a implements b.a {
             file = new File(this.d, this.c);
             try {
                 try {
-                    this.e = o.a(file, this.d);
+                    this.e = d.b(file, this.d);
                     CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.e);
                 } catch (Exception e) {
                     e = e;
@@ -78,35 +80,30 @@ public class a implements b.a {
         }
     }
 
-    public static String a(String str, String str2) {
-        File[] listFiles;
-        String str3 = "";
-        for (File file : new File(str).listFiles()) {
-            if (file.isFile() && file.getName().endsWith(".zip")) {
-                String replace = file.getName().replace(".zip", "");
-                if (replace.contains("cyber-media-dex")) {
-                    str3 = replace.split("_")[2];
-                }
-                if (o.m()) {
-                    try {
-                        if (replace.startsWith("model_")) {
-                            o.b(str2);
-                            a(str2, o.a(file.getAbsoluteFile(), str2));
-                        } else {
-                            String str4 = str2 + File.separator + "libs";
-                            o.b(str4);
-                            a(str4, o.a(file.getAbsoluteFile(), str4));
+    private String b() {
+        String str = a;
+        try {
+            if (this.e != null) {
+                CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
+                for (int i = 0; i < this.e.size(); i++) {
+                    String str2 = this.e.get(i);
+                    if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
+                        String substring = str2.substring(4, 36);
+                        if (!q.a(substring, this.d + File.separator + str2)) {
+                            CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
+                            return "md5 check fail.";
                         }
-                    } catch (Exception unused) {
                     }
                 }
             }
+            return str;
+        } catch (Exception unused) {
+            CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
+            return "md5 check fail.";
         }
-        CyberLog.d("CyberFileDownloader", "external core ver:" + str3);
-        return str3;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a0, code lost:
         r1 = "file not found:" + r4.getAbsolutePath();
      */
     /*
@@ -132,11 +129,12 @@ public class a implements b.a {
                                 if (!file2.exists()) {
                                     break;
                                 }
-                                if (!file2.renameTo(new File(parent, name.substring(37)))) {
+                                if (file2.renameTo(new File(parent, name.substring(37)))) {
+                                    CyberLog.d("CyberFileDownloader", "rename " + file2.getName() + "(" + file2.exists() + ") to " + file.getName() + "(" + file.exists() + SmallTailInfo.EMOTION_SUFFIX);
+                                } else {
                                     str2 = "rename fail";
                                     break;
                                 }
-                                CyberLog.d("CyberFileDownloader", "rename " + file2.getName() + "(" + file2.exists() + ") to " + file.getName() + "(" + file.exists() + SmallTailInfo.EMOTION_SUFFIX);
                             }
                         }
                     }
@@ -147,29 +145,6 @@ public class a implements b.a {
             }
         }
         return str2;
-    }
-
-    private String b() {
-        String str = a;
-        try {
-            if (this.e != null) {
-                CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
-                for (int i = 0; i < this.e.size(); i++) {
-                    String str2 = this.e.get(i);
-                    if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
-                        String substring = str2.substring(4, 36);
-                        if (!o.a(substring, this.d + File.separator + str2)) {
-                            CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
-                            return "md5 check fail.";
-                        }
-                    }
-                }
-            }
-            return str;
-        } catch (Exception unused) {
-            CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
-            return "md5 check fail.";
-        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
@@ -184,46 +159,58 @@ public class a implements b.a {
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
     public void a(String str, long j, String str2) {
-        this.b.a(str, j, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
+        this.b.a(str, j, -1, str2 + ",networkstatus:" + q.i() + ",url:" + str);
     }
 
     public void a(String str, String str2, String str3, InterfaceC0092a interfaceC0092a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0092a == null) {
-            return;
+        String str4;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && interfaceC0092a != null) {
+            this.c = str2;
+            this.b = interfaceC0092a;
+            this.d = str3;
+            q.b(str3);
+            CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
+            HashMap hashMap = new HashMap();
+            if (!str.equals("https://pms-zeus-xcdn.bdstatic.com/searchbox/androidvideo")) {
+                str4 = "";
+            } else {
+                str4 = b.a("", "cdn_type=1");
+            }
+            String cfgValue = CyberCfgManager.getInstance().getCfgValue("download_zip_sid", "");
+            if (!TextUtils.isEmpty(cfgValue)) {
+                str4 = b.a(str4, "abtest=" + cfgValue);
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                hashMap.put("query", str4);
+            }
+            hashMap.put("url", str + File.separator + this.c + str4);
+            hashMap.put("file-folder", this.d);
+            hashMap.put("file-name", this.c);
+            hashMap.put("is-asyn", "0");
+            b.a(hashMap, this);
         }
-        this.c = str2;
-        this.b = interfaceC0092a;
-        this.d = str3;
-        o.b(str3);
-        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
-        HashMap hashMap = new HashMap();
-        hashMap.put("url", str + File.separator + this.c);
-        hashMap.put("file-folder", this.d);
-        hashMap.put("file-name", this.c);
-        hashMap.put("is-asyn", "0");
-        b.a(hashMap, this);
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
     public void b(String str, long j) {
         String a2 = a();
         if (!a.equals(a2)) {
-            o.a(this.d, this.e);
+            q.a(this.d, this.e);
             this.b.a(str, j, -2, a2);
             return;
         }
         String b = b();
         if (!a.equals(b)) {
-            o.a(this.d, this.e);
+            q.a(this.d, this.e);
             this.b.a(str, j, -3, b);
             return;
         }
         String a3 = a(this.d, this.e);
-        if (a.equals(a3)) {
-            this.b.a(str, j, this.e);
+        if (!a.equals(a3)) {
+            q.a(this.d, this.e);
+            this.b.a(str, j, -6, a3);
             return;
         }
-        o.a(this.d, this.e);
-        this.b.a(str, j, -6, a3);
+        this.b.a(str, j, this.e);
     }
 }

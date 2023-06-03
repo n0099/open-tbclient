@@ -1,20 +1,20 @@
 package kotlinx.coroutines.scheduling;
 
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
+import kotlin.PublishedApi;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineDispatcher;
 import kotlinx.coroutines.DefaultExecutor;
 import kotlinx.coroutines.ExecutorCoroutineDispatcher;
-import kotlinx.coroutines.InternalCoroutinesApi;
-@InternalCoroutinesApi
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\r\b\u0017\u0018\u00002\u00020\u0001B'\b\u0016\u0012\b\b\u0002\u0010(\u001a\u00020\u0002\u0012\b\b\u0002\u00102\u001a\u00020\u0002\u0012\b\b\u0002\u00103\u001a\u00020#¢\u0006\u0004\b5\u00106B\u001d\b\u0017\u0012\b\b\u0002\u0010(\u001a\u00020\u0002\u0012\b\b\u0002\u00102\u001a\u00020\u0002¢\u0006\u0004\b5\u00107B)\u0012\u0006\u0010(\u001a\u00020\u0002\u0012\u0006\u00102\u001a\u00020\u0002\u0012\u0006\u00100\u001a\u00020\u001e\u0012\b\b\u0002\u00103\u001a\u00020#¢\u0006\u0004\b5\u00108J\u0017\u0010\u0005\u001a\u00020\u00042\b\b\u0002\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000b\u0010\fJ#\u0010\u0012\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\r2\n\u0010\u0011\u001a\u00060\u000fj\u0002`\u0010H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J+\u0010\u0019\u001a\u00020\u00072\n\u0010\u0011\u001a\u00060\u000fj\u0002`\u00102\u0006\u0010\u000e\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u0015H\u0000¢\u0006\u0004\b\u0017\u0010\u0018J#\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\r2\n\u0010\u0011\u001a\u00060\u000fj\u0002`\u0010H\u0016¢\u0006\u0004\b\u001a\u0010\u0013J\u0015\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u001b\u0010\u0006J\u000f\u0010\u001d\u001a\u00020\u0007H\u0000¢\u0006\u0004\b\u001c\u0010\tJ\u0017\u0010\"\u001a\u00020\u00072\u0006\u0010\u001f\u001a\u00020\u001eH\u0000¢\u0006\u0004\b \u0010!J\u000f\u0010$\u001a\u00020#H\u0016¢\u0006\u0004\b$\u0010%J\u000f\u0010'\u001a\u00020\u0007H\u0000¢\u0006\u0004\b&\u0010\tR\u0016\u0010(\u001a\u00020\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0016\u0010*\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010/\u001a\u00020,8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b-\u0010.R\u0016\u00100\u001a\u00020\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u0010)R\u0016\u00103\u001a\u00020#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b3\u00104¨\u00069"}, d2 = {"Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;", "Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "", "parallelism", "Lkotlinx/coroutines/CoroutineDispatcher;", "blocking", "(I)Lkotlinx/coroutines/CoroutineDispatcher;", "", "close", "()V", "Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "createScheduler", "()Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "Lkotlin/coroutines/CoroutineContext;", "context", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, StatConstants.VALUE_TYPE_DISPATCH, "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V", "Lkotlinx/coroutines/scheduling/TaskContext;", "", "tailDispatch", "dispatchWithContext$kotlinx_coroutines_core", "(Ljava/lang/Runnable;Lkotlinx/coroutines/scheduling/TaskContext;Z)V", "dispatchWithContext", "dispatchYield", "limited", "restore$kotlinx_coroutines_core", "restore", "", "timeout", "shutdown$kotlinx_coroutines_core", "(J)V", "shutdown", "", "toString", "()Ljava/lang/String;", "usePrivateScheduler$kotlinx_coroutines_core", "usePrivateScheduler", "corePoolSize", "I", "coroutineScheduler", "Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "executor", "idleWorkerKeepAliveNs", "J", "maxPoolSize", "schedulerName", "Ljava/lang/String;", "<init>", "(IILjava/lang/String;)V", "(II)V", "(IIJLjava/lang/String;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\b\u0011\u0018\u00002\u00020\u0001B%\b\u0016\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007B\u001b\b\u0017\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\bB'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\n\u0012\b\b\u0002\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u0012\u001a\u00020\u00132\b\b\u0002\u0010\u0014\u001a\u00020\u0003J\b\u0010\u0015\u001a\u00020\u0016H\u0016J\b\u0010\u0017\u001a\u00020\rH\u0002J\u001c\u0010\u0018\u001a\u00020\u00162\u0006\u0010\u0019\u001a\u00020\u001a2\n\u0010\u001b\u001a\u00060\u001cj\u0002`\u001dH\u0016J)\u0010\u001e\u001a\u00020\u00162\n\u0010\u001b\u001a\u00060\u001cj\u0002`\u001d2\u0006\u0010\u0019\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!H\u0000¢\u0006\u0002\b\"J\u001c\u0010#\u001a\u00020\u00162\u0006\u0010\u0019\u001a\u00020\u001a2\n\u0010\u001b\u001a\u00060\u001cj\u0002`\u001dH\u0016J\u000e\u0010$\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0003J\b\u0010%\u001a\u00020\u0006H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u000e\u001a\u00020\u000f8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0010\u0010\u0011R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006&"}, d2 = {"Lkotlinx/coroutines/scheduling/ExperimentalCoroutineDispatcher;", "Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "corePoolSize", "", "maxPoolSize", "schedulerName", "", "(IILjava/lang/String;)V", "(II)V", "idleWorkerKeepAliveNs", "", "(IIJLjava/lang/String;)V", "coroutineScheduler", "Lkotlinx/coroutines/scheduling/CoroutineScheduler;", "executor", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "blocking", "Lkotlinx/coroutines/CoroutineDispatcher;", "parallelism", "close", "", "createScheduler", "dispatch", "context", "Lkotlin/coroutines/CoroutineContext;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "dispatchWithContext", "Lkotlinx/coroutines/scheduling/TaskContext;", "tailDispatch", "", "dispatchWithContext$kotlinx_coroutines_core", "dispatchYield", "limited", "toString", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@PublishedApi
 /* loaded from: classes10.dex */
 public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher {
     public final int corePoolSize;
@@ -30,11 +30,11 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo2258dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2339dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         try {
             CoroutineScheduler.dispatch$default(this.coroutineScheduler, runnable, null, false, 6, null);
         } catch (RejectedExecutionException unused) {
-            DefaultExecutor.INSTANCE.mo2258dispatch(coroutineContext, runnable);
+            DefaultExecutor.INSTANCE.mo2339dispatch(coroutineContext, runnable);
         }
     }
 
@@ -54,7 +54,7 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
     public static /* synthetic */ CoroutineDispatcher blocking$default(ExperimentalCoroutineDispatcher experimentalCoroutineDispatcher, int i, int i2, Object obj) {
         if (obj == null) {
             if ((i2 & 1) != 0) {
-                i = TasksKt.BLOCKING_DEFAULT_PARALLELISM;
+                i = 16;
             }
             return experimentalCoroutineDispatcher.blocking(i);
         }
@@ -81,7 +81,7 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
         try {
             this.coroutineScheduler.dispatch(runnable, taskContext, z);
         } catch (RejectedExecutionException unused) {
-            DefaultExecutor.INSTANCE.enqueue(this.coroutineScheduler.createTask$kotlinx_coroutines_core(runnable, taskContext));
+            DefaultExecutor.INSTANCE.enqueue(this.coroutineScheduler.createTask(runnable, taskContext));
         }
     }
 
@@ -103,18 +103,9 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
         return this.coroutineScheduler;
     }
 
-    public final void restore$kotlinx_coroutines_core() {
-        usePrivateScheduler$kotlinx_coroutines_core();
-    }
-
     @Override // kotlinx.coroutines.CoroutineDispatcher
     public String toString() {
         return super.toString() + "[scheduler = " + this.coroutineScheduler + ']';
-    }
-
-    public final synchronized void usePrivateScheduler$kotlinx_coroutines_core() {
-        this.coroutineScheduler.shutdown(1000L);
-        this.coroutineScheduler = createScheduler();
     }
 
     public final CoroutineDispatcher blocking(int i) {
@@ -125,13 +116,9 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
             z = false;
         }
         if (z) {
-            return new LimitingDispatcher(this, i, 1);
+            return new LimitingDispatcher(this, i, null, 1);
         }
-        throw new IllegalArgumentException(("Expected positive parallelism level, but have " + i).toString());
-    }
-
-    public final synchronized void shutdown$kotlinx_coroutines_core(long j) {
-        this.coroutineScheduler.shutdown(j);
+        throw new IllegalArgumentException(Intrinsics.stringPlus("Expected positive parallelism level, but have ", Integer.valueOf(i)).toString());
     }
 
     public final CoroutineDispatcher limited(int i) {
@@ -147,10 +134,10 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
                 z2 = false;
             }
             if (z2) {
-                return new LimitingDispatcher(this, i, 0);
+                return new LimitingDispatcher(this, i, null, 0);
             }
             throw new IllegalArgumentException(("Expected parallelism level lesser than core pool size (" + this.corePoolSize + "), but have " + i).toString());
         }
-        throw new IllegalArgumentException(("Expected positive parallelism level, but have " + i).toString());
+        throw new IllegalArgumentException(Intrinsics.stringPlus("Expected positive parallelism level, but have ", Integer.valueOf(i)).toString());
     }
 }

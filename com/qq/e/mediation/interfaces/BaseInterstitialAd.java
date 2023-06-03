@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.interstitial2.ADRewardListener;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-/* loaded from: classes9.dex */
-public abstract class BaseInterstitialAd {
+import com.qq.e.comm.adevent.ADListener;
+/* loaded from: classes10.dex */
+public abstract class BaseInterstitialAd implements IBaseAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +47,6 @@ public abstract class BaseInterstitialAd {
         return invokeV.intValue;
     }
 
-    public abstract int getECPM();
-
     public abstract String getECPMLevel();
 
     public abstract int getVideoDuration();
@@ -61,23 +57,45 @@ public abstract class BaseInterstitialAd {
 
     public abstract void loadFullScreenAD();
 
-    public abstract void setAdListener(UnifiedInterstitialADListener unifiedInterstitialADListener);
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendLossNotification(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, str) == null) {
+        }
+    }
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void sendWinNotification(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
+    public abstract void setAdListener(ADListener aDListener);
+
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setBidECPM(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 
     public abstract void setMaxVideoDuration(int i);
 
-    public abstract void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
-
     public abstract void setMinVideoDuration(int i);
 
-    public abstract void setRewardListener(ADRewardListener aDRewardListener);
+    @Override // com.qq.e.mediation.interfaces.IBaseAd
+    public void setPayload(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        }
+    }
 
     public abstract void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     public abstract void setVideoOption(VideoOption videoOption);
-
-    public abstract void setVideoPlayPolicy(int i);
 
     public abstract void show();
 

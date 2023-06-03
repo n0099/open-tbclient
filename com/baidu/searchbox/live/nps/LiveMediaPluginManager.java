@@ -17,7 +17,6 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.live.goback.IYYGobackController;
@@ -38,10 +37,11 @@ import com.baidu.searchbox.live.recommendmore.ILiveRecMoreController;
 import com.baidu.searchbox.live.ubc.FlowInfoHelper;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.ee1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
+import com.baidu.tieba.nf1;
 import com.baidu.ubc.UBCManager;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
@@ -141,8 +141,8 @@ public class LiveMediaPluginManager {
             dLog("preDownloadMediaBusinessPlugin 预加载媒体二级插件");
             Log.d(TAG, "preDownloadYYPluginForCreateLive: + com.baidu.live.media.business start Download");
         }
-        NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new be1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
                 if (LiveMediaPluginManager.this.isDebug()) {
                     LiveMediaPluginManager liveMediaPluginManager = LiveMediaPluginManager.this;
@@ -151,7 +151,7 @@ public class LiveMediaPluginManager {
                 }
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str) {
                 if (LiveMediaPluginManager.this.isDebug()) {
                     if (i == 2) {
@@ -220,19 +220,19 @@ public class LiveMediaPluginManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new be1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str) {
             }
-        }, new de1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
-            @Override // com.baidu.tieba.de1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
-                if (ee1Var != null) {
-                    ee1Var.onResult(1);
+        }, new mf1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
+            @Override // com.baidu.tieba.mf1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, nf1 nf1Var) {
+                if (nf1Var != null) {
+                    nf1Var.onResult(1);
                 }
             }
         }, 1);
@@ -676,7 +676,7 @@ public class LiveMediaPluginManager {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", a.g0);
+                    jSONObject.put("value", "fail");
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);
@@ -1024,7 +1024,7 @@ public class LiveMediaPluginManager {
                     }
                     LiveMediaPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f09d0, 0);
                 }
-            }, "onDiskClearCacheChange", LiveNpsRuntime.getApplication());
+            }, GameAssistConstKt.METHOD_DISK_CLEAR_CACHE_CHANGE, LiveNpsRuntime.getApplication());
             return;
         }
         try {

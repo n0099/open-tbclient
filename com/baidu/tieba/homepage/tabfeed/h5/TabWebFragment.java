@@ -42,21 +42,20 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.aj5;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.cn5;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.cp5;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.fj5;
-import com.baidu.tieba.fs9;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.hs9;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.j97;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.rn5;
-import com.baidu.tieba.yu4;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.et5;
+import com.baidu.tieba.hn5;
+import com.baidu.tieba.me7;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.ry9;
+import com.baidu.tieba.sy9;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.ty9;
+import com.baidu.tieba.vx4;
+import com.baidu.tieba.z28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,8 +66,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class TabWebFragment extends BaseWebViewFragment implements j97 {
+/* loaded from: classes6.dex */
+public class TabWebFragment extends BaseWebViewFragment implements me7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -79,35 +78,36 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     public NestedScrollWebView j;
     public FrameLayout k;
     public ViewGroup l;
-    public fs9 m;
+    public ry9 m;
     public boolean n;
     public boolean o;
     public boolean p;
     public boolean q;
-    public hs9 r;
-    public CustomMessageListener s;
-    public final CustomMessageListener t;
-    public final View.OnClickListener u;
+    public z28 r;
+    public ty9 s;
+    public CustomMessageListener t;
+    public final CustomMessageListener u;
+    public final View.OnClickListener v;
 
-    @Override // com.baidu.tieba.j97
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.j97
-    public void a0() {
+    @Override // com.baidu.tieba.me7
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.on5
+    @Override // com.baidu.tieba.me7
+    public void f0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
@@ -117,11 +117,11 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? "714" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? "714" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements hs9 {
+    /* loaded from: classes6.dex */
+    public class a implements ty9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
@@ -144,7 +144,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             this.a = tabWebFragment;
         }
 
-        @Override // com.baidu.tieba.hs9
+        @Override // com.baidu.tieba.ty9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,13 +189,13 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && fj5.f().b()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && hn5.f().b()) {
                 this.a.i.setPadding(0, 0, 0, (int) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() * 0.5d));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class d implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                         if (!TextUtils.isEmpty(optString3)) {
                             shareItem.z = Uri.parse(optString3);
                         }
-                        shareItem.T = optString5;
+                        shareItem.f1080T = optString5;
                         shareItem.U = optString6;
                         shareItem.V = optString7;
                         shareItem.k0 = jSONObject.optInt("shareimg");
@@ -303,7 +303,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0def);
                 } else {
                     this.a.h();
                 }
@@ -340,7 +340,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -382,7 +382,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                         tabWebFragment2.hideLoadingView(tabWebFragment2.k);
                         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                         TabWebFragment tabWebFragment3 = this.a;
-                        tabWebFragment3.showNetRefreshView(tabWebFragment3.k, inst.getString(R.string.url_not_found), null, inst.getString(R.string.obfuscated_res_0x7f0f1174), false, this.a.u);
+                        tabWebFragment3.showNetRefreshView(tabWebFragment3.k, inst.getString(R.string.url_not_found), null, inst.getString(R.string.obfuscated_res_0x7f0f11c6), false, this.a.v);
                         return;
                     }
                     this.a.n = false;
@@ -394,7 +394,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                     tabWebFragment5.hideNetRefreshView(tabWebFragment5.k);
                     String title = this.a.j.getTitle();
                     if (!TextUtils.isEmpty(title)) {
-                        this.a.P1(title);
+                        this.a.Q1(title);
                     }
                 }
             }
@@ -409,12 +409,12 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                     return false;
                 }
                 if (!this.a.n) {
-                    if (this.a.i2(str) && !TbadkCoreApplication.isLogin() && this.a.getPageContext() != null) {
+                    if (this.a.j2(str) && !TbadkCoreApplication.isLogin() && this.a.getPageContext() != null) {
                         ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
                         return false;
                     }
                     if (this.a.j != null && this.a.j.isShown()) {
-                        if (this.a.I1(str)) {
+                        if (this.a.J1(str)) {
                             int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.a.getPageContext(), new String[]{str});
                             if (dealOneLinkWithOutJumpWebView != 0 && dealOneLinkWithOutJumpWebView != 1) {
                                 return false;
@@ -469,7 +469,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                     tabWebFragment.hideLoadingView(tabWebFragment.k);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                     TabWebFragment tabWebFragment2 = this.a;
-                    tabWebFragment2.showNetRefreshView(tabWebFragment2.k, inst.getString(R.string.url_not_found), null, inst.getString(R.string.obfuscated_res_0x7f0f1174), false, this.a.u);
+                    tabWebFragment2.showNetRefreshView(tabWebFragment2.k, inst.getString(R.string.url_not_found), null, inst.getString(R.string.obfuscated_res_0x7f0f11c6), false, this.a.v);
                 }
             }
         }
@@ -479,14 +479,14 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                iv4.a("TabWebFragment", webView);
+                ay4.a("TabWebFragment", webView);
                 return true;
             }
             return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,29 +543,59 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
         this.n = true;
         this.q = false;
-        this.r = new a(this);
-        this.s = new b(this, 2921551);
-        this.t = new c(this, 2921786);
-        this.u = new e(this);
+        this.s = new a(this);
+        this.t = new b(this, 2921551);
+        this.u = new c(this, 2921786);
+        this.v = new e(this);
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.k != null && this.j != null && !this.o && !TextUtils.isEmpty(this.a) && BdNetTypeUtil.isNetWorkAvailable()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.k != null && this.j != null && !this.o && !TextUtils.isEmpty(this.a) && BdNetTypeUtil.isNetWorkAvailable()) {
             this.o = true;
             this.n = true;
             this.k.setVisibility(0);
             this.j.setVisibility(8);
             hideNetRefreshView(this.k);
             showLoadingView(this.k);
-            m2(this.a);
+            n2(this.a);
         }
     }
 
-    public final boolean i2(String str) {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            super.onPrimary();
+            if (isAdded() && isPrimary()) {
+                if (this.j == null) {
+                    return;
+                }
+                q2();
+                if (this.n) {
+                    initData();
+                }
+                p2();
+                this.j.reshow();
+                ry9 ry9Var = this.m;
+                if (ry9Var != null) {
+                    ry9Var.i(this.j, CommonTbJsBridge.RE_SHOW, null);
+                }
+                this.j.setWebViewSkinOverly(this.g);
+            } else {
+                MessageManager.getInstance().unRegisterTask(2016568);
+            }
+            z28 z28Var = this.r;
+            if (z28Var != null) {
+                z28Var.e();
+            }
+        }
+    }
+
+    public final boolean j2(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return false;
             }
@@ -574,9 +604,9 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         return invokeL.booleanValue;
     }
 
-    public void m2(String str) {
+    public void n2(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && this.j != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.j != null) {
             CompatibleUtile.getInstance().loadUrl(this.j, str);
             this.j.setWebViewSkinOverly(str);
         }
@@ -585,7 +615,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             super.onActivityCreated(bundle);
         }
     }
@@ -593,15 +623,15 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            cp5.a(getPageContext(), this.i);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            et5.a(getPageContext(), this.i);
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putString("tab_name", this.e);
             bundle.putString("tab_code", this.f);
@@ -613,12 +643,12 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             super.onUserChanged(z);
         }
     }
 
-    public static void o2() {
+    public static void p2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
             CustomMessageTask customMessageTask = new CustomMessageTask(2016568, new d());
@@ -627,24 +657,32 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.on5
+    @Override // com.baidu.tieba.me7
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            h();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.qr5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return super.getCurrentPageSourceKeyList();
         }
         return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public rn5 getPageStayDurationItem() {
+    public tr5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return super.getPageStayDurationItem();
         }
-        return (rn5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     public final void initData() {
@@ -654,52 +692,52 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             if (str != null && str.contains("redirect=1")) {
                 this.q = true;
             }
-            m2(this.a);
+            n2(this.a);
         }
     }
 
-    public String j2() {
+    public String k2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.e;
         }
         return (String) invokeV.objValue;
     }
 
-    public void k2() {
+    public void l2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            yu4.j(getBaseFragmentActivity().getApplicationContext());
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            qx4.k(getBaseFragmentActivity().getApplicationContext());
         }
     }
 
-    public final void n2() {
+    public final void o2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            registerListener(this.s);
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             registerListener(this.t);
+            registerListener(this.u);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            fs9 fs9Var = this.m;
-            if (fs9Var != null) {
-                fs9Var.h();
+            ry9 ry9Var = this.m;
+            if (ry9Var != null) {
+                ry9Var.h();
             }
-            aj5.e().b();
-            q2();
+            cn5.e().b();
+            r2();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             NestedScrollWebView nestedScrollWebView = this.j;
             if (nestedScrollWebView != null) {
                 nestedScrollWebView.setVisibility(8);
@@ -711,25 +749,28 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onPause();
-            a35.n(z25.a(this.f));
+            z28 z28Var = this.r;
+            if (z28Var != null) {
+                z28Var.d();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onResume();
         }
     }
 
-    public final void q2() {
+    public final void r2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.s);
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.t);
+            MessageManager.getInstance().unRegisterListener(this.u);
         }
     }
 
@@ -737,7 +778,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     public ViewGroup taskAttachParentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.l;
         }
         return (ViewGroup) invokeV.objValue;
@@ -746,26 +787,18 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void taskStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            String e2 = jt4.f().e(taskActionId(), "tab_code");
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            String e2 = bw4.f().e(taskActionId(), "tab_code");
             if (!TextUtils.isEmpty(e2) && e2.equalsIgnoreCase(this.f)) {
                 super.taskStart();
             }
         }
     }
 
-    @Override // com.baidu.tieba.j97
-    public void y() {
+    @Override // com.baidu.tieba.me7
+    public void i0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.j97
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             NestedScrollWebView nestedScrollWebView = this.j;
             if (nestedScrollWebView != null) {
@@ -780,22 +813,22 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    public final gs9 h2() {
+    public final sy9 i2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gs9.class, getPageContext());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, sy9.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (gs9) runTask.getData();
+                return (sy9) runTask.getData();
             }
             return null;
         }
-        return (gs9) invokeV.objValue;
+        return (sy9) invokeV.objValue;
     }
 
-    public final void p2() {
+    public final void q2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && isPrimary()) {
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("resource_id", this.e);
@@ -804,10 +837,10 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
         }
     }
 
-    public void l2() {
+    public void m2() {
         NestedScrollWebView nestedScrollWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (nestedScrollWebView = this.j) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (nestedScrollWebView = this.j) != null) {
             nestedScrollWebView.setNeedDisAllowParentInterceptTouchEvent(false);
             this.j.getSettings().setJavaScriptEnabled(true);
             this.j.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
@@ -826,9 +859,9 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             this.j.setScrollBarStyle(33554432);
             this.j.setWebViewClient(new f(this));
             this.j.setDownloadListener(new g(this, null));
-            dv4 dv4Var = new dv4(getPageContext());
-            dv4Var.b(this.r);
-            this.j.setWebChromeClient(dv4Var);
+            vx4 vx4Var = new vx4(getPageContext());
+            vx4Var.b(this.s);
+            this.j.setWebChromeClient(vx4Var);
             CompatibleUtile.getInstance().removeJavascriptInterface(this.j);
             this.j.registerPerformanceTracker(new TbChannelJsInterface(this.d));
         }
@@ -837,7 +870,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048592, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048593, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
         }
     }
@@ -845,7 +878,7 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     @Override // com.baidu.tbadk.browser.BaseWebViewFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
             super.onCreate(bundle);
             if (getArguments() != null) {
                 Bundle arguments = getArguments();
@@ -860,16 +893,19 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
                 this.g = bundle.getString("tab_url");
             }
             this.a = this.g;
+            z28 z28Var = new z28(this);
+            this.r = z28Var;
+            z28Var.a(bundle);
             if (this.m == null) {
-                this.m = new fs9();
+                this.m = new ry9();
             }
             if (this.m.b()) {
                 this.m.a(new XiubaTbJsBridge(getPageContext()));
                 this.m.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
-                this.m.a(h2());
+                this.m.a(i2());
             }
-            k2();
-            n2();
+            l2();
+            o2();
         }
     }
 
@@ -878,18 +914,18 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) {
             View view2 = this.i;
             if (view2 != null && (view2.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) this.i.getParent()).removeView(this.i);
             }
             if (this.i == null) {
-                View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fe, (ViewGroup) null);
+                View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0917, (ViewGroup) null);
                 this.i = inflate;
-                this.j = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0928eb);
+                this.j = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092924);
                 this.k = (FrameLayout) this.i.findViewById(R.id.load_state_container);
-                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f09232f);
-                l2();
+                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f092362);
+                m2();
             }
             NestedScrollWebView nestedScrollWebView = this.j;
             if (nestedScrollWebView != null) {
@@ -900,39 +936,5 @@ public class TabWebFragment extends BaseWebViewFragment implements j97 {
             return this.i;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.onPrimary();
-            if (isAdded() && isPrimary()) {
-                if (this.j == null) {
-                    return;
-                }
-                p2();
-                if (this.n) {
-                    initData();
-                }
-                o2();
-                this.j.reshow();
-                fs9 fs9Var = this.m;
-                if (fs9Var != null) {
-                    fs9Var.i(this.j, CommonTbJsBridge.RE_SHOW, null);
-                }
-                this.j.setWebViewSkinOverly(this.g);
-            } else {
-                MessageManager.getInstance().unRegisterTask(2016568);
-            }
-            if (getContext() != null && isPrimary()) {
-                if ("worldcup".equals(this.f)) {
-                    a35.o(getContext(), z25.h);
-                }
-                a35.o(getContext(), z25.a(this.f));
-                return;
-            }
-            a35.n(z25.a(this.f));
-        }
     }
 }

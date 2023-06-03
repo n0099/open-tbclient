@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static RegisterStatus a(String str) {
         DebugLogger.i("StatusSerialize", "register status serialize stringToRegisterStatus start, statusText=" + str);

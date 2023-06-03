@@ -6,13 +6,13 @@ import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostFileRequest extends Request {
     public PostFileRequest(PostFileRequestBuilder postFileRequestBuilder) {
         super(postFileRequestBuilder);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostFileRequestBuilder extends Request.Builder<PostFileRequestBuilder> {
         public static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
         public File file;

@@ -1,127 +1,272 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tieba.k93;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class k93<SelfT extends k93<SelfT>> extends ju2<SelfT> {
+public class k93 {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static k93 d;
+    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+    public EditText a;
+    public boolean b;
+    public Runnable c;
 
     /* loaded from: classes6.dex */
-    public static final class a extends k93<a> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k93 a;
 
-        public a E() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str);
+        public a(k93 k93Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {k93Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = k93Var;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Bundle bundle) {
-            super(str, bundle);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                this.a.a.postDelayed(this.a.c, 60L);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k93 a;
+
+        public b(k93 k93Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {k93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Bundle) objArr2[1]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = k93Var;
         }
 
-        @Override // com.baidu.tieba.co3
-        public /* bridge */ /* synthetic */ co3 d() {
-            E();
-            return this;
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                Object adapter = adapterView.getAdapter();
+                if (adapter instanceof EmojiBagLayout.b) {
+                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
+                    if (this.a.a == null) {
+                        return;
+                    }
+                    if (i == bVar.getCount() - 1) {
+                        if (this.a.b) {
+                            this.a.a.removeCallbacks(this.a.c);
+                            this.a.b = false;
+                            return;
+                        }
+                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                        return;
+                    }
+                    String item = bVar.getItem(i);
+                    if (!TextUtils.isEmpty(item)) {
+                        this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), l93.c().g(k93.e, item, this.a.a));
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public k93(String str) {
-        this(str, null);
+    /* loaded from: classes6.dex */
+    public class c implements AdapterView.OnItemLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k93 a;
+
+        public c(k93 k93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k93Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemLongClickListener
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+                Object adapter = adapterView.getAdapter();
+                if (!(adapter instanceof EmojiBagLayout.b) || i != ((EmojiBagLayout.b) adapter).getCount() - 1) {
+                    return false;
+                }
+                this.a.b = true;
+                if (this.a.a != null) {
+                    this.a.a.post(this.a.c);
+                    return false;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k93 a;
+
+        public d(k93 k93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k93Var;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.k();
+                    return false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public k93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Bundle) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new a(this);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k93(String str, Bundle bundle) {
-        super(bundle);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Bundle) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = TextUtils.isEmpty(str) ? "" : str;
-    }
-
-    @Override // com.baidu.tieba.ju2
-    public String toString() {
+    public AdapterView.OnItemClickListener h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("Event(%s) Ext => %s", this.b, super.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new b(this);
         }
-        return (String) invokeV.objValue;
+        return (AdapterView.OnItemClickListener) invokeV.objValue;
+    }
+
+    public AdapterView.OnItemLongClickListener i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new c(this);
+        }
+        return (AdapterView.OnItemLongClickListener) invokeV.objValue;
+    }
+
+    public View.OnTouchListener j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new d(this);
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public void k() {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (editText = this.a) != null) {
+            editText.removeCallbacks(this.c);
+        }
+    }
+
+    public void f(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
+            this.a = editText;
+        }
+    }
+
+    public static k93 g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            e = context.getApplicationContext();
+            if (d == null) {
+                synchronized (k93.class) {
+                    if (d == null) {
+                        d = new k93();
+                    }
+                }
+            }
+            return d;
+        }
+        return (k93) invokeL.objValue;
     }
 }

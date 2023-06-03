@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EmptyResultData extends BaseResultData {
     public static final long serialVersionUID = 300566013789292164L;
 }

@@ -41,10 +41,10 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.oa5;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public t75 f;
+    public pa5 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -429,8 +429,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public void setListBackground(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && this.e != null && getViewContext() != null) {
-            int l = ri.l(getViewContext()) / 2;
-            int j = ri.j(getViewContext()) / 3;
+            int l = vi.l(getViewContext()) / 2;
+            int j = vi.j(getViewContext()) / 3;
             if (i < l && i2 < j) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
             } else if (i < l && i2 > j) {
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(t75 t75Var) {
+    public void setOnDismissListener(pa5 pa5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, t75Var) == null) {
-            this.f = t75Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, pa5Var) == null) {
+            this.f = pa5Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.p(t75Var);
+                lightEmotionAdapter.p(pa5Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            t75 t75Var = this.f;
-            if (t75Var != null) {
-                t75Var.onClose();
+            pa5 pa5Var = this.f;
+            if (pa5Var != null) {
+                pa5Var.onClose();
                 return null;
             }
             return null;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && qi.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && ui.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 K(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    s75.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    oa5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            t75 t75Var = this.f;
-            if (t75Var != null) {
-                t75Var.onClose();
+            pa5 pa5Var = this.f;
+            if (pa5Var != null) {
+                pa5Var.onClose();
             }
         }
     }
@@ -698,24 +698,6 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void N(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) != null) || view2 == null) {
-            return;
-        }
-        Path path = new Path();
-        float x = view2.getX();
-        float y = view2.getY();
-        path.moveTo(x, y);
-        path.quadTo(x, y - 500.0f, this.p, this.q);
-        PathInterpolator pathInterpolator = new PathInterpolator(0.33f, 0.0f, 0.12f, 1.0f);
-        this.s.addListener(new a(this, view2, i));
-        this.s.playTogether(ObjectAnimator.ofFloat(view2, View.SCALE_X, 1.0f, 0.0f), ObjectAnimator.ofFloat(view2, View.SCALE_Y, 1.0f, 0.0f), ObjectAnimator.ofFloat(view2, "x", "y", path));
-        this.s.setInterpolator(pathInterpolator);
-        this.s.setDuration(600L);
-        this.s.start();
-    }
-
     public final void K(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && this.A != null) {
@@ -737,9 +719,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!G(this.b, this.v, rawY)) {
-                    t75 t75Var = this.f;
-                    if (t75Var != null) {
-                        t75Var.onClose();
+                    pa5 pa5Var = this.f;
+                    if (pa5Var != null) {
+                        pa5Var.onClose();
                         return true;
                     }
                     return true;
@@ -748,6 +730,24 @@ public class LightInteractiveLayout extends ConstraintLayout {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void N(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) != null) || view2 == null) {
+            return;
+        }
+        Path path = new Path();
+        float x = view2.getX();
+        float y = view2.getY();
+        path.moveTo(x, y);
+        path.quadTo(x, y - 500.0f, this.p, this.q);
+        PathInterpolator pathInterpolator = new PathInterpolator(0.33f, 0.0f, 0.12f, 1.0f);
+        this.s.addListener(new a(this, view2, i));
+        this.s.playTogether(ObjectAnimator.ofFloat(view2, View.SCALE_X, 1.0f, 0.0f), ObjectAnimator.ofFloat(view2, View.SCALE_Y, 1.0f, 0.0f), ObjectAnimator.ofFloat(view2, "x", "y", path));
+        this.s.setInterpolator(pathInterpolator);
+        this.s.setDuration(600L);
+        this.s.start();
     }
 
     @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
@@ -772,8 +772,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
         if ((interceptable != null && interceptable.invokeII(1048593, this, i, i2) != null) || getViewContext() == null) {
             return;
         }
-        int l = ri.l(getViewContext()) / 2;
-        int j = ri.j(getViewContext()) / 3;
+        int l = vi.l(getViewContext()) / 2;
+        int j = vi.j(getViewContext()) / 3;
         this.t = i;
         this.u = i2;
         c cVar = new c(this, getViewContext());

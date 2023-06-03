@@ -1,40 +1,40 @@
 package rx.subjects;
 
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.icb;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.o7b;
-import com.baidu.tieba.v7b;
-import com.baidu.tieba.w7b;
+import com.baidu.tieba.imb;
+import com.baidu.tieba.irb;
+import com.baidu.tieba.jmb;
+import com.baidu.tieba.omb;
+import com.baidu.tieba.vmb;
+import com.baidu.tieba.wmb;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes10.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements i7b.a<T> {
+/* loaded from: classes2.dex */
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements imb.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public w7b<c<T>> onAdded;
-    public w7b<c<T>> onStart;
-    public w7b<c<T>> onTerminated;
+    public wmb<c<T>> onAdded;
+    public wmb<c<T>> onStart;
+    public wmb<c<T>> onTerminated;
 
-    /* loaded from: classes10.dex */
-    public class a implements v7b {
+    /* loaded from: classes2.dex */
+    public class a implements vmb {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.v7b
+        @Override // com.baidu.tieba.vmb
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class b<T> {
         public static final c[] c;
         public static final b d;
@@ -96,16 +96,16 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class c<T> implements j7b<T> {
-        public final o7b<? super T> a;
+    /* loaded from: classes2.dex */
+    public static final class c<T> implements jmb<T> {
+        public final omb<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(o7b<? super T> o7bVar) {
-            this.a = o7bVar;
+        public c(omb<? super T> ombVar) {
+            this.a = ombVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.j7b
+        @Override // com.baidu.tieba.jmb
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.j7b
+        @Override // com.baidu.tieba.jmb
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.j7b
+        @Override // com.baidu.tieba.jmb
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(o7b<? super T> o7bVar) {
-        c<T> cVar = new c<>(o7bVar);
-        addUnsubscriber(o7bVar, cVar);
+    public void call(omb<? super T> ombVar) {
+        c<T> cVar = new c<>(ombVar);
+        addUnsubscriber(ombVar, cVar);
         this.onStart.call(cVar);
-        if (!o7bVar.isUnsubscribed() && add(cVar) && o7bVar.isUnsubscribed()) {
+        if (!ombVar.isUnsubscribed() && add(cVar) && ombVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(o7b<? super T> o7bVar, c<T> cVar) {
-        o7bVar.b(icb.a(new a(cVar)));
+    public void addUnsubscriber(omb<? super T> ombVar, c<T> cVar) {
+        ombVar.b(irb.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
+    @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((o7b) ((o7b) obj));
+        call((omb) ((omb) obj));
     }
 }

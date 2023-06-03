@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,211 +15,96 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tj2 {
+public class tj2 implements V8Engine.JavaScriptExceptionDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile tj2 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public gj2 a;
+    public String b;
 
     /* loaded from: classes7.dex */
-    public class a implements zn3<Exception> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final boolean d;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn3 a;
-        public final /* synthetic */ int b;
+        public JSEvent a;
+        public String b;
+        public String c;
 
-        /* renamed from: com.baidu.tieba.tj2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0457a implements zn3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0457a(a aVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-401846160, "Lcom/baidu/tieba/tj2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zn3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                    g62.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    zn3 zn3Var = this.a.a;
-                    if (zn3Var != null) {
-                        zn3Var.a(exc);
-                    }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-401846160, "Lcom/baidu/tieba/tj2$a;");
+                    return;
                 }
             }
+            d = is1.a;
         }
 
-        public a(tj2 tj2Var, zn3 zn3Var, int i) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj2Var, zn3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zn3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc == null) {
-                    g62.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    zn3 zn3Var = this.a;
-                    if (zn3Var != null) {
-                        zn3Var.a(null);
-                        return;
-                    }
-                    return;
-                }
-                g62.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                li3.o(this.b, new C0457a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements zn3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn3 a;
-        public final /* synthetic */ int b;
-
-        /* loaded from: classes7.dex */
-        public class a implements zn3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zn3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                zn3 zn3Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (zn3Var = this.a.a) != null) {
-                    zn3Var.a(exc);
-                }
-            }
-        }
-
-        public b(tj2 tj2Var, zn3 zn3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj2Var, zn3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zn3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc != null) {
-                    zn3 zn3Var = this.a;
-                    if (zn3Var != null) {
-                        zn3Var.a(exc);
-                        return;
-                    }
-                    return;
-                }
-                pj2.h(this.b, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tj2 a;
-
-        public c(tj2 tj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.a = tj2Var;
+            this.a = new JSEvent("error");
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public JSEvent a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("message", this.b);
+                    jSONObject.put("stack", this.c);
+                } catch (JSONException e) {
+                    if (d) {
+                        Log.e("V8Exception", Log.getStackTraceString(e));
+                    }
+                }
+                if (jSONObject.length() > 0) {
+                    this.a.data = jSONObject;
+                }
+                return this.a;
             }
+            return (JSEvent) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -232,79 +121,67 @@ public class tj2 {
                 return;
             }
         }
-        a = qp1.a;
+        boolean z = is1.a;
     }
 
-    public tj2() {
+    public tj2(gj2 gj2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gj2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
+        this.a = gj2Var;
     }
 
-    public static tj2 d() {
-        InterceptResult invokeV;
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (tj2.class) {
-                    if (b == null) {
-                        b = new tj2();
-                    }
-                }
-            }
-            return b;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.m() == null) {
+            return;
         }
-        return (tj2) invokeV.objValue;
+        EventTarget m = this.a.m();
+        a aVar = new a();
+        aVar.b(str + "\n" + str2);
+        aVar.c("");
+        m.dispatchEvent(aVar.a());
     }
 
-    public final void b() {
+    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
+    @SuppressLint({"SwanDebugLog"})
+    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pi3.b().e(null, 0);
-            pi3.b().e(null, 1);
-            pj2.h(0, null);
-            pj2.h(1, null);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
+            return;
         }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
+        String str2 = "";
+        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+            str = "";
+        } else {
+            str = v8ExceptionInfo.exceptionMsg;
         }
-    }
-
-    public void c(@Nullable zn3<Exception> zn3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zn3Var, i) == null) {
-            g62.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
-            g(new a(this, zn3Var, i), i);
+        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+            str2 = v8ExceptionInfo.exceptionTrace;
         }
-    }
-
-    public final void g(@Nullable zn3<Exception> zn3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, zn3Var, i) == null) {
-            pi3.b().e(new b(this, zn3Var, i), i);
+        Log.e("V8Exception", this.a.l0() + "msg: " + str + " ,stack: " + str2);
+        this.a.w().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
+            return;
         }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            if (a) {
-                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
-            }
-            li3.l(i, i2);
-            pj2.g(i, i2);
-        }
+        this.b = str;
+        a(str, str2);
+        jt1 j = gv2.j();
+        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
+        si3.b(v8ExceptionInfo);
+        gv2.i().r(v8ExceptionInfo);
     }
 }

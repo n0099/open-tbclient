@@ -1,119 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class zq8 {
+public final class zq8 extends xq8<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Context b;
-    public TextView c;
-    public ImageView d;
-    public TailData e;
-    public View f;
 
-    public zq8() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948368712, "Lcom/baidu/tieba/zq8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948368712, "Lcom/baidu/tieba/zq8;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zq8(String key) {
+        super(key);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(key, "key");
+        e(c() + "_tips_disappear");
     }
 
-    public TailData b() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a(Boolean.FALSE).booleanValue();
         }
-        return (TailData) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void c() {
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
-            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Boolean bool = Boolean.FALSE;
+            d(bool);
+            return bool.booleanValue();
         }
+        return invokeV.booleanValue;
     }
 
-    public View a(Context context) {
-        InterceptResult invokeL;
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090e, (ViewGroup) null);
-            this.a = inflate;
-            this.b = context;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092325);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092324);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092323);
-            this.f = findViewById;
-            findViewById.setTag(this);
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            boolean booleanValue = a(Boolean.FALSE).booleanValue();
+            if (!booleanValue) {
+                Boolean bool = Boolean.TRUE;
+                d(bool);
+                return bool.booleanValue();
+            }
+            return booleanValue;
         }
-        return (View) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(String str) {
+    public final boolean g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.setTextColor(fr8.a(str));
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            if (z) {
+                return h();
+            }
+            return f();
         }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
-            this.e = tailData;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.b, gr8.a(str), null));
-        }
-    }
-
-    public void h(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
-            return;
-        }
-        g(tailData.getContent());
-        d(tailData.getFontColor());
-        this.d.setSelected(tailData.isSelected());
+        return invokeZ.booleanValue;
     }
 }

@@ -1,6 +1,6 @@
 package org.apache.http.conn.routing;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicRouteDirector implements HttpRouteDirector {
     public BasicRouteDirector() {
         throw new RuntimeException("Stub!");

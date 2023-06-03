@@ -31,16 +31,16 @@ import com.baidu.tbadk.core.util.svg.SvgMaskType;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.et5;
-import com.baidu.tieba.is5;
-import com.baidu.tieba.it5;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.jw4;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.az4;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.gx5;
+import com.baidu.tieba.kw5;
+import com.baidu.tieba.kx5;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.u19;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.x79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,9 +65,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public u19 n;
+    public x79 n;
     public TbPageContext o;
-    public d25 p;
+    public a55 p;
     public Bitmap q;
     public View r;
     public ImageView s;
@@ -317,7 +317,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class h extends et5<ShareItem> {
+    public class h extends gx5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -345,7 +345,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.et5
+        @Override // com.baidu.tieba.gx5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -358,7 +358,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class i implements is5<ShareItem> {
+    public class i implements kw5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -384,7 +384,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.is5
+        @Override // com.baidu.tieba.kw5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -434,7 +434,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             }
             statisticItem.param("obj_source", this.z);
             TiebaStatic.log(statisticItem);
-            it5.b(new h(this, bitmap, i2), new i(this, i2));
+            kx5.b(new h(this, bitmap, i2), new i(this, i2));
         }
     }
 
@@ -455,12 +455,12 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         int l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            int g2 = ri.g(this.c, R.dimen.tbds44);
-            int g3 = ri.g(this.c, R.dimen.tbds54);
+            int g2 = vi.g(this.c, R.dimen.tbds44);
+            int g3 = vi.g(this.c, R.dimen.tbds54);
             if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                l = ri.j(this.c);
+                l = vi.j(this.c);
             } else {
-                l = ri.l(this.c);
+                l = vi.l(this.c);
             }
             return ((l - (g2 * 2)) - g3) / 6;
         }
@@ -504,15 +504,15 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean h(TbPageContext tbPageContext, d25 d25Var) {
+    public boolean h(TbPageContext tbPageContext, a55 a55Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, d25Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, a55Var)) == null) {
             this.o = tbPageContext;
-            this.p = d25Var;
+            this.p = a55Var;
             l(this.c);
             if (this.a.getParams() != null && !ListUtils.isEmpty(this.a.getParams().getThread_list())) {
-                this.u.addView(new iw4(this.c, this.a).a());
+                this.u.addView(new az4(this.c, this.a).a());
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
                 statisticItem.param("obj_source", 1);
@@ -520,9 +520,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                 this.z = 2;
             } else if (this.a.getParams() != null) {
                 if (this.a.getParams().getVideo_info() != null) {
-                    this.u.addView(new kw4(this.c, this.a).a());
+                    this.u.addView(new cz4(this.c, this.a).a());
                 } else {
-                    this.u.addView(new jw4(this.c, this.a).a());
+                    this.u.addView(new bz4(this.c, this.a).a());
                 }
                 this.l.setText(this.a.getParams().getTitle());
                 StatisticItem statisticItem2 = new StatisticItem("c10898");
@@ -567,7 +567,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         Drawable drawable = absSvgType.getDrawable();
-        int g2 = ri.g(getContext(), R.dimen.tbds88);
+        int g2 = vi.g(getContext(), R.dimen.tbds88);
         drawable.setBounds(0, 0, g2, g2);
         textView.setCompoundDrawables(null, drawable, null, null);
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
@@ -658,7 +658,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new u19(this.o);
+            this.n = new x79(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

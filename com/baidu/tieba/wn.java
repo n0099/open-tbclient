@@ -1,14 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes8.dex */
-public interface wn<T> extends sn<T> {
-    int g(int i, int i2);
+public interface wn<T> {
+    int getCount();
 
-    en<rn, TypeAdapter.ViewHolder> h(rn rnVar);
+    T getItem(int i);
 
-    void notifyItemChanged(int i);
-
-    void notifyItemChanged(int i, @Nullable Object obj);
+    void notifyDataSetChanged();
 }

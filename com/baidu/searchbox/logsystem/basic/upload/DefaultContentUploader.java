@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.ByteArrayOutputStream;
@@ -20,7 +19,7 @@ import java.net.URL;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultContentUploader extends BaseContentUploader {
     public static final int CONNECT_TIMEOUT = 30000;
     public static final boolean DEBUG = LLog.sDebug;
@@ -227,7 +226,7 @@ public class DefaultContentUploader extends BaseContentUploader {
                             inputStream2 = null;
                         }
                         if (inputStream2 != null) {
-                            str2 = inputStream2.toString(IMAudioTransRequest.CHARSET);
+                            str2 = inputStream2.toString("utf-8");
                         }
                         if (responseCode == 200 && !TextUtils.isEmpty(str2)) {
                             try {

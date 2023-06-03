@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
-import com.google.protobuf.CodedInputStream;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -24,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -225,7 +224,7 @@ public class c extends a<MessageV3> {
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SCHEDULE_NOTIFICATION_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION);
-        PendingIntent service = PendingIntent.getService(d(), 0, intent, MinSdkChecker.isSupportSetDrawableSmallIcon() ? CodedInputStream.DEFAULT_SIZE_LIMIT : 1073741824);
+        PendingIntent service = PendingIntent.getService(d(), 0, intent, MinSdkChecker.isSupportSetDrawableSmallIcon() ? 67108864 : 1073741824);
         String startShowTime = messageV3.getTimeDisplaySetting().getStartShowTime();
         String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(Long.valueOf(startShowTime).longValue()));
         long longValue = Long.valueOf(startShowTime).longValue() - System.currentTimeMillis();

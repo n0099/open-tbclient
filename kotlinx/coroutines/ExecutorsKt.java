@@ -4,19 +4,25 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import kotlin.Metadata;
 import kotlin.jvm.JvmName;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a\u0013\u0010\u0004\u001a\u00020\u0001*\u00020\u0000H\u0007¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0013\u0010\u0004\u001a\u00020\u0006*\u00020\u0005H\u0007¢\u0006\u0004\b\u0002\u0010\u0007\u001a\u0011\u0010\b\u001a\u00020\u0000*\u00020\u0001¢\u0006\u0004\b\b\u0010\t¨\u0006\n"}, d2 = {"Ljava/util/concurrent/Executor;", "Lkotlinx/coroutines/CoroutineDispatcher;", "from", "(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;", "asCoroutineDispatcher", "Ljava/util/concurrent/ExecutorService;", "Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "(Ljava/util/concurrent/ExecutorService;)Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "asExecutor", "(Lkotlinx/coroutines/CoroutineDispatcher;)Ljava/util/concurrent/Executor;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u001e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u001a\u0011\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u0007¢\u0006\u0002\b\u0003\u001a\u0011\u0010\u0000\u001a\u00020\u0004*\u00020\u0005H\u0007¢\u0006\u0002\b\u0003\u001a\n\u0010\u0006\u001a\u00020\u0002*\u00020\u0001*\u0010\b\u0007\u0010\u0007\"\u00020\u00042\u00020\u0004B\u0002\b\b¨\u0006\t"}, d2 = {"asCoroutineDispatcher", "Lkotlinx/coroutines/CoroutineDispatcher;", "Ljava/util/concurrent/Executor;", "from", "Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "Ljava/util/concurrent/ExecutorService;", "asExecutor", "CloseableCoroutineDispatcher", "Lkotlinx/coroutines/ExperimentalCoroutinesApi;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class ExecutorsKt {
+    @ExperimentalCoroutinesApi
+    public static /* synthetic */ void CloseableCoroutineDispatcher$annotations() {
+    }
+
     public static final Executor asExecutor(CoroutineDispatcher coroutineDispatcher) {
-        CoroutineDispatcher coroutineDispatcher2;
-        Executor executor;
-        if (!(coroutineDispatcher instanceof ExecutorCoroutineDispatcher)) {
-            coroutineDispatcher2 = null;
+        ExecutorCoroutineDispatcher executorCoroutineDispatcher;
+        Executor executor = null;
+        if (coroutineDispatcher instanceof ExecutorCoroutineDispatcher) {
+            executorCoroutineDispatcher = (ExecutorCoroutineDispatcher) coroutineDispatcher;
         } else {
-            coroutineDispatcher2 = coroutineDispatcher;
+            executorCoroutineDispatcher = null;
         }
-        ExecutorCoroutineDispatcher executorCoroutineDispatcher = (ExecutorCoroutineDispatcher) coroutineDispatcher2;
-        if (executorCoroutineDispatcher == null || (executor = executorCoroutineDispatcher.getExecutor()) == null) {
+        if (executorCoroutineDispatcher != null) {
+            executor = executorCoroutineDispatcher.getExecutor();
+        }
+        if (executor == null) {
             return new DispatcherExecutor(coroutineDispatcher);
         }
         return executor;
@@ -24,15 +30,17 @@ public final class ExecutorsKt {
 
     @JvmName(name = "from")
     public static final CoroutineDispatcher from(Executor executor) {
-        Executor executor2;
-        CoroutineDispatcher coroutineDispatcher;
-        if (!(executor instanceof DispatcherExecutor)) {
-            executor2 = null;
+        DispatcherExecutor dispatcherExecutor;
+        CoroutineDispatcher coroutineDispatcher = null;
+        if (executor instanceof DispatcherExecutor) {
+            dispatcherExecutor = (DispatcherExecutor) executor;
         } else {
-            executor2 = executor;
+            dispatcherExecutor = null;
         }
-        DispatcherExecutor dispatcherExecutor = (DispatcherExecutor) executor2;
-        if (dispatcherExecutor == null || (coroutineDispatcher = dispatcherExecutor.dispatcher) == null) {
+        if (dispatcherExecutor != null) {
+            coroutineDispatcher = dispatcherExecutor.dispatcher;
+        }
+        if (coroutineDispatcher == null) {
             return new ExecutorCoroutineDispatcherImpl(executor);
         }
         return coroutineDispatcher;

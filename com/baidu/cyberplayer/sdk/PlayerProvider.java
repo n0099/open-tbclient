@@ -22,7 +22,11 @@ public abstract class PlayerProvider {
 
     public abstract int getDuration();
 
+    public abstract void getMediaRuntimeInfo(CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
+
     public abstract long getPlayedTime();
+
+    public abstract String getPlayerConfigOptions();
 
     public abstract int getVideoHeight();
 
@@ -109,9 +113,11 @@ public abstract class PlayerProvider {
 
     public abstract void start();
 
+    public abstract void stepToNextFrame();
+
     public abstract void stop();
 
-    public void switchMediaSource(int i) {
+    public void switchMediaSource(int i, CyberPlayerManager.MediaSourceSwitchMode mediaSourceSwitchMode) {
     }
 
     public void updateDisplaySize(int i, int i2) {

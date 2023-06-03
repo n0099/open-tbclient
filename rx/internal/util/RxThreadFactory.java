@@ -2,13 +2,13 @@ package rx.internal.util;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public static final ThreadFactory NONE = new a();
     public static final long serialVersionUID = -8841098858898482335L;
     public final String prefix;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ThreadFactory {
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {

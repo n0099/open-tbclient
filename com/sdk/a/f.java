@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +31,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
@@ -43,7 +42,7 @@ public class f<T> {
     public g<T> e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -332,26 +331,26 @@ public class f<T> {
                                         }
                                         ArrayList<File> arrayList2 = gVar2.g;
                                         if (arrayList2 != null && arrayList2.size() > 0) {
-                                            byteArrayOutputStream.write(("--" + c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
-                                            byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes(IMAudioTransRequest.CHARSET));
-                                            byteArrayOutputStream.write("\r\n\r\n".getBytes(IMAudioTransRequest.CHARSET));
-                                            byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
-                                            byteArrayOutputStream.write("\r\n".getBytes(IMAudioTransRequest.CHARSET));
+                                            byteArrayOutputStream.write(("--" + c + "\r\n").getBytes("utf-8"));
+                                            byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes("utf-8"));
+                                            byteArrayOutputStream.write("\r\n\r\n".getBytes("utf-8"));
+                                            byteArrayOutputStream.write(a2.getBytes("utf-8"));
+                                            byteArrayOutputStream.write("\r\n".getBytes("utf-8"));
                                             for (int i = 0; i < arrayList2.size(); i++) {
                                                 File file = arrayList2.get(i);
                                                 if (file != null) {
                                                     FileInputStream fileInputStream = new FileInputStream(file);
                                                     String name = file.getName();
-                                                    byteArrayOutputStream.write(("--" + c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
+                                                    byteArrayOutputStream.write(("--" + c + "\r\n").getBytes("utf-8"));
                                                     StringBuilder sb = new StringBuilder();
                                                     sb.append("Content-Disposition: form-data; name=\"");
                                                     sb.append(name);
                                                     sb.append("\"; filename=\"");
                                                     sb.append(name);
                                                     sb.append("\"\r\n");
-                                                    byteArrayOutputStream.write(sb.toString().getBytes(IMAudioTransRequest.CHARSET));
-                                                    byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n".getBytes(IMAudioTransRequest.CHARSET));
-                                                    byteArrayOutputStream.write("Content-Transfer-Encoding: binary\r\n\r\n".getBytes(IMAudioTransRequest.CHARSET));
+                                                    byteArrayOutputStream.write(sb.toString().getBytes("utf-8"));
+                                                    byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n".getBytes("utf-8"));
+                                                    byteArrayOutputStream.write("Content-Transfer-Encoding: binary\r\n\r\n".getBytes("utf-8"));
                                                     byte[] bArr = new byte[1024];
                                                     while (true) {
                                                         int read = fileInputStream.read(bArr);
@@ -364,13 +363,13 @@ public class f<T> {
                                                     sb2.append("\r\n--");
                                                     sb2.append(c);
                                                     sb2.append("--\r\n");
-                                                    byteArrayOutputStream.write(sb2.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                                    byteArrayOutputStream.write(sb2.toString().getBytes("utf-8"));
                                                     byteArrayOutputStream.flush();
                                                     fileInputStream.close();
                                                 }
                                             }
                                         } else {
-                                            byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
+                                            byteArrayOutputStream.write(a2.getBytes("utf-8"));
                                         }
                                     } catch (Exception e) {
                                         com.sdk.o.b.c(e.toString());

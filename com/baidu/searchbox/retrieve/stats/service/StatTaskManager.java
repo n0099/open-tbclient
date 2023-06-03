@@ -193,10 +193,10 @@ public class StatTaskManager {
             } else {
                 str5 = StatConstants.ERR_MSG_DISPATCH_NOT_REGISTER;
             }
-            recordRetrieveData(StatConstants.VALUE_TYPE_DISPATCH, z, str, str2, str3, str4, str5, "", null);
+            recordRetrieveData("dispatch", z, str, str2, str3, str4, str5, "", null);
         }
         str5 = "";
-        recordRetrieveData(StatConstants.VALUE_TYPE_DISPATCH, z, str, str2, str3, str4, str5, "", null);
+        recordRetrieveData("dispatch", z, str, str2, str3, str4, str5, "", null);
     }
 
     public void recordReceiveRetrieveData(boolean z) {

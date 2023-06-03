@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.li;
-import com.baidu.tieba.q85;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class UserRecommendLayout extends LinearLayout {
     public int c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public gg<UserRecommendItemView> f;
+    public kg<UserRecommendItemView> f;
     public final ViewGroup.OnHierarchyChangeListener g;
 
     /* loaded from: classes5.dex */
@@ -71,8 +71,8 @@ public class UserRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) && (view3 instanceof UserRecommendItemView) && this.a.f != null) {
                 UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view3;
-                if (userRecommendItemView.getTag() instanceof q85) {
-                    ((q85) userRecommendItemView.getTag()).t(this.a.a.getUniqueId());
+                if (userRecommendItemView.getTag() instanceof mb5) {
+                    ((mb5) userRecommendItemView.getTag()).t(this.a.a.getUniqueId());
                 }
                 this.a.f.e(userRecommendItemView);
             }
@@ -195,10 +195,10 @@ public class UserRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(gg<UserRecommendItemView> ggVar) {
+    public void setViewPool(kg<UserRecommendItemView> kgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ggVar) == null) {
-            this.f = ggVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, kgVar) == null) {
+            this.f = kgVar;
         }
     }
 
@@ -255,21 +255,21 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public final void e(UserRecommendItemView userRecommendItemView, MetaData metaData) {
-        q85 q85Var;
+        mb5 mb5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, userRecommendItemView, metaData) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             userRecommendItemView.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(metaData.getFansNum())));
             userRecommendItemView.getUsername().setText(metaData.getName_show());
             userRecommendItemView.getLikeBtn().setFanNumCallBack(new b(this, userRecommendItemView));
-            if (userRecommendItemView.getLikeBtn().getTag() instanceof q85) {
-                q85Var = (q85) userRecommendItemView.getLikeBtn().getTag();
+            if (userRecommendItemView.getLikeBtn().getTag() instanceof mb5) {
+                mb5Var = (mb5) userRecommendItemView.getLikeBtn().getTag();
             } else {
-                q85Var = new q85(this.a, userRecommendItemView.getLikeBtn());
+                mb5Var = new mb5(this.a, userRecommendItemView.getLikeBtn());
             }
-            q85Var.m("7");
-            userRecommendItemView.getLikeBtn().setTag(q85Var);
-            q85Var.n(metaData);
+            mb5Var.m("7");
+            userRecommendItemView.getLikeBtn().setTag(mb5Var);
+            mb5Var.n(metaData);
             userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.d);
             userRecommendItemView.getHeaderView().setData(metaData);
             userRecommendItemView.getHeaderView().setAfterClickListener(this.e);
@@ -283,7 +283,7 @@ public class UserRecommendLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        int a2 = li.a(getContext()) - (getPaddingLeft() * 2);
+        int a2 = pi.a(getContext()) - (getPaddingLeft() * 2);
         int i = this.c;
         int i2 = (a2 - (i * 2)) / 3;
         this.b = i + i2;

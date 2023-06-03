@@ -3,7 +3,6 @@ package com.baidu.ar.pose;
 import android.graphics.PointF;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arrender.l;
@@ -18,7 +17,7 @@ public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";
     public static final String MDL_START_POSE_FUN_EVENT_TYPE_KEY = "event_type";
     public e mv;
-    public int nO = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+    public int nO = 320;
     public int nP = 180;
     public PoseDetector tM;
 
@@ -49,7 +48,7 @@ public class PoseAR extends c {
         int i4 = 180;
         if (Float.compare((1.0f * f) / f2, 1.7777778f) == 0) {
             i = 180;
-            i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            i4 = 320;
         } else if (i2 > i3) {
             i4 = (int) (f * (180.0f / f2));
             i = 180;
@@ -92,7 +91,7 @@ public class PoseAR extends c {
         if (r == null) {
             return hashMap;
         }
-        boolean z = this.T;
+        boolean z = this.f1034T;
         if (fArr != null && fArr.length > 0) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
@@ -100,7 +99,7 @@ public class PoseAR extends c {
                 int i2 = i * 3;
                 PointF pointF = new PointF(fArr[i2], fArr[i2 + 1]);
                 r.a(pointF, z);
-                arrayList2.add(this.T ? new Vector3f(pointF.x, pointF.y, fArr[i2 + 2]) : new Vector3f(pointF.y, pointF.x, fArr[i2 + 2]));
+                arrayList2.add(this.f1034T ? new Vector3f(pointF.x, pointF.y, fArr[i2 + 2]) : new Vector3f(pointF.y, pointF.x, fArr[i2 + 2]));
             }
             arrayList.add(arrayList2);
             hashMap.put("event_data", arrayList);
@@ -130,7 +129,7 @@ public class PoseAR extends c {
         this.tM = new PoseDetector();
         dn();
         this.tM.i(this.nO, this.nP);
-        this.tM.I(this.T);
+        this.tM.I(this.f1034T);
         e eVar = new e() { // from class: com.baidu.ar.pose.PoseAR.1
             @Override // com.baidu.ar.d.e
             public void a(b bVar) {

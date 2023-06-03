@@ -1,69 +1,103 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rh1 {
+public class rh1 implements th1 {
     public static /* synthetic */ Interceptable $ic;
+    public static rh1 b;
+    public static vh1 c;
+    public static zh1 d;
+    public static yh1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static void a(Context context, Bundle bundle) {
+    public rh1(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
-            return;
-        }
-        try {
-            String string = bundle.getString("zid");
-            if (!TextUtils.isEmpty(string)) {
-                bundle.remove("zid");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("c", bundle.getString("cuid"));
-                jSONObject.put("z", string);
-                jSONObject.put("mac", hh1.c());
-                jSONObject.put("app", "android");
-                jSONObject.put("ver", ih1.a(context));
-                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        } catch (Exception e) {
-            oh1.b(e.getMessage());
+        }
+        this.a = context.getApplicationContext();
+        d = new zh1();
+        e = new yh1(context);
+        c = new vh1();
+    }
+
+    public static yh1 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (e == null) {
+                e = new yh1(context);
+            }
+            return e;
+        }
+        return (yh1) invokeL.objValue;
+    }
+
+    public static rh1 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (b == null) {
+                synchronized (rh1.class) {
+                    if (b == null) {
+                        b = new rh1(context);
+                    }
+                }
+            }
+            return b;
+        }
+        return (rh1) invokeL.objValue;
+    }
+
+    public static zh1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                d = new zh1();
+            }
+            return d;
+        }
+        return (zh1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.th1
+    public void a(ImageView imageView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
+            e(imageView, str, 0, 0);
         }
     }
 
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public void e(ImageView imageView, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
+            imageView.setTag(str);
+            Bitmap c2 = d.c(str);
+            if (c2 != null) {
+                imageView.setImageBitmap(c2);
+            } else {
+                pi1.a(new xh1(this.a, c, str, imageView, i, i2));
             }
-            fh1.a = bundle.getString("bduss");
-            fh1.b = bundle.getString("tpOrderId");
-            fh1.g = bundle.getString("nativeAppId");
-            fh1.h = bundle.getString("sceneSource");
-            fh1.c = bundle.getString("appKey");
-            fh1.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
-                }
-                bundle.putString("bannedChannels", jSONArray.toString());
-            }
-            a(context, bundle);
-            return bundle;
         }
-        return (Bundle) invokeLL.objValue;
     }
 }

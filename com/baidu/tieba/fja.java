@@ -1,103 +1,256 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.gha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class fja {
+public class fja extends zia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public sga V;
 
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && !str.equals("")) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 79) {
-                    switch (hashCode) {
-                        case 2126:
-                            if (str.equals("C1")) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 2127:
-                            if (str.equals("C2")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 2128:
-                            if (str.equals("C3")) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 2653:
-                                    if (str.equals("T1")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 2654:
-                                    if (str.equals("T2")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    break;
-                                case 2655:
-                                    if (str.equals("T3")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 2656:
-                                    if (str.equals("T4")) {
-                                        c = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 2657:
-                                    if (str.equals("T5")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (str.equals("O")) {
-                    c = '\b';
-                }
-                switch (c) {
-                    case 0:
-                        return SampleResult.T1;
-                    case 1:
-                        return SampleResult.T2;
-                    case 2:
-                        return SampleResult.T3;
-                    case 3:
-                        return SampleResult.T4;
-                    case 4:
-                        return SampleResult.T5;
-                    case 5:
-                        return SampleResult.C1;
-                    case 6:
-                        return SampleResult.C2;
-                    case 7:
-                        return SampleResult.C3;
-                    case '\b':
-                        return SampleResult.OTHERE;
-                    default:
-                        return SampleResult.OTHERE;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fja a;
+
+        public a(fja fjaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fjaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return SampleResult.OTHERE;
+            this.a = fjaVar;
         }
-        return (SampleResult) invokeL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                qx4.x(this.a.a.getPageActivity(), "", vi.T(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements gha.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gha a;
+        public final /* synthetic */ fja b;
+
+        public b(fja fjaVar, gha ghaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fjaVar, ghaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fjaVar;
+            this.a = ghaVar;
+        }
+
+        @Override // com.baidu.tieba.gha.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cha chaVar = this.b.D;
+                if (chaVar != null) {
+                    chaVar.P(0);
+                }
+                if (this.b.V != null) {
+                    this.b.V.z(8);
+                }
+                this.a.B(8);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull lha lhaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (lha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.U(bundle);
+            this.p.setQuestionThread(true);
+        }
+    }
+
+    public final void A0(@NonNull List<mha<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && B0()) {
+            gha r = pia.r(this.a);
+            r.A(new b(this, r));
+            list.add(r);
+            cha chaVar = this.D;
+            if (chaVar != null) {
+                chaVar.P(8);
+            }
+            sga d = pia.d(this.a);
+            this.V = d;
+            list.add(d);
+            C0();
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, editorTools) == null) {
+            editorTools.setMoreButtonAtEnd(false);
+            editorTools.setBarLauncherType(8);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            ria.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10e4));
+            r0(0, vi.g(this.a.getPageActivity(), R.dimen.M_W_X002));
+            s0(R.drawable.obfuscated_res_0x7f080ba2, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
+            this.j.setOnClickListener(new a(this));
+        }
+    }
+
+    public final boolean B0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TimeHelper.isSameDay(System.currentTimeMillis(), l95.m().o("key_question_write_guide_time", 0L));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            l95.m().A("key_question_write_guide_time", System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            hx9.q(this.p.getForumId(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.c0();
+            hx9.A(this.p.getForumId(), this.p, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.oha
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.j();
+            hx9.A(this.p.getForumId(), this.p, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void M(@NonNull List<mha<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            list.add(pia.o(this.a));
+            cha n = pia.n(this.a, this, this.s, this.J);
+            this.D = n;
+            n.Q(false);
+            list.add(this.D);
+            A0(list);
+            rga c = pia.c(this.a, this, this.d, this.s, this.J);
+            this.E = c;
+            list.add(c);
+            list.add(pia.h(this.a, this.C));
+            zga k = pia.k(this.a);
+            k.w(this.E);
+            list.add(k);
+            aha l = pia.l(this.a);
+            k.w(l);
+            list.add(l);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.iha
+    public void q(@NonNull nha nhaVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, nhaVar, z) == null) {
+            super.q(nhaVar, z);
+            if (this.a.getPageActivity() == null) {
+                return;
+            }
+            if (z) {
+                this.a.getPageActivity().getWindow().setSoftInputMode(16);
+            } else {
+                this.a.getPageActivity().getWindow().setSoftInputMode(48);
+            }
+        }
     }
 }

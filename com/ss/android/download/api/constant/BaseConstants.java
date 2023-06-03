@@ -2,7 +2,7 @@ package com.ss.android.download.api.constant;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BaseConstants {
     @Deprecated
     public static final int ACTION_TYPE_BUTTON = 2;
@@ -21,13 +21,13 @@ public interface BaseConstants {
     public static final String START_ONLY_FOR_ANDROID = "start_only_for_android";
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface ActionType {
         public static final int BTN = 2;
         public static final int ITEM = 1;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Time {
         public static final int DAY = 86400000;
         public static final int HOUR = 3600000;
@@ -37,7 +37,7 @@ public interface BaseConstants {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface ToastScene {
         public static final int NETWORK_NOT_AVAILABLE = 5;
         public static final int NO_STORAGE_PERMISSION = 1;

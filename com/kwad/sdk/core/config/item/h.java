@@ -2,7 +2,7 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends b<com.kwad.sdk.core.network.idc.kwai.a> {
     public h() {
         super("idc", new com.kwad.sdk.core.network.idc.kwai.a());

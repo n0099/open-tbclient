@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw6;
-import com.baidu.tieba.mo6;
-import com.baidu.tieba.n45;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.k75;
 import com.baidu.tieba.videoplay.danmu.DefaultRenderer$draw$1;
+import com.baidu.tieba.xs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,23 +30,23 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "com.baidu.tieba.videoplay.danmu.DefaultRenderer$draw$1", f = "DefaultRenderer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DefaultRenderer$draw$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Canvas $canvas;
-    public final /* synthetic */ mo6 $danmakuItemData;
+    public final /* synthetic */ xs6 $danmakuItemData;
     public transient /* synthetic */ FieldHolder $fh;
     public int label;
     public final /* synthetic */ DefaultRenderer this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultRenderer$draw$1(mo6 mo6Var, Canvas canvas, DefaultRenderer defaultRenderer, Continuation<? super DefaultRenderer$draw$1> continuation) {
+    public DefaultRenderer$draw$1(xs6 xs6Var, Canvas canvas, DefaultRenderer defaultRenderer, Continuation<? super DefaultRenderer$draw$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mo6Var, canvas, defaultRenderer, continuation};
+            Object[] objArr = {xs6Var, canvas, defaultRenderer, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,7 +58,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 return;
             }
         }
-        this.$danmakuItemData = mo6Var;
+        this.$danmakuItemData = xs6Var;
         this.$canvas = canvas;
         this.this$0 = defaultRenderer;
     }
@@ -79,7 +79,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
     }
 
     /* renamed from: invokeSuspend$lambda-0  reason: not valid java name */
-    public static final void m83invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, mo6 mo6Var, SpannableStringBuilder stringBuilder) {
+    public static final void m138invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, xs6 xs6Var, SpannableStringBuilder stringBuilder) {
         TextPaint textPaint;
         TextPaint textPaint2;
         TextPaint textPaint3;
@@ -90,7 +90,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         int i2;
         Paint paint3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, canvas, defaultRenderer, mo6Var, stringBuilder) == null) && canvas.getWidth() > 6) {
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, canvas, defaultRenderer, xs6Var, stringBuilder) == null) && canvas.getWidth() > 6) {
             Intrinsics.checkNotNullExpressionValue(stringBuilder, "stringBuilder");
             textPaint = defaultRenderer.d;
             StaticLayout h = defaultRenderer.h(stringBuilder, textPaint, canvas.getWidth() - 6);
@@ -99,12 +99,12 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
             textPaint3 = defaultRenderer.c;
             textPaint4 = defaultRenderer.c;
             canvas.save();
-            canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + mo6Var.e());
+            canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + xs6Var.e());
             h.draw(canvas);
             h2.draw(canvas);
             canvas.restore();
-            if (mo6Var.g() == 8) {
-                float[] B = n45.B(R.string.J_X04);
+            if (xs6Var.g() == 8) {
+                float[] B = k75.B(R.string.J_X04);
                 paint = defaultRenderer.e;
                 float strokeWidth = paint.getStrokeWidth() * 0.2f;
                 i = defaultRenderer.a;
@@ -130,16 +130,16 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 CharSequence d = this.$danmakuItemData.d();
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
-                final mo6 mo6Var = this.$danmakuItemData;
-                iw6.e(inst, d, new iw6.i() { // from class: com.baidu.tieba.e3a
+                final xs6 xs6Var = this.$danmakuItemData;
+                j17.f(inst, d, new j17.i() { // from class: com.baidu.tieba.q9a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.iw6.i
+                    @Override // com.baidu.tieba.j17.i
                     public final void a(SpannableStringBuilder spannableStringBuilder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                            DefaultRenderer$draw$1.m83invokeSuspend$lambda0(canvas, defaultRenderer, mo6Var, spannableStringBuilder);
+                            DefaultRenderer$draw$1.m138invokeSuspend$lambda0(canvas, defaultRenderer, xs6Var, spannableStringBuilder);
                         }
                     }
                 });

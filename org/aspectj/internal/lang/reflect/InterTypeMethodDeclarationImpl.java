@@ -9,7 +9,7 @@ import java.lang.reflect.TypeVariable;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeMethodDeclaration {
     public Method baseMethod;
     public AjType<?>[] exceptionTypes;

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatFsHelper {
     public static final long DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES = 1048576000;
     public static final long DEFAULT_DISK_RED_LEVEL_IN_BYTES = 104857600;
@@ -34,7 +34,7 @@ public class StatFsHelper {
     public volatile boolean mInitialized = false;
     public final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL

@@ -1,43 +1,142 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
-import com.baidu.tieba.k83;
-import com.baidu.tieba.w54;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.audio.AudioPlayer;
+import com.baidu.tieba.a64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class v54 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class v54 extends EventTargetImpl implements p54, q54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FullScreenFloatView a;
+    public AudioPlayer a;
+    @V8JavascriptField
+    public boolean autoplay;
+    public String b;
+    @V8JavascriptField
+    public int buffered;
+    public ij2 c;
+    @V8JavascriptField
+    public double currentTime;
+    @V8JavascriptField
+    public long duration;
+    @V8JavascriptField
+    public boolean loop;
+    @V8JavascriptField
+    public boolean obeyMuteSwitch;
+    @V8JavascriptField
+    public boolean paused;
+    @V8JavascriptField
+    public String src;
+    @V8JavascriptField
+    public float startTime;
+    @V8JavascriptField
+    public float volume;
 
-    /* loaded from: classes7.dex */
-    public class a implements FullScreenFloatView.c {
+    /* loaded from: classes8.dex */
+    public class g implements a64.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ v54 b;
+        public final /* synthetic */ v54 a;
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void a() {
+        @Override // com.baidu.tieba.a64.b
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        public a(v54 v54Var, Activity activity) {
+        /* loaded from: classes8.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ g b;
+
+            public a(g gVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = gVar;
+                this.a = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.src = lx2.T().G().g(this.a);
+                    if (is1.a) {
+                        Log.d("Aigame AudioContext", "prepare path: " + this.b.a.src + " autoPlay: " + this.b.a.autoplay + " class: " + toString());
+                    }
+                    this.b.a.E(true);
+                }
+            }
+        }
+
+        public g(v54 v54Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v54Var, activity};
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // com.baidu.tieba.a64.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.c.runOnJSThread(new a(this, str));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ v54 b;
+
+        public a(v54 v54Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,74 +147,516 @@ public class v54 {
                 }
             }
             this.b = v54Var;
-            this.a = activity;
+            this.a = z;
         }
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void onClick() {
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.d(this.a);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a && !this.b.a.I()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    this.b.a.N(u54.c(this.b));
+                    v54 v54Var = this.b;
+                    if (v54Var.autoplay) {
+                        v54Var.a.Q();
+                    }
+                }
             }
         }
     }
 
-    public v54() {
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public b(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.Q();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public c(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.O();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ float a;
+        public final /* synthetic */ v54 b;
+
+        public d(v54 v54Var, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var, Float.valueOf(f)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = v54Var;
+            this.a = f;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.U(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public e(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.Y();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public f(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.T();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v54(ij2 ij2Var) {
+        super(ij2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ij2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.src = "";
+        this.volume = 1.0f;
+        this.obeyMuteSwitch = true;
+        this.paused = true;
+        this.c = ij2Var;
+        A();
+    }
+
+    public static AudioPlayer C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new AudioPlayer(str);
+        }
+        return (AudioPlayer) invokeL.objValue;
+    }
+
+    public final void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.a == null) {
+            return;
+        }
+        b64.h().e().post(new a(this, z));
+    }
+
+    public final void F(s54 s54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, s54Var) == null) {
+            this.a.update(s54Var);
         }
     }
 
-    public void c(w54.c cVar, Activity activity) {
-        u54 u54Var;
-        a94 a94Var;
+    @Override // com.baidu.tieba.p54
+    @JavascriptInterface
+    public void seek(float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (cVar != null && (a94Var = cVar.c) != null) {
-                u54Var = a94Var.f;
-            } else {
-                u54Var = null;
-            }
-            if (u54.f(u54Var).b()) {
-                b(activity);
-            }
+        if ((interceptable == null || interceptable.invokeF(1048587, this, f2) == null) && this.a != null) {
+            b64.h().e().post(new d(this, f2));
         }
     }
 
-    public final void b(Activity activity) {
+    @JavascriptInterface
+    public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            FullScreenFloatView a2 = p73.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.a = a2;
-            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f019f));
-            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f080177);
-            this.a.setAutoAttachEnable(false);
-            this.a.setDragImageListener(new a(this, activity));
-            this.a.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsArrayBuffer) == null) {
+            b64.h().m(jsArrayBuffer, new g(this));
         }
     }
 
-    public final void d(Activity activity) {
-        g93 M;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = g93.M()) != null && M.Y() != null) {
-            Resources resources = activity.getResources();
-            String u = SwanInspectorEndpoint.v().u(resources);
-            k83.a aVar = new k83.a(activity);
-            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f0205));
-            aVar.x(u);
-            aVar.n(new oo3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f01cc, null);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String valueOf = String.valueOf(r54.a());
+            this.b = valueOf;
+            this.a = C(valueOf);
+            D();
+        }
+    }
+
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AudioPlayer audioPlayer = this.a;
+            if (audioPlayer != null) {
+                return audioPlayer.y();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            t54 t54Var = new t54(this, u54.i());
+            t54Var.e(this);
+            this.a.V(t54Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.p54
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null) {
+            b64.h().e().post(new f(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.p54
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AudioPlayer audioPlayer = this.a;
+            if (audioPlayer != null) {
+                return (int) audioPlayer.A();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.p54
+    @JavascriptInterface
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null) {
+            b64.h().e().post(new c(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.p54
+    @JavascriptInterface
+    public void play() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null) {
+            b64.h().e().post(new b(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.p54
+    @JavascriptInterface
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.a != null) {
+            b64.h().e().post(new e(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.p54
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            AudioPlayer audioPlayer = this.a;
+            if (audioPlayer != null) {
+                return audioPlayer.z();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (is1.a) {
+                Log.d("Aigame AudioContext", str);
+            }
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case -2129294769:
+                    if (str.equals("startTime")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case -810883302:
+                    if (str.equals("volume")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 114148:
+                    if (str.equals("src")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 3327652:
+                    if (str.equals("loop")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 1439562083:
+                    if (str.equals("autoplay")) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0 && c2 != 1) {
+                if (c2 != 2) {
+                    if (c2 != 3) {
+                        if (c2 == 4 && this.autoplay) {
+                            play();
+                            return;
+                        }
+                        return;
+                    }
+                    E(false);
+                    return;
+                } else if (u54.b(this.volume)) {
+                    F(u54.c(this));
+                    return;
+                } else {
+                    this.volume = this.a.D();
+                    return;
+                }
+            }
+            F(u54.c(this));
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.q54
+    public void p(String str, JSONObject jSONObject) {
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jSONObject) == null) {
+            switch (str.hashCode()) {
+                case -1522036513:
+                    if (str.equals("buffered")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3443508:
+                    if (str.equals("play")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3540994:
+                    if (str.equals("stop")) {
+                        c2 = 6;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 96651962:
+                    if (str.equals("ended")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 96784904:
+                    if (str.equals("error")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 106440182:
+                    if (str.equals(DownloadStatisticConstants.UBC_TYPE_PAUSE)) {
+                        c2 = 5;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 550609668:
+                    if (str.equals("canplay")) {
+                        c2 = 7;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1762557398:
+                    if (str.equals("timeupdate")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                    this.buffered = B();
+                    return;
+                case 1:
+                    if (jSONObject != null) {
+                        this.duration = getDuration() / 1000;
+                        this.currentTime = v() / 1000.0d;
+                        return;
+                    }
+                    return;
+                case 2:
+                    this.paused = false;
+                    return;
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    this.paused = true;
+                    return;
+                case 7:
+                    this.duration = getDuration() / 1000;
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

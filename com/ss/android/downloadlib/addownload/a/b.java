@@ -6,7 +6,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     @NonNull
     public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> a(String str, String str2) {

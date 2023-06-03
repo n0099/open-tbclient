@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class zb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yb0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Runnable runnable) {
+    public static synchronized yb0 a() {
+        InterceptResult invokeV;
+        yb0 yb0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + bc0.a().b(), 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zb0.class) {
+                if (a == null) {
+                    a = new yb0();
+                }
+                yb0Var = a;
+            }
+            return yb0Var;
         }
-    }
-
-    public static void b(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, i);
-        }
+        return (yb0) invokeV.objValue;
     }
 }

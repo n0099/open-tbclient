@@ -2,7 +2,6 @@ package com.cmic.sso.sdk.c.a;
 
 import android.annotation.TargetApi;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +24,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public static com.cmic.sso.sdk.c.b a;
@@ -370,7 +369,7 @@ public class a implements b {
                 if (!e.endsWith("POST")) {
                     outputStream = httpURLConnection.getOutputStream();
                     try {
-                        outputStream.write(cVar.d().getBytes(IMAudioTransRequest.CHARSET));
+                        outputStream.write(cVar.d().getBytes("utf-8"));
                         outputStream.flush();
                     } catch (Exception e4) {
                         e = e4;
@@ -428,7 +427,7 @@ public class a implements b {
                     if (read > 0) {
                         break;
                     }
-                    sb2.append(new String(bArr, 0, read, IMAudioTransRequest.CHARSET));
+                    sb2.append(new String(bArr, 0, read, "utf-8"));
                 }
                 com.cmic.sso.sdk.c.d.b bVar = new com.cmic.sso.sdk.c.d.b(i, httpURLConnection.getHeaderFields(), sb2.toString());
                 a(outputStream);
@@ -485,7 +484,7 @@ public class a implements b {
             read = inputStream.read(bArr);
             if (read > 0) {
             }
-            sb2.append(new String(bArr, 0, read, IMAudioTransRequest.CHARSET));
+            sb2.append(new String(bArr, 0, read, "utf-8"));
         }
         com.cmic.sso.sdk.c.d.b bVar2 = new com.cmic.sso.sdk.c.d.b(i, httpURLConnection.getHeaderFields(), sb2.toString());
         a(outputStream);

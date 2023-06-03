@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class fk implements com.kwad.sdk.core.d<AdMatrixInfo.SplashSlideInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdMatrixInfo.SplashSlideInfo splashSlideInfo, JSONObject jSONObject) {

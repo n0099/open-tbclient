@@ -28,11 +28,11 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ContentCollectView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer t;
@@ -69,7 +69,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public View r;
     public CustomMessageListener s;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,26 +217,26 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p45 d = p45.d(this.a);
+            m75 d = m75.d(this.a);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X05);
             d.w(R.color.CAM_X0105);
-            p45 d2 = p45.d(this.b);
+            m75 d2 = m75.d(this.b);
             d2.B(R.dimen.T_X07);
             d2.w(R.color.CAM_X0107);
-            p45 d3 = p45.d(this.c);
+            m75 d3 = m75.d(this.c);
             d3.B(R.dimen.T_X08);
             d3.w(R.color.CAM_X0108);
-            p45 d4 = p45.d(this.d);
+            m75 d4 = m75.d(this.d);
             d4.w(R.color.CAM_X0101);
             d4.C(R.string.F_X02);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0607);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_bar34, SkinManager.getColor(R.color.CAM_X0107), null);
-            int g = ri.g(getContext(), R.dimen.tbds42);
+            int g = vi.g(getContext(), R.dimen.tbds42);
             pureDrawable.setBounds(0, 0, g, g);
             this.i.setCompoundDrawables(null, null, pureDrawable, null);
-            this.i.setCompoundDrawablePadding(ri.g(getContext(), R.dimen.M_W_X002));
+            this.i.setCompoundDrawablePadding(vi.g(getContext(), R.dimen.M_W_X002));
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
             this.g.P(TbadkCoreApplication.getInst().getSkinType());
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -248,27 +248,27 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0806, (ViewGroup) this, true);
+            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0819, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.bottomMargin = ri.g(getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.bottomMargin = vi.g(getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
-            this.k = ri.g(getContext(), R.dimen.tbds235);
-            this.l = ri.g(getContext(), R.dimen.tbds62);
-            this.n = ri.g(getContext(), R.dimen.tbds115);
-            this.m = ri.g(getContext(), R.dimen.tbds3);
-            u = (((ri.l(getContext()) - (ri.g(getContext(), R.dimen.M_W_X004) * 5)) - ri.g(getContext(), R.dimen.M_W_X006)) - ri.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09246f);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907a2);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091732);
-            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090341);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09103b);
-            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09035f);
+            this.k = vi.g(getContext(), R.dimen.tbds235);
+            this.l = vi.g(getContext(), R.dimen.tbds62);
+            this.n = vi.g(getContext(), R.dimen.tbds115);
+            this.m = vi.g(getContext(), R.dimen.tbds3);
+            u = (((vi.l(getContext()) - (vi.g(getContext(), R.dimen.M_W_X004) * 5)) - vi.g(getContext(), R.dimen.M_W_X006)) - vi.g(getContext(), R.dimen.M_W_X005)) - this.k;
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907ad);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091756);
+            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090344);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09104e);
+            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f090362);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (EMTextView) findViewById(R.id.comment_num);
             this.g = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-            this.a.setLineSpacing(ri.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.b.setLineSpacing(ri.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.a.setLineSpacing(vi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.b.setLineSpacing(vi.g(getContext(), R.dimen.M_T_X002), 1.0f);
             d();
             e();
             f();
@@ -292,13 +292,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            py4 py4Var = new py4();
-            py4Var.b = 1;
-            py4Var.h = 1;
-            py4Var.g = 1;
-            py4Var.c = 7;
-            py4Var.f = this.q;
-            this.g.setStatisticData(py4Var);
+            l15 l15Var = new l15();
+            l15Var.b = 1;
+            l15Var.h = 1;
+            l15Var.g = 1;
+            l15Var.c = 7;
+            l15Var.f = this.q;
+            this.g.setStatisticData(l15Var);
         }
     }
 
@@ -318,7 +318,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.e.setForegroundColor(0);
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(ri.g(getContext(), R.dimen.tbds1));
+            this.e.setBorderWidth(vi.g(getContext(), R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -418,7 +418,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
         } else {
             this.b.setVisibility(0);
             this.b.setText(threadData.getAbstractText());
-            i = (2 - aj.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
+            i = (2 - ej.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
         }
         this.a.setMaxLines(i);
         this.a.setText(threadData.getTitleText());

@@ -17,8 +17,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.xm3;
+import com.baidu.tieba.fv2;
+import com.baidu.tieba.pp3;
 /* loaded from: classes4.dex */
 public class RefreshingAnimView extends View {
     public static final double C = Math.sqrt(2.0d);
@@ -53,7 +53,7 @@ public class RefreshingAnimView extends View {
 
     /* loaded from: classes4.dex */
     public interface e {
-        void a(boolean z);
+        void notifyAtLeastRoundsFinished(boolean z);
     }
 
     /* loaded from: classes4.dex */
@@ -115,7 +115,7 @@ public class RefreshingAnimView extends View {
             super.onAnimationRepeat(animator);
             RefreshingAnimView.e(RefreshingAnimView.this);
             if (RefreshingAnimView.this.r > RefreshingAnimView.this.q && RefreshingAnimView.this.l != null) {
-                RefreshingAnimView.this.l.a(true);
+                RefreshingAnimView.this.l.notifyAtLeastRoundsFinished(true);
             }
         }
 
@@ -380,9 +380,9 @@ public class RefreshingAnimView extends View {
         if (bitmap != null && this.x != null) {
             bitmap.eraseColor(0);
             this.j.setStyle(Paint.Style.FILL);
-            if (this.A != ns2.M().a()) {
-                this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060450));
-                this.A = ns2.M().a();
+            if (this.A != fv2.M().a()) {
+                this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060454));
+                this.A = fv2.M().a();
             }
             this.j.setAlpha(76);
             RectF rectF = this.m;
@@ -400,7 +400,7 @@ public class RefreshingAnimView extends View {
                 PointF pointF3 = this.o;
                 canvas3.drawCircle(pointF3.x, pointF3.y, 0.75f, this.j);
                 this.j.setStyle(Paint.Style.STROKE);
-                this.j.setStrokeWidth(xm3.f(getContext(), 1.5f));
+                this.j.setStrokeWidth(pp3.f(getContext(), 1.5f));
                 Canvas canvas4 = this.x;
                 PointF pointF4 = this.n;
                 float f4 = pointF4.x;
@@ -427,7 +427,7 @@ public class RefreshingAnimView extends View {
             canvas3.drawCircle(pointF2.x, pointF2.y, this.f, this.k);
             this.x.drawCircle(f, f, 0.75f, this.j);
             this.j.setStyle(Paint.Style.STROKE);
-            this.j.setStrokeWidth(xm3.f(getContext(), 1.5f));
+            this.j.setStrokeWidth(pp3.f(getContext(), 1.5f));
             Canvas canvas4 = this.x;
             PointF pointF3 = this.n;
             canvas4.drawLine(pointF3.x, pointF3.y, f, f, this.j);
@@ -448,11 +448,11 @@ public class RefreshingAnimView extends View {
     }
 
     public final void m() {
-        this.A = ns2.M().a();
+        this.A = fv2.M().a();
         Paint paint = new Paint();
         this.j = paint;
         paint.setAntiAlias(true);
-        this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060450));
+        this.j.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060454));
         Paint paint2 = new Paint();
         this.k = paint2;
         paint2.setAntiAlias(true);
@@ -470,10 +470,10 @@ public class RefreshingAnimView extends View {
         } else {
             this.h = getMeasuredWidth();
         }
-        this.d = xm3.f(getContext(), 8.0f);
-        this.f = xm3.f(getContext(), 6.5f);
-        this.p = xm3.f(getContext(), 5.0f);
-        this.g = xm3.f(getContext(), 7.5f);
+        this.d = pp3.f(getContext(), 8.0f);
+        this.f = pp3.f(getContext(), 6.5f);
+        this.p = pp3.f(getContext(), 5.0f);
+        this.g = pp3.f(getContext(), 7.5f);
         float f = this.h / 2.0f;
         this.i.set(f, f);
         float f2 = f + ((float) (this.d / C));
@@ -506,7 +506,7 @@ public class RefreshingAnimView extends View {
         } else {
             e eVar = this.l;
             if (eVar != null) {
-                eVar.a(true);
+                eVar.notifyAtLeastRoundsFinished(true);
             }
         }
         if (!this.s.isRunning()) {

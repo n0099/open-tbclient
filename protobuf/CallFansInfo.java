@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CallFansInfo extends Message {
     public static final Integer DEFAULT_CANCALL = 0;
     public static final Long DEFAULT_THREADID = 0L;
@@ -11,7 +11,7 @@ public final class CallFansInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long threadId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<CallFansInfo> {
         public Integer canCall;
         public Long threadId;

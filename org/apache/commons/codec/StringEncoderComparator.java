@@ -1,7 +1,7 @@
 package org.apache.commons.codec;
 
 import java.util.Comparator;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class StringEncoderComparator implements Comparator {
     public final StringEncoder stringEncoder;
 

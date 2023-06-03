@@ -1,10 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.DialogInterface;
-import com.baidu.tieba.k83;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ht1 {
-    k83.a a(Context context, g93 g93Var, ge3 ge3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
+
+    String b();
+
+    void c(JSONObject jSONObject);
+
+    tj4 d();
+
+    void e(int i, String str);
+
+    void f(@NonNull rq3<Boolean> rq3Var);
 }

@@ -1,75 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes5.dex */
-public class ep3 implements xu3 {
+public final class ep3 {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ep3() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947741985, "Lcom/baidu/tieba/ep3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947741985, "Lcom/baidu/tieba/ep3;");
+        }
+    }
+
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = PreferenceManager.getDefaultSharedPreferences(a());
             }
+            return a;
         }
+        return (SharedPreferences) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu3
-    public void a(da3 da3Var) {
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, da3Var) == null) {
-            da3Var.b(new wq3(da3Var));
-            da3Var.b(new ar3(da3Var));
-            da3Var.b(new ur3(da3Var));
-            da3Var.b(new tr3(da3Var));
-            da3Var.b(new jr3(da3Var));
-            da3Var.b(new br3(da3Var));
-            da3Var.b(new yq3(da3Var));
-            da3Var.b(new hr3(da3Var));
-            da3Var.b(new xq3(da3Var));
-            da3Var.b(new vq3(da3Var));
-            da3Var.b(new uq3(da3Var));
-            da3Var.b(new zq3(da3Var));
-            da3Var.b(new yr3(da3Var));
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            return c().getBoolean(str, z);
         }
-    }
-
-    @Override // com.baidu.tieba.yu3
-    @Nullable
-    public Map<String, Object> b(@NonNull hx1 hx1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hx1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(hx1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.yu3
-    @Nullable
-    public Map<String, Object> c(@NonNull hx1 hx1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hx1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(hx1Var);
-        }
-        return (Map) invokeL.objValue;
+        return invokeLZ.booleanValue;
     }
 }

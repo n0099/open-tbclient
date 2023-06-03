@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.view.PbGiftListView;
-import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,21 +51,21 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091123);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091136);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e20);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091a1b);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091a1c);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a1a);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090dfc);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e4e);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091a43);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091a44);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a42);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090e0e);
         this.b.getLayoutStrategy().v();
         this.b.getLayoutStrategy().l(true);
-        int min = Math.min(((((ri.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
+        int min = Math.min(((((vi.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.b.getLayoutStrategy().r(min);
         this.b.getLayoutStrategy().q((int) (min * 1.618f));
         this.b.setTextSize(TbConfig.getContentSize());

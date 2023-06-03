@@ -1,92 +1,136 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.p42;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public abstract class o42<V extends SimpleDraweeView, M extends p42> extends t42<V, M> {
+import com.baidu.webkit.sdk.PermissionRequest;
+/* loaded from: classes7.dex */
+public class o42 extends i42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes7.dex */
+    public class a implements rq3<bh3<dh3.e>> {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ o42 d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-594862049, "Lcom/baidu/tieba/o42$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-594862049, "Lcom/baidu/tieba/o42$a;");
+        public a(o42 o42Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o42Var, unitedSchemeEntity, callbackHandler, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.d = o42Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = context;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(bh3<dh3.e> bh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
+                s42 s42Var = (s42) this.d.q(this.a);
+                if (wg3.h(bh3Var)) {
+                    this.d.p(this.c, this.a, this.b, s42Var);
+                    return;
+                }
+                wg3.p(bh3Var, this.b, this.a);
+                y82.c("SwanAppCameraManager", "camera authorize failure");
             }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements b73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s42 a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ o42 d;
+
+        public b(o42 o42Var, s42 s42Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o42Var, s42Var, unitedSchemeEntity, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                a[PathType.NETWORK.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.d = o42Var;
+            this.a = s42Var;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
             }
-            try {
-                a[PathType.ERROR.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.d.k(this.b, this.c, this.d.o(this.a));
+            y82.c("SwanAppCameraManager", str + "");
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                UnitedSchemeUtility.callCallback(this.c, this.b, 10005);
+                y82.c("SwanAppCameraManager", str + "");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o42(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public o42(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/camera/update");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (u42) objArr2[1]);
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,126 +138,77 @@ public abstract class o42<V extends SimpleDraweeView, M extends p42> extends t42
         }
     }
 
-    public static Uri W(@NonNull String str) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                y82.c("SwanAppCameraManager", "handle action, but context is not Activity");
+                return false;
+            }
+            yb3Var.e0().g(context, PermissionProxy.SCOPE_ID_CAMERA, new a(this, unitedSchemeEntity, callbackHandler, context));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean o(s42 s42Var) {
         InterceptResult invokeL;
-        String str2;
-        String str3;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = og3.s(str);
-            g93 M = g93.M();
-            if (M != null) {
-                str2 = M.b;
-                str3 = M.k0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s42Var)) == null) {
+            y82.i("SwanAppCameraManager", "handle update camera instruction start");
+            if (s42Var == null) {
+                y82.c("SwanAppCameraManager", "Model is null");
+                return false;
+            }
+            String str = s42Var.b;
+            e23 e23Var = s42Var.h;
+            if (!TextUtils.isEmpty(str) && e23Var != null && e23Var.h()) {
+                x72 x72Var = (x72) l82.a(s42Var);
+                if (x72Var == null) {
+                    y82.c("SwanAppCameraManager", "update camera with a null component");
+                    return false;
+                }
+                p72 update = x72Var.update((x72) s42Var);
+                boolean a2 = update.a();
+                if (!a2) {
+                    y82.c("SwanAppCameraManager", "update camera fail: " + update.b);
+                }
+                return a2;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("cameraId = ");
+            sb.append(str);
+            sb.append(" ; position = ");
+            if (e23Var == null) {
+                z = true;
             } else {
-                str2 = null;
-                str3 = null;
+                z = false;
             }
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            int i = a.a[s.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return Uri.parse(str);
-                }
-                File file = new File(str);
-                if (file.exists()) {
-                    return Uri.fromFile(file);
-                }
-                String L = og3.L(str, M, str3);
-                if (TextUtils.isEmpty(L)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(L));
-            }
-            String M2 = og3.M(str, str2);
-            if (TextUtils.isEmpty(M2)) {
-                return null;
-            }
-            return Uri.fromFile(new File(M2));
+            sb.append(z);
+            y82.c("SwanAppCameraManager", sb.toString());
+            return false;
         }
-        return (Uri) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t42
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull y52 y52Var) {
+    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, s42 s42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, y52Var) == null) {
-            super.C(v, m, y52Var);
-            if (y52Var.a(9)) {
-                U(v, m);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, s42Var) == null) {
+            y82.i("SwanAppCameraManager", "handleAuthorized start");
+            a73.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 100, context, new b(this, s42Var, unitedSchemeEntity, callbackHandler));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t42, com.baidu.tieba.v42
-    @NonNull
-    /* renamed from: S */
-    public y52 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    public o72 q(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            y52 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(9);
-            }
-            return k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
+            return new s42(l(unitedSchemeEntity));
         }
-        return (y52) invokeLL.objValue;
-    }
-
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            V(v, m, null);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
-        Uri W;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
-            return;
-        }
-        if (v42.h) {
-            Log.d("Component-SimpleDrawee", "renderImageStyle");
-        }
-        String str = m.t;
-        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
-            return;
-        }
-        g62.i("Component-SimpleDrawee", "Image Uri:" + W);
-        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
-        if (baseControllerListener != null) {
-            oldController.setControllerListener(baseControllerListener);
-        }
-        HashMap hashMap = new HashMap();
-        String g0 = ag2.U().g0();
-        if (!TextUtils.isEmpty(g0)) {
-            hashMap.put("User-Agent", g0);
-        }
-        String b = nm3.b();
-        if (!TextUtils.isEmpty(b) && nm3.c(W.toString())) {
-            hashMap.put("Referer", b);
-        }
-        au1 C = ns2.C();
-        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        C.e(newBuilderWithSource, hashMap);
-        oldController.setImageRequest(newBuilderWithSource.build());
-        AbstractDraweeController build = oldController.build();
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setCornersRadius(m.n);
-        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
-        build2.setRoundingParams(roundingParams);
-        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        v.setHierarchy(build2);
-        v.setController(build);
+        return (o72) invokeL.objValue;
     }
 }

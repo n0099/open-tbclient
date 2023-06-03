@@ -108,7 +108,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";

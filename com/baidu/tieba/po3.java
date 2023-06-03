@@ -1,70 +1,115 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class po3 implements hf4 {
+public class po3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
-    public po3() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
+                return false;
+            }
+            return true;
         }
-        this.a = null;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hf4
-    public void a(BaseMenuView baseMenuView) {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals("doc")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals("pdf")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals("ppt")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals("xls")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
+            }
+            if (!a(str2)) {
+                return "";
+            }
+            return str2;
         }
-        if (ns2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060445);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-    }
-
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
-        }
+        return (String) invokeL.objValue;
     }
 }

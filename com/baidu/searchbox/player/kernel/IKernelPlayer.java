@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.kernel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IKernelPlayer {
     void onBufferingUpdate(int i);
 
@@ -8,6 +8,8 @@ public interface IKernelPlayer {
     boolean onError(int i, int i2, Object obj);
 
     boolean onInfo(int i, int i2, Object obj);
+
+    void onKernelPreDetach();
 
     boolean onMediaSourceChanged(int i, int i2, Object obj);
 

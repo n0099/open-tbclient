@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -71,7 +72,7 @@ public class NetWorkUtils {
             _3G = new NetType("_3G", 3, "3g");
             _4G = new NetType("_4G", 4, "4g");
             _5G = new NetType("_5G", 5, "5g");
-            NetType netType = new NetType("UNKOWN", 6, "unknow");
+            NetType netType = new NetType("UNKOWN", 6, DownloadStatisticConstants.UBC_VALUE_UNKNOW);
             UNKOWN = netType;
             $VALUES = new NetType[]{NONE, WIFI, _2G, _3G, _4G, _5G, netType};
         }
@@ -580,7 +581,7 @@ public class NetWorkUtils {
                     c = 65535;
                 }
             } else {
-                if (networkClass.equals("unknow")) {
+                if (networkClass.equals(DownloadStatisticConstants.UBC_VALUE_UNKNOW)) {
                     c = 6;
                 }
                 c = 65535;

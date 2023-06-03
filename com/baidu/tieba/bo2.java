@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bo2 extends an2<qp2> {
+public class bo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.an2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onItemRelease" : (String) invokeV.objValue;
-    }
+    public HashMap<String, co2> a;
 
     public bo2() {
         Interceptable interceptable = $ic;
@@ -31,18 +25,62 @@ public class bo2 extends an2<qp2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void a(co2 co2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, co2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    this.a.put(str, co2Var);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull qp2 qp2Var) {
+    public ArrayList<co2> c(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qp2Var) == null) {
-            d(qp2Var, command.what, null, true);
-            qp2Var.onRelease();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<co2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void d(co2 co2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, co2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.a.get(str) == co2Var) {
+                    this.a.remove(str);
+                }
+            }
         }
     }
 }

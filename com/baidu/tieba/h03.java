@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class h03 {
+/* loaded from: classes6.dex */
+public class h03 implements f03 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final List<f03> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,61 +36,87 @@ public final class h03 {
                 return;
             }
         }
-        a = g93.v;
-        b = Arrays.asList(new f03());
+        a = is1.a;
     }
 
-    @NonNull
-    public static JSONObject b() {
-        JSONObject jSONObject;
-        InterceptResult invokeV;
+    public h03() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                jSONObject = a();
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                    g62.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.f03
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decode(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Resources resourcesForApplication;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
                 }
-                jSONObject = null;
-            }
-            if (jSONObject == null) {
-                return new JSONObject();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static JSONObject a() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
-            if (a) {
-                g62.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
-            }
-            c(jSONObject);
-            if (a) {
-                g62.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                for (f03 f03Var : b) {
-                    if (f03Var.a(keys.next())) {
-                        keys.remove();
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                    try {
+                        i = Integer.parseInt(pathSegments.get(0));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } else {
+                InputStream inputStream = null;
+                if (uri2.startsWith("file:///android_asset/")) {
+                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
+                } else if (uri2.startsWith("file://")) {
+                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
+                } else {
+                    try {
+                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                        try {
+                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                            cs4.d(openInputStream);
+                            bitmap = decodeStream;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = openInputStream;
+                            cs4.d(inputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
                 }
             }
+            if (bitmap == null) {
+                if (!a) {
+                    y82.k("SkiaImageDecoder", "bitmap is null");
+                } else {
+                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+                }
+            }
+            return bitmap;
         }
+        return (Bitmap) invokeLL.objValue;
     }
 }

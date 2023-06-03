@@ -1,101 +1,91 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class bm4 extends pk4 {
+public class bm4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
+    public static final ap4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public wl4 a;
+    public AtomicBoolean b;
+    public vl4 c;
 
-    public bm4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947649760, "Lcom/baidu/tieba/bm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947649760, "Lcom/baidu/tieba/bm4;");
+                return;
+            }
+        }
+        d = ap4.e();
+    }
+
+    public bm4(AtomicBoolean atomicBoolean, wl4 wl4Var, vl4 vl4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {atomicBoolean, wl4Var, vl4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = atomicBoolean;
+        this.a = wl4Var;
+        this.c = vl4Var;
+    }
+
+    public final <T> void a(am4<T> am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, am4Var) == null) {
+            this.a.a(am4Var);
+            try {
+                try {
+                    am4Var.run();
+                } catch (Exception e) {
+                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
+                }
+            } finally {
+                this.a.b(am4Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pk4
-    public JSONArray c() {
-        InterceptResult invokeV;
-        List<hi4> w;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "bbasp_core");
-                jSONObject.put("version_name", rg4.b().J(0));
-                jSONObject.put("version_code", rg4.b().w(0));
-                jSONArray.put(jSONObject);
-            } catch (JSONException unused) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.b.get()) {
+                Runnable a = this.c.a(true);
+                if (a instanceof am4) {
+                    try {
+                        a((am4) a);
+                    } catch (Throwable th) {
+                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
+                    }
+                } else {
+                    return;
+                }
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "bbasp_game");
-                jSONObject2.put("version_name", rg4.b().J(1));
-                jSONObject2.put("version_code", rg4.b().w(1));
-                jSONArray.put(jSONObject2);
-            } catch (JSONException unused2) {
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("type", ETAG.KEY_EXTENSION);
-                jSONObject3.put("version_name", rg4.b().v(0));
-                jSONObject3.put("version_code", rg4.b().j(0));
-                jSONArray.put(jSONObject3);
-            } catch (JSONException unused3) {
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("type", "extension_game");
-                jSONObject4.put("version_name", rg4.b().v(1));
-                jSONObject4.put("version_code", rg4.b().j(1));
-                jSONArray.put(jSONObject4);
-            } catch (JSONException unused4) {
-            }
-            try {
-                w = dh4.i().w(f(10));
-            } catch (JSONException unused5) {
-            }
-            if (w == null) {
-                return jSONArray;
-            }
-            for (hi4 hi4Var : w) {
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", hi4Var.g);
-                jSONObject5.put("version_code", hi4Var.i);
-                jSONObject5.put("version_name", hi4Var.j);
-                jSONArray.put(jSONObject5);
-            }
-            return jSONArray;
         }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public final String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
-        }
-        return (String) invokeI.objValue;
     }
 }

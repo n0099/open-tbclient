@@ -1,64 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public x95 b;
 
-    public w95() {
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
+            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = vi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = vi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                imageView.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+            layoutParams.height = vi.g(TbadkApplication.getInst(), R.dimen.tbds120);
+            viewGroup.setLayoutParams(layoutParams);
         }
-        return invokeV.intValue;
     }
 
-    public x95 b() {
-        InterceptResult invokeV;
+    public static void c(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
+            m75.d(textView).w(R.color.CAM_X0107);
         }
-        return (x95) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public static void d(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
+        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
+            m75.d(textView).B(R.dimen.tbds36);
+        }
+    }
+
+    public static void e(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
+            m75 d = m75.d(textView);
+            d.B(R.dimen.tbds36);
+            d.w(R.color.CAM_X0107);
+        }
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
+            if (i == 4) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
+            } else {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                x95 x95Var = new x95();
-                this.b = x95Var;
-                x95Var.f(optJSONObject2);
-            }
+            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 }

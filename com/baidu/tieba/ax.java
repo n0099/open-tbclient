@@ -1,59 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.az;
-import com.baidu.tieba.jy4;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class ax<T extends jy4> implements ux, tx<T> {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+/* loaded from: classes5.dex */
+public class ax {
     public static /* synthetic */ Interceptable $ic;
+    public static ax f;
     public transient /* synthetic */ FieldHolder $fh;
-    public py a;
-    public Context b;
-    public Boolean c;
-    public wj6<T> d;
-    public a e;
+    public ExecutorService a;
+    public ExecutorService b;
+    public Handler c;
+    public Handler d;
+    public List<zw> e;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(jy4 jy4Var);
-    }
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ax a;
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ax axVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {axVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = axVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            Object obj = message.obj;
+                            if (obj instanceof BdRunnable) {
+                                post((BdRunnable) obj);
+                            }
+                        }
+                    } else if (message.obj instanceof zw) {
+                        this.a.e.add((zw) message.obj);
+                    }
+                } else if (this.a.e != null) {
+                    Iterator it = this.a.e.iterator();
+                    while (it.hasNext()) {
+                        zw zwVar = (zw) it.next();
+                        if (this.a.e(zwVar)) {
+                            this.a.a.submit(zwVar);
+                            it.remove();
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    public abstract View k();
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public ax(Context context) {
+    public ax() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,89 +97,81 @@ public abstract class ax<T extends jy4> implements ux, tx<T> {
                 return;
             }
         }
-        this.c = Boolean.FALSE;
-        this.b = context;
+        this.e = new ArrayList();
+        this.a = Executors.newFixedThreadPool(5);
+        this.b = Executors.newSingleThreadExecutor();
+        this.c = new a(this, yw.a("threadpool").getLooper());
+        this.d = new Handler(Looper.getMainLooper());
     }
 
-    public wj6<T> h() {
+    public void h(BdRunnable bdRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
+            this.d.post(bdRunnable);
+        }
+    }
+
+    public static ax f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (wj6) invokeV.objValue;
-    }
-
-    public Boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public final ThreadCardView i(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view2, i)) == null) {
-            if (view2 != null && view2.getParent() != null && i != 0) {
-                if (view2.getParent() instanceof ThreadCardView) {
-                    return (ThreadCardView) view2.getParent();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f == null) {
+                synchronized (ax.class) {
+                    if (f == null) {
+                        f = new ax();
+                    }
                 }
-                return i((View) view2.getParent(), i - 1);
             }
-            return null;
+            return f;
         }
-        return (ThreadCardView) invokeLI.objValue;
+        return (ax) invokeV.objValue;
     }
 
-    public void m(int i, az.b bVar) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bVar) == null) {
-            this.a.n(i, bVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.removeMessages(0);
+            this.c.sendEmptyMessage(0);
         }
     }
 
-    public void o(View view2, int i) {
+    public final boolean e(zw zwVar) {
+        InterceptResult invokeL;
+        List<BdRunnable> e;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
-                view2.setLayoutParams(marginLayoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zwVar)) == null) {
+            if (zwVar != null && (e = zwVar.e()) != null) {
+                for (int i = 0; i < e.size(); i++) {
+                    BdRunnable bdRunnable = e.get(i);
+                    if (bdRunnable != null && !bdRunnable.d()) {
+                        return false;
+                    }
+                }
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void q(View view2, int i) {
-        ThreadCardView i2;
+    public void g(BdRunnable bdRunnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && (i2 = i(view2, i)) != null) {
-            p45 d = p45.d(i2);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-        }
-    }
-
-    public void n(py pyVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pyVar) == null) {
-            this.a = pyVar;
-        }
-    }
-
-    public void p(wj6<T> wj6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, wj6Var) == null) {
-            this.d = wj6Var;
-        }
-    }
-
-    public void r(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
-            this.c = bool;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) && bdRunnable != null) {
+            if (bdRunnable instanceof zw) {
+                if (e((zw) bdRunnable)) {
+                    this.a.submit(bdRunnable);
+                    return;
+                } else {
+                    this.c.obtainMessage(1, bdRunnable).sendToTarget();
+                    return;
+                }
+            }
+            try {
+                this.a.submit(bdRunnable);
+            } catch (Error e) {
+                bdRunnable.b(e);
+            } catch (Exception e2) {
+                bdRunnable.a(e2);
+            }
         }
     }
 }

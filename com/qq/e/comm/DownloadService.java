@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.managers.GDTADManager;
+import com.qq.e.comm.managers.b;
 import com.qq.e.comm.pi.SVSD;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public class DownloadService extends Service {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (this.a == null) {
                 try {
-                    if (GDTADManager.getInstance().isInitialized()) {
-                        SVSD aPKDownloadServiceDelegate = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
+                    if (b.b().d()) {
+                        SVSD aPKDownloadServiceDelegate = b.b().c().getPOFactory().getAPKDownloadServiceDelegate(this);
                         this.a = aPKDownloadServiceDelegate;
                         aPKDownloadServiceDelegate.onCreate();
                     }
@@ -64,7 +64,7 @@ public class DownloadService extends Service {
                 return;
             }
             Intent intent = new Intent(context, DownloadService.class);
-            intent.putExtra("GDT_APPID", GDTADManager.getInstance().getAppStatus().getAPPID());
+            intent.putExtra("GDT_APPID", b.b().a());
             intent.setAction("com.qq.e.comm.ACTION_DOWNLOAD_LIST");
             context.startService(intent);
         }

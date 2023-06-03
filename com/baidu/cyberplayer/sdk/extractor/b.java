@@ -15,20 +15,36 @@ import java.util.Map;
 public class b extends ExtractorProvider {
     public MediaExtractor a = new MediaExtractor();
 
+    @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
+    public void release() {
+        CyberLog.i("MediaExtractorImpl", "release");
+        MediaExtractor mediaExtractor = this.a;
+        if (mediaExtractor != null) {
+            mediaExtractor.release();
+            this.a = null;
+        }
+    }
+
     private Integer a(String str) {
         Integer num;
+        int i;
         MediaExtractor mediaExtractor = this.a;
         if (mediaExtractor != null && Build.VERSION.SDK_INT >= 16) {
             int trackCount = mediaExtractor.getTrackCount();
-            for (int i = 0; i < trackCount; i++) {
-                if (this.a.getTrackFormat(i).getString("mime").startsWith(str)) {
-                    num = Integer.valueOf(i);
+            for (int i2 = 0; i2 < trackCount; i2++) {
+                if (this.a.getTrackFormat(i2).getString("mime").startsWith(str)) {
+                    num = Integer.valueOf(i2);
                     break;
                 }
             }
         }
         num = null;
-        return Integer.valueOf(num != null ? num.intValue() : -1);
+        if (num != null) {
+            i = num.intValue();
+        } else {
+            i = -1;
+        }
+        return Integer.valueOf(i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -55,16 +71,6 @@ public class b extends ExtractorProvider {
             }
         }
         return bundle;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
-    public void release() {
-        CyberLog.i("MediaExtractorImpl", "release");
-        MediaExtractor mediaExtractor = this.a;
-        if (mediaExtractor != null) {
-            mediaExtractor.release();
-            this.a = null;
-        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider

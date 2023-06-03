@@ -16,7 +16,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.permission.DangerousPermissionManager;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
     public static final String PERMISSION_ARRAY = "permission_array";
     public static final String PERMISSION_CALLBACK_TAG = "permission_callback_tag";
@@ -60,7 +60,13 @@ public class PermissionActivity extends Activity {
     public void requestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         DangerousPermissionManager.RequestSystemPermissionCallBack requestPermissionCallBack = DangerousPermissionManager.getInstance(getApplicationContext()).getRequestPermissionCallBack(this.mPermissionCallbackTag);
         if (requestPermissionCallBack != null) {
-            requestPermissionCallBack.onRequestPermissionsResult(i, strArr, iArr);
+            try {
+                requestPermissionCallBack.onRequestPermissionsResult(i, strArr, iArr);
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
+            }
         }
         finish();
     }

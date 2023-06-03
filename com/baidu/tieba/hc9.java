@@ -1,116 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.play.PlayStatisticsResponseMessage;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class hc9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class hc9 extends r66<jc9, PersonInfoUserPicsHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View.OnClickListener a;
+    public TbPageContext b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819051, "Lcom/baidu/tieba/hc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819051, "Lcom/baidu/tieba/hc9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hc9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
-        b();
+        this.b = tbPageContext;
     }
 
-    public static void a(HttpMessage httpMessage, sc9 sc9Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: s */
+    public PersonInfoUserPicsHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, httpMessage, sc9Var) == null) && httpMessage != null && sc9Var != null) {
-            httpMessage.addParam("tid", sc9Var.c);
-            httpMessage.addParam("fid", sc9Var.d);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_TO, sc9Var.g);
-            httpMessage.addParam("obj_id", sc9Var.k);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, sc9Var.h);
-            httpMessage.addParam("obj_source", sc9Var.f);
-            httpMessage.addParam("obj_locate", sc9Var.a);
-            httpMessage.addParam("obj_param1", sc9Var.i);
-            if (!StringUtils.isNull(sc9Var.n)) {
-                httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, sc9Var.n);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07ae, viewGroup, false), this.b);
+            personInfoUserPicsHolder.e.d(this.a);
+            return personInfoUserPicsHolder;
+        }
+        return (PersonInfoUserPicsHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        t(i, view2, viewGroup, (jc9) obj, (PersonInfoUserPicsHolder) viewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, jc9 jc9Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jc9Var, personInfoUserPicsHolder})) == null) {
+            if (jc9Var != null && personInfoUserPicsHolder != null) {
+                personInfoUserPicsHolder.b();
+                personInfoUserPicsHolder.a(jc9Var);
             }
-            if (!StringUtils.isNull(sc9Var.p)) {
-                httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, sc9Var.p);
-            }
+            return view2;
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void d(long j, String str, sc9 sc9Var, String str2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, sc9Var, str2, Long.valueOf(j2)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
-            httpMessage.addParam("obj_type", str);
-            httpMessage.addParam("playduration", j2);
-            if (sc9Var != null) {
-                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, sc9Var.m);
-            }
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            a(httpMessage, sc9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public static void e(String str, String str2, String str3, sc9 sc9Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, sc9Var, Integer.valueOf(i)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
-            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            httpMessage.addParam("obj_type", str3);
-            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
-                httpMessage.addParam("pcdn_state", i);
-            }
-            a(httpMessage, sc9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

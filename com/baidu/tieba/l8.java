@@ -1,143 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
-public class l8 {
+public final class l8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public l8(File file) {
+    public static Class a(String str) throws ReflectionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Class.forName(str);
+            } catch (ClassNotFoundException e) {
+                throw new ReflectionException("Class not found: " + str, e);
             }
         }
-        this.a = null;
-        this.a = file.getAbsolutePath();
+        return (Class) invokeL.objValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static n8[] d(Class cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            Field[] declaredFields = cls.getDeclaredFields();
+            n8[] n8VarArr = new n8[declaredFields.length];
+            int length = declaredFields.length;
+            for (int i = 0; i < length; i++) {
+                n8VarArr[i] = new n8(declaredFields[i]);
+            }
+            return n8VarArr;
+        }
+        return (n8[]) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b() {
-        InterceptResult invokeV;
-        FileInputStream fileInputStream;
-        Exception e;
-        ZipInputStream zipInputStream;
+    public static String e(Class cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
+            return cls.getSimpleName();
         }
-        if (TextUtils.isEmpty(this.a)) {
-            return false;
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean g(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            return cls.isMemberClass();
         }
-        ZipInputStream zipInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(new File(this.a));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            zipInputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            fileInputStream = null;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            return Modifier.isStatic(cls.getModifiers());
         }
-        try {
-            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
-            while (true) {
-                try {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                            return true;
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                            return false;
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        if (zipInputStream != null) {
-                            try {
-                                zipInputStream.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
-                                return false;
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                            return false;
-                        }
-                        return false;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    zipInputStream2 = zipInputStream;
-                    if (zipInputStream2 != null) {
-                        try {
-                            zipInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
-                        }
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
-                }
+        return invokeL.booleanValue;
+    }
+
+    public static m8 b(Class cls, Class... clsArr) throws ReflectionException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
+            try {
+                return new m8(cls.getConstructor(clsArr));
+            } catch (NoSuchMethodException e) {
+                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
+            } catch (SecurityException e2) {
+                throw new ReflectionException("Security violation occurred while getting constructor for class: '" + cls.getName() + "'.", e2);
             }
-        } catch (Exception e8) {
-            e = e8;
-            zipInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipInputStream2 != null) {
-            }
-            if (fileInputStream != null) {
-            }
-            throw th;
         }
+        return (m8) invokeLL.objValue;
+    }
+
+    public static m8 c(Class cls, Class... clsArr) throws ReflectionException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
+            try {
+                return new m8(cls.getDeclaredConstructor(clsArr));
+            } catch (NoSuchMethodException e) {
+                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
+            } catch (SecurityException e2) {
+                throw new ReflectionException("Security violation while getting constructor for class: " + cls.getName(), e2);
+            }
+        }
+        return (m8) invokeLL.objValue;
+    }
+
+    public static boolean f(Class cls, Class cls2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) {
+            return cls.isAssignableFrom(cls2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> T i(Class<T> cls) throws ReflectionException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) {
+            try {
+                return cls.newInstance();
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e);
+            } catch (InstantiationException e2) {
+                throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e2);
+            }
+        }
+        return (T) invokeL.objValue;
     }
 }

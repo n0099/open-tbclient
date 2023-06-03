@@ -1,143 +1,183 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes7.dex */
-public final class pbb {
+public class pbb implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<X509TrustManager> a;
 
-    /* JADX INFO: Add missing generic type declarations: [T] */
-    /* loaded from: classes7.dex */
-    public static class a<T> extends o7b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7b e;
-
-        public a(j7b j7bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j7bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = j7bVar;
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
-            }
+    public void b(X509Certificate[] x509CertificateArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
         }
     }
 
-    /* JADX INFO: Add missing generic type declarations: [T] */
-    /* loaded from: classes7.dex */
-    public static class b<T> extends o7b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o7b e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(o7b o7bVar, o7b o7bVar2) {
-            super(o7bVar);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057689, "Lcom/baidu/tieba/pbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o7bVar, o7bVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((o7b) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948057689, "Lcom/baidu/tieba/pbb;");
+                return;
+            }
+        }
+        b = pbb.class.getSimpleName();
+    }
+
+    public pbb(InputStream inputStream, String str) throws IllegalArgumentException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        a(inputStream, str);
+    }
+
+    public final void a(InputStream inputStream, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
+            if (inputStream != null && str != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                try {
+                    try {
+                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
+                        KeyStore keyStore = KeyStore.getInstance("bks");
+                        keyStore.load(inputStream, str.toCharArray());
+                        trustManagerFactory.init(keyStore);
+                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
+                        for (int i = 0; i < trustManagers.length; i++) {
+                            if (trustManagers[i] instanceof X509TrustManager) {
+                                this.a.add((X509TrustManager) trustManagers[i]);
+                            }
+                        }
+                        xbb.b(inputStream);
+                    } finally {
+                        xbb.b(inputStream);
+                    }
+                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
+                    String str2 = b;
+                    ybb.d(str2, "loadInputStream: exception : " + e.getMessage());
                 }
+                String str3 = b;
+                ybb.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return;
             }
-            this.e = o7bVar2;
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
-            }
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.j7b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
-            }
+            throw new IllegalArgumentException("inputstream or trustPwd is null");
         }
     }
 
-    public static <T> o7b<T> a() {
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
+            ybb.e(b, "checkClientTrusted: ");
+            for (X509TrustManager x509TrustManager : this.a) {
+                try {
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    return;
+                } catch (CertificateException e) {
+                    String str2 = b;
+                    ybb.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
+                }
+            }
+            throw new CertificateException("checkServerTrusted CertificateException");
+        }
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
+            b(x509CertificateArr);
+            ybb.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
+            long currentTimeMillis = System.currentTimeMillis();
+            for (X509Certificate x509Certificate : x509CertificateArr) {
+                ybb.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
+                ybb.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
+                ybb.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
+            }
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                try {
+                    ybb.e(b, "check server i : " + i);
+                    X509TrustManager x509TrustManager = this.a.get(i);
+                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
+                    if (acceptedIssuers != null) {
+                        ybb.e(b, "client root ca size is : " + acceptedIssuers.length);
+                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
+                            ybb.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
+                        }
+                    }
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    ybb.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                    return;
+                } catch (CertificateException e) {
+                    ybb.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
+                    if (i == size - 1) {
+                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
+                            ybb.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                        }
+                        throw e;
+                    }
+                }
+            }
+            ybb.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        }
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b(kbb.a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                ArrayList arrayList = new ArrayList();
+                for (X509TrustManager x509TrustManager : this.a) {
+                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+                }
+                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
+            } catch (Exception e) {
+                String str = b;
+                ybb.d(str, "getAcceptedIssuers exception : " + e.getMessage());
+                return new X509Certificate[0];
+            }
         }
-        return (o7b) invokeV.objValue;
-    }
-
-    public static <T> o7b<T> b(j7b<? super T> j7bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, j7bVar)) == null) {
-            return new a(j7bVar);
-        }
-        return (o7b) invokeL.objValue;
-    }
-
-    public static <T> o7b<T> c(o7b<? super T> o7bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o7bVar)) == null) {
-            return new b(o7bVar, o7bVar);
-        }
-        return (o7b) invokeL.objValue;
+        return (X509Certificate[]) invokeV.objValue;
     }
 }

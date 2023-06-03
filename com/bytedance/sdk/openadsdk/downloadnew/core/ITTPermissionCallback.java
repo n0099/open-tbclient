@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ITTPermissionCallback {
     void onDenied(String str);
 

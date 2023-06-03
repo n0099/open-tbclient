@@ -1,130 +1,40 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.sb;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu8 {
+public class bu8 extends sl1<LiveCustomSettingService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public bu8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    if (c(file)) {
-                        cn cnVar = sb.a.b().get(str);
-                        if (cnVar != null) {
-                            bitmap = cnVar.p();
-                        }
-                    } else {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeFile(str, options);
-                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
-                    }
-                }
-            } catch (OutOfMemoryError unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return bitmap;
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public LiveCustomSettingService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            boolean z = false;
-            try {
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (FileNotFoundException e) {
-                    e = e;
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                byte[] bArr = new byte[7];
-                if (fileInputStream.read(bArr, 0, 6) == 6) {
-                    z = ri.D(bArr);
-                }
-                fileInputStream.close();
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (IOException e5) {
-                e = e5;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            if (0 != 0) {
-                fileInputStream2.close();
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new cu8();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Bitmap b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Bitmap f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            wh5 wh5Var = new wh5();
-            cn c = wh5Var.c(imageFileInfo, true);
-            if (c != null) {
-                f = c.p();
-            } else {
-                f = wh5Var.f(imageFileInfo, true);
-            }
-            if (f == null) {
-                return a(imageFileInfo.getFilePath());
-            }
-            return f;
-        }
-        return (Bitmap) invokeL.objValue;
+        return (LiveCustomSettingService) invokeV.objValue;
     }
 }

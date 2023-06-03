@@ -25,6 +25,7 @@ import com.baidu.platform.comapi.util.NetworkUtil;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -366,7 +367,7 @@ public class VDeviceAPI {
                 return 0.0f;
             }
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService("window");
+            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }
@@ -383,7 +384,7 @@ public class VDeviceAPI {
                 return 0;
             }
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService("window");
+            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager != null && windowManager.getDefaultDisplay() != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }
@@ -400,7 +401,7 @@ public class VDeviceAPI {
                 return 0.0f;
             }
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService("window");
+            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }
@@ -417,7 +418,7 @@ public class VDeviceAPI {
                 return 0.0f;
             }
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService("window");
+            WindowManager windowManager = (WindowManager) VIContext.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }

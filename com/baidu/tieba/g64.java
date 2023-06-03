@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class g64 implements lq1 {
+public final class g64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
     public g64() {
         Interceptable interceptable = $ic;
@@ -32,39 +30,86 @@ public class g64 implements lq1 {
         }
     }
 
-    @Override // com.baidu.tieba.lq1
-    public List<db3> a(da3 da3Var) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, da3Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new w44(da3Var));
-            arrayList.add(new x44(da3Var));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call();
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.a);
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lq1
-    public List<db3> c(da3 da3Var) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, da3Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new p94(da3Var));
-            arrayList.add(new o94(da3Var));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call();
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.b);
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lq1
-    public List<db3> b(da3 da3Var) {
+    public static g64 e(f42 f42Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da3Var)) == null) {
-            return Arrays.asList(new j54(da3Var), new y34(da3Var), new h44(da3Var), new u44(da3Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f42Var)) == null) {
+            if (f42Var == null) {
+                return null;
+            }
+            g64 g64Var = new g64();
+            g64Var.a = f42Var.u("success");
+            g64Var.b = f42Var.u("fail");
+            g64Var.c = f42Var.u(TaskProcessData.keyComplete);
+            return g64Var;
         }
-        return (List) invokeL.objValue;
+        return (g64) invokeL.objValue;
+    }
+
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.a);
+        }
+    }
+
+    public void d(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.b);
+        }
+    }
+
+    public final void f(JsFunction jsFunction) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsFunction) == null) && jsFunction != null) {
+            jsFunction.release();
+        }
     }
 }

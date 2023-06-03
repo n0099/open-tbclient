@@ -1,82 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class hh {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            gc gcVar = new gc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            gcVar.setSdCard(z);
-            gcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ac.f().a(gcVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d(kh khVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, khVar)) == null) {
+            if (!(khVar instanceof zh) && !(khVar instanceof yh) && !(khVar instanceof xh)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            c = str;
         }
     }
 
-    public static File[] b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        File[] fileArr;
-        File[] listFiles;
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ac.f().call(diskFileOperate);
-            File fileInfo = diskFileOperate.getFileInfo();
-            if (fileInfo != null) {
-                fileArr = fileInfo.listFiles();
-            } else {
-                fileArr = null;
-            }
-            if (z2) {
-                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-                diskFileOperate2.setSdCard(z);
-                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                ac.f().call(diskFileOperate2);
-                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
-                    if (fileArr != null && fileArr.length != 0) {
-                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
-                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
-                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
-                        return fileArr2;
-                    }
-                    return listFiles;
-                }
-            }
-            return fileArr;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            b = str;
         }
-        return (File[]) invokeCommon.objValue;
     }
 
-    public static ArrayList<jh> c(boolean z) {
-        InterceptResult invokeZ;
+    public static void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            ArrayList<jh> arrayList = new ArrayList<>();
-            File[] b = b(z, true);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            arrayList.add(new jh(name, file.length(), file.lastModified()));
-                        }
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            a = z;
         }
-        return (ArrayList) invokeZ.objValue;
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            d = str;
+        }
     }
 }

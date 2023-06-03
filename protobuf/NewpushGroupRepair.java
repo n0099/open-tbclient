@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class NewpushGroupRepair extends Message {
     @ProtoField(tag = 4, type = Message.Datatype.INT64)
     public final Long endSid;
@@ -26,7 +26,7 @@ public final class NewpushGroupRepair extends Message {
     public static final Long DEFAULT_FROMUID = 0L;
     public static final Integer DEFAULT_FROMUTYPE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<NewpushGroupRepair> {
         public Long endSid;
         public Integer fromUType;

@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class mp6 extends so6 {
+public class mp6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public mp6() {
@@ -19,6 +23,33 @@ public final class mp6 extends so6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static Handler a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (mp6.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
+            }
+            return a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
             }
         }
     }

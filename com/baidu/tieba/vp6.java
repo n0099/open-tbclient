@@ -1,108 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.h37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class vp6 {
+public class vp6 extends sl1<h37.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ap6 a(c0 c0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            return (ap6) c0Var.d(ap6.class);
-        }
-        return (ap6) invokeL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements h37.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static final xo6 b(c0 c0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            return (xo6) c0Var.d(xo6.class);
-        }
-        return (xo6) invokeL.objValue;
-    }
-
-    public static final long c(c0 c0Var) {
-        InterceptResult invokeL;
-        lo6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            xo6 b = b(c0Var);
-            if (b != null && (a = b.a()) != null) {
-                return a.g();
+        public a(vp6 vp6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vp6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return 0L;
         }
-        return invokeL.longValue;
-    }
 
-    public static final wo6 d(c0 c0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            return (wo6) c0Var.d(wo6.class);
-        }
-        return (wo6) invokeL.objValue;
-    }
-
-    public static final yo6 e(c0 c0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            return (yo6) c0Var.d(yo6.class);
-        }
-        return (yo6) invokeL.objValue;
-    }
-
-    public static final long f(c0 c0Var) {
-        InterceptResult invokeL;
-        lo6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, c0Var)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            xo6 b = b(c0Var);
-            if (b != null && (a = b.a()) != null) {
-                return a.j();
+        @Override // com.baidu.tieba.h37.a
+        public h37.d a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new zp6();
             }
-            return 0L;
+            return (h37.d) invokeV.objValue;
         }
-        return invokeL.longValue;
     }
 
-    public static final boolean g(c0 c0Var, long j) {
-        InterceptResult invokeLJ;
+    public vp6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, c0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            if (j - f(c0Var) < 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLJ.booleanValue;
     }
 
-    public static final boolean h(c0 c0Var, long j) {
-        InterceptResult invokeLJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public h37.a createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, c0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(c0Var, "<this>");
-            if (j - f(c0Var) > c(c0Var)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeLJ.booleanValue;
+        return (h37.a) invokeV.objValue;
     }
 }

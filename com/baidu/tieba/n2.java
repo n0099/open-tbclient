@@ -1,207 +1,167 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
+import android.media.MediaPlayer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s2;
+import com.baidu.tieba.w1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class n2 {
+public class n2 implements w1, MediaPlayer.OnCompletionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b2 a;
+    public MediaPlayer b;
+    public boolean c;
+    public boolean d;
+    public w1.a e;
 
-    public final int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i == 0 || i == 1) {
-                return 0;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n2 a;
+
+        public a(n2 n2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (i == 2) {
-                return 1;
-            }
-            if (i == 4) {
-                return 2;
-            }
-            if (i == 8) {
-                return 3;
-            }
-            return i == 16 ? 4 : -1;
+            this.a = n2Var;
         }
-        return invokeI.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                n2 n2Var = this.a;
+                n2Var.e.a(n2Var);
+            }
+        }
     }
 
-    public n2() {
+    public n2(b2 b2Var, MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b2Var, mediaPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = true;
+        this.d = false;
+        this.a = b2Var;
+        this.b = mediaPlayer;
+        this.e = null;
+        mediaPlayer.setOnCompletionListener(this);
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer == null) {
+                return false;
+            }
+            try {
+                return mediaPlayer.isPlaying();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void pause() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
+        }
+        try {
+            if (mediaPlayer.isPlaying()) {
+                this.b.pause();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.d = false;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v0, types: [android.media.MediaPlayer, com.baidu.tieba.w1$a] */
+    @Override // com.baidu.tieba.z6
+    public void dispose() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
+        }
+        try {
+            try {
+                mediaPlayer.release();
+            } finally {
+                this.b = null;
+                this.e = null;
+                this.a.d(this);
+            }
+        } catch (Throwable unused) {
+            w0.a.log("AndroidMusic", "error while disposing AndroidMusic instance, non-fatal");
         }
     }
 
-    public void a(MotionEvent motionEvent, s2 s2Var) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
+    public void f() {
+        MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, s2Var) == null) {
-            int action = motionEvent.getAction() & 255;
-            int action2 = (motionEvent.getAction() & 65280) >> 8;
-            int pointerId = motionEvent.getPointerId(action2);
-            long nanoTime = System.nanoTime();
-            synchronized (s2Var) {
-                int i9 = 20;
-                boolean z = false;
-                switch (action) {
-                    case 0:
-                    case 5:
-                        int d = s2Var.d();
-                        if (d >= 20) {
-                            break;
-                        } else {
-                            s2Var.q[d] = pointerId;
-                            int x = (int) motionEvent.getX(action2);
-                            int y = (int) motionEvent.getY(action2);
-                            int d2 = d(motionEvent.getButtonState());
-                            if (d2 != -1) {
-                                i = d2;
-                                i2 = x;
-                                i3 = y;
-                                b(s2Var, 0, x, y, d, i, nanoTime);
-                            } else {
-                                i = d2;
-                                i2 = x;
-                                i3 = y;
-                            }
-                            s2Var.k[d] = i2;
-                            s2Var.l[d] = i3;
-                            s2Var.m[d] = 0;
-                            s2Var.n[d] = 0;
-                            boolean[] zArr = s2Var.o;
-                            int i10 = i;
-                            if (i10 != -1) {
-                                z = true;
-                            }
-                            zArr[d] = z;
-                            s2Var.p[d] = i10;
-                            s2Var.r[d] = motionEvent.getPressure(action2);
-                            break;
-                        }
-                    case 1:
-                    case 4:
-                    case 6:
-                        int f = s2Var.f(pointerId);
-                        if (f != -1 && f < 20) {
-                            s2Var.q[f] = -1;
-                            int x2 = (int) motionEvent.getX(action2);
-                            int y2 = (int) motionEvent.getY(action2);
-                            int i11 = s2Var.p[f];
-                            if (i11 != -1) {
-                                i4 = x2;
-                                b(s2Var, 1, x2, y2, f, i11, nanoTime);
-                            } else {
-                                i4 = x2;
-                            }
-                            s2Var.k[f] = i4;
-                            s2Var.l[f] = y2;
-                            s2Var.m[f] = 0;
-                            s2Var.n[f] = 0;
-                            s2Var.o[f] = false;
-                            s2Var.p[f] = 0;
-                            s2Var.r[f] = 0.0f;
-                            break;
-                        }
-                        break;
-                    case 2:
-                        int pointerCount = motionEvent.getPointerCount();
-                        int i12 = 0;
-                        while (i12 < pointerCount) {
-                            int pointerId2 = motionEvent.getPointerId(i12);
-                            int x3 = (int) motionEvent.getX(i12);
-                            int y3 = (int) motionEvent.getY(i12);
-                            int f2 = s2Var.f(pointerId2);
-                            if (f2 == -1) {
-                                i7 = i12;
-                            } else if (f2 >= i9) {
-                                break;
-                            } else {
-                                int i13 = s2Var.p[f2];
-                                if (i13 != -1) {
-                                    i5 = f2;
-                                    i6 = y3;
-                                    i7 = i12;
-                                    i8 = x3;
-                                    b(s2Var, 2, x3, y3, f2, i13, nanoTime);
-                                } else {
-                                    i5 = f2;
-                                    i6 = y3;
-                                    i7 = i12;
-                                    i8 = x3;
-                                    b(s2Var, 4, i8, i6, f2, 0, nanoTime);
-                                }
-                                s2Var.m[i5] = i8 - s2Var.k[i5];
-                                s2Var.n[i5] = i6 - s2Var.l[i5];
-                                s2Var.k[i5] = i8;
-                                s2Var.l[i5] = i6;
-                                s2Var.r[i5] = motionEvent.getPressure(i7);
-                            }
-                            i12 = i7 + 1;
-                            i9 = 20;
-                        }
-                        break;
-                    case 3:
-                        for (int i14 = 0; i14 < s2Var.q.length; i14++) {
-                            s2Var.q[i14] = -1;
-                            s2Var.k[i14] = 0;
-                            s2Var.l[i14] = 0;
-                            s2Var.m[i14] = 0;
-                            s2Var.n[i14] = 0;
-                            s2Var.o[i14] = false;
-                            s2Var.p[i14] = 0;
-                            s2Var.r[i14] = 0.0f;
-                        }
-                        break;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
+        }
+        try {
+            if (mediaPlayer.isPlaying()) {
+                return;
+            }
+            try {
+                if (!this.c) {
+                    this.b.prepare();
+                    this.c = true;
                 }
+                this.b.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e2) {
+                e2.printStackTrace();
             }
-            s0.a.getGraphics().c();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
     }
 
-    public final void b(s2 s2Var, int i, int i2, int i3, int i4, int i5, long j) {
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{s2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-            s2.f e = s2Var.g.e();
-            e.a = j;
-            e.h = i4;
-            e.c = i2;
-            e.d = i3;
-            e.b = i;
-            e.g = i5;
-            s2Var.j.add(e);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) && this.e != null) {
+            w0.a.postRunnable(new a(this));
         }
-    }
-
-    public boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return context.getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch");
-        }
-        return invokeL.booleanValue;
     }
 }

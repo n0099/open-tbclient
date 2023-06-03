@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +125,7 @@ public class ActivityPrizeData {
             return;
         }
         boolean z3 = false;
-        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
+        if (jSONObject.optInt("switch") == 1) {
             z = true;
         } else {
             z = false;

@@ -1,12 +1,12 @@
 package rx.internal.util.atomic;
 
-import com.baidu.tieba.lab;
+import com.baidu.tieba.lpb;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static final long serialVersionUID = 6210984603741293445L;
     public final int capacitySkip;
@@ -15,7 +15,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     public final AtomicLong producerIndex;
 
     public SpscExactAtomicArrayQueue(int i) {
-        super(lab.b(i));
+        super(lpb.b(i));
         int length = length();
         this.mask = length - 1;
         this.capacitySkip = length - i;

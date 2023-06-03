@@ -1,29 +1,344 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a60;
+import com.baidu.tieba.t30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Map;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x30 extends n30 {
+public class x30 extends t30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a60.a f;
+    public a g;
 
+    /* loaded from: classes8.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public boolean c;
+        public boolean d;
+        public final /* synthetic */ x30 e;
+
+        public a(x30 x30Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x30Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = x30Var;
+            this.d = true;
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+        }
+
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a == j) {
+                return;
+            }
+            this.a = j;
+            this.c = true;
+        }
+
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str.equals(this.b)) {
+                return;
+            }
+            this.b = str;
+            this.c = true;
+        }
+
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+
+        public boolean e(String str) {
+            InterceptResult invokeL;
+            Context context;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.d = false;
+                try {
+                    context = this.e.a.a.createPackageContext(str, 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    context = null;
+                }
+                if (context == null) {
+                    return false;
+                }
+                try {
+                    File externalCacheDir = context.getExternalCacheDir();
+                    if (externalCacheDir == null) {
+                        return false;
+                    }
+                    return g(a60.e(new File(externalCacheDir, "com.baidu.helios" + File.separator + "esc-es"), "pub.dat", "UTF-8", true));
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g(this.e.f.g("pub.dat", true)) : invokeV.booleanValue;
+        }
+
+        public final boolean g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        this.a = jSONObject.getLong("pub_lst_ts");
+                        this.b = jSONObject.getString("pub_id");
+                        jSONObject.getInt("d_form_ver");
+                        this.c = false;
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (this.d) {
+                    if (this.c) {
+                        try {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("pub_id", this.b);
+                            jSONObject.put("pub_lst_ts", this.a);
+                            jSONObject.put("d_form_ver", 1);
+                            this.e.f.i("pub.dat", jSONObject.toString(), true);
+                            this.c = false;
+                            return true;
+                        } catch (Exception unused) {
+                        }
+                    }
+                    return false;
+                }
+                throw new IllegalStateException();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                try {
+                    File externalCacheDir = this.e.a.a.getExternalCacheDir();
+                    File file = new File(externalCacheDir, "com.baidu.helios" + File.separator + "esc-es");
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("pub_id", this.b);
+                    jSONObject.put("pub_lst_ts", this.a);
+                    jSONObject.put("d_form_ver", 1);
+                    a60.f(file, "pub.dat", jSONObject.toString(), "UTF-8", true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends t30.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String d;
+        public long e;
+        public long f;
+        public long g;
+        public String h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(x30 x30Var, String str) {
+            super(x30Var.f, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x30Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((a60.a) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.t30.c
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.d = jSONObject.getString("pkg");
+                this.f = jSONObject.getInt("tar_pkg_lst_pub_ts");
+                this.e = jSONObject.getLong("last_fe_ts");
+                this.h = jSONObject.getString("id");
+                this.g = jSONObject.getLong("tar_pkg_lst_up_ts");
+                jSONObject.getInt("d_form_ver");
+            }
+        }
+
+        @Override // com.baidu.tieba.t30.c
+        public void e(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                jSONObject.put("pkg", this.d);
+                jSONObject.put("last_fe_ts", this.e);
+                jSONObject.put("tar_pkg_lst_pub_ts", this.f);
+                jSONObject.put("id", this.h);
+                jSONObject.put("tar_pkg_lst_up_ts", this.g);
+                jSONObject.put("d_form_ver", 1);
+            }
+        }
+
+        public String f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        public void g(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                l(aVar.d());
+                k(aVar.a());
+            }
+        }
+
+        public boolean h(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                if (this.e != j) {
+                    this.e = j;
+                    a(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public boolean i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                if (str.equals(this.d)) {
+                    return false;
+                }
+                this.d = str;
+                a(true);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public String j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
+        }
+
+        public boolean k(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                if (this.f != j) {
+                    this.f = j;
+                    a(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public boolean l(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+                if (str.equals(this.h)) {
+                    return false;
+                }
+                this.h = str;
+                a(true);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public long m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.longValue;
+        }
+
+        public boolean n(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+                if (this.g != j) {
+                    this.g = j;
+                    a(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x30() {
+        super("esc-es", 7000000L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,225 +346,100 @@ public class x30 extends n30 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Long) objArr[1]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.g = new a(this);
+    }
+
+    @Override // com.baidu.tieba.t30
+    public t30.h b(String str, t30.g gVar) {
+        InterceptResult invokeLL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, gVar)) == null) {
+            Context context = this.a.a;
+            b bVar = null;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null) {
+                return t30.h.b(-1);
+            }
+            if (gVar.a) {
+                bVar = new b(this, str);
+                bVar.d();
+                if (str.equals(bVar.f()) && packageInfo.lastUpdateTime == bVar.m()) {
+                    String j = bVar.j();
+                    if (!TextUtils.isEmpty(j)) {
+                        return t30.h.f(j);
+                    }
+                }
+            }
+            if (context.checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) == 0) {
+                a aVar = new a(this);
+                if (aVar.e(str)) {
+                    if (gVar.a && bVar != null) {
+                        bVar.g(aVar);
+                        bVar.h(System.currentTimeMillis());
+                        bVar.n(packageInfo.lastUpdateTime);
+                        bVar.i(str);
+                        bVar.b();
+                    }
+                    return t30.h.f(aVar.d());
+                }
+                return t30.h.b(-2);
+            }
+            return t30.h.b(-100);
+        }
+        return (t30.h) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t30
+    public void e(t30.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.f = this.b.f("esc-es");
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r1v5 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7 */
-    @Override // com.baidu.tieba.p30
-    public String a(String str, String str2, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLLL;
-        OutputStream outputStream;
-        BufferedReader bufferedReader;
-        HttpURLConnection httpURLConnection;
-        OutputStream outputStream2;
+    @Override // com.baidu.tieba.t30
+    public t30.f f(t30.e eVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, map, jSONObject)) != null) {
-            return (String) invokeLLLL.objValue;
-        }
-        if (TextUtils.isEmpty(str)) {
-            throw new NullPointerException("urlStr should not be null");
-        }
-        ?? r1 = 0;
-        try {
-            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-            try {
-                httpURLConnection.setConnectTimeout(15000);
-                httpURLConnection.setReadTimeout(15000);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod(str2);
-                if (map != null && map.size() > 0) {
-                    for (String str3 : map.keySet()) {
-                        httpURLConnection.setRequestProperty(str3, map.get(str3));
-                    }
-                    httpURLConnection.setRequestProperty("Content-type", "application/json");
-                }
-                outputStream2 = httpURLConnection.getOutputStream();
-                try {
-                    outputStream2.write(jSONObject.toString().getBytes(IMAudioTransRequest.CHARSET));
-                    outputStream2.flush();
-                    if (httpURLConnection.getResponseCode() != 200) {
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        if (outputStream2 != null) {
-                            try {
-                                outputStream2.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        return null;
-                    }
-                    bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), IMAudioTransRequest.CHARSET));
-                    String str4 = "";
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            str4 = str4 + readLine;
-                        } catch (IOException unused) {
-                        } catch (Throwable th) {
-                            r1 = httpURLConnection;
-                            outputStream = outputStream2;
-                            th = th;
-                            if (r1 != 0) {
-                                r1.disconnect();
-                            }
-                            if (outputStream != null) {
-                                try {
-                                    outputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                    return str4;
-                } catch (UnsupportedEncodingException unused2) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (0 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    return null;
-                } catch (MalformedURLException unused3) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                    }
-                    if (0 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
-                        }
-                    }
-                    return null;
-                } catch (ProtocolException unused4) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e10) {
-                            e10.printStackTrace();
-                        }
-                    }
-                    if (0 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e11) {
-                            e11.printStackTrace();
-                        }
-                    }
-                    return null;
-                } catch (IOException unused5) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e12) {
-                            e12.printStackTrace();
-                        }
-                    }
-                    if (0 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e13) {
-                            e13.printStackTrace();
-                        }
-                    }
-                    return null;
-                } catch (Throwable th2) {
-                    r1 = httpURLConnection;
-                    outputStream = outputStream2;
-                    th = th2;
-                    bufferedReader = null;
-                }
-            } catch (UnsupportedEncodingException unused6) {
-                outputStream2 = null;
-            } catch (MalformedURLException unused7) {
-                outputStream2 = null;
-            } catch (ProtocolException unused8) {
-                outputStream2 = null;
-            } catch (IOException unused9) {
-                outputStream2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader = null;
-                r1 = httpURLConnection;
-                outputStream = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return t30.f.a();
             }
-        } catch (UnsupportedEncodingException unused10) {
-            httpURLConnection = null;
-            outputStream2 = null;
-        } catch (MalformedURLException unused11) {
-            httpURLConnection = null;
-            outputStream2 = null;
-        } catch (ProtocolException unused12) {
-            httpURLConnection = null;
-            outputStream2 = null;
-        } catch (IOException unused13) {
-            httpURLConnection = null;
-            outputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
-            outputStream = null;
-            bufferedReader = null;
+            this.g.f();
+            try {
+                return i(eVar);
+            } finally {
+                this.g.h();
+            }
         }
+        return (t30.f) invokeL.objValue;
+    }
+
+    public final t30.f i(t30.e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
+            String c = this.a.c.a("aid").c();
+            if (c.equals(this.g.d())) {
+                return t30.f.d();
+            }
+            this.g.c(c);
+            this.g.b(System.currentTimeMillis());
+            this.g.h();
+            return this.g.i() ? t30.f.d() : t30.f.a();
+        }
+        return (t30.f) invokeL.objValue;
     }
 }

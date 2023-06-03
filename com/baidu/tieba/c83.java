@@ -1,17 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.graphics.Color;
-import android.os.Build;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.widget.ImmersionHelper;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,45 +12,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class c83 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final boolean b;
+    public static final boolean d;
+    public static volatile c83 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, d83<b83>> a;
+    public ConcurrentHashMap<String, Runnable> b;
+    public a c;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ho3 a;
 
-        public a(ho3 ho3Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ho3Var};
+                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-            }
-            this.a = ho3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ho3 ho3Var;
-            View e;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ho3Var = this.a) != null && (e = ho3Var.e()) != null) {
-                e.setVisibility(0);
             }
         }
     }
@@ -66,15 +55,15 @@ public class c83 {
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m82 a;
-        public final /* synthetic */ View b;
+        public WeakReference<c83> a;
+        public String b;
 
-        public b(m82 m82Var, View view2) {
+        public b(c83 c83Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m82Var, view2};
+                Object[] objArr = {c83Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,64 +73,23 @@ public class c83 {
                     return;
                 }
             }
-            this.a = m82Var;
-            this.b = view2;
+            this.a = new WeakReference<>(c83Var);
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            View e;
+            c83 c83Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ho3 L1 = this.a.L1();
-                if (L1 != null && (e = L1.e()) != null) {
-                    e.setVisibility(8);
-                }
-                LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09018a);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
-                layoutParams.topMargin = 0;
-                linearLayout.setLayoutParams(layoutParams);
-                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09018b);
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
-                layoutParams2.topMargin = 0;
-                frameLayout.setLayoutParams(layoutParams2);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c83Var = this.a.get()) == null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ boolean b;
-
-        public c(Activity activity, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (c83.d) {
+                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
             }
-            this.a = activity;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getWindow().clearFlags(2048);
-                c83.n(c83.e(this.a), this.b);
-            }
+            b83 b83Var = new b83(this.b);
+            b83Var.setResult(null);
+            c83Var.c(b83Var);
         }
     }
 
@@ -158,169 +106,152 @@ public class c83 {
                 return;
             }
         }
-        a = qp1.a;
-        Color.parseColor("#80000000");
-        b = j();
-        if (!TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            TextUtils.equals(Build.MANUFACTURER, "Meizu");
-        }
+        d = is1.a;
     }
 
-    public static void n(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) && view2 != null) {
-            if (z) {
-                view2.setSystemUiVisibility(pl3.c());
-            } else {
-                view2.setSystemUiVisibility(0);
-            }
-        }
-    }
-
-    public static View b() {
-        InterceptResult invokeV;
-        m82 m82Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            p82 V = tu2.U().V();
-            if (V != null) {
-                m82Var = V.m();
-            } else {
-                m82Var = null;
-            }
-            return c(m82Var);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public static LinearLayout d() {
+    public static c83 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            sk3 z = gy1.z();
-            if (z != null) {
-                return z.m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (c83.class) {
+                    if (e == null) {
+                        e = new c83();
+                    }
+                }
             }
-            return null;
+            return e;
         }
-        return (LinearLayout) invokeV.objValue;
+        return (c83) invokeV.objValue;
     }
 
-    public static void g() {
-        p82 V;
+    public c83() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || (V = tu2.U().V()) == null) {
-            return;
-        }
-        h(V.m());
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a) {
-                return z & mm3.b(ImmersionHelper.SP_KEY_IMMERSION_SWITCH, z);
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new a(Looper.getMainLooper());
+    }
+
+    public void c(@NonNull b83 b83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, b83Var) == null) {
+            d83<b83> d83Var = this.a.get(b83Var.b());
+            if (d83Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "notify a null observer");
+                    return;
+                }
+                return;
             }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void o() {
-        p82 V;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65551, null) != null) || (V = tu2.U().V()) == null) {
-            return;
-        }
-        an3.a0(new a(V.m().L1()));
-    }
-
-    public static View c(m82 m82Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, m82Var)) == null) {
-            if (m82Var != null) {
-                return m82Var.O1();
+            String b2 = d83Var.b();
+            if (d) {
+                Log.d("MDelegate-Observe", "notify observer: " + b2);
             }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static ViewGroup e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            if (activity != null) {
-                return (ViewGroup) activity.getWindow().getDecorView();
+            d83Var.onEvent(b83Var);
+            if (this.b.containsKey(b2)) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
+                }
+                this.c.removeCallbacks(this.b.get(b2));
+                this.b.remove(b2);
             }
-            return null;
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    public static boolean f(Dialog dialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dialog)) == null) {
-            if (((dialog.getWindow().getDecorView().getSystemUiVisibility() | dialog.getWindow().getAttributes().systemUiVisibility) & 2) != 0) {
-                return true;
+            if (d83Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
+                }
+                f(d83Var);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static void h(m82 m82Var) {
-        View b0;
+    public void e(d83<b83> d83Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, m82Var) != null) || (b0 = m82Var.b0()) == null) {
-            return;
-        }
-        an3.a0(new b(m82Var, b0));
-    }
-
-    public static boolean i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) {
-            if (!b || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910c7) == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d83Var) == null) {
+            if (d83Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "register a null observer");
+                    return;
+                }
+                return;
             }
-            return true;
+            String b2 = d83Var.b();
+            if (this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "register observer: " + b2);
+            }
+            this.a.put(b2, d83Var);
+            long a2 = d83Var.a();
+            if (a2 > 0 && d83Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
+                }
+                b bVar = new b(this, b2);
+                this.b.put(b2, bVar);
+                this.c.postDelayed(bVar, a2);
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    public static void m(boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            l(tu2.U().getActivity(), 100L, z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("MDelegate-Observe", "release observable");
+            }
+            if (e == null) {
+                return;
+            }
+            this.a.clear();
+            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+                }
+                this.c.removeCallbacks(entry.getValue());
+            }
+            this.b.clear();
+            e = null;
         }
     }
 
-    public static void k(Dialog dialog) {
+    public void f(d83<b83> d83Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, dialog) == null) && Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06040c);
-            Window window = dialog.getWindow();
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(color);
-        }
-    }
-
-    public static void l(Activity activity, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{activity, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            an3.b0(new c(activity, z), j);
+        if (interceptable == null || interceptable.invokeL(1048579, this, d83Var) == null) {
+            if (d83Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = d83Var.b();
+            if (!this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "unregister observer: " + b2);
+            }
+            this.a.remove(b2);
         }
     }
 }

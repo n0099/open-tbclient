@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.BDModuleLoadCallback;
@@ -183,7 +184,7 @@ public class c {
                         bundle.putStringArray("appkey", new String[]{this.d, this.e});
                         bundle.putInt("key", this.b);
                         bundle.putInt(DelayTB.DELAY, this.f);
-                        intent.putExtra("bundle", bundle);
+                        intent.putExtra(StateManager.KEY_STATE, bundle);
                         this.a.startService(intent);
                         com.baidu.sofire.d.b.a(this.a);
                         return;
@@ -398,12 +399,12 @@ public class c {
 
     /* renamed from: com.baidu.sofire.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0170c implements GzfiCallback {
+    public static class C0184c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sofire.d.a a;
 
-        public C0170c(com.baidu.sofire.d.a aVar) {
+        public C0184c(com.baidu.sofire.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -978,7 +979,7 @@ public class c {
                 int i4 = bundle.getInt("timeout", 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    C0170c c0170c = new C0170c(a.AbstractBinderC0172a.a(iBinder));
+                    C0184c c0184c = new C0184c(a.AbstractBinderC0186a.a(iBinder));
                     synchronized (c.class) {
                         try {
                             if (com.baidu.sofire.b.b.e == null) {
@@ -986,10 +987,10 @@ public class c {
                             }
                             Pair<Integer, String> a2 = a(context);
                             if (a2 != null && ((Integer) a2.first).intValue() == 1) {
-                                c0170c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
+                                c0184c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
                             } else {
                                 synchronized (i) {
-                                    i.add(c0170c);
+                                    i.add(c0184c);
                                 }
                                 if (i4 > 0) {
                                     i3 = i4;

@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface pq5<T> {
-    void onError(int i, String str);
 
-    void onSuccess(T t);
+import com.squareup.wire.Message;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public interface pq5 extends iq5 {
+    void initByJson(JSONObject jSONObject);
+
+    void initByProtobuf(Message message);
 }

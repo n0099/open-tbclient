@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,21 +12,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k43 {
+public class k43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile k43 d;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
-    public Set<String> b;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    public interface b {
+        void onFail(String str);
+
+        void onSuccess(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k43 a;
+
+        public a(k43 k43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k43Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f == null) {
+                    y82.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+                    return;
+                }
+                this.a.f.onFail(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    y82.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) != 0) {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                } else {
+                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return yo3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
     }
 
     static {
@@ -48,7 +127,9 @@ public final class k43 {
                 return;
             }
         }
-        c = qp1.a;
+        boolean z = is1.a;
+        h = String.format("%s/ma/pay_check", s82.b());
+        i = f33.a;
     }
 
     public k43() {
@@ -56,167 +137,99 @@ public final class k43 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
-        this.b = new HashSet();
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
     }
 
-    public static k43 c() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (k43.class) {
-                    if (d == null) {
-                        d = new k43();
-                    }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = xb3.K().q().O();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
                 }
-            }
-            return d;
-        }
-        return (k43) invokeV.objValue;
-    }
-
-    @NonNull
-    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                int[] iArr = new int[strArr.length];
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    if (cq4.a(activity, strArr[i2])) {
-                        i = 0;
-                    } else {
-                        i = -1;
-                    }
-                    iArr[i2] = i;
-                }
-                return iArr;
-            }
-            return new int[0];
-        }
-        return (int[]) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
-            for (String str : strArr) {
-                if (!cq4.a(activity, str)) {
-                    if (qm4.f(activity, str)) {
-                        return str;
-                    }
-                    if (!e(str)) {
-                        return str;
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            oh3 a2 = uh3.a();
-            return a2.getBoolean("first#" + str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            oh3 a2 = uh3.a();
-            a2.putBoolean("first#" + str, true);
-        }
-    }
-
-    public final boolean a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (strArr == null || strArr.length <= 0) {
-                return true;
-            }
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
-            boolean z = !a(strArr);
-            if (Build.VERSION.SDK_INT >= 23) {
-                h(activity, strArr, iArr);
-            }
-            a aVar = this.a.get(i);
-            if (aVar != null) {
-                this.a.remove(i);
-                if ((aVar instanceof f43) && z) {
-                    aVar = ((f43) aVar).s();
-                }
-                aVar.onRequestPermissionsResult(i, strArr, iArr);
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-                StringBuilder sb = new StringBuilder();
-                sb.append("onRequestPermissionsResult grantResults: ");
-                sb.append(Arrays.toString(iArr));
-                Log.d("SwanAppPermission", sb.toString());
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                y82.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
         }
     }
 
-    @RequiresApi(api = 23)
-    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int length;
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
-            for (int i = 0; i < length; i++) {
-                int i2 = iArr[i];
-                String str = strArr[i];
-                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.b.add(str);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
         }
     }
 
-    @TargetApi(23)
-    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
-            String d2 = d(activity, strArr);
-            if (d2 != null) {
-                this.a.put(i, aVar);
-                activity.requestPermissions(strArr, i);
-                g(d2);
-            } else {
-                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
             }
-            if (c) {
-                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-            }
+            this.a = qp3.b(this.a, this.c);
+            bj4 bj4Var = new bj4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            bj4Var.c = this.b;
+            bj4Var.g = true;
+            y82.b("PayCheckRequest", "start paycheck request : " + this.e);
+            cj4.g().e(bj4Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = gl4.i(h);
+            this.a = i2;
+            this.a = u82.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", fp3.b());
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            y82.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
         }
     }
 }

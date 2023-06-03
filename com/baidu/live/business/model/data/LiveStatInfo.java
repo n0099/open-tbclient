@@ -2,7 +2,6 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -63,7 +62,7 @@ public class LiveStatInfo implements Parcelable {
             z = false;
         }
         this.isYY = z;
-        this.yyuid = jSONObject.optString(TiebaStatic.YYParams.YYUID, "");
+        this.yyuid = jSONObject.optString("yyuid", "");
         this.sid = jSONObject.optString("sid", "");
         this.ssid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID, "");
         this.tpl = jSONObject.optString("tpl", "");

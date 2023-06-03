@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,14 +9,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface la1 {
-    public static final la1 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "nairobiKernelInit");
+    public static final la1 b = new a();
 
-    WebView a(@NonNull Context context);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    int a(Context context, b bVar);
 
     /* loaded from: classes6.dex */
     public static class a implements la1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.la1
+        public int a(Context context, b bVar) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,16 +48,6 @@ public interface la1 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.la1
-        public WebView a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new WebView(context);
-            }
-            return (WebView) invokeL.objValue;
         }
     }
 }

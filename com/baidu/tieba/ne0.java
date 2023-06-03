@@ -1,92 +1,204 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import android.opengl.GLES20;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPOutputStream;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes6.dex */
-public class ne0 {
-    public static /* synthetic */ Interceptable $ic;
+import java.nio.Buffer;
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public class ne0 extends me0 implements oe0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String k = "ne0";
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public se0 d;
+    public re0 e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes6.dex */
-    public static class a extends GZIPOutputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947999440, "Lcom/baidu/tieba/ne0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947999440, "Lcom/baidu/tieba/ne0;");
+        }
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(OutputStream outputStream) {
-            super(outputStream);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {outputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((OutputStream) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public ne0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+        this.c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+        new LinkedList();
+    }
 
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                ((GZIPOutputStream) this).def.setLevel(i);
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GLES20.glUseProgram(0);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            GLES20.glDeleteProgram(this.a);
+            this.a = -1;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            GLES20.glDisableVertexAttribArray(this.f);
+            GLES20.glDisableVertexAttribArray(this.i);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            GLES20.glUseProgram(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.oe0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            i();
+        }
+    }
+
+    @Override // com.baidu.tieba.oe0
+    public void a(pe0 pe0Var, ue0 ue0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pe0Var, ue0Var) == null) {
+            se0 se0Var = this.d;
+            if (se0Var != null && se0Var.e()) {
+                l();
+                d(this.d);
+                c(pe0Var, ue0Var);
+                g(pe0Var, ue0Var);
+                j();
+                k(this.d);
+                f();
+                return;
+            }
+            Log.e(k, "onDraw filter has not been setup!!!");
+        }
+    }
+
+    public void g(pe0 pe0Var, ue0 ue0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pe0Var, ue0Var) == null) {
+            if (ue0Var.e()) {
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                GLES20.glClear(16384);
+            }
+            if (ue0Var.d()) {
+                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
+                GLES20.glBlendFunc(770, 771);
+            }
+            GLES20.glDrawArrays(5, 0, pe0Var.e());
+            if (ue0Var.d()) {
+                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             }
         }
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oe0
+    public void b(se0 se0Var, re0 re0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = new byte[bArr.length];
-            byte[] bArr3 = {26, 31, -22, -104, 118, 81, -16, 6, 90, -75, Byte.MIN_VALUE, ExifInterface.MARKER_SOI, 85, 92, 106, 114, -20, 34, 116, 13, -70, -77, 122, -71, -84, -25, -42, 99, ExifInterface.START_CODE, 100, 19, -37, -99, 32, -17, 70, -124, -24, -114, -120, 24, 73, -103, 3, -44, 1, 52, 91, 17, 40, -21, 66, -91, 21, 16, ExifInterface.MARKER_SOF5, 80, 49, 12, -123, 123, -92, 68, 102, Constants.SHORT_PING_CMD_TYPE, -6, -72, -89, -107, 10, 126, -102, -98, -52, ExifInterface.MARKER_SOF0, 120, -32, ExifInterface.MARKER_SOF9, -80, 98, 55, -85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, -101, 84, -90, 121, 125, -28, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, ExifInterface.MARKER_SOF1, 83, -113, 61, -67, ExifInterface.MARKER_SOF7, -15, 22, -19, 94, 28, -46, 97, 43, ByteCompanionObject.MAX_VALUE, -9, 20, 112, ExifInterface.MARKER_SOF10, Constants.GZIP_CAST_TYPE, -68, -2, -112, -79, -47, -13, 109, 27, -116, -96, -115, -18, -100, 5, Base64.INTERNAL_PADDING, 67, 48, 82, -23, 88, -66, ExifInterface.MARKER_SOS, 50, 23, -4, -48, ExifInterface.MARKER_SOF6, ExifInterface.MARKER_SOF13, -29, -78, 115, -122, 69, -34, -86, 74, ExifInterface.MARKER_SOF14, -87, -1, -121, 124, 71, -126, 7, 62, 56, -94, 77, -110, -27, 30, -83, ExifInterface.MARKER_SOF2, 0, 18, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 104, 29, 78, 25, -41, 2, -65, -8, -3, 89, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -56, 58, -45, 79, 14, 96, 72, -26, -14, -82, 15, 108, -30, -97, -108, -109, 54, -73, -11, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF3, -33, 59, ExifInterface.MARKER_SOF15, 117, -95, 9, 87, 110, -125, -105, 86, 45, 60, -81, ExifInterface.MARKER_EOI, -43, ExifInterface.MARKER_APP1, ExifInterface.MARKER_SOF11, 63, -88, 76, -10, 8, 53, 93, 75, -60, 111, 105, -127, 103, -111, -93, QCodec.UNDERSCORE, 64, -69, -106, -7, 113, 4, -5, -74, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -117, -12, -35, 51, 119, 65, 33, -36, 107, -119, 57, -118, -76, 37};
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                i = (i + 1) & 255;
-                i2 = (bArr3[i] + i2) & 255;
-                byte b = bArr3[i];
-                bArr3[i] = bArr3[i2];
-                bArr3[i2] = b;
-                bArr2[i3] = (byte) (bArr[i3] ^ bArr3[(bArr3[i] + bArr3[i2]) & 255]);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se0Var, re0Var) == null) {
+            this.d = se0Var;
+            this.e = re0Var;
+            e(this.b, this.c);
+            if (this.a != -1) {
+                h();
+                return;
             }
-            return bArr2;
+            throw new RuntimeException("Unable to create program");
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            if (this.d.getType() != 36197) {
+                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a aVar = new a(byteArrayOutputStream);
-            aVar.a(9);
-            aVar.write(bArr);
-            aVar.close();
-            return byteArrayOutputStream.toByteArray();
+            this.a = we0.c(str, str2);
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(pe0 pe0Var, ue0 ue0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pe0Var, ue0Var) == null) {
+            GLES20.glUniformMatrix4fv(this.g, 1, false, ue0Var.b(), 0);
+            GLES20.glUniformMatrix4fv(this.h, 1, false, ue0Var.c(), 0);
+            GLES20.glEnableVertexAttribArray(this.f);
+            GLES20.glVertexAttribPointer(this.f, pe0Var.a(), 5126, false, pe0Var.f(), (Buffer) pe0Var.d());
+            GLES20.glEnableVertexAttribArray(this.i);
+            GLES20.glVertexAttribPointer(this.i, pe0Var.a(), 5126, false, pe0Var.c(), (Buffer) pe0Var.b());
+        }
+    }
+
+    public void d(se0 se0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, se0Var) == null) {
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(se0Var.getType(), se0Var.c());
+            GLES20.glUniform1i(this.j, 0);
+        }
+    }
+
+    public void k(se0 se0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, se0Var) == null) {
+            GLES20.glBindTexture(se0Var.getType(), 0);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j = GLES20.glGetUniformLocation(this.a, "uTexture");
+            this.f = GLES20.glGetAttribLocation(this.a, "aPosition");
+            this.g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
+            this.h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
+            this.i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
+        }
     }
 }

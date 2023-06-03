@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.platform.b.f;
 import com.meizu.cloud.pushsdk.platform.b.g;
 import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static b a;
     public ScheduledExecutorService b;

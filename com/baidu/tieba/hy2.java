@@ -1,220 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class hy2 extends db3 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class hy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dy2 c;
-    public ny2 d;
-    public fy2 e;
-    public ey2 f;
-    public ky2 g;
-    public cy2 h;
-    public ly2 i;
-    public jy2 j;
-    public my2 k;
-    public gy2 l;
+    public UnitedSchemeEntity a;
+    public CallbackHandler b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hy2(da3 da3Var) {
-        super(da3Var, "/swanAPI/video");
+    public hy2(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {unitedSchemeEntity, callbackHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = unitedSchemeEntity;
+        this.b = callbackHandler;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public static hy2 a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, unitedSchemeEntity, callbackHandler)) == null) {
+            return new hy2(unitedSchemeEntity, callbackHandler);
         }
-        return invokeLLLL.booleanValue;
+        return (hy2) invokeLL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.db3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, g93 g93Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
+    public void c(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, g93Var)) == null) {
-            g62.i("VideoPlayerAction", "handleSubAction subAction : " + str + "params : " + db3.a(unitedSchemeEntity, "params"));
-            switch (str.hashCode()) {
-                case -1701478259:
-                    if (str.equals("/swanAPI/video/pause")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440375597:
-                    if (str.equals("/swanAPI/video/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440349763:
-                    if (str.equals("/swanAPI/video/play")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440267007:
-                    if (str.equals("/swanAPI/video/seek")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440252277:
-                    if (str.equals("/swanAPI/video/stop")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1145507635:
-                    if (str.equals("/swanAPI/video/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1049743086:
-                    if (str.equals("/swanAPI/video/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -274000988:
-                    if (str.equals("/swanAPI/video/fullScreen")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 711122280:
-                    if (str.equals("/swanAPI/video/sendDanmu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1568993060:
-                    if (str.equals("/swanAPI/video/playbackRate")) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (this.c == null) {
-                        this.c = new dy2("/swanAPI/video/open");
-                    }
-                    c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 1:
-                    if (this.d == null) {
-                        this.d = new ny2("/swanAPI/video/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 2:
-                    if (this.j == null) {
-                        this.j = new jy2("/swanAPI/video/remove");
-                    }
-                    c2 = this.j.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 3:
-                    if (this.e == null) {
-                        this.e = new fy2("/swanAPI/video/play");
-                    }
-                    c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 4:
-                    if (this.f == null) {
-                        this.f = new ey2("/swanAPI/video/pause");
-                    }
-                    c2 = this.f.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 5:
-                    if (this.g == null) {
-                        this.g = new ky2("/swanAPI/video/seek");
-                    }
-                    c2 = this.g.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 6:
-                    if (this.h == null) {
-                        this.h = new cy2("/swanAPI/video/fullScreen");
-                    }
-                    c2 = this.h.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case 7:
-                    if (this.i == null) {
-                        this.i = new ly2("/swanAPI/video/sendDanmu");
-                    }
-                    c2 = this.i.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case '\b':
-                    if (this.k == null) {
-                        this.k = new my2("/swanAPI/video/stop");
-                    }
-                    c2 = this.k.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                case '\t':
-                    if (this.l == null) {
-                        this.l = new gy2("/swanAPI/video/playbackRate");
-                    }
-                    c2 = this.l.c(context, unitedSchemeEntity, callbackHandler, g93Var);
-                    break;
-                default:
-                    c2 = false;
-                    break;
-            }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, g93Var)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public void b(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        }
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            UnitedSchemeEntity unitedSchemeEntity = this.a;
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        }
     }
 }

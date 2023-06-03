@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager;
 import com.baidu.searchbox.player.element.AbsElement;
 import com.baidu.searchbox.player.element.BackButtonElement;
 import com.baidu.searchbox.player.element.LandscapeButtonElement;
@@ -19,14 +20,12 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.tieba.R;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.yy.gslbsdk.db.DelayTB;
 import java.util.AbstractCollection;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b?\u0010\u0013J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0019\u0010\f\u001a\u00020\u00072\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0014¢\u0006\u0004\b\f\u0010\rJ\u0019\u0010\u0010\u001a\u00020\u00072\b\b\u0002\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0007H\u0014¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u0014\u0010\u0013J\u0017\u0010\u0017\u001a\u00020\u00072\u0006\u0010\u0016\u001a\u00020\u0015H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u0019\u0010\u0013J\u000f\u0010\u001a\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u001a\u0010\u0013J\u000f\u0010\u001b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u001b\u0010\u0013J\u0019\u0010\u001d\u001a\u00020\u00072\b\b\u0002\u0010\u001c\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u0019\u0010!\u001a\u00020\u00072\b\u0010 \u001a\u0004\u0018\u00010\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u0017\u0010%\u001a\u00020\u00072\u0006\u0010$\u001a\u00020#H\u0016¢\u0006\u0004\b%\u0010&J\u0017\u0010'\u001a\u00020\u00072\u0006\u0010$\u001a\u00020#H\u0016¢\u0006\u0004\b'\u0010&J\u0017\u0010(\u001a\u00020\u00072\u0006\u0010$\u001a\u00020#H\u0016¢\u0006\u0004\b(\u0010&J\u000f\u0010)\u001a\u00020\u0007H\u0014¢\u0006\u0004\b)\u0010\u0013J#\u0010,\u001a\u00020\u00072\b\b\u0002\u0010*\u001a\u00020\u00022\b\b\u0002\u0010+\u001a\u00020\u0002H\u0016¢\u0006\u0004\b,\u0010-R\u0018\u0010/\u001a\u0004\u0018\u00010.8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00101\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00102R\u0018\u00104\u001a\u0004\u0018\u0001038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0018\u00107\u001a\u0004\u0018\u0001068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\u0018\u0010:\u001a\u0004\u0018\u0001098\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0018\u0010=\u001a\u0004\u0018\u00010<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>¨\u0006@"}, d2 = {"Lcom/baidu/searchbox/player/layer/SimpleControlLayer;", "Lcom/baidu/searchbox/player/layer/ElementLayer;", "", "enableControlLayerTouchEvent", "()Z", "", RemoteMessageConst.Notification.VISIBILITY, "", "handleElementVisible", "(I)V", "Landroid/os/Message;", "msg", "handleLayerMessage", "(Landroid/os/Message;)V", "", DelayTB.DELAY, "hidePanelDelay", "(J)V", "initContainer", "()V", "layoutBackElement", "Landroid/widget/RelativeLayout;", "root", "layoutElement", "(Landroid/widget/RelativeLayout;)V", "layoutLandButtonElement", "layoutMuteElement", "layoutPlayElement", "half", "layoutSeekBarElement", "(Z)V", "Landroid/view/View;", "v", "onClick", "(Landroid/view/View;)V", "Lcom/baidu/searchbox/player/event/VideoEvent;", "event", "onControlEventNotify", "(Lcom/baidu/searchbox/player/event/VideoEvent;)V", "onLayerEventNotify", "onPlayerEventNotify", "setupElement", "isVisible", "needHideLayer", "togglePanelVisible", "(ZZ)V", "Lcom/baidu/searchbox/player/element/BackButtonElement;", "backButtonElement", "Lcom/baidu/searchbox/player/element/BackButtonElement;", "isShowing", "Z", "Lcom/baidu/searchbox/player/element/LandscapeButtonElement;", "landscapeButtonElement", "Lcom/baidu/searchbox/player/element/LandscapeButtonElement;", "Lcom/baidu/searchbox/player/element/MuteButtonElement;", "muteButtonElement", "Lcom/baidu/searchbox/player/element/MuteButtonElement;", "Lcom/baidu/searchbox/player/element/PlayButtonElement;", "playButtonElement", "Lcom/baidu/searchbox/player/element/PlayButtonElement;", "Lcom/baidu/searchbox/player/element/SeekBarElement;", "seekBarElement", "Lcom/baidu/searchbox/player/element/SeekBarElement;", "<init>", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+@Metadata(d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0016\u0018\u00002\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\u0005¢\u0006\u0002\u0010\u0004J\b\u0010\u0011\u001a\u00020\bH\u0016J\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0012\u0010\u0016\u001a\u00020\u00132\b\u0010\u0017\u001a\u0004\u0018\u00010\u0018H\u0014J\u0012\u0010\u0019\u001a\u00020\u00132\b\b\u0002\u0010\u001a\u001a\u00020\u001bH\u0002J\b\u0010\u001c\u001a\u00020\u0013H\u0014J\b\u0010\u001d\u001a\u00020\u0013H\u0016J\u0010\u0010\u001e\u001a\u00020\u00132\u0006\u0010\u001f\u001a\u00020\u0002H\u0014J\b\u0010 \u001a\u00020\u0013H\u0016J\b\u0010!\u001a\u00020\u0013H\u0016J\b\u0010\"\u001a\u00020\u0013H\u0016J\u0012\u0010#\u001a\u00020\u00132\b\b\u0002\u0010$\u001a\u00020\bH\u0016J\u0012\u0010%\u001a\u00020\u00132\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\u0010\u0010(\u001a\u00020\u00132\u0006\u0010)\u001a\u00020*H\u0016J\u0010\u0010+\u001a\u00020\u00132\u0006\u0010)\u001a\u00020*H\u0016J\u0010\u0010,\u001a\u00020\u00132\u0006\u0010)\u001a\u00020*H\u0016J\b\u0010-\u001a\u00020\u0013H\u0014J\u001c\u0010.\u001a\u00020\u00132\b\b\u0002\u0010/\u001a\u00020\b2\b\b\u0002\u00100\u001a\u00020\bH\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"Lcom/baidu/searchbox/player/layer/SimpleControlLayer;", "Lcom/baidu/searchbox/player/layer/ElementLayer;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/searchbox/player/element/AbsElement;", "()V", "backButtonElement", "Lcom/baidu/searchbox/player/element/BackButtonElement;", "isShowing", "", "landscapeButtonElement", "Lcom/baidu/searchbox/player/element/LandscapeButtonElement;", "muteButtonElement", "Lcom/baidu/searchbox/player/element/MuteButtonElement;", "playButtonElement", "Lcom/baidu/searchbox/player/element/PlayButtonElement;", "seekBarElement", "Lcom/baidu/searchbox/player/element/SeekBarElement;", "enableControlLayerTouchEvent", "handleElementVisible", "", "visibility", "", "handleLayerMessage", "msg", "Landroid/os/Message;", "hidePanelDelay", DelayTB.DELAY, "", "initContainer", "layoutBackElement", "layoutElement", "root", "layoutLandButtonElement", "layoutMuteElement", "layoutPlayElement", "layoutSeekBarElement", "half", "onClick", "v", "Landroid/view/View;", "onControlEventNotify", "event", "Lcom/baidu/searchbox/player/event/VideoEvent;", "onLayerEventNotify", "onPlayerEventNotify", "setupElement", "togglePanelVisible", "isVisible", "needHideLayer", "framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes4.dex */
 public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement> {
     public BackButtonElement backButtonElement;
     public boolean isShowing;
@@ -42,14 +41,12 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
     @Override // com.baidu.searchbox.player.layer.ElementLayer
     public void initContainer() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        RelativeLayout mContainer = new RelativeLayout(this.mContext);
+        RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
         if (enableControlLayerTouchEvent()) {
-            mContainer.setOnClickListener(this);
+            relativeLayout.setOnClickListener(this);
         }
-        Unit unit = Unit.INSTANCE;
-        this.mContainer = mContainer;
-        Intrinsics.checkNotNullExpressionValue(mContainer, "mContainer");
-        mContainer.setLayoutParams(layoutParams);
+        this.mContainer = relativeLayout;
+        relativeLayout.setLayoutParams(layoutParams);
     }
 
     public void layoutPlayElement() {
@@ -63,17 +60,16 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             layoutParams = null;
         }
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = layoutParams;
+            layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         }
-        RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
-        if (layoutParams3 != null) {
-            layoutParams3.addRule(13);
+        if (layoutParams2 != null) {
+            layoutParams2.addRule(13);
         }
     }
 
     private final void handleElementVisible(int i) {
         boolean z;
-        View it;
+        View contentView;
         boolean z2;
         if (i == 0) {
             z = true;
@@ -84,17 +80,16 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
         AbstractCollection<AbsElement> mElements = this.mElements;
         Intrinsics.checkNotNullExpressionValue(mElements, "mElements");
         for (AbsElement absElement : mElements) {
-            if (absElement != null && (it = absElement.getContentView()) != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (it.getParent() != null) {
+            if (absElement != null && (contentView = absElement.getContentView()) != null) {
+                if (contentView.getParent() != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 if (!z2) {
-                    it = null;
+                    contentView = null;
                 }
-                if (it != null) {
+                if (contentView != null) {
                     absElement.onParentVisibleChanged(i);
                 }
             }
@@ -112,18 +107,17 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             layoutParams = null;
         }
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = layoutParams;
+            layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         }
-        RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
-        if (layoutParams3 != null) {
-            layoutParams3.addRule(12);
-            layoutParams3.addRule(14);
+        if (layoutParams2 != null) {
+            layoutParams2.addRule(12);
+            layoutParams2.addRule(14);
             int dp2px = BdPlayerUtils.dp2px(this.mContainer, 36.0f);
-            layoutParams3.leftMargin = dp2px;
+            layoutParams2.leftMargin = dp2px;
             if (!z) {
                 dp2px = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
             }
-            layoutParams3.rightMargin = dp2px;
+            layoutParams2.rightMargin = dp2px;
         }
     }
 
@@ -148,7 +142,7 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
         Intrinsics.checkNotNullParameter(event, "event");
         String action = event.getAction();
         int hashCode = action.hashCode();
-        if (hashCode == -461848373 ? action.equals(PlayerEvent.ACTION_ON_ERROR) : !(hashCode != 154871702 || !action.equals(PlayerEvent.ACTION_ON_COMPLETE))) {
+        if (hashCode == -461848373 ? action.equals(PlayerEvent.ACTION_ON_ERROR) : hashCode == 154871702 && action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
             handleElementVisible(4);
             ((RelativeLayout) this.mContainer).setOnClickListener(null);
         }
@@ -175,7 +169,11 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer
     public void handleLayerMessage(Message message) {
+        boolean z = false;
         if (message != null && message.what == 100) {
+            z = true;
+        }
+        if (z) {
             handleElementVisible(4);
         }
         super.handleLayerMessage(message);
@@ -183,7 +181,7 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (Intrinsics.areEqual(view2, (RelativeLayout) this.mContainer)) {
+        if (Intrinsics.areEqual(view2, this.mContainer)) {
             togglePanelVisible$default(this, !this.isShowing, false, 2, null);
             sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_TOUCH_DOWN));
         }
@@ -192,7 +190,7 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
     public static /* synthetic */ void hidePanelDelay$default(SimpleControlLayer simpleControlLayer, long j, int i, Object obj) {
         if (obj == null) {
             if ((i & 1) != 0) {
-                j = 5000;
+                j = 3000;
             }
             simpleControlLayer.hidePanelDelay(j);
             return;
@@ -236,14 +234,13 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             layoutParams = null;
         }
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = layoutParams;
+            layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         }
-        RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
-        if (layoutParams3 != null) {
-            layoutParams3.addRule(9);
-            layoutParams3.addRule(10);
-            layoutParams3.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 5.0f);
-            layoutParams3.topMargin = BdPlayerUtils.dp2px(this.mContainer, 12.0f);
+        if (layoutParams2 != null) {
+            layoutParams2.addRule(9);
+            layoutParams2.addRule(10);
+            layoutParams2.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 5.0f);
+            layoutParams2.topMargin = BdPlayerUtils.dp2px(this.mContainer, 12.0f);
         }
     }
 
@@ -258,14 +255,13 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             layoutParams = null;
         }
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = layoutParams;
+            layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         }
-        RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
-        if (layoutParams3 != null) {
-            layoutParams3.addRule(11);
-            layoutParams3.addRule(6, R.id.obfuscated_res_0x7f0903bf);
-            layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0903bf);
-            layoutParams3.rightMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
+        if (layoutParams2 != null) {
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f0903c2);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0903c2);
+            layoutParams2.rightMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
         }
     }
 
@@ -280,14 +276,13 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             layoutParams = null;
         }
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            layoutParams2 = layoutParams;
+            layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         }
-        RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
-        if (layoutParams3 != null) {
-            layoutParams3.addRule(9);
-            layoutParams3.addRule(6, R.id.obfuscated_res_0x7f0903bf);
-            layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0903bf);
-            layoutParams3.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
+        if (layoutParams2 != null) {
+            layoutParams2.addRule(9);
+            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f0903c2);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0903c2);
+            layoutParams2.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
         }
     }
 
@@ -365,11 +360,11 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
     }
 
     public void togglePanelVisible(boolean z, boolean z2) {
+        VideoPlayerCallbackBaseManager playerCallbackManager;
+        VideoPlayerCallbackBaseManager playerCallbackManager2;
         int i;
         if (z2) {
-            T mContainer = this.mContainer;
-            Intrinsics.checkNotNullExpressionValue(mContainer, "mContainer");
-            RelativeLayout relativeLayout = (RelativeLayout) mContainer;
+            RelativeLayout relativeLayout = (RelativeLayout) this.mContainer;
             if (z) {
                 i = 0;
             } else {
@@ -379,14 +374,16 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
         }
         if (z) {
             BDVideoPlayer bindPlayer = getBindPlayer();
-            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
-            bindPlayer.getPlayerCallbackManager().onLayerShow(this);
+            if (bindPlayer != null && (playerCallbackManager2 = bindPlayer.getPlayerCallbackManager()) != null) {
+                playerCallbackManager2.onLayerShow(this);
+            }
             handleElementVisible(0);
             hidePanelDelay$default(this, 0L, 1, null);
         } else {
             BDVideoPlayer bindPlayer2 = getBindPlayer();
-            Intrinsics.checkNotNullExpressionValue(bindPlayer2, "bindPlayer");
-            bindPlayer2.getPlayerCallbackManager().onLayerDismiss(this);
+            if (bindPlayer2 != null && (playerCallbackManager = bindPlayer2.getPlayerCallbackManager()) != null) {
+                playerCallbackManager.onLayerDismiss(this);
+            }
             handleElementVisible(4);
             Handler handler = this.mHandler;
             if (handler != null) {
@@ -394,7 +391,7 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             }
         }
         VideoEvent obtainEvent = LayerEvent.obtainEvent(LayerEvent.ACTION_PANEL_VISIBLE_CHANGED);
-        Intrinsics.checkNotNullExpressionValue(obtainEvent, "LayerEvent.obtainEvent(L…ON_PANEL_VISIBLE_CHANGED)");
+        Intrinsics.checkNotNullExpressionValue(obtainEvent, "obtainEvent(LayerEvent.A…ON_PANEL_VISIBLE_CHANGED)");
         obtainEvent.putExtra(9, Boolean.valueOf(z));
         dispatchEvent(obtainEvent);
     }

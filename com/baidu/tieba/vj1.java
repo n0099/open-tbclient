@@ -1,73 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class vj1<T> implements xj1<T> {
+/* loaded from: classes8.dex */
+public class vj1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public tj1<List<T>> b;
-    public tj1<List<T>> c;
 
-    public vj1() {
+    public static View a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0531, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c35)).setText(str);
+            return inflate;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    public static void f(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
+            return;
+        }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(a(context, str));
+        a.show();
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            Toast toast = new Toast(context.getApplicationContext());
+            a = toast;
+            toast.setGravity(17, 0, 0);
+            a.setDuration(0);
         }
     }
 
-    public static vj1 b() {
-        InterceptResult invokeV;
+    public static View c(Context context, int i, String str, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new vj1();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0530, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c34);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c35);
+            if (-1 == i) {
+                imageView.setVisibility(8);
+            } else {
+                imageView.setVisibility(0);
+                imageView.setImageResource(i);
+                if (z) {
+                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b2));
+                }
+            }
+            textView.setText(str);
+            return inflate;
         }
-        return (vj1) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.xj1
-    public List<T> getList() {
-        InterceptResult invokeV;
+    public static void d(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.a;
-            if (list != null) {
-                return list;
-            }
-            tj1<List<T>> tj1Var = this.b;
-            if (tj1Var != null) {
-                List<T> list2 = tj1Var.get();
-                this.a = list2;
-                return list2;
-            }
-            tj1<List<T>> tj1Var2 = this.c;
-            if (tj1Var2 != null) {
-                return tj1Var2.get();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, false));
+        a.show();
     }
 
-    @Override // com.baidu.tieba.xj1
-    public void a(tj1<List<T>> tj1Var) {
+    public static void e(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tj1Var) == null) {
-            this.b = tj1Var;
-            this.a = null;
+        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
+            return;
         }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, true));
+        a.show();
     }
 }

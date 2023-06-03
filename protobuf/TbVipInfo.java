@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TbVipInfo extends Message {
     public static final String DEFAULT_INTRO = "";
     public static final String DEFAULT_VDETAIL = "";
@@ -14,7 +14,7 @@ public final class TbVipInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String vUrl;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<TbVipInfo> {
         public String intro;
         public String vDetail;

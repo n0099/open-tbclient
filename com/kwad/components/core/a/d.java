@@ -109,7 +109,7 @@ public class d implements com.kwad.components.core.a.c {
 
     /* renamed from: com.kwad.components.core.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0604d implements com.kwad.components.core.a.c {
+    public static class C0624d implements com.kwad.components.core.a.c {
         @Override // com.kwad.components.core.a.c
         public final void c(com.kwad.components.core.k.kwai.a aVar) {
             d.a(aVar, new b(aVar));
@@ -200,7 +200,7 @@ public class d implements com.kwad.components.core.a.c {
                             AnonymousClass1.this.a(adScene, adResultData, adNum, new c() { // from class: com.kwad.components.core.a.d.f.1.1.1
                                 @Override // com.kwad.components.core.a.d.c
                                 public final void lV() {
-                                    RunnableC06051 runnableC06051 = RunnableC06051.this;
+                                    RunnableC06251 runnableC06251 = RunnableC06251.this;
                                     com.kwad.components.core.k.kwai.a.a(aVar, adResultData, false);
                                 }
                             });
@@ -231,7 +231,7 @@ public class d implements com.kwad.components.core.a.c {
         this.CX = sparseArray;
         sparseArray.append(1, new f());
         this.CX.append(2, new e());
-        this.CX.append(0, new C0604d());
+        this.CX.append(0, new C0624d());
     }
 
     public static <T extends com.kwad.components.core.k.a> T a(com.kwad.sdk.d.b<T> bVar) {

@@ -1,68 +1,64 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.view.Choreographer;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.g72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.b02;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ef3 {
+public class ef3 extends x22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
+    public static ej2 f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.b02
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadPackageApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements b02.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ef3 a;
 
+        /* renamed from: com.baidu.tieba.ef3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class b extends TimerTask {
+        public class RunnableC0283a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final ExecutorService a;
-            public final AtomicInteger b;
-            public final List<Float> c;
-            public final /* synthetic */ boolean d;
-            public final /* synthetic */ int e;
-            public final /* synthetic */ Timer f;
-            public final /* synthetic */ df3 g;
-            public final /* synthetic */ boolean h;
-            public final /* synthetic */ b i;
+            public final /* synthetic */ JSONObject a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ String c;
+            public final /* synthetic */ a d;
 
-            /* renamed from: com.baidu.tieba.ef3$a$b$a  reason: collision with other inner class name */
+            /* renamed from: com.baidu.tieba.ef3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0268a implements Runnable {
+            public class C0284a implements nj4 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
+                public final /* synthetic */ String a;
+                public final /* synthetic */ RunnableC0283a b;
 
-                public RunnableC0268a(b bVar) {
+                public C0284a(RunnableC0283a runnableC0283a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
+                        Object[] objArr = {runnableC0283a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -72,103 +68,38 @@ public class ef3 {
                             return;
                         }
                     }
-                    this.a = bVar;
+                    this.b = runnableC0283a;
+                    this.a = str;
                 }
 
-                @Override // java.lang.Runnable
-                public void run() {
-                    Float f;
+                @Override // com.baidu.tieba.nj4
+                public void a(@Nullable Map<String, String> map) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        float b = f72.b();
-                        this.a.g.d.add(Long.valueOf(System.currentTimeMillis()));
-                        b bVar = this.a;
-                        bVar.g.e.add(Integer.valueOf(bVar.i.b.get()));
-                        this.a.g.f.add(Float.valueOf(b));
-                        g72.c i = g72.i();
-                        this.a.g.h.add(Float.valueOf(i.a));
-                        this.a.g.i.add(Float.valueOf(i.b));
-                        this.a.g.g.add(Float.valueOf(i.c));
-                        List<Float> list = this.a.c;
-                        if (xm3.D()) {
-                            f = Float.valueOf(b);
-                        } else {
-                            f = null;
-                        }
-                        list.add(f);
-                    }
-                }
-            }
-
-            public b(a aVar, boolean z, int i, Timer timer, df3 df3Var, boolean z2, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z), Integer.valueOf(i), timer, df3Var, Boolean.valueOf(z2), bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = z;
-                this.e = i;
-                this.f = timer;
-                this.g = df3Var;
-                this.h = z2;
-                this.i = bVar;
-                this.a = Executors.newCachedThreadPool();
-                this.b = new AtomicInteger(0);
-                this.c = new CopyOnWriteArrayList();
-            }
-
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.d && this.b.getAndIncrement() >= this.e) {
-                        ef3.l(true);
-                    }
-                    if (!ef3.b) {
-                        this.f.cancel();
-                        this.a.shutdown();
-                        g62.b("SwanAppStabilityDataUtil", "采集静态数据");
-                        this.g.b = g72.e().floatValue();
-                        this.g.c = qe2.k().m(f93.K().getAppId(), true);
-                        this.g.a(this.c);
-                        g62.i("SwanAppStabilityDataUtil", "采集结果：" + this.g);
-                        if (ef3.c) {
-                            g62.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.g);
-                            ef3.i(this.g);
-                        }
-                        if (this.h) {
-                            d33.e(this.g.c());
+                    if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                        if (map == null) {
+                            y82.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        return;
+                        RunnableC0283a runnableC0283a = this.b;
+                        runnableC0283a.d.a.z(map.get(this.b.b), this.a, runnableC0283a.c);
                     }
-                    this.a.submit(new RunnableC0268a(this));
+                }
+
+                @Override // com.baidu.tieba.nj4
+                public void onFail(Exception exc) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                        y82.c("PreloadPackageApi", "preloadPackage transform openBundleId fail");
+                    }
                 }
             }
-        }
 
-        /* renamed from: com.baidu.tieba.ef3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0267a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0267a(a aVar, b bVar) {
+            public RunnableC0283a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
+                    Object[] objArr = {aVar, jSONObject, str, str2};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -178,93 +109,68 @@ public class ef3 {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.d = aVar;
+                this.a = jSONObject;
+                this.b = str;
+                this.c = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().postFrameCallback(this.a);
+                    boolean g = no4.e().g(!sp3.G());
+                    String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
+                    if (g) {
+                        ij4.e(Collections.singletonList(this.b), ef3.f.c(), new C0284a(this, optString));
+                    } else {
+                        this.d.a.z(this.b, optString, this.c);
+                    }
                 }
             }
         }
 
-        public a() {
+        public a(ef3 ef3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ef3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ef3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
+        @Override // com.baidu.tieba.b02.a
+        public y32 a(yb3 yb3Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                df3 df3Var = new df3();
-                df3Var.a = ff3.d(df3Var.a);
-                boolean f = ff3.f();
-                int c = ff3.c(0);
-                if (ff3.e(0) == 1) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, yb3Var, jSONObject, str)) == null) {
+                String optString = jSONObject.optString("appKey");
+                if (TextUtils.isEmpty(optString)) {
+                    return new y32(202, "appKey must not empty");
                 }
-                Timer timer = new Timer();
-                b bVar = new b(null);
-                an3.e0(new RunnableC0267a(this, bVar));
-                timer.schedule(new b(this, f, c, timer, df3Var, z, bVar), 0L, df3Var.a);
+                if (!ef3.f.a(1)) {
+                    return new y32(402, "over single max limit");
+                }
+                so3.h().execute(new RunnableC0283a(this, jSONObject, optString, str), "PreloadPackageApi");
+                return y32.f();
             }
+            return (y32) invokeLLL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Choreographer.FrameCallback {
+    public static class b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public AtomicInteger b;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().removeFrameCallback(this.a);
-                }
-            }
-        }
 
         public b() {
             Interceptable interceptable = $ic;
@@ -276,155 +182,80 @@ public class ef3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = -1L;
-            this.b = new AtomicInteger(-1);
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
-            int i;
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                if (!ef3.b) {
-                    an3.e0(new a(this));
-                    return;
-                }
-                long j2 = this.a;
-                if (j2 > 0 && this.b.get() != (i = (int) (1.0E9d / (j - j2)))) {
-                    this.b.set(i);
-                    g62.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.b);
-                }
-                this.a = j;
-                Choreographer.getInstance().postFrameCallback(this);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                String string = bundle.getString("appKey");
+                String e1 = ww2.e1(string, bundle.getString(PrefetchEvent.EVENT_KEY_PAGE_URL), 0, null);
+                PrefetchEvent.b bVar = new PrefetchEvent.b();
+                bVar.e("show");
+                bVar.d(e1);
+                bVar.c("10");
+                bVar.a(string);
+                xf2.g().f(bVar.b());
+                return null;
             }
+            return (Bundle) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732375, "Lcom/baidu/tieba/ef3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947732375, "Lcom/baidu/tieba/ef3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ef3(@NonNull zz1 zz1Var) {
+        super(zz1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zz1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
-        b = false;
-        c = false;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public y32 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (ff3.g() && e()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#preloadPackage", false);
+            String a2 = a42.a(xb3.K().getAppId());
+            if (TextUtils.isEmpty(a2)) {
+                return new y32(101, "runtime parameter error");
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!zj2.a() && !k82.c()) {
-                return false;
+            ej2 ej2Var = f;
+            if (ej2Var == null || !ej2Var.d(a2)) {
+                f = new ej2(a2, ko4.b(a2));
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (ff3.h() && e()) {
-                return true;
+            if (f.e()) {
+                return new y32(402, "over max limit");
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return ff3.f();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (b) {
-                g62.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
-                return;
+            if (!f.b()) {
+                return new y32(402, "over time interval limit");
             }
-            b = true;
-            g62.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
-            ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
+            return l(str, false, new a(this));
         }
+        return (y32) invokeL.objValue;
     }
 
-    public static void l(boolean z) {
+    public final void z(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            c = z;
-            b = false;
-            ff3.b();
-            g62.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
-        }
-    }
-
-    public static synchronized void h(JSONObject jSONObject, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, str) == null) {
-            synchronized (ef3.class) {
-                cf3.c(jSONObject, str);
-            }
-        }
-    }
-
-    public static void i(df3 df3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, df3Var) == null) {
-            Map<String, String> d = df3Var.d();
-            if (a) {
-                Log.d("SwanAppStabilityDataUtil", "#sendJsMessage data=" + JSONObject.wrap(d));
-            }
-            tu2.U().u(new hj2("sendStabilityData", d));
-        }
-    }
-
-    public static void j(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            HashMap hashMap = new HashMap();
-            if (z) {
-                str = "0";
-            } else {
-                str = "1";
-            }
-            hashMap.put("status", str);
-            tu2.U().u(new hj2("toggleStabilityTestStatus", hashMap));
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appKey", str);
+            bundle.putString(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
+            l83.b(b.class, bundle);
         }
     }
 }

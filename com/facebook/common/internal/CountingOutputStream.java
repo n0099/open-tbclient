@@ -5,7 +5,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public long mCount;
 

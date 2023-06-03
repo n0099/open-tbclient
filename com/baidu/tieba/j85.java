@@ -1,101 +1,153 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j85 implements SpanWatcher {
+public class j85 {
     public static /* synthetic */ Interceptable $ic;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
-    public int b;
-    public int c;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.j85.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
+            }
         }
     }
 
-    public j85(@NonNull SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.j85.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837186, "Lcom/baidu/tieba/j85;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947837186, "Lcom/baidu/tieba/j85;");
                 return;
             }
         }
-        this.a = spanGroupManager;
+        a = new b(null);
+        b = new d(null);
+        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        c = z;
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
-        }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            h85 D = spanGroupManager.D(i3);
-            if (D != null) {
-                int f = D.f();
-                int c = D.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
-            }
-        }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            h85 D2 = this.a.D(i3);
-            if (D2 != null) {
-                int f2 = D2.f();
-                int c2 = D2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
         }
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        SpanGroupManager spanGroupManager;
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
-            spanGroupManager.r();
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
+            }
+            b.a(str, str2, str3);
         }
     }
 }

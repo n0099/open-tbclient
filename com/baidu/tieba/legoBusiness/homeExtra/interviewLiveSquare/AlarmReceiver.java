@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.R;
@@ -38,13 +39,13 @@ public class AlarmReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && (stringExtra = intent.getStringExtra("uid")) != null && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
             String stringExtra2 = intent.getStringExtra("task_id");
-            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a9b, intent.getStringExtra("title"));
-            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b29);
+            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ad3, intent.getStringExtra("title"));
+            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b61);
             Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), NotificationReceiver.class);
             int parseInt = Integer.parseInt(stringExtra2);
             intent2.putExtra("thread_id", intent.getStringExtra("tid"));
             intent2.putExtra("task_id", stringExtra2);
-            NotificationHelper.showNotification(TbadkCoreApplication.getInst(), parseInt, string2, string, string, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), parseInt, intent2, 134217728), false);
+            NotificationHelper.showNotification(TbadkCoreApplication.getInst(), parseInt, string2, string, string, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), parseInt, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
         }
     }
 }

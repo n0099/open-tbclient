@@ -1,15 +1,181 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class nf2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class nf2 extends ye2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b D;
 
-    public abstract void a();
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a();
 
-    public abstract void b();
+        void b(rn3 rn3Var);
 
-    public abstract void c();
+        void onSuccess();
+    }
+
+    @Override // com.baidu.tieba.cf2
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ye2
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ rn3 b;
+        public final /* synthetic */ nf2 c;
+
+        public a(nf2 nf2Var, int i, rn3 rn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nf2Var, Integer.valueOf(i), rn3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nf2Var;
+            this.a = i;
+            this.b = rn3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.D != null) {
+                int i = this.a;
+                if (i != -1) {
+                    if (i != 0) {
+                        if (i == 1) {
+                            this.c.D.onSuccess();
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.D.a();
+                    return;
+                }
+                this.c.D.b(this.b);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nf2(String str, b bVar) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.D = bVar;
+    }
+
+    @Override // com.baidu.tieba.ye2, com.baidu.tieba.tj4
+    public void C(sk4 sk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sk4Var) == null) {
+            super.C(sk4Var);
+            rn3 rn3Var = new rn3();
+            rn3Var.k(10L);
+            rn3Var.c(sk4Var);
+            J0(-1, rn3Var);
+        }
+    }
+
+    public final void I0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            J0(i, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.ye2
+    public void w0(Throwable th) {
+        rn3 rn3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+            if (th instanceof PkgDownloadError) {
+                rn3Var = ((PkgDownloadError) th).getErrCode();
+            } else {
+                rn3Var = new rn3();
+                rn3Var.k(10L);
+                rn3Var.i(0L);
+            }
+            J0(-1, rn3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            I0(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.ye2
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.v0();
+            rn3 F0 = F0();
+            if (F0 == null) {
+                I0(1);
+                A0("page_route_download", "0");
+                return;
+            }
+            J0(-1, F0);
+        }
+    }
+
+    public final void J0(int i, rn3 rn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, rn3Var) == null) {
+            sp3.a0(new a(this, i, rn3Var));
+        }
+    }
 }

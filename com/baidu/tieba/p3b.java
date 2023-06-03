@@ -1,56 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class p3b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "h";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class p3b extends l3b<NativeUnifiedADData> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012522, "Lcom/baidu/tieba/p3b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p3b(NativeUnifiedADData nativeUnifiedADData) {
+        super(nativeUnifiedADData);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948012522, "Lcom/baidu/tieba/p3b;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nativeUnifiedADData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l3b
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Context a2 = l3b.a();
-            if (a2 == null) {
-                return "";
-            }
-            try {
-                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                String str2 = a;
-                o3b.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
-                return "";
-            } catch (Exception e2) {
-                String str3 = a;
-                o3b.d(str3, "getVersion: " + e2.getMessage());
-                return "";
-            } catch (Throwable unused) {
-                o3b.d(a, "throwable");
-                return "";
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((NativeUnifiedADData) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((NativeUnifiedADData) this.a).sendLossNotification(map);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((NativeUnifiedADData) this.a).sendWinNotification(map);
+        }
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((NativeUnifiedADData) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

@@ -6,10 +6,10 @@ import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.om1;
-import com.baidu.tieba.pd0;
-import com.baidu.tieba.qm1;
-import com.baidu.tieba.rd0;
+import com.baidu.tieba.af0;
+import com.baidu.tieba.gp1;
+import com.baidu.tieba.ip1;
+import com.baidu.tieba.ye0;
 import org.json.JSONArray;
 @NotProguard
 /* loaded from: classes4.dex */
@@ -34,7 +34,7 @@ public interface AREngineDelegate {
 
     int getRenderMode();
 
-    qm1 getStuckScreenHandler();
+    ip1 getStuckScreenHandler();
 
     void initDisplayMetrics();
 
@@ -64,13 +64,13 @@ public interface AREngineDelegate {
 
     void runOnGLThread(Runnable runnable);
 
-    void setAudioEngineProxy(pd0 pd0Var);
+    void setAudioEngineProxy(ye0 ye0Var);
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(rd0 rd0Var);
+    void setGameRecordCallback(af0 af0Var);
 
-    void setOnStuckScreenListener(om1 om1Var);
+    void setOnStuckScreenListener(gp1 gp1Var);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 

@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.xo4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,123 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class au4 {
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public final class au4 implements xo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final String g;
+    public static boolean c;
+    public static final Set<xo4.a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
-    public int c;
-    public MediaFileInfo d;
-    public List<MediaFileInfo> e;
+
+    /* loaded from: classes5.dex */
+    public class a implements WebKitFactory.WebkitInstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ au4 c;
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.au4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0245a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0245a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    au4 au4Var = this.a.c;
+                    au4Var.j(au4Var.b);
+                }
+            }
+        }
+
+        public a(au4 au4Var, String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {au4Var, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = au4Var;
+            this.a = str;
+            this.b = file;
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallFinish(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                boolean z = true;
+                if (cs4.B(this.a, str)) {
+                    synchronized (au4.d) {
+                        this.c.i(true);
+                    }
+                    return;
+                }
+                if (au4.e(this.c) <= 2) {
+                    if (8 == i) {
+                        this.c.b = this.a;
+                    } else {
+                        au4 au4Var = this.c;
+                        au4Var.b = this.a + File.pathSeparator + this.c.a;
+                        if (cs4.f(this.b, new File(this.c.b)) != this.b.length()) {
+                            z = false;
+                        }
+                    }
+                    if (z && xb3.M().postDelayed(new RunnableC0245a(this), 1000L)) {
+                        return;
+                    }
+                }
+                if (8 == i) {
+                    cs4.k(this.a);
+                }
+                synchronized (au4.d) {
+                    this.c.i(false);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,8 +141,7 @@ public class au4 {
                 return;
             }
         }
-        f = String.valueOf(Integer.MAX_VALUE);
-        g = String.valueOf(2147483646);
+        d = new HashSet();
     }
 
     public au4() {
@@ -51,107 +154,66 @@ public class au4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
+
+    @Override // com.baidu.tieba.xo4
+    public void a(String str, xo4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            synchronized (d) {
+                d.add(aVar);
+                if (c) {
+                    return;
+                }
+                c = true;
+                j(str);
             }
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c++;
-        }
+    public static /* synthetic */ int e(au4 au4Var) {
+        int i = au4Var.a + 1;
+        au4Var.a = i;
+        return i;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<MediaFileInfo> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public ImageFileInfo e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaFileInfo mediaFileInfo = this.d;
-            if (mediaFileInfo instanceof ImageFileInfo) {
-                return (ImageFileInfo) mediaFileInfo;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            synchronized (d) {
+                for (xo4.a aVar : d) {
+                    if (aVar != null) {
+                        aVar.a(z);
+                    }
+                }
+                d.clear();
+                c = false;
+                this.a = 0;
             }
-            return null;
-        }
-        return (ImageFileInfo) invokeV.objValue;
-    }
-
-    public MediaFileInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (MediaFileInfo) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
         }
     }
 
-    public void i(String str) {
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.c = pg.e(str, 0);
-        }
-    }
-
-    public void j(List<MediaFileInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.e = list;
-        }
-    }
-
-    public void k(MediaFileInfo mediaFileInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mediaFileInfo) == null) {
-            this.d = mediaFileInfo;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
+            }
+            File file = new File(str);
+            if (!file.isFile()) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
+            }
+            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
         }
     }
 }

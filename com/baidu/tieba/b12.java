@@ -1,144 +1,177 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b12 extends BasePendingOperation {
+/* loaded from: classes5.dex */
+public class b12 extends b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final CopyOnWriteArrayList<String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public uy1 a;
-    public g93 b;
-    public JSONObject c;
-    public String d;
-    public String e;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String b() {
+    @Override // com.baidu.tieba.b02
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592038, "Lcom/baidu/tieba/b12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.b02
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b12 a;
+
+        public a(b12 b12Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947592038, "Lcom/baidu/tieba/b12;");
-                return;
+            this.a = b12Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
+                    return;
+                }
+                if (this.a.g - height > 180) {
+                    HashMap hashMap = new HashMap();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("height", pp3.O(this.a.g - height));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    hashMap.put("data", jSONObject.toString());
+                    lx2.T().u(new zl2("keyboardHeightChange", hashMap));
+                    this.a.g = height;
+                } else if (height - this.a.g > 180) {
+                    HashMap hashMap2 = new HashMap();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("height", 0);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    hashMap2.put("data", jSONObject2.toString());
+                    lx2.T().u(new zl2("keyboardHeightChange", hashMap2));
+                    this.a.g = height;
+                }
             }
         }
-        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f = copyOnWriteArrayList;
-        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f.add("https://dxp.baidu.com/mini");
-        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f.add("https://eclick.baidu.com/se.jpg");
-        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
     }
 
-    public b12(@NonNull uy1 uy1Var, @NonNull g93 g93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b12(@NonNull zz1 zz1Var) {
+        super(zz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uy1Var, g93Var, jSONObject, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {zz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = uy1Var;
-        this.b = g93Var;
-        this.c = jSONObject;
-        this.d = str;
-        this.e = str2;
     }
 
-    public static Collection<String> d() {
-        InterceptResult invokeV;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = lx2.T().getActivity();
+            if (activity == null) {
+                y82.c("SoftKeyboardApi", "activity is null");
+                return;
+            }
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
+            }
         }
-        return (Collection) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public boolean a() {
-        InterceptResult invokeV;
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e(this.c.optString("url"));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
+            }
+            this.h = null;
+            this.g = 0;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String c() {
+    public y32 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
+            q("#startKeyboardHeightChange", false);
+            if (yb3.b0() == null) {
+                return new y32(1001, "swan app is null");
+            }
+            A();
+            return y32.f();
         }
-        return (String) invokeV.objValue;
+        return (y32) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public BasePendingOperation.OperationType getType() {
+    public y32 D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
-        }
-        return (BasePendingOperation.OperationType) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.I(this.b, this.c, this.d, this.e);
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (yb3.b0() == null) {
+                return new y32(1001, "swan app is null");
             }
-            int size = f.size();
-            for (int i = 0; i < size; i++) {
-                String str2 = f.get(i);
-                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
+            B();
+            return y32.f();
         }
-        return invokeL.booleanValue;
+        return (y32) invokeV.objValue;
     }
 }

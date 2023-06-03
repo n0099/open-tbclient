@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.ext.widget.dialog.LoadingDialog;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,13 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000k\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b*\u0001(\u0018\u0000 ;2\u00020\u0001:\u0003;<=B#\u0012\u0006\u0010\u001c\u001a\u00020\u001b\u0012\b\b\u0002\u0010\u001e\u001a\u00020\u0017\u0012\b\b\u0002\u00108\u001a\u00020\r¢\u0006\u0004\b9\u0010:J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0005\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0004J\u0019\u0010\b\u001a\u00020\u00022\b\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0014¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\n\u0010\u0004J!\u0010\u000f\u001a\u00020\u00022\b\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\b\u0002\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\u001d\u0010\u0013\u001a\u00020\u00022\u000e\u0010\u0012\u001a\n\u0012\u0004\u0012\u00020\u0002\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0013\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u0015¢\u0006\u0004\b\u0013\u0010\u0016J\u0015\u0010\u0019\u001a\u00020\u00022\u0006\u0010\u0018\u001a\u00020\u0017¢\u0006\u0004\b\u0019\u0010\u001aR\u0016\u0010\u001c\u001a\u00020\u001b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\u00178\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0018\u0010 \u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010!R\u0018\u0010#\u001a\u0004\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0018\u0010&\u001a\u0004\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010\u001fR\u0018\u0010,\u001a\u0004\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010$R\u0018\u0010.\u001a\u0004\u0018\u00010-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0018\u00100\u001a\u0004\u0018\u00010\u00158\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010\u001fR\u0018\u00104\u001a\u0004\u0018\u0001038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00106\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b8\u00107¨\u0006>"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog;", "Landroid/app/Dialog;", "", "dismiss", "()V", "initView", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", "onDetachedFromWindow", "", "bottomText", "", "useLoadingAnim", "setBottomText", "(Ljava/lang/String;Z)V", "Lkotlin/Function0;", "onCloseListener", "setOnCloseListener", "(Lkotlin/Function0;)V", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;", "(Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;)V", "", "progress", "setProgress", "(I)V", "Landroid/app/Activity;", "activity", "Landroid/app/Activity;", "loadingLayoutId", "I", "mBottomText", "Ljava/lang/String;", "Landroid/widget/TextView;", "mBottomTv", "Landroid/widget/TextView;", "Landroid/widget/ImageView;", "mCloseBtn", "Landroid/widget/ImageView;", "com/baidu/android/ext/widget/dialog/LoadingDialog$mDotAnimAction$1", "mDotAnimAction", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$mDotAnimAction$1;", "mDotAnimCounter", "mDotAnimTv", "Landroid/widget/FrameLayout;", "mLoadingContainer", "Landroid/widget/FrameLayout;", "mOnCloseListener", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;", "mProgress", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "mProgressBar", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "mUseLoadingAnim", "Z", Constants.KEYS.BannerShowCloseBtn, "<init>", "(Landroid/app/Activity;IZ)V", "Companion", "IProgressBar", "OnCloseListener", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0010\b\u0007\u0018\u0000 +2\u00020\u0001:\u0003+,-B!\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\b\u0010\u001c\u001a\u00020\u001dH\u0016J\b\u0010\u001e\u001a\u00020\u001dH\u0002J\u0012\u0010\u001f\u001a\u00020\u001d2\b\u0010 \u001a\u0004\u0018\u00010!H\u0014J\b\u0010\"\u001a\u00020\u001dH\u0016J\u001a\u0010#\u001a\u00020\u001d2\b\u0010$\u001a\u0004\u0018\u00010\n2\b\b\u0002\u0010%\u001a\u00020\u0007J\u0016\u0010&\u001a\u00020\u001d2\u000e\u0010'\u001a\n\u0012\u0004\u0012\u00020\u001d\u0018\u00010(J\u0010\u0010&\u001a\u00020\u001d2\b\u0010'\u001a\u0004\u0018\u00010\u0017J\u000e\u0010)\u001a\u00020\u001d2\u0006\u0010*\u001a\u00020\u0005R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0011R\u000e\u0010\u0012\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog;", "Landroid/app/Dialog;", "activity", "Landroid/app/Activity;", "loadingLayoutId", "", "showCloseBtn", "", "(Landroid/app/Activity;IZ)V", "mBottomText", "", "mBottomTv", "Landroid/widget/TextView;", "mCloseBtn", "Landroid/widget/ImageView;", "mDotAnimAction", "com/baidu/android/ext/widget/dialog/LoadingDialog$mDotAnimAction$1", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$mDotAnimAction$1;", "mDotAnimCounter", "mDotAnimTv", "mLoadingContainer", "Landroid/widget/FrameLayout;", "mOnCloseListener", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;", "mProgress", "mProgressBar", "Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "mUseLoadingAnim", "dismiss", "", "initView", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "onDetachedFromWindow", "setBottomText", "bottomText", "useLoadingAnim", "setOnCloseListener", "onCloseListener", "Lkotlin/Function0;", "setProgress", "progress", "Companion", "IProgressBar", "OnCloseListener", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes.dex */
 public final class LoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,13 +53,13 @@ public final class LoadingDialog extends Dialog {
     public boolean mUseLoadingAnim;
     public final boolean showCloseBtn;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "Lkotlin/Any;", "", "progress", "", "setProgress", "(I)V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\bg\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H&¨\u0006\u0006"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$IProgressBar;", "", "setProgress", "", "progress", "", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes.dex */
     public interface IProgressBar {
         void setProgress(int i);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;", "Lkotlin/Any;", "", "onCloseByBtn", "()V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\bg\u0018\u00002\u00020\u0001J\b\u0010\u0002\u001a\u00020\u0003H&¨\u0006\u0004"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$OnCloseListener;", "", "onCloseByBtn", "", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes.dex */
     public interface OnCloseListener {
         void onCloseByBtn();
@@ -82,11 +81,15 @@ public final class LoadingDialog extends Dialog {
         Companion = new Companion(null);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\b\u0010\tR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$Companion;", "", "DOT_ANIM_INTERVAL", "J", "", "MAX_BOTTOM_TEXT_NUM_NO_LOADING", "I", "MAX_BOTTOM_TEXT_NUM_USE_LOADING", "<init>", "()V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000¨\u0006\b"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/LoadingDialog$Companion;", "", "()V", "DOT_ANIM_INTERVAL", "", "MAX_BOTTOM_TEXT_NUM_NO_LOADING", "", "MAX_BOTTOM_TEXT_NUM_USE_LOADING", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -100,10 +103,6 @@ public final class LoadingDialog extends Dialog {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -135,7 +134,6 @@ public final class LoadingDialog extends Dialog {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LoadingDialog this$0;
 
-            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -154,8 +152,8 @@ public final class LoadingDialog extends Dialog {
                 this.this$0 = this;
             }
 
-            /* JADX WARN: Code restructure failed: missing block: B:20:0x0037, code lost:
-                r0 = r4.this$0.mDotAnimTv;
+            /* JADX WARN: Code restructure failed: missing block: B:23:0x003d, code lost:
+                r0 = r5.this$0.mDotAnimTv;
              */
             @Override // java.lang.Runnable
             /*
@@ -164,6 +162,7 @@ public final class LoadingDialog extends Dialog {
             public void run() {
                 TextView textView;
                 TextView textView2;
+                boolean z2;
                 int i4;
                 TextView textView3;
                 int i5;
@@ -181,7 +180,12 @@ public final class LoadingDialog extends Dialog {
                     textView.removeCallbacks(this);
                 }
                 textView2 = this.this$0.mDotAnimTv;
-                if (textView2 == null || textView2.getVisibility() != 0 || !this.this$0.isShowing()) {
+                if (textView2 != null && textView2.getVisibility() == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!z2 || !this.this$0.isShowing()) {
                     return;
                 }
                 i4 = this.this$0.mDotAnimCounter;
@@ -189,7 +193,7 @@ public final class LoadingDialog extends Dialog {
                     if (i4 != 1) {
                         if (i4 != 2) {
                             if (i4 == 3 && textView7 != null) {
-                                textView7.setText(StringHelper.STRING_MORE);
+                                textView7.setText("...");
                             }
                         } else {
                             textView6 = this.this$0.mDotAnimTv;
@@ -234,6 +238,15 @@ public final class LoadingDialog extends Dialog {
         loadingDialog.setBottomText(str, z);
     }
 
+    /* renamed from: setBottomText$lambda-3$lambda-2  reason: not valid java name */
+    public static final void m41setBottomText$lambda3$lambda2(LoadingDialog this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            LoadingDialog$mDotAnimAction$1 loadingDialog$mDotAnimAction$1 = this$0.mDotAnimAction;
+        }
+    }
+
     public final void setOnCloseListener(OnCloseListener onCloseListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onCloseListener) == null) {
@@ -252,22 +265,35 @@ public final class LoadingDialog extends Dialog {
         }
     }
 
+    /* renamed from: initView$lambda-1  reason: not valid java name */
+    public static final void m40initView$lambda1(LoadingDialog this$0, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            OnCloseListener onCloseListener = this$0.mOnCloseListener;
+            if (onCloseListener != null) {
+                onCloseListener.onCloseByBtn();
+            }
+            this$0.dismiss();
+        }
+    }
+
     private final void initView() {
         View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090717);
-            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09046e);
-            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090904);
-            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0915d4);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090721);
+            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090473);
+            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090915);
+            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0915f6);
             int i = this.loadingLayoutId;
             if (i == -1) {
-                i = R.layout.obfuscated_res_0x7f0d01f9;
+                i = R.layout.obfuscated_res_0x7f0d01ff;
             }
             LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.mLoadingContainer, true);
             FrameLayout frameLayout = this.mLoadingContainer;
             if (frameLayout != null) {
-                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f0915d7);
+                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f0915f9);
             } else {
                 view2 = null;
             }
@@ -278,13 +304,11 @@ public final class LoadingDialog extends Dialog {
             if (iProgressBar != null) {
                 iProgressBar.setProgress(this.mProgress);
             }
-            Context context = getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            Resources resources = context.getResources();
+            Resources resources = getContext().getResources();
             if (this.showCloseBtn) {
                 ImageView imageView = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView);
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080f16));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080f3b));
             } else {
                 ImageView imageView2 = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView2);
@@ -292,10 +316,10 @@ public final class LoadingDialog extends Dialog {
             }
             TextView textView = this.mBottomTv;
             Intrinsics.checkNotNull(textView);
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601d7));
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601db));
             TextView textView2 = this.mDotAnimTv;
             Intrinsics.checkNotNull(textView2);
-            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601d7));
+            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601db));
             if (this.mBottomText != null) {
                 TextView textView3 = this.mBottomTv;
                 Intrinsics.checkNotNull(textView3);
@@ -303,41 +327,16 @@ public final class LoadingDialog extends Dialog {
             }
             ImageView imageView3 = this.mCloseBtn;
             Intrinsics.checkNotNull(imageView3);
-            imageView3.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.android.ext.widget.dialog.LoadingDialog$initView$2
+            imageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ro
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ LoadingDialog this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view3) {
-                    LoadingDialog.OnCloseListener onCloseListener;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view3) != null) {
-                        return;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        LoadingDialog.m40initView$lambda1(LoadingDialog.this, view3);
                     }
-                    onCloseListener = this.this$0.mOnCloseListener;
-                    if (onCloseListener != null) {
-                        onCloseListener.onCloseByBtn();
-                    }
-                    this.this$0.dismiss();
                 }
             });
         }
@@ -357,7 +356,7 @@ public final class LoadingDialog extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
             TextView textView = this.mDotAnimTv;
             if (textView != null) {
@@ -369,7 +368,7 @@ public final class LoadingDialog extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
             Window window = getWindow();
@@ -379,15 +378,13 @@ public final class LoadingDialog extends Dialog {
             setCanceledOnTouchOutside(false);
             Window window2 = getWindow();
             Intrinsics.checkNotNull(window2);
-            Context context = getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            window2.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f15));
-            setContentView(R.layout.obfuscated_res_0x7f0d05cd);
+            window2.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f3a));
+            setContentView(R.layout.obfuscated_res_0x7f0d05db);
             initView();
         }
     }
 
-    public final void setBottomText(String str, final boolean z) {
+    public final void setBottomText(String str, boolean z) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -404,12 +401,8 @@ public final class LoadingDialog extends Dialog {
             }
             if (i2 > i) {
                 Intrinsics.checkNotNull(str);
-                if (str != null) {
-                    str = str.substring(0, i);
-                    Intrinsics.checkNotNullExpressionValue(str, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                }
+                str = str.substring(0, i);
+                Intrinsics.checkNotNullExpressionValue(str, "this as java.lang.String…ing(startIndex, endIndex)");
             }
             this.mBottomText = str;
             TextView textView = this.mBottomTv;
@@ -421,39 +414,16 @@ public final class LoadingDialog extends Dialog {
             if (textView2 != null) {
                 if (z) {
                     textView2.setVisibility(0);
-                    textView2.removeCallbacks(new Runnable(this, z) { // from class: com.baidu.android.ext.widget.dialog.LoadingDialog$setBottomText$$inlined$apply$lambda$1
+                    textView2.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.uo
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ boolean $useLoadingAnim$inlined;
-                        public final /* synthetic */ LoadingDialog this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Boolean.valueOf(z)};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.$useLoadingAnim$inlined = z;
-                        }
 
                         @Override // java.lang.Runnable
                         public final void run() {
-                            LoadingDialog$mDotAnimAction$1 unused;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                                return;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                LoadingDialog.m41setBottomText$lambda3$lambda2(LoadingDialog.this);
                             }
-                            unused = this.this$0.mDotAnimAction;
                         }
                     });
                     this.mDotAnimCounter = 0;
@@ -476,7 +446,7 @@ public final class LoadingDialog extends Dialog {
                 onCloseListener = new OnCloseListener(function0) { // from class: com.baidu.android.ext.widget.dialog.LoadingDialog$setOnCloseListener$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Function0 $onCloseListener;
+                    public final /* synthetic */ Function0<Unit> $onCloseListener;
 
                     {
                         Interceptable interceptable2 = $ic;

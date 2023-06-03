@@ -1,304 +1,307 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes8.dex */
 public class w10 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
+    public static w10 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public SharedPreferences c;
 
-    public static synchronized void a(List<n8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            synchronized (w10.class) {
-                if (list != null) {
-                    if (list.size() > 0) {
-                        if (AppConfig.isDebug()) {
-                            Log.d("ExperimentManager", "deleteExpInfoList >> " + list.size());
-                        }
-                        String a = z10.a();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (!TextUtils.isEmpty(a)) {
-                                jSONObject = new JSONObject(a);
-                            }
-                            for (n8 n8Var : list) {
-                                jSONObject.remove(n8Var.c() + "_" + n8Var.b());
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        z10.f(jSONObject);
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948217587, "Lcom/baidu/tieba/w10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948217587, "Lcom/baidu/tieba/w10;");
+                return;
             }
         }
+        d = AppConfig.isDebug();
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public w10() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return z10.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        d();
     }
 
-    public static String c() {
+    public static w10 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return z10.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return z10.c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return z10.d();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static JSONObject[] f(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, jSONObject, i)) == null) {
-            JSONObject[] jSONObjectArr = new JSONObject[i];
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                int a = g20.a(next, i);
-                JSONObject jSONObject2 = jSONObjectArr[a];
-                if (jSONObject2 == null) {
-                    jSONObject2 = new JSONObject();
-                    jSONObjectArr[a] = jSONObject2;
+            if (e == null) {
+                synchronized (w10.class) {
+                    if (e == null) {
+                        e = new w10();
+                    }
                 }
+            }
+            return e;
+        }
+        return (w10) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            f();
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String g = g();
+            this.b = g;
+            if (TextUtils.isEmpty(g) && !TextUtils.isEmpty(this.a)) {
+                this.b = this.a;
+                j();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String i = i();
+            this.a = i;
+            if (TextUtils.isEmpty(i)) {
+                this.a = h();
+            }
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c.getString("channel", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c.edit().putString("channel", this.b).apply();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (com.baidu.tieba.w10.d == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003c, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromAssets", r2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0070, code lost:
+        if (com.baidu.tieba.w10.d == false) goto L21;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = null;
+            try {
+                inputStream = AppRuntime.getAppContext().getAssets().open("channel");
+            } catch (Exception e2) {
+                e = e2;
+                inputStream = null;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+                inputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 try {
-                    Object obj = jSONObject.get(next);
-                    if (obj != null) {
-                        jSONObject2.put(next, obj);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObjectArr;
-        }
-        return (JSONObject[]) invokeLI.objValue;
-    }
-
-    public static synchronized boolean o(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, jSONObject, z)) == null) {
-            synchronized (w10.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        int a = y8.b().a();
-                        return m(f(jSONObject, a), a, z);
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static synchronized void g(List<n8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, list) == null) {
-            synchronized (w10.class) {
-                if (list != null) {
-                    if (list.size() != 0) {
-                        if (AppConfig.isDebug()) {
-                            Log.d("ExperimentManager", "saveExpInfoList >> " + list.size());
-                        }
-                        String a = z10.a();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (!TextUtils.isEmpty(a)) {
-                                jSONObject = new JSONObject(a);
-                            }
-                            for (n8 n8Var : list) {
-                                String str = n8Var.c() + "_" + n8Var.b();
-                                JSONObject jSONObject2 = new JSONObject();
-                                if (n8Var.e() && n8Var.d() != -1) {
-                                    jSONObject2.put("is_upload", n8Var.e());
-                                    jSONObject2.put("expired_time", n8Var.d());
-                                }
-                                jSONObject.put(str, jSONObject2);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        z10.f(jSONObject);
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) {
-            synchronized (w10.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        z10.g(jSONObject);
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized void i(JSONObject jSONObject, JSONObject jSONObject2, List<n8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, jSONObject, jSONObject2, list) == null) {
-            synchronized (w10.class) {
-                o(jSONObject2, false);
-                j(jSONObject);
-                g(list);
-            }
-        }
-    }
-
-    public static synchronized void k(JSONObject jSONObject, JSONObject jSONObject2, List<n8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, jSONObject, jSONObject2, list) == null) {
-            synchronized (w10.class) {
-                o(jSONObject2, true);
-                l(jSONObject);
-                g(list);
-            }
-        }
-    }
-
-    public static synchronized void j(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, jSONObject) == null) {
-            synchronized (w10.class) {
-                if (AppConfig.isDebug()) {
-                    Log.d("ExperimentManager", "saveV1SwitchData >> " + jSONObject);
-                }
-                z10.h(jSONObject);
-            }
-        }
-    }
-
-    public static synchronized boolean l(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            synchronized (w10.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        String d = z10.d();
-                        if (!TextUtils.isEmpty(d)) {
-                            try {
-                                JSONObject jSONObject2 = new JSONObject(d);
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    jSONObject2.put(next, jSONObject.get(next));
-                                }
-                                if (jSONObject2.length() > 0) {
-                                    z10.i(jSONObject2);
-                                    return true;
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
-                            z10.i(jSONObject);
-                        }
-                        return false;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(JSONObject[] jSONObjectArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{jSONObjectArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                JSONObject jSONObject = jSONObjectArr[i2];
-                String e = z10.e(i2);
-                if (TextUtils.isEmpty(e)) {
-                    z10.j(jSONObject, i2);
-                } else {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(e);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            Object obj = jSONObject.get(next);
-                            if (!jSONObject2.has(next) || z) {
-                                jSONObject2.put(next, obj);
+                        str = bufferedReader.readLine();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e3) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
+                                }
                             }
                         }
-                        if (jSONObject2.length() > 0) {
-                            z10.j(jSONObject2, i2);
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e4) {
+                            e = e4;
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e5) {
+                        e = e5;
+                        if (d) {
+                            Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e6) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
+                                }
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e7) {
+                                e = e7;
+                            }
+                        }
+                        return str;
                     }
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e8) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e8);
+                            }
+                        }
+                    }
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e9) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e9);
+                            }
+                        }
+                    }
+                    throw th;
                 }
+            } catch (Exception e10) {
+                e = e10;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                bufferedReader = null;
+                th = th4;
+                if (inputStream != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
             }
-            return true;
+            return str;
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static synchronized void n(JSONObject jSONObject, int i) {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0030, code lost:
+        if (com.baidu.tieba.w10.d == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0032, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
+        if (com.baidu.tieba.w10.d == false) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, jSONObject, i) == null) {
-            synchronized (w10.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        String e = z10.e(i);
-                        if (!TextUtils.isEmpty(e)) {
-                            try {
-                                JSONObject jSONObject2 = new JSONObject(e);
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    jSONObject2.put(next, jSONObject.get(next));
-                                }
-                                z10.j(jSONObject2, i);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
-                            }
-                        } else {
-                            z10.j(jSONObject, i);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = null;
+            try {
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110072);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
+                try {
+                    str = bufferedReader.readLine();
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Exception e3) {
+                    if (d) {
+                        Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
+                    }
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        e = e4;
                     }
                 }
+            } catch (Exception e5) {
+                if (d) {
+                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
+                }
             }
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 }

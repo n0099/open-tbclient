@@ -42,7 +42,7 @@ public class LaunchInfo {
             if (str == null) {
                 str = "";
             }
-            jSONObject.put(Config.LAUNCH_REFERER, str);
+            jSONObject.put("referer", str);
             if (str2 == null) {
                 str2 = "";
             }

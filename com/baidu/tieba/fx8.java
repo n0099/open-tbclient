@@ -1,154 +1,332 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.s05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Post;
-import tbclient.User;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public ex8 d;
-    public ex8 e;
-    public ex8 f;
-    public View g;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
-    }
+    public static class b extends BdAsyncTask<String, Integer, AccountData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public String e;
+        public final s05.a f;
+        public final boolean g;
 
-    public fx8(Context context, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f2, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906e6);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0906e3);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090747);
-        this.d = new ex8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906e7), aVar);
-        this.e = new ex8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906e8), aVar);
-        this.f = new ex8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906e9), aVar);
-    }
+        /* loaded from: classes5.dex */
+        public class a implements s05.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public final User a(Post post, List<User> list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
-            }
-            long longValue = l.longValue();
-            for (User user : list) {
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
+            @Override // com.baidu.tieba.s05.a
+            public void a(String str, int i, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 }
             }
-            return null;
-        }
-        return (User) invokeLL.objValue;
-    }
 
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
+            @Override // com.baidu.tieba.s05.a
+            public void b(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                }
+            }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
-        }
-    }
+            @Override // com.baidu.tieba.s05.a
+            public void c(AccountData accountData) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                }
+            }
 
-    public void d(List<Post> list, List<User> list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size == 1) {
-                    z = this.d.update(list.get(0), a(list.get(0), list2));
-                    this.e.d(false);
-                    this.f.d(false);
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public b(String str, String str2, String str3, s05.a aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.g = z;
+            this.f = aVar == null ? new a(this) : aVar;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x01ca  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public AccountData doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            AccountData accountData;
+            int i;
+            int i2;
+            s05.b d;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
+                boolean z = false;
+                this.a.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                this.a.addPostData("bdusstoken", this.c + "|" + this.d);
+                if (!StringUtils.isNull(this.e)) {
+                    this.a.addPostData("stoken", this.e);
+                }
+                this.a.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+                this.a.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+                this.a.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
+                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.a.postNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                    a35 a35Var = new a35();
+                    a35Var.d(postNetData);
+                    accountData = new AccountData();
+                    accountData.setAccount(a35Var.c().getUserName());
+                    accountData.setPassword("");
+                    accountData.setID(a35Var.c().getUserId());
+                    String str = this.c;
+                    if (this.g && (d = ix8.d(s05.b().c(str))) != null) {
+                        str = d.a + "|" + d.b;
+                    }
+                    accountData.setBDUSS(str);
+                    accountData.setPortrait(a35Var.c().getPortrait());
+                    accountData.setStoken(this.e);
+                    accountData.setIsActive(1);
+                    if (a35Var.a() != null) {
+                        accountData.setTbs(a35Var.a().getTbs());
+                    }
+                    accountData.setGrowthSwitch(a35Var.b());
                 } else {
-                    if (size == 2) {
-                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
-                        update = this.e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
+                    accountData = null;
                 }
-                update2 = false;
-                update = false;
-                if (z) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
+                netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                if (accountData != null) {
+                    netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
+                    netWork.addPostData("stoken", r05.a(accountData));
                 }
-                this.c.setVisibility(0);
-                return;
+                String postNetData2 = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess() && postNetData2 != null) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(postNetData2);
+                        JSONArray optJSONArray = jSONObject.optJSONArray("switch");
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            for (int i3 = 0; i3 < length; i3++) {
+                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                                if (optJSONObject != null && CheckShowNameDialogSwitch.KEY.equals(optJSONObject.optString("name"))) {
+                                    i = optJSONObject.optInt("type", 0);
+                                    break;
+                                }
+                            }
+                        }
+                        i = 0;
+                        try {
+                            JSONObject jSONObject2 = jSONObject.getJSONObject(SourceConstant.SOURCE_USER_INFO);
+                            if (accountData != null && jSONObject2 != null) {
+                                accountData.setNameShow(jSONObject2.optString("name_show"));
+                            }
+                        } catch (JSONException e) {
+                            i2 = i;
+                            e = e;
+                            e.printStackTrace();
+                            i = i2;
+                            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                            if (i == 1) {
+                            }
+                            inst.setNeedCheckUserNameDialog(z);
+                            return accountData;
+                        }
+                    } catch (JSONException e2) {
+                        e = e2;
+                        i2 = 0;
+                    }
+                } else {
+                    i = 0;
+                }
+                TbadkCoreApplication inst2 = TbadkCoreApplication.getInst();
+                if (i == 1) {
+                    z = true;
+                }
+                inst2.setNeedCheckUserNameDialog(z);
+                return accountData;
             }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
+            return (AccountData) invokeL.objValue;
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+                super.onPostExecute(accountData);
+                int i = 0;
+                ReloginManager.g().o(false);
+                a95.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
+                if (accountData != null && accountData.getBDUSS() != null) {
+                    this.f.c(accountData);
+                    return;
+                }
+                String str = null;
+                if (this.a != null) {
+                    str = this.a.getErrorString();
+                    i = this.a.getServerErrorCode();
+                }
+                if (str == null) {
+                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
+                }
+                this.f.a(this.b, i, str);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.f.b(this.b);
+            }
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.e = str;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements r05.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ s05.a b;
+        public final /* synthetic */ String c;
+
+        public a(b bVar, s05.a aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+            this.b = aVar;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.r05.b
+        public void onFailed() {
+            s05.a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.b) != null) {
+                aVar.a(this.c, 1, null);
+            }
+        }
+
+        @Override // com.baidu.tieba.r05.b
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.d(str);
+                this.a.execute(new String[0]);
+            }
+        }
+    }
+
+    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, s05.a aVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
+            r05 r05Var = new r05();
+            b bVar = new b(str, str2, str3, aVar, false);
+            if (r05.b() && StringUtils.isNull(str4)) {
+                r05Var.c(str2, new a(bVar, aVar, str));
+            } else {
+                if (r05.b()) {
+                    bVar.d(str4);
+                }
+                bVar.execute(new String[0]);
+            }
+            return bVar;
+        }
+        return (BdAsyncTask) invokeLLLLL.objValue;
     }
 }

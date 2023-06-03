@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BusinessAccountInfo extends Message {
     public static final String DEFAULT_BUSINESSNAME = "";
     public static final String DEFAULT_IDENTIFIEXPLAIN = "";
@@ -17,7 +17,7 @@ public final class BusinessAccountInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer isForumBusinessAccount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<BusinessAccountInfo> {
         public String businessName;
         public String identifiExplain;

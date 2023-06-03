@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.huawei.hms.push.constant.RemoteMessageConst;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -62,7 +62,7 @@ public abstract class Overlay {
 
     public static void a(int i, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
+        bundle2.putFloat(DownloadStatisticConstants.UBC_VALUE_RED, ((i >> 16) & 255) / 255.0f);
         bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
         bundle2.putFloat("blue", (i & 255) / 255.0f);
         bundle2.putFloat(Key.ALPHA, (i >>> 24) / 255.0f);
@@ -71,7 +71,7 @@ public abstract class Overlay {
 
     public static void b(int i, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
+        bundle2.putFloat(DownloadStatisticConstants.UBC_VALUE_RED, ((i >> 16) & 255) / 255.0f);
         bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
         bundle2.putFloat("blue", (i & 255) / 255.0f);
         bundle2.putFloat(Key.ALPHA, (i >>> 24) / 255.0f);
@@ -80,7 +80,7 @@ public abstract class Overlay {
 
     public static void c(int i, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
+        bundle2.putFloat(DownloadStatisticConstants.UBC_VALUE_RED, ((i >> 16) & 255) / 255.0f);
         bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
         bundle2.putFloat("blue", (i & 255) / 255.0f);
         bundle2.putFloat(Key.ALPHA, (i >>> 24) / 255.0f);
@@ -189,7 +189,7 @@ public abstract class Overlay {
     public Bundle a(Bundle bundle) {
         bundle.putString("id", this.F);
         bundle.putInt("type", this.type.ordinal());
-        bundle.putInt(RemoteMessageConst.Notification.VISIBILITY, this.H ? 1 : 0);
+        bundle.putInt("visibility", this.H ? 1 : 0);
         bundle.putInt("z_index", this.G);
         return bundle;
     }

@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ComplianceInfo {
     String getAppName();
 

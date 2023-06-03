@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.cache;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.MemoryCache;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NativeMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrategy {
     public static final String TAG = "NativeMemoryCacheTrimStrategy";
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
 

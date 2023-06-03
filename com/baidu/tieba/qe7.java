@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes7.dex */
 public interface qe7 {
-    void a(View view2);
+    void k1();
 
-    boolean b();
-
-    int getArrowIndex();
-
-    View getArrowView();
+    void m0();
 }

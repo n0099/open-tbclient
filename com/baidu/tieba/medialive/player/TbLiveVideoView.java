@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,8 +19,8 @@ import java.util.Map;
 public class TbLiveVideoView extends BVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri I;
-    public a J;
+    public Uri J;
+    public a K;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -85,7 +86,7 @@ public class TbLiveVideoView extends BVideoView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.I;
+            return this.J;
         }
         return (Uri) invokeV.objValue;
     }
@@ -93,7 +94,7 @@ public class TbLiveVideoView extends BVideoView {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
+            setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, YYOption.IsLive.VALUE_TRUE);
             HashMap hashMap = new HashMap();
             hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, "live");
             hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, "tieba");
@@ -106,7 +107,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCompletion();
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onCompletion();
             }
@@ -118,7 +119,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPrepared();
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onPrepared();
             }
@@ -130,7 +131,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onSeekComplete();
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onSeekComplete();
             }
@@ -158,7 +159,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onBufferingUpdate(i);
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onBufferingUpdate(i);
             }
@@ -168,7 +169,7 @@ public class TbLiveVideoView extends BVideoView {
     public void setPlayerCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.J = aVar;
+            this.K = aVar;
         }
     }
 
@@ -177,7 +178,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
             super.setVideoURI(uri);
-            this.I = uri;
+            this.J = uri;
         }
     }
 
@@ -186,7 +187,7 @@ public class TbLiveVideoView extends BVideoView {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onError(i, i2);
             }
@@ -200,7 +201,7 @@ public class TbLiveVideoView extends BVideoView {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onInfo(i, i2);
             }
@@ -214,7 +215,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
             super.onVideoSizeChanged(i, i2, i3, i4);
-            a aVar = this.J;
+            a aVar = this.K;
             if (aVar != null) {
                 aVar.onVideoSizeChanged(i, i2);
             }
@@ -226,7 +227,7 @@ public class TbLiveVideoView extends BVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, uri, map) == null) {
             super.setVideoURI(uri, map);
-            this.I = uri;
+            this.J = uri;
         }
     }
 }

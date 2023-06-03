@@ -1,117 +1,201 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.le3;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class jk2 extends db3 {
+public class jk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements zn3<je3<le3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
-
-        public a(jk2 jk2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886104, "Lcom/baidu/tieba/jk2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jk2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(je3<le3.e> je3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
-                if (!ee3.h(je3Var)) {
-                    ee3.p(je3Var, this.a, this.b);
-                    return;
-                }
-                boolean b = uj2.b(this.c.optInt("useExtension"));
-                if (b && !xj2.b().exists()) {
-                    y83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f016d).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f016d));
-                    return;
-                }
-                f53.V(b);
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                f53.Z();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jk2(da3 da3Var) {
-        super(da3Var, "/swanAPI/debug/setExtensionConfig");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947886104, "Lcom/baidu/tieba/jk2;");
                 return;
             }
         }
+        a = is1.a;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Nullable
+    public static Set<String> a(int i, List<String> list) {
+        InterceptResult invokeIL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                g62.c("ExtCore-SetConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("useExtension")) {
-                g62.c("ExtCore-SetConfig", "useExtension is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                g93Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
-                return true;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                HashSet hashSet = new HashSet();
+                for (x83 x83Var : z83.k().q()) {
+                    String appId = x83Var.getAppId();
+                    if (TextUtils.isEmpty(appId)) {
+                        appId = x83Var.N();
+                    }
+                    if (!x83Var.E() && !x83Var.Q()) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (x83Var.T() && z && list.contains(appId)) {
+                        o83 e = o83.e();
+                        q83 q83Var = new q83(i);
+                        q83Var.b(x83Var.b);
+                        e.h(q83Var);
+                        hashSet.add(appId);
+                        if (a) {
+                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    }
+                }
+                return hashSet;
+            }
+            return null;
+        }
+        return (Set) invokeIL.objValue;
+    }
+
+    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
+            c(file, str, str2, set, z, null);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable hw3<Pair<String, File>> hw3Var) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), hw3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                String name = file2.getName();
+                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                    int length = name.length();
+                    int length2 = str.length();
+                    int length3 = str2.length();
+                    if (length >= length2 + length3) {
+                        String substring = name.substring(length2, length - length3);
+                        if (set == null) {
+                            set = Collections.emptySet();
+                        }
+                        if (!TextUtils.isEmpty(substring)) {
+                            if (z) {
+                                if (set.contains(substring)) {
+                                }
+                                if (a) {
+                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
+                                }
+                                if (hw3Var == null) {
+                                    hw3Var.run(Pair.create(str + substring, file2));
+                                } else {
+                                    cs4.L(file2);
+                                }
+                            } else {
+                                if (!set.contains(substring)) {
+                                }
+                                if (a) {
+                                }
+                                if (hw3Var == null) {
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Nullable
+    public static Set<String> d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return a(106, list);
+            }
+            return null;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        InterceptResult invokeCommon;
+        File[] listFiles;
+        String J;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    String name = file2.getName();
+                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                        int length = name.length();
+                        int length2 = str.length();
+                        int length3 = str2.length();
+                        if (length >= length2 + length3) {
+                            String substring = name.substring(length2, length - length3);
+                            if (set == null) {
+                                set = Collections.emptySet();
+                            }
+                            if (!TextUtils.isEmpty(substring)) {
+                                if (z) {
+                                    if (set.contains(substring)) {
+                                    }
+                                    J = cs4.J(file2);
+                                    if (a) {
+                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                        arraySet.add(J);
+                                    }
+                                } else {
+                                    if (!set.contains(substring)) {
+                                    }
+                                    J = cs4.J(file2);
+                                    if (a) {
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return arraySet;
+        }
+        return (ArraySet) invokeCommon.objValue;
     }
 }

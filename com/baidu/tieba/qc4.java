@@ -1,38 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class qc4 {
+public class qc4 implements jt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
 
     public qc4() {
-        Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,38 +27,65 @@ public class qc4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (ns2.c() != null) {
-            resources = ns2.c().getResources();
-        } else {
-            resources = null;
-        }
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07086e);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07086f);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f070870);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07086d);
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.jt1
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return pc4.c().d();
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.jt1
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources != null && i != 0) {
-                return wb4.b(resources.getDimension(i));
-            }
-            return 0.0f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            sc4.d(str);
         }
-        return invokeLI.floatValue;
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            sc4.f(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void c(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
+            sc4.e(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void d(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
+            sc4.a(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void f(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
+            sc4.g(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
+            sc4.b(callbackHandler, str);
+        }
     }
 }

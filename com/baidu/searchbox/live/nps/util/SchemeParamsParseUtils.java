@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SchemeParamsParseUtils {
     public static String getParamsStr(String str) {
         if (TextUtils.isEmpty(str)) {

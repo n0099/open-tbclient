@@ -1,81 +1,92 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Map;
-import kotlin.TypeCastException;
-import kotlin.Unit;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.io.CloseableKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class nu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final TaskUIData b;
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Object> a(byte[] bArr) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr.length == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return MapsKt__MapsKt.emptyMap();
-            }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                Object readObject = objectInputStream.readObject();
-                if (readObject != null) {
-                    Map<String, Object> map = (Map) readObject;
-                    CloseableKt.closeFinally(objectInputStream, null);
-                    CloseableKt.closeFinally(byteArrayInputStream, null);
-                    return map;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof nu) {
+                    nu nuVar = (nu) obj;
+                    if (!(this.a == nuVar.a) || !Intrinsics.areEqual(this.b, nuVar.b)) {
+                    }
                 }
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
-            } catch (Throwable th) {
-                try {
-                    throw th;
-                } catch (Throwable th2) {
-                    CloseableKt.closeFinally(byteArrayInputStream, th);
-                    throw th2;
-                }
+                return false;
             }
+            return true;
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final byte[] b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                objectOutputStream.writeObject(map);
-                Unit unit = Unit.INSTANCE;
-                CloseableKt.closeFinally(objectOutputStream, null);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
-                CloseableKt.closeFinally(byteArrayOutputStream, null);
-                Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
-                return byteArray;
-            } finally {
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i = this.a * 31;
+            TaskUIData taskUIData = this.b;
+            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
         }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "CurUIData(uiType=" + this.a + ", UIData=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public nu(int i, TaskUIData taskUIData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), taskUIData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = taskUIData;
+    }
+
+    public final TaskUIData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (TaskUIData) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

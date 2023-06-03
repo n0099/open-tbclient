@@ -1,5 +1,5 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ByteArrayAdapter implements ArrayAdapterInterface<byte[]> {
     public static final String TAG = "ByteArrayPool";
 

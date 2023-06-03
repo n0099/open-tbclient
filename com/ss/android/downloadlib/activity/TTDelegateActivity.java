@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.ss.android.download.api.config.k;
 import com.ss.android.download.api.config.s;
 import com.ss.android.download.api.constant.BaseConstants;
@@ -34,7 +34,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static a d;
     public Intent a = null;
@@ -184,7 +184,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 intent.putExtra("open_url", str);
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 if (com.ss.android.socialbase.downloader.g.a.c().a("fix_app_link_flag")) {
-                    intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    intent.addFlags(67108864);
                 }
                 intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
                 startActivity(intent);
@@ -282,7 +282,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     j.e().a(this, strArr, sVar);
                     return;
                 } catch (Exception e) {
-                    j.s().a(e, "requestPermission");
+                    j.s().a(e, GameAssistConstKt.METHOD_REQUEST_PERMISSIONS);
                     sVar.a();
                     return;
                 }
@@ -397,22 +397,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             N = d2.N();
         }
         objArr[0] = N;
-        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0695b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC0695b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0712b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0695b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0695b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0712b
             public void c(DialogInterface dialogInterface) {
                 c.a((Activity) TTDelegateActivity.this);
             }

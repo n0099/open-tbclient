@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.searchbox.download.statistics.ApkStaticNetService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -54,7 +55,7 @@ public final class h {
             ruleInfo.mChangelog = jSONObject.optString("changelog");
             ruleInfo.mSign = jSONObject.optString("sign");
             ruleInfo.mProdline = jSONObject.optString("prodline");
-            ruleInfo.mDownurl = jSONObject.optString("downurl");
+            ruleInfo.mDownurl = jSONObject.optString(ApkStaticNetService.STATIC_DOWNLOAD_URL);
             ruleInfo.mVername = jSONObject.optString("vname");
             ruleInfo.mVercode = jSONObject.optString("vcode");
             ruleInfo.mSignMd5 = jSONObject.optString("signmd5");

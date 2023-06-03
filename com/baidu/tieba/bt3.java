@@ -1,42 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tieba.ct3;
+import com.baidu.tieba.gt3;
+import com.baidu.tieba.ks3;
+import com.baidu.tieba.ru3;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bt3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bt3 {
+    String a(Context context);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656456, "Lcom/baidu/tieba/bt3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947656456, "Lcom/baidu/tieba/bt3;");
-                return;
-            }
-        }
-        a = getContext().isDebug();
-    }
+    String b(Context context);
 
-    @Inject
-    public static zs3 getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return zs2.a();
-        }
-        return (zs3) invokeV.objValue;
-    }
+    void c(Context context, Bundle bundle, ks1 ks1Var);
+
+    zs3 d(Context context);
+
+    void e(Activity activity, String str, String str2, at3 at3Var);
+
+    void f(Context context, ru3.d dVar);
+
+    boolean g(Context context);
+
+    String getBduss(Context context);
+
+    void h(ms1 ms1Var);
+
+    void i(Context context, ct3.d dVar);
+
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
+
+    String k(Context context);
+
+    void l(Activity activity, String str, String str2, at3 at3Var);
+
+    void m(Activity activity, String str, gu3 gu3Var);
+
+    void n(String str, ArrayList<String> arrayList, gt3.c cVar);
+
+    void o(ks3.a aVar, String str, List<String> list);
 }

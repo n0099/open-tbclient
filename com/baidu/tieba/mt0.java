@@ -1,79 +1,188 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 /* loaded from: classes6.dex */
-public final class mt0 {
+public class mt0 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
-    public final int d;
+    public nt0 a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof mt0) {
-                    mt0 mt0Var = (mt0) obj;
-                    return this.a == mt0Var.a && this.b == mt0Var.b && this.c == mt0Var.c && this.d == mt0Var.d;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public mt0(int i, int i2, int i3, int i4) {
+    public mt0(nt0 nt0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {nt0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+        this.a = nt0Var;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static int a(@NonNull String str, int i, int i2, char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
-        return invokeV.intValue;
+        return invokeCommon.intValue;
+    }
+
+    public static int d(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static String f(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            int d = d(str, i, i2);
+            return str.substring(d, e(str, d, i2));
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static int e(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
+        }
+        return invokeLII.intValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final List<Cookie> c(@NonNull HttpUrl httpUrl, @NonNull String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int a = a(str, i, length, WebvttCueParser.CHAR_SEMI_COLON);
+                int a2 = a(str, i, a, '=');
+                String f = f(str, i, a2);
+                if (a2 < a) {
+                    str2 = f(str, a2 + 1, a);
+                } else {
+                    str2 = "";
+                }
+                if (str2.startsWith("\"") && str2.endsWith("\"")) {
+                    str2 = str2.substring(1, str2.length() - 1);
+                }
+                String b = b(f);
+                String b2 = b(str2);
+                if (!TextUtils.isEmpty(b) && this.a.shouldSendCookie(httpUrl.toString(), b)) {
+                    arrayList.add(new Cookie.Builder().name(b).value(b2).domain(httpUrl.host()).build());
+                }
+                i = a + 1;
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        nt0 nt0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (httpUrl != null && (nt0Var = this.a) != null) {
+                String cookie = nt0Var.getCookie(httpUrl.toString());
+                if (!TextUtils.isEmpty(cookie)) {
+                    arrayList.addAll(c(httpUrl, cookie));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, httpUrl, list) != null) || httpUrl == null || x21.g(list) || this.a == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        String httpUrl2 = httpUrl.toString();
+        for (Cookie cookie : list) {
+            if (cookie != null) {
+                String cookie2 = cookie.toString();
+                if (!TextUtils.isEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
+                }
+            }
+        }
+        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

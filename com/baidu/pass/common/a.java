@@ -13,7 +13,7 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0126a {
+    public static class C0131a {
         public static final String a = "UTF-8";
         public static final String b = "AES/CBC/NoPadding";
         public static final String c = "AES";
@@ -21,11 +21,11 @@ public class a {
         public String e;
         public String f;
 
-        public C0126a() {
+        public C0131a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
         }
 
-        public C0126a(String str, String str2, String str3) {
+        public C0131a(String str, String str2, String str3) {
             this.d = "UTF-8";
             this.e = "AES/CBC/NoPadding";
             this.f = "AES";

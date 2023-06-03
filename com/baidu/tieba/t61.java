@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
+import android.view.Window;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface t61 {
-    @Nullable
-    Intent a();
+public class t61 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    String[] b();
-
-    int c();
+    public static void a(Window window) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, window) != null) || window == null) {
+            return;
+        }
+        window.getDecorView().setSystemUiVisibility(3846);
+    }
 }

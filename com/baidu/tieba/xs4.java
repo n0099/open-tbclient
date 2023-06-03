@@ -1,118 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
 /* loaded from: classes8.dex */
 public class xs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(char[] cArr) {
+    public static boolean a(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
+            if (activity != null && view2 != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) != null) {
+                b(view2);
+                viewGroup.removeView(view2);
+                viewGroup.addView(view2);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
-            if (cArr != null && cArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (char c : cArr) {
-                    if (c != 0) {
-                        sb.append(c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception unused) {
+                        return true;
                     }
                 }
-                return sb.toString();
+                return false;
             }
-            return null;
+            return false;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
-                return str.replace("$", "").replace("!", "");
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static char[][] e(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
-                for (int length = cArr.length - 1; length >= 0; length--) {
-                    cArr2[(cArr.length - length) - 1] = cArr[length];
-                }
-                return cArr2;
-            }
-            return null;
-        }
-        return (char[][]) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            char[] charArray = str.toCharArray();
-            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
-            c(charArray, cArr);
-            return a(b(e(cArr)));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static char[] b(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[] cArr2 = new char[cArr.length * cArr[0].length];
-                int i = 0;
-                for (int i2 = 0; i2 < cArr.length; i2++) {
-                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
-                        if (cArr[i2][i3] != 0) {
-                            cArr2[i] = cArr[i2][i3];
-                            i++;
-                        }
-                    }
-                }
-                return cArr2;
-            }
-            return null;
-        }
-        return (char[]) invokeL.objValue;
-    }
-
-    public static void c(char[] cArr, char[][] cArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
-            int length = cArr2.length;
-            int length2 = cArr2[0].length;
-            int i = 0;
-            int i2 = 0;
-            for (char c : cArr) {
-                if (i >= length2) {
-                    i2++;
-                    i = 0;
-                }
-                if (i2 < length) {
-                    cArr2[i2][i] = c;
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoTask {
     public String webUrl = "";
     public String videoUrl = "";
@@ -7,6 +7,4 @@ public class VideoTask {
     public int position = 0;
     public int duration = 0;
     public int positionMs = 0;
-    public String sessionId = "";
-    public String traceId = "";
 }

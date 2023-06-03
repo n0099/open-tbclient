@@ -15,7 +15,7 @@ public final class OutSideCommentDialogSwitcher {
     }
 
     /* renamed from: getOutSideCommentDialogSwitcher  reason: collision with other method in class */
-    public static final boolean m47getOutSideCommentDialogSwitcher() {
+    public static final boolean m94getOutSideCommentDialogSwitcher() {
         return outSideCommentDialogSwitcher.getSwitcherValue().booleanValue();
     }
 }

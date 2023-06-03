@@ -10,6 +10,17 @@ public class g {
     public c a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
     public List<f> b = new ArrayList();
 
+    public void b() {
+        c cVar = this.a;
+        if (cVar != null) {
+            cVar.b();
+        }
+        List<f> list = this.b;
+        if (list != null) {
+            list.clear();
+        }
+    }
+
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         c cVar = this.a;
@@ -48,17 +59,6 @@ public class g {
             f fVar2 = new f(i);
             fVar2.a(eVar);
             this.b.add(fVar2);
-        }
-    }
-
-    public void b() {
-        c cVar = this.a;
-        if (cVar != null) {
-            cVar.b();
-        }
-        List<f> list = this.b;
-        if (list != null) {
-            list.clear();
         }
     }
 }

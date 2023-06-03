@@ -2,7 +2,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapPoolAdapter implements BitmapPool {
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     public void clearMemory() {

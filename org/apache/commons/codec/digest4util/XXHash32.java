@@ -2,7 +2,7 @@ package org.apache.commons.codec.digest4util;
 
 import android.annotation.SuppressLint;
 import java.util.zip.Checksum;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class XXHash32 implements Checksum {
     public static final int BUF_SIZE = 16;
     public static final int PRIME1 = -1640531535;

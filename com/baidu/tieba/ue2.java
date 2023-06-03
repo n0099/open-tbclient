@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +10,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class ue2 implements re2 {
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class ue2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Long> a;
+    public HashMap<wk4, Set<c>> a;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(PMSDownloadType pMSDownloadType);
+
+        void b(PMSDownloadType pMSDownloadType, rn3 rn3Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ue2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-377834583, "Lcom/baidu/tieba/ue2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-377834583, "Lcom/baidu/tieba/ue2$b;");
+                    return;
+                }
+            }
+            a = new ue2(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,60 +70,96 @@ public class ue2 implements re2 {
                 return;
             }
         }
-        b = qp1.a;
+        b = is1.a;
     }
 
-    public ue2(int i) {
+    public ue2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        i = i <= 0 ? 10 : i;
-        this.a = new LruCache<>(i);
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
+        this.a = new HashMap<>();
+    }
+
+    public static ue2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (ue2) invokeV.objValue;
+    }
+
+    public /* synthetic */ ue2(a aVar) {
+        this();
+    }
+
+    public synchronized void a(wk4 wk4Var, PMSDownloadType pMSDownloadType, rn3 rn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, wk4Var, pMSDownloadType, rn3Var) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadError:" + wk4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                }
+                Set<c> set = this.a.get(wk4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.b(pMSDownloadType, rn3Var);
+                        }
+                    }
+                    this.a.remove(wk4Var);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.re2
-    public se2 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public synchronized void b(wk4 wk4Var, PMSDownloadType pMSDownloadType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (b) {
-                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk4Var, pMSDownloadType) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + wk4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                }
+                Set<c> set = this.a.get(wk4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.a(pMSDownloadType);
+                        }
+                    }
+                    this.a.remove(wk4Var);
+                }
             }
-            Long l = this.a.get(str2);
-            if (l == null) {
-                return null;
-            }
-            se2 se2Var = new se2();
-            se2Var.a = ProcessUtils.getCurProcessName();
-            se2Var.b = l.longValue();
-            return se2Var;
         }
-        return (se2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.re2
-    public void b(String str, String str2, boolean z) {
+    public synchronized void d(wk4 wk4Var, c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wk4Var, cVar) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + wk4Var);
+                }
+                if (wk4Var != null && cVar != null) {
+                    Set<c> set = this.a.get(wk4Var);
+                    if (set != null) {
+                        set.add(cVar);
+                    } else {
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(cVar);
+                        this.a.put(wk4Var, hashSet);
+                    }
+                }
+            }
         }
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
-        }
-        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

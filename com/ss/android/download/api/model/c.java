@@ -1,14 +1,13 @@
 package com.ss.android.download.api.model;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.downloadlib.addownload.j;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public String a;
     public final String b;
@@ -46,7 +45,7 @@ public class c {
         this.m = aVar.n;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String a;
         public String b;
@@ -165,7 +164,7 @@ public class c {
                     this.q.put("value", this.e);
                     this.q.put("ext_value", this.g);
                     if (!TextUtils.isEmpty(this.n)) {
-                        this.q.put(TiebaStatic.Params.REFER, this.n);
+                        this.q.put("refer", this.n);
                     }
                     if (this.i != null) {
                         this.q = com.ss.android.download.api.c.b.a(this.i, this.q);
@@ -187,7 +186,7 @@ public class c {
                     jSONObject.put("extra", this.h);
                 }
                 if (!TextUtils.isEmpty(this.n)) {
-                    jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
+                    jSONObject.putOpt("refer", this.n);
                 }
                 if (this.i != null) {
                     jSONObject = com.ss.android.download.api.c.b.a(this.i, jSONObject);

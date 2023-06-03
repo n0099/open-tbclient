@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import androidx.viewpager.widget.ViewPager;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
-import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,16 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class v63 {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class v63 implements rq3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static v63 c;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +34,7 @@ public class v63 {
                 return;
             }
         }
-        b = qp1.a;
+        a = new ArrayList(5);
     }
 
     public v63() {
@@ -61,79 +51,59 @@ public class v63 {
         }
     }
 
-    public static v63 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rq3
+    /* renamed from: b */
+    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (v63.class) {
-                    if (c == null) {
-                        c = new v63();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            s63.g().d(false);
+            String h = hybridUbcFlow.h("launchid");
+            if (!TextUtils.isEmpty(h)) {
+                synchronized (a) {
+                    if (!a.contains(h)) {
+                        a.add(h);
+                        d(h, hybridUbcFlow);
                     }
                 }
             }
-            return c;
+            String str = (String) hybridUbcFlow.k("routeId");
+            if (!TextUtils.isEmpty(str)) {
+                synchronized (a) {
+                    if (!a.contains(str)) {
+                        a.add(str);
+                        c(str, hybridUbcFlow);
+                    }
+                }
+            }
         }
-        return (v63) invokeV.objValue;
     }
 
-    public final View a(Context context) {
-        InterceptResult invokeL;
+    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
-            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013f)));
-            emojiBagLayout.setEmotionList(t63.c().b());
-            return emojiBagLayout;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
+            e(hybridUbcFlow);
+            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
+            HybridUbcFlow e = d53.e("route", str);
+            if (e != null && g != null) {
+                e.F(g);
+                e.B();
+            }
         }
-        return (View) invokeL.objValue;
     }
 
-    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        IllegalArgumentException illegalArgumentException;
+    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
-            if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
-                illegalArgumentException = new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
-            } else {
-                illegalArgumentException = null;
-            }
-            if (!(view2 instanceof EditText)) {
-                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
-            }
-            if (illegalArgumentException != null) {
-                if (!b) {
-                    return false;
-                }
-                throw illegalArgumentException;
-            } else if (TextUtils.isEmpty(str)) {
-                return false;
-            } else {
-                if (b) {
-                    Log.d("EmojiPanelManager", "start loading emoji " + str);
-                }
-                this.a = new WeakReference<>(activity);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    File v = cs2.v(str2, str3, false, null, null);
-                    t63.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f090971);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090970);
-                    if (imageView != null) {
-                        imageView.setImageBitmap(t63.c().d());
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(a(activity.getApplicationContext()));
-                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
-                    EditText editText = (EditText) view2;
-                    if (this.a.get() != null) {
-                        s63.g(this.a.get().getApplicationContext()).f(editText);
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
+            e(hybridUbcFlow);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, hybridUbcFlow) != null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
+            return;
+        }
+        si2.U().U0(new fm2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
     }
 }

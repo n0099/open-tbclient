@@ -1,198 +1,157 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CheckResult;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.xl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yl3 {
+public class yl3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333961, "Lcom/baidu/tieba/yl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements xl3.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ q22 c;
+        public final /* synthetic */ yl3 d;
+
+        public a(yl3 yl3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q22 q22Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl3Var, unitedSchemeEntity, callbackHandler, q22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948333961, "Lcom/baidu/tieba/yl3;");
+            this.d = yl3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = q22Var;
+        }
+
+        @Override // com.baidu.tieba.xl3.c
+        public void a(float f, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                y82.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
+                this.d.k(this.a, this.b, this.c, f, i);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yl3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/startCompass");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
     }
 
-    @NonNull
-    @CheckResult
-    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, new SecretKeySpec(str.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str4.getBytes(IMAudioTransRequest.CHARSET)));
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-                    return "";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                y82.c(MapController.COMPASS_LAYER_TAG, "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
                 }
-                return "";
-            }
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public static String b(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
-            ?? r0 = 0;
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.reset();
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[8192];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read > 0) {
-                                messageDigest.update(bArr, 0, read);
-                            } else {
-                                String e = e(messageDigest.digest(), "", z);
-                                kp4.d(fileInputStream);
-                                return e;
-                            }
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        kp4.d(fileInputStream);
-                        return null;
-                    } catch (IOException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        kp4.d(fileInputStream);
-                        return null;
-                    } catch (NoSuchAlgorithmException e4) {
-                        e = e4;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        kp4.d(fileInputStream);
-                        return null;
+                return false;
+            } else if (context == null) {
+                y82.c(MapController.COMPASS_LAYER_TAG, "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (vd3.b) {
+                        Log.d("SwanAppAction", "startCompass --- params is empty");
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    r0 = interceptable;
-                    kp4.d(r0);
-                    throw th;
+                    y82.c(MapController.COMPASS_LAYER_TAG, "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-            } catch (FileNotFoundException e5) {
-                e = e5;
-                fileInputStream = null;
-            } catch (IOException e6) {
-                e = e6;
-                fileInputStream = null;
-            } catch (NoSuchAlgorithmException e7) {
-                e = e7;
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                kp4.d(r0);
-                throw th;
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (vd3.b) {
+                        Log.d("SwanAppAction", "startCompass --- cb is empty");
+                    }
+                    y82.c(MapController.COMPASS_LAYER_TAG, "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                y82.i(MapController.COMPASS_LAYER_TAG, "init");
+                q22 q22Var = new q22("compassChange", optParamsAsJo, optString);
+                xl3 i = xl3.i();
+                i.l(context);
+                i.o(new a(this, unitedSchemeEntity, callbackHandler, q22Var));
+                y82.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
+                i.p();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                q22Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
-        } else {
-            return (String) invokeLLZ.objValue;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
-        InterceptResult invokeLLZ;
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q22 q22Var, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return e(messageDigest.digest(), "", z);
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    @CheckResult
-    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, q22Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-                    return "";
+                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
+                jSONObject.put("accuracy", xl3.h(i));
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
                 }
-                return "";
+                q22Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                y82.c(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
+                q22Var.e(unitedSchemeEntity, callbackHandler, "Json error");
             }
         }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String e(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
     }
 }

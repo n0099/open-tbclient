@@ -5,7 +5,7 @@ import com.kwad.sdk.core.response.model.CouponInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class w implements com.kwad.sdk.core.d<AdProductInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdProductInfo adProductInfo, JSONObject jSONObject) {

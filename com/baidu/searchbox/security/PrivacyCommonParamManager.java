@@ -13,7 +13,7 @@ public class PrivacyCommonParamManager {
         File parentFile;
         File filesDir = AppRuntime.getAppContext().getFilesDir();
         if (filesDir != null && (parentFile = filesDir.getParentFile()) != null) {
-            File file = new File(parentFile, AGREE_PRIVACY_FILE);
+            File file = new File(parentFile, "agree_privacy");
             if (!file.exists()) {
                 try {
                     file.createNewFile();
@@ -28,7 +28,7 @@ public class PrivacyCommonParamManager {
         File parentFile;
         File filesDir = AppRuntime.getAppContext().getFilesDir();
         if (filesDir != null && (parentFile = filesDir.getParentFile()) != null) {
-            return new File(parentFile, AGREE_PRIVACY_FILE).exists();
+            return new File(parentFile, "agree_privacy").exists();
         }
         return false;
     }

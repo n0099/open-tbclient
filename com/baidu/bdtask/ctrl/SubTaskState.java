@@ -9,17 +9,17 @@ import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.fq;
-import com.baidu.tieba.mp;
-import com.baidu.tieba.sq;
+import com.baidu.tieba.eq;
+import com.baidu.tieba.kr;
+import com.baidu.tieba.xq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -31,25 +31,25 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0082\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010#\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B#\u0012\u0006\u0010/\u001a\u00020.\u0012\u0006\u0010I\u001a\u00020H\u0012\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bP\u0010QJ\u0017\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\bJ\r\u0010\n\u001a\u00020\u0004¢\u0006\u0004\b\n\u0010\bJ\r\u0010\u000b\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\bJ\r\u0010\f\u001a\u00020\u0004¢\u0006\u0004\b\f\u0010\bJ\r\u0010\r\u001a\u00020\u0004¢\u0006\u0004\b\r\u0010\bJ\u000f\u0010\u000e\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0011\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0010¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0014\u0010\u0015J\r\u0010\u0017\u001a\u00020\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0016¢\u0006\u0004\b\u0019\u0010\u0018J\u0017\u0010\u001a\u001a\u00020\u00162\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\r\u0010\u001c\u001a\u00020\u0004¢\u0006\u0004\b\u001c\u0010\bJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001d\u0010\u0006J\u0017\u0010\u001e\u001a\u00020\u00042\b\b\u0002\u0010\n\u001a\u00020\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\u0004¢\u0006\u0004\b \u0010\bJ\u000f\u0010\"\u001a\u00020!H\u0016¢\u0006\u0004\b\"\u0010#J\u0015\u0010&\u001a\u00020\u00042\u0006\u0010%\u001a\u00020$¢\u0006\u0004\b&\u0010'J)\u0010,\u001a\u00020\u00002\u0006\u0010)\u001a\u00020(2\b\u0010*\u001a\u0004\u0018\u00010(2\b\u0010+\u001a\u0004\u0018\u00010$¢\u0006\u0004\b,\u0010-J\u0017\u00100\u001a\u00020\u00042\b\u0010/\u001a\u0004\u0018\u00010.¢\u0006\u0004\b0\u00101J\u0017\u00104\u001a\u00020\u00042\b\u00103\u001a\u0004\u0018\u000102¢\u0006\u0004\b4\u00105R\u0018\u0010\u0003\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b\u0003\u00106R\u001e\u00108\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u0002078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010;\u001a\u00020:8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010<R$\u0010>\u001a\u0004\u0018\u00010=8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b>\u0010?\u001a\u0004\b@\u0010A\"\u0004\bB\u0010CR\"\u0010/\u001a\u00020.8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u0010D\u001a\u0004\bE\u0010F\"\u0004\bG\u00101R\u0019\u0010I\u001a\u00020H8\u0006@\u0006¢\u0006\f\n\u0004\bI\u0010J\u001a\u0004\bK\u0010LR$\u0010O\u001a\u0010\u0012\f\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010N0M078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bO\u00109¨\u0006R"}, d2 = {"Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/model/ITaskModelData;", "Lcom/baidu/bdtask/callbacks/TaskCallback;", WebChromeClient.KEY_ARG_CALLBACK, "", "addCallback", "(Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "addExitOnce", "()V", "cleanAllCallbacks", "cleanDuplicateId", "clear", "clearProcess", "clearProcessTags", "deepCopy", "()Lcom/baidu/bdtask/ctrl/SubTaskState;", "", "getCallbacks", "()Ljava/util/Set;", "Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "getCurStatusRuntime", "()Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "", "isForceCleaned", "()Z", "isGotMaxNoClickTimes", "isInWeakCallbacks", "(Lcom/baidu/bdtask/callbacks/TaskCallback;)Z", "processRuleDataMaxValueFix", "removeCallback", "reset2Running", "(Z)V", "resetExit", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "extraUnRegisterMsg", "updateExtraUnRegisterMsg", "(Ljava/lang/String;)V", "", "status", HiAnalyticsConstant.HaKey.BI_KEY_RESULT, CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, "updateStatus", "(ILjava/lang/Integer;Ljava/lang/String;)Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "updateTaskInfoByMerge", "(Lcom/baidu/bdtask/model/info/TaskInfo;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "responseData", "updateTaskInfoWithResponse", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "Lcom/baidu/bdtask/callbacks/TaskCallback;", "", "callbacks", "Ljava/util/Set;", "Ljava/util/concurrent/locks/ReentrantLock;", "fairLock", "Ljava/util/concurrent/locks/ReentrantLock;", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "interceptor", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "getInterceptor", "()Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "setInterceptor", "(Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", "getTaskInfo", "()Lcom/baidu/bdtask/model/info/TaskInfo;", "setTaskInfo", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "getTaskStatus", "()Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/bdtask/ctrl/WeakTaskCallback;", "weakCallbacks", "<init>", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0082\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010#\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B#\u0012\u0006\u0010/\u001a\u00020.\u0012\u0006\u0010I\u001a\u00020H\u0012\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bP\u0010QJ\u0017\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\bJ\r\u0010\n\u001a\u00020\u0004¢\u0006\u0004\b\n\u0010\bJ\r\u0010\u000b\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\bJ\r\u0010\f\u001a\u00020\u0004¢\u0006\u0004\b\f\u0010\bJ\r\u0010\r\u001a\u00020\u0004¢\u0006\u0004\b\r\u0010\bJ\u000f\u0010\u000e\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0011\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0010¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0014\u0010\u0015J\r\u0010\u0017\u001a\u00020\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0016¢\u0006\u0004\b\u0019\u0010\u0018J\u0017\u0010\u001a\u001a\u00020\u00162\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\r\u0010\u001c\u001a\u00020\u0004¢\u0006\u0004\b\u001c\u0010\bJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001d\u0010\u0006J\u0017\u0010\u001e\u001a\u00020\u00042\b\b\u0002\u0010\n\u001a\u00020\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\u0004¢\u0006\u0004\b \u0010\bJ\u000f\u0010\"\u001a\u00020!H\u0016¢\u0006\u0004\b\"\u0010#J\u0015\u0010&\u001a\u00020\u00042\u0006\u0010%\u001a\u00020$¢\u0006\u0004\b&\u0010'J)\u0010,\u001a\u00020\u00002\u0006\u0010)\u001a\u00020(2\b\u0010*\u001a\u0004\u0018\u00010(2\b\u0010+\u001a\u0004\u0018\u00010$¢\u0006\u0004\b,\u0010-J\u0017\u00100\u001a\u00020\u00042\b\u0010/\u001a\u0004\u0018\u00010.¢\u0006\u0004\b0\u00101J\u0017\u00104\u001a\u00020\u00042\b\u00103\u001a\u0004\u0018\u000102¢\u0006\u0004\b4\u00105R\u0018\u0010\u0003\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b\u0003\u00106R\u001e\u00108\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u0002078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010;\u001a\u00020:8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010<R$\u0010>\u001a\u0004\u0018\u00010=8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b>\u0010?\u001a\u0004\b@\u0010A\"\u0004\bB\u0010CR\"\u0010/\u001a\u00020.8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u0010D\u001a\u0004\bE\u0010F\"\u0004\bG\u00101R\u0019\u0010I\u001a\u00020H8\u0006@\u0006¢\u0006\f\n\u0004\bI\u0010J\u001a\u0004\bK\u0010LR$\u0010O\u001a\u0010\u0012\f\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010N0M078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bO\u00109¨\u0006R"}, d2 = {"Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/model/ITaskModelData;", "Lcom/baidu/bdtask/callbacks/TaskCallback;", WebChromeClient.KEY_ARG_CALLBACK, "", "addCallback", "(Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "addExitOnce", "()V", "cleanAllCallbacks", "cleanDuplicateId", DownloadStatisticConstants.UBC_VALUE_CLEAR, "clearProcess", "clearProcessTags", "deepCopy", "()Lcom/baidu/bdtask/ctrl/SubTaskState;", "", "getCallbacks", "()Ljava/util/Set;", "Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "getCurStatusRuntime", "()Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "", "isForceCleaned", "()Z", "isGotMaxNoClickTimes", "isInWeakCallbacks", "(Lcom/baidu/bdtask/callbacks/TaskCallback;)Z", "processRuleDataMaxValueFix", "removeCallback", "reset2Running", "(Z)V", "resetExit", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "extraUnRegisterMsg", "updateExtraUnRegisterMsg", "(Ljava/lang/String;)V", "", "status", "statusCode", CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, "updateStatus", "(ILjava/lang/Integer;Ljava/lang/String;)Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "updateTaskInfoByMerge", "(Lcom/baidu/bdtask/model/info/TaskInfo;)V", "Lcom/baidu/bdtask/model/response/TaskResponseData;", "responseData", "updateTaskInfoWithResponse", "(Lcom/baidu/bdtask/model/response/TaskResponseData;)V", "Lcom/baidu/bdtask/callbacks/TaskCallback;", "", "callbacks", "Ljava/util/Set;", "Ljava/util/concurrent/locks/ReentrantLock;", "fairLock", "Ljava/util/concurrent/locks/ReentrantLock;", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "interceptor", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "getInterceptor", "()Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "setInterceptor", "(Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", "getTaskInfo", "()Lcom/baidu/bdtask/model/info/TaskInfo;", "setTaskInfo", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", TaskStatus.key, "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "getTaskStatus", "()Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/bdtask/ctrl/WeakTaskCallback;", "weakCallbacks", "<init>", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public final class SubTaskState implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile mp callback;
-    public Set<mp> callbacks;
+    public volatile eq callback;
+    public Set<eq> callbacks;
     public final ReentrantLock fairLock;
-    public sq interceptor;
+    public kr interceptor;
     public TaskInfo taskInfo;
     public final TaskStatus taskStatus;
-    public Set<WeakReference<fq>> weakCallbacks;
+    public Set<WeakReference<xq>> weakCallbacks;
 
-    public SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, mp mpVar) {
+    public SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, eq eqVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, taskStatus, mpVar};
+            Object[] objArr = {taskInfo, taskStatus, eqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,17 +61,17 @@ public final class SubTaskState implements ITaskModelData {
         }
         this.taskInfo = taskInfo;
         this.taskStatus = taskStatus;
-        this.callback = mpVar;
+        this.callback = eqVar;
         this.callbacks = new HashSet();
         this.weakCallbacks = new HashSet();
         this.fairLock = new ReentrantLock(true);
         if (this.callback != null) {
-            if (this.callback instanceof fq) {
-                mp mpVar2 = this.callback;
-                if (mpVar2 != null && !isInWeakCallbacks(mpVar2)) {
-                    Set<WeakReference<fq>> set = this.weakCallbacks;
-                    mp mpVar3 = this.callback;
-                    set.add(new WeakReference<>((fq) (mpVar3 instanceof fq ? mpVar3 : null)));
+            if (this.callback instanceof xq) {
+                eq eqVar2 = this.callback;
+                if (eqVar2 != null && !isInWeakCallbacks(eqVar2)) {
+                    Set<WeakReference<xq>> set = this.weakCallbacks;
+                    eq eqVar3 = this.callback;
+                    set.add(new WeakReference<>((xq) (eqVar3 instanceof xq ? eqVar3 : null)));
                     return;
                 }
                 return;
@@ -80,8 +80,8 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public /* synthetic */ SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, mp mpVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, (i & 4) != 0 ? null : mpVar);
+    public /* synthetic */ SubTaskState(TaskInfo taskInfo, TaskStatus taskStatus, eq eqVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, (i & 4) != 0 ? null : eqVar);
     }
 
     public final void reset2Running(boolean z) {
@@ -91,10 +91,10 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public final void setInterceptor(sq sqVar) {
+    public final void setInterceptor(kr krVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, sqVar) == null) {
-            this.interceptor = sqVar;
+        if (interceptable == null || interceptable.invokeL(1048597, this, krVar) == null) {
+            this.interceptor = krVar;
         }
     }
 
@@ -119,12 +119,12 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    private final boolean isInWeakCallbacks(mp mpVar) {
+    private final boolean isInWeakCallbacks(eq eqVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, mpVar)) == null) {
-            for (WeakReference<fq> weakReference : this.weakCallbacks) {
-                if (Intrinsics.areEqual(weakReference.get(), mpVar)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, eqVar)) == null) {
+            for (WeakReference<xq> weakReference : this.weakCallbacks) {
+                if (Intrinsics.areEqual(weakReference.get(), eqVar)) {
                     return true;
                 }
             }
@@ -133,23 +133,23 @@ public final class SubTaskState implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final void addCallback(mp mpVar) {
+    public final void addCallback(eq eqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mpVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, eqVar) == null) {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
-            if (mpVar != null) {
+            if (eqVar != null) {
                 try {
-                    if (mpVar instanceof fq) {
-                        if (!isInWeakCallbacks(mpVar)) {
-                            Set<WeakReference<fq>> set = this.weakCallbacks;
-                            if (!(mpVar instanceof fq)) {
-                                mpVar = null;
+                    if (eqVar instanceof xq) {
+                        if (!isInWeakCallbacks(eqVar)) {
+                            Set<WeakReference<xq>> set = this.weakCallbacks;
+                            if (!(eqVar instanceof xq)) {
+                                eqVar = null;
                             }
-                            set.add(new WeakReference<>((fq) mpVar));
+                            set.add(new WeakReference<>((xq) eqVar));
                         }
                     } else {
-                        this.callbacks.add(mpVar);
+                        this.callbacks.add(eqVar);
                     }
                 } finally {
                     reentrantLock.unlock();
@@ -305,13 +305,13 @@ public final class SubTaskState implements ITaskModelData {
         return (TaskStatusRuntime) invokeV.objValue;
     }
 
-    public final sq getInterceptor() {
+    public final kr getInterceptor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.interceptor;
         }
-        return (sq) invokeV.objValue;
+        return (kr) invokeV.objValue;
     }
 
     public final TaskInfo getTaskInfo() {
@@ -467,7 +467,7 @@ public final class SubTaskState implements ITaskModelData {
         return (SubTaskState) invokeV.objValue;
     }
 
-    public final Set<mp> getCallbacks() {
+    public final Set<eq> getCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -476,9 +476,9 @@ public final class SubTaskState implements ITaskModelData {
             try {
                 HashSet hashSet = new HashSet();
                 hashSet.addAll(this.callbacks);
-                Iterator<WeakReference<fq>> it = this.weakCallbacks.iterator();
+                Iterator<WeakReference<xq>> it = this.weakCallbacks.iterator();
                 while (it.hasNext()) {
-                    WeakReference<fq> next = it.next();
+                    WeakReference<xq> next = it.next();
                     if (next.get() != null) {
                         hashSet.add(next.get());
                     } else {
@@ -507,19 +507,19 @@ public final class SubTaskState implements ITaskModelData {
         }
     }
 
-    public final void removeCallback(mp mpVar) {
+    public final void removeCallback(eq eqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, mpVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, eqVar) == null) {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
-            if (mpVar == null) {
+            if (eqVar == null) {
                 return;
             }
             try {
-                this.callbacks.remove(mpVar);
-                Iterator<WeakReference<fq>> it = this.weakCallbacks.iterator();
+                this.callbacks.remove(eqVar);
+                Iterator<WeakReference<xq>> it = this.weakCallbacks.iterator();
                 while (it.hasNext()) {
-                    if (Intrinsics.areEqual(it.next().get(), mpVar)) {
+                    if (Intrinsics.areEqual(it.next().get(), eqVar)) {
                         it.remove();
                     }
                 }

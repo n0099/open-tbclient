@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogDiskStoreConfig {
     public static final String DEFAULT_LOG_STORE_ROOT_DIR = "log_store";
     @NonNull
@@ -14,7 +14,7 @@ public class LogDiskStoreConfig {
     public static void init() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         @NonNull
         public Context mContext;

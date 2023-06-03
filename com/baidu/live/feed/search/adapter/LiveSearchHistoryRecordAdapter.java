@@ -12,7 +12,6 @@ import com.baidu.live.feed.search.holder.LiveSearchDeleteEntranceViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchDeleteStatusViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchHistoryRecordViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +104,7 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
             String substring = str.substring(0, i);
             Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
             sb.append(substring);
-            sb.append(StringHelper.STRING_MORE);
+            sb.append("...");
             return sb.toString();
         }
         return str;
@@ -343,14 +342,14 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1) {
-            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d050a, null));
+            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0516, null));
         }
         if (i == 2) {
-            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d050d, null));
+            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0519, null));
         }
         if (i == 3) {
-            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d050b, null));
+            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0517, null));
         }
-        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d050c, null));
+        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0518, null));
     }
 }

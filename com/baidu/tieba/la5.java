@@ -1,36 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
 /* loaded from: classes6.dex */
-public class la5 {
+public class la5 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public TabPic g;
-    public String h;
-    public int i;
-    public boolean j;
+    public boolean u;
 
     public la5() {
         Interceptable interceptable = $ic;
@@ -42,198 +29,114 @@ public class la5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = true;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+        this.u = false;
+        this.n = this.o;
+        this.m = this.l;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return s(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void q(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0904;
+            this.u = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void r(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TextUtils.isEmpty(this.b) && this.a > 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = i;
+            this.u = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public static la5 b(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !str.startsWith("[pic-tab]")) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(str.substring(9));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONObject = null;
-            }
-            try {
-                la5 la5Var = new la5();
-                la5Var.g = c(jSONObject);
-                if (jSONObject != null) {
-                    la5Var.b = jSONObject.optString("tabName");
-                }
-                return la5Var;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (la5) invokeL.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("tab_type");
-        this.b = jSONObject.optString("tab_name");
-        this.c = jSONObject.optString("tab_code");
-        this.i = jSONObject.optInt("is_main_tab", 0);
-        this.d = jSONObject.optString("tab_url");
-        this.e = jSONObject.optString("tab_version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("head_pics");
-        if (optJSONObject != null) {
-            this.h = optJSONObject.toString();
-            this.g = c(optJSONObject);
         }
     }
 
-    public static TabPic c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final Drawable s(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            if (this.u) {
+                return t(f);
             }
-            TabPic.Builder builder = new TabPic.Builder();
-            JSONObject optJSONObject = jSONObject.optJSONObject("normal");
-            if (optJSONObject != null) {
-                TabPicDesc.Builder builder2 = new TabPicDesc.Builder();
-                builder2.selected_pic_url = optJSONObject.optString("selected_pic_url");
-                builder2.unselected_pic_url = optJSONObject.optString("unselected_pic_url");
-                builder2.pic_height = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder2.pic_width = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.normal = builder2.build(true);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("dark");
-            if (optJSONObject2 != null) {
-                TabPicDesc.Builder builder3 = new TabPicDesc.Builder();
-                builder3.selected_pic_url = optJSONObject2.optString("selected_pic_url");
-                builder3.unselected_pic_url = optJSONObject2.optString("unselected_pic_url");
-                builder3.pic_height = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder3.pic_width = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.dark = builder3.build(true);
-            }
-            return builder.build(true);
+            return u(f);
         }
-        return (TabPic) invokeL.objValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final Drawable u(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || la5.class != obj.getClass()) {
-                return false;
-            }
-            la5 la5Var = (la5) obj;
-            if (this.a == la5Var.a && this.f == la5Var.f && this.i == la5Var.i && StringUtils.equalsIgnoreNull(this.b, la5Var.b) && StringUtils.equalsIgnoreNull(this.c, la5Var.c) && la5Var.j) {
-                return a(this.d, la5Var.d);
-            }
-            if (StringUtils.equalsIgnoreNull(this.d, la5Var.d) && StringUtils.equalsIgnoreNull(this.e, la5Var.e) && StringUtils.equalsIgnoreNull(this.h, la5Var.h)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        return invokeL.booleanValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    @Deprecated
+    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return StringUtils.equalsIgnoreNull(UtilHelper.getNoQueryUrl(str), UtilHelper.getNoQueryUrl(str2));
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
+            v(i, iconType);
         }
-        return invokeLL.booleanValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        GradientDrawable gradientDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (h()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.h);
-                    jSONObject.put("tabName", this.b);
-                    return "[pic-tab]" + jSONObject.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return "[pic-tab]" + this.h;
-                }
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            int color = SkinManager.getColor(this.r, this.d);
+            int[] iArr = {jw9.c(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.s);
+                gradientDrawable.setColors(iArr);
+            } else {
+                gradientDrawable = new GradientDrawable(this.s, iArr);
             }
-            return this.b;
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        return (String) invokeV.objValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
-        TabPic tabPic;
-        TabPicDesc tabPicDesc;
+    public void v(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.h) && (tabPic = this.g) != null && (tabPicDesc = tabPic.normal) != null && !TextUtils.isEmpty(tabPicDesc.unselected_pic_url) && this.g.normal.pic_width.intValue() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.h);
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.i = z ? 1 : 0;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
+            this.e[0] = i;
+            this.f = iconType;
         }
     }
 }

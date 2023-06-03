@@ -6,7 +6,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KeepLastFrameCache implements BitmapFrameCache {
     public static final int FRAME_NUMBER_UNSET = -1;
     @Nullable

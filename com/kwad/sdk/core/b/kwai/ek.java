@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.sapi2.result.GetUserAttrInfoResult;
 import com.kwad.components.splash.SplashPreloadManager;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ek implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoadItem> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {

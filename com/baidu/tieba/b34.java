@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,24 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushService;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b34 extends mw2 {
+/* loaded from: classes5.dex */
+public class b34 extends e44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventTargetImpl d;
-    public y24 e;
-
-    @Override // com.baidu.tieba.mw2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,69 +33,60 @@ public class b34 extends mw2 {
                 return;
             }
         }
-        f = qp1.a;
+        c = is1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b34(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
-        super(null, jSONObject);
+    public b34() {
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eventTargetImpl, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = eventTargetImpl;
     }
 
-    @Override // com.baidu.tieba.mw2
-    public void b(String str, JSONObject jSONObject) {
-        String str2;
+    @Override // com.baidu.tieba.e44
+    public y32 a(@NonNull JSONObject jSONObject, @NonNull cp2 cp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.b.optString(str);
-            y24 y24Var = this.e;
-            if (y24Var != null) {
-                y24Var.p(optString, jSONObject);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cp2Var)) == null) {
+            if (c) {
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
             }
-            if (!this.d.hasEventListener(optString)) {
-                return;
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                cp2Var.onFail(31010, "package name is empty");
+                return null;
             }
-            JSEvent jSEvent = new JSEvent(optString);
-            if (jSONObject != null) {
-                jSEvent.data = jSONObject;
-            }
-            if (f && !"onTimeUpdate".equals(str)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("type = ");
-                sb.append(str);
-                sb.append("  result = ");
-                if (jSONObject != null) {
-                    str2 = jSONObject.toString();
-                } else {
-                    str2 = StringUtil.NULL_STRING;
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
                 }
-                sb.append(str2);
-                Log.d("AudioCallbackForV8", sb.toString());
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    cp2Var.onSuccess(jSONObject2);
+                } else {
+                    cp2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                cp2Var.onFail(31011, "app is not installed");
             }
-            this.d.dispatchEvent(jSEvent);
+            return null;
         }
-    }
-
-    public void e(y24 y24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y24Var) == null) {
-            this.e = y24Var;
-        }
+        return (y32) invokeLL.objValue;
     }
 }

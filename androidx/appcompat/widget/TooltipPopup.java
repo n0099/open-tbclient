@@ -14,7 +14,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -33,7 +33,7 @@ public class TooltipPopup {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d001b, (ViewGroup) null);
         this.mContentView = inflate;
-        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916e1);
+        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091705);
         this.mLayoutParams.setTitle(TooltipPopup.class.getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
         WindowManager.LayoutParams layoutParams = this.mLayoutParams;
@@ -51,12 +51,12 @@ public class TooltipPopup {
         int i4;
         int i5;
         layoutParams.token = view2.getApplicationWindowToken();
-        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b07);
+        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b1b);
         if (view2.getWidth() < dimensionPixelOffset) {
             i = view2.getWidth() / 2;
         }
         if (view2.getHeight() >= dimensionPixelOffset) {
-            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b06);
+            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b1a);
             height = i2 + dimensionPixelOffset2;
             i3 = i2 - dimensionPixelOffset2;
         } else {
@@ -66,9 +66,9 @@ public class TooltipPopup {
         layoutParams.gravity = 49;
         Resources resources = this.mContext.getResources();
         if (z) {
-            i4 = R.dimen.obfuscated_res_0x7f070b0a;
+            i4 = R.dimen.obfuscated_res_0x7f070b1e;
         } else {
-            i4 = R.dimen.obfuscated_res_0x7f070b09;
+            i4 = R.dimen.obfuscated_res_0x7f070b1d;
         }
         int dimensionPixelOffset3 = resources.getDimensionPixelOffset(i4);
         View appRootView = getAppRootView(view2);
@@ -80,7 +80,7 @@ public class TooltipPopup {
         Rect rect = this.mTmpDisplayFrame;
         if (rect.left < 0 && rect.top < 0) {
             Resources resources2 = this.mContext.getResources();
-            int identifier = resources2.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = resources2.getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             if (identifier != 0) {
                 i5 = resources2.getDimensionPixelSize(identifier);
             } else {
@@ -134,7 +134,7 @@ public class TooltipPopup {
         if (!isShowing()) {
             return;
         }
-        ((WindowManager) this.mContext.getSystemService("window")).removeView(this.mContentView);
+        ((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).removeView(this.mContentView);
     }
 
     public boolean isShowing() {
@@ -150,6 +150,6 @@ public class TooltipPopup {
         }
         this.mMessageView.setText(charSequence);
         computePosition(view2, i, i2, z, this.mLayoutParams);
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.mContentView, this.mLayoutParams);
+        ((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).addView(this.mContentView, this.mLayoutParams);
     }
 }

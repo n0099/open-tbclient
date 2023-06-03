@@ -2,8 +2,8 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.du2;
-import com.baidu.tieba.zk3;
+import com.baidu.tieba.rn3;
+import com.baidu.tieba.vw2;
 /* loaded from: classes4.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();
@@ -12,7 +12,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public zk3 errCode;
+    public rn3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
@@ -80,22 +80,22 @@ public class ForbiddenInfo implements Parcelable {
         parcel.writeInt(this.enableSlidingFlag);
     }
 
-    public ForbiddenInfo(du2 du2Var, String str, String str2) {
+    public ForbiddenInfo(vw2 vw2Var, String str, String str2) {
         this.enableSlidingFlag = 0;
-        convertToForbiddenModel(du2Var);
+        convertToForbiddenModel(vw2Var);
         this.forbiddenReason = str;
         this.forbiddenDetail = str2;
     }
 
-    private void convertToForbiddenModel(du2 du2Var) {
-        if (du2Var == null) {
+    private void convertToForbiddenModel(vw2 vw2Var) {
+        if (vw2Var == null) {
             return;
         }
-        this.appId = du2Var.H();
-        this.appKey = du2Var.I();
-        this.appTitle = du2Var.K();
-        this.launchPath = du2Var.e0();
-        this.launchSource = du2Var.T();
+        this.appId = vw2Var.H();
+        this.appKey = vw2Var.I();
+        this.appTitle = vw2Var.K();
+        this.launchPath = vw2Var.e0();
+        this.launchSource = vw2Var.T();
     }
 
     public String toString() {

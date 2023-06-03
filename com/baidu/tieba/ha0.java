@@ -1,59 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.base.LiveBaseFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+/* loaded from: classes6.dex */
 public class ha0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static WeakReference<LiveBaseFragment> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ia0 a;
+    public ja0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947816850, "Lcom/baidu/tieba/ha0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ha0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947816850, "Lcom/baidu/tieba/ha0;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-            WeakReference<LiveBaseFragment> weakReference = b;
-            if (weakReference != null) {
-                weakReference.clear();
-                b = null;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ia0();
+        this.b = new ja0();
     }
 
-    public static void c(int i) {
+    public aa0 a(aa0 aa0Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, aa0Var, z)) == null) {
+            this.a.b(aa0Var, z);
+            return aa0Var;
         }
+        return (aa0) invokeLZ.objValue;
+    }
+
+    public aa0 b(Context context, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
+            return this.a.c(context, j);
+        }
+        return (aa0) invokeLJ.objValue;
+    }
+
+    public aa0 c(InputStream inputStream) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
+            return this.b.b(inputStream);
+        }
+        return (aa0) invokeL.objValue;
     }
 }

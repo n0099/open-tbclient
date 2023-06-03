@@ -1,42 +1,126 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface wu {
-    @CallSuper
-    void a(SubTaskState subTaskState);
+public final class wu implements zs {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Activity> a;
+    public final aq b;
 
-    boolean b(TaskInfo taskInfo, int i);
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean b(wu wuVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, wuVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
-        }
-
-        public static void a(wu wuVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, wuVar, subTaskState) == null) && !wuVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
-                wuVar.a(subTaskState);
+    public wu(aq aqVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aqVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = aqVar;
+    }
 
-        @CallSuper
-        public static void c(wu wuVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, wuVar, subTaskState) == null) {
-                zu.c.b(subTaskState);
-            }
+    @Override // com.baidu.tieba.zs
+    public void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && !yt.a(activity)) {
+            this.a = new WeakReference<>(activity);
         }
+    }
+
+    @Override // com.baidu.tieba.zs
+    public Activity a() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null) {
+                return null;
+            }
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (yt.a(activity)) {
+                return null;
+            }
+            return activity;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.t();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.b.getContext();
+            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
+            return context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String k = this.b.k();
+            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
+            return k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public at getEnv() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            at r = this.b.r();
+            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
+            return r;
+        }
+        return (at) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public String getSdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String q = this.b.q();
+            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
+            return q;
+        }
+        return (String) invokeV.objValue;
     }
 }

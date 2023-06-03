@@ -16,6 +16,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Enums;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -136,7 +137,7 @@ public final class SapiContext implements NoProguard {
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
-                    str = "unkown";
+                    str = ClarityUrlList.UNKNOWN_CLARITY_KEY;
                 } else {
                     str = SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH;
                 }

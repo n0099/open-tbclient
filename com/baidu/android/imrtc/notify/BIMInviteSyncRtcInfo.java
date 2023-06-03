@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.manager.DownloadManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +114,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
                 JSONObject jSONObject3 = new JSONObject(jSONObject2.getJSONObject("push_info").getString("ext"));
                 jSONObject.put("inviter_name", optString);
                 jSONObject.put("inviter_avatar", optString2);
-                jSONObject.put("media_type", this.mMediaType);
+                jSONObject.put(DownloadManager.COLUMN_MEDIA_TYPE, this.mMediaType);
                 jSONObject.put("room_id", getRtcRoomId());
                 jSONObject.put("inviter_passuk", jSONObject3.optString("inviter_passuk"));
                 jSONObject.put("resource_id", jSONObject3.optString("resource_id"));
@@ -189,7 +190,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
                 jSONObject.put(RtcUtility.KEY_RTC_ROOM_TOKEN, this.mRtcRoomToken);
                 jSONObject.put("rtc_room_desc", this.mRtcRoomDes);
                 jSONObject.put("rtc_room_type", this.mRtcRoomType);
-                jSONObject.put("media_type", this.mMediaType);
+                jSONObject.put(DownloadManager.COLUMN_MEDIA_TYPE, this.mMediaType);
                 jSONObject.put("uk", this.mInitiatorUk);
                 jSONObject.put("invite_id", this.mInviteId);
                 jSONObject.put("rtc_userid", this.mRtcUserId);

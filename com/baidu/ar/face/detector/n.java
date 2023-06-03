@@ -6,6 +6,7 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class n extends a {
@@ -33,7 +34,7 @@ public class n extends a {
     public void dG() {
         super.dG();
         FaceAlgoData faceAlgoData = this.ob;
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", ARPScriptEnvironment.KEY_DATA_PIP_TRACK, SystemClock.elapsedRealtime() - this.of, (faceAlgoData == null || faceAlgoData.getFaceFrame() == null || this.ob.getFaceFrame().getFaceBoxes() == null) ? 0 : this.ob.getFaceFrame().getFaceBoxes().size());
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost(UgcTranscoderConstant.URL_GET_FACE, ARPScriptEnvironment.KEY_DATA_PIP_TRACK, SystemClock.elapsedRealtime() - this.of, (faceAlgoData == null || faceAlgoData.getFaceFrame() == null || this.ob.getFaceFrame().getFaceBoxes() == null) ? 0 : this.ob.getFaceFrame().getFaceBoxes().size());
         k kVar = this.od;
         if (kVar != null) {
             kVar.c(this.og);

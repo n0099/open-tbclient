@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import com.baidu.tieba.bn4;
-import com.baidu.tieba.dn4;
+import com.baidu.tieba.tp4;
+import com.baidu.tieba.vp4;
 /* loaded from: classes4.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new a();
@@ -81,23 +81,23 @@ public final class FragmentState implements Parcelable {
         this.mArguments = fragment.h;
     }
 
-    public Fragment instantiate(bn4 bn4Var, Fragment fragment) {
+    public Fragment instantiate(tp4 tp4Var, Fragment fragment) {
         Fragment fragment2 = this.mInstance;
         if (fragment2 != null) {
             return fragment2;
         }
-        Context context = bn4Var.getContext();
+        Context context = tp4Var.getContext();
         Bundle bundle = this.mArguments;
         if (bundle != null) {
             bundle.setClassLoader(context.getClassLoader());
         }
-        this.mInstance = Fragment.k0(context, this.mClassName, this.mArguments);
+        this.mInstance = Fragment.j0(context, this.mClassName, this.mArguments);
         Bundle bundle2 = this.mSavedFragmentState;
         if (bundle2 != null) {
             bundle2.setClassLoader(context.getClassLoader());
             this.mInstance.d = this.mSavedFragmentState;
         }
-        this.mInstance.m1(this.mIndex, fragment);
+        this.mInstance.l1(this.mIndex, fragment);
         Fragment fragment3 = this.mInstance;
         fragment3.o = this.mFromLayout;
         fragment3.q = true;
@@ -106,8 +106,8 @@ public final class FragmentState implements Parcelable {
         fragment3.y = this.mTag;
         fragment3.B = this.mRetainInstance;
         fragment3.A = this.mDetached;
-        fragment3.s = bn4Var.e;
-        if (dn4.x) {
+        fragment3.s = tp4Var.e;
+        if (vp4.x) {
             Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
         }
         return this.mInstance;

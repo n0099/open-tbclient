@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes7.dex */
 public class q38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public q38() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 6) {
-                if (i != 8) {
-                    if (i != 30) {
-                        switch (i) {
-                            case 10:
-                                return 6;
-                            case 11:
-                                return 7;
-                            case 12:
-                                return 8;
-                            default:
-                                return -2;
-                        }
-                    }
-                    return -9;
-                }
-                return 5;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return -1;
         }
-        return invokeI.intValue;
+    }
+
+    public void a(TimeLineInfo timeLineInfo) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
+            return;
+        }
+        this.b = timeLineInfo.tid.longValue();
+        this.c = timeLineInfo.title;
+        if (ui.isEmpty(timeLineInfo.small_title)) {
+            str = timeLineInfo.show_time;
+        } else {
+            str = timeLineInfo.small_title;
+        }
+        this.d = str;
+        this.e = timeLineInfo.bg_color;
     }
 }

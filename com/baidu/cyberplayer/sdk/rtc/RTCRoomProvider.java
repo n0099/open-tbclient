@@ -19,20 +19,6 @@ public abstract class RTCRoomProvider {
 
     @Keep
     /* loaded from: classes3.dex */
-    public static class CyberRtcRoomAudioLevel {
-        public String nicName;
-        public long userID;
-        public int volumeLevel;
-
-        public CyberRtcRoomAudioLevel(long j, String str, int i) {
-            this.userID = j;
-            this.nicName = str;
-            this.volumeLevel = i;
-        }
-    }
-
-    @Keep
-    /* loaded from: classes3.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i);
 
@@ -45,22 +31,6 @@ public abstract class RTCRoomProvider {
         void onRoomEventUpdate(int i, long j, String str);
 
         void onStreamInfoUpdate(String[] strArr);
-    }
-
-    @Keep
-    /* loaded from: classes3.dex */
-    public static class CyberRtcRoomUserInfo {
-        public String attribute;
-        public int role;
-        public long userID;
-        public String userName;
-
-        public CyberRtcRoomUserInfo(long j, String str, String str2, int i) {
-            this.userID = j;
-            this.userName = str;
-            this.attribute = str2;
-            this.role = i;
-        }
     }
 
     @Keep
@@ -157,4 +127,34 @@ public abstract class RTCRoomProvider {
     public abstract void subscribeStreaming(int i, long j);
 
     public abstract void switchCamera();
+
+    @Keep
+    /* loaded from: classes3.dex */
+    public static class CyberRtcRoomAudioLevel {
+        public String nicName;
+        public long userID;
+        public int volumeLevel;
+
+        public CyberRtcRoomAudioLevel(long j, String str, int i) {
+            this.userID = j;
+            this.nicName = str;
+            this.volumeLevel = i;
+        }
+    }
+
+    @Keep
+    /* loaded from: classes3.dex */
+    public static class CyberRtcRoomUserInfo {
+        public String attribute;
+        public int role;
+        public long userID;
+        public String userName;
+
+        public CyberRtcRoomUserInfo(long j, String str, String str2, int i) {
+            this.userID = j;
+            this.userName = str;
+            this.attribute = str2;
+            this.role = i;
+        }
+    }
 }

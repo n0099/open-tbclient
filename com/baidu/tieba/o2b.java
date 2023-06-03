@@ -1,95 +1,89 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.l3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
-public final class o2b<TResult> implements d2b<TResult> {
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class o2b<A extends l3b> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g2b<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final boolean e;
+    public final String f;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h2b a;
-        public final /* synthetic */ o2b b;
-
-        public a(o2b o2bVar, h2b h2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o2bVar, h2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = o2bVar;
-            this.a = h2bVar;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.g2b */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
-                    }
-                }
-            }
-        }
-    }
-
-    public o2b(Executor executor, g2b<TResult> g2bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o2b(Ssp.Pid pid) {
+        super(pid.pid, pid.type, pid.ssp.type);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, g2bVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = g2bVar;
-        this.b = executor;
+        this.e = pid.isBidding;
+        this.f = pid.pid;
     }
 
-    @Override // com.baidu.tieba.d2b
-    public final void cancel() {
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            l3b l3bVar = (l3b) obj;
+            if (l3bVar != null && l3bVar.a != 0 && !TextUtils.isEmpty(l3bVar.e())) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("gdt_rq_id", l3bVar.e()));
+                if (!this.e) {
+                    c = FunAdSdk.getARPU(this.f);
+                } else {
+                    c = (l3bVar.c() / 100.0d) / 1000.0d;
+                }
+                arrayList.add(Pair.create("rvn", Double.valueOf(c)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * c)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
             }
+            return null;
         }
+        return (List) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d2b
-    public final void onComplete(h2b<TResult> h2bVar) {
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReward(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h2bVar) == null) && h2bVar.h() && !h2bVar.f()) {
-            this.b.execute(new a(this, h2bVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            l3b l3bVar = (l3b) obj;
+            if (l3bVar != null && !TextUtils.isEmpty(l3bVar.f())) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("gdt_tr_id", l3bVar.f()));
+                return arrayList;
+            }
+            return null;
         }
+        return (List) invokeL.objValue;
     }
 }

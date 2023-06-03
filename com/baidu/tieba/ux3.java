@@ -1,9 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes7.dex */
-public interface ux3 {
-    void d(String str, String str2);
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+@Service
+/* loaded from: classes8.dex */
+public class ux3 implements kg2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void f(View view2);
+    public ux3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kg2
+    public RequestListener a(lg2 lg2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lg2Var)) == null) {
+            return new tx3(lg2Var);
+        }
+        return (RequestListener) invokeL.objValue;
+    }
 }

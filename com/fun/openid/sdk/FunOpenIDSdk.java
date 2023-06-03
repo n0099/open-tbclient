@@ -11,8 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String SDK_VERSION = "1.3.6";
+    public static final String SDK_VERSION = "1.3.8";
     public static final String TAG = "FunOpenIDSdk";
+    public static boolean isRPSPermissionGranted;
     public static boolean logEnabled;
     public static String vivoAppId;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,22 +68,35 @@ public class FunOpenIDSdk {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? vivoAppId : (String) invokeV.objValue;
     }
 
+    public static boolean isIsRPSPermissionGranted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? isRPSPermissionGranted : invokeV.booleanValue;
+    }
+
     public static boolean isLogEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? logEnabled : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? logEnabled : invokeV.booleanValue;
+    }
+
+    public static void onRPSPermissionGranted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            isRPSPermissionGranted = true;
+        }
     }
 
     public static void setLogEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
             logEnabled = z;
         }
     }
 
     public static void setVivoAppId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
             vivoAppId = str;
         }
     }

@@ -6,7 +6,7 @@ import com.bytedance.pangle.servermanager.AbsServerManager;
 import com.bytedance.sdk.openadsdk.TTAppContextHolder;
 import com.bytedance.sdk.openadsdk.a.b;
 import com.bytedance.sdk.openadsdk.api.plugin.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MainServerManager extends AbsServerManager {
     @Override // com.bytedance.pangle.servermanager.AbsServerManager, android.content.ContentProvider
     public boolean onCreate() {

@@ -1,40 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes5.dex */
-public class ep8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ep8<T extends ICardInfo> {
+    void d();
 
-    public ep8(VipThemeItem vipThemeItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        String str = vipThemeItem.img_url;
-        String str2 = vipThemeItem.title;
-        vipThemeItem.props_id.intValue();
-        vipThemeItem.props_category.intValue();
-        String str3 = vipThemeItem.props_category_name;
-        String str4 = vipThemeItem.desc;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.tag_img_url;
-        String str7 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
-    }
+    void e();
+
+    void f(BdUniqueId bdUniqueId);
+
+    void g();
+
+    void h();
+
+    void setAfterClickSchemeListener(io8 io8Var);
+
+    void setBusinessType(int i);
+
+    void setFromCDN(boolean z);
+
+    void setMulDel(boolean z);
+
+    void setPosition(int i);
+
+    void update(Object obj);
 }

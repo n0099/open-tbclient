@@ -2,8 +2,7 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
@@ -31,7 +30,7 @@ public class HttpDnsCacheForHost implements INetListener {
     public static String transHttpsUrl(String str) {
         boolean z = true;
         try {
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
                 z = false;
             }
             return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;
@@ -44,7 +43,7 @@ public class HttpDnsCacheForHost implements INetListener {
         if (str == null) {
             return;
         }
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals(YYOption.IsLive.VALUE_TRUE)) {
             Log.i(LOG_TAG, "block_http_dns3");
             return;
         }
@@ -136,7 +135,7 @@ public class HttpDnsCacheForHost implements INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            String str = new String(byteArray, IMAudioTransRequest.CHARSET);
+            String str = new String(byteArray, "utf-8");
             if (TextUtils.isEmpty(str)) {
                 return;
             }

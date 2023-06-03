@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,107 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b13 {
+/* loaded from: classes5.dex */
+public class b13 extends a13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
-    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public JSONObject e;
-    public b f;
-    public ResponseCallback<JSONObject> g;
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onFail(String str);
-
-        void onSuccess(JSONObject jSONObject);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b13 a;
-
-        public a(b13 b13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b13Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.a.f == null) {
-                    g62.i("IsBlockDomainRequest", "IsBlockDomainRequestCallback is empty and isblockdomain request failed : \n" + Log.getStackTraceString(exc));
-                    return;
-                }
-                this.a.f.onFail(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (this.a.f == null) {
-                    g62.i("IsBlockDomainRequest", "isblockdomain request success, but IsBlockDomainRequestCallback is empty.");
-                } else if (jSONObject == null) {
-                    this.a.f.onFail("response is empty");
-                } else if (jSONObject.optInt("errno", -1) != 0) {
-                    String optString = jSONObject.optString("tipmsg", "");
-                    b bVar = this.a.f;
-                    if (TextUtils.isEmpty(optString)) {
-                        optString = "errno is non-zero";
-                    }
-                    bVar.onFail(optString);
-                } else {
-                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return gm3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -127,98 +30,52 @@ public class b13 {
                 return;
             }
         }
-        boolean z = qp1.a;
-        h = String.format("%s/ma/isblockdomain", a62.b());
-        i = n03.a;
+        boolean z = is1.a;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = oi4.i(h);
-            this.a = i2;
-            this.a = c62.b(i2);
-            String O = f93.K().q().O();
-            String str = this.a;
-            if (TextUtils.isEmpty(O)) {
-                O = "";
-            }
-            this.a = c62.a(str, "src_app", O);
-        }
-    }
-
-    public b13() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b13(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = h;
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = new JSONObject();
-        this.g = new a(this);
-        e();
-        f();
     }
 
-    public void d(@NonNull b bVar) {
+    @Override // com.baidu.tieba.a13
+    public boolean a(q03 q03Var, s03 s03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f = bVar;
-            c(this.g);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{q03Var, s03Var, context, unitedSchemeEntity, callbackHandler, yb3Var})) == null) {
+            y82.i("video", "remove, video id:" + s03Var.j + " slave id: " + s03Var.c);
+            d(q03Var, s03Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
+        return invokeCommon.booleanValue;
     }
 
-    public void g(String str) {
+    public final void d(q03 q03Var, s03 s03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            this.e.put("url", str);
-            this.d = true;
-        } catch (JSONException unused) {
-            g62.i("IsBlockDomainRequest", "set url need to check failed");
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
-            return;
-        }
-        this.b.put(str, str2);
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q03Var, s03Var, unitedSchemeEntity, callbackHandler) == null) {
+            n72 a = l82.a(s03Var);
+            if (a != null) {
+                a.B();
+            } else {
+                r82.a("VideoPlayerAction", "remove with a null component");
             }
-            this.a = ym3.b(this.a, this.c);
-            jg4 jg4Var = new jg4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            jg4Var.c = this.b;
-            jg4Var.g = true;
-            g62.b("IsBlockDomainRequest", "start isblockdomain request : " + this.e);
-            kg4.g().e(jg4Var);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b("Referer", nm3.b());
+            q03Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

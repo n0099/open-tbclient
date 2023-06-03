@@ -18,16 +18,16 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq0;
-import com.baidu.tieba.at0;
-import com.baidu.tieba.dt0;
-import com.baidu.tieba.j01;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.oq0;
-import com.baidu.tieba.pq0;
-import com.baidu.tieba.rq0;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.zs0;
+import com.baidu.tieba.as0;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.iu0;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.ju0;
+import com.baidu.tieba.mu0;
+import com.baidu.tieba.s11;
+import com.baidu.tieba.x21;
+import com.baidu.tieba.xr0;
+import com.baidu.tieba.yr0;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class NadExpressVideoOperateView extends NadExpressNaBaseView {
@@ -37,52 +37,52 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public TextView n;
     @Nullable
     public ImageView o;
-    public zs0 p;
+    public iu0 p;
     @Nullable
     public ViewGroup q;
-    public final dt0 r;
+    public final mu0 r;
 
     /* loaded from: classes3.dex */
-    public class a extends dt0 {
+    public class a extends mu0 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onEnd(int i) {
             if (NadExpressVideoOperateView.this.b != null && (NadExpressVideoOperateView.this.getTag() instanceof AdBaseModel)) {
                 NadExpressVideoOperateView.this.b.f((AdBaseModel) NadExpressVideoOperateView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onError(int i, int i2, String str) {
             if (NadExpressVideoOperateView.this.b != null && (NadExpressVideoOperateView.this.getTag() instanceof AdBaseModel)) {
                 NadExpressVideoOperateView.this.b.e((AdBaseModel) NadExpressVideoOperateView.this.getTag(), str);
             }
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onPause() {
             if (NadExpressVideoOperateView.this.b != null && (NadExpressVideoOperateView.this.getTag() instanceof AdBaseModel)) {
                 NadExpressVideoOperateView.this.b.c((AdBaseModel) NadExpressVideoOperateView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onPrepared() {
             if (NadExpressVideoOperateView.this.b != null && (NadExpressVideoOperateView.this.getTag() instanceof AdBaseModel)) {
                 NadExpressVideoOperateView.this.b.d((AdBaseModel) NadExpressVideoOperateView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onResume() {
             if (NadExpressVideoOperateView.this.b != null && (NadExpressVideoOperateView.this.getTag() instanceof AdBaseModel)) {
                 NadExpressVideoOperateView.this.b.a((AdBaseModel) NadExpressVideoOperateView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.dt0, com.baidu.tieba.ws0
+        @Override // com.baidu.tieba.mu0, com.baidu.tieba.fu0
         public void onStart() {
             if (NadExpressVideoOperateView.this.o != null) {
                 NadExpressVideoOperateView.this.o.setVisibility(8);
@@ -107,7 +107,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
 
         @Override // android.view.ViewOutlineProvider
         public void getOutline(View view2, Outline outline) {
-            outline.setRoundRect(new Rect(0, 0, NadExpressVideoOperateView.this.q.getWidth(), NadExpressVideoOperateView.this.q.getHeight()), t41.c.a(NadExpressVideoOperateView.this.getContext(), 8.0f));
+            outline.setRoundRect(new Rect(0, 0, NadExpressVideoOperateView.this.q.getWidth(), NadExpressVideoOperateView.this.q.getHeight()), c61.c.a(NadExpressVideoOperateView.this.getContext(), 8.0f));
         }
     }
 
@@ -148,10 +148,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, rq0 rq0Var) {
+    public void j(LayoutInflater layoutInflater, as0 as0Var) {
         int i;
-        if (rq0Var != null && rq0Var.a(AdBaseModel.STYLE.VIDEO) != 0) {
-            i = rq0Var.a(AdBaseModel.STYLE.VIDEO);
+        if (as0Var != null && as0Var.a(AdBaseModel.STYLE.VIDEO) != 0) {
+            i = as0Var.a(AdBaseModel.STYLE.VIDEO);
         } else {
             i = R.layout.nad_feed_video;
         }
@@ -162,14 +162,14 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressVideoOperateView(Context context, AttributeSet attributeSet, int i, rq0 rq0Var) {
-        super(context, attributeSet, i, rq0Var);
+    public NadExpressVideoOperateView(Context context, AttributeSet attributeSet, int i, as0 as0Var) {
+        super(context, attributeSet, i, as0Var);
         this.r = new a();
     }
 
     public final void G() {
         Resources resources = getContext().getResources();
-        int e = t41.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X001) * 2);
+        int e = c61.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X001) * 2);
         ViewGroup viewGroup = this.q;
         if (viewGroup != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) viewGroup.getLayoutParams();
@@ -191,7 +191,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     }
 
     public final void H() {
-        if (!(getTag() instanceof pq0)) {
+        if (!(getTag() instanceof yr0)) {
             AdImageView adImageView = this.m;
             if (adImageView != null) {
                 adImageView.setVisibility(0);
@@ -211,21 +211,21 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             }
             return;
         }
-        pq0 pq0Var = (pq0) getTag();
+        yr0 yr0Var = (yr0) getTag();
         if (this.q == null) {
             return;
         }
         if (this.p == null) {
-            at0 at0Var = new at0();
-            at0Var.a = 1;
-            this.p = zs0.a.b(getContext(), 0, at0Var);
-            j01 j01Var = new j01();
-            j01Var.j(1);
-            this.p.d(j01Var);
+            ju0 ju0Var = new ju0();
+            ju0Var.a = 1;
+            this.p = iu0.a.b(getContext(), 0, ju0Var);
+            s11 s11Var = new s11();
+            s11Var.j(1);
+            this.p.d(s11Var);
             this.p.attachToContainer(this.q);
-            oq0 oq0Var = pq0Var.j;
-            if (oq0Var != null) {
-                this.p.c(oq0Var);
+            xr0 xr0Var = yr0Var.j;
+            if (xr0Var != null) {
+                this.p.c(xr0Var);
             }
             this.p.a(this.r);
         }
@@ -252,12 +252,12 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void m(AdBaseModel adBaseModel) {
-        aq0 aq0Var;
-        if ((adBaseModel instanceof pq0) && adBaseModel.j != null) {
-            pq0 pq0Var = (pq0) adBaseModel;
+        jr0 jr0Var;
+        if ((adBaseModel instanceof yr0) && adBaseModel.j != null) {
+            yr0 yr0Var = (yr0) adBaseModel;
             TextView textView = this.n;
             if (textView != null) {
-                int i = pq0Var.j.c;
+                int i = yr0Var.j.c;
                 if (i != 0) {
                     this.n.setText(String.format(Locale.ENGLISH, "%02d:%02d", Integer.valueOf((i / 60) % 60), Integer.valueOf(i % 60)));
                     int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.nad_template_m8);
@@ -273,19 +273,19 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             }
             if (this.q != null) {
                 if (this.p == null) {
-                    at0 at0Var = new at0();
-                    at0Var.a = 1;
-                    this.p = zs0.a.b(getContext(), 0, at0Var);
-                    j01 j01Var = new j01();
-                    j01Var.j(1);
-                    this.p.d(j01Var);
+                    ju0 ju0Var = new ju0();
+                    ju0Var.a = 1;
+                    this.p = iu0.a.b(getContext(), 0, ju0Var);
+                    s11 s11Var = new s11();
+                    s11Var.j(1);
+                    this.p.d(s11Var);
                     this.p.attachToContainer(this.q);
                 }
                 this.p.c(adBaseModel.j);
                 this.p.a(this.r);
             }
-            if (this.m != null && pq0Var.f.k.size() > 0 && (aq0Var = (aq0) o11.d(pq0Var.f.k, 0)) != null) {
-                this.m.o(aq0Var.a);
+            if (this.m != null && yr0Var.f.k.size() > 0 && (jr0Var = (jr0) x21.d(yr0Var.f.k, 0)) != null) {
+                this.m.o(jr0Var.a);
                 return;
             }
             return;
@@ -317,9 +317,9 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        zs0 zs0Var = this.p;
-        if (zs0Var != null) {
-            zs0Var.release();
+        iu0 iu0Var = this.p;
+        if (iu0Var != null) {
+            iu0Var.release();
             this.p = null;
         }
     }

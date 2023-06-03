@@ -1,21 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
-public interface hd1<View> {
-    void a();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class hd1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static hd1 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
-    View getRealView();
+    public hd1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        new ArrayList();
+        this.a = new ArrayList();
+    }
 
-    void setBtnIconNightModeEnable(boolean z);
+    public static hd1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hd1.class) {
+                    if (b == null) {
+                        b = new hd1();
+                    }
+                }
+            }
+            return b;
+        }
+        return (hd1) invokeV.objValue;
+    }
 
-    void setBtnPlaceholder(View view2);
-
-    void setData(@NonNull dq0 dq0Var);
-
-    void setEnhanceBtnListener(@NonNull fd1 fd1Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    public synchronized void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                x21.b(this.a, str);
+            }
+        }
+    }
 }

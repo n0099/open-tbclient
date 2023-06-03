@@ -1,201 +1,307 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class nga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity a;
+    public LinearLayout b;
+    public TBAlertBuilder c;
+    public f d;
+    public boolean e;
 
-    public static void a() {
-        cha c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = iha.c()) != null) {
-            c.b();
-        }
+    /* loaded from: classes7.dex */
+    public interface f {
+        void a(boolean z);
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.getAppContext();
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ nga b;
+
+        public a(nga ngaVar, ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ngaVar, imageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.b = ngaVar;
+            this.a = imageView;
         }
-        return (Context) invokeV.objValue;
-    }
 
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.d();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.f(this.a);
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public static cga i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return iha.e();
-        }
-        return (cga) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ nga b;
 
-    public static gga j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return iha.f();
-        }
-        return (gga) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            bha b = iha.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
+        public b(nga ngaVar, ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ngaVar, imageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.b = ngaVar;
+            this.a = imageView;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.isDebug();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.f(this.a);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.c(str);
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
             }
-            return str;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            cha c = iha.c();
-            if (c != null) {
-                return c.a(str);
+        public c(nga ngaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ngaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return null;
         }
-        return (IBinder) invokeL.objValue;
     }
 
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.e(str);
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nga a;
+
+        public d(nga ngaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ngaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return str;
+            this.a = ngaVar;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.b(z);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.d != null) {
+                    this.a.d.a(false);
+                }
+                this.a.i();
+                this.a.c.dismiss();
+                mga.a(1, this.a.e ? 1 : 0);
             }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        aha a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = iha.a()) != null) {
-            a.a(i);
         }
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.getInt(str, i);
+    /* loaded from: classes7.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nga a;
+
+        public e(nga ngaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ngaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return i;
+            this.a = ngaVar;
         }
-        return invokeLI.intValue;
-    }
 
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            aha a = iha.a();
-            if (a != null) {
-                return a.getLong(str, j);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.d != null) {
+                    this.a.d.a(true);
+                }
+                this.a.i();
+                this.a.c.dismiss();
+                mga.a(2, this.a.e ? 1 : 0);
             }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        aha a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = iha.a()) != null) {
-            a.putInt(str, i);
         }
     }
 
-    public static void o(String str, long j) {
-        aha a;
+    public nga(Activity activity, f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = iha.a()) != null) {
-            a.putLong(str, j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, fVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.a = activity;
+        this.d = fVar;
+        g();
+        h();
+    }
+
+    public final void f(ImageView imageView) {
+        Drawable maskDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, imageView) == null) {
+            boolean z = !this.e;
+            this.e = z;
+            if (z) {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
+            } else {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
+            }
+            imageView.setImageDrawable(maskDrawable);
         }
     }
 
-    public static void p(String str, String str2) {
-        aha a;
+    public final void g() {
+        Drawable maskDrawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = iha.a()) != null) {
-            a.putString(str, str2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = new LinearLayout(this.a);
+            this.b = linearLayout;
+            linearLayout.setOrientation(0);
+            this.b.setGravity(16);
+            this.b.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
+            ImageView imageView = new ImageView(this.a);
+            if (this.e) {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
+            } else {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
+            }
+            imageView.setImageDrawable(maskDrawable);
+            this.b.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
+            TextView textView = new TextView(this.a);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0424));
+            textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
+            m75 d2 = m75.d(textView);
+            d2.B(R.dimen.T_X07);
+            d2.w(R.color.CAM_X0108);
+            d2.C(R.string.F_X01);
+            this.b.addView(textView);
+            textView.setOnClickListener(new a(this, imageView));
+            imageView.setOnClickListener(new b(this, imageView));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a);
+            tBAlertBuilder.x(this.a.getString(R.string.obfuscated_res_0x7f0f0426));
+            tBAlertBuilder.q(this.a.getString(R.string.obfuscated_res_0x7f0f0423));
+            tBAlertBuilder.n(3);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.k(this.b);
+            tBAlertBuilder.u(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0422), TBAlertConfig.OperateBtnStyle.SECONDARY, new d(this)), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0425), TBAlertConfig.OperateBtnStyle.MAIN, new e(this)));
+            tBAlertBuilder.s(new c(this));
+            this.c = tBAlertBuilder;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e) {
+            l95.m().A("key_check_is_question_thread_time", System.currentTimeMillis());
+        }
+    }
+
+    public void j() {
+        TBAlertBuilder tBAlertBuilder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (tBAlertBuilder = this.c) != null) {
+            tBAlertBuilder.z();
+            mga.b();
         }
     }
 }

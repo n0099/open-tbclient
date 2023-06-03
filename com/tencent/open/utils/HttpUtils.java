@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.l;

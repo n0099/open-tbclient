@@ -12,8 +12,8 @@ public class fh extends bv.a {
 
     @Override // com.xiaomi.push.service.bv.a
     public void a(dw.b bVar) {
-        if (bVar.m333e()) {
-            fg.m415a().m419a(bVar.e());
+        if (bVar.m388e()) {
+            fg.m470a().m474a(bVar.e());
         }
     }
 }

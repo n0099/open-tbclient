@@ -436,8 +436,10 @@ public final class Gson {
                     T read = getAdapter(TypeToken.get(type)).read(jsonReader);
                     jsonReader.setLenient(isLenient);
                     return read;
-                } catch (IOException e) {
-                    throw new JsonSyntaxException(e);
+                } catch (AssertionError e) {
+                    AssertionError assertionError = new AssertionError("AssertionError (GSON 2.8.6): " + e.getMessage());
+                    assertionError.initCause(e);
+                    throw assertionError;
                 } catch (IllegalStateException e2) {
                     throw new JsonSyntaxException(e2);
                 }
@@ -447,8 +449,8 @@ public final class Gson {
                     return null;
                 }
                 throw new JsonSyntaxException(e3);
-            } catch (AssertionError e4) {
-                throw new AssertionError("AssertionError (GSON 2.8.5): " + e4.getMessage(), e4);
+            } catch (IOException e4) {
+                throw new JsonSyntaxException(e4);
             }
         } catch (Throwable th) {
             jsonReader.setLenient(isLenient);
@@ -469,7 +471,9 @@ public final class Gson {
             } catch (IOException e) {
                 throw new JsonIOException(e);
             } catch (AssertionError e2) {
-                throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
+                AssertionError assertionError = new AssertionError("AssertionError (GSON 2.8.6): " + e2.getMessage());
+                assertionError.initCause(e2);
+                throw assertionError;
             }
         } finally {
             jsonWriter.setLenient(isLenient);
@@ -548,7 +552,7 @@ public final class Gson {
                     return typeAdapter2;
                 }
             }
-            throw new IllegalArgumentException("GSON (2.8.5) cannot handle " + typeToken);
+            throw new IllegalArgumentException("GSON (2.8.6) cannot handle " + typeToken);
         } finally {
             map2.remove(typeToken);
             if (z) {
@@ -598,7 +602,9 @@ public final class Gson {
             } catch (IOException e) {
                 throw new JsonIOException(e);
             } catch (AssertionError e2) {
-                throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
+                AssertionError assertionError = new AssertionError("AssertionError (GSON 2.8.6): " + e2.getMessage());
+                assertionError.initCause(e2);
+                throw assertionError;
             }
         } finally {
             jsonWriter.setLenient(isLenient);

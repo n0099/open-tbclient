@@ -2,12 +2,12 @@ package com.baidu.searchbox.permission;
 
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.tga;
+import com.baidu.tieba.goa;
 import com.baidu.ubc.UBCManager;
 import com.kuaishou.weapon.p0.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionOpenInfoUtil {
     public static void statisticPermissionForStorage() {
         statisticPermission(new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"}, "storage");
@@ -21,7 +21,7 @@ public class DangerousPermissionOpenInfoUtil {
             jSONObject.put("from", "tool");
             jSONObject.put("page", str);
             if (isPermissionGroupGranted) {
-                str2 = DangerousPermissionStatistic.UBC_TYPE_VALUE_AGREE;
+                str2 = "agree";
             } else {
                 str2 = "disagree";
             }
@@ -29,6 +29,6 @@ public class DangerousPermissionOpenInfoUtil {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ((tga) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DangerousPermissionStatistic.UBC_STATISTIC_PERMISSION_ID, jSONObject.toString());
+        ((goa) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject.toString());
     }
 }

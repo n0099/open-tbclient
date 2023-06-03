@@ -18,7 +18,6 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.common.util.VisibleForTesting;
 import com.huawei.hms.adapter.internal.CommonCode;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 @KeepForSdk
 @SafeParcelable.Class(creator = "StatusCreator")
 /* loaded from: classes9.dex */
@@ -188,7 +187,7 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     @NonNull
     public String toString() {
         Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-        stringHelper.add(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, zza());
+        stringHelper.add("statusCode", zza());
         stringHelper.add(CommonCode.MapKey.HAS_RESOLUTION, this.zze);
         return stringHelper.toString();
     }

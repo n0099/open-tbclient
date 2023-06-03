@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pl4 {
+public class pl4 extends nl4<am4> implements wl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pl4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public volatile am4 b;
 
     public pl4() {
         Interceptable interceptable = $ic;
@@ -29,55 +26,117 @@ public class pl4 {
         }
     }
 
-    public static pl4 b() {
+    public synchronized am4 g() {
         InterceptResult invokeV;
+        am4 am4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (pl4.class) {
-                    if (b == null) {
-                        b = new pl4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                am4Var = (am4) super.c();
+            }
+            return am4Var;
+        }
+        return (am4) invokeV.objValue;
+    }
+
+    public synchronized am4 i() {
+        InterceptResult invokeV;
+        am4 am4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                am4Var = (am4) super.d();
+            }
+            return am4Var;
+        }
+        return (am4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wl4
+    public <T> void a(am4<T> am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, am4Var) == null) {
+            this.b = am4Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.wl4
+    public <T> void b(am4<T> am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, am4Var) == null) {
+            if (this.b == am4Var) {
+                this.b = null;
+            }
+            k(am4Var);
+        }
+    }
+
+    public final void k(am4 am4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, am4Var) != null) || !am4Var.k()) {
+            return;
+        }
+        am4Var.r(true);
+        this.a.add(0, am4Var);
+    }
+
+    public synchronized void h(am4 am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, am4Var) == null) {
+            synchronized (this) {
+                if (am4Var == null) {
+                    return;
+                }
+                if (this.b != null && this.b.d(am4Var)) {
+                    am4Var.e().f(am4Var.f());
+                    return;
+                }
+                am4 e = e(am4Var);
+                if (e != null) {
+                    am4Var.e().f(am4Var.f());
+                    if (am4Var.g() <= e.g()) {
+                        return;
                     }
                 }
+                int g = am4Var.g();
+                if (g != 200) {
+                    if (g != 300) {
+                        if (e == null) {
+                            this.a.add(am4Var);
+                        }
+                    } else {
+                        j(am4Var);
+                        if (e != null) {
+                            this.a.remove(e);
+                            this.a.add(0, e);
+                        } else {
+                            this.a.add(0, am4Var);
+                        }
+                    }
+                } else if (e != null) {
+                    this.a.remove(e);
+                    this.a.add(0, e);
+                } else {
+                    this.a.add(0, am4Var);
+                }
+                notifyAll();
             }
-            return b;
         }
-        return (pl4) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void j(am4 am4Var) {
+        am4 am4Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = rg4.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return rg4.b().i().getString("tts_node_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, am4Var) != null) || am4Var.g() != 300 || (am4Var2 = this.b) == null || am4Var2.g() == 300) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
-            return;
+        am4Var2.o();
+        for (int i = 0; i < 500 && this.b != null; i++) {
+            try {
+                Thread.sleep(10L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        rg4.b().i().putString("tts_node_version", optString);
-        rg4.b().i().putString("extract_js_url", optString2);
     }
 }

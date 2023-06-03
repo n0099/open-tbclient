@@ -1,60 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.DiffUtil;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.mo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dn7 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
+public class dn7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
+    public mo5.b o;
 
-    public dn7() {
+    public dn7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: a */
-    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        mo5.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null) {
+                this.o = frsFragment.O3();
             }
-            return false;
+            if (l95.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.p0()) {
+                return false;
+            }
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: b */
-    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mo5.b bVar = this.o;
+            if (bVar != null) {
+                bVar.Y0();
+            }
+            t();
         }
-        return invokeLL.booleanValue;
     }
 }

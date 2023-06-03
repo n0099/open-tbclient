@@ -17,7 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.go;
+import com.baidu.tieba.ko;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +107,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             left = new TrackDirection("left", 0);
             right = new TrackDirection("right", 1);
-            horizontal = new TrackDirection("horizontal", 2);
+            horizontal = new TrackDirection(LiveConfig.CUT_LIST_HORIZONTAL_KEY, 2);
             TrackDirection trackDirection = new TrackDirection("none", 3);
             none = trackDirection;
             $VALUES = new TrackDirection[]{left, right, horizontal, trackDirection};
@@ -390,7 +391,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (go.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -412,7 +413,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (go.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -435,7 +436,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (go.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -458,7 +459,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (go.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -734,7 +735,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.c = obtainStyledAttributes.getDimension(2, -1.0f);
             String string = obtainStyledAttributes.getString(6);
             if (string != null && string.length() > 0) {
-                if (this.b != -1.0f && this.c != -1.0f && "horizontal".equals(string)) {
+                if (this.b != -1.0f && this.c != -1.0f && LiveConfig.CUT_LIST_HORIZONTAL_KEY.equals(string)) {
                     BdLog.d("HorizontalTranslateLayout@parseTrack horizontal");
                     this.f = TrackDirection.horizontal;
                 } else if (this.c != -1.0f && "right".equals(string)) {

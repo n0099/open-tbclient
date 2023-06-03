@@ -23,7 +23,7 @@ import com.cmic.sso.sdk.e.q;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;

@@ -86,7 +86,7 @@ public class EmotionTabLayout extends HorizontalScrollView {
         BDEmotionPanelManager.EmotionPanelConfig emotionPanelConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65551, this, i) == null) && i != 0 && i < this.mTabIdList.size() && (emotionPanelConfig = this.mPanelConfig) != null) {
-            EmotionUbcHelper.doEmotionDynamicUBC(emotionPanelConfig.from, EmotionUbcHelper.TYPE_TAB_CLK, emotionPanelConfig.page, emotionPanelConfig.source, this.mTabIdList.get(i), "");
+            EmotionUbcHelper.doEmotionDynamicUBC(emotionPanelConfig.from, "tab_clk", emotionPanelConfig.page, emotionPanelConfig.source, this.mTabIdList.get(i), "");
         }
     }
 

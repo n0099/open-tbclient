@@ -10,6 +10,7 @@ import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.manager.DownloadManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -341,7 +342,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
+                bIMInviteRtcInfo.setMediaType(jSONObject.optInt(DownloadManager.COLUMN_MEDIA_TYPE));
                 bIMInviteRtcInfo.setRtcRoomType(jSONObject.optInt("rtc_room_type"));
                 optJSONArray = jSONObject.optJSONArray("user_list");
             } catch (Exception e) {
@@ -380,7 +381,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 jSONObject.put(RtcUtility.KEY_RTC_ROOM_NAME, RtcUtility.getRtcRoomName(this.mContext));
                 jSONObject.put("rtc_room_desc", RtcUtility.getRtcRoomDes(this.mContext));
                 jSONObject.put("rtc_room_type", this.mRtcRoomType);
-                jSONObject.put("media_type", this.mMediaType);
+                jSONObject.put(DownloadManager.COLUMN_MEDIA_TYPE, this.mMediaType);
                 JSONArray jSONArray = new JSONArray();
                 for (BIMInviteUser bIMInviteUser : this.mInviteUsers) {
                     JSONObject jSONObject2 = new JSONObject();

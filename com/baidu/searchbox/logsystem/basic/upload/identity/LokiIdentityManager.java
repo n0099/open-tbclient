@@ -4,13 +4,12 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.basic.upload.LokiRuntime;
 import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LokiIdentityManager {
     public static final String PARAM_APP_NAME = "appname";
     public static final String PARAM_BDVC = "bdvc";
@@ -59,7 +58,7 @@ public final class LokiIdentityManager {
 
     public static String getEncodeValue(String str) {
         try {
-            return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return str;

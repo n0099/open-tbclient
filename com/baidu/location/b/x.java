@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.location.GnssNavigationMessage;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -102,8 +101,8 @@ public class x {
                     str = a2.trim().replaceAll("\r|\n", "");
                 }
                 try {
-                    this.j.put("info", URLEncoder.encode(replaceAll, IMAudioTransRequest.CHARSET));
-                    this.j.put("enl", URLEncoder.encode(str, IMAudioTransRequest.CHARSET));
+                    this.j.put("info", URLEncoder.encode(replaceAll, "utf-8"));
+                    this.j.put("enl", URLEncoder.encode(str, "utf-8"));
                 } catch (Exception unused) {
                 }
             }

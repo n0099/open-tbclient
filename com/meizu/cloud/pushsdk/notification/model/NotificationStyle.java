@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";

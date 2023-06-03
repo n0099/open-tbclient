@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -236,7 +235,7 @@ public class BIMClientReportInfo extends BIMRtcInfo {
                 JSONObject jSONObject = new JSONObject(str2);
                 bIMClientReportInfo.setMethod(jSONObject.optString("method"));
                 bIMClientReportInfo.setUk(jSONObject.optString("uk"));
-                bIMClientReportInfo.setExtInfo(jSONObject.optString(ARConfigKey.EXTRA_INFO));
+                bIMClientReportInfo.setExtInfo(jSONObject.optString("extra_info"));
                 bIMClientReportInfo.setRtcType(jSONObject.optString("rtc_type"));
                 bIMClientReportInfo.setEvent(jSONObject.optLong("event"));
             } catch (Exception e) {
@@ -260,7 +259,7 @@ public class BIMClientReportInfo extends BIMRtcInfo {
                 jSONObject2.put("method", this.mMethod);
                 jSONObject2.put("uk", this.mUk);
                 jSONObject2.put("event", this.mEvent);
-                jSONObject2.put(ARConfigKey.EXTRA_INFO, this.mExtInfo);
+                jSONObject2.put("extra_info", this.mExtInfo);
                 jSONObject.put("rtc_quality_info", jSONObject2);
                 return jSONObject.toString();
             } catch (Exception e) {

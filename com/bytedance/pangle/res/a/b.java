@@ -1,7 +1,7 @@
 package com.bytedance.pangle.res.a;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public g a;
     public final h g;
@@ -19,7 +19,7 @@ public final class b {
     public int e = 3;
     public int f = 4;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public int[] a = new int[32];
         public int b;

@@ -8,10 +8,10 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
-import com.baidu.tieba.aoa;
-import com.baidu.tieba.kna;
-import com.baidu.tieba.qna;
-import com.baidu.tieba.xna;
+import com.baidu.tieba.dva;
+import com.baidu.tieba.kva;
+import com.baidu.tieba.nva;
+import com.baidu.tieba.xua;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.ByteBuffer;
@@ -370,7 +370,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         int i4;
         Surface surface;
         String e2 = "video/avc";
-        MediaCodecInfo m = qna.m("video/avc");
+        MediaCodecInfo m = dva.m("video/avc");
         if (m == null) {
             return;
         }
@@ -380,10 +380,10 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         MediaExtractor mediaExtractor = null;
         try {
             try {
-                e = qna.b(this.mSourcePath);
+                e = dva.b(this.mSourcePath);
                 try {
                     try {
-                        trackFormat = e.getTrackFormat(qna.f(e));
+                        trackFormat = e.getTrackFormat(dva.f(e));
                         if (this.mOutWidth == 0) {
                             i = trackFormat.getInteger("width");
                         } else {
@@ -396,8 +396,8 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                         }
                         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                         mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                        int b = ((int) (kna.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                        if (xna.b) {
+                        int b = ((int) (xua.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                        if (kva.b) {
                             trackFormat.setInteger("rotation-degrees", b);
                         } else {
                             trackFormat.setInteger("rotation-degrees", b);
@@ -408,13 +408,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             i = i5;
                         }
                         String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                        if (!aoa.a(extractMetadata)) {
-                            this.mSourceVideoDuration = kna.c(extractMetadata, 0L);
+                        if (!nva.a(extractMetadata)) {
+                            this.mSourceVideoDuration = xua.c(extractMetadata, 0L);
                         }
                         this.mLastProgressPercent = 0;
                         String str = e2;
                         if (this.mEncodeHevcVideo) {
-                            MediaCodecInfo m2 = qna.m(MimeTypes.VIDEO_H265);
+                            MediaCodecInfo m2 = dva.m(MimeTypes.VIDEO_H265);
                             str = e2;
                             if (m2 != null) {
                                 m = m2;
@@ -428,17 +428,17 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                         } else {
                             i3 = this.mOutBitRate;
                         }
-                        qna.n(trackFormat, createVideoFormat, "bitrate", i3);
+                        dva.n(trackFormat, createVideoFormat, "bitrate", i3);
                         if (this.mFrameRate == 0) {
                             i4 = 30;
                         } else {
                             i4 = this.mFrameRate;
                         }
-                        qna.n(trackFormat, createVideoFormat, "frame-rate", i4);
-                        qna.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                        dva.n(trackFormat, createVideoFormat, "frame-rate", i4);
+                        dva.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                         AtomicReference atomicReference = new AtomicReference();
                         try {
-                            e2 = qna.d(m, createVideoFormat, atomicReference);
+                            e2 = dva.d(m, createVideoFormat, atomicReference);
                         } catch (Exception unused) {
                             if (i % 16 != 0) {
                                 i += 16 - (i % 16);
@@ -448,7 +448,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             createVideoFormat.setInteger("width", i);
                             createVideoFormat.setInteger("height", i2);
-                            e2 = qna.d(m, createVideoFormat, atomicReference);
+                            e2 = dva.d(m, createVideoFormat, atomicReference);
                         }
                         try {
                             m = new InputSurface((Surface) atomicReference.get());
@@ -544,7 +544,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             } else {
                 surface = null;
             }
-            mediaCodec2 = qna.c(trackFormat, surface);
+            mediaCodec2 = dva.c(trackFormat, surface);
             try {
                 doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
                 if (e != 0) {

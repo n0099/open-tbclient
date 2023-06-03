@@ -1,8 +1,9 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface hi9 {
-    void dispatch(JSONObject jSONObject, Context context);
+    void a();
+
+    void b();
+
+    void c();
 }

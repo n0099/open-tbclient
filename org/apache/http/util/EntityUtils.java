@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EntityUtils {
     public EntityUtils() {
         throw new RuntimeException("Stub!");

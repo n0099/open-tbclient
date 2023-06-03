@@ -1,70 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sk6 extends en<tk6, CardViewHolder<uk6>> {
+public class sk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), tk6.c);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static dl9 a(cl6 cl6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder(new uk6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cl6Var)) == null) {
+            dl9 dl9Var = new dl9();
+            if (cl6Var != null) {
+                dl9Var.b = cl6Var.c;
+                dl9Var.e = cl6Var.g;
+                dl9Var.f = cl6Var.i;
+                dl9Var.c = cl6Var.d;
+                if (!hm6.a(cl6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    dl9Var.a = arrayList;
+                    arrayList.addAll(cl6Var.b);
+                }
+                if (!hm6.a(cl6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    dl9Var.d = arrayList2;
+                    arrayList2.addAll(cl6Var.f);
+                }
+            }
+            return dl9Var;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (dl9) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tk6 tk6Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    public static void b(xk6 xk6Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tk6Var, cardViewHolder})) == null) {
-            if (cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().i(tk6Var);
-                return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeLL(65537, null, xk6Var, str) == null) {
+            try {
+                if (xk6Var != null) {
+                    bl9.n().z(str, xk6Var.b());
+                    bl9.n().x();
+                    if (!hm6.b(xk6Var.a())) {
+                        HashMap<String, dl9> hashMap = new HashMap<>();
+                        for (Map.Entry<String, cl6> entry : xk6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        cl9.a().l(str, hashMap);
+                    }
+                    cl9.a().h(true, str);
+                    return;
+                }
+                bl9.n().h(str);
+                bl9.n().x();
+                cl9.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

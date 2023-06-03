@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ShareService;
-import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,102 +13,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jo8 implements ShareService {
+public class jo8 extends lo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareService.IOnSocialListener a;
-    public CustomMessageListener b;
+    public final List<lo8> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947890134, "Lcom/baidu/tieba/jo8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947890134, "Lcom/baidu/tieba/jo8;");
-        }
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public boolean canShareInLandScreen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void clean() {
+    @Override // com.baidu.tieba.lo8
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public boolean isShowing() {
+    @Override // com.baidu.tieba.lo8
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final jo8 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jo8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jo8 jo8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jo8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-683341288, "Lcom/baidu/tieba/jo8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-683341288, "Lcom/baidu/tieba/jo8$b;");
                     return;
                 }
             }
-            this.a = jo8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                Integer num = (Integer) customResponsedMessage.getData();
-                if (this.a.a != null) {
-                    if (num.intValue() == 1) {
-                        this.a.a.onComplete("");
-                    } else if (num.intValue() == 2) {
-                        this.a.a.onError("");
-                    } else if (num.intValue() == 3) {
-                        this.a.a.onCancel("");
-                    }
-                    this.a.a = null;
-                }
-                MessageManager.getInstance().unRegisterListener(this.a.b);
-            }
+            a = new jo8(null);
         }
     }
 
@@ -123,73 +70,143 @@ public class jo8 implements ShareService {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new a(this, 2921550);
+        this.c = new ArrayList(4);
     }
 
-    public final void a(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
-        boolean z;
+    public static jo8 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = str;
-            shareItem.w = str2;
-            shareItem.A = str4;
-            shareItem.x = str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (jo8) invokeV.objValue;
+    }
+
+    public /* synthetic */ jo8(a aVar) {
+        this();
+    }
+
+    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return h().b(jSONObject, jSONObject.optInt("card_type"));
+        }
+        return (ICardInfo) invokeL.objValue;
+    }
+
+    public synchronized void g(lo8 lo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lo8Var) == null) {
+            synchronized (this) {
+                this.c.add(lo8Var);
+            }
+        }
+    }
+
+    public static ICardInfo i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(str5);
-                String optString = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
-                shareItem.b0 = jSONObject.optLong(MixYYFakeShell.ROOM_ID_YY);
-                shareItem.c0 = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
-                if (TextUtils.isEmpty(optString)) {
-                    String optString2 = jSONObject.optString("liveId");
-                    String optString3 = jSONObject.optString("userId");
-                    shareItem.u = optString2;
-                    shareItem.A0 = optString3;
-                } else {
-                    if (jSONObject.optInt("yy_show_tieba_entrance", 1) == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        shareItem.D = optString;
+                ICardInfo j = j(new JSONObject(str));
+                if (j != null) {
+                    if (j.isValid()) {
+                        return j;
                     }
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return null;
+            } catch (CardParseException e) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e);
+                return null;
+            } catch (JSONException e2) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e2);
+                return null;
             }
-            this.a = iOnSocialListener;
-            MessageManager.getInstance().registerListener(this.b);
-            if (context == null) {
-                context = TbadkCoreApplication.getInst();
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(context, shareItem, 0, 1)));
         }
+        return (ICardInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+    @Override // com.baidu.tieba.lo8
+    public <T> ep8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
-            a(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
+            ep8 e = e(tbPageContext, iCardInfo, i);
+            if (e != null) {
+                e.setBusinessType(i);
+            }
+            return e;
         }
+        return (ep8) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, String str6, ShareService.IOnSocialListener iOnSocialListener) {
+    @Override // com.baidu.tieba.lo8
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, iOnSocialListener}) == null) {
-            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            return f(jSONObject, i);
         }
+        return (ICardInfo) invokeLI.objValue;
+    }
+
+    public final <T> ep8 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        int cardType;
+        ep8 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            for (lo8 lo8Var : this.c) {
+                try {
+                    a2 = lo8Var.a(tbPageContext, iCardInfo, i);
+                } catch (Throwable th) {
+                    BdLog.detailException("factory <" + lo8Var.d() + "> respond exception", th);
+                }
+                if (a2 != null) {
+                    return a2;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("No card factory for card type ");
+            if (iCardInfo == null) {
+                cardType = -1;
+            } else {
+                cardType = iCardInfo.getCardType();
+            }
+            sb.append(cardType);
+            BdLog.e(sb.toString());
+            return null;
+        }
+        return (ep8) invokeLLI.objValue;
+    }
+
+    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
+            for (lo8 lo8Var : this.c) {
+                try {
+                    ICardInfo b2 = lo8Var.b(jSONObject, i);
+                    if (b2 != null) {
+                        return b2;
+                    }
+                } catch (Throwable th) {
+                    throw new CardParseException("Card type " + i + ", factory <" + lo8Var.d() + "> respond exception", th);
+                }
+            }
+            BdLog.e("No card factory for card type " + i);
+            return null;
+        }
+        return (ICardInfo) invokeLI.objValue;
     }
 }

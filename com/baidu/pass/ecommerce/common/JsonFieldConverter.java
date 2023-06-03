@@ -15,11 +15,11 @@ public class JsonFieldConverter {
         }
     }
 
-    public static void putStr(String str, MapObject mapObject, JSONObject jSONObject) {
+    public static void putStr(String str, String str2, JSONObject jSONObject) {
         try {
-            jSONObject.put(str, mapObject.getStrValue(str));
+            jSONObject.put(str, str2);
         } catch (JSONException e) {
-            Log.e(TAG, "put String field " + str + " is error " + e.getMessage());
+            Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e.getMessage());
         }
     }
 
@@ -31,19 +31,19 @@ public class JsonFieldConverter {
         }
     }
 
-    public static void putStr(String str, String str2, JSONObject jSONObject) {
-        try {
-            jSONObject.put(str, str2);
-        } catch (JSONException e) {
-            Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e.getMessage());
-        }
-    }
-
     public static void putJsonObj(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         try {
             jSONObject2.put(str, jSONObject);
         } catch (JSONException unused) {
             Log.e(TAG, "put JsonObj field " + str + " is error");
+        }
+    }
+
+    public static void putStr(String str, MapObject mapObject, JSONObject jSONObject) {
+        try {
+            jSONObject.put(str, mapObject.getStrValue(str));
+        } catch (JSONException e) {
+            Log.e(TAG, "put String field " + str + " is error " + e.getMessage());
         }
     }
 }

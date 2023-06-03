@@ -1,51 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.MotionEvent;
 /* loaded from: classes5.dex */
-public abstract class fv0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public sy0 a;
+public interface fv0 {
+    void onBeforeSwitchToFull();
 
-    public fv0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void onBeforeSwitchToHalf();
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-        }
-    }
+    void onGestureActionEnd();
 
-    public void b(@NonNull sy0 sy0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sy0Var) == null) {
-            this.a = sy0Var;
-        }
-    }
+    void onGestureActionStart();
 
-    public void c(@NonNull lv0 lv0Var) {
-        sy0 sy0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lv0Var) != null) || (sy0Var = this.a) == null) {
-            return;
-        }
-        sy0Var.d(lv0Var);
-    }
+    boolean onGestureDoubleClick(MotionEvent motionEvent);
+
+    void onPanelVisibilityChanged(boolean z);
+
+    void onVideoSwitchToFull();
+
+    void onVideoSwitchToHalf();
 }

@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MPushMessage implements Serializable {
     public static final String TAG = "MPushMessage";
     public String clickType;

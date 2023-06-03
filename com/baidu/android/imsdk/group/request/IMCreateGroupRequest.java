@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.CreateResultInfo;
 import com.baidu.android.imsdk.group.GroupMember;
@@ -217,7 +216,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
             if (this.mName != null) {
                 try {
                     sb.append("&group_name=");
-                    sb.append(URLEncoder.encode(this.mName, IMAudioTransRequest.CHARSET));
+                    sb.append(URLEncoder.encode(this.mName, "utf-8"));
                 } catch (UnsupportedEncodingException e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }

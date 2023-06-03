@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.common.ImageDecodeOptionsBuilder;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImageDecodeOptionsBuilder<T extends ImageDecodeOptionsBuilder> {
     @Nullable
     public BitmapTransformation mBitmapTransformation;

@@ -1,7 +1,7 @@
 package com.ss.android.a;
 
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     int a(byte[] bArr, int i, int i2) throws IOException;
 

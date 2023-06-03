@@ -474,7 +474,7 @@ public class SwitchCompat extends CompoundButton {
     }
 
     public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406d3);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406dd);
     }
 
     private void setSwitchTypefaceByIndex(int i, int i2) {

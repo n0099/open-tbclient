@@ -281,7 +281,7 @@ public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
     /* renamed from: reportSupertypeLoopError */
-    public void mo2047reportSupertypeLoopError(KotlinType kotlinType) {
+    public void mo2102reportSupertypeLoopError(KotlinType kotlinType) {
         if (kotlinType == null) {
             $$$reportNull$$$0(27);
         }

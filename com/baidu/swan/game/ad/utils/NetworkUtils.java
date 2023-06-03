@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 /* loaded from: classes4.dex */
 public class NetworkUtils {
@@ -57,7 +58,7 @@ public class NetworkUtils {
         _3G("3g"),
         _4G("4g"),
         _5G("5g"),
-        UNKOWN("unknow");
+        UNKOWN(DownloadStatisticConstants.UBC_VALUE_UNKNOW);
         
         public final String type;
 

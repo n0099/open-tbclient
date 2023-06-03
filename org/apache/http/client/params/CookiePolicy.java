@@ -1,6 +1,6 @@
 package org.apache.http.client.params;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CookiePolicy {
     public static final String BEST_MATCH = "best-match";
     public static final String BROWSER_COMPATIBILITY = "compatibility";

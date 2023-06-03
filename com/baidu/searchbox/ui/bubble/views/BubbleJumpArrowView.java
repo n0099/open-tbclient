@@ -13,7 +13,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0184;
+        return R.layout.obfuscated_res_0x7f0d018a;
     }
 
     public ImageView getJumpArrowImageView() {
@@ -25,9 +25,9 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (!super.initViewIfNeed()) {
             return false;
         }
-        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fc);
-        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090504);
-        FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.bubble_jump_arrow_width, R.dimen.bubble_jump_arrow_width);
+        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090503);
+        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050b);
+        FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.obfuscated_res_0x7f0701e7, R.dimen.obfuscated_res_0x7f0701e7);
         return true;
     }
 
@@ -36,7 +36,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (imageView == null) {
             return;
         }
-        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080483));
+        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080492));
         this.mJumpArrow.setVisibility(0);
     }
 
@@ -51,7 +51,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
         super.updateViewUI();
         ImageView imageView = this.mJumpArrow;
         if (imageView != null) {
-            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.bubble_jump_arrow_width, R.dimen.bubble_jump_arrow_width);
+            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.obfuscated_res_0x7f0701e7, R.dimen.obfuscated_res_0x7f0701e7);
         }
     }
 

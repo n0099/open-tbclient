@@ -3,7 +3,6 @@ package com.baidu.mapapi.http;
 import android.os.Build;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
@@ -31,7 +30,7 @@ public class AsyncHttpClient {
 
     static {
         if (Build.VERSION.SDK_INT <= 8) {
-            System.setProperty("http.keepAlive", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+            System.setProperty("http.keepAlive", "false");
         }
     }
 

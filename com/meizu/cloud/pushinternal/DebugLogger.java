@@ -2,7 +2,7 @@ package com.meizu.cloud.pushinternal;
 
 import android.content.Context;
 import com.meizu.cloud.pushsdk.b.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DebugLogger {
     public static boolean debug;
 

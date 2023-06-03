@@ -1,186 +1,528 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Base64;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.p82;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import okhttp3.HttpUrl;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yy1 extends xy1 {
+public class yy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ m82 b;
-        public final /* synthetic */ p82 c;
-        public final /* synthetic */ p82.b d;
-        public final /* synthetic */ yy1 e;
+        public final /* synthetic */ rq3 a;
 
-        public a(yy1 yy1Var, int i, m82 m82Var, p82 p82Var, p82.b bVar) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public a(rq3 rq3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yy1Var, Integer.valueOf(i), m82Var, p82Var, bVar};
+                Object[] objArr = {rq3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = yy1Var;
-            this.a = i;
-            this.b = m82Var;
-            this.c = p82Var;
-            this.d = bVar;
+            this.a = rq3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.E0) {
-                    ql3.b(this.c, this.e.getContext(), 1);
-                }
-                this.d.a();
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.a(null);
             }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                yy1.i(response, this.a);
+                return response;
+            }
+            return invokeLI.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class b extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rq3 a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public b(rq3 rq3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rq3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.a(null);
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                yy1.g(response, this.a);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346392, "Lcom/baidu/tieba/yy1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948346392, "Lcom/baidu/tieba/yy1;");
                 return;
             }
         }
+        a = is1.a;
     }
 
-    public static void y() {
-        g93 b0;
+    @Nullable
+    public static Request c(yb3 yb3Var, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = g93.b0()) != null) {
-            b0.B().I(b0.getAppId());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, yb3Var, jSONObject, unitedSchemeEntity)) == null) {
+            if (jSONObject == null) {
+                q(unitedSchemeEntity, 202, "illegal entity");
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("stringMap");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("fileMap");
+            String optString = jSONObject.optString("service");
+            String optString2 = jSONObject.optString("api");
+            if (yb3Var != null && optJSONObject != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    type.addFormDataPart(next, optJSONObject.optString(next));
+                }
+                if (optJSONObject2 != null) {
+                    Iterator<String> keys2 = optJSONObject2.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        String M = gj3.M(optJSONObject2.optString(next2), yb3.g0());
+                        if (!TextUtils.isEmpty(M)) {
+                            File file = new File(M);
+                            if (!file.exists()) {
+                                q(unitedSchemeEntity, 1001, "upload file not exist");
+                                return null;
+                            } else if (file.length() > Config.FULL_TRACE_LOG_LIMIT) {
+                                q(unitedSchemeEntity, 1001, "upload file too large");
+                                return null;
+                            } else {
+                                type.addFormDataPart(next2, file.getName(), new fz1(file));
+                            }
+                        }
+                    }
+                }
+                String O = yb3Var.O();
+                long a2 = fv2.l().a(AppRuntime.getAppContext());
+                String r = r(optJSONObject, O, a2, fv2.h0().f(AppRuntime.getAppContext()));
+                if (r == null) {
+                    q(unitedSchemeEntity, 1001, "sign error");
+                    return null;
+                }
+                HttpUrl parse = HttpUrl.parse(fv2.m().processUrl(fv2.o().O() + "/" + optString + optString2));
+                if (parse == null) {
+                    q(unitedSchemeEntity, 1001, "request url error");
+                    return null;
+                }
+                HttpUrl.Builder newBuilder = parse.newBuilder();
+                newBuilder.addQueryParameter("ai_sign", r);
+                newBuilder.addQueryParameter("api_key", O);
+                newBuilder.addQueryParameter("timestamp", String.valueOf(a2));
+                newBuilder.addQueryParameter("host_app", jj4.b().c());
+                newBuilder.addQueryParameter("host_app_ver", jj4.b().h());
+                newBuilder.addQueryParameter("sdk_ver", jj4.b().b());
+                newBuilder.addQueryParameter("host_os", zr4.f());
+                newBuilder.addQueryParameter("host_os_ver", zr4.g());
+                Request.Builder post = new Request.Builder().url(newBuilder.build()).post(type.build());
+                String d = fv2.h0().d(AppRuntime.getAppContext());
+                String str = "BDUSS=" + d;
+                if (!TextUtils.isEmpty(d)) {
+                    post.addHeader("Cookie", str);
+                }
+                return post.build();
+            }
+            q(unitedSchemeEntity, 202, "illegal request");
+            return null;
+        }
+        return (Request) invokeLLL.objValue;
+    }
+
+    public static void d(String str, rq3<String> rq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, rq3Var) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("cloud")) {
+                URI create = URI.create(str);
+                String host = create.getHost();
+                if (TextUtils.isEmpty(create.toString()) && TextUtils.isEmpty(host)) {
+                    rq3Var.a(null);
+                    return;
+                }
+                Request c = c(yb3.M(), h(str), null);
+                if (yb3.M() == null) {
+                    rq3Var.a(null);
+                    return;
+                } else {
+                    p(c.url().toString(), c.body(), new a(rq3Var));
+                    return;
+                }
+            }
+            rq3Var.a(null);
         }
     }
 
-    public g12 A() {
-        InterceptResult invokeV;
+    public static void g(Response response, rq3<String> rq3Var) {
+        String header;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q("#hideModalPage", false);
-            y();
-            return z(1, "hideModalPage", 10);
+        if ((interceptable == null || interceptable.invokeLL(65543, null, response, rq3Var) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
+            JSONObject jSONObject = new JSONObject();
+            if (response.body() != null) {
+                try {
+                    jSONObject = new JSONObject(response.body().string());
+                } catch (IOException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    rq3Var.a(null);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                    rq3Var.a(null);
+                }
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("fileList");
+            if (optJSONArray == null) {
+                rq3Var.a(null);
+            } else {
+                rq3Var.a(optJSONArray.toString());
+            }
         }
-        return (g12) invokeV.objValue;
     }
 
-    public g12 B(String str) {
+    public static void e(JSONArray jSONArray, rq3<String> rq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, jSONArray, rq3Var) == null) {
+            if (jSONArray != null && jSONArray.length() > 0) {
+                Request c = c(yb3.M(), f(jSONArray.toString()), null);
+                if (yb3.M() == null) {
+                    rq3Var.a(null);
+                    return;
+                } else {
+                    p(c.url().toString(), c.body(), new b(rq3Var));
+                    return;
+                }
+            }
+            rq3Var.a(null);
+        }
+    }
+
+    public static void i(Response response, rq3<String> rq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, response, rq3Var) == null) {
+            try {
+                String header = response.header("Content-Type", "");
+                if (header != null && header.contains("application/json")) {
+                    JSONObject jSONObject = new JSONObject();
+                    if (response.body() != null) {
+                        jSONObject = new JSONObject(response.body().string());
+                    }
+                    String optString = jSONObject.optString("DownloadUrl");
+                    if (!TextUtils.isEmpty(optString)) {
+                        rq3Var.a(optString);
+                    } else {
+                        rq3Var.a(null);
+                    }
+                }
+            } catch (Exception unused) {
+                rq3Var.a(null);
+            }
+        }
+    }
+
+    public static JSONObject l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject2.put("fileID", str2);
+                    jSONObject.put("api", "/v1/workspace/storage/request-download");
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("api", "/v1/workspace/storage/batch-download");
+                    jSONObject2.put("fileList", str);
+                }
+                jSONObject.put("service", "cloud");
+                jSONObject.put("stringMap", jSONObject2);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static JSONObject f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#navigateBack params=" + str, false);
-            y();
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
-            }
-            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return l(str, null);
         }
-        return (g12) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final g12 z(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        gz2 p3;
-        String str2;
+    public static JSONObject h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            m23.b(uuid);
-            p82 V = tu2.U().V();
-            if (V == null) {
-                g62.c("NavigateBackApi", "manager is null");
-                return new g12(1001, "manager is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return l(null, str);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1001;
             }
-            int k = V.k();
-            if (k == 1) {
-                g62.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new g12(1001, "navigateBack api can only work when slave's count greater than 1");
-            }
-            if (i >= k) {
-                i = k - 1;
-            }
-            gz2 f = uf3.f(uuid, i);
-            m82 m = V.m();
-            if (m == null) {
-                g62.c("NavigateBackApi", "slave container is null");
-                return new g12(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
-                g62.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new g12(1001, "hideModalPage api can only work after showModalPage");
-            } else {
-                m23.c(i2, uuid);
-                p82.b i3 = V.i(str);
-                i3.n(p82.i, p82.h);
-                i3.h(i);
-                an3.a0(new a(this, k, m, V, i3));
-                o82 o = V.o();
-                if (o == null) {
-                    p3 = null;
-                } else {
-                    p3 = o.p3();
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
-                l23.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                m23.a(uuid, p3);
-                if (!(V.m() instanceof o82)) {
-                    g62.c("NavigateBackApi", "top fragment error");
-                    uf3.i(f);
-                    return new g12(1001, "top fragment error");
-                }
-                o82 o82Var = (o82) V.m();
-                if (o82Var != null) {
-                    str2 = o82Var.w3();
-                } else {
-                    str2 = "";
-                }
-                return new g12(0, pc3.c(str2));
+                return 1001;
             }
         }
-        return (g12) invokeCommon.objValue;
+        return invokeL.intValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "请求失败";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (j(str) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject m(Response response) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, response)) == null) {
+            try {
+                if (response.body() != null) {
+                    str = response.body().string();
+                } else {
+                    str = null;
+                }
+                return new JSONObject(str);
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject n(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str3);
+                jSONObject.put("statusCode", 200);
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("fileID", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("tempFilePath", str2);
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void p(String str, RequestBody requestBody, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
+            bj4 bj4Var = new bj4(str, requestBody, responseCallback);
+            bj4Var.f = true;
+            bj4Var.g = true;
+            bj4Var.h = true;
+            cj4.g().e(bj4Var);
+        }
+    }
+
+    public static void q(UnitedSchemeEntity unitedSchemeEntity, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(65553, null, unitedSchemeEntity, i, str) != null) || unitedSchemeEntity == null) {
+            return;
+        }
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i, str);
+    }
+
+    public static String r(JSONObject jSONObject, String str, long j, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{jSONObject, str, Long.valueOf(j), str2})) == null) {
+            try {
+                Iterator<String> keys = jSONObject.keys();
+                ArrayList<String> arrayList = new ArrayList();
+                while (keys.hasNext()) {
+                    arrayList.add(keys.next());
+                }
+                Collections.sort(arrayList);
+                StringBuilder sb = new StringBuilder();
+                for (String str3 : arrayList) {
+                    String optString = jSONObject.optString(str3);
+                    sb.append(URLEncoder.encode(str3));
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(optString));
+                    sb.append("&");
+                }
+                String sb2 = sb.toString();
+                if (sb2.endsWith("&")) {
+                    sb2 = sb2.substring(0, sb2.length() - 1);
+                }
+                String d = es4.d(sb2.getBytes(), false);
+                byte[] copyOf = Arrays.copyOf(Base64.decode(es4.d(str.getBytes(), false), 0), 24);
+                byte[] copyOf2 = Arrays.copyOf(Base64.decode(es4.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
+                Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+                cipher.init(1, new SecretKeySpec(copyOf, "AES"), new IvParameterSpec(copyOf2));
+                String str4 = new String(Base64.encode(cipher.doFinal(d.getBytes()), 0), StandardCharsets.UTF_8);
+                if (str4.endsWith("\n")) {
+                    return str4.substring(0, str4.length() - 1);
+                }
+                return str4;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeCommon.objValue;
     }
 }

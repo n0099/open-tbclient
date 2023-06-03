@@ -1,108 +1,102 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import android.content.Context;
+import android.media.AudioManager;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.um3;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class yt2 implements ku2 {
+public class yt2 extends sp2<ju2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager b;
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SwanAppConfigData b = s93.b(file.getAbsolutePath());
-                if (ku2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("buildAppJsonConfig cost = ");
-                    sb.append(currentTimeMillis2 - currentTimeMillis);
-                    sb.append("ms ; current thread is main = ");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    sb.append(" ; path = ");
-                    sb.append(file);
-                    Log.d("SwanPerformance", sb.toString());
-                }
-                return b;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file != null && file.exists()) {
-                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) zt2.c().b(file.getAbsolutePath());
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = j33.e().j(file);
-                    if (swanAppConfigData == null) {
-                        swanAppConfigData = a(file);
-                    }
-                    zt2.c().d(file.getAbsolutePath(), swanAppConfigData);
-                } else if (ku2.a) {
-                    Log.d("SwanPerformance", "adopt cached app.json");
-                }
-                return swanAppConfigData;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) zt2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(ns2.M().a());
-            }
-            if (z) {
-                zt2.c().e("getNightModeStateCache");
-            }
-            return bool;
-        }
-        return (Boolean) invokeZ.objValue;
-    }
-
-    public static List<um3.a> d() {
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List<um3.a> list = (List) zt2.c().b("getStorageListCache");
-            if (list == null) {
-                List<um3.a> d = um3.d();
-                zt2.c().d("getStorageListCache", d);
-                return d;
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
     }
 
-    public static void e(Boolean bool) {
+    public yt2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            zt2.c().d("getNightModeStateCache", bool);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) != null) || command.obj == null) {
+            return;
+        }
+        if (!ju2Var.P()) {
+            d(ju2Var, command.what, "Not Set!! Volume: " + command.obj, false);
+            return;
+        }
+        Object obj = command.obj;
+        if (obj instanceof Double) {
+            try {
+                double doubleValue = ((Double) obj).doubleValue();
+                d(ju2Var, command.what, "Volume: " + command.obj, false);
+                if (doubleValue > 1.0d) {
+                    doubleValue = 1.0d;
+                }
+                if (doubleValue < 0.0d) {
+                    doubleValue = 0.0d;
+                }
+                f(doubleValue, ju2Var.getContext());
+            } catch (Exception unused) {
+                if (sp2.a) {
+                    Log.e(b(), "setVolume param type error");
+                }
+            }
+        }
+    }
+
+    public final void f(double d, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) context.getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager == null) {
+                return;
+            }
+            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
+            if (round == this.b.getStreamVolume(3)) {
+                if (sp2.a) {
+                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
+                    return;
+                }
+                return;
+            }
+            if (d > 0.0d && round == 0) {
+                round = 1;
+            }
+            if (sp2.a) {
+                Log.d("【InlineCommand】", "setVolumeInt" + round);
+            }
+            this.b.setStreamVolume(3, round, 0);
         }
     }
 }

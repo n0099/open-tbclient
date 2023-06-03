@@ -1,86 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.ad.FrsADFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class of7 extends xi5 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class of7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsADFragment a;
+    public BdTypeRecyclerView b;
+    public rf7 c;
+    public nd7 d;
+    public List<in> e;
 
-    @Override // com.baidu.tieba.xi5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public of7(int i, String str) {
+    public of7(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        yi5 yi5Var = this.a;
-        yi5Var.e = i;
-        NewSpecialFrsWebFragment newSpecialFrsWebFragment = (NewSpecialFrsWebFragment) yi5Var.a;
-        newSpecialFrsWebFragment.v2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
+        this.e = new ArrayList();
+        this.a = frsADFragment;
+        this.b = bdTypeRecyclerView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new rf7(this.a.getPageContext(), qf7.h, this.a.getUniqueId());
+            this.d = new nd7(this.a.getPageContext(), od7.b);
+            this.e.add(this.c);
+            this.e.add(this.d);
+            e();
+            this.b.addAdapters(this.e);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (in inVar : this.e) {
+                if (inVar instanceof gd7) {
+                    ((gd7) inVar).x();
+                }
             }
         }
-        newSpecialFrsWebFragment.O1(str);
     }
 
-    @Override // com.baidu.tieba.xi5
-    public yi5 a() {
-        InterceptResult invokeV;
+    public void d(ArrayList<vn> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yi5 yi5Var = new yi5();
-            yi5Var.a = new NewSpecialFrsWebFragment();
-            yi5Var.e = 101;
-            yi5Var.i = yi5.k;
-            return yi5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
         }
-        return (yi5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xi5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
+            return;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        for (in inVar : this.e) {
+            if (inVar instanceof gd7) {
+                ((gd7) inVar).E(this.a.getTbPageTag());
+            }
+        }
+    }
+
+    public void f(fo foVar) {
+        List<in> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, foVar) == null) && (list = this.e) != null && list.size() != 0) {
+            for (in inVar : this.e) {
+                if (inVar != null && (inVar instanceof gd7)) {
+                    inVar.setOnAdapterItemClickListener(foVar);
+                }
+            }
+        }
     }
 }

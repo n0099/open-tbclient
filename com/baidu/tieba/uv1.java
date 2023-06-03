@@ -1,101 +1,65 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uv1 implements tv1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public rv1 a;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public interface uv1 {
+    boolean A();
 
-    /* loaded from: classes7.dex */
-    public class a implements rv1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    boolean B();
 
-        public a(uv1 uv1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uv1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    JSONObject C();
 
-        @Override // com.baidu.tieba.rv1
-        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
-                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
-            }
-        }
-    }
+    boolean D();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224345, "Lcom/baidu/tieba/uv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948224345, "Lcom/baidu/tieba/uv1;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
+    void E();
 
-    public uv1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this);
-    }
+    long F();
 
-    @Override // com.baidu.tieba.tv1
-    public sv1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return h82.k();
-        }
-        return (sv1) invokeV.objValue;
-    }
+    boolean G();
 
-    @Override // com.baidu.tieba.tv1
-    public rv1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (rv1) invokeV.objValue;
-    }
+    long H();
+
+    String getExpInfos();
+
+    JSONObject getRawSwitch();
+
+    int getSwitch(String str, int i);
+
+    String getSwitch(String str, String str2);
+
+    boolean getSwitch(String str, boolean z);
+
+    boolean j();
+
+    String k();
+
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    boolean p();
+
+    int q();
+
+    boolean r();
+
+    boolean s();
+
+    boolean t();
+
+    int u();
+
+    boolean v();
+
+    boolean w();
+
+    boolean x();
+
+    int y();
+
+    boolean z();
 }

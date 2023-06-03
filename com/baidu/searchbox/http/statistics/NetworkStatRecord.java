@@ -3,7 +3,6 @@ package com.baidu.searchbox.http.statistics;
 import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.yy.gslbsdk.db.ProbeTB;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -404,7 +403,7 @@ public class NetworkStatRecord {
                 jSONObject.put("exceptionMsg", getExceptionMsg(this.exception));
             }
             if (this.statusCode != -1) {
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, this.statusCode);
+                jSONObject.put("statusCode", this.statusCode);
             }
             if (!TextUtils.isEmpty(this.localIP)) {
                 jSONObject.put("localIP", this.localIP);

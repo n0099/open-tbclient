@@ -3,7 +3,7 @@ package com.facebook.animated.giflite.draw;
 import android.graphics.Bitmap;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MovieFrame implements AnimatedImageFrame {
     public final AnimatedDrawableFrameInfo.DisposalMethod mDisposalMethod;
     public final int mFrameDuration;

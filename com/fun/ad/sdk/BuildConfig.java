@@ -14,6 +14,7 @@ public final class BuildConfig {
     public static final String CONFIG_DOMAIN = "https://cd.xdplt.com";
     public static final String CPM_DOMAIN = "https://cd.xdplt.com";
     public static final boolean DEBUG = false;
+    public static final boolean ENABLE_AUTO_RATIO = false;
     public static final String FLAVOR = "baidu";
     public static final Boolean IS_ADM_REPORT;
     public static final boolean IS_OVERSEA_PROD = false;
@@ -21,8 +22,8 @@ public final class BuildConfig {
     public static final String LIBRARY_PACKAGE_NAME = "com.fun.ad.sdk";
     public static final String PLUGIN_RC = null;
     public static final String REPORT_DOMAIN = "https://rpe.xdplt.com";
-    public static final int VERSION_CODE = 10303;
-    public static final String VERSION_NAME = "4.6.10.13";
+    public static final int VERSION_CODE = 10437;
+    public static final String VERSION_NAME = "4.6.34";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -16,19 +16,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sso.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC0190a extends Binder implements a {
+    public static abstract class AbstractBinderC0204a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sso.r.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0191a implements a {
+        public static class C0205a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0191a(IBinder iBinder) {
+            public C0205a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,11 +58,11 @@ public interface a extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        if (this.a.transact(1, obtain, obtain2, 0) || AbstractBinderC0190a.a() == null) {
+                        if (this.a.transact(1, obtain, obtain2, 0) || AbstractBinderC0204a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
-                            readString = ((C0191a) AbstractBinderC0190a.a()).a(str, str2, str3);
+                            readString = ((C0205a) AbstractBinderC0204a.a()).a(str, str2, str3);
                         }
                         return readString;
                     } finally {
@@ -84,7 +84,7 @@ public interface a extends IInterface {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0191a.b : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0205a.b : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
@@ -95,7 +95,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0191a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0205a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

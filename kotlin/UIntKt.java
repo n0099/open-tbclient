@@ -8,7 +8,7 @@ public final class UIntKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(byte b) {
-        return UInt.m883constructorimpl(b);
+        return UInt.m938constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
@@ -29,20 +29,20 @@ public final class UIntKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(int i) {
-        return UInt.m883constructorimpl(i);
+        return UInt.m938constructorimpl(i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(long j) {
-        return UInt.m883constructorimpl((int) j);
+        return UInt.m938constructorimpl((int) j);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(short s) {
-        return UInt.m883constructorimpl(s);
+        return UInt.m938constructorimpl(s);
     }
 }

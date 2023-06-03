@@ -17,8 +17,8 @@ import android.view.WindowManager;
 import android.view.WindowMetrics;
 import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -396,7 +396,7 @@ public class l1 {
                     }
                     byte[] bArr2 = new byte[read];
                     System.arraycopy(bArr, 0, bArr2, 0, read);
-                    String str2 = new String(bArr2, IMAudioTransRequest.CHARSET);
+                    String str2 = new String(bArr2, "utf-8");
                     int indexOf = str2.indexOf("version");
                     if (indexOf != -1) {
                         String[] split = str2.substring(indexOf).split(" ");
@@ -452,7 +452,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             try {
-                Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+                Display defaultDisplay = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getMetrics(displayMetrics);
                 return displayMetrics;
@@ -538,7 +538,7 @@ public class l1 {
             return (String) invokeL.objValue;
         }
         try {
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             Display defaultDisplay = windowManager.getDefaultDisplay();
             defaultDisplay.getMetrics(new DisplayMetrics());
             int i4 = 0;
@@ -667,7 +667,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                windowManager = (WindowManager) context.getSystemService("window");
+                windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
                 defaultDisplay = windowManager.getDefaultDisplay();
                 defaultDisplay.getMetrics(new DisplayMetrics());
                 i = 0;

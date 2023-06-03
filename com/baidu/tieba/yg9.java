@@ -1,70 +1,70 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.GiftInfo;
 /* loaded from: classes8.dex */
-public class yg9 {
+public class yg9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public String a;
+    public long b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329342, "Lcom/baidu/tieba/yg9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948329342, "Lcom/baidu/tieba/yg9;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
     public yg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static yg9 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            yg9 yg9Var = new yg9();
-            if (jSONObject.optInt("label_measure") == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            yg9Var.a = z;
-            yg9Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        yi8.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            yg9Var.c = arrayList;
-            yg9Var.d = jSONObject.optInt("width");
-            yg9Var.e = jSONObject.optInt("height");
-            return yg9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c;
         }
-        return (yg9) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(GiftInfo giftInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, giftInfo) != null) || giftInfo == null) {
+            return;
+        }
+        this.a = giftInfo.icon;
+        this.b = giftInfo.num.intValue();
     }
 }

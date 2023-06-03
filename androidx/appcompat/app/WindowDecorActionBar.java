@@ -814,7 +814,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     private void init(View view2) {
         boolean z;
         boolean z2;
-        ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090846);
+        ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090851);
         this.mOverlayLayout = actionBarOverlayLayout;
         if (actionBarOverlayLayout != null) {
             actionBarOverlayLayout.setActionBarVisibilityCallback(this);

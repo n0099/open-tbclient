@@ -1,71 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class sd6 extends AlertDialog {
+public class sd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public String c;
+    public k9 a;
+    public final List<in> b;
+    public BdTypeMultiColumnListView c;
+    public td6 d;
+    public wd6 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sd6(Context context) {
-        super(context);
+    public sd6(k9 k9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {k9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new ArrayList();
+        this.a = k9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    public void a(int i) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.a, ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new td6((TbPageContext) this.a, zd6.b);
+            this.e = new wd6((TbPageContext) this.a, zd6.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void b(ia6 ia6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setDimAmount(0.0f);
-                window.setContentView(R.layout.obfuscated_res_0x7f0d0407);
-                GreyUtil.grey(window);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f0924ce);
-                this.b = (TextView) window.findViewById(R.id.toast_tv);
-                if (!StringUtils.isNull(this.c)) {
-                    this.b.setText(this.c);
-                }
-                a(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ia6Var) == null) {
+            td6 td6Var = this.d;
+            if (td6Var != null) {
+                td6Var.u(ia6Var);
             }
+            wd6 wd6Var = this.e;
+            if (wd6Var != null) {
+                wd6Var.u(ia6Var);
+            }
+        }
+    }
+
+    public void c(List<vn> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
         }
     }
 }

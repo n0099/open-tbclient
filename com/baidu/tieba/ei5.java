@@ -1,212 +1,158 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class ei5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ei5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Class<? extends di5>> a;
+    public Context a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public int l;
+    public fi5 m;
+    public int n;
+    public boolean o;
+    public int[] p;
+    public boolean q;
+    public int r;
+    public boolean s;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735320, "Lcom/baidu/tieba/ei5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947735320, "Lcom/baidu/tieba/ei5;");
-                return;
-            }
-        }
-        b = new ei5();
-    }
-
-    public static ei5 d() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
-        return (ei5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ei5() {
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    public ei5(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.a = context;
+    }
+
+    public ei5(Context context, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        f(fi5.class);
-        f(hi5.class);
-        f(ci5.class);
-        f(gi5.class);
-        f(ii5.class);
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.a = context;
+        this.l = i2;
     }
 
-    public di5 a(ImageOperation imageOperation) {
-        InterceptResult invokeL;
-        di5 e;
+    public ei5(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class<? extends di5> cls = this.a.get(imageOperation.actionName);
-            if (cls == null || (e = e(cls)) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            e.d(imageOperation.actionParam);
-            return e;
         }
-        return (di5) invokeL.objValue;
+        this.k = true;
+        this.o = false;
+        this.s = true;
+        this.b = str;
+        this.c = i;
+        this.l = i2;
     }
 
-    public final di5 e(Class<? extends di5> cls) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            try {
-                return cls.newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.s;
         }
-        return (di5) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void f(Class<? extends di5> cls) {
-        di5 e;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
-            this.a.put(e.a(), cls);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
+        return (Context) invokeV.objValue;
     }
 
-    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
-            if (bitmap == null) {
-                return bitmap;
-            }
-            if (ListUtils.isEmpty(list)) {
-                return bitmap;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                di5 a = a(list.get(i));
-                if ((a instanceof ii5) && imageFileInfo != null) {
-                    ((ii5) a).e(imageFileInfo.getFilePath());
-                    return a.b(bitmap, z);
-                }
-            }
-            fi5 fi5Var = null;
-            int i2 = 0;
-            while (i2 < size) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    fi5 fi5Var2 = (fi5) a(imageOperation);
-                    if (fi5Var == null || fi5Var2.f() <= fi5Var.f() || fi5Var2.e() <= fi5Var.e()) {
-                        fi5Var = fi5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (fi5Var != null) {
-                bitmap2 = fi5Var.b(bitmap, z);
-            } else {
-                bitmap2 = null;
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < size; i3++) {
-                    di5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap2 == null) {
-                            return null;
-                        }
-                        bitmap2 = a2.b(bitmap, z);
-                    }
-                }
-            }
-            return bitmap2;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.s = z;
         }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
-            Bitmap bitmap = null;
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                di5 a = a(list.get(i));
-                if ((a instanceof ii5) && imageFileInfo != null) {
-                    return a.c(imageFileInfo.getFilePath());
-                }
-            }
-            fi5 fi5Var = null;
-            int i2 = 0;
-            while (i2 < list.size()) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    fi5 fi5Var2 = (fi5) a(imageOperation);
-                    if (fi5Var == null || fi5Var2.f() <= fi5Var.f() || fi5Var2.e() <= fi5Var.e()) {
-                        fi5Var = fi5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (fi5Var != null) {
-                bitmap = fi5Var.c(str);
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    di5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap == null) {
-                            bitmap = a2.c(str);
-                        } else {
-                            bitmap = a2.b(bitmap, true);
-                        }
-                    }
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLLL.objValue;
     }
 }

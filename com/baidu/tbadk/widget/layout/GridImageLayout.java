@@ -23,13 +23,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.jx5;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.k16;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ import java.util.ArrayList;
 public class GridImageLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg<ImageView> a;
-    public gg<GifView> b;
-    public jx5 c;
+    public kg<ImageView> a;
+    public kg<GifView> b;
+    public k16 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -160,7 +160,7 @@ public class GridImageLayout extends RelativeLayout {
             float f2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null) {
-                cn z = TbImageMemoryCache.u().z(lg.h().g(tbImageView.getUrl(), this.a.n));
+                gn z = TbImageMemoryCache.u().z(pg.h().g(tbImageView.getUrl(), this.a.n));
                 int i2 = 0;
                 if (z != null) {
                     i2 = z.r();
@@ -295,12 +295,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(jx5 jx5Var) {
+    public void setLayoutStrategy(k16 k16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, jx5Var) == null) {
-            this.c = jx5Var;
-            if (jx5Var != null) {
-                this.f = jx5Var.K;
+        if (interceptable == null || interceptable.invokeL(1048596, this, k16Var) == null) {
+            this.c = k16Var;
+            if (k16Var != null) {
+                this.f = k16Var.K;
             }
         }
     }
@@ -333,7 +333,7 @@ public class GridImageLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (qi.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
+            if (ui.isEmpty(this.h) || (childCount = getChildCount()) != 9) {
                 return;
             }
             View childAt = getChildAt(childCount - 1);
@@ -373,19 +373,19 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || qi.isEmpty(this.h) || getChildCount() != 9) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ui.isEmpty(this.h) || getChildCount() != 9) {
             return;
         }
-        int g = ri.g(getContext(), R.dimen.M_W_X003);
-        int g2 = ri.g(getContext(), R.dimen.M_W_X008);
-        int g3 = ri.g(getContext(), R.dimen.M_W_X003);
-        int g4 = ri.g(getContext(), R.dimen.tbds52);
+        int g = vi.g(getContext(), R.dimen.M_W_X003);
+        int g2 = vi.g(getContext(), R.dimen.M_W_X008);
+        int g3 = vi.g(getContext(), R.dimen.M_W_X003);
+        int g4 = vi.g(getContext(), R.dimen.tbds52);
         RelativeLayout relativeLayout = new RelativeLayout(getContext());
         EMTextView eMTextView = new EMTextView(getContext());
         eMTextView.setPadding(g, 0, g, 0);
         eMTextView.setGravity(16);
         eMTextView.setText(this.h);
-        p45 d = p45.d(eMTextView);
+        m75 d = m75.d(eMTextView);
         d.B(R.dimen.T_X09);
         d.w(R.color.CAM_X0101);
         d.C(R.string.F_X02);
@@ -473,9 +473,9 @@ public class GridImageLayout extends RelativeLayout {
         String src;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048579, this, i, tbRichTextImageInfo) == null) && tbRichTextImageInfo != null && this.c != null) {
-            gg<GifView> ggVar = this.b;
-            if (ggVar != null) {
-                gifView = ggVar.b();
+            kg<GifView> kgVar = this.b;
+            if (kgVar != null) {
+                gifView = kgVar.b();
             } else {
                 gifView = null;
             }
@@ -503,7 +503,7 @@ public class GridImageLayout extends RelativeLayout {
                 gifView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
             gifView.setIsLongPic(tbRichTextImageInfo.b0());
-            if (i == 8 && !qi.isEmpty(this.h)) {
+            if (i == 8 && !ui.isEmpty(this.h)) {
                 gifView.setLongIconSupport(false);
                 gifView.setGifIconSupport(false);
             } else {
@@ -657,10 +657,10 @@ public class GridImageLayout extends RelativeLayout {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, tbRichTextImageInfo) == null) && tbRichTextImageInfo != null && this.c != null) {
-            gg<ImageView> ggVar = this.a;
+            kg<ImageView> kgVar = this.a;
             String str = null;
-            if (ggVar != null) {
-                imageView = ggVar.b();
+            if (kgVar != null) {
+                imageView = kgVar.b();
             } else {
                 imageView = null;
             }
@@ -692,7 +692,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
             tbImageView.setIsLongPic(tbRichTextImageInfo.b0());
-            if (i == 8 && !qi.isEmpty(this.h)) {
+            if (i == 8 && !ui.isEmpty(this.h)) {
                 tbImageView.setLongIconSupport(false);
                 tbImageView.setGifIconSupport(false);
             } else {
@@ -767,11 +767,11 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setObjectPool(gg<ImageView> ggVar, gg<GifView> ggVar2) {
+    public void setObjectPool(kg<ImageView> kgVar, kg<GifView> kgVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, ggVar, ggVar2) == null) {
-            this.a = ggVar;
-            this.b = ggVar2;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, kgVar, kgVar2) == null) {
+            this.a = kgVar;
+            this.b = kgVar2;
         }
     }
 

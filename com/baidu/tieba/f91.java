@@ -1,29 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Application;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 @Service
 /* loaded from: classes5.dex */
-public final class f91 extends li0 {
+public final class f91 implements ro0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    @Override // com.baidu.tieba.li0
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ro0
+    public void a(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(f91 f91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (ia1.f()) {
+                        c = d91.b();
+                    } else {
+                        c = d91.c();
+                    }
+                    d91.a().b(kk0.b(), c);
+                } catch (Exception e) {
+                    qa1.d(e);
+                }
+            }
+        }
     }
 
     public f91() {
@@ -36,54 +71,15 @@ public final class f91 extends li0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "PreRenderAction";
     }
 
-    @Override // com.baidu.tieba.li0
-    public boolean b(Context context, pi0 schemeModel, Map<String, Object> map, ti0 ti0Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        boolean z2;
+    @Override // com.baidu.tieba.ro0
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, ti0Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            super.b(context, schemeModel, map, ti0Var);
-            if (vm0.b().a().a("ad_do_prerender", 1) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                b91 c = z81.c();
-                if (c != null) {
-                    c.c();
-                }
-                return false;
-            }
-            HashMap<String, String> d = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            String str = d.get("url");
-            if (str != null && str.length() != 0) {
-                z2 = false;
-            } else {
-                z2 = true;
-            }
-            if (z2) {
-                h91.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
-                return false;
-            }
-            d.get("web_type");
-            String str2 = d.get(TiebaStatic.Params.REFER);
-            b91 c2 = z81.c();
-            if (c2 != null) {
-                c2.b(str, null, str2);
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zk0.b(new a(this));
         }
-        return invokeLLLL.booleanValue;
     }
 }

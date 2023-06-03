@@ -1,80 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.ar5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class tq5 extends li5 {
+public abstract class tq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView a;
+    public List<rq5> eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tq5(Context context) {
-        super(new NoDataView(context));
+    public void onBeforeDispatchMvcEvent(sq5 sq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq5Var) == null) {
+        }
+    }
+
+    public tq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (NoDataView) getView();
+        this.isDispatchMvcEventing = false;
     }
 
-    public void a(int i) {
+    public void addEventDelegate(rq5 rq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.f(m9.a(getView().getContext()), i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, rq5Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
+            }
+            if (this.eventDelegates.contains(rq5Var)) {
+                return;
+            }
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.add(rq5Var);
         }
     }
 
-    public void b(ar5.a aVar) {
-        String str;
+    public void removeEventDelegate(rq5 rq5Var) {
+        List<rq5> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, rq5Var) != null) || (list = this.eventDelegates) == null || !list.contains(rq5Var)) {
             return;
         }
-        this.a.setVisibility(0);
-        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
-        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
-        aVar2.h(aVar.c);
-        aVar2.j(aVar.g);
-        this.a.setImgOption(aVar2.f());
-        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
-            str = aVar.a;
-        } else {
-            str = aVar.d;
+        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
         }
-        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
-        aVar3.g(str);
-        this.a.setTextOption(aVar3.f());
-        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
-            String str2 = aVar.e;
-            View.OnClickListener onClickListener = aVar.h;
-            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
-            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
-            this.a.setButtonOption(aVar4.e());
-        } else {
-            this.a.setButtonOption(null);
+        this.eventDelegates.remove(rq5Var);
+    }
+
+    public boolean dispatchMvcEvent(sq5 sq5Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sq5Var)) == null) {
+            if (sq5Var == null) {
+                return false;
+            }
+            if (sq5Var.e() == null) {
+                sq5Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates == null) {
+                return false;
+            }
+            try {
+                this.isDispatchMvcEventing = true;
+                onBeforeDispatchMvcEvent(sq5Var);
+                int size = this.eventDelegates.size();
+                z = false;
+                for (int i = 0; i < size; i++) {
+                    try {
+                        rq5 rq5Var = this.eventDelegates.get(i);
+                        if (rq5Var != null && ((!rq5Var.g1() || (rq5Var.g1() && sq5Var.e() == rq5Var.getUniqueId())) && (z = rq5Var.C0(sq5Var)) && sq5Var.f())) {
+                            return true;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th);
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw new RuntimeException(th);
+                            }
+                            this.isDispatchMvcEventing = false;
+                            return z;
+                        } finally {
+                            this.isDispatchMvcEventing = false;
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                z = false;
+            }
+            this.isDispatchMvcEventing = false;
+            return z;
         }
-        a(TbadkCoreApplication.getInst().getSkinType());
+        return invokeL.booleanValue;
     }
 }

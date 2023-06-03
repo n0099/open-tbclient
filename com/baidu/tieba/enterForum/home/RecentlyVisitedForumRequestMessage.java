@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,14 +56,14 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     while (it.hasNext()) {
                         VisitedForumData next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", pg.g(next.getForumId(), 0L));
+                        jSONObject.put("forum_id", tg.g(next.getForumId(), 0L));
                         jSONObject.put("visit_time", next.getVisitedTime());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ss5.a(builder, true);
+                    uw5.a(builder, true);
                 }
                 GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
                 builder2.data = builder.build(false);

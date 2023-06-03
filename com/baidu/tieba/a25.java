@@ -2,19 +2,20 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.CartoonThread;
 /* loaded from: classes4.dex */
 public class a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public z15 b;
+    public long a;
+    public int b;
 
     public a25() {
         Interceptable interceptable = $ic;
@@ -26,32 +27,26 @@ public class a25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = new z15();
     }
 
-    public boolean a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 0) {
-                return false;
-            }
-            return true;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public z15 b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (z15) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -60,19 +55,19 @@ public class a25 {
             return;
         }
         try {
-            this.a = jSONObject.optInt("activity_show");
-            this.b.d(jSONObject.optJSONObject("yule_activity"));
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            BdLog.e(e.toString());
         }
     }
 
-    public void d(Yule yule) {
+    public void d(CartoonThread cartoonThread) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, yule) != null) || yule == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
             return;
         }
-        this.a = yule.activity_show.intValue();
-        this.b.e(yule.yule_activity);
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

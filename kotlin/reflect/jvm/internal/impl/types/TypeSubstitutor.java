@@ -2,6 +2,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 
 import com.baidu.mobstat.Config;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.google.gson.internal.bind.TypeAdapters;
 import java.util.ArrayList;
 import java.util.List;
@@ -410,7 +411,7 @@ public class TypeSubstitutor {
         }
         return new FilteredAnnotations(annotations, new Function1<FqName, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor.1
             public static /* synthetic */ void $$$reportNull$$$0(int i) {
-                throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", "name", "kotlin/reflect/jvm/internal/impl/types/TypeSubstitutor$1", "invoke"));
+                throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", "name", "kotlin/reflect/jvm/internal/impl/types/TypeSubstitutor$1", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -549,7 +550,7 @@ public class TypeSubstitutor {
     private TypeProjection substituteCompoundType(TypeProjection typeProjection, int i) throws SubstitutionException {
         KotlinType type = typeProjection.getType();
         Variance projectionKind = typeProjection.getProjectionKind();
-        if (type.getConstructor().mo2044getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
+        if (type.getConstructor().mo2099getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
             return typeProjection;
         }
         KotlinType kotlinType = null;
@@ -617,9 +618,9 @@ public class TypeSubstitutor {
             TypeProjection unsafeSubstitute = unsafeSubstitute(new TypeProjectionImpl(typeProjection.getProjectionKind(), origin), i + 1);
             return new TypeProjectionImpl(unsafeSubstitute.getProjectionKind(), TypeWithEnhancementKt.wrapEnhancement(unsafeSubstitute.getType().unwrap(), substitute(enhancement, typeProjection.getProjectionKind())));
         } else if (!DynamicTypesKt.isDynamic(type) && !(type.unwrap() instanceof RawType)) {
-            TypeProjection mo2049get = this.substitution.mo2049get(type);
+            TypeProjection mo2104get = this.substitution.mo2104get(type);
             Variance projectionKind = typeProjection.getProjectionKind();
-            if (mo2049get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
+            if (mo2104get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
                 FlexibleType asFlexibleType = FlexibleTypesKt.asFlexibleType(type);
                 int i2 = i + 1;
                 TypeProjection unsafeSubstitute2 = unsafeSubstitute(new TypeProjectionImpl(projectionKind, asFlexibleType.getLowerBound()), i2);
@@ -633,8 +634,8 @@ public class TypeSubstitutor {
                 }
                 return new TypeProjectionImpl(projectionKind2, KotlinTypeFactory.flexibleType(TypeSubstitutionKt.asSimpleType(unsafeSubstitute2.getType()), TypeSubstitutionKt.asSimpleType(unsafeSubstitute3.getType())));
             } else if (!KotlinBuiltIns.isNothing(type) && !KotlinTypeKt.isError(type)) {
-                if (mo2049get != null) {
-                    VarianceConflictType conflictType = conflictType(projectionKind, mo2049get.getProjectionKind());
+                if (mo2104get != null) {
+                    VarianceConflictType conflictType = conflictType(projectionKind, mo2104get.getProjectionKind());
                     if (!CapturedTypeConstructorKt.isCaptured(type)) {
                         int i3 = AnonymousClass2.$SwitchMap$org$jetbrains$kotlin$types$TypeSubstitutor$VarianceConflictType[conflictType.ordinal()];
                         if (i3 != 1) {
@@ -646,22 +647,22 @@ public class TypeSubstitutor {
                         }
                     }
                     CustomTypeVariable customTypeVariable = TypeCapabilitiesKt.getCustomTypeVariable(type);
-                    if (mo2049get.isStarProjection()) {
-                        if (mo2049get == null) {
+                    if (mo2104get.isStarProjection()) {
+                        if (mo2104get == null) {
                             $$$reportNull$$$0(21);
                         }
-                        return mo2049get;
+                        return mo2104get;
                     }
                     if (customTypeVariable != null) {
-                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2049get.getType());
+                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2104get.getType());
                     } else {
-                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2049get.getType(), type.isMarkedNullable());
+                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2104get.getType(), type.isMarkedNullable());
                     }
                     if (!type.getAnnotations().isEmpty()) {
                         makeNullableIfNeeded = TypeUtilsKt.replaceAnnotations(makeNullableIfNeeded, new CompositeAnnotations(makeNullableIfNeeded.getAnnotations(), filterOutUnsafeVariance(this.substitution.filterAnnotations(type.getAnnotations()))));
                     }
                     if (conflictType == VarianceConflictType.NO_CONFLICT) {
-                        projectionKind = combine(projectionKind, mo2049get.getProjectionKind());
+                        projectionKind = combine(projectionKind, mo2104get.getProjectionKind());
                     }
                     return new TypeProjectionImpl(projectionKind, makeNullableIfNeeded);
                 }

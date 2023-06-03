@@ -1,83 +1,64 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.AlaLiveAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class sp6 {
+public class sp6 extends r77<AlaLiveAttentionCardView, f37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp6() {
+        super("ala_live_attention");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return i;
         }
-        return invokeLLL.intValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
-            }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return size;
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static final <T extends Comparable<? super T>> ko6<T> c(Collection<? extends T> collection) {
+    @Override // com.baidu.tieba.r77, com.baidu.tieba.g87
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
-            Intrinsics.checkNotNullParameter(collection, "<this>");
-            return new ko6<>(collection);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
+            o97.i(alaLiveAttentionCardView, Integer.valueOf(o97.e() * 2));
+            return alaLiveAttentionCardView;
         }
-        return (ko6) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g87
+    /* renamed from: e */
+    public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull f37 f37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, alaLiveAttentionCardView, f37Var) == null) {
+            Object obj = f37Var.a().a;
+            if (obj instanceof io6) {
+                alaLiveAttentionCardView.setVisibility(0);
+                alaLiveAttentionCardView.update((io6) obj);
+                return;
+            }
+            alaLiveAttentionCardView.setVisibility(8);
+        }
     }
 }

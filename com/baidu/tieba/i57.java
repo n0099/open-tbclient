@@ -4,14 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class i57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
+    public List<h87<?>> a;
+    public boolean b;
+    public int c;
     public String d;
 
     public i57() {
@@ -24,18 +25,10 @@ public class i57 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optLong("id");
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("name_show");
-        this.d = jSONObject.optString("portrait");
+        this.a = new ArrayList();
+        this.b = true;
     }
 }

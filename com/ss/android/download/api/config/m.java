@@ -1,5 +1,5 @@
 package com.ss.android.download.api.config;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface m {
     long a();
 

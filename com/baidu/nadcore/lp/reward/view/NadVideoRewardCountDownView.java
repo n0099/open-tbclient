@@ -21,8 +21,8 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr0;
-import com.baidu.tieba.po0;
+import com.baidu.tieba.ls0;
+import com.baidu.tieba.yp0;
 import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -98,8 +98,8 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
             /* renamed from: com.baidu.nadcore.lp.reward.view.NadVideoRewardCountDownView$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public static final class C0120a implements ValueAnimator.AnimatorUpdateListener {
-                public C0120a() {
+            public static final class C0125a implements ValueAnimator.AnimatorUpdateListener {
+                public C0125a() {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -122,7 +122,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.5f);
-                ofFloat.addUpdateListener(new C0120a());
+                ofFloat.addUpdateListener(new C0125a());
                 ofFloat.setDuration(200L).start();
             }
         }
@@ -140,10 +140,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     /* loaded from: classes3.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
-        public final /* synthetic */ cr0 b;
+        public final /* synthetic */ ls0 b;
 
-        public a(cr0 cr0Var) {
-            this.b = cr0Var;
+        public a(ls0 ls0Var) {
+            this.b = ls0Var;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -179,16 +179,16 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     }
 
     /* loaded from: classes3.dex */
-    public static final class d extends po0 {
-        public final /* synthetic */ cr0 k;
+    public static final class d extends yp0 {
+        public final /* synthetic */ ls0 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(cr0 cr0Var, int i, long j, long j2) {
+        public d(ls0 ls0Var, int i, long j, long j2) {
             super(j, j2);
-            this.k = cr0Var;
+            this.k = ls0Var;
         }
 
-        @Override // com.baidu.tieba.po0
+        @Override // com.baidu.tieba.yp0
         public void l() {
             Function0<Unit> countDownFinish = NadVideoRewardCountDownView.this.getCountDownFinish();
             if (countDownFinish != null) {
@@ -197,7 +197,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             NadVideoRewardCountDownView.this.q(this.k);
         }
 
-        @Override // com.baidu.tieba.po0
+        @Override // com.baidu.tieba.yp0
         public void m(long j) {
             Function0<Unit> bigCardShowCallback;
             Function0<Unit> suspendShowCallback;
@@ -220,7 +220,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
         @Override // java.lang.Runnable
         public final void run() {
-            po0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
+            yp0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
             if (countDownTime != null) {
                 countDownTime.n();
             }
@@ -255,7 +255,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final LinearLayout invoke() {
-                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f0915bc);
+                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f0915de);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ll_limit)");
                 return (LinearLayout) findViewById;
             }
@@ -351,9 +351,9 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         getTvDesc().setText(tips);
     }
 
-    public final void q(cr0 cr0Var) {
+    public final void q(ls0 ls0Var) {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f, 1.0f);
-        ofFloat.addUpdateListener(new a(cr0Var));
+        ofFloat.addUpdateListener(new a(ls0Var));
         ofFloat.setDuration(400L).start();
     }
 
@@ -386,7 +386,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     public long getMillisUntilFinished() {
         long j;
         long millis = TimeUnit.SECONDS.toMillis(this.o);
-        po0 countDownTime = getCountDownTime();
+        yp0 countDownTime = getCountDownTime();
         if (countDownTime != null) {
             j = countDownTime.j();
         } else {
@@ -409,10 +409,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    public final void s(cr0 cr0Var) {
+    public final void s(ls0 ls0Var) {
         getTvCountDown().setVisibility(0);
         getIvIcon().setVisibility(0);
-        getTvDesc().setText(cr0Var.z());
+        getTvDesc().setText(ls0Var.z());
         getLlLimit().setVisibility(8);
         getLottieView().setVisibility(8);
         getLlCountDown().setAlpha(1.0f);
@@ -421,7 +421,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     @SuppressLint({"SetTextI18n"})
-    public void setData(int i, cr0 rewardData, Function0<Unit> onFinish) {
+    public void setData(int i, ls0 rewardData, Function0<Unit> onFinish) {
         Intrinsics.checkNotNullParameter(rewardData, "rewardData");
         Intrinsics.checkNotNullParameter(onFinish, "onFinish");
         s(rewardData);

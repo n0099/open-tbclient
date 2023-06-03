@@ -1,33 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qv0 {
+public class qv0 extends uv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ez0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    public qv0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            ez0 ez0Var = new ez0();
-            ez0Var.k(str2);
-            ez0Var.l(dz0.c(bdVideo.getCurrentLength()) + "/" + dz0.c(bdVideo.getTotalLength()));
-            ez0Var.p(bdVideoSeries.getVid());
-            ez0Var.m(bdVideo.getType());
-            ez0Var.j(System.currentTimeMillis());
-            ez0Var.n(bdVideo.getTitle());
-            ez0Var.o(str);
-            ez0Var.r(bdVideoSeries.getPositionMs());
-            ez0Var.q(bdVideo.getCurrentLength());
-            ez0Var.s(bdVideo.getTotalLength());
-            return ez0Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ez0) invokeLLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uv0, com.baidu.tieba.sv0, com.baidu.tieba.tv0, com.baidu.tieba.pv0
+    public void k(@NonNull uw0 uw0Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uw0Var) == null) {
+            super.k(uw0Var);
+            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(uw0Var.c())) {
+                if (q().n1().g()) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                M(i);
+            }
+        }
     }
 }

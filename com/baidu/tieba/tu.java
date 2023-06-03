@@ -1,64 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public interface tu {
-    public static final a a = a.b;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class tu extends ku<TaskRuleData> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, String str3);
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
+    }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static ServiceReference a;
-        public static final /* synthetic */ a b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(264447983, "Lcom/baidu/tieba/tu$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(264447983, "Lcom/baidu/tieba/tu$a;");
-                    return;
-                }
-            }
-            b = new a();
-            a = new ServiceReference("bdptask", "yalog");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tu(mu muVar) {
+        super(muVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {muVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mu) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
 
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return a;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ku
+    /* renamed from: c */
+    public TaskRuleData a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String version = jSONObject.optString("ver");
+                String upgrade = jSONObject.optString("url");
+                long optLong = jSONObject.optLong("expire");
+                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
+                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
+                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
+                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
+                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
+                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
+                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
+                Intrinsics.checkExpressionValueIsNotNull(version, "version");
+                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
+                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            return (ServiceReference) invokeV.objValue;
         }
+        return (TaskRuleData) invokeL.objValue;
     }
 }

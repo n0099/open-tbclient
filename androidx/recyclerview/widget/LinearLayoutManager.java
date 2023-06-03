@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.media.session.MediaSessionCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -877,11 +876,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     public View findOneVisibleChild(int i, int i2, boolean z, boolean z2) {
         int i3;
         ensureLayoutState();
-        int i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        int i4 = 320;
         if (z) {
             i3 = 24579;
         } else {
-            i3 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            i3 = 320;
         }
         if (!z2) {
             i4 = 0;

@@ -1,84 +1,133 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.py;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.AdMixFloor;
+import tbclient.App;
+import tbclient.GeneralTabList.DataRes;
+import tbclient.ItemInfo;
+import tbclient.SportPageHeadInfo;
+import tbclient.SportScheduleInfo;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class lg7 extends d87<xg7, ThreadCardViewHolder<xg7>> {
+public class lg7 implements pq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, MetaData> b;
+    public ArrayList<vn> c;
+    public int d;
+    public String e;
+    public String f;
+    public boolean g;
+    public SportScheduleInfo h;
+    public int i;
+    public ItemInfo j;
+    public List<App> k;
+    public int l;
+    public List<AdMixFloor> m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lg7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    @Override // com.baidu.tieba.pq5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pq5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+        }
+    }
+
+    public lg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.b = new HashMap<>();
+        this.c = new ArrayList<>();
+        this.i = 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: G */
-    public ThreadCardViewHolder<xg7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            py.b bVar = new py.b(this.c.getPageActivity(), true);
-            bVar.n(new qg7(this.c.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().j(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<xg7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.i(this.mPageId);
-            return threadCardViewHolder;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xg7 xg7Var, ThreadCardViewHolder<xg7> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xg7Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.a().r(i);
-            threadCardViewHolder.e(xg7Var);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(9)));
-            return threadCardViewHolder.getView();
+        boolean z2 = false;
+        if (dataRes.has_more.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (View) invokeCommon.objValue;
+        this.a = z;
+        if (!ListUtils.isEmpty(dataRes.user_list)) {
+            for (User user : dataRes.user_list) {
+                if (user != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(user);
+                    String userId = metaData.getUserId();
+                    if (userId != null && !"0".equals(userId)) {
+                        this.b.put(userId, metaData);
+                    }
+                }
+            }
+        }
+        if (!ListUtils.isEmpty(dataRes.general_list)) {
+            for (ThreadInfo threadInfo : dataRes.general_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.setUserMap(this.b);
+                    threadData.forceReadUserMap = true;
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.insertItemToTitleOrAbstractText();
+                    threadData.setFromFrsTab(true);
+                    this.c.add(threadData);
+                }
+            }
+        }
+        this.l = dataRes.ad_show_select.intValue();
+        this.m = dataRes.ad_mix_list;
+        String str = dataRes.ad_sample_map_key;
+        this.k = dataRes.app_list;
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
+        this.d = dataRes.new_thread_num.intValue();
+        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
+        if (sportPageHeadInfo != null) {
+            this.e = sportPageHeadInfo.head_url;
+            this.f = sportPageHeadInfo.jump_url;
+            if (sportPageHeadInfo.is_ad.intValue() == 1) {
+                z2 = true;
+            }
+            this.g = z2;
+        }
+        this.h = dataRes.sport_schedule_info;
+        this.i = dataRes.sort_type.intValue();
+        this.j = dataRes.item_info;
     }
 }

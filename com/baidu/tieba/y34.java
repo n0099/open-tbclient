@@ -1,103 +1,239 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y34 extends db3 {
+public class y34 extends bj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String v;
 
-    /* loaded from: classes8.dex */
-    public class a implements zn3<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(y34 y34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                if (bool.booleanValue()) {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0163, 1).show();
-                } else {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0162, 1).show();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y34(da3 da3Var) {
-        super(da3Var, "/swanAPI/debugGameSconsole");
+    public y34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public static String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (!db3.b) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015d, 1).show();
-                return false;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -2136141294:
+                    if (str.equals("notifyInstall")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case -1996849701:
+                    if (str.equals("installHijack")) {
+                        c = 17;
+                        break;
+                    }
+                    break;
+                case -1903789791:
+                    if (str.equals("continueClick")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -1768725569:
+                    if (str.equals("notifyClick")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case -1263222921:
+                    if (str.equals("openApp")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -1165168761:
+                    if (str.equals("notifyList")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                case -1164961306:
+                    if (str.equals("notifyShow")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -625158317:
+                    if (str.equals("deleteDownload")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -606050596:
+                    if (str.equals("resumeAllDownload")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case -567202649:
+                    if (str.equals("continue")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case -451216226:
+                    if (str.equals("pauseDownload")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -263045656:
+                    if (str.equals("installSuccess")) {
+                        c = 15;
+                        break;
+                    }
+                    break;
+                case 66344735:
+                    if (str.equals("authorizeClick")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 184711125:
+                    if (str.equals("resumeDownload")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 388113743:
+                    if (str.equals("overTwoDays")) {
+                        c = 16;
+                        break;
+                    }
+                    break;
+                case 900412038:
+                    if (str.equals("installApp")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1475610601:
+                    if (str.equals("authorize")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1554935562:
+                    if (str.equals("startDownload")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015e, 1).show();
-                return false;
+            switch (c) {
+                case 0:
+                    return "start";
+                case 1:
+                    return DownloadStatisticConstants.UBC_TYPE_PAUSE;
+                case 2:
+                    return DownloadStatisticConstants.UBC_TYPE_RESUME;
+                case 3:
+                    return "cancel";
+                case 4:
+                    return "install";
+                case 5:
+                    return "open";
+                case 6:
+                    return "continue";
+                case 7:
+                    return "authorize";
+                case '\b':
+                    return "guide";
+                case '\t':
+                    return "authorizeclick";
+                case '\n':
+                    return "guideclick";
+                case 11:
+                    return "notifyshow";
+                case '\f':
+                    return "notifyclick";
+                case '\r':
+                    return "notifyinstall";
+                case 14:
+                    return "notifylist";
+                case 15:
+                    return "installsuccess";
+                case 16:
+                    return "overtwodays";
+                case 17:
+                    return "installhijack";
+                default:
+                    return str;
             }
-            x34.m().c(optString, new a(this));
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bj3, com.baidu.tieba.aj3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.k = dl3.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            this.n = SwanAppNetworkUtils.f().type;
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("host", fv2.n().a());
+                this.h.put("package", this.v);
+            } catch (JSONException e) {
+                if (aj3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void m(x34 x34Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x34Var) != null) || x34Var == null) {
+            return;
+        }
+        if (aj3.j) {
+            Log.d("SwanAppUBCEvent", "setCommonData: " + x34Var.a());
+        }
+        this.a = x34Var.a;
+        this.f = x34Var.c;
+        this.c = x34Var.b;
+        this.o = x34Var.f;
+        this.p = x34Var.g;
+        this.s = x34Var.h;
+        this.u = x34Var.i;
+        this.l = x34Var.d;
+        this.m = x34Var.e;
     }
 }

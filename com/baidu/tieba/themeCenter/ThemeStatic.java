@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -78,7 +78,7 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), pg.g(substring.substring(0, indexOf), 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), tg.g(substring.substring(0, indexOf), 0L))));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -123,8 +123,8 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        int e = pg.e(substring.substring(0, indexOf), 0);
-                        o65 m = o65.m();
+                        int e = tg.e(substring.substring(0, indexOf), 0);
+                        l95 m = l95.m();
                         if (e == m.n("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
                             i = 1;
                         } else {
@@ -277,8 +277,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        ar9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        ar9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        mx9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        mx9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

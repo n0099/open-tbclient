@@ -1,59 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class lya extends Thread {
+public class lya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final vya b;
-    public volatile boolean c;
 
-    public lya(Context context, vya vyaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, vyaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.b = vyaVar;
-    }
+    public abstract boolean a(String str);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = true;
-        }
-    }
+    public abstract String b(String str);
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.c) {
-                if (oya.d().h(this.a)) {
-                    this.b.a(com.google.ar.core.p.COMPLETED);
-                    return;
-                }
-                try {
-                    Thread.sleep(200L);
-                } catch (InterruptedException unused) {
-                }
-            }
-        }
-    }
+    public abstract Typeface c(String str, int i, String str2);
+
+    public abstract Bitmap d(String str);
 }

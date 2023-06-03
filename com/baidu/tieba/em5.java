@@ -1,20 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.mutiprocess.urlmanager.UrlDealEvent;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class em5 implements yk5<UrlDealEvent> {
+public class em5 extends fm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.fm5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "filter" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fm5
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.fm5
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        }
+    }
 
     public em5() {
         Interceptable interceptable = $ic;
@@ -28,24 +45,5 @@ public class em5 implements yk5<UrlDealEvent> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk5
-    /* renamed from: a */
-    public boolean onEvent(UrlDealEvent urlDealEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlDealEvent)) == null) {
-            if (urlDealEvent != null && !TextUtils.isEmpty(urlDealEvent.url) && urlDealEvent.getType() == 3) {
-                Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
-                if (mainActivity instanceof TbPageContextSupport) {
-                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) mainActivity).getPageContext(), new String[]{urlDealEvent.url});
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

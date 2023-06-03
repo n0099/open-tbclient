@@ -1,7 +1,7 @@
 package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DownloadController {
     boolean enableAH();
 

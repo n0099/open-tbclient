@@ -237,9 +237,9 @@ public final class TypeDeserializer {
             return null;
         }
         Intrinsics.checkExpressionValueIsNotNull(type, "funType.getValueParamete…ll()?.type ?: return null");
-        ClassifierDescriptor mo2044getDeclarationDescriptor = type.getConstructor().mo2044getDeclarationDescriptor();
-        if (mo2044getDeclarationDescriptor != null) {
-            fqName = DescriptorUtilsKt.getFqNameSafe(mo2044getDeclarationDescriptor);
+        ClassifierDescriptor mo2099getDeclarationDescriptor = type.getConstructor().mo2099getDeclarationDescriptor();
+        if (mo2099getDeclarationDescriptor != null) {
+            fqName = DescriptorUtilsKt.getFqNameSafe(mo2099getDeclarationDescriptor);
         } else {
             fqName = null;
         }
@@ -338,7 +338,7 @@ public final class TypeDeserializer {
             return simpleType;
         }
         TypeConstructor typeConstructor = typeConstructor(type);
-        if (ErrorUtils.isError(typeConstructor.mo2044getDeclarationDescriptor())) {
+        if (ErrorUtils.isError(typeConstructor.mo2099getDeclarationDescriptor())) {
             SimpleType createErrorTypeWithCustomConstructor = ErrorUtils.createErrorTypeWithCustomConstructor(typeConstructor.toString(), typeConstructor);
             Intrinsics.checkExpressionValueIsNotNull(createErrorTypeWithCustomConstructor, "ErrorUtils.createErrorTy….toString(), constructor)");
             return createErrorTypeWithCustomConstructor;

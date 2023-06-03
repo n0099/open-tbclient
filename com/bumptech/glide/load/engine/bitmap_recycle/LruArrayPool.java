@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class LruArrayPool implements ArrayPool {
     public static final int DEFAULT_SIZE = 4194304;
     @VisibleForTesting
@@ -21,7 +21,7 @@ public final class LruArrayPool implements ArrayPool {
     public final int maxSize;
     public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Key implements Poolable {
         public Class<?> arrayClass;
         public final KeyPool pool;
@@ -69,7 +69,7 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */

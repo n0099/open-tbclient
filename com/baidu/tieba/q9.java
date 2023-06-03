@@ -1,156 +1,81 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
-public abstract class q9 implements n9 {
+public class q9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n9.a callback;
-    public SQLiteDatabase database;
-    public final String dbFileFullPath;
-    public int mVersion;
 
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public q9(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mVersion = 1;
-        this.database = null;
-        this.mVersion = i;
-        this.dbFileFullPath = str;
-    }
-
-    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        n9.a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) && (aVar = this.callback) != null) {
-            aVar.onDatabaseCreated(sQLiteDatabase);
-        }
-    }
-
-    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
-            onCreate(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.n9
-    public boolean dropDatabase(Context context) {
+    public static k9<?> a(Context context) {
         InterceptResult invokeL;
+        Object a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.exists()) {
-                return file.delete();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.n9
-    public void setOnCreateCallback(n9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.callback = aVar;
-        }
-    }
-
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
-            if (i2 > i) {
-                onUpgrade(sQLiteDatabase, i, i2);
-            } else {
-                onDowngrade(sQLiteDatabase, i, i2);
+            if (context instanceof k9) {
+                return (k9) context;
             }
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
-            clearAllTables(sQLiteDatabase);
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
-            try {
-                sQLiteDatabase.execSQL(str);
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(str + ":" + th);
-                return false;
+            if (context instanceof l9) {
+                return ((l9) context).getPageContext();
             }
+            Field b = mi.b(context.getClass(), p9.class);
+            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
+                return null;
+            }
+            return ((l9) a).getPageContext();
         }
-        return invokeLL.booleanValue;
+        return (k9) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.n9
-    public SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
+    public static p9 c(Context context) {
+        InterceptResult invokeL;
+        Object a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
-                boolean exists = file.exists();
-                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
-                this.database = openOrCreateDatabase;
-                if (openOrCreateDatabase != null) {
-                    if (!exists) {
-                        onCreateDatabase(openOrCreateDatabase);
-                        this.database.setVersion(this.mVersion);
-                    } else {
-                        int version = openOrCreateDatabase.getVersion();
-                        int i = this.mVersion;
-                        if (version != i) {
-                            onUpdateDatabase(this.database, version, i);
-                            this.database.setVersion(this.mVersion);
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof p9) {
+                return (p9) context;
+            }
+            if (context instanceof l9) {
+                Object orignalPage = ((l9) context).getPageContext().getOrignalPage();
+                if (orignalPage instanceof p9) {
+                    return (p9) orignalPage;
                 }
             }
-            return this.database;
+            Field b = mi.b(context.getClass(), p9.class);
+            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9)) {
+                return null;
+            }
+            return (p9) a;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (p9) invokeL.objValue;
+    }
+
+    public static l9<?> b(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof l9) {
+                return (l9) context;
+            }
+            Field b = mi.b(context.getClass(), p9.class);
+            if (b == null || (a = mi.a(context, b)) == null || !(a instanceof p9) || !(a instanceof l9)) {
+                return null;
+            }
+            return (l9) a;
+        }
+        return (l9) invokeL.objValue;
     }
 }

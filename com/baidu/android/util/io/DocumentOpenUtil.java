@@ -56,25 +56,25 @@ public class DocumentOpenUtil {
                 char c = 65535;
                 switch (lowerCase.hashCode()) {
                     case 99640:
-                        if (lowerCase.equals(DOC)) {
+                        if (lowerCase.equals("doc")) {
                             c = 1;
                             break;
                         }
                         break;
                     case 110834:
-                        if (lowerCase.equals(PDF)) {
+                        if (lowerCase.equals("pdf")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 111220:
-                        if (lowerCase.equals(PPT)) {
+                        if (lowerCase.equals("ppt")) {
                             c = 5;
                             break;
                         }
                         break;
                     case 118783:
-                        if (lowerCase.equals(XLS)) {
+                        if (lowerCase.equals("xls")) {
                             c = 3;
                             break;
                         }
@@ -157,25 +157,25 @@ public class DocumentOpenUtil {
             char c = 65535;
             switch (lowerCase.hashCode()) {
                 case 99640:
-                    if (lowerCase.equals(DOC)) {
+                    if (lowerCase.equals("doc")) {
                         c = 1;
                         break;
                     }
                     break;
                 case 110834:
-                    if (lowerCase.equals(PDF)) {
+                    if (lowerCase.equals("pdf")) {
                         c = 0;
                         break;
                     }
                     break;
                 case 111220:
-                    if (lowerCase.equals(PPT)) {
+                    if (lowerCase.equals("ppt")) {
                         c = 5;
                         break;
                     }
                     break;
                 case 118783:
-                    if (lowerCase.equals(XLS)) {
+                    if (lowerCase.equals("xls")) {
                         c = 3;
                         break;
                     }

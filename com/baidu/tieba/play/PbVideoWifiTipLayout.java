@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.qx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yu4.F(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                qx4.E(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                 if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }

@@ -1,6 +1,6 @@
 package org.apache.http.util;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EncodingUtils {
     public EncodingUtils() {
         throw new RuntimeException("Stub!");

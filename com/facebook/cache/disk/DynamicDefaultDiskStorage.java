@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static final Class<?> TAG = DynamicDefaultDiskStorage.class;
     public final String mBaseDirectoryName;
@@ -24,7 +24,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public final int mVersion;
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class State {
         @Nullable
         public final DiskStorage delegate;

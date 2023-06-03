@@ -1,68 +1,82 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BubbleInfo;
 /* loaded from: classes5.dex */
-public class d79 {
+public class d79 extends ey9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
+    public l35 b1;
+    public l35 c1;
+    public l35 d1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657603, "Lcom/baidu/tieba/d79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657603, "Lcom/baidu/tieba/d79;");
+                return;
+            }
+        }
+        e1 = BdUniqueId.gen();
+    }
 
     public d79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.ey9, com.baidu.tieba.vn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return e1;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public String b() {
+    public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            l35 l35Var = this.b1;
+            if (l35Var != null && !StringUtils.isNull(l35Var.b)) {
+                return true;
+            }
+            l35 l35Var2 = this.c1;
+            if (l35Var2 != null && !StringUtils.isNull(l35Var2.b)) {
+                return true;
+            }
+            l35 l35Var3 = this.d1;
+            if (l35Var3 != null) {
+                return !StringUtils.isNull(l35Var3.b);
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(BubbleInfo bubbleInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bubbleInfo) != null) || bubbleInfo == null) {
-            return;
-        }
-        this.a = bubbleInfo.bubble_id.intValue();
-        this.b = bubbleInfo.bubble_text;
-        this.c = bubbleInfo.bubble_pic;
+        return invokeV.booleanValue;
     }
 }

@@ -1,115 +1,189 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kl3 {
+public class kl3 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile kl3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public Sensor c;
+    public a d;
+    public double[] e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916887, "Lcom/baidu/tieba/kl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947916887, "Lcom/baidu/tieba/kl3;");
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(double[] dArr);
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        }
+    }
+
+    public kl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
+        this.e = new double[3];
+        this.f = false;
+        this.g = 0L;
     }
 
-    public static JSONObject a(String str, String str2, String str3) throws JSONException {
-        InterceptResult invokeLLL;
+    public static kl3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("success", str);
-            jSONObject.put("swan", str2);
-            jSONObject.put("type", "NA");
-            jSONObject.put("error", str3);
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (i == null) {
+                synchronized (kl3.class) {
+                    if (i == null) {
+                        i = new kl3();
+                    }
+                }
+            }
+            return i;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (kl3) invokeV.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", a(str, str2, str3));
-                jSONObject.put("os", "android");
-                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
-                jSONObject.put("from", "swan");
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (kl3.class) {
+                if (i == null) {
+                    return;
                 }
+                i.c();
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@Nullable String str) {
-        String str2;
-        SwanCoreVersion e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            try {
-                e = li3.e(0);
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (e != null) {
-                str2 = e.swanCoreVersionName;
-                if (str == null) {
-                    str = "";
-                }
-                nf3.k("1087", b("2", str2, str));
-            }
-            str2 = "";
-            if (str == null) {
-            }
-            nf3.k("1087", b("2", str2, str));
         }
     }
 
-    public static void d() {
-        String str;
+    public final synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                str = ag2.U().d0().swanCoreVersionName;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                y82.i("accelerometer", "release");
+                if (this.f) {
+                    g();
                 }
-                str = "";
+                this.a = null;
+                i = null;
             }
-            nf3.k("1087", b("1", str, ""));
+        }
+    }
+
+    public synchronized void b(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            synchronized (this) {
+                this.a = context;
+                this.h = i2;
+            }
+        }
+    }
+
+    public synchronized void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this) {
+                this.d = aVar;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    y82.c("accelerometer", "start error, none context");
+                } else if (this.f) {
+                    y82.o("accelerometer", "has already start");
+                } else {
+                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
+                    this.b = sensorManager;
+                    if (sensorManager != null) {
+                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
+                        this.c = defaultSensor;
+                        this.b.registerListener(this, defaultSensor, 1);
+                        this.f = true;
+                        y82.i("accelerometer", "start listen");
+                    } else {
+                        y82.c("accelerometer", "none sensorManager");
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (!this.f) {
+                    y82.o("accelerometer", "has already stop");
+                    return;
+                }
+                if (this.b != null) {
+                    this.b.unregisterListener(this);
+                }
+                this.b = null;
+                this.c = null;
+                this.f = false;
+            }
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            if (fArr != null && fArr.length == 3) {
+                synchronized (this) {
+                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
+                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
+                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
+                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
+                        this.d.a(this.e);
+                        this.g = System.currentTimeMillis();
+                    }
+                    if (yb3.v) {
+                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
+                    }
+                }
+                return;
+            }
+            y82.o("accelerometer", "illegal accelerometer event");
         }
     }
 }

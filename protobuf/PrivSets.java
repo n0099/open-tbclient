@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PrivSets extends Message {
     @ProtoField(tag = 8, type = Message.Datatype.INT32)
     public final Integer bazhuShowInside;
@@ -32,7 +32,7 @@ public final class PrivSets extends Message {
     public static final Integer DEFAULT_BAZHUSHOWINSIDE = 0;
     public static final Integer DEFAULT_BAZHUSHOWOUTSIDE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PrivSets> {
         public Integer bazhuShowInside;
         public Integer bazhuShowOutside;

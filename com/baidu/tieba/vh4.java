@@ -1,66 +1,91 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-/* loaded from: classes7.dex */
-public class vh4 implements oh4<ii4> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public abstract class vh4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaiduMap a;
+    public List<OverlayOptions> b;
+    public List<Overlay> c;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "so_lib" : (String) invokeV.objValue;
-    }
+    public abstract List<OverlayOptions> b();
 
-    public vh4() {
+    public vh4(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.oh4
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = baiduMap;
+        if (0 == 0) {
+            this.b = new ArrayList();
+        }
+        if (this.c == null) {
+            this.c = new ArrayList();
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0," + PackageTable.ABI + " TEXT,lib_name TEXT NOT NULL UNIQUE);";
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        c();
+        if (b() != null) {
+            this.b.addAll(b());
+        }
+        for (OverlayOptions overlayOptions : this.b) {
+            this.c.add(this.a.addOverlay(overlayOptions));
+        }
     }
 
-    @Override // com.baidu.tieba.oh4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 9) {
-                    sQLiteDatabase.execSQL(b());
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
+            return;
+        }
+        for (Overlay overlay : this.c) {
+            overlay.remove();
+        }
+        this.b.clear();
+        this.c.clear();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (Overlay overlay : this.c) {
+                if (overlay instanceof Marker) {
+                    builder.include(((Marker) overlay).getPosition());
                 }
-                i++;
             }
+            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

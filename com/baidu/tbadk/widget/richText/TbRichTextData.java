@@ -6,13 +6,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.mx5;
-import com.baidu.tieba.px5;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.t5a;
-import com.baidu.tieba.tk;
-import com.baidu.tieba.v5a;
-import com.baidu.tieba.vx5;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.n16;
+import com.baidu.tieba.q16;
+import com.baidu.tieba.t16;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.xk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +28,11 @@ public class TbRichTextData extends OrmObject {
     public int a;
     public SpannableStringBuilder b;
     public TbRichTextImageInfo c;
-    public ArrayList<mx5> d;
+    public ArrayList<n16> d;
     public TbRichTextVoiceInfo e;
     public TbRichTextTextInfo f;
     public TbRichTextEmotionInfo g;
-    public sx5 h;
+    public t16 h;
     public TbRichTextLinkImageInfo i;
     public TbRichTextMemeInfo j;
     public int k;
@@ -40,10 +40,10 @@ public class TbRichTextData extends OrmObject {
     public int m;
     public TbRichTextEvaluateItemInfo n;
     public TbRichTextTiebaPlusInfo o;
-    public List<vx5> p;
-    public px5 q;
-    public t5a r;
-    public v5a s;
+    public List<w16> p;
+    public q16 q;
+    public ica r;
+    public kca s;
 
     public void x0(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class TbRichTextData extends OrmObject {
         this.e = null;
         this.f = null;
         this.l = false;
-        this.m = tk.a;
+        this.m = xk.a;
         this.p = new ArrayList();
     }
 
@@ -154,7 +154,7 @@ public class TbRichTextData extends OrmObject {
         this.e = null;
         this.f = null;
         this.l = false;
-        this.m = tk.a;
+        this.m = xk.a;
         this.p = new ArrayList();
         this.a = i;
         this.f = new TbRichTextTextInfo(this);
@@ -167,12 +167,12 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void C0(sx5 sx5Var) {
+    public void C0(t16 t16Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sx5Var) != null) || this.a != 32) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t16Var) != null) || this.a != 32) {
             return;
         }
-        this.h = sx5Var;
+        this.h = t16Var;
     }
 
     public void D0(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
@@ -186,10 +186,10 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void U(@NonNull vx5 vx5Var) {
+    public void U(@NonNull w16 w16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vx5Var) == null) {
-            this.p.add(vx5Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, w16Var) == null) {
+            this.p.add(w16Var);
         }
     }
 
@@ -209,10 +209,10 @@ public class TbRichTextData extends OrmObject {
         this.n = tbRichTextEvaluateItemInfo;
     }
 
-    public void s0(t5a t5aVar) {
+    public void s0(ica icaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, t5aVar) == null) {
-            this.r = t5aVar;
+        if (interceptable == null || interceptable.invokeL(1048606, this, icaVar) == null) {
+            this.r = icaVar;
         }
     }
 
@@ -223,10 +223,10 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void t0(v5a v5aVar) {
+    public void t0(kca kcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, v5aVar) == null) {
-            this.s = v5aVar;
+        if (interceptable == null || interceptable.invokeL(1048608, this, kcaVar) == null) {
+            this.s = kcaVar;
         }
     }
 
@@ -245,10 +245,10 @@ public class TbRichTextData extends OrmObject {
         this.c = tbRichTextImageInfo;
     }
 
-    public void w0(px5 px5Var) {
+    public void w0(q16 q16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, px5Var) == null) {
-            this.q = px5Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, q16Var) == null) {
+            this.q = q16Var;
         }
     }
 
@@ -312,7 +312,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public ArrayList<mx5> W() {
+    public ArrayList<n16> W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -342,22 +342,22 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
-    public t5a Z() {
+    public ica Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.r;
         }
-        return (t5a) invokeV.objValue;
+        return (ica) invokeV.objValue;
     }
 
-    public v5a a0() {
+    public kca a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.s;
         }
-        return (v5a) invokeV.objValue;
+        return (kca) invokeV.objValue;
     }
 
     public int b0() {
@@ -381,13 +381,13 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextImageInfo) invokeV.objValue;
     }
 
-    public px5 d0() {
+    public q16 d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.q;
         }
-        return (px5) invokeV.objValue;
+        return (q16) invokeV.objValue;
     }
 
     public TbRichTextLinkImageInfo e0() {
@@ -451,7 +451,7 @@ public class TbRichTextData extends OrmObject {
     }
 
     @NonNull
-    public List<vx5> j0() {
+    public List<w16> j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
@@ -469,7 +469,7 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextTiebaPlusInfo) invokeV.objValue;
     }
 
-    public sx5 l0() {
+    public t16 l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -478,7 +478,7 @@ public class TbRichTextData extends OrmObject {
             }
             return this.h;
         }
-        return (sx5) invokeV.objValue;
+        return (t16) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo m0() {
@@ -504,12 +504,12 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void q0(int i, int i2) {
-        ArrayList<mx5> arrayList;
+        ArrayList<n16> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048604, this, i, i2) == null) && (arrayList = this.d) != null) {
-            Iterator<mx5> it = arrayList.iterator();
+            Iterator<n16> it = arrayList.iterator();
             while (it.hasNext()) {
-                mx5 next = it.next();
+                n16 next = it.next();
                 if (next != null) {
                     next.a(i, i2);
                 }
@@ -518,10 +518,10 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void r0(int i, int i2) {
-        ArrayList<mx5> arrayList;
+        ArrayList<n16> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) && (arrayList = this.d) != null) {
-            Iterator<mx5> it = arrayList.iterator();
+            Iterator<n16> it = arrayList.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }

@@ -1,21 +1,43 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes6.dex */
-public interface nxa {
-    void onAdClicked(Ssp.Pid pid);
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.yalog.LoggerManager;
+/* loaded from: classes7.dex */
+public class nxa {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+    public static oxa b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onAdClose(Ssp.Pid pid);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019218, "Lcom/baidu/tieba/nxa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948019218, "Lcom/baidu/tieba/nxa;");
+                return;
+            }
+        }
+        b = new oxa();
+    }
 
-    void onAdLoad(Ssp.Pid pid);
-
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
-
-    void onAdLoaded(Ssp.Pid pid);
-
-    void onAdShow(Ssp.Pid pid);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
+    public static LoggerManager.c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
+            }
+            return a;
+        }
+        return (LoggerManager.c) invokeV.objValue;
+    }
 }

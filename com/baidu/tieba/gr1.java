@@ -1,141 +1,85 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.tieba.dt1;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class gr1 implements dt1 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public class gr1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 60000;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
 
-    @Override // com.baidu.tieba.dt1
-    public void c(up1 up1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, up1Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public void j(sp1 sp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sp1Var) == null) {
-        }
-    }
-
-    public gr1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803427, "Lcom/baidu/tieba/gr1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803427, "Lcom/baidu/tieba/gr1;");
+                return;
             }
         }
+        long j = a * 60;
+        b = j;
+        c = j * 24;
     }
 
-    @Override // com.baidu.tieba.dt1
-    public void a(dt1.a aVar) {
+    @SuppressLint({"WrongConstant"})
+    public static void a(Context context, long j) {
+        PendingIntent broadcast;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && aVar != null) {
-            aVar.onFinish();
+        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public String d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return rw1.a.a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            boolean g = SwanAppAllianceLoginHelper.d.g();
-            this.a = Boolean.TRUE;
-            return g;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return sp4.b(context).a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public void g(dt1.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && cVar != null) {
-            cVar.b();
-        }
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            return uw1.b.a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return sp4.b(context).a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            if (this.a == null) {
-                e(context);
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent();
+            intent.setPackage(context.getPackageName());
+            intent.setAction("sso_action_t_m");
+            if (b(context)) {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
+            } else {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
-            Boolean bool = this.a;
-            if (bool == null) {
+            alarmManager.cancel(broadcast);
+            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
+        } catch (Throwable th) {
+            hr1.d(th);
+        }
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    if (Build.VERSION.SDK_INT >= 31) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Throwable th) {
+                hr1.d(th);
                 return false;
             }
-            return bool.booleanValue();
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dt1
-    public void b(Activity activity, Bundle bundle, sp1 sp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, sp1Var) == null) {
-            SwanAppAllianceLoginHelper.d.i(sp1Var);
-        }
     }
 }

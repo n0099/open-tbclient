@@ -28,7 +28,7 @@ public class bb {
                     arrayList.add(new Pair(Integer.valueOf(a), null));
                 } else {
                     int i = bc.b[a2.ordinal()];
-                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hsVar.g())) : new Pair(Integer.valueOf(a), hsVar.m510a()) : new Pair(Integer.valueOf(a), Long.valueOf(hsVar.m509a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hsVar.c())));
+                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hsVar.g())) : new Pair(Integer.valueOf(a), hsVar.m565a()) : new Pair(Integer.valueOf(a), Long.valueOf(hsVar.m564a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hsVar.c())));
                 }
             }
         }
@@ -44,7 +44,7 @@ public class bb {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (hq hqVar : cif.a()) {
-            arrayList.add(new Pair<>(hqVar.m505a(), Integer.valueOf(hqVar.a())));
+            arrayList.add(new Pair<>(hqVar.m560a(), Integer.valueOf(hqVar.a())));
             List<Pair<Integer, Object>> a = a(hqVar.f506a, false);
             if (!com.xiaomi.push.ad.a(a)) {
                 arrayList2.addAll(a);

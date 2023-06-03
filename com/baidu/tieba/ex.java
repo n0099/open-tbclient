@@ -1,72 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.card.AutoVideoCardViewHolder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.os.Environment;
+import android.os.StatFs;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ex {
+public final class ex {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Rect a(xn xnVar, View view2, int i) {
-        InterceptResult invokeLLI;
-        BdTypeRecyclerView bdTypeRecyclerView;
-        RecyclerView.LayoutManager layoutManager;
-        int i2;
-        View findViewByPosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, xnVar, view2, i)) == null) {
-            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).t().getVideoContainer());
-            }
-            if (!(xnVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) xnVar).getLayoutManager()) == null) {
-                return null;
-            }
-            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-            List<rn> data = xnVar.getData();
-            Object item = ListUtils.getItem(data, i);
-            if (!(item instanceof BaseCardInfo)) {
-                return null;
-            }
-            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
-            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-            if (firstVisiblePosition > headerViewsCount) {
-                i2 = firstVisiblePosition - headerViewsCount;
-            } else {
-                i2 = headerViewsCount;
-            }
-            while (i2 <= lastVisiblePosition) {
-                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
-                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
-                }
-                i2++;
-            }
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303962, "Lcom/baidu/tieba/ex;")) == null) {
+            return;
         }
-        return (Rect) invokeLLI.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448303962, "Lcom/baidu/tieba/ex;");
+        }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public static float a() {
+        InterceptResult invokeV;
+        long j;
+        StatFs statFs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long j2 = 0;
+            try {
+                statFs = new StatFs(Environment.getDataDirectory().getPath());
+                j = statFs.getBlockSize();
+            } catch (Exception e) {
+                e = e;
+                j = 0;
+            }
+            try {
+                j2 = statFs.getAvailableBlocks();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return ((float) (j2 * j)) / 1024.0f;
+            }
+            return ((float) (j2 * j)) / 1024.0f;
         }
-        return invokeI.intValue;
+        return invokeV.floatValue;
     }
 }

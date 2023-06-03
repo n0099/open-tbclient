@@ -1,13 +1,13 @@
 package org.aspectj.runtime.internal.cflowstack;
 
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ThreadStackFactoryImpl implements ThreadStackFactory {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ThreadCounterImpl extends ThreadLocal implements ThreadCounter {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static class Counter {
             public int value = 0;
         }
@@ -49,7 +49,7 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class ThreadStackImpl extends ThreadLocal implements ThreadStack {
         public ThreadStackImpl() {
         }

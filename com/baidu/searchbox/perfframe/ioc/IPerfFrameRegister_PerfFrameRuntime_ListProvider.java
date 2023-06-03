@@ -1,11 +1,11 @@
 package com.baidu.searchbox.perfframe.ioc;
 
 import com.baidu.searchbox.perfframe.ubc.UbcPerfFrameRegister;
-import com.baidu.tieba.tj1;
+import com.baidu.tieba.cl1;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class IPerfFrameRegister_PerfFrameRuntime_ListProvider implements tj1 {
-    @Override // com.baidu.tieba.tj1
+/* loaded from: classes4.dex */
+public class IPerfFrameRegister_PerfFrameRuntime_ListProvider implements cl1 {
+    @Override // com.baidu.tieba.cl1
     public Object get() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new UbcPerfFrameRegister());

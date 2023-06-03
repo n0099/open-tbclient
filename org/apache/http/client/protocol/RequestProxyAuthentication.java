@@ -6,7 +6,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RequestProxyAuthentication implements HttpRequestInterceptor {
     public RequestProxyAuthentication() {
         throw new RuntimeException("Stub!");

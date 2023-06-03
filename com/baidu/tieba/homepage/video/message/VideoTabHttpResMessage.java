@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.RecomVideo.DataRes;
 import tbclient.RecomVideo.RecomVideoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VideoTabHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

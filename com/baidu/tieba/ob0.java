@@ -1,85 +1,108 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
+import android.text.TextUtils;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes6.dex */
-public class ob0 {
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class ob0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Matrix> a;
-    public static final ThreadLocal<RectF> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948026348, "Lcom/baidu/tieba/ob0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948026348, "Lcom/baidu/tieba/ob0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948026348, "Lcom/baidu/tieba/ob0;")) == null) {
+            return;
         }
-        a = new ThreadLocal<>();
-        b = new ThreadLocal<>();
-    }
-
-    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
-            rect.set(0, 0, view2.getWidth(), view2.getHeight());
-            c(viewGroup, view2, rect);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948026348, "Lcom/baidu/tieba/ob0;");
         }
     }
 
-    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+    @JvmStatic
+    public static final String a(LiveRoomEntity liveRoomEntity) {
+        InterceptResult invokeL;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
-            ViewParent parent = view2.getParent();
-            if ((parent instanceof View) && parent != viewParent) {
-                View view3 = (View) parent;
-                b(viewParent, view3, matrix);
-                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
-            }
-            matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (!view2.getMatrix().isIdentity()) {
-                matrix.preConcat(view2.getMatrix());
-            }
-        }
-    }
-
-    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
-            Matrix matrix = a.get();
-            if (matrix == null) {
-                matrix = new Matrix();
-                a.set(matrix);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRoomEntity)) == null) {
+            String str2 = "";
+            String str3 = (liveRoomEntity == null || (str3 = liveRoomEntity.cmd) == null) ? "" : "";
+            String str4 = null;
+            if (liveRoomEntity != null) {
+                str = liveRoomEntity.beginTime;
             } else {
-                matrix.reset();
+                str = null;
             }
-            b(viewGroup, view2, matrix);
-            RectF rectF = b.get();
-            if (rectF == null) {
-                rectF = new RectF();
-                b.set(rectF);
+            if (!TextUtils.isEmpty(str)) {
+                String b = new sb0(str3).b("params");
+                boolean z2 = false;
+                if (b != null && b.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(URLDecoder.decode(b, "UTF-8"));
+                        JSONObject optJSONObject = jSONObject.optJSONObject("extLog");
+                        if (optJSONObject == null) {
+                            optJSONObject = new JSONObject();
+                        }
+                        if (liveRoomEntity != null) {
+                            str4 = liveRoomEntity.beginTime;
+                        }
+                        optJSONObject.put("live_union_id", str4);
+                        optJSONObject.put("auto_play", "1");
+                        jSONObject.put("extLog", optJSONObject);
+                        String removedUrl = lb0.j(str3, "params");
+                        Intrinsics.checkExpressionValueIsNotNull(removedUrl, "removedUrl");
+                        int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null);
+                        if (removedUrl != null) {
+                            String substring = removedUrl.substring(0, indexOf$default);
+                            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            if (StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1 < removedUrl.length()) {
+                                str2 = removedUrl.substring(StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1, removedUrl.length());
+                                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            }
+                            String encode = URLEncoder.encode(jSONObject.toString());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(substring);
+                            sb.append("?params=" + encode);
+                            if (str2.length() > 0) {
+                                z2 = true;
+                            }
+                            if (z2) {
+                                sb.append(str2);
+                            }
+                            String sb2 = sb.toString();
+                            Intrinsics.checkExpressionValueIsNotNull(sb2, "newScheme.toString()");
+                            return sb2;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return str3;
+                    }
+                }
+                return str3;
             }
-            rectF.set(rect);
-            matrix.mapRect(rectF);
-            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
+            return str3;
         }
+        return (String) invokeL.objValue;
     }
 }

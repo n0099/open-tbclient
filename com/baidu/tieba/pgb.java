@@ -1,15 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import android.view.Window;
-import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
 public interface pgb {
-    void attachWindow(Window window);
+    void onLibDownloadSuccess();
 
-    View getContentView();
-
-    void refreshView();
-
-    void refreshWindow(WindowParams windowParams);
+    void onLibDownloading();
 }

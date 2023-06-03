@@ -40,7 +40,7 @@ public final class b extends KSFrameLayout {
         this.aP = new View.OnClickListener() { // from class: com.kwad.components.ad.draw.b.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
-                com.kwad.components.core.c.a.a.a(new a.C0610a(b.this.aK.mRootContainer.getContext()).L(b.this.aK.mAdTemplate).b(b.this.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b() { // from class: com.kwad.components.ad.draw.b.1.1
+                com.kwad.components.core.c.a.a.a(new a.C0630a(b.this.aK.mRootContainer.getContext()).L(b.this.aK.mAdTemplate).b(b.this.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b() { // from class: com.kwad.components.ad.draw.b.1.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                     }
@@ -121,11 +121,11 @@ public final class b extends KSFrameLayout {
     }
 
     private void initView() {
-        View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0477, this);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09138a);
+        View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0483, this);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913a2);
         this.mRootContainer = adBaseFrameLayout;
-        this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0913ca);
-        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913e0);
+        this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0913e2);
+        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913f8);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
         this.mDetailVideoView.setOnClickListener(this.aP);

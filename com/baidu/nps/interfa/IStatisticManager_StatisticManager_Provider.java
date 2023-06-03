@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.sl;
-import com.baidu.tieba.tj1;
+import com.baidu.tieba.cl1;
+import com.baidu.tieba.wl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class IStatisticManager_StatisticManager_Provider implements tj1 {
+public class IStatisticManager_StatisticManager_Provider implements cl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IStatisticManager_StatisticManager_Provider implements tj1 {
         }
     }
 
-    @Override // com.baidu.tieba.tj1
+    @Override // com.baidu.tieba.cl1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new sl() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new wl() : invokeV.objValue;
     }
 }

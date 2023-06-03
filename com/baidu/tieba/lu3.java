@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ju3;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lu3 extends ju3.a {
+public class lu3 extends ku3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final lu3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,29 +26,38 @@ public final class lu3 extends ju3.a {
                 return;
             }
         }
-        b = new lu3();
+        boolean z = is1.a;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public lu3() {
-        super(r0);
+    @Override // com.baidu.tieba.ku3
+    @NonNull
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return yr3.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lu3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/recommendProducts");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ju3) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ju3 a = ku3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
     }
 }

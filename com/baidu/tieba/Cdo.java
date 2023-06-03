@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,91 +17,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.baidu.tieba.do  reason: invalid class name */
 /* loaded from: classes5.dex */
-public class Cdo {
+public class Cdo extends in<eo, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final RecyclerView a;
-    @Nullable
-    public Runnable b;
+    public int a;
 
-    /* renamed from: com.baidu.tieba.do$a */
-    /* loaded from: classes5.dex */
-    public class a extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Cdo a;
-
-        public a(Cdo cdo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cdo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cdo;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-                if (this.a.d() && this.a.b != null) {
-                    recyclerView.post(this.a.b);
-                    this.a.b = null;
-                }
-            }
-        }
-    }
-
-    public Cdo(@NonNull RecyclerView recyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Cdo(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), eo.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = recyclerView;
-        recyclerView.addOnScrollListener(new a(this));
+        this.a = 3;
     }
 
-    public void e(@NonNull Runnable runnable) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: s */
+    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            if (d()) {
-                runnable.run();
-            } else {
-                this.b = runnable;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new NoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
         }
+        return (NoDataItemViewHolder) invokeL.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, eo eoVar, NoDataItemViewHolder noDataItemViewHolder) {
+        t(i, view2, viewGroup, eoVar, noDataItemViewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, eo eoVar, NoDataItemViewHolder noDataItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.getScrollState() == 0 && !this.a.isComputingLayout()) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eoVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(eoVar.a);
+            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, eoVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.a = TbadkCoreApplication.getInst().getSkinType();
             }
-            return false;
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

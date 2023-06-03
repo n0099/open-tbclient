@@ -1,76 +1,42 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes7.dex */
-public class rh3 extends qh3 {
+public final class rh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rh3() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return fv2.e0().c();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qh3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(ph3 ph3Var) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ph3Var)) == null) {
-            Bundle bundle = new Bundle();
-            oh3 b = uh3.b(ph3Var.a);
-            if (b == null) {
-                if (!qh3.a) {
-                    return bundle;
-                }
-                throw new IllegalArgumentException("illegal sp.");
-            }
-            int i = ph3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (qh3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                bundle.putFloat("result_value", b.getFloat(ph3Var.c, Float.parseFloat(ph3Var.d)));
-                            }
-                        } else {
-                            bundle.putString("result_value", b.getString(ph3Var.c, ph3Var.d));
-                        }
-                    } else {
-                        bundle.putBoolean("result_value", b.getBoolean(ph3Var.c, Boolean.parseBoolean(ph3Var.d)));
-                    }
-                } else {
-                    bundle.putLong("result_value", b.getLong(ph3Var.c, Long.parseLong(ph3Var.d)));
-                }
-            } else {
-                bundle.putInt("result_value", b.getInt(ph3Var.c, Integer.parseInt(ph3Var.d)));
-            }
-            if (qh3.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + ph3Var);
-            }
-            return bundle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static th3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!fv2.w0().d()) {
+                return yh2.c(false);
+            }
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
+        }
+        return (th3) invokeV.objValue;
     }
 }

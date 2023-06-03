@@ -6,17 +6,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import com.baidu.tieba.kb6;
+import com.baidu.tieba.of6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public kb6 b;
+    public of6 b;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            kb6 kb6Var = this.b;
-            if (kb6Var != null) {
-                kb6Var.p();
+            of6 of6Var = this.b;
+            if (of6Var != null) {
+                of6Var.p();
             }
         }
     }
@@ -86,9 +86,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.a = pageContext;
-            kb6 kb6Var = new kb6(pageContext, false);
-            this.b = kb6Var;
-            setContentView(kb6Var.i());
+            of6 of6Var = new of6(pageContext, false);
+            this.b = of6Var;
+            setContentView(of6Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));

@@ -5,7 +5,7 @@ import com.kwad.components.splash.monitor.SplashMonitorInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class fi implements com.kwad.sdk.core.d<SplashMonitorInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SplashMonitorInfo splashMonitorInfo, JSONObject jSONObject) {

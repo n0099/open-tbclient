@@ -1,101 +1,140 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import androidx.core.view.LayoutInflaterCompat;
-import com.baidu.tieba.vn4;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-    public static boolean b;
+    public static wn4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public String b;
+    public String c;
 
     /* loaded from: classes8.dex */
-    public static class a extends vn4.a implements LayoutInflater.Factory2 {
+    public static class a extends is4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yn4 yn4Var) {
-            super(yn4Var);
+        public a() {
+            super("updatecore_node_tipmsgs");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((yn4) newInitContext.callArgs[0]);
+                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
         }
-
-        @Override // android.view.LayoutInflater.Factory2
-        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(view2, str, context, attributeSet);
-            }
-            return (View) invokeLLLL.objValue;
-        }
     }
 
-    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+    public wn4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
-            if (!b) {
-                try {
-                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
-                    a = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
-                }
-                b = true;
-            }
-            Field field = a;
-            if (field != null) {
-                try {
-                    field.set(layoutInflater, factory2);
-                } catch (IllegalAccessException e2) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f149a);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f149b);
     }
 
-    public static void b(LayoutInflater layoutInflater, yn4 yn4Var) {
-        a aVar;
+    public static wn4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, yn4Var) == null) {
-            if (yn4Var != null) {
-                aVar = new a(yn4Var);
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (wn4.class) {
+                    if (d == null) {
+                        d = new wn4();
+                    }
+                }
             }
-            layoutInflater.setFactory2(aVar);
-            LayoutInflater.Factory factory = layoutInflater.getFactory();
-            if (factory instanceof LayoutInflater.Factory2) {
-                a(layoutInflater, (LayoutInflater.Factory2) factory);
-            } else {
-                a(layoutInflater, aVar);
+            return d;
+        }
+        return (wn4) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getString("tips_config_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        }
+        f(hashMap, optString);
+    }
+
+    public void f(HashMap<String, String> hashMap, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            edit.putString("tips_config_version", str);
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                edit.putString(entry.getKey(), entry.getValue());
             }
+            edit.apply();
         }
     }
 }

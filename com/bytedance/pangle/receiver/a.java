@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.bytedance.pangle.util.k;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public final void onReceive(final Context context, final Intent intent) {

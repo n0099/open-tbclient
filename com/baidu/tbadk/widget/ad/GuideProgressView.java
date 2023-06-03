@@ -36,7 +36,7 @@ import kotlin.ranges.RangesKt___RangesKt;
 /* loaded from: classes4.dex */
 public final class GuideProgressView extends View {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int t = 2131099734;
+    public static final int t = 2131099736;
     public static final int u = 2131099648;
     public static final int v = 2131165320;
     public static final int w;

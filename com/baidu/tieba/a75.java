@@ -1,74 +1,74 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class a75 {
+public final class a75 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ImageView imageView, int i) {
+    public a75() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
-            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = ri.g(TbadkApplication.getInst(), R.dimen.tbds52);
-                layoutParams.height = ri.g(TbadkApplication.getInst(), R.dimen.tbds52);
-                imageView.setLayoutParams(layoutParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    @Override // com.baidu.tieba.v65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-            layoutParams.height = ri.g(TbadkApplication.getInst(), R.dimen.tbds120);
-            viewGroup.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "newGod");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    public static void c(TextView textView) {
+    @Override // com.baidu.tieba.v65
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
-            p45.d(textView).w(R.color.CAM_X0107);
-        }
-    }
-
-    public static void d(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
-            p45.d(textView).B(R.dimen.tbds36);
-        }
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
-            p45 d = p45.d(textView);
-            d.B(R.dimen.tbds36);
-            d.w(R.color.CAM_X0107);
-        }
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
-            if (i == 4) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            boolean i = l95.m().i(l95.q("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
             } else {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
+                z = false;
             }
-            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
+            if (!i || !z) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

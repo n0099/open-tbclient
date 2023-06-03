@@ -1,125 +1,130 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.tieba.ww0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public abstract class tw0 implements dw0 {
+/* loaded from: classes8.dex */
+public class tw0 extends fw0 implements ww0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cy0 a;
+    public final ww0 b;
 
-    public abstract void f(lv0 lv0Var);
-
-    public abstract void g(lv0 lv0Var);
-
-    public abstract void h(lv0 lv0Var);
-
-    public abstract void i(lv0 lv0Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195484, "Lcom/baidu/tieba/tw0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195484, "Lcom/baidu/tieba/tw0;");
-                return;
-            }
-        }
-        qs0.f();
-    }
-
-    public tw0(Map<String, String> map) {
+    public tw0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j(map);
+        this.b = new ww0(this);
     }
 
-    @Override // com.baidu.tieba.dw0
-    public final <T extends yx0> void d(T t) {
+    @Override // com.baidu.tieba.ww0.a
+    public void onConfigurationChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a = (cy0) t;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(sw0.w(SystemEvent.ACTION_CONFIGURATION_CHANGED));
         }
     }
 
-    @Override // com.baidu.tieba.ew0
-    public final void c(lv0 lv0Var) {
+    public void registerReceiver() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, lv0Var) == null) && lv0Var != null && this.a != null) {
-            int type = lv0Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            h(lv0Var);
-                            return;
-                        }
-                        return;
-                    }
-                    g(lv0Var);
-                    return;
-                }
-                f(lv0Var);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.b.registerReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            i(lv0Var);
         }
     }
 
-    public void j(Map<String, String> map) {
+    public void unregisterReceiver() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
-            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
-                String str = (String) q11.b(map, WriteActivityConfig.VIDEO_INFO);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.b.unregisterReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (map.containsKey("channel_id")) {
-                String str2 = (String) q11.b(map, "channel_id");
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
+            uw0 w = sw0.w(SystemEvent.ACTION_CONNECT_CHANGED);
+            w.n(1, netStatus2);
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void onBatteryChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            uw0 w = sw0.w(SystemEvent.ACTION_BATTERY_CHANGED);
+            w.r(1);
+            w.n(4, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void onBluetoothHeadsetChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            uw0 w = sw0.w(SystemEvent.ACTION_BLUETOOTH_HEADSET);
+            w.n(6, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void onHeadsetPlug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            uw0 w = sw0.w(SystemEvent.ACTION_HEADSET_PLUG);
+            w.n(3, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void onScreenStatusChanged(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                str = SystemEvent.ACTION_SCREEN_OFF;
+            } else {
+                str = SystemEvent.ACTION_SCREEN_ON;
             }
-            if (map.containsKey("channel_title")) {
-                String str3 = (String) q11.b(map, "channel_title");
-            }
-            if (map.containsKey("type")) {
-                String str4 = (String) q11.b(map, "type");
-            }
-            if (map.containsKey("source")) {
-                String str5 = (String) q11.b(map, "source");
-            }
-            if (map.containsKey("from")) {
-                String str6 = (String) q11.b(map, "from");
-            }
-            if (map.containsKey("pd")) {
-                String str7 = (String) q11.b(map, "pd");
-            }
-            if (map.containsKey("tpl")) {
-                String str8 = (String) q11.b(map, "tpl");
-            }
-            if (map.containsKey("ext_request")) {
-                String str9 = (String) q11.b(map, "ext_request");
-            }
+            uw0 w = sw0.w(str);
+            w.n(2, Boolean.valueOf(z));
+            c(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.ww0.a
+    public void onVolumeChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            uw0 w = sw0.w(SystemEvent.ACTION_VOLUME_CHANGED);
+            w.n(5, Integer.valueOf(i));
+            c(w);
         }
     }
 }

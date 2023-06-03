@@ -207,7 +207,7 @@ public class HeadObject {
             jSONObject.put("pt", obj4);
             jSONObject.put("i", "");
             jSONObject.put("v", "4.0.9.7");
-            jSONObject.put(Config.STAT_SDK_CHANNEL, 26);
+            jSONObject.put("sc", 26);
             jSONObject.put("a", this.g);
             if (this.h == null) {
                 obj5 = "";

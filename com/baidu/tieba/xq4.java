@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.View;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
-import com.baidu.tieba.dn2;
-import com.baidu.tieba.on2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,74 +12,61 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class xq4 implements on2 {
+public class xq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public on2.a b;
-    public CyberExtractor c;
-    public volatile boolean d;
+    public Set<String> a;
+    public yq4<List<wq4>> b;
 
-    @Override // com.baidu.tieba.dn2
-    @Nullable
-    public String j0() {
-        InterceptResult invokeV;
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
-        return (String) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final xq4 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ xq4 c;
 
-        public a(xq4 xq4Var, String str, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xq4Var, str, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280805296, "Lcom/baidu/tieba/xq4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-280805296, "Lcom/baidu/tieba/xq4$b;");
                     return;
                 }
             }
-            this.c = xq4Var;
-            this.a = str;
-            this.b = map;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.d) {
-                    if (xq4.e) {
-                        Log.d("MediaExtractorWidget", "media extractor already released");
-                        return;
-                    }
-                    return;
-                }
-                this.c.c.setDataSource(this.c.getContext(), Uri.parse(iq2.a(this.a)), this.b);
-                Bundle metaData = this.c.c.getMetaData();
-                if (this.c.b != null) {
-                    this.c.b.a(metaData);
-                }
-            }
+            a = new xq4(null);
         }
     }
 
@@ -102,89 +83,60 @@ public class xq4 implements on2 {
                 return;
             }
         }
-        e = qp1.a;
+        String str = ProcessUtils.getCurProcessName() + ".trace";
+        AppRuntime.getAppContext().getExternalFilesDir(null);
     }
 
-    @Override // com.baidu.tieba.dn2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ns2.c();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.on2
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            CyberExtractor cyberExtractor = this.c;
-            if (cyberExtractor != null) {
-                cyberExtractor.release();
-            }
-            this.c = null;
-            on2.a aVar = this.b;
-            if (aVar != null) {
-                aVar.onRelease();
-            }
-            this.b = null;
-        }
-    }
-
-    public xq4(ZeusPluginFactory.Invoker invoker, String str) {
+    public xq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.d = false;
     }
 
-    @Override // com.baidu.tieba.dn2
-    public void A(@NonNull dn2.a aVar) {
+    public static xq4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.c = new CyberExtractor(true);
-            aVar.a(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
+        return (xq4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.on2
-    public void w(on2.a aVar) {
+    public yq4<List<wq4>> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (yq4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.on2
-    public void k(String str, Map<String, String> map) {
+    public Set<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<String> set = this.a;
+            if (set != null) {
+                return set;
+            }
+            HashSet hashSet = new HashSet();
+            this.a = hashSet;
+            hashSet.add("V8JavaScriptContext");
+            this.a.add("main");
+            return this.a;
         }
-        am3.j(new a(this, str, map), "loadMetadata");
+        return (Set) invokeV.objValue;
+    }
+
+    public /* synthetic */ xq4(a aVar) {
+        this();
     }
 }

@@ -1,118 +1,132 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ch6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eh6 {
+public final class eh6 extends ch6<eh6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fh6 s;
+    public float t;
+    public boolean u;
 
-    public static Set<xg6> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public <K> eh6(K k, dh6<K> dh6Var) {
+        super(k, dh6Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
-            if (optJSONObject == null) {
-                return hashSet;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                if (optJSONObject2 != null) {
-                    String str = null;
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
-                    if (optJSONObject3 != null) {
-                        str = optJSONObject3.optString("android", "");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = com.kuaishou.weapon.p0.q1.e;
-                    }
-                    xg6 xg6Var = new xg6(next, optJSONObject2.optString("method", "GET"), str);
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject("headers");
-                    if (optJSONObject4 != null) {
-                        Iterator<String> keys2 = optJSONObject4.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            if (!TextUtils.isEmpty(next2)) {
-                                xg6Var.a(next2, optJSONObject4.optString(next2));
-                            }
-                        }
-                    }
-                    hashSet.add(xg6Var);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            wg6.c().b();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (zh6.c(jSONArray)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k, dh6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(objArr2[0], (dh6) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        Set<xg6> a = a(optJSONObject);
-                        vg6 vg6Var = new vg6();
-                        if (!zh6.a(a)) {
-                            vg6Var.a = a;
-                            vg6Var.d = optString;
-                            wg6.c().a(optString, vg6Var);
-                        } else {
-                            wg6.c().a(optString, vg6Var);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
+        }
+        this.s = null;
+        this.t = Float.MAX_VALUE;
+        this.u = false;
+    }
+
+    @Override // com.baidu.tieba.ch6
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l();
+            this.s.g(e());
+            super.h();
         }
     }
 
-    @Nullable
-    public static List<Pair<String, Long>> c(@NonNull String str) {
+    @Override // com.baidu.tieba.ch6
+    public boolean j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (this.u) {
+                float f = this.t;
+                if (f != Float.MAX_VALUE) {
+                    this.s.e(f);
+                    this.t = Float.MAX_VALUE;
+                }
+                this.b = this.s.a();
+                this.a = 0.0f;
+                this.u = false;
+                return true;
+            }
+            if (this.t != Float.MAX_VALUE) {
+                this.s.a();
+                long j2 = j / 2;
+                ch6.h h = this.s.h(this.b, this.a, j2);
+                this.s.e(this.t);
+                this.t = Float.MAX_VALUE;
+                ch6.h h2 = this.s.h(h.a, h.b, j2);
+                this.b = h2.a;
+                this.a = h2.b;
+            } else {
+                ch6.h h3 = this.s.h(this.b, this.a, j);
+                this.b = h3.a;
+                this.a = h3.b;
+            }
+            float max = Math.max(this.b, this.h);
+            this.b = max;
+            float min = Math.min(max, this.g);
+            this.b = min;
+            if (!k(min, this.a)) {
+                return false;
+            }
+            this.b = this.s.a();
+            this.a = 0.0f;
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public boolean k(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return this.s.c(f, f2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            fh6 fh6Var = this.s;
+            if (fh6Var != null) {
+                double a = fh6Var.a();
+                if (a <= this.g) {
+                    if (a >= this.h) {
+                        return;
+                    }
+                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+                }
+                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
+            }
+            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
+        }
+    }
+
+    public eh6 m(fh6 fh6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ji6 ji6Var = (ji6) ServiceManager.getService(ji6.a);
-            if (ji6Var != null && URLUtil.isNetworkUrl(str)) {
-                return ji6Var.a(str);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fh6Var)) == null) {
+            this.s = fh6Var;
+            return this;
         }
-        return (List) invokeL.objValue;
+        return (eh6) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.searchbox.perfframe.PerfFrame;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ExceptionHandlerImpl implements ExceptionHandler {
     public static final String EXCEPTION_TYPE_JAVA = "java";
     public static final String KEY_CUSTOM = "custom";

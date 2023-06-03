@@ -9,8 +9,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.t41;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.kk0;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -85,7 +85,7 @@ public final class ExtensionsKt {
     @Px
     public static final int d(int i, Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
-        return t41.c.a(context, i);
+        return c61.c.a(context, i);
     }
 
     public static final void e(View isVisible, boolean z) {
@@ -113,19 +113,19 @@ public final class ExtensionsKt {
 
     @ColorInt
     public static final int f(String toColor, @ColorRes int i) {
-        Integer m789constructorimpl;
+        Integer m844constructorimpl;
         Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
         try {
             Result.Companion companion = Result.Companion;
-            m789constructorimpl = Result.m789constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+            m844constructorimpl = Result.m844constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m789constructorimpl = Result.m789constructorimpl(ResultKt.createFailure(th));
+            m844constructorimpl = Result.m844constructorimpl(ResultKt.createFailure(th));
         }
-        Integer valueOf = Integer.valueOf(ContextCompat.getColor(bj0.b(), i));
-        if (Result.m795isFailureimpl(m789constructorimpl)) {
-            m789constructorimpl = valueOf;
+        Integer valueOf = Integer.valueOf(ContextCompat.getColor(kk0.b(), i));
+        if (Result.m850isFailureimpl(m844constructorimpl)) {
+            m844constructorimpl = valueOf;
         }
-        return ((Number) m789constructorimpl).intValue();
+        return ((Number) m844constructorimpl).intValue();
     }
 }

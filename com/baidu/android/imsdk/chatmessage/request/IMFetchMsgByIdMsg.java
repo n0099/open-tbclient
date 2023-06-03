@@ -30,7 +30,8 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.h70;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tieba.i80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -517,7 +518,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    h70.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    i80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -775,7 +776,7 @@ public class IMFetchMsgByIdMsg extends Message {
                     JSONObject json = MessageExt.getInstance().toJson();
                     this.mMessageExt = json;
                     if (json != null && json.length() > 0) {
-                        jSONObject.put("ext_info", this.mMessageExt.toString());
+                        jSONObject.put(MigrateStatisticUtils.EXT_INFO, this.mMessageExt.toString());
                     }
                 }
                 if (this.mIsFromMedia) {

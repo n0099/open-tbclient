@@ -2,7 +2,7 @@ package org.aspectj.runtime.reflect;
 
 import java.lang.reflect.Field;
 import org.aspectj.lang.reflect.FieldSignature;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class FieldSignatureImpl extends MemberSignatureImpl implements FieldSignature {
     public Field field;
     public Class fieldType;

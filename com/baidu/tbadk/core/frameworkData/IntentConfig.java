@@ -18,23 +18,22 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.el5;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.in5;
-import com.baidu.tieba.ln5;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.mn5;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.gp5;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.nr5;
+import com.baidu.tieba.or5;
+import com.baidu.tieba.q9;
+import com.baidu.tieba.qr5;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wq8;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -334,7 +333,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            tg.unbindService(this.a.mContext, this.a.mClientConnection);
+            xg.unbindService(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -360,6 +359,28 @@ public class IntentConfig extends OrmObject {
         this.isForResult = false;
         this.mClientConnection = new a(this);
         this.mIntentAction = IntentAction.Activity;
+    }
+
+    public void addPreSourceTrace() {
+        Context context;
+        ArrayList<String> c2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
+            kr5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            if (currentVisiblePageExtra == null) {
+                c2 = null;
+            } else {
+                c2 = currentVisiblePageExtra.c();
+            }
+            if (ListUtils.isEmpty(c2)) {
+                return;
+            }
+            if (currentVisiblePageExtra != null) {
+                TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
+                gp5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+            }
+            this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
+        }
     }
 
     public IntentConfig(Context context) {
@@ -416,7 +437,7 @@ public class IntentConfig extends OrmObject {
                 jSONObject2.put(str2, str3);
             }
         }
-        jSONObject.put(NativeConstants.COMPONENT, this.mComponentClass);
+        jSONObject.put("component", this.mComponentClass);
         jSONObject.put("extra", jSONObject2);
         ActivityLog.getInstance().c(str, jSONObject.toString());
     }
@@ -439,7 +460,7 @@ public class IntentConfig extends OrmObject {
     private void logIntent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
-            sg.a().post(new b(this, str));
+            wg.a().post(new b(this, str));
         }
     }
 
@@ -503,7 +524,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            tg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            xg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -532,7 +553,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForResultForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            tg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            xg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -540,46 +561,24 @@ public class IntentConfig extends OrmObject {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            h9<?> b2 = m9.b(context);
-            mn5 mn5Var = null;
-            if (b2 instanceof ln5) {
-                mn5Var = ((ln5) b2).getTbPageInfo();
+            l9<?> b2 = q9.b(context);
+            or5 or5Var = null;
+            if (b2 instanceof nr5) {
+                or5Var = ((nr5) b2).getTbPageInfo();
             }
-            if (mn5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", mn5Var.a());
+            if (or5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", or5Var.a());
             }
-        }
-    }
-
-    public void addPreSourceTrace() {
-        Context context;
-        ArrayList<String> c2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            in5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
-            if (currentVisiblePageExtra == null) {
-                c2 = null;
-            } else {
-                c2 = currentVisiblePageExtra.c();
-            }
-            if (ListUtils.isEmpty(c2)) {
-                return;
-            }
-            if (currentVisiblePageExtra != null) {
-                TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-                el5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
-            }
-            this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
         }
     }
 
     public void addSourceTraceForPageStayDurationStat() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            h9<?> b2 = m9.b(this.mContext);
+            l9<?> b2 = q9.b(this.mContext);
             ArrayList<String> arrayList = null;
-            if (b2 instanceof on5) {
-                arrayList = (ArrayList) ((on5) b2).getNextPageSourceKeyList();
+            if (b2 instanceof qr5) {
+                arrayList = (ArrayList) ((qr5) b2).getNextPageSourceKeyList();
             }
             if (ListUtils.isEmpty(arrayList)) {
                 return;
@@ -691,7 +690,7 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
             }
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.b(WBConstants.SHARE_START_ACTIVITY, "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
             return false;
         }
@@ -730,7 +729,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            zk8 activityLog = ActivityLog.getInstance();
+            wq8 activityLog = ActivityLog.getInstance();
             activityLog.b("startActivityForResult", "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
         }
     }

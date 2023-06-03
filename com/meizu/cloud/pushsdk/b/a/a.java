@@ -9,22 +9,22 @@ import android.content.IntentFilter;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import com.meizu.cloud.pushinternal.DebugLogger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public AlarmManager a;
     public Context b;
     public Runnable c;
     public long d;
     public int e;
-    public C0678a f;
+    public C0698a f;
     public PendingIntent g;
     public String h;
     public boolean i;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0678a extends BroadcastReceiver {
-        public C0678a() {
+    /* loaded from: classes10.dex */
+    public class C0698a extends BroadcastReceiver {
+        public C0698a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -71,9 +71,9 @@ public class a {
             return false;
         }
         this.i = false;
-        C0678a c0678a = new C0678a();
-        this.f = c0678a;
-        this.b.registerReceiver(c0678a, new IntentFilter("alarm.util"));
+        C0698a c0698a = new C0698a();
+        this.f = c0698a;
+        this.b.registerReceiver(c0698a, new IntentFilter("alarm.util"));
         this.h = String.valueOf(System.currentTimeMillis());
         this.g = PendingIntent.getBroadcast(this.b, 0, new Intent("alarm.util"), 1073741824);
         int i = Build.VERSION.SDK_INT;

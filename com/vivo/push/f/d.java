@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.ImageViewPressedEffectHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -109,7 +110,7 @@ public final class d extends aa {
                         }
                         intent.setSelector(null);
                         intent.setPackage(this.a.getPackageName());
-                        intent.addFlags(335544320);
+                        intent.addFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                         ActivityInfo resolveActivityInfo = intent.resolveActivityInfo(this.a.getPackageManager(), 65536);
                         if (resolveActivityInfo != null && !resolveActivityInfo.exported) {
                             com.vivo.push.util.u.a("NotifyInnerClientTask", "activity is not exported : " + resolveActivityInfo.toString());

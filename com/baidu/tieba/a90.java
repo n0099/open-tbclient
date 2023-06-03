@@ -1,243 +1,123 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmResponse;
-import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.zip.GZIPInputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class a90 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile a90 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, z80> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569873, "Lcom/baidu/tieba/a90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947569873, "Lcom/baidu/tieba/a90;");
+                return;
+            }
+        }
+        b = AppConfig.isDebug();
+        c = null;
+    }
 
     public a90() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap(10);
     }
 
-    public final r80 a(r80 r80Var, byte[] bArr) throws Exception {
-        InterceptResult invokeLL;
+    public static a90 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r80Var, bArr)) == null) {
-            LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
-            if (parseFrom.hasLcmResponse()) {
-                LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
-                k90.a("PbProcessor", "methodId ：" + r80Var.j + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
-                if (lcmResponse.getErrorCode() == 0) {
-                    long j = r80Var.j;
-                    if (j == 1) {
-                        r80Var.k = 0;
-                        r80Var.h = lcmResponse.getNextIntervalMs();
-                    } else if (j == 2) {
-                        r80Var.k = -1;
-                    } else if (j == 3) {
-                        r80Var.h = lcmResponse.getNextIntervalMs();
-                    } else if (j == 4) {
-                        k90.a("PbProcessor", "parseLcmResponse notify");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (a90.class) {
+                    if (c == null) {
+                        c = new a90();
                     }
-                } else {
-                    r80Var.d = lcmResponse.getErrorCode();
-                    r80Var.e = lcmResponse.getErrorMsg();
-                    r80Var.k = -1;
                 }
-            } else if (parseFrom.hasLcmNotify()) {
-                k90.a("PbProcessor", "lcmpb hasLcmNotify");
-            } else if (parseFrom.hasLcmRequest()) {
-                r80Var.o = parseFrom.getLcmRequest().getLogId();
             }
-            return r80Var;
+            return c;
         }
-        return (r80) invokeLL.objValue;
+        return (a90) invokeV.objValue;
     }
 
-    public r80 b(InputStream inputStream) throws Exception {
-        InterceptResult invokeL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            r80 r80Var = new r80();
-            if (inputStream instanceof ByteArrayInputStream) {
-                k90.a("PbProcessor", "parseResponse quic");
-            } else if (inputStream instanceof DataInputStream) {
-                DataInputStream dataInputStream = (DataInputStream) inputStream;
-                byte readByte = dataInputStream.readByte();
-                byte readByte2 = dataInputStream.readByte();
-                byte readByte3 = dataInputStream.readByte();
-                byte readByte4 = dataInputStream.readByte();
-                int readInt = dataInputStream.readInt();
-                int readInt2 = dataInputStream.readInt();
-                if (readInt <= 1048576 && readInt2 <= 1048576) {
-                    byte[] bArr = new byte[readInt2];
-                    dataInputStream.readFully(bArr);
-                    int i = readInt - readInt2;
-                    byte[] bArr2 = new byte[i];
-                    dataInputStream.readFully(bArr2);
-                    k90.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
-                    c(r80Var, bArr, bArr2);
-                    return r80Var;
-                }
-                k90.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
-                throw new Exception(" Failed to allocate a larger byte allocation, data length = " + readInt);
-            }
-            return r80Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(str, System.currentTimeMillis());
         }
-        return (r80) invokeL.objValue;
     }
 
-    public final r80 c(r80 r80Var, byte[] bArr, byte[] bArr2) throws Exception {
-        InterceptResult invokeLLL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, r80Var, bArr, bArr2)) == null) {
-            RpcMetaPb$RpcMeta parseFrom = RpcMetaPb$RpcMeta.parseFrom(bArr);
-            if (parseFrom.getCompressType() == 1) {
-                bArr2 = d(bArr2);
-                k90.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
-            }
-            r80Var.g = bArr2;
-            int i = 0;
-            if (parseFrom.hasNotify()) {
-                RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-                r80Var.d = 0;
-                r80Var.e = "notify";
-                r80Var.i = notify.getServiceId();
-                r80Var.j = notify.getMethodId();
-                r80Var.o = notify.getLogId();
-                r80Var.f = true;
-                r80Var.q.clear();
-                while (i < notify.getEventListCount()) {
-                    r80Var.q.add(new m80(notify.getEventList(i).getEvent(), notify.getEventList(i).getTimestampMs()));
-                    i++;
-                }
-                r80Var.q.add(new m80("CLCPNotify", System.currentTimeMillis()));
-            } else if (parseFrom.hasResponse()) {
-                RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-                r80Var.d = response.getErrorCode();
-                r80Var.e = response.getErrorText();
-                r80Var.i = response.getServiceId();
-                r80Var.j = response.getMethodId();
-                r80Var.o = response.getLogId();
-                r80Var.f = false;
-                r80Var.q.clear();
-                while (i < response.getEventListCount()) {
-                    r80Var.q.add(new m80(response.getEventList(i).getEvent(), response.getEventList(i).getTimestampMs()));
-                    i++;
-                }
-                if (r80Var.d == 0 && r80Var.i == 1) {
-                    a(r80Var, bArr2);
-                    return r80Var;
-                }
-            } else if (parseFrom.hasRequest()) {
-                RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-                r80Var.i = request.getServiceId();
-                r80Var.j = request.getMethodId();
-                k90.a("PbProcessor", "parseRpcMeta requestMeta");
-                a(r80Var, bArr2);
-            }
-            return r80Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str, System.currentTimeMillis());
         }
-        return (r80) invokeLLL.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 5, insn: 0x003b: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:18:0x003b */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        GZIPInputStream gZIPInputStream;
-        IOException e;
-        GZIPInputStream gZIPInputStream2;
+    public void c(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            GZIPInputStream gZIPInputStream3 = null;
-            try {
-                try {
-                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = gZIPInputStream.read(bArr2);
-                            if (read < 0) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        try {
-                            gZIPInputStream.close();
-                            byteArrayInputStream.close();
-                            byteArrayOutputStream.close();
-                        } catch (Exception e2) {
-                            k90.c("SocketTransceiver", "Exception ", e2);
-                        }
-                        return byteArray;
-                    } catch (IOException e3) {
-                        e = e3;
-                        k90.c("SocketTransceiver", "unzip exception :", e);
-                        if (gZIPInputStream != null) {
-                            try {
-                                gZIPInputStream.close();
-                            } catch (Exception e4) {
-                                k90.c("SocketTransceiver", "Exception ", e4);
-                                return bArr;
-                            }
-                        }
-                        byteArrayInputStream.close();
-                        byteArrayOutputStream.close();
-                        return bArr;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    gZIPInputStream3 = gZIPInputStream2;
-                    if (gZIPInputStream3 != null) {
-                        try {
-                            gZIPInputStream3.close();
-                        } catch (Exception e5) {
-                            k90.c("SocketTransceiver", "Exception ", e5);
-                            throw th;
-                        }
-                    }
-                    byteArrayInputStream.close();
-                    byteArrayOutputStream.close();
-                    throw th;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (!x80.a()) {
+                if (b) {
+                    Log.e("PlainEventMonitor", "keyevent is disable!");
+                    return;
                 }
-            } catch (IOException e6) {
-                gZIPInputStream = null;
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (gZIPInputStream3 != null) {
-                }
-                byteArrayInputStream.close();
-                byteArrayOutputStream.close();
-                throw th;
+                return;
             }
-        } else {
-            return (byte[]) invokeL.objValue;
+            z80 remove = this.a.remove(str);
+            if (remove != null) {
+                remove.d = j;
+                y80.c().d(remove);
+                return;
+            }
+            Log.e("PlainEventMonitor", "plain end event do not start:" + str);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            if (!x80.a()) {
+                if (b) {
+                    Log.e("PlainEventMonitor", "keyevent is disable!");
+                }
+            } else if (!TextUtils.isEmpty(str) && j > 0) {
+                z80 z80Var = new z80(str);
+                z80Var.c = j;
+                this.a.put(str, z80Var);
+            } else {
+                Log.e("PlainEventMonitor", "name and timestamps error!");
+            }
         }
     }
 }

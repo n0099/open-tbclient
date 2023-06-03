@@ -1,7 +1,6 @@
 package com.baidu.ar.face;
 
 import android.os.Bundle;
-import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -22,6 +21,7 @@ import com.baidu.ar.h.i;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.player.model.YYOption;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -177,12 +177,12 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     private void dn() {
-        if (this.T) {
+        if (this.f1034T) {
             this.nx.dr();
             return;
         }
         int i = 180;
-        int i2 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        int i2 = 320;
         int i3 = this.mInputWidth;
         int i4 = this.mInputHeight;
         int i5 = this.S;
@@ -193,7 +193,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         float f = i3;
         float f2 = i4;
         float f3 = 180;
-        if (Float.compare((f * 1.0f) / f2, (1.0f * f3) / ((float) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP)) != 0) {
+        if (Float.compare((f * 1.0f) / f2, (1.0f * f3) / 320) != 0) {
             if (i3 > i4) {
                 i = Math.round(f * (f3 / f2));
                 i2 = 180;
@@ -206,7 +206,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m32do() {
+    private j m46do() {
         dn();
         j jVar = new j();
         jVar.I(this.nx.getAlgoImageWidth());
@@ -291,7 +291,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r3v2, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r3v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s = s();
@@ -466,7 +466,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             this.nB = true;
             boolean z = false;
             if (hashMap != null && !TextUtils.isEmpty((String) hashMap.get("single_frame"))) {
-                z = ((String) hashMap.get("single_frame")).equals("true");
+                z = ((String) hashMap.get("single_frame")).equals(YYOption.IsLive.VALUE_TRUE);
             }
             super.setup(hashMap);
             if (this.cb == null) {
@@ -539,11 +539,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 }
             };
             this.np.p(getContext());
-            j m32do = m32do();
+            j m46do = m46do();
             this.nx.z(this.nw);
             configSyncStatus(dm());
             this.np.E(u());
-            this.np.b(m32do);
+            this.np.b(m46do);
             a(this.np, this.mv);
             com.baidu.ar.face.attributes.a aVar2 = new com.baidu.ar.face.attributes.a(r());
             this.nA = aVar2;

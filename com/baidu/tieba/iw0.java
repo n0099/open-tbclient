@@ -1,24 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface iw0 {
-    void b();
+public class iw0 extends uw0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(int i, int i2);
+    public iw0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void f(float f);
-
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean p();
+    public static uw0 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return uw0.m(str, 8);
+        }
+        return (uw0) invokeL.objValue;
+    }
 }

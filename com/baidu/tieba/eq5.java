@@ -1,38 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.tbadk.switchs.PraiseSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class eq5 {
+public class eq5 implements ap5<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743008, "Lcom/baidu/tieba/eq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947743008, "Lcom/baidu/tieba/eq5;");
-                return;
+    public eq5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new ArrayList();
     }
 
-    public static void a(dq5 dq5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ap5
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dq5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001453, dq5Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            boolean z = false;
+            if (syncDataEvent == null) {
+                return false;
+            }
+            HashMap<String, Integer> hashMap = syncDataEvent.switches;
+            if (hashMap != null && hashMap.size() > 0) {
+                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
+            }
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            ov5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            g9 f = g9.f();
+            if (syncDataEvent.themeIsBlack == 1) {
+                z = true;
+            }
+            f.q(z);
+            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
+            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
+            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
+                eu4.w().J();
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

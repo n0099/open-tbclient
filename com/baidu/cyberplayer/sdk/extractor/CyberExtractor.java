@@ -20,10 +20,6 @@ public class CyberExtractor {
         this(true);
     }
 
-    public CyberExtractor(boolean z) {
-        this.a = a.a().a(z);
-    }
-
     public Bundle getMetaData() {
         ExtractorProvider extractorProvider = this.a;
         if (extractorProvider != null) {
@@ -37,6 +33,17 @@ public class CyberExtractor {
         if (extractorProvider != null) {
             extractorProvider.release();
             this.a = null;
+        }
+    }
+
+    public CyberExtractor(boolean z) {
+        this.a = a.a().a(z);
+    }
+
+    public void setDataSource(FileDescriptor fileDescriptor) {
+        ExtractorProvider extractorProvider = this.a;
+        if (extractorProvider != null) {
+            extractorProvider.setDataSource(fileDescriptor);
         }
     }
 
@@ -54,10 +61,10 @@ public class CyberExtractor {
         }
     }
 
-    public void setDataSource(FileDescriptor fileDescriptor) {
+    public void setOption(int i, String str, long j) {
         ExtractorProvider extractorProvider = this.a;
         if (extractorProvider != null) {
-            extractorProvider.setDataSource(fileDescriptor);
+            extractorProvider.setOption(i, str, j);
         }
     }
 
@@ -65,13 +72,6 @@ public class CyberExtractor {
         ExtractorProvider extractorProvider = this.a;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(str);
-        }
-    }
-
-    public void setOption(int i, String str, long j) {
-        ExtractorProvider extractorProvider = this.a;
-        if (extractorProvider != null) {
-            extractorProvider.setOption(i, str, j);
         }
     }
 }

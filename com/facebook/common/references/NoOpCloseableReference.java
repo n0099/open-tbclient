@@ -2,12 +2,12 @@ package com.facebook.common.references;
 
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NoOpCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo106clone() {
+    public CloseableReference<T> mo161clone() {
         return this;
     }
 

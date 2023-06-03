@@ -1,160 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class h72 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class h72 extends m72 {
     public static /* synthetic */ Interceptable $ic;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public c c;
+    public String t;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onConnected();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void start();
-
-        void stop();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h72 a;
-
-        public a(h72 h72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h72Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!j62.e() && h72.e() == 0) {
-                    if (!j62.f()) {
-                        g62.c("V8Inspector", "Unknown inspect mode");
-                        return;
-                    }
-                    this.a.c = new k72(b72.e(), this.a.b);
-                } else {
-                    this.a.c = new l72(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
-                }
-                this.a.c.start();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776550, "Lcom/baidu/tieba/h72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947776550, "Lcom/baidu/tieba/h72;");
-                return;
-            }
-        }
-        int i = 0;
-        if (uh3.a().getBoolean("Inspector", false)) {
-            i = 2;
-        }
-        d = i;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
-        }
-    }
-
-    public void i() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
-            cVar.stop();
-            this.c = null;
-        }
-    }
-
-    public h72(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h72(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.t = "";
     }
 
-    public static void g(int i) {
-        boolean z;
+    @Override // com.baidu.tieba.m72, com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            oh3 a2 = uh3.a();
-            if (i == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            a2.putBoolean("Inspector", z);
-            d = i;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("src");
     }
 }

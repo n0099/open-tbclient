@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.yj1;
+import com.baidu.tieba.hl1;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -181,7 +181,7 @@ public class FileUploadStrategy implements IUpload {
             if (applicationContext != null) {
                 appContext = applicationContext;
             }
-            return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), yj1.b().replace(":", "_"));
+            return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), hl1.b().replace(":", "_"));
         }
 
         @NonNull
@@ -275,7 +275,7 @@ public class FileUploadStrategy implements IUpload {
 
     @Override // com.baidu.searchbox.aperf.bosuploader.uploadstrategy.IUpload
     public void upload(@NonNull List<File> list, @NonNull final String str, @NonNull String str2) {
-        final File createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), yj1.b(), str2);
+        final File createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), hl1.b(), str2);
         if (createAttachZipFile != null) {
             this.mUploadExecutor.execute(new Runnable() { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1
                 @Override // java.lang.Runnable

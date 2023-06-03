@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.a38;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.p88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> 
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<a38> a;
+        public List<p88> a;
         public List<ChatMessage> b;
 
         public a() {

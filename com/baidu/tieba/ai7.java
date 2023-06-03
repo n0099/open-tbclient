@@ -1,69 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.kk5;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ai7 extends PriorityOrganizer.Task {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
-    public kk5.b o;
+import android.view.View;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes5.dex */
+public interface ai7 {
+    void a(nr7 nr7Var, FrsViewData frsViewData);
 
-    public ai7(FrsActivity frsActivity, FrsFragment frsFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = frsActivity;
-        this.m = frsFragment;
-    }
+    void b(View view2);
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        kk5.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null) {
-                this.o = frsFragment.O3();
-            }
-            if (o65.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.n0()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void c(nr7 nr7Var, md7 md7Var, FrsViewData frsViewData);
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk5.b bVar = this.o;
-            if (bVar != null) {
-                bVar.X0();
-            }
-            t();
-        }
-    }
+    int d(int i, FrsRequestData frsRequestData);
+
+    boolean e(int i);
 }

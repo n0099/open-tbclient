@@ -1,33 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yc4 {
+public class yc4 extends zc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public int c;
 
-    public static void a(Callback callback) {
+    public yc4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(Callback callback, String str) {
+    @Override // com.baidu.tieba.zc4
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || g93.M() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("packageName", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, g93.M().O());
-        newBuilder.addQueryParameter("source", "4");
-        ((n74) g93.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
+        return (JSONObject) invokeV.objValue;
     }
 }

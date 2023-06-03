@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BasicUserPrincipal implements Principal {
     public BasicUserPrincipal(String str) {
         throw new RuntimeException("Stub!");

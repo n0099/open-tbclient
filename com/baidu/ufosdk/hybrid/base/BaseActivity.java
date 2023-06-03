@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.b;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
@@ -108,7 +106,7 @@ public abstract class BaseActivity extends Activity {
             super.onStart();
             if (!this.c) {
                 if (Build.VERSION.SDK_INT >= 21) {
-                    int identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                    int identifier = getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
                     boolean z = false;
                     if (identifier > 0) {
                         i = getResources().getDimensionPixelOffset(identifier);
@@ -116,7 +114,7 @@ public abstract class BaseActivity extends Activity {
                         i = 0;
                     }
                     Log.d("BaseActivity", "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0928e8);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092921);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);
@@ -127,7 +125,7 @@ public abstract class BaseActivity extends Activity {
                         Window window = getWindow();
                         window.getDecorView().setSystemUiVisibility(1280);
                         window.addFlags(Integer.MIN_VALUE);
-                        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                        window.clearFlags(67108864);
                         if (Build.VERSION.SDK_INT >= 23) {
                             if (this.b) {
                                 window.getDecorView().setSystemUiVisibility(1024);
@@ -135,9 +133,9 @@ public abstract class BaseActivity extends Activity {
                                 window.getDecorView().setSystemUiVisibility(9216);
                             }
                         }
-                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060645));
+                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f06064a));
                     } else {
-                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060645);
+                        int color = getResources().getColor(R.color.obfuscated_res_0x7f06064a);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Window window2 = getWindow();
                             window2.addFlags(Integer.MIN_VALUE);

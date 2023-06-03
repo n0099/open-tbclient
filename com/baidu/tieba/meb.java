@@ -1,93 +1,130 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ugb;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.facebook.imagepipeline.memory.DefaultByteArrayPoolParams;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public class meb implements ugb.a {
+public class meb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static volatile String b;
+    public static BufferedWriter c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IPayCallback<CurrencyChargeMessage> c;
-    public mdb d;
-    public ugb.b e;
 
-    public meb(Activity activity, Dialog dialog, ugb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, mdb mdbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, bVar, iPayCallback, mdbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947971199, "Lcom/baidu/tieba/meb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947971199, "Lcom/baidu/tieba/meb;");
                 return;
             }
         }
-        this.a = activity;
-        this.b = dialog;
-        this.c = iPayCallback;
-        this.d = mdbVar;
-        this.e = bVar;
+        a = new Object();
     }
 
-    @Override // com.baidu.tieba.ugb.a
-    public void a(efb efbVar) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, efbVar) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toPayWayDialog amount:" + efbVar);
-            xfb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            ugb.b bVar = this.e;
-            IYYPayAmountView.ViewParams viewParams = bVar.f;
-            viewParams.splitOrderPayScene = "1";
-            this.d.t(this.a, efbVar, bVar.d, bVar.e, viewParams, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.ugb.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toInputNumberDialog");
-            xfb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            mdb mdbVar = this.d;
-            Activity activity = this.a;
-            ugb.b bVar = this.e;
-            mdbVar.n(activity, bVar.d, bVar.e, bVar.f, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.ugb.a
-    public void onRefreshViewFail(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            PaySplitOrderViewSource paySplitOrderViewSource = this.e.h;
-            if (paySplitOrderViewSource == PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG) {
-                RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " prepareShowPayWayDialog");
-                xfb.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-                mdb mdbVar = this.d;
-                Activity activity = this.a;
-                ugb.b bVar = this.e;
-                mdbVar.t(activity, bVar.a, bVar.d, bVar.e, bVar.f, this.c);
-                return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (a) {
+                if (c != null) {
+                    try {
+                        c.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " interruptePayFlow");
-            xfb.b(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return false;
+            }
+            new File(str).mkdirs();
+            if (!str.endsWith(File.separator)) {
+                str = str + File.separator;
+            }
+            b = str;
+            b += seb.n() + ".syslog";
+            peb.d("CrashLog", "Log file path : " + b);
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
+            }
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            try {
+                c = new BufferedWriter(new FileWriter(b, true), DefaultByteArrayPoolParams.MAX_SIZE_SOFT_CAP);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                c = null;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            e(str, str2, true);
+        }
+    }
+
+    public static void e(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
+            if (z) {
+                peb.d(str, str2);
+            }
+            try {
+                synchronized (a) {
+                    if (c == null) {
+                        c(seb.s());
+                        return;
+                    }
+                    long currentTimeMillis = System.currentTimeMillis();
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    new Date(currentTimeMillis);
+                    c.write(String.format("%s\n", str2));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.browser.sailor.feature;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
+import com.baidu.tieba.lx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdSailorFeature";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, rw> mClientsMap;
+    public Map<String, lx> mClientsMap;
     public Context mContext;
     public Enum<EnumC0084a> mStatus;
 
@@ -126,10 +126,10 @@ public class a {
         }
     }
 
-    public rw getListenerFromActivity(String str) {
+    public lx getListenerFromActivity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mClientsMap.get(str) : (rw) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mClientsMap.get(str) : (lx) invokeL.objValue;
     }
 
     public String getName() {
@@ -144,12 +144,12 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC0084a.a : invokeV.booleanValue;
     }
 
-    public void regActivityResultCallback(String str, rw rwVar) {
+    public void regActivityResultCallback(String str, lx lxVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, rwVar) == null) || this.mClientsMap.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, lxVar) == null) || this.mClientsMap.containsKey(str)) {
             return;
         }
-        this.mClientsMap.put(str, rwVar);
+        this.mClientsMap.put(str, lxVar);
     }
 
     public void unregActivityResultCallback(String str) {

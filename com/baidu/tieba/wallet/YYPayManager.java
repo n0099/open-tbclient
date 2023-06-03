@@ -13,12 +13,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.tn5;
-import com.baidu.tieba.vn5;
-import com.baidu.tieba.xn5;
+import com.baidu.tieba.es5;
+import com.baidu.tieba.fs5;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.vr5;
+import com.baidu.tieba.xr5;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -59,7 +60,7 @@ public class YYPayManager {
     public static final int YY_PAY_USE_CHANNEL_YY_LIVE = 30;
     public static BroadcastReceiver broadcastReceiver;
     public static IWechatProxyCallback wxPayCallback;
-    public static xn5 yyPayResultCallback;
+    public static zr5 yyPayResultCallback;
     public static YYPayUIKit yyPayUIKit;
     public static YYPayUIKit yyPayUIKitYYLive;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +124,9 @@ public class YYPayManager {
         return invokeV.booleanValue;
     }
 
-    public static void destoryYyPayCallback(xn5 xn5Var) {
+    public static void destoryYyPayCallback(zr5 zr5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, xn5Var) == null) && xn5Var == yyPayResultCallback) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, zr5Var) == null) && zr5Var == yyPayResultCallback) {
             yyPayResultCallback = null;
         }
     }
@@ -136,7 +137,7 @@ public class YYPayManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String s = o65.m().s("version_name", "");
+            String s = l95.m().s(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName("百度贴吧");
@@ -192,29 +193,29 @@ public class YYPayManager {
         return (MiddleRevenueConfig) invokeI.objValue;
     }
 
-    public static void doYYPayTask(co5 co5Var) {
+    public static void doYYPayTask(es5 es5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, co5Var) != null) || co5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, null, es5Var) != null) || es5Var == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = co5Var.e;
-        Object obj = co5Var.a;
+        yyPayResultCallback = es5Var.e;
+        Object obj = es5Var.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = co5Var.g;
-        if (!TextUtils.isEmpty(co5Var.c)) {
-            viewParams.payAmountDialogTitle = co5Var.c;
+        viewParams.closeOnSuccess = es5Var.g;
+        if (!TextUtils.isEmpty(es5Var.c)) {
+            viewParams.payAmountDialogTitle = es5Var.c;
         }
-        Long l = co5Var.d;
+        Long l = es5Var.d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i = co5Var.f;
+                int i = es5Var.f;
                 if (i != 1) {
                     if (i != 3) {
                         viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
@@ -226,12 +227,12 @@ public class YYPayManager {
                 }
             }
         }
-        xn5 xn5Var = yyPayResultCallback;
-        if (xn5Var instanceof tn5) {
-            viewParams.viewEventListener = new AbsViewEventHandler((tn5) xn5Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
+        zr5 zr5Var = yyPayResultCallback;
+        if (zr5Var instanceof vr5) {
+            viewParams.viewEventListener = new AbsViewEventHandler((vr5) zr5Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ tn5 val$absPayAllResult;
+                public final /* synthetic */ vr5 val$absPayAllResult;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,31 +307,31 @@ public class YYPayManager {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048579, this, obj2, payCallBackBean) == null) && YYPayManager.yyPayResultCallback != null) {
                         if (obj2 instanceof CurrencyChargeMessage) {
-                            do5 do5Var = new do5();
+                            fs5 fs5Var = new fs5();
                             CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                            do5Var.g = currencyChargeMessage.status;
-                            do5Var.b = currencyChargeMessage.appid;
-                            do5Var.h = Long.valueOf(currencyChargeMessage.uid);
-                            do5Var.i = currencyChargeMessage.usedChannel;
-                            do5Var.d = currencyChargeMessage.currencyType;
-                            do5Var.a = Long.valueOf(currencyChargeMessage.amount);
-                            do5Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                            do5Var.f = currencyChargeMessage.orderId;
-                            do5Var.e = currencyChargeMessage.expand;
-                            YYPayManager.yyPayResultCallback.onSuccess(do5Var);
+                            fs5Var.g = currencyChargeMessage.status;
+                            fs5Var.b = currencyChargeMessage.appid;
+                            fs5Var.h = Long.valueOf(currencyChargeMessage.uid);
+                            fs5Var.i = currencyChargeMessage.usedChannel;
+                            fs5Var.d = currencyChargeMessage.currencyType;
+                            fs5Var.a = Long.valueOf(currencyChargeMessage.amount);
+                            fs5Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                            fs5Var.f = currencyChargeMessage.orderId;
+                            fs5Var.e = currencyChargeMessage.expand;
+                            YYPayManager.yyPayResultCallback.onSuccess(fs5Var);
                             return;
                         }
                         YYPayManager.yyPayResultCallback.onSuccess(null);
                     }
                 }
             };
-            if (co5Var.b == 0) {
+            if (es5Var.b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }
             if (TbSingleton.getInstance().isUserBan()) {
-                vn5.a(null);
+                xr5.a(null);
             }
         }
     }

@@ -3,6 +3,7 @@ package com.baidu.tieba.homepage.concern.view;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -27,20 +29,25 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.e0a;
+import com.baidu.tieba.ew7;
+import com.baidu.tieba.ex9;
 import com.baidu.tieba.homepage.concern.adapter.RecommendBarPageAdapter;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.rq7;
-import com.baidu.tieba.uq7;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.py;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
-public class RecommendBarLayout extends LinearLayout implements ux, View.OnClickListener {
+/* loaded from: classes6.dex */
+public class RecommendBarLayout extends LinearLayout implements py, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -55,7 +62,7 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
     public byte j;
     public CustomMessageListener k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,17 +104,17 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                rn b = this.a.h.b(i);
-                if (b instanceof uq7) {
-                    uq7 uq7Var = (uq7) b;
+                vn b = this.a.h.b(i);
+                if (b instanceof ew7) {
+                    ew7 ew7Var = (ew7) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(uq7Var.a)) {
-                        param = param.param("obj_name", uq7Var.a);
+                    if (!StringUtils.isNull(ew7Var.a)) {
+                        param = param.param("obj_name", ew7Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", uq7Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(uq7Var.a)) {
-                        param2 = param2.param("obj_name", uq7Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ew7Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(ew7Var.a)) {
+                        param2 = param2.param("obj_name", ew7Var.a);
                     }
                     TiebaStatic.log(param2);
                 }
@@ -115,7 +122,7 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,18 +152,35 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (longValue != 0) {
-                    RecommendBarPageAdapter recommendBarPageAdapter = this.a.h;
-                    if (customResponsedMessage.getCmd() == 2001335) {
-                        z = true;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.h != null) {
+                boolean z = true;
+                if (customResponsedMessage.getCmd() != 2001335 && customResponsedMessage.getCmd() != 2001336) {
+                    if (customResponsedMessage.getCmd() == 2001437) {
+                        if (!(customResponsedMessage.getData() instanceof e0a)) {
+                            return;
+                        }
+                        e0a e0aVar = (e0a) customResponsedMessage.getData();
+                        if (e0aVar.b) {
+                            this.a.h.f(e0aVar.a, true);
+                        }
+                    } else if (customResponsedMessage.getCmd() != 2001266 || !(customResponsedMessage.getData() instanceof ex9)) {
                     } else {
-                        z = false;
+                        ex9 ex9Var = (ex9) customResponsedMessage.getData();
+                        if (ex9Var.n() == 0) {
+                            this.a.h.f(tg.g(ex9Var.g(), 0L), false);
+                        }
                     }
-                    recommendBarPageAdapter.e(longValue, z);
+                } else if (!(customResponsedMessage.getData() instanceof Long)) {
+                } else {
+                    long longValue = ((Long) customResponsedMessage.getData()).longValue();
+                    if (longValue != 0) {
+                        RecommendBarPageAdapter recommendBarPageAdapter = this.a.h;
+                        if (customResponsedMessage.getCmd() != 2001335) {
+                            z = false;
+                        }
+                        recommendBarPageAdapter.f(longValue, z);
+                    }
                 }
             }
         }
@@ -187,52 +211,116 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
         this.a = context;
         this.i = tbPageContext;
         this.j = b2;
-        c();
         d();
+        f();
+    }
+
+    public final boolean e(@NonNull RecommendBarCardModel recommendBarCardModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBarCardModel)) == null) {
+            if (ListUtils.getCount(recommendBarCardModel.h()) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.g = bdUniqueId;
         }
     }
 
-    public final void c() {
+    public final int c(@NonNull RecommendBarCardModel recommendBarCardModel) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0801, (ViewGroup) this, true);
-            setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d8a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d88);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091d8b);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d86);
-            this.e.setOffscreenPageLimit(2);
-            RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
-            this.h = recommendBarPageAdapter;
-            this.e.setAdapter(recommendBarPageAdapter);
-            this.e.addOnPageChangeListener(new a(this));
-            this.c.setOnClickListener(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, recommendBarCardModel)) == null) {
+            if (recommendBarCardModel.k()) {
+                i = R.dimen.tbds660;
+            } else {
+                i = R.dimen.tbds728;
+            }
+            List<vn> h = recommendBarCardModel.h();
+            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof ew7)) {
+                int b2 = ((ew7) h.get(0)).b();
+                if (b2 != 1) {
+                    if (b2 == 2) {
+                        if (recommendBarCardModel.k()) {
+                            return R.dimen.tbds450;
+                        }
+                        return R.dimen.tbds516;
+                    }
+                    return i;
+                } else if (recommendBarCardModel.k()) {
+                    return R.dimen.tbds242;
+                } else {
+                    return R.dimen.tbds310;
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091db8) {
+            return;
+        }
+        vn b2 = this.h.b(this.e.getCurrentItem());
+        if (b2 instanceof ew7) {
+            ew7 ew7Var = (ew7) b2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, ew7Var.c)));
+            StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
+            if (!StringUtils.isNull(ew7Var.a)) {
+                param = param.param("obj_name", ew7Var.a);
+            }
+            TiebaStatic.log(param);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k.setTag(this.g);
-            MessageManager.getInstance().registerListener(2001335, this.k);
-            MessageManager.getInstance().registerListener(2001336, this.k);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091db8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091db6);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091db9);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091db4);
+            this.e.setOffscreenPageLimit(2);
+            RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
+            this.h = recommendBarPageAdapter;
+            this.e.setAdapter(recommendBarPageAdapter);
+            this.e.addOnPageChangeListener(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.k.setTag(this.g);
+            MessageManager.getInstance().registerListener(2001335, this.k);
+            MessageManager.getInstance().registerListener(2001336, this.k);
+            MessageManager.getInstance().registerListener(2001437, this.k);
+            MessageManager.getInstance().registerListener(2001266, this.k);
+        }
+    }
+
+    @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (i != this.b) {
-                p45 d = p45.d(this.d);
+                m75 d = m75.d(this.d);
                 d.C(R.string.F_X02);
+                d.B(R.dimen.T_X07);
                 d.w(R.color.CAM_X0105);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 this.h.c(i);
@@ -241,40 +329,31 @@ public class RecommendBarLayout extends LinearLayout implements ux, View.OnClick
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091d8a) {
-            return;
-        }
-        rn b2 = this.h.b(this.e.getCurrentItem());
-        if (b2 instanceof uq7) {
-            uq7 uq7Var = (uq7) b2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, uq7Var.c)));
-            StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-            if (!StringUtils.isNull(uq7Var.a)) {
-                param = param.param("obj_name", uq7Var.a);
-            }
-            TiebaStatic.log(param);
-        }
-    }
-
-    public void setData(rq7 rq7Var) {
+    public void setData(RecommendBarCardModel recommendBarCardModel) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rq7Var) == null) {
-            if (rq7Var != null && !ListUtils.isEmpty(rq7Var.d())) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, recommendBarCardModel) == null) {
+            if (recommendBarCardModel != null && !ListUtils.isEmpty(recommendBarCardModel.h())) {
                 setVisibility(0);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-                Activity pageActivity = this.i.getPageActivity();
-                if (rq7Var.e()) {
-                    i = R.dimen.tbds660;
-                } else {
-                    i = R.dimen.tbds728;
-                }
-                layoutParams.height = ri.g(pageActivity, i);
+                ((LinearLayout.LayoutParams) this.e.getLayoutParams()).height = vi.g(this.i.getPageActivity(), c(recommendBarCardModel));
                 this.e.setCurrentItem(0, true);
-                this.h.d(rq7Var);
+                Activity pageActivity = this.i.getPageActivity();
+                if (e(recommendBarCardModel)) {
+                    i = R.dimen.tbds0;
+                } else {
+                    i = R.dimen.tbds89;
+                }
+                this.e.setPadding(0, 0, vi.g(pageActivity, i), 0);
+                this.h.e(recommendBarCardModel);
+                if (recommendBarCardModel.i() && !TextUtils.isEmpty(recommendBarCardModel.f())) {
+                    this.d.setText(recommendBarCardModel.f());
+                    this.f.setVisibility(8);
+                    this.c.setOnClickListener(null);
+                } else {
+                    this.d.setText(this.i.getString(R.string.obfuscated_res_0x7f0f11a7));
+                    this.f.setVisibility(0);
+                    this.c.setOnClickListener(this);
+                }
                 TiebaStatic.log(new StatisticItem("c13907").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j));
                 return;
             }

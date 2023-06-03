@@ -2,7 +2,7 @@ package org.apache.commons.codec.language;
 
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class RefinedSoundex implements StringEncoder {
     public final char[] soundexMapping;
     public static final String US_ENGLISH_MAPPING_STRING = "01360240043788015936020505";

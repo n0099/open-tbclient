@@ -1,14 +1,36 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class u86 {
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class u86 extends eu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.iw1
+    @Nullable
+    public String A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iw1
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "flFqXclepWs7RdugAszy9eERL7G5dS0I" : (String) invokeV.objValue;
+    }
 
     public u86() {
         Interceptable interceptable = $ic;
@@ -24,18 +46,13 @@ public class u86 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.iw1
+    public boolean N() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return isDebug();
         }
-        jSONObject.optLong("user_id");
-        jSONObject.optInt("sign_time");
-        jSONObject.optInt("cont_sign_num");
-        jSONObject.optInt("cout_total_sign_num");
-        jSONObject.optInt("total_resign_num");
-        jSONObject.optInt("miss_sign_num");
-        jSONObject.optInt("is_sign_in");
-        jSONObject.optInt("user_sign_rank");
+        return invokeV.booleanValue;
     }
 }

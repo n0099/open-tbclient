@@ -1,485 +1,282 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r83;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public abstract class q83 {
+public final class q83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public Context b;
-    public Resources c;
-    public List<r83> d;
-    public s83 e;
-    public r83.a f;
-    public PopupWindow g;
-    public View.OnKeyListener h;
-    public int i;
-    public View j;
-    public boolean k;
-    public f l;
-    public boolean m;
-    public float n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public Runnable r;
+    public final Message a;
+    public final Set<SwanAppProcessInfo> b;
+    public final Set<String> c;
+    public boolean d;
+    public boolean e;
+    public long f;
 
-    /* loaded from: classes7.dex */
-    public interface f {
-        void onMenuItemUpdated(List<r83> list);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface g {
-    }
-
-    public abstract void l(View view2, List<r83> list);
-
-    public abstract View m(Context context);
-
-    public abstract void u(PopupWindow popupWindow);
-
-    /* loaded from: classes7.dex */
-    public class a implements r83.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q83 a;
-
-        public a(q83 q83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q83Var;
-        }
-
-        @Override // com.baidu.tieba.r83.a
-        public void a(r83 r83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r83Var) == null) {
-                if (r83Var.f()) {
-                    this.a.k(r83Var.a());
-                }
-                r83.a aVar = this.a.f;
-                if (aVar != null) {
-                    aVar.a(r83Var);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnKeyListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q83 a;
-
-        public b(q83 q83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q83Var;
-        }
-
-        @Override // android.view.View.OnKeyListener
-        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
-                if (keyEvent.getAction() == 1) {
-                    if (i == 4 || i == 82) {
-                        this.a.j();
-                        View.OnKeyListener onKeyListener = this.a.h;
-                        if (onKeyListener != null) {
-                            onKeyListener.onKey(view2, i, keyEvent);
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q83 a;
-
-        public c(q83 q83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q83Var;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.m) {
-                    this.a.h();
-                }
-                s83 s83Var = this.a.e;
-                if (s83Var != null) {
-                    s83Var.onDismissMenu();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q83 a;
-
-        public d(q83 q83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q83Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.m) {
-                        this.a.i(this.a.n);
-                    }
-                    this.a.u(this.a.g);
-                } catch (Exception e) {
-                    if (qp1.a) {
-                        Log.w("PopupWindow", "Exception", e);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q83 a;
-
-        public e(q83 q83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q83Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j();
-            }
-        }
-    }
-
-    public q83(View view2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public q83(int i) {
+        this(Message.obtain((Handler) null, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Message) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = true;
-        this.m = false;
-        this.n = 0.5f;
-        this.o = false;
-        this.p = R.style.obfuscated_res_0x7f100426;
-        this.r = new e(this);
-        this.a = view2;
-        this.b = view2.getContext();
-        this.c = this.a.getResources();
-        this.d = new ArrayList();
-        this.i = -2;
-        this.q = ns2.M().a();
-        o(this.b);
     }
 
-    public final void v(boolean z) {
+    public q83 e(int... iArr) {
+        InterceptResult invokeL;
+        SwanAppProcessInfo[] indices;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            s83 s83Var = this.e;
-            if (s83Var != null) {
-                s83Var.onShowMenu();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
+            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+                if (swanAppProcessInfo.isSwanAppProcess() && !g(iArr, swanAppProcessInfo.index)) {
+                    b(swanAppProcessInfo);
+                }
             }
-            w(this.d);
-            l(this.j, this.d);
-            j();
-            if (this.g == null) {
-                PopupWindow popupWindow = new PopupWindow(this.j, this.i, -2, true);
-                this.g = popupWindow;
-                if (this.o) {
-                    popupWindow.setAnimationStyle(this.p);
-                }
-                if (z) {
-                    this.g.setBackgroundDrawable(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0801cb));
-                    this.g.setTouchable(true);
-                } else {
-                    this.g.setTouchable(false);
-                }
-                this.g.setOnDismissListener(new c(this));
-            }
-            View view2 = this.a;
-            if (view2 == null) {
-                s83 s83Var2 = this.e;
-                if (s83Var2 != null) {
-                    s83Var2.onDismissMenu();
-                    return;
-                }
+            return this;
+        }
+        return (q83) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public q83(int i, Object obj) {
+        this(Message.obtain(null, i, obj));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Message) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            view2.post(new d(this));
-            this.j.postInvalidate();
         }
     }
 
-    public r83 g(r83 r83Var) {
+    public q83(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {message};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashSet();
+        this.c = new HashSet();
+        this.d = false;
+        this.e = false;
+        this.f = 0L;
+        this.a = message == null ? Message.obtain() : message;
+    }
+
+    public q83 a(int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r83Var)) == null) {
-            r83Var.g(this);
-            if (this.k) {
-                r83Var.h(new a(this));
-            } else {
-                r83Var.h(this.f);
-            }
-            this.d.add(r83Var);
-            return r83Var;
-        }
-        return (r83) invokeL.objValue;
-    }
-
-    public void k(long j) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && (view2 = this.a) != null) {
-            view2.removeCallbacks(this.r);
-            if (j > 0) {
-                this.a.postDelayed(this.r, j);
-            } else {
-                j();
-            }
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void r(r83.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void w(List<r83> list) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, list) == null) && (fVar = this.l) != null) {
-            fVar.onMenuItemUpdated(list);
-        }
-    }
-
-    public r83 e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            return f(i, this.c.getString(i2), null);
-        }
-        return (r83) invokeII.objValue;
-    }
-
-    public r83 f(int i, CharSequence charSequence, Drawable drawable) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, charSequence, drawable)) == null) {
-            r83 r83Var = new r83(this.b, i, charSequence, drawable);
-            g(r83Var);
-            return r83Var;
-        }
-        return (r83) invokeILL.objValue;
-    }
-
-    public final void h() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view2 = this.a) != null) {
-            ((ViewGroup) view2.getRootView()).getOverlay().clear();
-        }
-    }
-
-    public void j() {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (popupWindow = this.g) != null) {
-            try {
-                popupWindow.dismiss();
-            } catch (Exception e2) {
-                if (qp1.a) {
-                    Log.w("PopupWindow", "Exception", e2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iArr)) == null) {
+            if (iArr != null) {
+                for (int i : iArr) {
+                    if (SwanAppProcessInfo.checkProcessId(i)) {
+                        b(SwanAppProcessInfo.indexOf(i));
+                    }
                 }
             }
+            return this;
         }
+        return (q83) invokeL.objValue;
+    }
+
+    public q83 b(SwanAppProcessInfo... swanAppProcessInfoArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
+            if (swanAppProcessInfoArr != null) {
+                this.b.addAll(Arrays.asList(swanAppProcessInfoArr));
+            }
+            return this;
+        }
+        return (q83) invokeL.objValue;
+    }
+
+    public q83 c(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            if (strArr != null) {
+                this.c.addAll(Arrays.asList(strArr));
+            }
+            return this;
+        }
+        return (q83) invokeL.objValue;
+    }
+
+    public q83 f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            this.d = z;
+            return this;
+        }
+        return (q83) invokeZ.objValue;
+    }
+
+    public q83 j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.f = j;
+            return this;
+        }
+        return (q83) invokeJ.objValue;
+    }
+
+    public q83 o(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            this.a.obj = obj;
+            return this;
+        }
+        return (q83) invokeL.objValue;
+    }
+
+    public q83 p(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            this.e = z;
+            return this;
+        }
+        return (q83) invokeZ.objValue;
+    }
+
+    public q83 d() {
+        InterceptResult invokeV;
+        SwanAppProcessInfo[] indices;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+                if (swanAppProcessInfo.isSwanAppProcess()) {
+                    b(swanAppProcessInfo);
+                }
+            }
+            return this;
+        }
+        return (q83) invokeV.objValue;
+    }
+
+    @NonNull
+    public Message h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a.obj == null) {
+                o(new Bundle());
+            }
+            return this.a;
+        }
+        return (Message) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long j = this.f;
+            if (j < 0) {
+                return 0L;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public Set<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new HashSet(this.c);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public Set<SwanAppProcessInfo> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new HashSet(this.b);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PopupWindow popupWindow = this.g;
-            if (popupWindow != null && popupWindow.isShowing()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
         }
         return invokeV.booleanValue;
     }
 
-    public void t() {
+    public final boolean g(int[] iArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (ns2.M().a() != this.q) {
-                o(this.b);
-                this.g = null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iArr, i)) == null) {
+            if (iArr != null) {
+                for (int i2 : iArr) {
+                    if (i2 == i) {
+                        return true;
+                    }
+                }
             }
-            v(true);
-            this.q = ns2.M().a();
+            return false;
         }
-    }
-
-    public final void i(float f2) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048580, this, f2) == null) && (view2 = this.a) != null) {
-            ViewGroup viewGroup = (ViewGroup) view2.getRootView();
-            ColorDrawable colorDrawable = new ColorDrawable(-16777216);
-            colorDrawable.setBounds(0, 0, viewGroup.getWidth(), viewGroup.getHeight());
-            colorDrawable.setAlpha((int) (f2 * 255.0f));
-            viewGroup.getOverlay().add(colorDrawable);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void o(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            View m = m(context);
-            this.j = m;
-            m.setFocusable(true);
-            this.j.setFocusableInTouchMode(true);
-            if (!(this.j instanceof g) && qp1.a) {
-                throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
-            }
-            this.j.setOnKeyListener(new b(this));
-        }
+        return invokeLI.booleanValue;
     }
 }

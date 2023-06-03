@@ -3,6 +3,7 @@ package com.kwad.sdk.core.network;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.player.model.YYOption;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.service.ServiceProvider;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b implements g {
     public final Map<String, String> mHeader = new HashMap();
     public final JSONObject mBodyParams = new JSONObject();
@@ -22,7 +23,7 @@ public abstract class b implements g {
         buildBaseHeader();
         buildBaseBody();
         if (encryptDisable()) {
-            addHeader("x-ksad-ignore-decrypt", "true");
+            addHeader("x-ksad-ignore-decrypt", YYOption.IsLive.VALUE_TRUE);
         }
         addHeader("cookie", e.ty().tz());
         com.kwad.sdk.core.a.d.c(getHeader());

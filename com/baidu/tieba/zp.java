@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class zp extends vs<TaskDialogViewData> {
+public final class zp {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zp b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
 
     public zp() {
         Interceptable interceptable = $ic;
@@ -20,7 +26,34 @@ public final class zp extends vs<TaskDialogViewData> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
+    }
+
+    public static zp b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (zp.class) {
+                    if (b == null) {
+                        b = new zp();
+                    }
+                }
+            }
+            return b;
+        }
+        return (zp) invokeV.objValue;
+    }
+
+    public Executor a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Executor) invokeV.objValue;
     }
 }

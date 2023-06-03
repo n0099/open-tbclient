@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public final class c implements a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public final a.InterfaceC0662a Dh() {
+    public final a.InterfaceC0682a Dh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -149,7 +149,7 @@ public final class c implements a {
             b bVar = this.atT;
             return dVar.a(bVar.atQ, bVar.atR);
         }
-        return (a.InterfaceC0662a) invokeV.objValue;
+        return (a.InterfaceC0682a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a

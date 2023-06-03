@@ -17,13 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q06;
+import com.baidu.tieba.r46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SlideBarView extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,20 +47,20 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public Matrix r;
     public boolean s;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(float f);
 
         void onProgress(float f);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f0811bd;
+        this.a = R.drawable.obfuscated_res_0x7f0811e6;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -154,7 +154,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f0811bd;
+        this.a = R.drawable.obfuscated_res_0x7f0811e6;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -200,7 +200,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f0811bd;
+        this.a = R.drawable.obfuscated_res_0x7f0811e6;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -267,7 +267,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public final void a(Context context, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048576, this, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, q06.SlideBarView, i, i2);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, r46.SlideBarView, i, i2);
             this.e = obtainStyledAttributes.getDimension(0, 12.0f);
             obtainStyledAttributes.recycle();
             this.o.setAntiAlias(true);

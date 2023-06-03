@@ -12,13 +12,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -77,7 +75,7 @@ public class ViewUtility implements NoProguard {
         int i;
         Window window = activity.getWindow();
         window.addFlags(Integer.MIN_VALUE);
-        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        window.clearFlags(67108864);
         window.getDecorView().setSystemUiVisibility(8192);
         Class<?> cls = activity.getWindow().getClass();
         try {
@@ -197,7 +195,7 @@ public class ViewUtility implements NoProguard {
                 }
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
-                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                window.clearFlags(67108864);
                 window.setStatusBarColor(i);
                 if (Build.VERSION.SDK_INT < 23) {
                     if (!z) {
@@ -218,7 +216,7 @@ public class ViewUtility implements NoProguard {
             }
             Window window2 = activity.getWindow();
             window2.addFlags(Integer.MIN_VALUE);
-            window2.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window2.clearFlags(67108864);
             window2.setStatusBarColor(i);
             if (Build.VERSION.SDK_INT < 23) {
             }
@@ -228,7 +226,7 @@ public class ViewUtility implements NoProguard {
     }
 
     public static int getStatusBarHeight(Context context) {
-        int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+        int identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
         if (identifier > 0) {
             return context.getResources().getDimensionPixelSize(identifier);
         }
@@ -286,7 +284,7 @@ public class ViewUtility implements NoProguard {
         } else if (i2 >= 19) {
             Window window2 = activity.getWindow();
             WindowManager.LayoutParams attributes = window2.getAttributes();
-            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+            attributes.flags |= 67108864;
             window2.setAttributes(attributes);
         }
     }

@@ -337,18 +337,6 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.multiMediaData = videoInfo.multiMediaData;
     }
 
-    public boolean isAvaliable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (StringUtils.isNull(this.videoPath) || StringUtils.isNull(this.thumbPath) || !new File(this.videoPath).exists()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void parseFromIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048603, this, intent) != null) || intent == null) {
@@ -359,6 +347,18 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
         this.videoHeight = intent.getIntExtra("video_h", 480);
         this.videoWidth = intent.getIntExtra("video_w", 480);
+    }
+
+    public boolean isAvaliable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (StringUtils.isNull(this.videoPath) || StringUtils.isNull(this.thumbPath) || !new File(this.videoPath).exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setBeautifyListInfo(List<String> list) {

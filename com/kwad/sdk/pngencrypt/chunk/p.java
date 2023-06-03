@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class p extends PngChunk {
     public p(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);

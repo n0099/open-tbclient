@@ -1,116 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public class vt3 {
+public class vt3 extends ActivityDelegation implements ks1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Method b;
-    public Object c;
 
-    public vt3(Class<?> cls) {
-        int intValue;
+    public vt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 4099;
-        if (cls == null) {
-            return;
-        }
-        try {
-            Object k = kd4.k(cls, "getInstance", new Object[0]);
-            this.c = k;
-            if (k != null) {
-                Object h = kd4.h(k, "UNIPERF_EVENT_APP_START");
-                if (h == null) {
-                    intValue = this.a;
-                } else {
-                    intValue = ((Integer) h).intValue();
-                }
-                this.a = intValue;
-            }
-            Method i3 = kd4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
-            this.b = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
         }
     }
 
-    public static vt3 b(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = kd4.b("android.iawareperf.UniPerf", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new vt3(cls);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            wt3.b();
+            finish();
         }
-        return (vt3) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && this.b != null) {
-                return true;
-            }
+            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
+            intent.putExtras(this.mParams);
+            getAgent().startActivity(intent);
+            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100b3, 0);
+            wt3.c(this);
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public int d(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
+    @Override // com.baidu.tieba.ks1
+    public void onResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
-            if (!c()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mResult.putInt("loginStatusCode", i);
+            c();
         }
-        return invokeILL.intValue;
     }
 }

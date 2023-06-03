@@ -1,40 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class oqa {
+/* loaded from: classes7.dex */
+public final class oqa {
     public static /* synthetic */ Interceptable $ic;
-    public static ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042282, "Lcom/baidu/tieba/oqa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042282, "Lcom/baidu/tieba/oqa;");
-                return;
-            }
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            d().edit().putBoolean(str, true).apply();
         }
-        a = new ThreadPoolExecutor(4, 1024, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    public static void a(Runnable runnable) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            a.execute(runnable);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return d().getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return d().getLong(str, 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static SharedPreferences d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return kpa.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return d().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            d().edit().putString(str, str2).apply();
+        }
+    }
+
+    public static void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
+            d().edit().putLong(str, j).apply();
         }
     }
 }

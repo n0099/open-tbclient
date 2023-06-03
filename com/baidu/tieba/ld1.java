@@ -1,96 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tieba.t41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Color;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ld1 {
+public class ld1 extends jd1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public pd1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938928, "Lcom/baidu/tieba/ld1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947938928, "Lcom/baidu/tieba/ld1;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ld1() {
+        this(new pd1());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((pd1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        char[] cArr = {21704};
-        a = cArr;
-        b = new String(cArr);
     }
 
-    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    public pd1 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            Intrinsics.checkNotNullParameter(subTag, "subTag");
-            if (TextUtils.isEmpty(subTag)) {
-                subTag = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
-            }
-            return subTag;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (String) invokeCommon.objValue;
+        return (pd1) invokeV.objValue;
     }
 
-    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
-        InterceptResult invokeCommon;
-        float e;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld1(pd1 pd1Var) {
+        super(pd1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
-            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                if (textView.getMeasuredWidth() > 0) {
-                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
-                } else {
-                    e = ((t41.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
-                }
-                float f = e - ((i - 1) * 10);
-                Intrinsics.checkNotNull(str);
-                int length = str.length() + 1;
-                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
-                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
-                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                    spannableStringBuilder2.setSpan(new kd1(drawable), a2.length() - b.length(), a2.length(), 17);
-                    return spannableStringBuilder2;
-                }
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                spannableStringBuilder.setSpan(new kd1(drawable), length, spannableStringBuilder.length(), 17);
-                return spannableStringBuilder;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pd1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((md1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new SpannableStringBuilder("");
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
+        this.c = pd1Var;
+    }
+
+    public ld1 i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            super.a(z);
+            return this;
+        }
+        return (ld1) invokeZ.objValue;
+    }
+
+    public ld1 k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            super.c(i);
+            return this;
+        }
+        return (ld1) invokeI.objValue;
+    }
+
+    public ld1 n(BubblePosition bubblePosition) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
+            super.e(bubblePosition);
+            return this;
+        }
+        return (ld1) invokeL.objValue;
+    }
+
+    public ld1 o(BubbleManager.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
+            super.f(bVar);
+            return this;
+        }
+        return (ld1) invokeL.objValue;
+    }
+
+    public ld1 p(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+            super.g(f);
+            return this;
+        }
+        return (ld1) invokeF.objValue;
+    }
+
+    public ld1 q(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
+            this.c.f().D(charSequence);
+            return this;
+        }
+        return (ld1) invokeL.objValue;
+    }
+
+    public ld1 j(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
+            super.b(view2, viewGroup);
+            return this;
+        }
+        return (ld1) invokeLL.objValue;
+    }
+
+    public ld1 l(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            super.d(i, i2);
+            return this;
+        }
+        return (ld1) invokeII.objValue;
+    }
+
+    public ld1 m(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.c.s(i, f);
+            return this;
+        }
+        return (ld1) invokeCommon.objValue;
+    }
+
+    public ld1 r(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+            try {
+                this.c.f().E(i, i2);
+                return this;
+            } catch (Exception e) {
+                kl0.h("BubbleTextBuilder", "", e);
+                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
+                return this;
+            }
+        }
+        return (ld1) invokeII.objValue;
     }
 }

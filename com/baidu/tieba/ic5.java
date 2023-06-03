@@ -1,111 +1,70 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ic5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jc5 a;
+    public jc5 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947848718, "Lcom/baidu/tieba/ic5;")) == null) {
+    public ic5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public jc5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (jc5) invokeV.objValue;
+    }
+
+    public jc5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (jc5) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        if (optJSONObject != null) {
+            jc5 jc5Var = new jc5();
+            this.a = jc5Var;
+            jc5Var.q = 1;
+            jc5Var.e(optJSONObject);
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947848718, "Lcom/baidu/tieba/ic5;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (qi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                return 3;
-            }
-            return o65.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-                int a2 = a();
-                if (a2 != 2) {
-                    if (a2 == 3) {
-                        return R.drawable.icon_mask_share_wechat40_svg;
-                    }
-                    if (a2 != 4) {
-                        if (a2 != 6) {
-                            if (a2 != 8) {
-                                return R.drawable.icon_mask_share_wechat40_svg;
-                            }
-                            return R.drawable.icon_mask_share_qq40_svg;
-                        }
-                        return R.drawable.icon_mask_share_weibo40_svg;
-                    }
-                    return R.drawable.icon_mask_share_qqzone40_svg;
-                }
-                return R.drawable.icon_mask_share_circle40_svg;
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            long j = a;
-            if (j >= 0) {
-                return j;
-            }
-            if (!qi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                a = o65.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            }
-            return a;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !qi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            o65.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
-            o65.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
-            a = 0L;
-        }
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !qi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            o65.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
-            a = j;
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            a = -1L;
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            jc5 jc5Var2 = new jc5();
+            this.b = jc5Var2;
+            jc5Var2.q = 2;
+            jc5Var2.e(optJSONObject2);
         }
     }
 }

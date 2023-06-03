@@ -1,66 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.util.devices.DeviceUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.CharArrayWriter;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class r10 {
+public final class r10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
 
-    public r10() {
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
+            return (String) invokeL.objValue;
         }
-        this.a = false;
-        this.b = "";
+        FileReader fileReader2 = null;
+        try {
+            fileReader = new FileReader(file);
+            try {
+                try {
+                    char[] cArr = new char[8192];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        charArrayWriter.write(cArr, 0, read);
+                    }
+                    String charArrayWriter2 = charArrayWriter.toString();
+                    try {
+                        fileReader.close();
+                    } catch (Exception e) {
+                        c(e);
+                    }
+                    return charArrayWriter2;
+                } catch (Exception e2) {
+                    e = e2;
+                    c(e);
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e3) {
+                            c(e3);
+                        }
+                    }
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                fileReader2 = fileReader;
+                if (fileReader2 != null) {
+                    try {
+                        fileReader2.close();
+                    } catch (Exception e4) {
+                        c(e4);
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e5) {
+            e = e5;
+            fileReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileReader2 != null) {
+            }
+            throw th;
+        }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.a) {
-                StringBuilder sb = new StringBuilder();
-                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
-                    sb.append("BDOS/1.0");
-                    sb.append(" ");
-                    sb.append("(");
-                    sb.append("HarmonyOS");
-                    sb.append(" ");
-                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
-                    if (TextUtils.isEmpty(harmonyVersion)) {
-                        harmonyVersion = "0.0";
-                    }
-                    sb.append(harmonyVersion);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                }
-                String sb2 = sb.toString();
-                this.b = sb2;
-                if (!TextUtils.isEmpty(sb2)) {
-                    this.b = t10.a(this.b);
-                }
-                this.a = true;
-            }
-            return this.b;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            c(e);
+        }
+    }
+
+    public static void c(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+        }
     }
 }

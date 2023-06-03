@@ -1,155 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class eca {
     public static /* synthetic */ Interceptable $ic;
+    public static eca b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final zaa b;
-    @Nullable
-    public WriteData c;
-    public boolean d;
-    @Nullable
-    public String e;
-    @Nullable
-    public ArrayList<AtSelectData> f;
+    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
-    public eca(@NonNull TbPageContext<?> tbPageContext, @NonNull zaa zaaVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947730918, "Lcom/baidu/tieba/eca;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947730918, "Lcom/baidu/tieba/eca;");
+        }
+    }
+
+    public eca() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zaaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = zaaVar;
+        this.a = new SparseArray<>();
     }
 
-    @Nullable
-    public String a() {
+    public static synchronized eca b() {
+        InterceptResult invokeV;
+        eca ecaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (eca.class) {
+                if (b == null) {
+                    b = new eca();
+                }
+                ecaVar = b;
+            }
+            return ecaVar;
+        }
+        return (eca) invokeV.objValue;
+    }
+
+    public CloudMusicData.MusicTagList.MusicList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a.get(4096);
         }
-        return (String) invokeV.objValue;
+        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
     }
 
-    public void b(CharSequence charSequence, int i, int i2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2) == null) && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0 && charSequence.charAt(i) == '@') {
-            i();
-        }
-    }
-
-    public void c(CharSequence charSequence, int i, int i2, String str) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (writeData = this.c) != null && 14 != writeData.getType() && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
-            this.d = false;
-            this.e = "";
-            if ("from_content".equals(str)) {
-                this.e = "from_content";
-            } else if ("from_title".equals(str)) {
-                this.e = "from_title";
-            }
-            if (hs5.f(String.valueOf(charSequence.charAt(i)))) {
-                this.b.m();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            b = null;
         }
     }
 
-    public String d(Intent intent) {
-        InterceptResult invokeL;
+    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
-            if (intent == null) {
-                return null;
-            }
-            String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
-            if (StringUtils.isNull(stringExtra)) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            if (this.d) {
-                sb.append("#");
-                this.d = false;
-            }
-            sb.append(stringExtra);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void e(ArrayList<AtSelectData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f = arrayList;
-        }
-    }
-
-    public void f(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void h(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.c = writeData;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getPageActivity(), 12004, true);
-            atListActivityConfig.setSelectedAtList(this.f);
-            this.a.sendMessage(new CustomMessage(2002001, atListActivityConfig));
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
+            this.a.put(4096, musicList);
         }
     }
 }

@@ -24,7 +24,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static SharedPreferences c;
     public static ScheduledExecutorService b = Executors.newSingleThreadScheduledExecutor(new f.a("tt_pangle_thread_pl_report"));
@@ -199,7 +199,7 @@ public final class d {
             if (!TextUtils.isEmpty(a2)) {
                 str3 = a2;
             }
-            jSONObject2.put("plugin_version", str3);
+            jSONObject2.put(PluginConstants.KEY_PLUGIN_VERSION, str3);
             jSONObject2.put("timestamp", System.currentTimeMillis() / 1000);
             jSONObject2.put("is_plugin", true);
             if (jSONObject != null) {

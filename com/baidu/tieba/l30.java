@@ -1,23 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.os.Bundle;
 /* loaded from: classes6.dex */
-public interface l30 {
-    String a();
+public interface l30<T> {
+    void onError(int i, Throwable th, Bundle bundle);
 
-    String a(Context context);
-
-    JSONArray b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String e(Context context);
-
-    JSONArray f(Context context);
-
-    JSONObject g(Context context);
+    void onResult(T t, Bundle bundle);
 }

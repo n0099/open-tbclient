@@ -1,37 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static boolean a(si5 si5Var) {
-        InterceptResult invokeL;
+    public kd9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, si5Var)) == null) {
-            if (si5Var != null) {
-                return si5Var.isViewAttached();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = -1;
+        this.b = 0;
     }
 
-    public static void b(si5 si5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{si5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(si5Var) && context != null && view2 != null) {
-            if (si5Var == null) {
-                si5Var = new si5(context, onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optInt("error_code", -1);
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                this.b = optJSONObject.optInt("msg_count");
             }
-            si5Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            si5Var.attachView(view2, z);
-            si5Var.p();
-            si5Var.onChangeSkinType();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

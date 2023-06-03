@@ -1,6 +1,5 @@
 package com.google.android.gms.common;
 
-import android.support.v4.media.session.MediaSessionCompat;
 import com.google.android.gms.common.annotation.KeepName;
 @KeepName
 /* loaded from: classes9.dex */
@@ -12,7 +11,7 @@ public final class GooglePlayServicesIncorrectManifestValueException extends Goo
     public GooglePlayServicesIncorrectManifestValueException(int i) {
         super(i, r1.toString());
         int i2 = GoogleApiAvailabilityLight.GOOGLE_PLAY_SERVICES_VERSION_CODE;
-        StringBuilder sb = new StringBuilder((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP);
+        StringBuilder sb = new StringBuilder(320);
         sb.append("The meta-data tag in your app's AndroidManifest.xml does not have the right value.  Expected ");
         sb.append(i2);
         sb.append(" but found ");

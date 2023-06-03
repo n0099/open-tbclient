@@ -1,8 +1,20 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,108 +25,304 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final vc0 a;
-    public static final p90 b;
+    public static int a;
+    public static int b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public kc0<T> m;
-        public lc0<T> n;
-
-        public a(kc0<T> kc0Var, lc0<T> lc0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kc0Var, lc0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.m = null;
-            this.n = null;
-            this.m = kc0Var;
-            this.n = lc0Var;
-        }
-
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        public void q(T t) {
-            lc0<T> lc0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (lc0Var = this.n) != null) {
-                lc0Var.onReturnDataInUI(t);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        /* renamed from: z */
-        public T f(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                try {
-                    if (this.m == null) {
-                        return null;
-                    }
-                    return this.m.a();
-                } catch (Throwable th) {
-                    uc0.c(th);
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
-        }
+    public interface b {
+        void a(boolean z);
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878354, "Lcom/baidu/tieba/jc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947878354, "Lcom/baidu/tieba/jc0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947878354, "Lcom/baidu/tieba/jc0;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final ViewGroup b;
+        public final gc0 c;
+        public final boolean d;
+        public final boolean e;
+        public final boolean f;
+        public final int g;
+        public boolean h;
+        public final b i;
+        public final int j;
+        public boolean k;
+        public int l;
+
+        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, gc0 gc0Var, b bVar, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, gc0Var, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947878354, "Lcom/baidu/tieba/jc0;");
-                return;
+            this.a = 0;
+            this.k = false;
+            this.b = viewGroup;
+            this.c = gc0Var;
+            this.d = z;
+            this.e = z2;
+            this.f = z3;
+            this.g = kc0.a(viewGroup.getContext());
+            this.i = bVar;
+            this.j = i;
+        }
+
+        private Context getContext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.b.getContext();
+            }
+            return (Context) invokeV.objValue;
+        }
+
+        public final void a(int i) {
+            int abs;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a == 0) {
+                    this.a = i;
+                    gc0 gc0Var = this.c;
+                    if (gc0Var != null) {
+                        gc0Var.refreshHeight(jc0.g(getContext()));
+                        return;
+                    }
+                    return;
+                }
+                if (hc0.a(this.d, this.e, this.f)) {
+                    abs = ((View) this.b.getParent()).getHeight() - i;
+                    Log.d("KeyboardStatusListener", String.format("action bar over layout %d display height: %d", Integer.valueOf(((View) this.b.getParent()).getHeight()), Integer.valueOf(i)));
+                } else {
+                    abs = Math.abs(i - this.a);
+                }
+                if (abs <= jc0.e(getContext())) {
+                    return;
+                }
+                Log.d("KeyboardStatusListener", String.format("pre display height: %d display height: %d keyboard: %d ", Integer.valueOf(this.a), Integer.valueOf(i), Integer.valueOf(abs)));
+                if (abs == this.g) {
+                    Log.w("KeyboardStatusListener", String.format("On global layout change get keyboard height just equal statusBar height %d", Integer.valueOf(abs)));
+                } else if (jc0.i(getContext(), abs)) {
+                    int g = jc0.g(getContext());
+                    gc0 gc0Var2 = this.c;
+                    if (gc0Var2 != null && gc0Var2.getHeight() != g) {
+                        this.c.refreshHeight(g);
+                    }
+                }
             }
         }
-        a = vc0.a();
-        b = new p90(BdAsyncTaskParallelType.SERIAL, a);
+
+        public final void b(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                View view2 = (View) this.b.getParent();
+                int height = view2.getHeight() - view2.getPaddingTop();
+                if (hc0.a(this.d, this.e, this.f)) {
+                    if (!this.e && height - i == this.g) {
+                        z = this.h;
+                    } else if (height > i) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                } else {
+                    int i2 = this.b.getResources().getDisplayMetrics().heightPixels;
+                    if (!this.e && i2 == height) {
+                        Log.w("KeyboardStatusListener", String.format("skip the keyboard status calculate, the current activity is paused. and phone-display-height %d, root-height+actionbar-height %d", Integer.valueOf(i2), Integer.valueOf(height)));
+                        return;
+                    }
+                    int i3 = this.l;
+                    if (i3 == 0) {
+                        z = this.h;
+                    } else if (i < i3 - jc0.e(getContext())) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.l = Math.max(this.l, height);
+                }
+                if (this.h != z) {
+                    Log.d("KeyboardStatusListener", String.format("displayHeight %d actionBarOverlayLayoutHeight %d keyboard status change: %B", Integer.valueOf(i), Integer.valueOf(height), Boolean.valueOf(z)));
+                    gc0 gc0Var = this.c;
+                    if (gc0Var != null) {
+                        gc0Var.a(z);
+                    }
+                    b bVar = this.i;
+                    if (bVar != null) {
+                        bVar.a(z);
+                    }
+                }
+                this.h = z;
+            }
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        @TargetApi(13)
+        public void onGlobalLayout() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                boolean z = false;
+                View childAt = this.b.getChildAt(0);
+                View view2 = (View) this.b.getParent();
+                Rect rect = new Rect();
+                if (this.e) {
+                    view2.getWindowVisibleDisplayFrame(rect);
+                    i = rect.bottom - rect.top;
+                    if (!this.k) {
+                        if (i == this.j) {
+                            z = true;
+                        }
+                        this.k = z;
+                    }
+                    if (!this.k) {
+                        i += this.g;
+                    }
+                } else if (childAt != null) {
+                    childAt.getWindowVisibleDisplayFrame(rect);
+                    i = rect.bottom - rect.top;
+                } else {
+                    Log.w("KeyBordUtil", "user root view not ready so ignore global layout changed!");
+                    i = -1;
+                }
+                if (i == -1) {
+                    return;
+                }
+                a(i);
+                b(i);
+                this.a = i;
+            }
+        }
     }
 
-    public static <T> BdAsyncTask a(kc0<T> kc0Var, lc0<T> lc0Var) {
-        InterceptResult invokeLL;
+    @TargetApi(13)
+    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, gc0 gc0Var, b bVar) {
+        InterceptResult invokeLLL;
+        int height;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, kc0Var, lc0Var)) == null) {
-            return b(kc0Var, lc0Var, 2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, gc0Var, bVar)) == null) {
+            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
+            boolean b2 = lc0.b(activity);
+            boolean c2 = lc0.c(activity);
+            boolean a2 = lc0.a(activity);
+            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
+            if (Build.VERSION.SDK_INT >= 13) {
+                Point point = new Point();
+                defaultDisplay.getSize(point);
+                height = point.y;
+            } else {
+                height = defaultDisplay.getHeight();
+            }
+            a aVar = new a(b2, c2, a2, viewGroup, gc0Var, bVar, height);
+            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
+            return aVar;
         }
-        return (BdAsyncTask) invokeLL.objValue;
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLL.objValue;
     }
 
-    public static <T> BdAsyncTask b(kc0<T> kc0Var, lc0<T> lc0Var, int i) {
-        InterceptResult invokeLLI;
+    public static int c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, kc0Var, lc0Var, i)) == null) {
-            if (kc0Var != null) {
-                a aVar = new a(kc0Var, lc0Var);
-                aVar.v(b);
-                aVar.x(a);
-                aVar.w(i);
-                aVar.g(new String[0]);
-                return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == 0) {
+                a = ic0.a(context, f(context.getResources()));
             }
-            return null;
+            return a;
         }
-        return (BdAsyncTask) invokeLLI.objValue;
+        return invokeL.intValue;
+    }
+
+    public static int d(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) {
+            if (b == 0) {
+                b = resources.getDimensionPixelSize(R.dimen.max_panel_height);
+            }
+            return b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (d == 0) {
+                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
+            }
+            return d;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resources)) == null) {
+            if (c == 0) {
+                c = resources.getDimensionPixelSize(R.dimen.min_panel_height);
+            }
+            return c;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return Math.min(d(context.getResources()), Math.max(f(context.getResources()), c(context)));
+        }
+        return invokeL.intValue;
+    }
+
+    public static void h(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, view2) == null) {
+            ((InputMethodManager) view2.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        }
+    }
+
+    public static boolean i(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
+            if (a == i || i < 0) {
+                return false;
+            }
+            a = i;
+            Log.d("KeyBordUtil", String.format("save keyboard: %d", Integer.valueOf(i)));
+            return ic0.b(context, i);
+        }
+        return invokeLI.booleanValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.nadcore.model;
 
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdOperator {
@@ -46,7 +47,7 @@ public class AdOperator {
 
     /* loaded from: classes3.dex */
     public enum TYPE {
-        CHECK("check"),
+        CHECK(ApkCheckUBCManagerKt.PAGE),
         DOWNLOAD("download");
         
         public final String type;

@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.permission.DangerousPermissionStatistic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.nw8;
+import com.baidu.tieba.k29;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,7 +52,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(DangerousPermissionStatistic.UBC_TYPE_VALUE_AGREE);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt("score");
                 boolean z = true;
@@ -62,7 +61,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 }
                 this.isFirstAgree = z;
             }
-            this.mActDialogData = nw8.a(optJSONObject);
+            this.mActDialogData = k29.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

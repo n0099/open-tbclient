@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0616a, x.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0636a, x.b {
     public boolean Fu = true;
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -77,12 +77,12 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0616a
     @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        getActivity().setTheme(R.style.obfuscated_res_0x7f100240);
-        setContentView(R.layout.obfuscated_res_0x7f0d0460);
+        getActivity().setTheme(R.style.obfuscated_res_0x7f100242);
+        setContentView(R.layout.obfuscated_res_0x7f0d046c);
         d(getIntent());
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912e6);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912fe);
         nv();
-        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912eb));
+        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091303));
         this.mk = aVar;
         aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
         this.mk.a(this);
@@ -110,12 +110,12 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0616a
         super.onResume();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0616a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0636a
     public final void r(View view2) {
         onBackPressed();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0616a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0636a
     public final void s(View view2) {
         finish();
     }

@@ -6,11 +6,11 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class InstallActivateReminderConfigItem extends b<InstallActivateReminderConfig> {
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class InstallActivateReminderConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6457271849826128465L;
         public int noticeTotalCount = 3;

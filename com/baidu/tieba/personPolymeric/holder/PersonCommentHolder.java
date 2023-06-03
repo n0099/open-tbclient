@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.gn;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static cn p;
+    public static gn p;
     public static String q;
     public transient /* synthetic */ FieldHolder $fh;
     public ReplyLinearLayout a;
@@ -72,18 +72,18 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09194a);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091970);
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c20);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092763);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dfe);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c4e);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09279b);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e2c);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091def);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09114c);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09115b);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091156);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091af4);
-        this.g = ri.d(view2.getContext(), 42.0f);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e1d);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09115f);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09116e);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091169);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b21);
+        this.g = vi.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
@@ -293,9 +293,9 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (str2 != null && !str2.equals(str)) {
                 p = null;
             }
-            cn cnVar = p;
-            if (cnVar != null) {
-                this.i.setImageBitmap(cnVar.p());
+            gn gnVar = p;
+            if (gnVar != null) {
+                this.i.setImageBitmap(gnVar.p());
                 q = str;
                 return;
             }

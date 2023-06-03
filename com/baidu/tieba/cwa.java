@@ -1,49 +1,127 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gcb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.kwad.sdk.core.response.model.AdInfo;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class cwa {
+public class cwa extends bwa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static RippedAd a(AdInfo adInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
-            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
-            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-            RippedAd.Builder builder = new RippedAd.Builder();
-            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
-            ArrayList arrayList = null;
-            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
-                str = null;
-            } else if (adMaterialInfo.materialType == 1) {
-                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
-                str2 = materialFeature.materialUrl;
-                str = materialFeature.coverUrl;
-                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
-                return builder.build();
-            } else {
-                ArrayList arrayList2 = new ArrayList();
-                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
-                    arrayList2.add(materialFeature2.materialUrl);
+    /* loaded from: classes5.dex */
+    public class a implements gcb.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ cwa c;
+
+        public a(cwa cwaVar, AtomicBoolean atomicBoolean, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cwaVar, atomicBoolean, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                str = null;
-                arrayList = arrayList2;
             }
-            str2 = str;
-            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
-            return builder.build();
+            this.c = cwaVar;
+            this.a = atomicBoolean;
+            this.b = obj;
         }
-        return (RippedAd) invokeL.objValue;
+
+        @Override // com.baidu.tieba.gcb.c
+        public void a(int i, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+                this.c.g = i;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gcb.c
+        public void b(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+                this.c.d = str;
+                this.c.b = z;
+                this.c.c = true;
+                this.c.g = 0;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cwa(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
+    }
+
+    @Override // com.baidu.tieba.awa
+    public awa d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n();
+            return this;
+        }
+        return (awa) invokeV.objValue;
+    }
+
+    public awa n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = new Object();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            gcb.d(this.a, new a(this, atomicBoolean, obj));
+            synchronized (obj) {
+                if (!atomicBoolean.get()) {
+                    try {
+                        obj.wait(4000L);
+                    } catch (InterruptedException unused) {
+                    }
+                }
+            }
+            return this;
+        }
+        return (awa) invokeV.objValue;
     }
 }

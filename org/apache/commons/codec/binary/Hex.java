@@ -7,7 +7,7 @@ import org.apache.commons.codec.BinaryDecoder;
 import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Hex implements BinaryEncoder, BinaryDecoder {
     public static final String DEFAULT_CHARSET_NAME = "UTF-8";
     public static final char[] DIGITS_LOWER = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ds7;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.us7;
+import com.baidu.tieba.ey7;
+import com.baidu.tieba.nx7;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes5.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements us7 {
+/* loaded from: classes6.dex */
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements ey7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<rn> mHotTopicDataList;
+    public List<vn> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabSocketResponse() {
@@ -39,8 +39,8 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.us7
-    public List<rn> getDataList() {
+    @Override // com.baidu.tieba.ey7
+    public List<vn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -49,7 +49,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.us7
+    @Override // com.baidu.tieba.ey7
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             if (hotThreadListResIdl.data == null) {
                 return hotThreadListResIdl;
             }
-            this.mHotTopicDataList = ds7.c(hotThreadListResIdl);
+            this.mHotTopicDataList = nx7.c(hotThreadListResIdl);
             return hotThreadListResIdl;
         }
         return invokeIL.objValue;

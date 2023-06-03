@@ -1,70 +1,84 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s78 extends e78 {
+public class s78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatRoomInfo a;
-    public boolean b;
+    public List<t78> a;
+    public List<t78> b;
 
-    @Override // com.baidu.tieba.e78
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public s78(ChatRoomInfo chatRoomInfo, boolean z) {
+    public s78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatRoomInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = chatRoomInfo;
-        this.b = z;
     }
 
-    public ChatRoomInfo a() {
+    @NonNull
+    public List<t78> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.a)) {
+                arrayList.addAll(this.a);
+            }
+            if (!ListUtils.isEmpty(this.b)) {
+                arrayList.addAll(this.b);
+            }
+            return arrayList;
         }
-        return (ChatRoomInfo) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.a = c(jSONObject, "tieba_memes");
+        this.b = c(jSONObject, "outer_memes");
     }
 
-    public void c(ChatRoomInfo chatRoomInfo) {
+    @Nullable
+    public final List<t78> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomInfo) == null) {
-            this.a = chatRoomInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(str);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    t78 t78Var = new t78();
+                    t78Var.a(optJSONArray.optJSONObject(i));
+                    if (t78Var.isValid()) {
+                        arrayList.add(t78Var);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
+        return (List) invokeLL.objValue;
     }
 }

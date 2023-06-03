@@ -1,47 +1,64 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class s63 {
+public class s63 implements u63, cx2 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static s63 d;
-    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public boolean b;
-    public Runnable c;
+    public boolean c;
+    public CopyOnWriteArrayList<c> d;
+    public CountDownTimer e;
+
+    @Override // com.baidu.tieba.u63
+    public void c(@NonNull Runnable runnable, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.u63
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s63 a;
 
-        public a(s63 s63Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(s63 s63Var, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s63Var};
+                Object[] objArr = {s63Var, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,62 +67,37 @@ public class s63 {
             this.a = s63Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.a.a.postDelayed(this.a.c, 60L);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s63 a;
-
-        public b(s63 s63Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s63Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (cx2.a) {
+                    Log.d("SwanPerformance", "count down onFinish");
                 }
+                this.a.d(true);
             }
-            this.a = s63Var;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                Object adapter = adapterView.getAdapter();
-                if (adapter instanceof EmojiBagLayout.b) {
-                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.a.a == null) {
-                        return;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                Iterator it = this.a.d.iterator();
+                while (it.hasNext()) {
+                    c cVar = (c) it.next();
+                    if (5000 - cVar.e() >= j) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    if (i == bVar.getCount() - 1) {
-                        if (this.a.b) {
-                            this.a.a.removeCallbacks(this.a.c);
-                            this.a.b = false;
-                            return;
+                    if (!cVar.g() && z) {
+                        cVar.h(true);
+                        u63 f = cVar.f();
+                        if (cx2.a) {
+                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
                         }
-                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                        return;
-                    }
-                    String item = bVar.getItem(i);
-                    if (!TextUtils.isEmpty(item)) {
-                        this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), t63.c().g(s63.e, item, this.a.a));
+                        f.d(true);
                     }
                 }
             }
@@ -113,85 +105,93 @@ public class s63 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements AdapterView.OnItemLongClickListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final s63 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s63 a;
 
-        public c(s63 s63Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s63Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-478468581, "Lcom/baidu/tieba/s63$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-478468581, "Lcom/baidu/tieba/s63$b;");
                     return;
                 }
             }
-            this.a = s63Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                Object adapter = adapterView.getAdapter();
-                if (!(adapter instanceof EmojiBagLayout.b) || i != ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    return false;
-                }
-                this.a.b = true;
-                if (this.a.a != null) {
-                    this.a.a.post(this.a.c);
-                    return false;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
+            a = new s63(null);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements View.OnTouchListener {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s63 a;
+        public u63 a;
+        public int b;
+        public boolean c;
 
-        public d(s63 s63Var) {
+        public c(@NonNull s63 s63Var, u63 u63Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s63Var};
+                Object[] objArr = {s63Var, u63Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = s63Var;
+            this.c = false;
+            this.a = u63Var;
+            this.b = i;
         }
 
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
+        public /* synthetic */ c(s63 s63Var, u63 u63Var, int i, a aVar) {
+            this(s63Var, u63Var, i);
+        }
+
+        public final void h(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.k();
-                    return false;
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.c = z;
             }
-            return invokeLL.booleanValue;
+        }
+
+        public final int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        @NonNull
+        public final u63 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (u63) invokeV.objValue;
+        }
+
+        public final boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -208,65 +208,170 @@ public class s63 {
                 return;
             }
         }
-        this.c = new a(this);
+        this.c = false;
+        this.d = new CopyOnWriteArrayList<>();
+        this.e = new a(this, 5000L, 500L);
     }
 
-    public AdapterView.OnItemClickListener h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u63
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new b(this);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.d.isEmpty()) {
+            return;
         }
-        return (AdapterView.OnItemClickListener) invokeV.objValue;
-    }
-
-    public AdapterView.OnItemLongClickListener i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new c(this);
+        if (cx2.a) {
+            Log.e("SwanPerformance", "triggerDestroy");
         }
-        return (AdapterView.OnItemLongClickListener) invokeV.objValue;
-    }
-
-    public View.OnTouchListener j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new d(this);
+        k();
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            it.next().f().b();
         }
-        return (View.OnTouchListener) invokeV.objValue;
+        this.c = false;
     }
 
-    public void k() {
-        EditText editText;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (editText = this.a) != null) {
-            editText.removeCallbacks(this.c);
-        }
-    }
-
-    public void f(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            this.a = editText;
-        }
-    }
-
-    public static s63 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            e = context.getApplicationContext();
-            if (d == null) {
-                synchronized (s63.class) {
-                    if (d == null) {
-                        d = new s63();
-                    }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.e.start();
+            } catch (Throwable th) {
+                if (cx2.a) {
+                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
                 }
             }
-            return d;
         }
-        return (s63) invokeL.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                this.e.cancel();
+            } catch (Throwable th) {
+                if (cx2.a) {
+                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
+                }
+            }
+        }
+    }
+
+    public /* synthetic */ s63(a aVar) {
+        this();
+    }
+
+    public static s63 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (s63) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u63
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (cx2.a) {
+                Log.e("SwanPerformance", "triggerFcp, url = " + str);
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().f().a(str);
+            }
+        }
+    }
+
+    public boolean h(u63 u63Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, u63Var)) == null) {
+            if (u63Var == null) {
+                return false;
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                if (u63Var.equals(it.next().f())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u63
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        k();
+        if (this.d.isEmpty()) {
+            return;
+        }
+        if (cx2.a) {
+            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
+        }
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (!next.g()) {
+                next.h(true);
+                next.f().d(z);
+            }
+        }
+        ri3.p();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("is_timeout", z);
+        bundle.putString("app_id", xb3.K().getAppId());
+        o83 e = o83.e();
+        q83 q83Var = new q83(23, bundle);
+        q83Var.f(true);
+        e.h(q83Var);
+    }
+
+    @Override // com.baidu.tieba.u63
+    @UiThread
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (z53.k()) {
+                ri3.a0(z53.j());
+            }
+            this.c = false;
+            if (this.d.isEmpty()) {
+                return;
+            }
+            if (cx2.a) {
+                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                next.h(false);
+                next.f().e(str);
+            }
+            k();
+            j();
+        }
+    }
+
+    public void i(u63 u63Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, u63Var, i) != null) || this.c || u63Var == null) {
+            return;
+        }
+        if (i > 5000) {
+            i = 5000;
+        }
+        if (!h(u63Var)) {
+            this.d.add(new c(this, u63Var, i, null));
+            if (cx2.a) {
+                Log.e("SwanPerformance", "register, task name = " + u63Var.getName() + " ; timeout = " + i);
+            }
+        }
     }
 }

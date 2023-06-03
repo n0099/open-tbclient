@@ -2,8 +2,8 @@ package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t7;
-import com.baidu.tieba.z6;
+import com.baidu.tieba.d7;
+import com.baidu.tieba.x7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t7 a;
+    public final x7 a;
     public short[] b;
     public float[] c;
     public int d;
-    public final z6 e;
-    public final t7 f;
+    public final d7 e;
+    public final x7 f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class a {
                 return;
             }
         }
-        this.a = new t7();
-        this.e = new z6();
-        this.f = new t7();
+        this.a = new x7();
+        this.e = new d7();
+        this.f = new x7();
     }
 
     public static int b(float f, float f2, float f3, float f4, float f5, float f6) {
@@ -65,23 +65,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             short[] sArr = this.b;
-            t7 t7Var = this.f;
-            t7Var.a(sArr[i(i)]);
-            t7Var.a(sArr[i]);
-            t7Var.a(sArr[h(i)]);
+            x7 x7Var = this.f;
+            x7Var.a(sArr[i(i)]);
+            x7Var.a(sArr[i]);
+            x7Var.a(sArr[h(i)]);
             this.a.d(i);
             this.e.f(i);
             this.d--;
         }
     }
 
-    public t7 c(float[] fArr) {
+    public x7 c(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) {
             return d(fArr, 0, fArr.length);
         }
-        return (t7) invokeL.objValue;
+        return (x7) invokeL.objValue;
     }
 
     public final int h(int i) {
@@ -105,7 +105,7 @@ public class a {
         return invokeI.intValue;
     }
 
-    public t7 d(float[] fArr, int i, int i2) {
+    public x7 d(float[] fArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, fArr, i, i2)) == null) {
@@ -113,11 +113,11 @@ public class a {
             int i3 = i2 / 2;
             this.d = i3;
             int i4 = i / 2;
-            t7 t7Var = this.a;
-            t7Var.b();
-            t7Var.c(i3);
-            t7Var.b = i3;
-            short[] sArr = t7Var.a;
+            x7 x7Var = this.a;
+            x7Var.b();
+            x7Var.c(i3);
+            x7Var.b = i3;
+            short[] sArr = x7Var.a;
             this.b = sArr;
             if (b.a(fArr, i, i2)) {
                 for (short s = 0; s < i3; s = (short) (s + 1)) {
@@ -129,19 +129,19 @@ public class a {
                     sArr[i6] = (short) ((i4 + i5) - i6);
                 }
             }
-            z6 z6Var = this.e;
-            z6Var.d();
-            z6Var.e(i3);
+            d7 d7Var = this.e;
+            d7Var.d();
+            d7Var.e(i3);
             for (int i7 = 0; i7 < i3; i7++) {
-                z6Var.a(a(i7));
+                d7Var.a(a(i7));
             }
-            t7 t7Var2 = this.f;
-            t7Var2.b();
-            t7Var2.c(Math.max(0, i3 - 2) * 3);
+            x7 x7Var2 = this.f;
+            x7Var2.b();
+            x7Var2.c(Math.max(0, i3 - 2) * 3);
             j();
-            return t7Var2;
+            return x7Var2;
         }
-        return (t7) invokeLII.objValue;
+        return (x7) invokeLII.objValue;
     }
 
     public final int f() {
@@ -226,11 +226,11 @@ public class a {
                 iArr[i2] = a(i2);
             }
             if (i == 3) {
-                t7 t7Var = this.f;
+                x7 x7Var = this.f;
                 short[] sArr = this.b;
-                t7Var.a(sArr[0]);
-                t7Var.a(sArr[1]);
-                t7Var.a(sArr[2]);
+                x7Var.a(sArr[0]);
+                x7Var.a(sArr[1]);
+                x7Var.a(sArr[2]);
             }
         }
     }

@@ -1,80 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j51 {
+public final class j51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public j51() {
+        this(null, null, null, 7, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + "/bddownload/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return e(context, "/mnt/sdcard");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT > 28) {
-                    return context.getExternalFilesDir(null);
-                }
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (c51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && c51.b("permission_storage")) {
-                        return c();
-                    }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        return context.getExternalFilesDir(null);
-                    }
-                    return context.getFilesDir();
-                }
-                return context.getFilesDir();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (File) invokeL.objValue;
     }
 
-    public static File c() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof j51) {
+                    j51 j51Var = (j51) obj;
+                    return Intrinsics.areEqual(this.a, j51Var.a) && Intrinsics.areEqual(this.b, j51Var.b) && Intrinsics.areEqual(this.c, j51Var.c);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageDirectory();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
-        return (File) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                return a(b(context).getPath());
-            } catch (Throwable unused) {
-                return a(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ConsoleLogItemData(key1=" + this.a + ", key2=" + this.b + ", content=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public j51(String key1, String key2, String content) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key1, key2, content};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        Intrinsics.checkNotNullParameter(key1, "key1");
+        Intrinsics.checkNotNullParameter(key2, "key2");
+        Intrinsics.checkNotNullParameter(content, "content");
+        this.a = key1;
+        this.b = key2;
+        this.c = content;
+    }
+
+    public /* synthetic */ j51(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
     }
 }

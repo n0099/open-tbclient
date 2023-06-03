@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.e28;
+import com.baidu.tieba.ga;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.y08;
+import com.baidu.tieba.n68;
+import com.baidu.tieba.t78;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
+public abstract class ChatMessage extends TbSocketMessage implements ga, vn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -52,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<e28> iceBreakEmotions;
+    public List<t78> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<y08> itemViewWeakReference;
+    public WeakReference<n68> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -126,7 +126,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = pg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = tg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -156,7 +156,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = pg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = tg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -281,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         return invokeV.intValue;
     }
 
-    public List<e28> getIceBreakEmotions() {
+    public List<t78> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
     }
 
     @Nullable
-    public y08 getItemView() {
+    public n68 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<y08> weakReference = this.itemViewWeakReference;
+            WeakReference<n68> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (y08) invokeV.objValue;
+        return (n68) invokeV.objValue;
     }
 
     public String getLink() {
@@ -578,7 +578,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         }
     }
 
-    @Override // com.baidu.tieba.rn
+    @Override // com.baidu.tieba.vn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -619,7 +619,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ca
+    @Override // com.baidu.tieba.ga
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -636,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable y08 y08Var) {
-        WeakReference<y08> weakReference;
+    public void setItemView(@Nullable n68 n68Var) {
+        WeakReference<n68> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, y08Var) == null) {
-            if (y08Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, n68Var) == null) {
+            if (n68Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<y08> weakReference2 = this.itemViewWeakReference;
+            WeakReference<n68> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == y08Var) {
+                if (weakReference2.get() == n68Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(y08Var);
+            this.itemViewWeakReference = new WeakReference<>(n68Var);
         }
     }
 
@@ -727,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         }
     }
 
-    public void setIceBreakEmotions(List<e28> list) {
+    public void setIceBreakEmotions(List<t78> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

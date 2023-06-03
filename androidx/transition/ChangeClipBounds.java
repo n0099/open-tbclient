@@ -31,7 +31,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     private void captureValues(TransitionValues transitionValues) {
-        View view2 = transitionValues.f1027view;
+        View view2 = transitionValues.f1028view;
         if (view2.getVisibility() == 8) {
             return;
         }
@@ -75,10 +75,10 @@ public class ChangeClipBounds extends Transition {
             if (rect.equals(rect2)) {
                 return null;
             }
-            ViewCompat.setClipBounds(transitionValues2.f1027view, rect);
-            objectAnimator = ObjectAnimator.ofObject(transitionValues2.f1027view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
+            ViewCompat.setClipBounds(transitionValues2.f1028view, rect);
+            objectAnimator = ObjectAnimator.ofObject(transitionValues2.f1028view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
             if (z) {
-                final View view2 = transitionValues2.f1027view;
+                final View view2 = transitionValues2.f1028view;
                 objectAnimator.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.ChangeClipBounds.1
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {

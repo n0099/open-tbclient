@@ -1,119 +1,302 @@
 package com.baidu.tieba;
 
-import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.SkinProgressView;
+import com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity;
+import com.baidu.tieba.themeCenter.background.BackgroundSetHttpResponseMessage;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.BackgroundSetSocketResponseMessage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l4a extends TimePickerDialog {
+public class l4a {
     public static /* synthetic */ Interceptable $ic;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
+    public BackgroundPreviewActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public k4a e;
+    public BdExpandListView f;
+    public i4a g;
+    public SkinProgressView h;
+    public DressItemData i;
+    public f4a j;
+    public View.OnClickListener k;
+    public jb l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l4a(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
-        super(context, onTimeSetListener, i, i2, z);
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l4a a;
+
+        public a(l4a l4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l4aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.i != null && this.a.j != null) {
+                TiebaStatic.log(new StatisticItem("c10284"));
+                if (this.a.i.getInUse()) {
+                    g95.e(this.a.a.getPageContext().getPageActivity(), 8);
+                } else {
+                    this.a.j.e(this.a.i, true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends jb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l4a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(l4a l4aVar, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l4aVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l4aVar;
+        }
+
+        @Override // com.baidu.tieba.jb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (!(responsedMessage instanceof BackgroundSetHttpResponseMessage) && !(responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
+                int i = x3a.b;
+                if (responsedMessage.getError() == x3a.c) {
+                    i = x3a.a;
+                }
+                this.a.j.d(i, responsedMessage.getErrorString(), this.a.i, ((BackgroundSetRequestMessage) responsedMessage.getOrginalMessage().getExtra()).getFromDetail());
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c10286").param("obj_id", this.a.i.getPropsId()).param("obj_type", this.a.i.getFreeUserLevel()));
+            this.a.i.setInUse(true);
+            this.a.m();
+            l95 m = l95.m();
+            m.z("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), this.a.i.getPropsId());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894288, "Lcom/baidu/tieba/l4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894288, "Lcom/baidu/tieba/l4a;");
+                return;
+            }
+        }
+        m = vi.g(TbadkApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703b6);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
+        }
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.l);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            mx9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            mx9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        }
+    }
+
+    public l4a(BackgroundPreviewActivity backgroundPreviewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
+            Object[] objArr = {backgroundPreviewActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
-        this.a = i;
-        this.b = i2;
+        this.k = new a(this);
+        this.l = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+        this.a = backgroundPreviewActivity;
+        View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0139, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090414);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.showBottomLine(false);
+        this.f = (BdExpandListView) this.a.findViewById(R.id.obfuscated_res_0x7f091bc8);
+        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09286c);
+        f4a f4aVar = new f4a(backgroundPreviewActivity.getPageContext(), this.a.getUniqueId());
+        this.j = f4aVar;
+        f4aVar.c(this.a.y1());
     }
 
-    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
+    public void j(BdExpandListView.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            if (i == -1) {
-                this.c = true;
-            } else {
-                int i3 = this.a;
-                if (i3 >= 0 && (i2 = this.b) >= 0) {
-                    updateTime(i3, i2);
-                }
-            }
-            super.onClick(dialogInterface, i);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.f.setExpandListRefreshListener(bVar);
         }
     }
 
-    @Override // android.app.TimePickerDialog
-    public void updateTime(int i, int i2) {
+    public void g() {
+        i4a i4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            super.updateTime(i, i2);
-            this.a = i;
-            this.b = i2;
-            this.c = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            et5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+                SkinManager.setBackgroundResource(this.d, R.color.common_color_10262);
+            }
+            BdExpandListView bdExpandListView = this.f;
+            if (bdExpandListView != null && bdExpandListView.getVisibility() == 0 && (i4aVar = this.g) != null) {
+                i4aVar.notifyDataSetChanged();
+            }
         }
     }
 
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public void onRestoreInstanceState(Bundle bundle) {
+    public final void m() {
+        DressItemData dressItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onRestoreInstanceState(bundle);
-            updateTime(0, 0);
-            this.a = bundle.getInt("hour_key");
-            int i = bundle.getInt("min_key");
-            this.b = i;
-            updateTime(this.a, i);
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (dressItemData = this.i) == null) {
+            return;
+        }
+        boolean inUse = dressItemData.getInUse();
+        int activityFinish = this.i.getActivityFinish();
+        this.h.setFontSize(vi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702b7));
+        if (inUse) {
+            this.h.b(0, 0.0f, this.i.getFreeUserLevel(), activityFinish, 2);
+        } else {
+            this.h.b(9, 0.0f, this.i.getFreeUserLevel(), activityFinish, 2);
         }
     }
 
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public Bundle onSaveInstanceState() {
-        Bundle bundle;
-        InterceptResult invokeV;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                bundle = super.onSaveInstanceState();
-            } catch (Exception unused) {
-                bundle = null;
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            bundle.putInt("hour_key", this.a);
-            bundle.putInt("min_key", this.b);
-            return bundle;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(m);
+            this.a.showNetRefreshView(this.b, string, false);
         }
-        return (Bundle) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    public void l(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.c) {
-                updateTime(this.a, this.b);
+        if (interceptable == null || interceptable.invokeL(1048583, this, dressItemData) == null) {
+            this.i = dressItemData;
+            if (dressItemData == null) {
+                k();
+                return;
             }
-            super.onStop();
+            e();
+            if (this.e == null) {
+                k4a k4aVar = new k4a(this.a);
+                this.e = k4aVar;
+                k4aVar.e(dressItemData);
+                this.f.addHeaderView(this.e.b());
+                this.e.d();
+                this.f.setExpandView(this.e.b(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703cf));
+                i4a i4aVar = new i4a(this.a.getPageContext(), dressItemData);
+                this.g = i4aVar;
+                this.f.setAdapter((ListAdapter) i4aVar);
+                i();
+                this.a.registerListener(this.l);
+            }
+            this.h.setDressData(this.i);
+            this.h.setOnClickListener(this.k);
+            m();
         }
     }
 }

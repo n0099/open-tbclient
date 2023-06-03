@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MediaDataBox implements Box {
     public static /* synthetic */ Interceptable $ic = null;
     public static Logger LOG = null;

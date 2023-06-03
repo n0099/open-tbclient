@@ -1,7 +1,7 @@
 package com.bytedance.pangle.res.a;
 
 import java.io.ByteArrayInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k {
     public static byte[] a(int i) {
         return new byte[]{(byte) (i >> 0), (byte) (i >> 8), (byte) (i >> 16), (byte) (i >> 24)};

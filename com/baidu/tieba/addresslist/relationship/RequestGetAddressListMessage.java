@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetAddressList.GetAddressListReqIdl;
 import tbclient.GetAddressList.ReqData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RequestGetAddressListMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final int INIT_TIMESTAMP = 0;

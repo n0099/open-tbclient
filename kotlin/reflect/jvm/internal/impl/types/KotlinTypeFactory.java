@@ -62,24 +62,24 @@ public final class KotlinTypeFactory {
     }
 
     private final MemberScope computeMemberScope(TypeConstructor typeConstructor, List<? extends TypeProjection> list, KotlinTypeRefiner kotlinTypeRefiner) {
-        ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
-        if (mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return mo2044getDeclarationDescriptor.getDefaultType().getMemberScope();
+        ClassifierDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor();
+        if (mo2099getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return mo2099getDeclarationDescriptor.getDefaultType().getMemberScope();
         }
-        if (mo2044getDeclarationDescriptor instanceof ClassDescriptor) {
+        if (mo2099getDeclarationDescriptor instanceof ClassDescriptor) {
             if (kotlinTypeRefiner == null) {
-                kotlinTypeRefiner = DescriptorUtilsKt.getKotlinTypeRefiner(DescriptorUtilsKt.getModule(mo2044getDeclarationDescriptor));
+                kotlinTypeRefiner = DescriptorUtilsKt.getKotlinTypeRefiner(DescriptorUtilsKt.getModule(mo2099getDeclarationDescriptor));
             }
             if (list.isEmpty()) {
-                return ModuleAwareClassDescriptorKt.getRefinedUnsubstitutedMemberScopeIfPossible((ClassDescriptor) mo2044getDeclarationDescriptor, kotlinTypeRefiner);
+                return ModuleAwareClassDescriptorKt.getRefinedUnsubstitutedMemberScopeIfPossible((ClassDescriptor) mo2099getDeclarationDescriptor, kotlinTypeRefiner);
             }
-            return ModuleAwareClassDescriptorKt.getRefinedMemberScopeIfPossible((ClassDescriptor) mo2044getDeclarationDescriptor, TypeConstructorSubstitution.Companion.create(typeConstructor, list), kotlinTypeRefiner);
-        } else if (mo2044getDeclarationDescriptor instanceof TypeAliasDescriptor) {
-            MemberScope createErrorScope = ErrorUtils.createErrorScope("Scope for abbreviation: " + ((TypeAliasDescriptor) mo2044getDeclarationDescriptor).getName(), true);
+            return ModuleAwareClassDescriptorKt.getRefinedMemberScopeIfPossible((ClassDescriptor) mo2099getDeclarationDescriptor, TypeConstructorSubstitution.Companion.create(typeConstructor, list), kotlinTypeRefiner);
+        } else if (mo2099getDeclarationDescriptor instanceof TypeAliasDescriptor) {
+            MemberScope createErrorScope = ErrorUtils.createErrorScope("Scope for abbreviation: " + ((TypeAliasDescriptor) mo2099getDeclarationDescriptor).getName(), true);
             Intrinsics.checkExpressionValueIsNotNull(createErrorScope, "ErrorUtils.createErrorSc…{descriptor.name}\", true)");
             return createErrorScope;
         } else {
-            throw new IllegalStateException("Unsupported classifier: " + mo2044getDeclarationDescriptor + " for constructor: " + typeConstructor);
+            throw new IllegalStateException("Unsupported classifier: " + mo2099getDeclarationDescriptor + " for constructor: " + typeConstructor);
         }
     }
 
@@ -93,8 +93,8 @@ public final class KotlinTypeFactory {
 
     public final ExpandedTypeOrRefinedConstructor refineConstructor(TypeConstructor typeConstructor, KotlinTypeRefiner kotlinTypeRefiner, List<? extends TypeProjection> list) {
         ClassifierDescriptor refineDescriptor;
-        ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
-        if (mo2044getDeclarationDescriptor == null || (refineDescriptor = kotlinTypeRefiner.refineDescriptor(mo2044getDeclarationDescriptor)) == null) {
+        ClassifierDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor();
+        if (mo2099getDeclarationDescriptor == null || (refineDescriptor = kotlinTypeRefiner.refineDescriptor(mo2099getDeclarationDescriptor)) == null) {
             return null;
         }
         if (refineDescriptor instanceof TypeAliasDescriptor) {
@@ -115,13 +115,13 @@ public final class KotlinTypeFactory {
     @JvmStatic
     @JvmOverloads
     public static final SimpleType simpleType(final Annotations annotations, final TypeConstructor typeConstructor, final List<? extends TypeProjection> list, final boolean z, KotlinTypeRefiner kotlinTypeRefiner) {
-        if (annotations.isEmpty() && list.isEmpty() && !z && typeConstructor.mo2044getDeclarationDescriptor() != null) {
-            ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
-            if (mo2044getDeclarationDescriptor == null) {
+        if (annotations.isEmpty() && list.isEmpty() && !z && typeConstructor.mo2099getDeclarationDescriptor() != null) {
+            ClassifierDescriptor mo2099getDeclarationDescriptor = typeConstructor.mo2099getDeclarationDescriptor();
+            if (mo2099getDeclarationDescriptor == null) {
                 Intrinsics.throwNpe();
             }
-            Intrinsics.checkExpressionValueIsNotNull(mo2044getDeclarationDescriptor, "constructor.declarationDescriptor!!");
-            SimpleType defaultType = mo2044getDeclarationDescriptor.getDefaultType();
+            Intrinsics.checkExpressionValueIsNotNull(mo2099getDeclarationDescriptor, "constructor.declarationDescriptor!!");
+            SimpleType defaultType = mo2099getDeclarationDescriptor.getDefaultType();
             Intrinsics.checkExpressionValueIsNotNull(defaultType, "constructor.declarationDescriptor!!.defaultType");
             return defaultType;
         }

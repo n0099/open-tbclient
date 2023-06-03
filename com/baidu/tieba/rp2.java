@@ -1,79 +1,180 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.util.ArrayList;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public interface rp2 extends sp2 {
+public class rp2 extends UnitedSchemeBaseInterceptor {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    void D(int i);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
 
-    void E();
+        public a(rp2 rp2Var, Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rp2Var, context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = str;
+        }
 
-    void F(long j);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                np2.n().f(this.a, this.b);
+            }
+        }
+    }
 
-    void I(int i);
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-    void J(int i);
+        public b(rp2 rp2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rp2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
 
-    void K(int i);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i = pp2.c().i(this.a);
+                np2 n = np2.n();
+                n.p("cloneResult = " + i);
+            }
+        }
+    }
 
-    void M(boolean z);
+    public rp2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void R();
+    public final String a(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unitedSchemeEntity)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                return null;
+            }
+            return optParamsAsJo.optString("appKey");
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void U(int i);
+    public final boolean b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            String trim = str.trim();
+            if (trim.length() == 0 || trim.contains("../")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void X(int i);
-
-    void Y(@NonNull a aVar);
-
-    void Z();
-
-    void c0(boolean z);
-
-    void d();
-
-    void d0(long j, boolean z);
-
-    void e(int i);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<vp2> h();
-
-    void h0(String str);
-
-    void i(boolean z);
-
-    void j(long j);
-
-    void k0(long j);
-
-    void l0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(up2 up2Var);
-
-    ArrayList<tp2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swanAPI")) {
+                return false;
+            }
+            String path = uri.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return false;
+            }
+            if (TextUtils.equals(path, "/clone")) {
+                String a2 = a(unitedSchemeEntity);
+                if (!b(a2)) {
+                    return false;
+                }
+                so3.k(new a(this, context, a2), "cloneSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
+            } else if (!TextUtils.equals(path, "/install")) {
+                return false;
+            } else {
+                String a3 = a(unitedSchemeEntity);
+                if (TextUtils.isEmpty(a3)) {
+                    return false;
+                }
+                so3.k(new b(this, a3), "installSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
 }

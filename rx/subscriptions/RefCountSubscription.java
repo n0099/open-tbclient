@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.icb;
-import com.baidu.tieba.p7b;
+import com.baidu.tieba.irb;
+import com.baidu.tieba.pmb;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
-public final class RefCountSubscription implements p7b {
+/* loaded from: classes2.dex */
+public final class RefCountSubscription implements pmb {
     public static final a c = new a(false, 0);
-    public final p7b a;
+    public final pmb a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
-    /* loaded from: classes10.dex */
-    public static final class InnerSubscription extends AtomicInteger implements p7b {
+    /* loaded from: classes2.dex */
+    public static final class InnerSubscription extends AtomicInteger implements pmb {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements p7b {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements p7b {
             return false;
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -35,7 +35,7 @@ public final class RefCountSubscription implements p7b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public final boolean a;
         public final int b;
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements p7b {
         }
     }
 
-    public p7b a() {
+    public pmb a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return icb.c();
+                return irb.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements p7b {
         c(b);
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements p7b {
         c(c2);
     }
 
-    public RefCountSubscription(p7b p7bVar) {
-        if (p7bVar != null) {
-            this.a = p7bVar;
+    public RefCountSubscription(pmb pmbVar) {
+        if (pmbVar != null) {
+            this.a = pmbVar;
             return;
         }
         throw new IllegalArgumentException("s");

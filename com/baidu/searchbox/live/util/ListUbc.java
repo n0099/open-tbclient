@@ -12,7 +12,7 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ListUbc {
     public static final String FROM = "liveshow";
     public static final String KEY_ID_REACH_LIVEROOM = "4081";

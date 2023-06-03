@@ -5,7 +5,7 @@ import java.net.Proxy;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RequestLine {
     public static String get(Request request, Proxy.Type type) {
         StringBuilder sb = new StringBuilder();

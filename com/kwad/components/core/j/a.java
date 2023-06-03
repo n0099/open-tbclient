@@ -26,7 +26,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C0614a {
+    public static final class C0634a {
         public static final a HH = new a();
     }
 
@@ -43,7 +43,7 @@ public final class a {
     }
 
     public static a og() {
-        return C0614a.HH;
+        return C0634a.HH;
     }
 
     public final void O(@NonNull AdTemplate adTemplate) {

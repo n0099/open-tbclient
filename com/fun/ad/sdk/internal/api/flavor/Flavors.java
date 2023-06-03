@@ -14,6 +14,7 @@ public class Flavors {
     public static final CallBackAware CALL_BACK_AWARE;
     public static final CpmAware CPM_AWARE;
     public static final PluginRC PLUGIN_RC;
+    public static final IAdForbidStrategyManager STRATEGY_MANAGER;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,6 +34,7 @@ public class Flavors {
         CALL_BACK_AWARE = new DefultCallBackAware();
         PLUGIN_RC = new DefaultPluginRC();
         CPM_AWARE = new DefultCpmImpl();
+        STRATEGY_MANAGER = new DefaultAdForbidStrategyManager();
     }
 
     public Flavors() {

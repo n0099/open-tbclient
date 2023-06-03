@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class o35 extends k35 {
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class o35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public i35 c;
 
     public o35() {
         Interceptable interceptable = $ic;
@@ -26,20 +28,54 @@ public class o35 extends k35 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new i35();
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.k35
-    public void a(@NonNull Context context, @NonNull c35 c35Var) {
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c35Var) == null) {
-            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-            clientUpdateInfo.mIsForceUpdate = c35Var.a("is_force_update");
-            clientUpdateInfo.mStatus = c35Var.a("status");
-            clientUpdateInfo.mReverson = c35Var.a("reverson");
-            clientUpdateInfo.mContentUrl = c35Var.a("content_url");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, c35Var.a("apk_md5_rsa"))));
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    UserData userData = new UserData();
+                    userData.parserJson(optJSONArray.getJSONObject(i));
+                    userData.mAttentionType = 2;
+                    this.a.add(userData);
+                }
+            }
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    UserData userData2 = new UserData();
+                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                    userData2.mAttentionType = 1;
+                    this.b.add(userData2);
+                }
+            }
+            this.c.i(jSONObject.optJSONObject("page"));
+            jSONObject.optInt("tafriendnum", 0);
+            jSONObject.optInt("commonfriendnum", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

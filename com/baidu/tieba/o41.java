@@ -1,52 +1,46 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.View;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947982173, "Lcom/baidu/tieba/o41;")) == null) {
+    public static void a(Runnable runnable, @NonNull String str, int i, long j) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) != null) || runnable == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (i != 0 && i != 1 && i != 2 && i != 3) {
+            i2 = 3;
+        } else {
+            i2 = i;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947982173, "Lcom/baidu/tieba/o41;");
+        w41.b().a().a(runnable, str, i2, j);
+    }
+
+    public static void b(Runnable runnable, @NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j)}) != null) || runnable == null) {
+            return;
+        }
+        w41.b().a().b(runnable, str, j);
+    }
+
+    public static void c(@NonNull Runnable runnable, @NonNull String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, runnable, str, i) == null) {
+            a(runnable, str, i, 0L);
         }
     }
 
-    @Nullable
-    public static Bitmap a(@Nullable View view2) {
-        InterceptResult invokeL;
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
-            }
-            try {
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-                return bitmap;
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, runnable, str) == null) {
+            b(runnable, str, 0L);
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

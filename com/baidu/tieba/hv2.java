@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class hv2 {
+import org.json.JSONObject;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class hv2 implements jo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public xj1<fv2> a;
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vj1 b = vj1.b();
-            this.a = b;
-            b.a(new gv2());
-        }
-    }
 
     public hv2() {
         Interceptable interceptable = $ic;
@@ -31,9 +26,35 @@ public class hv2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a();
+    }
+
+    @Override // com.baidu.tieba.jo4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return hp2.e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jo4
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hp2.c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jo4
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            hp2.f(jSONObject);
+        }
     }
 }

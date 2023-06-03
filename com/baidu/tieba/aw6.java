@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.zv6;
-/* loaded from: classes4.dex */
-public interface aw6 {
-    boolean a(QmFilterItem qmFilterItem);
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class aw6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    QmFilterItem b();
-
-    void c(QmFilterItem qmFilterItem);
-
-    void d(zv6.b bVar);
-
-    void e();
-
-    String f(String str);
-
-    void g();
-
-    void h();
-
-    void reset();
+    public static zv6 a(BaseFragment baseFragment, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
+            if (baseFragment == null) {
+                return null;
+            }
+            if (i == 1) {
+                return new ew6(baseFragment, i);
+            }
+            if (i == 2) {
+                return new dw6(baseFragment, i);
+            }
+            if (i != 3) {
+                return null;
+            }
+            return new bw6(baseFragment, i);
+        }
+        return (zv6) invokeLI.objValue;
+    }
 }

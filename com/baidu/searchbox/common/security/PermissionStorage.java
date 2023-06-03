@@ -102,7 +102,7 @@ public class PermissionStorage {
     }
 
     public static String getCreatePermissionTableSQL() {
-        return "CREATE TABLE " + PermissionItem.TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT,op INTEGER DEFAULT 0,mode INTEGER DEFAULT 0,ts INTEGER DEFAULT 0,type INTEGER DEFAULT 0,host TEXT," + PermissionItem.ITEM_EXT_0 + " TEXT," + PermissionItem.ITEM_EXT_1 + " TEXT," + PermissionItem.ITEM_EXT_2 + " TEXT," + PermissionItem.ITEM_EXT_3 + " TEXT," + PermissionItem.ITEM_EXT_4 + " TEXT," + PermissionItem.ITEM_EXT_5 + " TEXT," + PermissionItem.ITEM_EXT_6 + " TEXT);";
+        return "CREATE TABLE permissions (_id INTEGER PRIMARY KEY AUTOINCREMENT,op INTEGER DEFAULT 0,mode INTEGER DEFAULT 0,ts INTEGER DEFAULT 0,type INTEGER DEFAULT 0,host TEXT," + PermissionItem.ITEM_EXT_0 + " TEXT," + PermissionItem.ITEM_EXT_1 + " TEXT," + PermissionItem.ITEM_EXT_2 + " TEXT," + PermissionItem.ITEM_EXT_3 + " TEXT," + PermissionItem.ITEM_EXT_4 + " TEXT," + PermissionItem.ITEM_EXT_5 + " TEXT," + PermissionItem.ITEM_EXT_6 + " TEXT);";
     }
 
     public PermissionItem queryPermissionItemByOpAndHost(int i, String str) {
@@ -140,13 +140,13 @@ public class PermissionStorage {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mode", Integer.valueOf(permissionItem.mode));
             contentValues.put("ts", Long.valueOf(permissionItem.ts));
-            if (writableDatabase.update(PermissionItem.TABLE_NAME, contentValues, "op=? AND host =?", new String[]{String.valueOf(permissionItem.op), permissionItem.host}) == 0) {
+            if (writableDatabase.update("permissions", contentValues, "op=? AND host =?", new String[]{String.valueOf(permissionItem.op), permissionItem.host}) == 0) {
                 ContentValues contentValues2 = new ContentValues();
                 contentValues2.put("op", Integer.valueOf(permissionItem.op));
                 contentValues2.put("host", permissionItem.host);
                 contentValues2.put("mode", Integer.valueOf(permissionItem.mode));
                 contentValues2.put("ts", Long.valueOf(permissionItem.ts));
-                writableDatabase.insert(PermissionItem.TABLE_NAME, null, contentValues2);
+                writableDatabase.insert("permissions", null, contentValues2);
             }
         } catch (Exception e) {
             if (DEBUG) {

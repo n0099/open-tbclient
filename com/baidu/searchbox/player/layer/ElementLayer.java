@@ -9,14 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.element.AbsElement;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> extends AbsLayer implements View.OnClickListener {
     public T mContainer;
     public final ArrayList<S> mElements;
@@ -36,7 +35,6 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         this.mElements = new ArrayList<>();
     }
 
-    @PublicMethod
     public ArrayList<S> getElements() {
         return this.mElements;
     }
@@ -49,6 +47,7 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.layer.ILayer
     public void initLayer() {
+        super.initLayer();
         initContainer();
         setupElement();
         Iterator<S> it = this.mElements.iterator();
@@ -95,7 +94,6 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         this.mElements = new ArrayList<>();
     }
 
-    @PublicMethod
     public void addElement(@NonNull S s) {
         if (!this.mElements.contains(s)) {
             this.mElements.add(s);
@@ -128,11 +126,13 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         this.mContainer.removeView(s.getContentView());
     }
 
-    @PublicMethod
     public void dispatchEvent(@NonNull VideoEvent videoEvent) {
         Iterator<S> it = this.mElements.iterator();
         while (it.hasNext()) {
-            it.next().onEventNotify(videoEvent);
+            S next = it.next();
+            if (videoEvent.getSender() != next) {
+                next.onEventNotify(videoEvent);
+            }
         }
     }
 
@@ -175,7 +175,6 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         dispatchEvent(videoEvent);
     }
 
-    @PublicMethod
     public void removeElement(@NonNull S s) {
         if (this.mElements.remove(s)) {
             detachElementView(s);
@@ -195,6 +194,13 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         Iterator<S> it = this.mElements.iterator();
         while (it.hasNext()) {
             it.next().onPlayerStatusChanged(playerStatus, playerStatus2);
+        }
+    }
+
+    public void sendEvent(VideoEvent videoEvent, @NonNull Object obj) {
+        if (getMessenger() != null) {
+            videoEvent.setSender(obj);
+            getMessenger().notifyEvent(videoEvent);
         }
     }
 }

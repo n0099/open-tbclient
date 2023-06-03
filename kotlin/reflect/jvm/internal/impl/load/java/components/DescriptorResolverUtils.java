@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java.components;
 
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.Collection;
 import java.util.LinkedHashSet;
@@ -244,7 +245,7 @@ public final class DescriptorResolverUtils {
                 }
                 OverridingUtil.resolveUnknownVisibilityForMember(callableMemberDescriptor, new Function1<CallableMemberDescriptor, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.components.DescriptorResolverUtils.1.1
                     public static /* synthetic */ void $$$reportNull$$$0(int i) {
-                        throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", "descriptor", "kotlin/reflect/jvm/internal/impl/load/java/components/DescriptorResolverUtils$1$1", "invoke"));
+                        throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", "descriptor", "kotlin/reflect/jvm/internal/impl/load/java/components/DescriptorResolverUtils$1$1", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST));
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */

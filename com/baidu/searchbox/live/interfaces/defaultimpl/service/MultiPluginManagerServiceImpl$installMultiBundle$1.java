@@ -1,6 +1,7 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
 import android.app.Application;
+import android.text.TextUtils;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl;
@@ -57,6 +58,10 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1 implements
             genBundleCacheFileName = this.this$0.genBundleCacheFileName(validBackupBundle);
             genBundleFileName = this.this$0.genBundleFileName(validBackupBundle);
             if (!new File(file2.getAbsolutePath(), genBundleFileName).exists()) {
+                if (TextUtils.isEmpty(validBackupBundle.getDownloadUrl())) {
+                    this.$installCallback.onResult(this.$pkgName, false, -133, "pkgName is " + this.$pkgName + ", bkBundle.downloadUrl is null");
+                    return;
+                }
                 MultiPluginManagerServiceImpl multiPluginManagerServiceImpl = this.this$0;
                 String str2 = this.$pkgName;
                 String downloadUrl = validBackupBundle.getDownloadUrl();

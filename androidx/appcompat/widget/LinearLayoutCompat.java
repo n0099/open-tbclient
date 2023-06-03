@@ -15,7 +15,6 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.annotation.Retention;
@@ -244,7 +243,7 @@ public class LinearLayoutCompat extends ViewGroup {
         int i2 = i & 112;
         int i3 = this.mGravity;
         if ((i3 & 112) != i2) {
-            this.mGravity = i2 | (i3 & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR);
+            this.mGravity = i2 | (i3 & (-113));
             requestLayout();
         }
     }

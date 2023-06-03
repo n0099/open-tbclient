@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.os.Message;
 /* loaded from: classes7.dex */
-public interface qgb extends pgb {
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface qgb {
+    void a(Message message, int i);
 }

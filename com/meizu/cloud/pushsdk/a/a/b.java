@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.searchbox.player.model.YYOption;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
@@ -21,7 +22,7 @@ import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static final String a = "b";
     public static final Object b = new Object();
@@ -29,7 +30,7 @@ public class b {
 
     public b(Context context) {
         try {
-            System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
+            System.setProperty("sun.net.http.allowRestrictedHeaders", YYOption.IsLive.VALUE_TRUE);
         } catch (Exception e) {
             e.printStackTrace();
         }

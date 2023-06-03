@@ -17,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jw7;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.qs8;
-import com.baidu.tieba.rs8;
-import com.baidu.tieba.tx;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.ny8;
+import com.baidu.tieba.oy;
+import com.baidu.tieba.oy8;
+import com.baidu.tieba.py;
+import com.baidu.tieba.x18;
+import com.baidu.tieba.xg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs8>, View.OnClickListener {
+/* loaded from: classes6.dex */
+public class NearbyForumFriendCardView extends LinearLayout implements py, oy<oy8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public qs8 j;
-    public rs8 k;
+    public ny8 j;
+    public oy8 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -67,20 +67,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.oy
     /* renamed from: d */
-    public void a(rs8 rs8Var) {
+    public void a(oy8 oy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rs8Var) == null) {
-            this.k = rs8Var;
-            qs8 qs8Var = this.j;
-            if (qs8Var != null) {
-                qs8Var.D(rs8Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, oy8Var) == null) {
+            this.k = oy8Var;
+            ny8 ny8Var = this.j;
+            if (ny8Var != null) {
+                ny8Var.D(oy8Var.a);
             }
-            this.i.setData(rs8Var.b);
-            if (rs8Var.c) {
+            this.i.setData(oy8Var.b);
+            if (oy8Var.c) {
                 this.d.setVisibility(0);
-                jw7.q();
+                x18.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -90,9 +90,9 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09184d && getContext() != null && this.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091871 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            jw7.j();
+            x18.j();
         }
     }
 
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new qs8(context, vd5.l, 1);
+            this.j = new ny8(context, xg5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            rs8 rs8Var = this.k;
-            if (rs8Var != null) {
-                rs8Var.a = z;
+            oy8 oy8Var = this.k;
+            if (oy8Var != null) {
+                oy8Var.a = z;
             }
-            qs8 qs8Var = this.j;
-            if (qs8Var != null) {
-                qs8Var.D(z);
+            ny8 ny8Var = this.j;
+            if (ny8Var != null) {
+                ny8Var.D(z);
             }
         }
     }
@@ -167,17 +167,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06bc, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092643);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092642);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911cf);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09184d);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09184b);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09184a);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091453);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091db4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09267a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092679);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911e7);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091871);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09186f);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09186e);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09146b);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091de2);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -185,22 +185,22 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            p45 d = p45.d(this.c);
+            m75 d = m75.d(this.c);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X07);
             d.C(R.string.F_X02);
-            p45 d2 = p45.d(this.e);
+            m75 d2 = m75.d(this.e);
             d2.w(R.color.CAM_X0109);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X01);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            p45 d3 = p45.d(this.h);
+            m75 d3 = m75.d(this.h);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

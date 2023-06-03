@@ -1,148 +1,135 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.tieba.o84;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import okhttp3.HttpUrl;
 /* loaded from: classes6.dex */
 public class ma4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile ma4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qg2 a;
-    public ka4 b;
+    public HashMap<String, ea4> a;
 
-    public ma4(qg2 qg2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947965929, "Lcom/baidu/tieba/ma4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947965929, "Lcom/baidu/tieba/ma4;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    public ma4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qg2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = qg2Var;
-        this.b = new ka4();
+        this.a = new HashMap<>();
     }
 
-    @NonNull
-    public qa4 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return qa4.b("parameter error: the key cannot be null.");
-            }
-            Object obj = null;
-            String p = this.b.p(str, null);
-            if (p != null) {
-                obj = this.a.B(Base64.decode(p, 2), true);
-            }
-            if (obj == null) {
-                obj = qa4.h();
-            }
-            return qa4.i(obj);
-        }
-        return (qa4) invokeL.objValue;
-    }
-
-    @NonNull
-    public qa4 a() {
+    public static ma4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            cl3.h.update();
-            return qa4.i(null);
-        }
-        return (qa4) invokeV.objValue;
-    }
-
-    @NonNull
-    public pa4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            pa4 pa4Var = new pa4();
-            pa4Var.keys = n;
-            pa4Var.currentSize = this.b.m() / 1024;
-            pa4Var.limitSize = this.b.s() / 1024;
-            pa4Var.errMsg = na4.b("getStorageInfoSync");
-            return pa4Var;
-        }
-        return (pa4) invokeV.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) && jsSerializeValue != null) {
-            jsSerializeValue.release();
-        }
-    }
-
-    @NonNull
-    public qa4 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return qa4.b("parameter error: the key cannot be null.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (ma4.class) {
+                    if (c == null) {
+                        c = new ma4();
+                    }
+                }
             }
-            this.b.u(str);
-            cl3.h.update();
-            return qa4.i(null);
+            return c;
         }
-        return (qa4) invokeL.objValue;
+        return (ma4) invokeV.objValue;
     }
 
-    @NonNull
-    public qa4 f(String str, JsSerializeValue jsSerializeValue) {
-        InterceptResult invokeLL;
-        int length;
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return qa4.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return qa4.i(null);
-            } else {
-                byte[] L = this.a.L(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (L == null) {
-                    return qa4.b("parameter error: the data parse failed.");
-                }
-                String encodeToString = Base64.encodeToString(L, 2);
-                String p = this.b.p(str, null);
-                int length2 = str.getBytes().length;
-                int length3 = encodeToString.length() + length2;
-                if (p == null) {
-                    length = 0;
-                } else {
-                    length = p.length() + length2;
-                }
-                if (this.b.s() - this.b.m() < length3 - length) {
-                    return qa4.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                cl3.h.update();
-                if (t) {
-                    return qa4.i(null);
-                }
-                return qa4.b("storage error: the storage is invalid.");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
             }
         }
-        return (qa4) invokeLL.objValue;
+    }
+
+    public static void a(ij2 ij2Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, ij2Var, str) == null) && ij2Var != null && ij2Var.w() != null && !TextUtils.isEmpty(str)) {
+            ij2Var.w().b(str);
+        }
+    }
+
+    public void f(ij2 ij2Var, o84.c cVar) {
+        sb4 sb4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, ij2Var, cVar) == null) && ij2Var != null && cVar != null && (sb4Var = cVar.c) != null && sb4Var.g != null) {
+            e();
+            fv2.g0().getSwitch("swan_game_resource_preload", 0);
+        }
+    }
+
+    public final String c(String str, int i) {
+        InterceptResult invokeLI;
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+                return null;
+            }
+            return parse.url().toString() + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public synchronized ea4 d(ij2 ij2Var, f42 f42Var, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ij2Var, f42Var, i)) == null) {
+            synchronized (this) {
+                if (f42Var == null) {
+                    return null;
+                }
+                String B = f42Var.B("url");
+                String c2 = c(B, i);
+                if (TextUtils.isEmpty(c2)) {
+                    return null;
+                }
+                ea4 remove = this.a.remove(c2);
+                if (remove != null) {
+                    a(ij2Var, "preload used, url = " + B);
+                }
+                if (b) {
+                    Log.d("SwanGamePreloadManager", "obtainRequestTask requestType:" + i + ";url:" + B + ";task:" + remove);
+                }
+                return remove;
+            }
+        }
+        return (ea4) invokeLLI.objValue;
     }
 }

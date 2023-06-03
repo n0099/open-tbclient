@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r31 {
+public class r31 extends q31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BaseExecutorCell a;
-    @NonNull
-    public BaseExecutorCell b;
-    @NonNull
-    public BaseExecutorCell c;
 
     public r31() {
         Interceptable interceptable = $ic;
@@ -29,36 +22,51 @@ public class r31 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BaseExecutorCell.b(e31.d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.b = BaseExecutorCell.b(e31.e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.c = BaseExecutorCell.b(e31.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public boolean a(ElasticTask elasticTask) {
+    @Override // com.baidu.tieba.t31
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String sb = this.a.toString();
+            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public r31 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
-            int b = elasticTask.b();
-            if (b != 0 && b != 1) {
-                if (b == 2) {
-                    if (this.b.c(elasticTask)) {
-                        return true;
-                    }
-                    return this.c.c(elasticTask);
-                } else if (b == 3) {
-                    return this.c.c(elasticTask);
-                } else {
-                    return false;
-                }
-            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
-                return true;
-            } else {
-                return this.c.c(elasticTask);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("cr", str);
+            return this;
         }
-        return invokeL.booleanValue;
+        return (r31) invokeL.objValue;
+    }
+
+    public r31 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d("ci", str);
+            return this;
+        }
+        return (r31) invokeL.objValue;
+    }
+
+    public r31 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            d("ext", str);
+            return this;
+        }
+        return (r31) invokeL.objValue;
     }
 }

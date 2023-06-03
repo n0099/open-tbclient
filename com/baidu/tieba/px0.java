@@ -1,54 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class px0 implements sx0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface px0 {
+    void a(i01 i01Var);
 
-    public px0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(i01 i01Var);
 
-    @Override // com.baidu.tieba.sx0
-    @NonNull
-    public lx0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -812096555) {
-                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("CyberSysPlayer")) {
-                    c = 1;
-                }
-                c = 65535;
+    @Autowired
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @NonNull
+        @Inject(force = false)
+        public static px0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return hy0.a();
             }
-            if (c != 0) {
-                return new vx0();
-            }
-            return new nx0();
+            return (px0) invokeV.objValue;
         }
-        return (lx0) invokeL.objValue;
     }
 }

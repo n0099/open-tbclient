@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.ABTestConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e9<T> {
+public class e9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9<T> mContext;
-    public InputMethodManager mInputManager;
+    public int a;
 
-    public e9(g9<T> g9Var) {
+    public e9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,63 +36,170 @@ public class e9<T> {
                 return;
             }
         }
-        this.mContext = null;
-        this.mInputManager = null;
-        this.mContext = g9Var;
+        this.a = c9.b().a();
     }
 
-    public void HidenSoftKeyPad(View view2) {
+    public HashMap<String, r8> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            try {
-                if (this.mInputManager == null) {
-                    getInputMethodManager();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, r8> hashMap = new HashMap<>();
+            for (String str : c9.b().f()) {
+                try {
+                    String optString = new JSONObject(c9.b().e(str)).optString("sid");
+                    String[] split = optString.split("_");
+                    if (split.length == 2) {
+                        hashMap.put(optString, new r8(g30.d(split[0]), g30.d(split[1])));
+                    }
+                } catch (JSONException unused) {
+                    if (ABTestConfig.isDebug()) {
+                        Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                    }
                 }
-                if (this.mInputManager != null && view2 != null) {
-                    this.mInputManager.hideSoftInputFromWindow(view2.getWindowToken(), 2);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public void ShowSoftKeyPad(View view2) {
+    public HashMap<String, r8> b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, r8> hashMap = new HashMap<>();
             try {
-                getInputMethodManager().showSoftInput(view2, 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject(keys.next());
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("sid");
+                        String[] split = optString.split("_");
+                        if (split.length == 2) {
+                            hashMap.put(optString, new r8(g30.d(split[0]), g30.d(split[1])));
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+    public HashMap<String, r8> d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
-            this.mInputManager = inputMethodManager;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, r8> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONArray jSONArray = new JSONObject(str).getJSONArray("data");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new r8(g30.d(split[0]), g30.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    public InputMethodManager getInputMethodManager() {
+    public List<a9> e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : c9.b().f()) {
+                if (h30.a(str, this.a) == i) {
+                    try {
+                        arrayList.add(new a9(str, new JSONObject(c9.b().e(str)).opt("data")));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public HashMap<String, r8> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mInputManager == null) {
-                this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
+            HashMap<String, r8> hashMap = new HashMap<>();
+            String c = c9.b().c();
+            if (!TextUtils.isEmpty(c)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(c);
+                    if (jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new r8(g30.d(split[0]), g30.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            return this.mInputManager;
+            return hashMap;
         }
-        return (InputMethodManager) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public g9<T> getPageContext() {
-        InterceptResult invokeV;
+    public synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mContext;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                String d = c9.b().d();
+                String c = c9.b().c();
+                if (!TextUtils.isEmpty(c)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        JSONArray jSONArray = new JSONArray(c);
+                        jSONObject.put("version", d);
+                        jSONObject.put("exps", jSONArray);
+                        x20.h(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
-        return (g9) invokeV.objValue;
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                Set<String> f = c9.b().f();
+                JSONObject jSONObject = new JSONObject();
+                for (String str : f) {
+                    try {
+                        jSONObject.put(str, new JSONObject(c9.b().e(str)));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+                x20.l(jSONObject);
+            }
+        }
     }
 }

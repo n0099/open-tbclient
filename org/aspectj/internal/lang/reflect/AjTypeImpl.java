@@ -45,7 +45,7 @@ import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.Pointcut;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AjTypeImpl<T> implements AjType<T> {
     public static final String ajcMagic = "ajc$";
     public Class<T> clazz;

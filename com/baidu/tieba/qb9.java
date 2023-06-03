@@ -1,34 +1,16 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qb9 extends xi6<oa9> {
+public class qb9 extends v95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-
-    @Override // com.baidu.tieba.xi6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c8 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qb9(TbPageContext<?> tbPageContext) {
@@ -48,29 +30,15 @@ public class qb9 extends xi6<oa9> {
                 return;
             }
         }
-        this.i = (TextView) h();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi6
-    /* renamed from: r */
-    public void i(oa9 oa9Var) {
+    @Override // com.baidu.tieba.u95, com.baidu.tieba.kn
+    public View n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, oa9Var) != null) || oa9Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.n();
         }
-        this.i.setPadding(oa9Var.b, oa9Var.c, 0, oa9Var.d);
-        this.i.setText(this.c.getString(oa9Var.a));
-    }
-
-    @Override // com.baidu.tieba.xi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+        return (View) invokeV.objValue;
     }
 }

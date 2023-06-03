@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AuthWebViewRequestParam extends BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

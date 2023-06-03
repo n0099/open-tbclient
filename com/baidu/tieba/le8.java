@@ -1,61 +1,81 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class le8 extends ke8<re8> implements g37<le8> {
+public abstract class le8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public je8 a;
 
-    public le8 i() {
+    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (le8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le8(ve8<re8> data, String templateName) {
-        super(data);
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public le8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ve8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.g37
-    public String a() {
+    public Set<String> e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (d.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
+            }
+            return SetsKt__SetsJVMKt.setOf(d);
         }
-        return (String) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.g37
-    public /* bridge */ /* synthetic */ le8 b() {
-        i();
-        return this;
+    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            je8 je8Var = this.a;
+            if (je8Var != null) {
+                je8Var.b(abilityItem, baseMsg);
+            }
+        }
     }
 }

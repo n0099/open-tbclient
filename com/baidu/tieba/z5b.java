@@ -1,34 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class z5b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z5b {
+    void a();
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 12) {
-                return (i - 12) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+    void a(int i, String str);
 
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i <= 9) {
-                return (i - 1) + 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+    void a(Map<String, String> map);
+
+    void a(boolean z, int i, Map<String, String> map);
+
+    void b();
+
+    void b(int i, String str);
+
+    void c(RippedAd rippedAd, Map<String, String> map);
+
+    void d(RippedAd rippedAd, Map<String, String> map);
 }

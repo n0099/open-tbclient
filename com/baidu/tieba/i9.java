@@ -1,87 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i9 {
+public class i9<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static i9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources a;
+    public k9<T> mContext;
+    public InputMethodManager mInputManager;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448305853, "Lcom/baidu/tieba/i9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448305853, "Lcom/baidu/tieba/i9;");
-        }
-    }
-
-    public i9() {
+    public i9(k9<T> k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.mContext = null;
+        this.mInputManager = null;
+        this.mContext = k9Var;
     }
 
-    public static i9 a() {
-        InterceptResult invokeV;
+    public void HidenSoftKeyPad(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (i9.class) {
-                    if (b == null) {
-                        b = new i9();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            try {
+                if (this.mInputManager == null) {
+                    getInputMethodManager();
                 }
+                if (this.mInputManager != null && view2 != null) {
+                    this.mInputManager.hideSoftInputFromWindow(view2.getWindowToken(), 2);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return b;
         }
-        return (i9) invokeV.objValue;
     }
 
-    public synchronized Resources getResources() {
+    public void ShowSoftKeyPad(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            try {
+                getInputMethodManager().showSoftInput(view2, 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
+            this.mInputManager = inputMethodManager;
+        }
+    }
+
+    public InputMethodManager getInputMethodManager() {
         InterceptResult invokeV;
-        Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                resources = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mInputManager == null) {
+                this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
             }
-            return resources;
+            return this.mInputManager;
         }
-        return (Resources) invokeV.objValue;
+        return (InputMethodManager) invokeV.objValue;
     }
 
-    public synchronized void b(Resources resources) {
+    public k9<T> getPageContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
-            synchronized (this) {
-                this.a = resources;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mContext;
         }
+        return (k9) invokeV.objValue;
     }
 }

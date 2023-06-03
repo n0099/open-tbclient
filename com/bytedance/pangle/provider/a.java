@@ -9,9 +9,10 @@ import android.os.CancellationSignal;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.RequiresApi;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static int a(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str, String[] strArr, String str2) {
         if (contentResolver == null) {
@@ -243,7 +244,7 @@ public final class a {
             encodeToString = Base64.encodeToString(a.getBytes(), 10);
         }
         String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).b;
-        Uri parse = Uri.parse("content://" + str3 + File.separator + "proxy?provider_params=" + encodeToString);
+        Uri parse = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + str3 + File.separator + "proxy?provider_params=" + encodeToString);
         ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "进程[processName=" + pluginProcessNameByAuthority + "] build provider 【 uri:" + parse + " 】");
         return parse;
     }

@@ -8,7 +8,7 @@ import com.baidu.mapapi.search.base.LanguageType;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,11 +66,11 @@ public class f extends com.baidu.platform.base.e {
             this.a.a(SuggestAddrField.KEY_PAGE_SIZE, String.valueOf(reverseGeoCodeOption.getPageSize()));
             this.a.a("pois", "1");
             this.a.a("extensions_poi", "1");
-            this.a.a("extensions_town", "true");
+            this.a.a("extensions_town", YYOption.IsLive.VALUE_TRUE);
             if (reverseGeoCodeOption.getExtensionsRoad()) {
-                this.a.a("extensions_road", "true");
+                this.a.a("extensions_road", YYOption.IsLive.VALUE_TRUE);
             } else {
-                this.a.a("extensions_road", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                this.a.a("extensions_road", "false");
             }
             String poiType = reverseGeoCodeOption.getPoiType();
             if (!TextUtils.isEmpty(poiType)) {

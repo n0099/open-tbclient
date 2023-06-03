@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b18;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.gk8;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.hm8;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
-import com.baidu.tieba.kg8;
-import com.baidu.tieba.le8;
-import com.baidu.tieba.re8;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.yg8;
+import com.baidu.tieba.mk8;
+import com.baidu.tieba.q68;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.vm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B\r\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001a\u0010\u0015\u001a\u00020\u00162\b\u0010\u0017\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0018\u001a\u00020\u0004H\u0016J\u0010\u0010\u0019\u001a\u00020\u00162\u0006\u0010\u001a\u001a\u00020\u001bH\u0016J\u0010\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001d\u001a\u00020\u001bH\u0016J\u001a\u0010\u001e\u001a\u00020\u00162\u0006\u0010\u001f\u001a\u00020\u00032\b\u0010 \u001a\u0004\u0018\u00010\u0002H\u0002J\u0010\u0010!\u001a\u00020\u00162\u0006\u0010\u0018\u001a\u00020\u0004H\u0002J\u001a\u0010\"\u001a\u00020\u00162\b\u0010\u001f\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0018\u001a\u00020\u0004H\u0002R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\f\u001a\u00020\r8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0003X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lcom/baidu/tieba/impersonal/template/PersonalImageMsgTemplate;", "Lcom/baidu/tieba/impersonal/template/BasePersonalMsgTemplate;", "Lcom/baidu/tieba/impersonal/data/ImageMsgContent;", "Lcom/baidu/tieba/im/chat/view/ChatImageWithTailView;", "Lcom/baidu/tieba/impersonal/components/uistate/PersonalImageMsgUiState;", "name", "", "(Ljava/lang/String;)V", "containerPaddingH", "", "containerPaddingLeft", "containerPaddingRight", "imgHelper", "Lcom/baidu/tieba/impersonal/util/ImageHelper;", "getImgHelper", "()Lcom/baidu/tieba/impersonal/util/ImageHelper;", "imgHelper$delegate", "Lkotlin/Lazy;", "mData", "mImageView", "mImgUrl", "bindChild", "", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "data", "configContainer", "container", "Landroid/view/ViewGroup;", "createChild", "parent", "fillImageView", "image", "imageMsg", "processClickAction", "processLongClickAction", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailView, le8> {
+public final class PersonalImageMsgTemplate extends hm8<mk8, ChatImageWithTailView, gk8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy b;
@@ -60,12 +60,12 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
         }
         Intrinsics.checkNotNullParameter(name, "name");
         this.b = LazyKt__LazyJVMKt.lazy(PersonalImageMsgTemplate$imgHelper$2.INSTANCE);
-        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-        this.e = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-        this.f = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+        this.e = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+        this.f = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
     }
 
-    public static final void l(PersonalImageMsgTemplate this$0, le8 data, View view2) {
+    public static final void l(PersonalImageMsgTemplate this$0, gk8 data, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, data, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -74,7 +74,7 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
         }
     }
 
-    public static final boolean m(PersonalImageMsgTemplate this$0, ChatImageWithTailView chatImageWithTailView, le8 data, View view2) {
+    public static final boolean m(PersonalImageMsgTemplate this$0, ChatImageWithTailView chatImageWithTailView, gk8 data, View view2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, this$0, chatImageWithTailView, data, view2)) == null) {
@@ -86,24 +86,24 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
         return invokeLLLL.booleanValue;
     }
 
-    public final void o(ChatImageWithTailView chatImageWithTailView, re8 re8Var) {
+    public final void o(ChatImageWithTailView chatImageWithTailView, mk8 mk8Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, chatImageWithTailView, re8Var) == null) {
-            if (re8Var != null) {
-                str = re8Var.c();
+        if (interceptable == null || interceptable.invokeLL(1048581, this, chatImageWithTailView, mk8Var) == null) {
+            if (mk8Var != null) {
+                str = mk8Var.c();
             } else {
                 str = null;
             }
             if (str != null) {
-                String a = b18.a(re8Var.b());
+                String a = q68.a(mk8Var.b());
                 Intrinsics.checkNotNullExpressionValue(a, "getFixedSize(imageMsg.thumbSize)");
-                re8Var.f(b18.d(chatImageWithTailView, str, a, R.drawable.icon_pic_im_image_default));
+                mk8Var.f(q68.d(chatImageWithTailView, str, a, R.drawable.icon_pic_im_image_default));
             }
         }
     }
 
-    @Override // com.baidu.tieba.kg8
+    @Override // com.baidu.tieba.hm8
     public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
@@ -116,9 +116,9 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kg8
+    @Override // com.baidu.tieba.hm8
     /* renamed from: k */
-    public void d(final ChatImageWithTailView chatImageWithTailView, final le8 data) {
+    public void d(final ChatImageWithTailView chatImageWithTailView, final gk8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, chatImageWithTailView, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -126,7 +126,7 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
                 chatImageWithTailView.setBackgroundColor(SkinManager.getColor(R.color.transparent));
             }
             if (chatImageWithTailView != null) {
-                chatImageWithTailView.getImage().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jg8
+                chatImageWithTailView.getImage().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gm8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,7 +138,7 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
                         }
                     }
                 });
-                chatImageWithTailView.getImage().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.eg8
+                chatImageWithTailView.getImage().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.bm8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -157,7 +157,7 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kg8
+    @Override // com.baidu.tieba.hm8
     /* renamed from: n */
     public ChatImageWithTailView g(ViewGroup parent) {
         InterceptResult invokeL;
@@ -167,10 +167,10 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(parent.getContext());
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             chatImageWithTailView.e(false);
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f091b7e);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f091bab);
             GifView image = chatImageWithTailView.getImage();
             image.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            image.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070895));
+            image.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0708a8));
             image.setRadiusById(R.string.J_X18);
             image.setDrawBorder(true);
             return chatImageWithTailView;
@@ -178,11 +178,11 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
         return (ChatImageWithTailView) invokeL.objValue;
     }
 
-    public final void q(le8 le8Var) {
+    public final void q(gk8 gk8Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, le8Var) == null) {
-            re8 f = le8Var.c().f();
+        if (interceptable == null || interceptable.invokeL(1048583, this, gk8Var) == null) {
+            mk8 f = gk8Var.c().f();
             boolean z2 = false;
             if (f != null) {
                 String a = f.a();
@@ -198,7 +198,7 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
             }
             String str = this.c;
             if (!((str == null || str.length() == 0) ? true : true)) {
-                yg8 p = p();
+                vm8 p = p();
                 String str2 = this.c;
                 Intrinsics.checkNotNull(str2);
                 p.i(str2);
@@ -206,29 +206,29 @@ public final class PersonalImageMsgTemplate extends kg8<re8, ChatImageWithTailVi
         }
     }
 
-    public final yg8 p() {
+    public final vm8 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (yg8) this.b.getValue();
+            return (vm8) this.b.getValue();
         }
-        return (yg8) invokeV.objValue;
+        return (vm8) invokeV.objValue;
     }
 
-    public final void r(ChatImageWithTailView chatImageWithTailView, le8 le8Var) {
+    public final void r(ChatImageWithTailView chatImageWithTailView, gk8 gk8Var) {
         byte[] bArr;
         Context context;
         GifView image;
-        cn bdImage;
+        gn bdImage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatImageWithTailView, le8Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatImageWithTailView, gk8Var) == null) {
             String str = null;
             if (chatImageWithTailView != null && (image = chatImageWithTailView.getImage()) != null && (bdImage = image.getBdImage()) != null) {
                 bArr = bdImage.n();
             } else {
                 bArr = null;
             }
-            re8 f = le8Var.c().f();
+            mk8 f = gk8Var.c().f();
             if (f != null) {
                 str = f.c();
             }

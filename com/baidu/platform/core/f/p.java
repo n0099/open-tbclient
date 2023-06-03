@@ -1,9 +1,7 @@
 package com.baidu.platform.core.f;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,13 +50,13 @@ public class p extends com.baidu.platform.base.e {
             this.a.a("en", a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+                this.a.a("sc", planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
                 this.a.a("ec", planNode2.getCity());
             }
-            this.a.a("ie", IMAudioTransRequest.CHARSET);
+            this.a.a("ie", "utf-8");
             this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "3");
             this.a.a("rp_format", "json");

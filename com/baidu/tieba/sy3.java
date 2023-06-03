@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import org.apache.commons.codec.net.QCodec;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class sy3 {
+public class sy3 extends xt1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,18 +31,7 @@ public class sy3 {
                 return;
             }
         }
-        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, QCodec.UNDERSCORE, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-        b = new byte[128];
-        int i = 0;
-        while (true) {
-            byte[] bArr = a;
-            if (i < bArr.length) {
-                b[bArr[i]] = (byte) i;
-                i++;
-            } else {
-                return;
-            }
-        }
+        a = is1.a;
     }
 
     public sy3() {
@@ -60,33 +48,37 @@ public class sy3 {
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.uv1
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a && x73.G().booleanValue()) {
+                return false;
             }
-            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-                str = str + "$";
-            }
-            byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[(bytes.length / 3) * 4];
-            int i = 0;
-            int i2 = 0;
-            while (i < bytes.length) {
-                byte[] bArr2 = a;
-                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
-                int i3 = i + 1;
-                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-                int i4 = i + 2;
-                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
-                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-                i += 3;
-                i2 += 4;
-            }
-            return new String(bArr);
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.uv1
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (zt4.a()) {
+                    jSONObject.put("swanswitch_android_setdata", 1);
+                }
+                jSONObject.put("swanswitch_ab_inline_video", 1);
+                jSONObject.put("swanswitch_ab_inline_input", 1);
+                jSONObject.put("swanswitch_ab_inline_textarea", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

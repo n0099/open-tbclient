@@ -31,7 +31,7 @@ public class fo {
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
-            if (fo.m433a(bArr)) {
+            if (fo.m488a(bArr)) {
                 fo a2 = fo.a(bArr);
                 return (a2.f392a == 0 || a2.f392a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f393a);
             }
@@ -118,7 +118,7 @@ public class fo {
     }
 
     public static fo a(byte[] bArr) {
-        if (m433a(bArr)) {
+        if (m488a(bArr)) {
             ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
             order.getInt();
             short s = order.getShort();
@@ -132,7 +132,7 @@ public class fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m433a(byte[] bArr) {
+    public static boolean m488a(byte[] bArr) {
         byte[] bArr2 = a;
         return a(bArr2, bArr, bArr2.length);
     }

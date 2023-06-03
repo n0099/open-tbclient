@@ -17,7 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xm;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +122,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             top = new TrackDirection("top", 0);
             bottom = new TrackDirection("bottom", 1);
-            vertical = new TrackDirection("vertical", 2);
+            vertical = new TrackDirection(LiveConfig.CUT_LIST_VERTICAL_KEY, 2);
             TrackDirection trackDirection = new TrackDirection("none", 3);
             none = trackDirection;
             $VALUES = new TrackDirection[]{top, bottom, vertical, trackDirection};
@@ -405,7 +406,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (xm.a(f2, f, false) + this.d);
+                this.h.g = (int) (bn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -427,7 +428,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (xm.a(f2, f, false) + this.d);
+                this.h.g = (int) (bn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -450,7 +451,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (xm.a(f2, f, false) + this.d);
+                this.h.g = (int) (bn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -473,7 +474,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (xm.a(f2, f, false) + this.d);
+                this.h.g = (int) (bn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -1004,7 +1005,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.f = obtainStyledAttributes.getDimension(0, -1.0f);
             String string = obtainStyledAttributes.getString(6);
             if (string != null && string.length() > 0) {
-                if (q() && p() && "vertical".equals(string)) {
+                if (q() && p() && LiveConfig.CUT_LIST_VERTICAL_KEY.equals(string)) {
                     BdLog.d("VerticalTranslateLayout@parseTrack vertical");
                     this.i = TrackDirection.vertical;
                 } else if (p() && "bottom".equals(string)) {

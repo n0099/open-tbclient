@@ -1,138 +1,146 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
 /* loaded from: classes5.dex */
-public class ef2 extends bf2 {
+public class ef2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732344, "Lcom/baidu/tieba/ef2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947732344, "Lcom/baidu/tieba/ef2;");
-                return;
-            }
-        }
-        c = qp1.a;
-    }
-
-    public ef2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = o();
-    }
-
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public boolean e(cf2 cf2Var) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
+        if (r10.equals("1") != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cf2Var)) == null) {
-            if (cf2Var == null || !this.b.exists()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            char c = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            File file = this.b;
-            File file2 = new File(file, cf2Var.g + File.separator + cf2Var.q);
-            if (!file2.exists()) {
-                return false;
-            }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), cf2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 49:
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 1;
+                        break;
                     }
-                    return false;
-                }
-                File j = j(cf2Var.h, cf2Var.g, cf2Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 2;
+                        break;
                     }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
+                    c = 65535;
+                    break;
+                case 52:
+                    if (str.equals("4")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 53:
+                    if (str.equals("5")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 54:
+                    if (str.equals("6")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55:
+                    if (str.equals("7")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56:
+                    if (str.equals("8")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 57:
+                    if (str.equals("9")) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 1567:
+                            if (str.equals("10")) {
+                                c = '\t';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1568:
+                            if (str.equals("11")) {
+                                c = '\n';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1569:
+                            if (str.equals("12")) {
+                                c = 11;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return 6;
+                case 1:
+                    return 5;
+                case 2:
+                    return 8;
+                case 3:
+                    return 9;
+                case 4:
+                    return 10;
+                case 5:
+                    return 11;
+                case 6:
+                    return 12;
+                case 7:
+                    return 13;
+                case '\b':
+                    return 14;
+                case '\t':
+                    return 15;
+                case '\n':
+                    return 11;
+                case 11:
+                    return 12;
+                default:
+                    return 7;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return kp4.E(file2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return kp4.E(file);
-        }
-        return (String) invokeV.objValue;
+        return invokeL.intValue;
     }
 }

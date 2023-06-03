@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class PersonChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public PersonChangeData a;
     public b b;
-    public fb c;
+    public jb c;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -53,7 +53,7 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeModel a;
@@ -80,7 +80,7 @@ public class PersonChangeModel extends BdBaseModel {
             this.a = personChangeModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -111,18 +111,18 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonChangeModel(g9 g9Var, PersonChangeData personChangeData) {
-        super(g9Var);
+    public PersonChangeModel(k9 k9Var, PersonChangeData personChangeData) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var, personChangeData};
+            Object[] objArr = {k9Var, personChangeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -232,13 +232,13 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0db6));
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0def));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(tg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

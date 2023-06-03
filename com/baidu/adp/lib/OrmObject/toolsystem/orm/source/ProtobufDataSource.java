@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae;
-import com.baidu.tieba.cd;
 import com.baidu.tieba.ee;
-import com.baidu.tieba.hc;
-import com.baidu.tieba.kd;
+import com.baidu.tieba.gd;
+import com.baidu.tieba.ie;
+import com.baidu.tieba.lc;
+import com.baidu.tieba.od;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class ProtobufDataSource implements cd {
+public class ProtobufDataSource implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Set<String> keySet;
@@ -40,7 +40,7 @@ public class ProtobufDataSource implements cd {
             }
         }
         this.message = message;
-        List<Field> b = hc.b(message.getClass());
+        List<Field> b = lc.b(message.getClass());
         this.keySet = new HashSet();
         if (b != null && b.size() > 0) {
             for (Field field : b) {
@@ -51,7 +51,7 @@ public class ProtobufDataSource implements cd {
         }
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,22 +65,22 @@ public class ProtobufDataSource implements cd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return hc.d(this.message, str);
+            return lc.d(this.message, str);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                ae aeVar = new ae(type);
-                kd a = ee.a(object);
+                ee eeVar = new ee(type);
+                od a = ie.a(object);
                 if (a != null) {
-                    return a.a(aeVar);
+                    return a.a(eeVar);
                 }
                 return object;
             }
@@ -89,11 +89,11 @@ public class ProtobufDataSource implements cd {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
-            hc.i(this.message, str, obj);
+            lc.i(this.message, str, obj);
         }
     }
 }

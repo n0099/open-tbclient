@@ -1,69 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.filedownloader.TbFileDownloaderImpl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f57 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f57 extends Comparable<f57> {
+    boolean D();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715201, "Lcom/baidu/tieba/f57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715201, "Lcom/baidu/tieba/f57;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+    boolean E();
+
+    String I();
+
+    boolean Q();
+
+    int getPriority();
+
+    void hide();
+
+    int m(int i, int i2);
+
+    void reset();
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public static int a(f57 f57Var, f57 other) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, f57Var, other)) == null) {
+                Intrinsics.checkNotNullParameter(other, "other");
+                return Intrinsics.compare(other.getPriority(), f57Var.getPriority());
             }
-        }
-
-        public final g57 a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (i == 1) {
-                    return TbFileDownloaderImpl.a.a();
-                }
-                return TbFileDownloaderImpl.a.a();
-            }
-            return (g57) invokeI.objValue;
+            return invokeLL.intValue;
         }
     }
 }

@@ -1,56 +1,33 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.WeakHashMap;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.TypeIntrinsics;
+import kotlin.text.Regex;
+import kotlin.text.StringsKt__StringsKt;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes7.dex */
-public class sb0 {
+public final class sb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static sb0 b;
-    public static WeakHashMap<Object, List<qb0>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb0 a;
+    public Map<String, String> a;
+    public final String b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final sb0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-437923030, "Lcom/baidu/tieba/sb0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-437923030, "Lcom/baidu/tieba/sb0$b;");
-                    return;
-                }
-            }
-            a = new sb0(null);
-        }
-    }
-
-    public sb0() {
+    public sb0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,54 +37,101 @@ public class sb0 {
                 return;
             }
         }
-        c = new WeakHashMap<>();
-        this.a = new tb0();
+        this.b = str;
     }
 
-    public static sb0 a() {
+    public final Map<String, String> a() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Map<String, String> map = this.a;
+            if (map != null) {
+                if (map != null) {
+                    return TypeIntrinsics.asMutableMap(map);
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<kotlin.String, kotlin.String>");
             }
-            return b;
-        }
-        return (sb0) invokeV.objValue;
-    }
-
-    public /* synthetic */ sb0(a aVar) {
-        this();
-    }
-
-    public void b(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || c.isEmpty()) {
-            return;
-        }
-        this.a.c(c, obj);
-    }
-
-    public void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && obj != null && !c.isEmpty() && c.containsKey(obj)) {
-            this.a.e(c, obj);
-        }
-    }
-
-    public void c(Object obj, Class<?> cls, int i, pb0 pb0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, pb0Var) == null) && obj != null && cls != null && pb0Var != null && ub0.a(i)) {
-            this.a.d(c, obj, cls, i, pb0Var);
-        }
-    }
-
-    public synchronized void d(Object obj, Class<?> cls, pb0 pb0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, pb0Var) == null) {
-            synchronized (this) {
-                c(obj, cls, 1, pb0Var);
+            this.a = new HashMap();
+            if (StringsKt__StringsKt.indexOf$default((CharSequence) this.b, (char) RFC1522Codec.SEP, 0, false, 6, (Object) null) < 0) {
+                Map<String, String> map2 = this.a;
+                if (map2 != null) {
+                    return (HashMap) map2;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
             }
+            Object[] array = new Regex("\\?").split(this.b, 0).toArray(new String[0]);
+            if (array != null) {
+                String[] strArr = (String[]) array;
+                if (strArr.length < 2) {
+                    Map<String, String> map3 = this.a;
+                    if (map3 != null) {
+                        return (HashMap) map3;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                }
+                Object[] array2 = new Regex("&").split(strArr[1], 0).toArray(new String[0]);
+                if (array2 != null) {
+                    String[] strArr2 = (String[]) array2;
+                    if (strArr2.length == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        Map<String, String> map4 = this.a;
+                        if (map4 != null) {
+                            return (HashMap) map4;
+                        }
+                        throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                    }
+                    for (String str : strArr2) {
+                        Object[] array3 = new Regex("=").split(str, 0).toArray(new String[0]);
+                        if (array3 != null) {
+                            String[] strArr3 = (String[]) array3;
+                            if (strArr3.length >= 2) {
+                                Map<String, String> map5 = this.a;
+                                if (map5 != null) {
+                                    ((HashMap) map5).put(strArr3[0], strArr3[1]);
+                                } else {
+                                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                                }
+                            }
+                        } else {
+                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                        }
+                    }
+                    Map<String, String> map6 = this.a;
+                    if (map6 != null) {
+                        return (HashMap) map6;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+            }
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
         }
+        return (Map) invokeV.objValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(str)) {
+                String str2 = null;
+                try {
+                    str2 = Uri.parse(this.b).getQueryParameter(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return a().get(str);
+                }
+                return str2;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

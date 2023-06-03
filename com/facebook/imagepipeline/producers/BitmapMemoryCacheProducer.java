@@ -1,6 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.references.CloseableReference;
@@ -130,7 +130,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                 if (isOfFullQuality) {
                     String producerName = getProducerName();
                     if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                        map2 = ImmutableMap.of("cached_value_found", "true");
+                        map2 = ImmutableMap.of("cached_value_found", YYOption.IsLive.VALUE_TRUE);
                     } else {
                         map2 = null;
                     }
@@ -151,7 +151,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
                 String producerName2 = getProducerName();
                 if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                    map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                    map = ImmutableMap.of("cached_value_found", "false");
                 } else {
                     map = null;
                 }
@@ -168,7 +168,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             Consumer<CloseableReference<CloseableImage>> wrapConsumer = wrapConsumer(consumer, bitmapCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled());
             String producerName3 = getProducerName();
             if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                map3 = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+                map3 = ImmutableMap.of("cached_value_found", "false");
             }
             producerListener.onProducerFinishWithSuccess(producerContext, producerName3, map3);
             if (FrescoSystrace.isTracing()) {

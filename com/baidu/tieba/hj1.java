@@ -1,176 +1,239 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class hj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String b = b();
-            if (TextUtils.isEmpty(b)) {
-                return 0;
+    /* loaded from: classes6.dex */
+    public static class a extends fh1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gj1 a;
+
+        public a(gj1 gj1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
+            this.a = gj1Var;
+        }
+
+        @Override // com.baidu.tieba.fh1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                gj1.a aVar = new gj1.a();
+                aVar.a = 2;
+                aVar.b = bj1.a().getResources().getString(R.string.obfuscated_res_0x7f0f03b9);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fh1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                gj1.a aVar = new gj1.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = gj1.a.C0318a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = bj1.a().getResources().getString(R.string.obfuscated_res_0x7f0f03b9);
+                }
+                this.a.a(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends fh1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gj1 a;
+
+        public b(gj1 gj1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gj1Var;
+        }
+
+        @Override // com.baidu.tieba.fh1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                gj1.a aVar = new gj1.a();
+                aVar.a = 2;
+                aVar.b = bj1.a().getResources().getString(R.string.obfuscated_res_0x7f0f03b9);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fh1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                gj1.a aVar = new gj1.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.e = optJSONObject.optLong("reduceAmount");
+                        aVar.g = optJSONObject.optInt("overdueStatus");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = gj1.a.C0318a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = bj1.a().getResources().getString(R.string.obfuscated_res_0x7f0f03b9);
+                }
+                this.a.a(aVar);
+            }
+        }
+    }
+
+    public static void a(Bundle bundle, gj1 gj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, bundle, gj1Var) == null) {
+            hh1 hh1Var = new hh1();
+            oh1.d(hh1Var);
+            String string = bundle.getString("bduss");
+            bundle.remove("bduss");
+            c(string, hh1Var);
+            String string2 = bundle.getString("openBduss");
+            bundle.remove("openBduss");
+            e(string2, hh1Var);
+            String string3 = bundle.getString("clientId");
+            bundle.remove("clientId");
+            d(string3, hh1Var);
+            gh1 gh1Var = new gh1();
+            gh1Var.d("appKey", bundle.get("appKey").toString());
+            gh1Var.d("totalAmount", bundle.get("totalAmount").toString());
+            gh1Var.d("hostMarketingDetail", bundle.get("hostMarketingDetail").toString());
+            new lh1().a(ph1.b(), hh1Var, gh1Var, new b(gj1Var));
+        }
+    }
+
+    public static void b(String str, String str2, String str3, List<String> list, gj1 gj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, list, gj1Var) == null) {
+            hh1 hh1Var = new hh1();
+            oh1.d(hh1Var);
+            if (!TextUtils.isEmpty(str)) {
+                hh1Var.d("Cookie", "BDUSS=" + str);
+            }
+            gh1 gh1Var = new gh1();
+            gh1Var.d("appKey", str2);
+            gh1Var.d("totalAmount", str3);
+            if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray(b);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    long optLong = jSONArray2.optLong(i);
-                    if (s41.d(optLong, currentTimeMillis)) {
-                        jSONArray.put(optLong);
-                    }
-                }
-                g(jSONArray.toString());
-                return jSONArray.length();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b21.a().b("splash_sp_name").getString("today_cpc_show_list", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b21.a().b("splash_sp_name").getLong(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static JSONArray d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String string = b21.a().b("splash_sp_name").getString("today_show_list", "");
-            JSONArray jSONArray = new JSONArray();
-            if (TextUtils.isEmpty(string)) {
-                return jSONArray;
-            }
-            try {
-                JSONArray jSONArray2 = new JSONArray(string);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
-                    try {
-                        if (s41.d(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
-                            jSONArray.put(optJSONObject);
+                for (String str4 : list) {
+                    if (!TextUtils.isEmpty(str4)) {
+                        try {
+                            jSONArray.put(new JSONObject(str4));
+                        } catch (Exception unused) {
                         }
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                gh1Var.d("hostMarketingDetail", jSONArray.toString());
             }
-            b21.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void e(fj1 fj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fj1Var) == null) {
-            b21.a().b("splash_sp_name").h(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, System.currentTimeMillis() / 1000);
-            h(fj1Var);
-            cj1.m().g();
+            new lh1().a(ph1.b(), hh1Var, gh1Var, new a(gj1Var));
         }
     }
 
-    public static void g(@NonNull String str) {
+    public static void c(String str, hh1 hh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            b21.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, hh1Var) == null) && str != null && !TextUtils.isEmpty(str)) {
+            String a2 = hh1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                hh1Var.d("Cookie", str2);
+                return;
+            }
+            hh1Var.d("Cookie", a2 + "; " + str2);
         }
     }
 
-    public static void f() {
-        JSONArray jSONArray;
+    public static void d(String str, hh1 hh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            String b = b();
-            try {
-                if (TextUtils.isEmpty(b)) {
-                    jSONArray = new JSONArray();
-                } else {
-                    jSONArray = new JSONArray(b);
-                }
-                jSONArray.put(System.currentTimeMillis());
-                g(jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, hh1Var) == null) && str != null && !TextUtils.isEmpty(str)) {
+            String a2 = hh1Var.a("Cookie");
+            String str2 = "CLIENTID=" + str;
+            if (a2 == null) {
+                hh1Var.d("Cookie", str2);
+                return;
             }
+            hh1Var.d("Cookie", a2 + "; " + str2);
         }
     }
 
-    public static void h(fj1 fj1Var) {
-        JSONArray jSONArray;
+    public static void e(String str, hh1 hh1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, fj1Var) != null) || fj1Var == null) {
-            return;
-        }
-        if (fj1Var.k()) {
-            f();
-            return;
-        }
-        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
-        String string = b21.a().b("splash_sp_name").getString("today_show_list", "");
-        try {
-            if (TextUtils.isEmpty(string)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(string);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, hh1Var) == null) && str != null && !TextUtils.isEmpty(str)) {
+            String a2 = hh1Var.a("Cookie");
+            String str2 = "OPENBDUSS=" + str;
+            if (a2 == null) {
+                hh1Var.d("Cookie", str2);
+                return;
             }
-            boolean z = true;
-            if (jSONArray.length() > 0) {
-                int i = 0;
-                while (true) {
-                    if (i >= jSONArray.length()) {
-                        break;
-                    }
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (TextUtils.equals(optJSONObject.optString("k"), fj1Var.c)) {
-                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
-                        jSONArray.put(i, optJSONObject);
-                        z = false;
-                        break;
-                    }
-                    i++;
-                }
-            }
-            if (z) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k", fj1Var.c);
-                jSONObject.put("t", valueOf);
-                jSONArray.put(jSONObject);
-            }
-            b21.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            hh1Var.d("Cookie", a2 + "; " + str2);
         }
     }
 }

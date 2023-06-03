@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.b;
 
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.lang.reflect.Constructor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public final a a;
     public final Class<?>[] b;

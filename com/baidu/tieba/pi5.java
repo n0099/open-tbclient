@@ -1,38 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pi5 {
+public class pi5 extends ei5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static oi5 a(View view2, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pi5(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_image), 10, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (view2 instanceof LinearLayout) {
-                return new qi5();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new ti5();
-            }
-            if (!(view2 instanceof FrameLayout)) {
-                return null;
-            }
-            if (z) {
-                return new ui5();
-            }
-            return new mi5();
         }
-        return (oi5) invokeLZ.objValue;
+        this.d = R.drawable.icon_pure_post_image24;
+        this.e = R.drawable.icon_pure_post_image24_selection;
+        this.h = R.drawable.icon_post_image24_big;
+        this.i = false;
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{14};
     }
 }

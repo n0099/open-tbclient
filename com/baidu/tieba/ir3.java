@@ -1,178 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.util.Log;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.k83;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes6.dex */
 public class ir3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            b bVar;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && (bVar = this.a) != null) {
-                if (i == -1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                bVar.onResult(z);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863071, "Lcom/baidu/tieba/ir3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863071, "Lcom/baidu/tieba/ir3;");
+    public ir3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
-        b = new String[]{"BLA-AL00", "R7Plus"};
+        this.a = null;
     }
 
-    public static DialogInterface.OnClickListener a(b bVar) {
-        InterceptResult invokeL;
+    public final void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            return new a(bVar);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof RelativeLayout)) {
+            return;
         }
-        return (DialogInterface.OnClickListener) invokeL.objValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
-            }
-            return true;
+        if (this.a == null) {
+            RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
+            this.a = relativeLayout;
+            relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801bb);
         }
-        return invokeL.booleanValue;
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    public static void c(Context context) {
+    public void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String packageName = context.getPackageName();
-            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", packageName, null));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (fv2.M().a()) {
+            a(viewGroup);
+        } else {
+            c(viewGroup);
         }
     }
 
-    public static void d(Context context) {
+    public final void c(ViewGroup viewGroup) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(b).contains(Build.MODEL)) {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 26) {
-                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                } else if (i >= 21) {
-                    intent.putExtra("app_package", context.getPackageName());
-                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
-                }
-                try {
-                    context.startActivity(intent);
-                    return;
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
-                    }
-                    c(context);
-                    return;
-                }
-            }
-            c(context);
-        }
-    }
-
-    public static void e(Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            if (!(context instanceof Activity)) {
-                if (!a) {
-                    return;
-                }
-                throw new IllegalArgumentException("context must be activity.");
-            } else if (bVar == null) {
-            } else {
-                DialogInterface.OnClickListener a2 = a(bVar);
-                k83.a aVar = new k83.a(context);
-                aVar.n(new oo3());
-                k83 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1415);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1414));
-                aVar.y();
-                aVar.J(ns2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1416, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1413, a2);
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (relativeLayout = this.a) != null) {
+            viewGroup.removeView(relativeLayout);
+            this.a = null;
         }
     }
 }

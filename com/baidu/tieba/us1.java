@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes7.dex */
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface us1 {
-    String a(Context context);
+    void a(JSONObject jSONObject);
+
+    void b();
+
+    void c(JSONObject jSONObject);
 }

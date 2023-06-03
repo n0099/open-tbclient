@@ -4,23 +4,23 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.gd6;
-import com.baidu.tieba.hd6;
-import com.baidu.tieba.id6;
-import com.baidu.tieba.pd6;
-import com.baidu.tieba.rd6;
+import com.baidu.tieba.kh6;
+import com.baidu.tieba.lh6;
+import com.baidu.tieba.mh6;
+import com.baidu.tieba.th6;
+import com.baidu.tieba.vh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public id6 b;
-    public gd6 c;
+    public mh6 b;
+    public kh6 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -65,32 +65,32 @@ public class CardBasicLayout extends LinearLayout {
         this.a = -1;
     }
 
-    public void setData(int i, id6 id6Var) {
-        hd6 a;
+    public void setData(int i, mh6 mh6Var) {
+        lh6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, id6Var) == null) {
-            this.b = id6Var;
-            if (id6Var != null && id6Var.a() != null && (a = this.b.a()) != null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, mh6Var) == null) {
+            this.b = mh6Var;
+            if (mh6Var != null && mh6Var.a() != null && (a = this.b.a()) != null) {
                 int h = a.h();
-                if (h == rd6.b) {
+                if (h == vh6.b) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = pd6.d;
+                        this.a = th6.d;
                         this.c = this.b.f();
                         return;
                     }
-                    this.a = pd6.a;
-                    List<gd6> b = this.b.b();
+                    this.a = th6.a;
+                    List<kh6> b = this.b.b();
                     if (b != null && b.size() > i) {
                         this.c = b.get(i);
                     }
-                } else if (h == rd6.c) {
+                } else if (h == vh6.c) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = pd6.c;
-                        List<gd6> b2 = this.b.b();
+                        this.a = th6.c;
+                        List<kh6> b2 = this.b.b();
                         if (b2 != null && b2.size() > 0) {
-                            for (gd6 gd6Var : b2) {
-                                if (gd6Var.i() == 1) {
-                                    this.c = gd6Var;
+                            for (kh6 kh6Var : b2) {
+                                if (kh6Var.i() == 1) {
+                                    this.c = kh6Var;
                                     return;
                                 }
                             }
@@ -98,13 +98,13 @@ public class CardBasicLayout extends LinearLayout {
                         }
                         return;
                     }
-                    this.a = pd6.b;
-                    List<gd6> b3 = this.b.b();
+                    this.a = th6.b;
+                    List<kh6> b3 = this.b.b();
                     if (b3 != null && b3.size() > i) {
-                        gd6 gd6Var2 = b3.get(i);
-                        this.c = gd6Var2;
-                        if (gd6Var2.i() == 1 && i == 0) {
-                            this.a = pd6.c;
+                        kh6 kh6Var2 = b3.get(i);
+                        this.c = kh6Var2;
+                        if (kh6Var2.i() == 1 && i == 0) {
+                            this.a = th6.c;
                         }
                     }
                 }

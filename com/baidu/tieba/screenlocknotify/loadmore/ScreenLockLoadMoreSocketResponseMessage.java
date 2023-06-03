@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oi9;
+import com.baidu.tieba.vo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oi9 loadMoreData;
+    public vo9 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreSocketResponseMessage() {
@@ -37,13 +37,13 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
         }
     }
 
-    public oi9 getData() {
+    public vo9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.loadMoreData;
         }
-        return (oi9) invokeV.objValue;
+        return (vo9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -66,9 +66,9 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
                 return getMoreMsgResIdl;
             }
             if (dataRes != null) {
-                oi9 oi9Var = new oi9();
-                this.loadMoreData = oi9Var;
-                oi9Var.c(getMoreMsgResIdl.data);
+                vo9 vo9Var = new vo9();
+                this.loadMoreData = vo9Var;
+                vo9Var.c(getMoreMsgResIdl.data);
             }
             return getMoreMsgResIdl;
         }

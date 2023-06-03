@@ -15,11 +15,11 @@ import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String Qd;
     }
@@ -42,7 +42,7 @@ public final class c {
             public final void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C0642a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
+                    a.C0662a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
                     if (by != null) {
                         outputStream = by.au(0);
                         if (c.a(str, outputStream, new a())) {
@@ -65,7 +65,7 @@ public final class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0642a by = aVar.by(str2);
+                a.C0662a by = aVar.by(str2);
                 if (by != null) {
                     outputStream = by.au(0);
                     if (a(str, outputStream, aVar2)) {

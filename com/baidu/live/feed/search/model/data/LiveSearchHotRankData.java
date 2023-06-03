@@ -2,7 +2,6 @@ package com.baidu.live.feed.search.model.data;
 
 import android.text.TextUtils;
 import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -18,7 +17,7 @@ public class LiveSearchHotRankData {
         }
         try {
             JSONObject optJSONObject2 = new JSONObject(str).optJSONObject("data");
-            if (optJSONObject2 != null && optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1 && (optJSONObject = optJSONObject2.optJSONObject("hot_rank")) != null && (optJSONArray = optJSONObject.optJSONArray("merge")) != null && optJSONArray.length() > 0) {
+            if (optJSONObject2 != null && optJSONObject2.optInt("switch") == 1 && (optJSONObject = optJSONObject2.optJSONObject("hot_rank")) != null && (optJSONArray = optJSONObject.optJSONArray("merge")) != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     LiveRoomEntity liveRoomEntity = new LiveRoomEntity();

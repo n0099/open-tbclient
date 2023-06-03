@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.ks3;
+import com.baidu.tieba.cv3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -75,7 +75,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$ApplicationData buildPartial() {
-            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (ks3) null);
+            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (cv3) null);
             int i = 1;
             if ((this.a & 1) != 1) {
                 i = 0;
@@ -95,7 +95,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: o */
-        public b mo29clone() {
+        public b mo43clone() {
             b p = p();
             p.s(buildPartial());
             return p;
@@ -323,7 +323,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cv3 cv3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -355,7 +355,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, cv3 cv3Var) {
         this(builder);
     }
 

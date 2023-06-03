@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void p(t75 t75Var) {
+    public void p(pa5 pa5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t75Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pa5Var) == null) {
         }
     }
 
@@ -72,7 +72,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
-                p45 d = p45.d(eMTextView);
+                m75 d = m75.d(eMTextView);
                 d.w(R.color.CAM_X0101);
                 d.C(R.string.F_X01);
                 d.o(R.string.J_X07);
@@ -150,7 +150,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
 
     public void o(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !qi.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !ui.isEmpty(str)) {
             lightEmotionView.b.setText(str);
         }
     }

@@ -1,115 +1,173 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import tbclient.GetTails.ColorInfo;
-import tbclient.GetTails.ResData;
-import tbclient.GetTails.TailInfo;
 /* loaded from: classes5.dex */
 public class eq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
+    public static Application.ActivityLifecycleCallbacks b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<TailData> a;
-    public List<String> b;
-    public SmallTailThemeData c;
 
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+                if (eq8.c(activity) || eq8.d(activity)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, activity));
+                }
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+                if ((eq8.c(activity) || eq8.d(activity)) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, activity));
+                }
+            }
         }
     }
 
-    public eq8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743101, "Lcom/baidu/tieba/eq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743101, "Lcom/baidu/tieba/eq8;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        a = Arrays.asList("com.baidu.sapi2.activity.LoginActivity", "com.baidu.sapi2.activity.social.WXLoginActivity");
     }
 
-    public List<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public SmallTailThemeData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (SmallTailThemeData) invokeV.objValue;
-    }
-
-    public List<TailData> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void d(ResData resData) {
-        List<TailInfo> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
-            return;
-        }
-        for (TailInfo tailInfo : list) {
-            if (f(tailInfo)) {
-                TailData tailData = new TailData();
-                tailData.setContent(tailInfo.tailContent);
-                tailData.setFontColor(tailInfo.fontColor);
-                tailData.setFontType(tailInfo.fontKeyName);
-                tailData.setId(tailInfo.tailId.intValue());
-                boolean z = true;
-                if (tailInfo.is_selected.intValue() != 1) {
-                    z = false;
-                }
-                tailData.setSelected(z);
-                c().add(tailData);
-            }
-        }
-        e(resData.default_color);
-        for (ColorInfo colorInfo : resData.colorList) {
-            a().add(colorInfo.fontColor);
-        }
-        if (resData.tail_style != null) {
-            this.c = new SmallTailThemeData(resData.tail_style);
-        } else {
-            this.c = SmallTailThemeData.DEFAULT;
-        }
-    }
-
-    public final boolean f(TailInfo tailInfo) {
+    public static boolean d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
-            Integer num = tailInfo.tailId;
-            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            return a.contains(activity.getComponentName().getClassName());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, application) == null) {
+            if (b == null) {
+                b = new b(null);
+            }
+            application.registerActivityLifecycleCallbacks(b);
+        }
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            String className = activity.getComponentName().getClassName();
+            if (!className.contains("AlaMasterLiveRoomActivity") && !className.contains("LivePlayerActivity") && !className.contains("LiveShowActivity") && !className.contains("AlaLiveEndActivity") && !className.contains("LiveListActivity") && !className.contains("BuyTBeanActivity") && !className.contains("YuyinLivePlayerActivity") && !className.contains("YuyinAlaCreateLiveRoomActivity")) {
+                if (className.equals("com.baidu.megapp.proxy.activity.ActivityProxy")) {
+                    String stringExtra = activity.getIntent().getStringExtra("megapp_extra_target_activity");
+                    if (!TextUtils.isEmpty(stringExtra) && (stringExtra.contains("AlaMasterLiveRoomActivity") || stringExtra.contains("LivePlayerActivity") || stringExtra.contains("AlaLiveEndActivity"))) {
+                        return true;
+                    }
+                }
+                if (!className.contains("com.yy.mobile") && !className.contains("com.duowan.mobile")) {
+                    return false;
+                }
             }
             return true;
         }

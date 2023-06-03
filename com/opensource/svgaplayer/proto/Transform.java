@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t4b;
-import com.baidu.tieba.u4b;
-import com.baidu.tieba.y4b;
+import com.baidu.tieba.ddb;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.idb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Transform> ADAPTER;
@@ -42,7 +42,7 @@ public final class Transform extends Message<Transform, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public final class Transform extends Message<Transform, Builder> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,41 +167,41 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(t4b t4bVar) throws IOException {
+        public Transform decode(ddb ddbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t4bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ddbVar)) == null) {
                 Builder builder = new Builder();
-                long c = t4bVar.c();
+                long c = ddbVar.c();
                 while (true) {
-                    int f = t4bVar.f();
+                    int f = ddbVar.f();
                     if (f != -1) {
                         switch (f) {
                             case 1:
-                                builder.a(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.a(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             case 2:
-                                builder.b(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.b(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             case 3:
-                                builder.c(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.c(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             case 4:
-                                builder.d(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.d(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             case 5:
-                                builder.tx(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.tx(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             case 6:
-                                builder.ty(ProtoAdapter.FLOAT.decode(t4bVar));
+                                builder.ty(ProtoAdapter.FLOAT.decode(ddbVar));
                                 break;
                             default:
-                                FieldEncoding g = t4bVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(t4bVar));
+                                FieldEncoding g = ddbVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ddbVar));
                                 break;
                         }
                     } else {
-                        t4bVar.d(c);
+                        ddbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -280,34 +280,34 @@ public final class Transform extends Message<Transform, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(u4b u4bVar, Transform transform) throws IOException {
+        public void encode(edb edbVar, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, u4bVar, transform) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, edbVar, transform) == null) {
                 Float f = transform.a;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 1, f);
                 }
                 Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 2, f2);
                 }
                 Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 3, f3);
                 }
                 Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 4, f4);
                 }
                 Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 5, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 5, f5);
                 }
                 Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(u4bVar, 6, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(edbVar, 6, f6);
                 }
-                u4bVar.k(transform.unknownFields());
+                edbVar.k(transform.unknownFields());
             }
         }
     }
@@ -415,7 +415,7 @@ public final class Transform extends Message<Transform, Builder> {
                 return false;
             }
             Transform transform = (Transform) obj;
-            if (unknownFields().equals(transform.unknownFields()) && y4b.f(this.a, transform.a) && y4b.f(this.b, transform.b) && y4b.f(this.c, transform.c) && y4b.f(this.d, transform.d) && y4b.f(this.tx, transform.tx) && y4b.f(this.ty, transform.ty)) {
+            if (unknownFields().equals(transform.unknownFields()) && idb.f(this.a, transform.a) && idb.f(this.b, transform.b) && idb.f(this.c, transform.c) && idb.f(this.d, transform.d) && idb.f(this.tx, transform.tx) && idb.f(this.ty, transform.ty)) {
                 return true;
             }
             return false;

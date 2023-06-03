@@ -3,7 +3,6 @@ package kotlin.reflect.jvm.internal.impl.load.java;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BindVerifyActivity;
 import com.google.gson.internal.bind.TypeAdapters;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorWithVisibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentDescriptor;
@@ -29,7 +28,7 @@ public class JavaVisibilities {
                 }
                 objArr[0] = "kotlin/reflect/jvm/internal/impl/load/java/JavaVisibilities$1";
             } else {
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
             }
             if (i == 3) {
                 objArr[1] = BindVerifyActivity.l;
@@ -150,7 +149,7 @@ public class JavaVisibilities {
             if (i == 1) {
                 objArr[0] = "from";
             } else if (i == 2) {
-                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                objArr[0] = "visibility";
             } else if (i != 3) {
                 objArr[0] = "what";
             } else {

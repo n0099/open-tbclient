@@ -3,10 +3,10 @@ package com.baidu.searchbox.pms.init.response;
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.dyesdk.DyeService;
-import com.baidu.searchbox.net.update.UpdateConstants;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -125,7 +125,7 @@ public class ParseUtils {
         packageInfo.updateSign = jSONObject.optString("sign");
         DyeService dyeService = (DyeService) ServiceManager.getService(DyeService.Companion.getSERVICE_REFERENCE());
         if (dyeService != null) {
-            dyeService.putRawDyeConfig(BIZ_NAME_PREFIX + str, str2, jSONObject.optString(UpdateConstants.TRACE_ID, ""));
+            dyeService.putRawDyeConfig(BIZ_NAME_PREFIX + str, str2, jSONObject.optString("trace_id", ""));
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
@@ -140,8 +140,8 @@ public class ParseUtils {
                 packageInfo.maxHostVersion = optJSONObject2.optString("maxv");
                 packageInfo.maxHostVersion = optJSONObject2.optString("maxv");
                 packageInfo.sign = optJSONObject2.optString("sign");
-                packageInfo.patchMD5 = optJSONObject2.optString("patch_md5");
-                packageInfo.patchUrl = optJSONObject2.optString("patch_url");
+                packageInfo.patchMD5 = optJSONObject2.optString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5);
+                packageInfo.patchUrl = optJSONObject2.optString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("pkg_control");
             if (optJSONObject3 != null) {
@@ -165,7 +165,7 @@ public class ParseUtils {
                 if (jSONObject2 != null) {
                     try {
                         JSONObject jSONObject3 = new JSONObject(packageInfo.extraServer);
-                        packageInfo.abi = jSONObject3.optString(PackageTable.ABI);
+                        packageInfo.abi = jSONObject3.optString("abi");
                         packageInfo.uniqueVersion = jSONObject3.optString(UNIQUE_VERSION);
                     } catch (JSONException e) {
                         e.printStackTrace();

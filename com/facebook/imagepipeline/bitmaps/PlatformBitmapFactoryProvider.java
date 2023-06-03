@@ -4,7 +4,7 @@ import android.os.Build;
 import com.facebook.imagepipeline.core.CloseableReferenceFactory;
 import com.facebook.imagepipeline.memory.PoolFactory;
 import com.facebook.imagepipeline.platform.PlatformDecoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PlatformBitmapFactoryProvider {
     public static PlatformBitmapFactory buildPlatformBitmapFactory(PoolFactory poolFactory, PlatformDecoder platformDecoder, CloseableReferenceFactory closeableReferenceFactory) {
         int i = Build.VERSION.SDK_INT;

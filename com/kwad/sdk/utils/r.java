@@ -8,7 +8,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class r {
     public static <T> JSONArray B(List<T> list) {
         JSONArray jSONArray = new JSONArray();

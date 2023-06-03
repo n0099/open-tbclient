@@ -1,107 +1,124 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class m17 {
+public class m17 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
+    public int b;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<g37<? extends Object>> mutableList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m17(@NonNull Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    o07 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
-                    }
-                }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new fz6(arrayList));
-                } else {
-                    mutableList.add(new iz6((o07) arrayList.get(0)));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static final o07 b(PbLinkInfo pbLinkInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m17(@NonNull Drawable drawable, int i, int i2) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new o07(str, str2, str3, str4, str5, intValue, i, str6, str13);
         }
-        return (o07) invokeL.objValue;
+        this.b = i2;
+    }
+
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
+            }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i6 = fontMetricsInt.descent;
+            canvas.translate(f, ((i4 + i6) - ((i6 - fontMetricsInt.ascent) / 2)) - ((a.getBounds().bottom - a.getBounds().top) / 2));
+            a.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.descent;
+                int i4 = fontMetricsInt2.ascent;
+                int i5 = i4 + ((i3 - i4) / 2);
+                int i6 = (bounds.bottom - bounds.top) / 2;
+                int i7 = i5 - i6;
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                int i8 = i5 + i6;
+                fontMetricsInt.bottom = i8;
+                fontMetricsInt.descent = i8;
+            }
+            return bounds.right + this.b;
+        }
+        return invokeCommon.intValue;
     }
 }

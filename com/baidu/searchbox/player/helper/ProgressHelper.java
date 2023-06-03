@@ -2,8 +2,7 @@ package com.baidu.searchbox.player.helper;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ProgressHelper extends AbsHandlerTask {
     public final BDVideoPlayer mPlayer;
 
@@ -18,12 +17,12 @@ public class ProgressHelper extends AbsHandlerTask {
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void doTask() {
         int position = this.mPlayer.getPosition();
+        int positionMs = this.mPlayer.getPositionMs();
         int duration = this.mPlayer.getDuration();
         int bufferingPosition = this.mPlayer.getBufferingPosition();
-        this.mPlayer.getControlEventTrigger().syncPos(position, duration, bufferingPosition);
+        this.mPlayer.getControlEventTrigger().syncPos(position, positionMs, duration, bufferingPosition);
         callPlayerBack(position, duration, bufferingPosition);
     }
 }

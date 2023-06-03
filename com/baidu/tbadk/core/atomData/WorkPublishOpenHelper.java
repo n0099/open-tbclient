@@ -3,8 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
@@ -20,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.google.protobuf.CodedInputStream;
 import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -175,9 +176,19 @@ public final class WorkPublishOpenHelper {
                 WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(mContext);
                 workPublishActivityConfig.setIntent(intent);
                 workPublishActivityConfig.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
-                workPublishActivityConfig.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                workPublishActivityConfig.getIntent().setFlags(67108864);
                 workPublishActivityConfig.setVideoInfo(videoInfo);
                 workPublishActivityConfig.setNeedClosePrePage(z);
+                String forumId = intent.getStringExtra("forum_id");
+                if (StringUtils.isNotNull(forumId)) {
+                    Intrinsics.checkNotNullExpressionValue(forumId, "forumId");
+                    workPublishActivityConfig.setBarId(forumId);
+                }
+                String forumName = intent.getStringExtra("forum_name");
+                if (!TextUtils.isEmpty(forumName)) {
+                    Intrinsics.checkNotNullExpressionValue(forumName, "forumName");
+                    workPublishActivityConfig.setBarName(forumName);
+                }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
                 if (z2) {
                     mContext.finish();
@@ -195,7 +206,7 @@ public final class WorkPublishOpenHelper {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.ay4
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.w05
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

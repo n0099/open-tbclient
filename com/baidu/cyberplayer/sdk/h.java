@@ -1,314 +1,313 @@
 package com.baidu.cyberplayer.sdk;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import android.view.Surface;
-import android.view.TextureView;
-import android.view.View;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.i;
 /* loaded from: classes3.dex */
-public class h extends TextureView implements i {
-    public a a;
-    public SurfaceTexture b;
-    public Surface c;
-    public i.a d;
-    public f e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
+public class h {
+    public int a = 0;
+    public int b = 0;
+    public int c = 1;
+    public int d = 1;
+    public int e = 0;
+    public int f = 0;
+    public int g = 0;
+    public int h = 0;
+    public int i = 0;
+    public int j;
+    public float[] k;
+    public float[] l;
 
-    /* loaded from: classes3.dex */
-    public class a implements TextureView.SurfaceTextureListener {
-        public a() {
-        }
+    public h() {
+        this.j = 0;
+        this.k = r3;
+        float[] fArr = {1.0f, 1.0f};
+        this.l = r3;
+        float[] fArr2 = {0.0f, 0.0f};
+        this.j = 2;
+    }
 
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i + " height:" + i2);
-            h.this.h = false;
-            if (h.this.i && !h.this.g) {
-                h.this.a(surfaceTexture);
-            }
-            if (h.this.b == null) {
-                h.this.b = surfaceTexture;
-                if (h.this.d == null) {
-                    return;
-                }
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                h hVar = h.this;
-                hVar.setSurfaceTexture(hVar.b);
-                return;
-            } else {
-                h.this.b = surfaceTexture;
-                if (h.this.d == null) {
-                    return;
-                }
-            }
-            h.this.d.a(1);
-        }
+    public void a() {
+        this.a = 0;
+        this.b = 0;
+        this.c = 1;
+        this.d = 1;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        float[] fArr = this.k;
+        fArr[0] = 1.0f;
+        fArr[1] = 1.0f;
+        this.j = 2;
+    }
 
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-            CyberLog.d("CyberTextureView", "onSurfaceTextureDestroyed surface:" + surfaceTexture);
-            h.this.h = true;
-            if (!h.this.i || h.this.g) {
-                return false;
-            }
-            if (surfaceTexture != h.this.b && surfaceTexture != null) {
-                surfaceTexture.release();
-            }
-            h.this.g();
+    public void b() {
+        this.c = 1;
+        this.d = 1;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        float[] fArr = this.k;
+        fArr[0] = 1.0f;
+        fArr[1] = 1.0f;
+        this.j = 2;
+    }
+
+    public float[] d() {
+        return this.k;
+    }
+
+    public int e() {
+        return this.j;
+    }
+
+    public float[] f() {
+        return this.l;
+    }
+
+    public boolean g() {
+        int i = this.j;
+        if (i != 7 && i != 8 && i != 9 && i != 10) {
             return false;
         }
+        return true;
+    }
 
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            CyberLog.d("CyberTextureView", "onSurfaceTextureSizeChanged surface:" + surfaceTexture + " width:" + i + " height:" + i2);
-            h.this.h = false;
+    public int h() {
+        return this.g;
+    }
+
+    public int i() {
+        return this.h;
+    }
+
+    public int j() {
+        return this.i;
+    }
+
+    public int k() {
+        return this.a;
+    }
+
+    public int l() {
+        return this.b;
+    }
+
+    public boolean a(int i) {
+        if (this.f != i) {
+            this.f = i;
+            this.g = ((this.e + 360) - i) % 360;
+            return true;
         }
-
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            if (h.this.f) {
-                return;
-            }
-            h.this.f = true;
-            if (h.this.d != null) {
-                h.this.d.a(System.currentTimeMillis());
-            }
-        }
-    }
-
-    public h(Context context) {
-        super(context);
-        this.k = false;
-        a aVar = new a();
-        this.a = aVar;
-        setSurfaceTextureListener(aVar);
-        this.e = new f();
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = CyberCfgManager.getInstance().a("textureview_texture_auto_release", true);
-        this.j = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
-    }
-
-    private void a(int i) {
-        int g = this.e.g();
-        if (g > 0) {
-            g = 360 - g;
-        }
-        CyberLog.i("CyberTextureView", "updateRotation rotate:" + i + " drawFrameRotation:" + g);
-        setRotation((float) g);
-        requestLayout();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(SurfaceTexture surfaceTexture) {
-        SurfaceTexture surfaceTexture2 = this.b;
-        if (surfaceTexture2 == null || surfaceTexture2 == surfaceTexture) {
-            return;
-        }
-        CyberLog.i("CyberTextureView", "releaseLastSurfaceTexture mSurfaceTexture:" + this.b);
-        g();
-    }
-
-    private void b(int i, int i2, int i3, int i4) {
-        boolean z;
-        if (this.j) {
-            if (this.e.f()) {
-                Matrix matrix = new Matrix();
-                getTransform(matrix);
-                CyberLog.i("CyberTextureView", "doTranslate old_width:" + i + " old_height:" + i2 + " width:" + i3 + " height:" + i4);
-                float f = ((float) (i3 - i)) / 2.0f;
-                float f2 = ((float) (i4 - i2)) / 2.0f;
-                StringBuilder sb = new StringBuilder();
-                sb.append("doTranslate x:");
-                sb.append(f);
-                sb.append(" y:");
-                sb.append(f2);
-                CyberLog.i("CyberTextureView", sb.toString());
-                int d = this.e.d();
-                if (d == 7) {
-                    f = -f;
-                } else if (d != 8) {
-                    if (d == 9) {
-                        matrix.setTranslate(0.0f, -f2);
-                    } else if (d == 10) {
-                        matrix.setTranslate(0.0f, f2);
-                    }
-                    setTransform(matrix);
-                    z = true;
-                }
-                matrix.setTranslate(f, 0.0f);
-                setTransform(matrix);
-                z = true;
-            } else if (!this.k) {
-                return;
-            } else {
-                Matrix matrix2 = new Matrix();
-                getTransform(matrix2);
-                matrix2.setTranslate(0.0f, 0.0f);
-                setTransform(matrix2);
-                z = false;
-            }
-            this.k = z;
-        }
-    }
-
-    private void f() {
-        requestLayout();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        SurfaceTexture surfaceTexture = this.b;
-        if (surfaceTexture != null) {
-            surfaceTexture.release();
-            CyberLog.i("CyberTextureView", "releaseSurfaceTexture mSurfaceTexture:" + this.b);
-            this.b = null;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f, int i, int i2) {
-        return getBitmap();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void a() {
-        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.b);
-        Surface surface = this.c;
-        if (surface != null) {
-            surface.release();
-            this.c = null;
-        }
-        this.g = false;
-        if (!this.i) {
-            this.b = null;
-        } else if (this.h) {
-            CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.b + " mIsDestoryed:" + this.h);
-            g();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void a(int i, int i2, int i3, int i4) {
-        if (this.e.a(i, i2, i3, i4)) {
-            f();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void b() {
-        g();
-        a();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void c() {
-        setRotation(0.0f);
-        this.e.a();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public Surface d() {
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);
-        Surface surface = this.c;
-        if (surface != null) {
-            surface.release();
-            this.c = null;
-        }
-        CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
-        if (getSurfaceTexture() != null) {
-            this.g = true;
-            this.c = new Surface(getSurfaceTexture());
-            if (this.i) {
-                a(getSurfaceTexture());
-            }
-            this.b = getSurfaceTexture();
-            this.f = false;
-        }
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);
-        return this.c;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public boolean e() {
         return false;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.i
-    public View getView() {
-        return this;
+    public boolean b(int i) {
+        if (this.e != i) {
+            this.e = i;
+            this.g = ((360 - this.f) + i) % 360;
+            return true;
+        }
+        return false;
     }
 
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
-        float f;
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        this.e.a(size, size2);
-        this.e.b();
-        i.a aVar = this.d;
-        if (aVar != null) {
-            aVar.a(size, size2);
+    public boolean c(int i) {
+        if (this.j != i) {
+            this.j = i;
+            return true;
         }
-        boolean z = this.e.g() == 90 || this.e.g() == 270;
-        if (z) {
-            i2 = i;
-            i = i2;
+        return false;
+    }
+
+    public boolean a(int i, int i2) {
+        if (this.a == i && this.b == i2) {
+            return false;
         }
-        int defaultSize = View.getDefaultSize(this.e.h(), i);
-        int defaultSize2 = View.getDefaultSize(this.e.i(), i2);
-        float[] c = this.e.c();
-        if (z) {
-            i3 = (int) (c[1] * defaultSize);
-            f = c[0];
+        this.a = i;
+        this.b = i2;
+        return true;
+    }
+
+    public boolean a(int i, int i2, int i3, int i4) {
+        if (this.h == i && i2 == this.i && this.c == i3 && this.d == i4) {
+            return false;
+        }
+        this.h = i;
+        this.i = i2;
+        if (i4 != 0 && i3 != 0) {
+            this.c = i3;
+            this.d = i4;
         } else {
-            i3 = (int) (c[0] * defaultSize);
-            f = c[1];
+            this.c = 1;
+            this.d = 1;
         }
-        int i4 = (int) (f * defaultSize2);
-        setMeasuredDimension(i3, i4);
-        b(defaultSize, defaultSize2, i3, i4);
+        return true;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void setClientRotation(int i) {
-        if (this.e.b(i)) {
-            a(i);
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bc, code lost:
+        if (r5 > r3) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0100, code lost:
+        if (0.5625f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0107, code lost:
+        if (0.75f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
+        if (0.8f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0111, code lost:
+        r3 = r3 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0113, code lost:
+        r5 = r0 / r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0118, code lost:
+        if (r5 > r3) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
+        if (r5 > r3) goto L25;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ba  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00db  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00fc  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x011b A[PHI: r4 r7 
+      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]
+      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x011f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c() {
+        boolean z;
+        int i;
+        float f;
+        int i2;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float f6;
+        if (this.a != 0 && this.b != 0 && this.h != 0 && this.i != 0) {
+            int i3 = this.j;
+            if (i3 != 0 && i3 != 2) {
+                z = false;
+            } else {
+                z = true;
+            }
+            float f7 = 1.0f;
+            float f8 = (this.b * 1.0f) / this.a;
+            float f9 = (this.i * 1.0f) / this.h;
+            int i4 = this.g;
+            if ((i4 == 90 || i4 == 270) && (i = this.i) != 0) {
+                f9 = (this.h * 1.0f) / i;
+                if (z) {
+                    f = this.c * 1.0f;
+                    i2 = this.d;
+                    f9 *= f / i2;
+                }
+                CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
+                float f10 = 0.0f;
+                switch (this.j) {
+                    case 1:
+                        f2 = 0.0f;
+                        f3 = 1.0f;
+                        break;
+                    case 3:
+                        f4 = 0.8f;
+                        break;
+                    case 4:
+                        f4 = 0.75f;
+                        break;
+                    case 5:
+                        f4 = 0.5625f;
+                        break;
+                    case 6:
+                        float f11 = (this.h * 1.0f) / this.a;
+                        f3 = (this.i * 1.0f) / this.b;
+                        f7 = f11;
+                        f2 = 0.0f;
+                        break;
+                    case 7:
+                        if (f9 <= f8) {
+                            f5 = f8 / f9;
+                            f6 = 1.0f - f5;
+                            f10 = f6;
+                            f7 = f5;
+                            f2 = 0.0f;
+                            f3 = 1.0f;
+                            break;
+                        }
+                        f3 = f9 / f8;
+                        f2 = 0.0f;
+                        break;
+                    case 8:
+                        if (f9 <= f8) {
+                            f5 = f8 / f9;
+                            f6 = f5 - 1.0f;
+                            f10 = f6;
+                            f7 = f5;
+                            f2 = 0.0f;
+                            f3 = 1.0f;
+                            break;
+                        }
+                        f3 = f9 / f8;
+                        f2 = 0.0f;
+                        break;
+                    case 9:
+                        if (f9 > f8) {
+                            f3 = f9 / f8;
+                            f2 = f3 - 1.0f;
+                            break;
+                        }
+                        f5 = f8 / f9;
+                        f7 = f5;
+                        f2 = 0.0f;
+                        f3 = 1.0f;
+                        break;
+                    case 10:
+                        if (f9 > f8) {
+                            f3 = f9 / f8;
+                            f2 = 1.0f - f3;
+                            break;
+                        }
+                        f5 = f8 / f9;
+                        f7 = f5;
+                        f2 = 0.0f;
+                        f3 = 1.0f;
+                        break;
+                }
+                float[] fArr = this.k;
+                fArr[0] = f7;
+                fArr[1] = f3;
+                float[] fArr2 = this.l;
+                fArr2[0] = f10;
+                fArr2[1] = f2;
+                CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f7 + " sy:" + f3 + " translateX:" + f10 + " translateY:" + f2);
+            }
+            if (z) {
+                f = this.d * 1.0f;
+                i2 = this.c;
+                f9 *= f / i2;
+            }
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
+            float f102 = 0.0f;
+            switch (this.j) {
+            }
+            float[] fArr3 = this.k;
+            fArr3[0] = f7;
+            fArr3[1] = f3;
+            float[] fArr22 = this.l;
+            fArr22[0] = f102;
+            fArr22[1] = f2;
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f7 + " sy:" + f3 + " translateX:" + f102 + " translateY:" + f2);
         }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void setCyberSurfaceListener(i.a aVar) {
-        this.d = aVar;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void setDisplayMode(int i) {
-        if (this.e.c(i)) {
-            f();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void setRawFrameRotation(int i) {
-        if (this.e.a(i)) {
-            a(i);
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.i
-    public void setZOrderMediaOverlay(boolean z) {
     }
 }

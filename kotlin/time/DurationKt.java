@@ -181,34 +181,24 @@ public final class DurationKt {
         return j * 1000000;
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.unaryMinus-UwyO8pc(long):long] */
-    public static final /* synthetic */ long access$durationOf(long j, int i) {
-        return durationOf(j, i);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.Companion.parse-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoString-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoStringOrNull-FghU774(java.lang.String):kotlin.time.Duration, kotlin.time.Duration.Companion.parseOrNull-FghU774(java.lang.String):kotlin.time.Duration] */
-    public static final /* synthetic */ long access$parseDuration(String str, boolean z) {
-        return parseDuration(str, z);
-    }
-
     public static final long durationOf(long j, int i) {
-        return Duration.m2085constructorimpl((j << 1) + i);
+        return Duration.m2141constructorimpl((j << 1) + i);
     }
 
     @SinceKotlin(version = "1.6")
     @WasExperimental(markerClass = {ExperimentalTime.class})
     @InlineOnly
     /* renamed from: times-kIfJnKk */
-    public static final long m2210timeskIfJnKk(double d, long j) {
-        return Duration.m2122timesUwyO8pc(j, d);
+    public static final long m2266timeskIfJnKk(double d, long j) {
+        return Duration.m2178timesUwyO8pc(j, d);
     }
 
     @SinceKotlin(version = "1.6")
     @WasExperimental(markerClass = {ExperimentalTime.class})
     @InlineOnly
     /* renamed from: times-mvk6XK0 */
-    public static final long m2211timesmvk6XK0(int i, long j) {
-        return Duration.m2123timesUwyO8pc(j, i);
+    public static final long m2267timesmvk6XK0(int i, long j) {
+        return Duration.m2179timesUwyO8pc(j, i);
     }
 
     @SinceKotlin(version = "1.6")
@@ -221,42 +211,12 @@ public final class DurationKt {
         return toDuration(i, unit);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.<clinit>():void, kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfMillis(long j) {
-        return durationOfMillis(j);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long] */
-    public static final /* synthetic */ long access$durationOfMillisNormalized(long j) {
-        return durationOfMillisNormalized(j);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfNanos(long j) {
-        return durationOfNanos(j);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfNanosNormalized(long j) {
-        return durationOfNanosNormalized(j);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.getInWholeNanoseconds-impl(long):long, kotlin.time.Duration.getNanosecondsComponent-impl(long):int, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$millisToNanos(long j) {
-        return millisToNanos(j);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$nanosToMillis(long j) {
-        return nanosToMillis(j);
-    }
-
     public static final long durationOfMillis(long j) {
-        return Duration.m2085constructorimpl((j << 1) + 1);
+        return Duration.m2141constructorimpl((j << 1) + 1);
     }
 
     public static final long durationOfNanos(long j) {
-        return Duration.m2085constructorimpl(j << 1);
+        return Duration.m2141constructorimpl(j << 1);
     }
 
     public static final long durationOfNanosNormalized(long j) {
@@ -391,7 +351,7 @@ public final class DurationKt {
         boolean z14;
         int length = str.length();
         if (length != 0) {
-            long m2187getZEROUwyO8pc = Duration.Companion.m2187getZEROUwyO8pc();
+            long m2243getZEROUwyO8pc = Duration.Companion.m2243getZEROUwyO8pc();
             char charAt = str.charAt(0);
             if (charAt == '+' || charAt == '-') {
                 z2 = true;
@@ -483,12 +443,12 @@ public final class DurationKt {
                                         if (durationUnitByIsoChar == DurationUnit.SECONDS && indexOf$default > 0) {
                                             String substring2 = substring.substring(0, indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring2, "this as java.lang.String…ing(startIndex, endIndex)");
-                                            long m2121plusLRDsOJo = Duration.m2121plusLRDsOJo(m2187getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
+                                            long m2177plusLRDsOJo = Duration.m2177plusLRDsOJo(m2243getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
                                             String substring3 = substring.substring(indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring3, "this as java.lang.String).substring(startIndex)");
-                                            m2187getZEROUwyO8pc = Duration.m2121plusLRDsOJo(m2121plusLRDsOJo, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
+                                            m2243getZEROUwyO8pc = Duration.m2177plusLRDsOJo(m2177plusLRDsOJo, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
                                         } else {
-                                            m2187getZEROUwyO8pc = Duration.m2121plusLRDsOJo(m2187getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
+                                            m2243getZEROUwyO8pc = Duration.m2177plusLRDsOJo(m2243getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
                                         }
                                         durationUnit = durationUnitByIsoChar;
                                         z4 = z11;
@@ -512,7 +472,7 @@ public final class DurationKt {
                     if (!z) {
                         String str2 = "Unexpected order of duration components";
                         if (StringsKt__StringsJVMKt.regionMatches(str, i, "Infinity", 0, Math.max(length - i, 8), true)) {
-                            m2187getZEROUwyO8pc = Duration.Companion.m2185getINFINITEUwyO8pc();
+                            m2243getZEROUwyO8pc = Duration.Companion.m2241getINFINITEUwyO8pc();
                         } else {
                             boolean z16 = !z3;
                             if (z3 && str.charAt(i) == '(' && StringsKt___StringsKt.last(str) == ')') {
@@ -592,15 +552,15 @@ public final class DurationKt {
                                     if (indexOf$default2 > 0) {
                                         String substring6 = substring4.substring(0, indexOf$default2);
                                         Intrinsics.checkNotNullExpressionValue(substring6, "this as java.lang.String…ing(startIndex, endIndex)");
-                                        long m2121plusLRDsOJo2 = Duration.m2121plusLRDsOJo(m2187getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
+                                        long m2177plusLRDsOJo2 = Duration.m2177plusLRDsOJo(m2243getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
                                         String substring7 = substring4.substring(indexOf$default2);
                                         Intrinsics.checkNotNullExpressionValue(substring7, "this as java.lang.String).substring(startIndex)");
-                                        m2187getZEROUwyO8pc = Duration.m2121plusLRDsOJo(m2121plusLRDsOJo2, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
+                                        m2243getZEROUwyO8pc = Duration.m2177plusLRDsOJo(m2177plusLRDsOJo2, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
                                         if (i < length) {
                                             throw new IllegalArgumentException("Fractional component must be last");
                                         }
                                     } else {
-                                        m2187getZEROUwyO8pc = Duration.m2121plusLRDsOJo(m2187getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
+                                        m2243getZEROUwyO8pc = Duration.m2177plusLRDsOJo(m2243getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
                                     }
                                     durationUnit2 = durationUnitByShortName;
                                     str2 = str3;
@@ -615,9 +575,9 @@ public final class DurationKt {
                     }
                 }
                 if (z5) {
-                    return Duration.m2137unaryMinusUwyO8pc(m2187getZEROUwyO8pc);
+                    return Duration.m2193unaryMinusUwyO8pc(m2243getZEROUwyO8pc);
                 }
-                return m2187getZEROUwyO8pc;
+                return m2243getZEROUwyO8pc;
             }
             throw new IllegalArgumentException("No components");
         }

@@ -1,657 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.Intent;
-import android.database.Cursor;
-import android.os.Build;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
+import android.view.View;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.qrcode.lib.core.QRCodeView;
-import com.baidu.tieba.zy9;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.lang.ref.WeakReference;
-import java.net.URLDecoder;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ne9 implements QRCodeView.c {
+/* loaded from: classes7.dex */
+public class ne9 extends gn6<PersonVipCardData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final me9 a;
-    public final TbPageContext b;
-    public e c;
-    public zy9 d;
-    public d e;
-    public boolean f;
+    public View i;
+    public View j;
+    public View k;
+    public EMTextView l;
+    public EMTextView m;
+    public TBSpecificationBtn n;
+    public TextView o;
+    public TbPageContext p;
+    public String q;
+    public String r;
+    public String s;
+    public boolean t;
+    public final zq8 u;
+    public final yq8 v;
 
-    /* loaded from: classes6.dex */
-    public class a implements d.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne9 a;
+    @Override // com.baidu.tieba.gn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d079f : invokeV.intValue;
+    }
 
-        public a(ne9 ne9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ne9Var;
-        }
-
-        @Override // com.baidu.tieba.ne9.d.a
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            o65.m().B("key_gallery_last_image_path", str);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            this.a.a.l0(str, str2);
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ne9 b;
-
-        public b(ne9 ne9Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne9Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ne9Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.a, "UTF-8")));
-                    this.b.b.getPageActivity().finish();
-                } catch (UnsupportedEncodingException unused) {
-                }
-            }
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne9 a;
-
-        public c(ne9 ne9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ne9Var;
-        }
-
-        public /* synthetic */ c(ne9 ne9Var, a aVar) {
-            this(ne9Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                String str = strArr[0];
-                if (StringUtils.isNull(str)) {
-                    return null;
-                }
-                String postNetData = new NetWork(str).postNetData();
-                if (StringUtils.isNull(postNetData)) {
-                    return null;
-                }
-                try {
-                    return new JSONObject(postNetData).optString("data");
-                } catch (JSONException unused) {
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((c) str);
-                this.a.p(str);
-            }
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class d extends BdAsyncTask<String, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public a b;
-
-        /* loaded from: classes6.dex */
-        public interface a {
-            void a(String str, String str2);
-        }
-
-        public d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length > 0) {
-                    String str = strArr[0];
-                    this.a = str;
-                    return re9.c(str);
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((d) str);
-                a aVar = this.b;
-                if (aVar != null) {
-                    aVar.a(this.a, str);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends BdAsyncTask<String, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne9 a;
-
-        public e(ne9 ne9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ne9Var;
-        }
-
-        public /* synthetic */ e(ne9 ne9Var, a aVar) {
-            this(ne9Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length > 0) {
-                    return re9.c(strArr[0]);
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((e) str);
-                this.a.a.b1();
-                this.a.b(str);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                this.a.a.a0();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f implements zy9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<me9> a;
-        public final String b;
-        public final WeakReference<TbPageContext> c;
-
-        public f(me9 me9Var, String str, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me9Var, str, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(me9Var);
-            this.b = str;
-            this.c = new WeakReference<>(tbPageContext);
-        }
-
-        @Override // com.baidu.tieba.zy9.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.get() != null) {
-                this.a.get().b1();
-                this.a.get().a1();
-            }
-        }
-
-        @Override // com.baidu.tieba.zy9.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.get() != null) {
-                this.a.get().b1();
-                this.a.get().u0(this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.zy9.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a.get() != null) {
-                    this.a.get().b1();
-                }
-                if (this.c.get() != null) {
-                    UrlManager.getInstance().dealOneLink(this.c.get(), new String[]{this.b});
-                    this.c.get().getPageActivity().finish();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zy9.a
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.get() != null) {
-                this.a.get().b1();
-                this.a.get().f1();
-            }
-        }
-    }
-
-    public ne9(me9 me9Var, TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ne9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {me9Var, tbPageContext};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = me9Var;
-        this.b = tbPageContext;
+        this.u = new zq8("my_tab_vip_banner_bubble");
+        this.v = new yq8("my_tab_vip_banner_bubble");
+        this.p = tbPageContext;
+        this.i = h();
+        int g = vi.g(this.c, R.dimen.M_W_X003);
+        this.i.setPadding(g, 0, g, 0);
+        this.j = this.i.findViewById(R.id.obfuscated_res_0x7f091ba2);
+        this.k = this.i.findViewById(R.id.obfuscated_res_0x7f091ba3);
+        this.l = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ba0);
+        this.m = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ba1);
+        this.n = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091b9f);
+        this.o = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091de5);
+        this.j.setOnClickListener(this);
+        this.n.setOnClickListener(this);
+        j(g(), this.a);
     }
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{str});
-            this.b.getPageActivity().finish();
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
-    public void a() {
+    public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ri.P(this.b.getPageActivity(), R.string.disallow_camera_permission);
-            this.b.getPageActivity().finish();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void h() {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            zy9 zy9Var = this.d;
-            if (zy9Var != null && !zy9Var.isCancelled()) {
-                this.d.cancel();
-            }
-            e eVar = this.c;
-            if (eVar != null) {
-                eVar.cancel();
-                this.c = null;
-            }
-            d dVar = this.e;
-            if (dVar != null) {
-                dVar.cancel();
-                this.e = null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
-    public void b(String str) {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (StringUtils.isNull(str)) {
-                this.a.b1();
-                this.a.f1();
-            } else if (this.f) {
-                Intent intent = new Intent();
-                intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
-                this.b.getPageActivity().setResult(-1, intent);
-                this.b.getPageActivity().finish();
-            } else if (k(str)) {
-                this.a.b1();
-            } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-                this.a.b1();
-                i(str);
-            } else if (l(str)) {
-                this.a.b1();
-                this.b.getPageActivity().finish();
-            } else if (!StringHelper.isNetworkUrl(str)) {
-                this.a.b1();
-                this.a.f1();
-            } else {
-                m(str);
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.o.setVisibility(8);
+            this.u.i();
         }
     }
 
-    public final String f(ContentResolver contentResolver) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
-        String str;
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, contentResolver)) == null) {
-            Cursor cursor2 = null;
-            if (contentResolver == null) {
-                return null;
-            }
-            try {
-                cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_display_name", "_data", "_size", "bucket_display_name", "date_modified"}, null, null, null);
-            } catch (Exception unused) {
-                str = null;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            if (cursor == null) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return null;
-            }
-            try {
-                try {
-                    cursor.moveToLast();
-                    str = cursor.getString(cursor.getColumnIndex("_data"));
-                    try {
-                    } catch (Exception unused2) {
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        return str;
-                    }
-                } catch (Exception unused3) {
-                    str = null;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return null;
-                } else if (!new File(str).exists()) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return null;
-                } else {
-                    cursor.close();
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return str;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tbPageContext = this.b) != null && tbPageContext.getPageActivity() != null) {
-            if (Build.VERSION.SDK_INT >= 23 && (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0 || this.b.getPageActivity().checkSelfPermission(com.kuaishou.weapon.p0.h.i) != 0)) {
-                return;
-            }
-            String f2 = f(this.b.getPageActivity().getContentResolver());
-            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(o65.m().s("key_gallery_last_image_path", null))) {
-                return;
-            }
-            d dVar = this.e;
-            if (dVar != null) {
-                dVar.cancel();
-            }
-            d dVar2 = new d(new a(this));
-            this.e = dVar2;
-            dVar2.execute(f2);
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.t = z;
         }
     }
 
-    public final void i(String str) {
+    @Override // com.baidu.tieba.gn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            CookieSyncManager.createInstance(this.b.getPageActivity());
-            CookieManager cookieManager = CookieManager.getInstance();
-            cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("feedavatar.baidu.com", "cuid=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
-            cookieManager.setCookie("feedavatar.baidu.com", "tiebaapp=1;");
-            CookieSyncManager.getInstance().sync();
-            yu4.v(this.b.getPageActivity(), null, str, false);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            m75 d = m75.d(this.j);
+            d.o(R.string.J_X05);
+            d.f(R.color.CAM_X0205);
+            m75 d2 = m75.d(this.l);
+            d2.w(R.color.CAM_X0311);
+            d2.C(R.string.F_X02);
+            d2.B(R.dimen.T_X07);
+            m75 d3 = m75.d(this.m);
+            d3.w(R.color.CAM_X0311);
+            d3.C(R.string.F_X01);
+            d3.B(R.dimen.T_X08);
+            if (this.o.getVisibility() == 0) {
+                m75 d4 = m75.d(this.o);
+                d4.B(R.dimen.T_X10);
+                d4.w(R.color.CAM_X0101);
+                d4.C(R.string.F_X01);
+                d4.m(R.dimen.L_X02);
+                d4.l(R.color.CAM_X0205);
+                d4.o(R.string.J_X05);
+                d4.f(R.color.CAM_X0301);
+            }
+            SkinManager.setBackgroundResource(this.j, R.drawable.bg_pic_wode_members_bg);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            m75.d(this.i).q(new int[]{R.color.CAM_X0204, R.color.CAM_X0201}, Direction.BOTTOM);
+            ia5 ia5Var = new ia5();
+            ia5Var.t(new int[]{jw9.a(SkinManager.getColor(i, (int) R.color.CAM_X0335), k75.b(R.string.A_X06)), SkinManager.getColor(i, (int) R.color.CAM_X0335)});
+            ia5Var.r(R.color.CAM_X0117);
+            this.n.setConfig(ia5Var);
+            this.n.k();
         }
     }
 
-    public final void m(String str) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!ri.F()) {
-                this.a.b1();
-                ri.Q(this.b.getPageActivity(), this.b.getResources().getString(R.string.network_not_available));
-                return;
-            }
-            zy9 zy9Var = this.d;
-            if (zy9Var != null && !zy9Var.isCancelled()) {
-                this.d.cancel();
-            }
-            zy9 zy9Var2 = new zy9(str, new f(this.a, str, this.b));
-            this.d = zy9Var2;
-            zy9Var2.setPriority(3);
-            this.d.execute(new String[0]);
-        }
-    }
-
-    public final void p(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
-            if (Build.VERSION.SDK_INT <= 21) {
-                ri.P(this.b.getPageActivity(), R.string.ai_apps_not_support);
-                return;
-            }
-            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            permissionJudgePolicy.setOnPermissionsGrantedListener(new b(this, str));
-            permissionJudgePolicy.startRequestPermission(this.b.getPageActivity());
-        }
-    }
-
-    public final boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (StringUtils.isNULL(str)) {
-                return false;
-            }
-            if (str.startsWith("tiebaclient:")) {
-                p(str);
-                return true;
-            } else if (!str.contains("smartapp.baidu.com/mappconsole/api/packagescheme") && !str.contains("mappconsole/api/packagescheme")) {
-                return false;
-            } else {
-                new c(this, null).execute(str);
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
-            if (runTask != null && runTask.getData() != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2 == null) {
             return;
         }
-        this.a.a0();
-        e eVar = this.c;
-        if (eVar != null) {
-            eVar.cancel();
+        if (view2 == this.n) {
+            z();
+            UrlManager.getInstance().dealOneLink(this.p, new String[]{this.r});
+            r();
+        } else if (view2 == this.j) {
+            A();
+            UrlManager.getInstance().dealOneLink(this.p, new String[]{this.q});
+            r();
         }
-        e eVar2 = new e(this, null);
-        this.c = eVar2;
-        eVar2.execute(str);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gn6
+    /* renamed from: s */
+    public void i(PersonVipCardData personVipCardData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, personVipCardData) == null) && personVipCardData != null) {
+            this.l.setText(personVipCardData.getTitle());
+            this.m.setText(personVipCardData.getSubTitle());
+            this.n.setText(personVipCardData.getButtonLable());
+            String bubble = personVipCardData.getBubble();
+            boolean g = this.u.g(this.v.f(bubble));
+            if (!ui.isEmpty(bubble) && !g) {
+                this.o.setVisibility(0);
+                this.o.setText(StringHelper.subString(bubble, 10));
+                this.v.update(bubble);
+            } else {
+                this.o.setVisibility(8);
+            }
+            this.q = personVipCardData.getUrl();
+            this.r = personVipCardData.getButtonUrl();
+            this.s = personVipCardData.getButtonLable();
+            if (this.t) {
+                this.t = false;
+                B();
+            }
+            j(g(), this.a);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VIP_CARD_BUTTON_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (StringHelper.equals(this.s, getContext().getString(R.string.open_now))) {
+                statisticItem.param("obj_type", 1);
+            } else if (StringHelper.equals(this.s, getContext().getString(R.string.renew_now))) {
+                statisticItem.param("obj_type", 2);
+            }
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

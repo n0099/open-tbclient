@@ -18,7 +18,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RouteSelector {
     public final Address address;
     public final Call call;
@@ -29,7 +29,7 @@ public final class RouteSelector {
     public List<InetSocketAddress> inetSocketAddresses = Collections.emptyList();
     public final List<Route> postponedRoutes = new ArrayList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Selection {
         public int ipv4Size;
         public int nextRouteIndex = 0;

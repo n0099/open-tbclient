@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.download.model.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import java.util.Iterator;
 import org.json.JSONObject;
@@ -103,7 +104,7 @@ public class c extends a {
         String optString3 = this.d.optString("path_extra_key");
         String optString4 = this.d.optString("path_data_key");
         JSONObject optJSONObject = this.d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.d.optJSONObject("extra_type");
+        JSONObject optJSONObject2 = this.d.optJSONObject(Constants.EXTRA_TYPE);
         if (TextUtils.isEmpty(optString)) {
             return null;
         }

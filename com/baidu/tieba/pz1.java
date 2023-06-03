@@ -1,77 +1,87 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.baidu.webkit.sdk.CookieManager;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pz1 extends mz1 {
+public final class pz1 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
 
-        public a(pz1 pz1Var, Context context) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-501616219, "Lcom/baidu/tieba/pz1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-501616219, "Lcom/baidu/tieba/pz1$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = context;
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !y83.d()) {
-                y83.f(this.a, R.string.obfuscated_res_0x7f0f0463).G();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mb2.a3();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    public pz1(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/setTplBdussSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,50 +89,69 @@ public class pz1 extends mz1 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public g12 x() {
-        InterceptResult invokeV;
-        String charSequence;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getClipboardData", false);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                CharSequence a2 = bn3.b(getContext()).a();
-                if (TextUtils.isEmpty(a2)) {
-                    charSequence = "";
-                } else {
-                    charSequence = a2.toString();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, yb3Var)) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
+            SwanAppAllianceLoginHelper.d.l(true);
+            if (optParamsAsJo == null) {
+                ks1 d = SwanAppAllianceLoginHelper.d.d();
+                if (d != null) {
+                    d.onResult(-1);
                 }
-                jSONObject.put("data", charSequence);
-                return new g12(0, jSONObject);
-            } catch (JSONException e) {
-                p("#getClipboardData json put data fail", e, false);
-                return new g12(1001, "JSONException");
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                SwanAppAllianceLoginHelper.d.a(lz1.d(), lz1.a());
+                return false;
+            }
+            int optInt = optParamsAsJo.optInt("errno");
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+            sp3.a0(a.a);
+            if (optInt != 0) {
+                ks1 d2 = SwanAppAllianceLoginHelper.d.d();
+                if (d2 != null) {
+                    d2.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
+                SwanAppAllianceLoginHelper.d.a(lz1.d(), lz1.a());
+                return false;
+            } else if (optJSONObject != null) {
+                Map<String, String> c = hs4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
+                String str = c.get("OPENBDUSS");
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    mz1.b.c(optInt, optJSONObject);
+                    gz1.b(context, str);
+                    SwanAppAllianceLoginHelper.d.j(true);
+                    ks1 d3 = SwanAppAllianceLoginHelper.d.d();
+                    if (d3 != null) {
+                        d3.onResult(0);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
+                    SwanAppAllianceLoginHelper.d.a(lz1.f(), lz1.c());
+                    return true;
+                }
+                ks1 d4 = SwanAppAllianceLoginHelper.d.d();
+                if (d4 != null) {
+                    d4.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
+                SwanAppAllianceLoginHelper.d.a(lz1.d(), lz1.a());
+                return false;
+            } else {
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
+                SwanAppAllianceLoginHelper.d.a(lz1.d(), lz1.a());
+                return false;
             }
         }
-        return (g12) invokeV.objValue;
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public g12 y(String str) {
-        InterceptResult invokeL;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#setClipboardData", false);
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
-            }
-            bn3.b(getContext()).c(((JSONObject) s.second).optString("data"));
-            g93 q = f93.K().q();
-            if (q != null && (w = q.w()) != null) {
-                an3.f0(new a(this, w), 200L);
-            }
-            return g12.f();
-        }
-        return (g12) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

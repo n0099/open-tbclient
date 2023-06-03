@@ -2,10 +2,10 @@ package com.bytedance.sdk.openadsdk;
 
 import com.bytedance.sdk.openadsdk.common.CommonListener;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface TTAdNative {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BannerAdListener extends CommonListener {
         void onBannerAdLoad(TTBannerAd tTBannerAd);
 
@@ -13,7 +13,7 @@ public interface TTAdNative {
         void onError(int i, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DrawFeedAdListener extends CommonListener {
         void onDrawFeedAdLoad(List<TTDrawFeedAd> list);
 
@@ -21,7 +21,7 @@ public interface TTAdNative {
         void onError(int i, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FeedAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -29,7 +29,7 @@ public interface TTAdNative {
         void onFeedAdLoad(List<TTFeedAd> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FullScreenVideoAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -42,7 +42,7 @@ public interface TTAdNative {
         void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface InteractionAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -50,7 +50,7 @@ public interface TTAdNative {
         void onInteractionAdLoad(TTInteractionAd tTInteractionAd);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface NativeAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -58,7 +58,7 @@ public interface TTAdNative {
         void onNativeAdLoad(List<TTNativeAd> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface NativeExpressAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -66,7 +66,7 @@ public interface TTAdNative {
         void onNativeExpressAdLoad(List<TTNativeExpressAd> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface RewardVideoAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -79,7 +79,7 @@ public interface TTAdNative {
         void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface SplashAdListener extends CommonListener {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);

@@ -156,8 +156,8 @@ public final class DirectIPv6Header extends DirectIPHeader {
             int nextHeader = getNextHeader();
             int packetLength = (getPacketLength() - getOffset()) - getDataLength();
             while (this.headerOffset < packetLength && nextHeader != 58 && nextHeader != 6 && nextHeader != 17) {
-                nextHeader = UByte.m807constructorimpl(getBuffer()[this.headerOffset]) & 255;
-                this.headerOffset += (UByte.m807constructorimpl(getBuffer()[this.headerOffset + 1]) & 255) + 2;
+                nextHeader = UByte.m862constructorimpl(getBuffer()[this.headerOffset]) & 255;
+                this.headerOffset += (UByte.m862constructorimpl(getBuffer()[this.headerOffset + 1]) & 255) + 2;
             }
             this._protocol = nextHeader;
             return nextHeader;

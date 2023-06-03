@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dk7 implements a45 {
+public class dk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.a45
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_SHIELD_STRATEGY" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public int b;
+    public List<ThreadData> c;
+    public ScoreCardInfo d;
+    public List<FeatureCardHot> e;
+    public List<FeatureCardTopic> f;
+    public List<ek7> g;
+    public List<FeatureCardCompetition> h;
+    public List<FeatureCardGod> i;
+    public List<FeatureCardGame> j;
 
     public dk7() {
         Interceptable interceptable = $ic;
@@ -30,17 +38,15 @@ public class dk7 implements a45 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.a45
-    public y35 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ck7();
-        }
-        return (y35) invokeV.objValue;
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
     }
 }

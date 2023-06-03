@@ -1,216 +1,138 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 /* loaded from: classes7.dex */
-public class sc4 extends nc4 {
+public class sc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int j;
-    public tc4 k;
-    public tc4 l;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sc4 a;
-
-        public a(sc4 sc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sc4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c == null || this.a.j < -1) {
-                return;
-            }
-            if (this.a.j == -1) {
-                this.a.c.o();
-            } else {
-                this.a.c.u(this.a.j);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sc4 a;
-
-        public b(sc4 sc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sc4Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                sc4 sc4Var = this.a;
-                RecommendItemModel y = sc4Var.y(sc4Var.j);
-                this.a.k.b.setImageURI(y.iconUrl);
-                this.a.k.c.setText(y.appName);
-                this.a.k.a.setAlpha(1.0f);
-                sc4 sc4Var2 = this.a;
-                RecommendItemModel y2 = this.a.y(sc4Var2.x(sc4Var2.j));
-                this.a.l.b.setImageURI(y2.iconUrl);
-                this.a.l.c.setText(y2.appName);
-                this.a.l.a.setAlpha(0.0f);
-                sc4.super.k();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sc4(@NonNull Context context, @NonNull qc4 qc4Var) {
-        super(context, qc4Var);
+    public static void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, qc4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (qc4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
         }
-        this.j = -2;
+        zc4 zc4Var = new zc4();
+        zc4Var.a = str;
+        pc4.c().a(new oc4(50000, zc4Var));
     }
 
-    @Override // com.baidu.tieba.nc4, com.baidu.tieba.oc4
-    public void d(vc4 vc4Var) {
+    public static void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vc4Var) == null) {
-            super.d(vc4Var);
-            if (z(vc4Var)) {
-                return;
-            }
-            this.j = -2;
-            this.l.b.setImageURI(vc4Var.a.iconUrl);
-            this.l.c.setText(vc4Var.a.appName);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        zc4 zc4Var = new zc4();
+        zc4Var.a = str;
+        pc4.c().a(new oc4(90000, zc4Var));
+    }
+
+    public static void e(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        zc4 zc4Var = new zc4();
+        zc4Var.a = str;
+        pc4.c().a(new oc4(60000, zc4Var));
+    }
+
+    public static void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        zc4 zc4Var = new zc4();
+        zc4Var.a = str;
+        pc4.c().a(new oc4(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, zc4Var));
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            xc4 xc4Var = new xc4();
+            xc4Var.b = str;
+            xc4Var.a = str2;
+            pc4.c().a(new oc4(30000, xc4Var));
         }
     }
 
-    public final int x(int i) {
-        InterceptResult invokeI;
+    public static void c(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = i + 1;
-            if (i2 == this.b.b.size()) {
-                return -1;
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            wc4 wc4Var = new wc4();
+            wc4Var.b = str;
+            wc4Var.c = i;
+            wc4Var.d = z ? 1 : 0;
+            wc4Var.a = str2;
+            pc4.c().a(new oc4(DefaultOggSeeker.MATCH_BYTE_RANGE, wc4Var));
         }
-        return invokeI.intValue;
     }
 
-    public final RecommendItemModel y(int i) {
-        InterceptResult invokeI;
+    public static void h(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == -1) {
-                return this.b.a;
-            }
-            return this.b.b.get(i);
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            wc4 wc4Var = new wc4();
+            wc4Var.b = str;
+            wc4Var.c = i;
+            wc4Var.d = z ? 1 : 0;
+            wc4Var.a = str2;
+            pc4.c().a(new oc4(70000, wc4Var));
         }
-        return (RecommendItemModel) invokeI.objValue;
     }
 
-    public final boolean z(vc4 vc4Var) {
-        InterceptResult invokeL;
+    public static void k(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vc4Var)) == null) {
-            if (vc4Var != null && vc4Var.b != null && vc4Var.a != null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            wc4 wc4Var = new wc4();
+            wc4Var.b = str;
+            wc4Var.c = i;
+            wc4Var.d = z ? 1 : 0;
+            wc4Var.a = str2;
+            pc4.c().a(new oc4(110000, wc4Var));
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nc4
-    public View i() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            tc4 tc4Var = new tc4(this.a);
-            this.l = tc4Var;
-            tc4Var.a.setAlpha(0.0f);
-            frameLayout.addView(this.l.a);
-            tc4 tc4Var2 = new tc4(this.a);
-            this.k = tc4Var2;
-            tc4Var2.a.setAlpha(0.0f);
-            this.k.b.setActualImageResource(17170445);
-            this.k.c.setText((CharSequence) null);
-            frameLayout.addView(this.k.a);
-            this.k.a.setOnClickListener(new a(this));
-            return frameLayout;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            zc4 zc4Var = new zc4();
+            zc4Var.a = str;
+            pc4.c().a(new oc4(20000, zc4Var));
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nc4
-    public void k() {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.b)) {
-                this.k.a.setAlpha(1.0f);
-                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080183);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f1512);
-                super.k();
-                return;
-            }
-            this.j = x(this.j);
-            this.l.a.animate().setDuration(160L).alpha(1.0f);
-            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            zc4 zc4Var = new zc4();
+            zc4Var.a = str;
+            pc4.c().a(new oc4(10000, zc4Var));
+        }
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            zc4 zc4Var = new zc4();
+            zc4Var.a = str;
+            pc4.c().a(new oc4(120000, zc4Var));
+        }
+    }
+
+    public static void j(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
+            yc4 yc4Var = new yc4();
+            yc4Var.b = str;
+            yc4Var.c = i;
+            yc4Var.a = str2;
+            pc4.c().a(new oc4(80000, yc4Var));
         }
     }
 }

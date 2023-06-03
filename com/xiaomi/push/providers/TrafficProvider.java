@@ -69,7 +69,7 @@ public class TrafficProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-            ha.m486a(contentValues.getAsString(BaseStatisContent.IMSI));
+            ha.m541a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }
         return 0;

@@ -7,38 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Objects;
 /* loaded from: classes8.dex */
-public class wk4 {
+public class wk4 extends uk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wk4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* loaded from: classes8.dex */
-    public static class a extends qp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_ceres");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
     public wk4() {
         Interceptable interceptable = $ic;
@@ -50,71 +31,62 @@ public class wk4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a();
     }
 
-    public static wk4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wk4.class) {
-                    if (b == null) {
-                        b = new wk4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (wk4) invokeV.objValue;
-    }
-
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("ceres_info", "0");
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String b() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("global_info", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public vk4 d(JSONObject jSONObject) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
+            if (obj == null || !(obj instanceof wk4)) {
+                return false;
             }
-            String optString = optJSONObject.optString("version");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
-                return null;
+            wk4 wk4Var = (wk4) obj;
+            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(wk4Var.j)) {
+                if (this.g.equals(wk4Var.g) && this.i == wk4Var.i) {
+                    return true;
+                }
+                return false;
+            } else if (TextUtils.equals(this.g, wk4Var.g) && this.i == wk4Var.i && TextUtils.equals(this.j, wk4Var.j)) {
+                return true;
+            } else {
+                return false;
             }
-            String optString2 = optJSONObject2.optString("version");
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
-                return null;
-            }
-            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
-            return new vk4(optJSONArray, optJSONObject3);
         }
-        return (vk4) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        }
+        return (String) invokeV.objValue;
     }
 }

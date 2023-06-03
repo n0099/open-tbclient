@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.m7b;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class d9b<T> implements i7b.a<T> {
+public class d9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m7b.c<T> a;
+    public SharedPreferences a;
 
-    public d9b(m7b.c<T> cVar) {
+    public d9b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,20 +30,48 @@ public final class d9b<T> implements i7b.a<T> {
                 return;
             }
         }
-        this.a = cVar;
-    }
-
-    public void call(o7b<? super T> o7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o7bVar) == null) {
-            b9b b9bVar = new b9b(o7bVar);
-            o7bVar.b(b9bVar);
-            this.a.call(b9bVar);
+        if (context != null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
+                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
+                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
+                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                    edit.putBoolean(str, true);
+                    edit.apply();
+                }
+                context = createDeviceProtectedStorageContext;
+            }
+            this.a = context.getSharedPreferences(str, 0);
+            return;
         }
+        throw new NullPointerException("context is null!");
     }
 
-    @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((o7b) ((o7b) obj));
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        SharedPreferences.Editor edit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
+                return edit.remove(str).commit();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        SharedPreferences.Editor edit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
+                return edit.putString(str, str2).commit();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

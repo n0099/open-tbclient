@@ -52,9 +52,9 @@ public final class JavaIncompatibilityRulesOverridabilityCondition implements Ex
                 Intrinsics.checkExpressionValueIsNotNull(valueParameters, "f.valueParameters");
                 Object single = CollectionsKt___CollectionsKt.single((List<? extends Object>) valueParameters);
                 Intrinsics.checkExpressionValueIsNotNull(single, "f.valueParameters.single()");
-                ClassifierDescriptor mo2044getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2044getDeclarationDescriptor();
-                if (mo2044getDeclarationDescriptor instanceof ClassDescriptor) {
-                    classDescriptor = mo2044getDeclarationDescriptor;
+                ClassifierDescriptor mo2099getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2099getDeclarationDescriptor();
+                if (mo2099getDeclarationDescriptor instanceof ClassDescriptor) {
+                    classDescriptor = mo2099getDeclarationDescriptor;
                 }
                 ClassDescriptor classDescriptor3 = classDescriptor;
                 if (classDescriptor3 != null && KotlinBuiltIns.isPrimitiveClass(classDescriptor2) && Intrinsics.areEqual(DescriptorUtilsKt.getFqNameSafe(classDescriptor2), DescriptorUtilsKt.getFqNameSafe(classDescriptor3))) {

@@ -1,105 +1,48 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.es2;
-import com.baidu.tieba.mu2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class bs2 extends es2.f {
+public class bs2 extends sp2<js2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final yg4 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655464, "Lcom/baidu/tieba/bs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947655464, "Lcom/baidu/tieba/bs2;");
-                return;
-            }
-        }
-        f = qp1.a;
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "switchCamera" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs2(String str, yg4 yg4Var) {
-        super("check_sign");
+    public bs2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, yg4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = str;
-        this.e = yg4Var;
     }
 
-    @Override // com.baidu.tieba.es2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        zk3 zk3Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull js2 js2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            lu2 d = lu2.d(bundle.getString("launch_id"));
-            mu2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    zk3Var = yc2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    zk3 zk3Var2 = new zk3();
-                    zk3Var2.k(11L);
-                    zk3Var2.i(2300L);
-                    zk3Var2.f("inputStream IOException:" + e2.toString());
-                    dl3.a().f(zk3Var2);
-                    d.g("SignChecker", zk3Var2.toString());
-                    tn3.a(sourceChannel);
-                    zk3Var = zk3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (zk3Var != null) {
-                    z = false;
-                }
-                if (zk3Var != null) {
-                    d.g("SignChecker", zk3Var.toString());
-                    c().putLong("result_error_code", zk3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                tn3.a(sourceChannel);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, js2Var) == null) {
+            d(js2Var, command.what, null, true);
+            js2Var.d();
         }
-        return invokeLL.booleanValue;
     }
 }

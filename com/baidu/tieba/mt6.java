@@ -1,165 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.enterForum.message.ForumGuideHttpResponseMessage;
-import com.baidu.tieba.enterForum.message.ForumGuideSocketResponseMessage;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.wm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
+import java.util.Set;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class mt6 implements wm6 {
+public final class mt6 extends st6<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EnterForumModel a;
-    public wm6.a b;
-    public final EnterForumModel.f c;
-    public fb d;
+    public final Function1<Long, Boolean> e;
 
-    /* loaded from: classes6.dex */
-    public class a implements EnterForumModel.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt6 a;
-
-        public a(mt6 mt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mt6Var;
-        }
-
-        @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
-        public void a(EnterForumModel.e eVar) {
-            ys6 ys6Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, eVar) != null) || this.a.b == null) {
-                return;
-            }
-            if (eVar != null && eVar.b && (ys6Var = eVar.d) != null && ys6Var.e() != null) {
-                ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<at6> b = eVar.d.e().b();
-                if (ListUtils.getCount(b) > 0) {
-                    Iterator<at6> it = b.iterator();
-                    while (it.hasNext()) {
-                        at6 next = it.next();
-                        if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.k())) {
-                            TransmitForumData transmitForumData = new TransmitForumData(Long.valueOf(next.getId()).longValue(), next.k(), false, 1, next.e());
-                            transmitForumData.tabItemDatas = next.m();
-                            arrayList.add(transmitForumData);
-                        }
-                    }
-                }
-                this.a.b.a(arrayList, true, 1, 0);
-                return;
-            }
-            this.a.b.a(null, false, 1, 0);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(mt6 mt6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mt6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mt6Var;
-        }
-
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                boolean z = responsedMessage instanceof ForumGuideSocketResponseMessage;
-                if ((!z && !(responsedMessage instanceof ForumGuideHttpResponseMessage)) || this.a.a.getUniqueId() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError()) {
-                    return;
-                }
-                if (z) {
-                    this.a.a.l0((ForumGuideSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof ForumGuideHttpResponseMessage) {
-                    this.a.a.k0((ForumGuideHttpResponseMessage) responsedMessage);
-                }
-            }
-        }
-    }
-
-    public mt6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mt6(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = new a(this);
-        this.d = new b(this, CmdConfigHttp.CMD_ENTER_FORUM_DATA, 309683);
-        EnterForumModel enterForumModel = new EnterForumModel(null);
-        this.a = enterForumModel;
-        enterForumModel.s0(this.c);
-        MessageManager.getInstance().registerListener(this.d);
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    @Override // com.baidu.tieba.wm6
-    public void a(wm6.a aVar) {
+    @Override // com.baidu.tieba.st6, com.baidu.tieba.nt6
+    public boolean b(ws6 item, zu6 timer, qs6 config) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            xs6 e = item.e();
+            if (!this.e.invoke(e.p()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wm6
-    public void b() {
-        EnterForumModel enterForumModel;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.st6
+    /* renamed from: e */
+    public String c(xs6 data) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (enterForumModel = this.a) != null) {
-            enterForumModel.f0(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
         }
+        return (String) invokeL.objValue;
     }
 }

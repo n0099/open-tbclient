@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.gq6;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public final class cq6 extends xp6 {
+public class cq6 implements m77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cq6() {
-        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new fq6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,12 +24,23 @@ public final class cq6 extends xp6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((gq6) objArr[0], (gq6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.m77
+    public void a(Context context, String str) {
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (q9.a(context) instanceof TbPageContext) {
+                tbPageContext = (TbPageContext) q9.a(context);
+            } else {
+                tbPageContext = null;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
     }
 }

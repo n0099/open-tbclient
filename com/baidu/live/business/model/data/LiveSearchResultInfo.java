@@ -1,7 +1,6 @@
 package com.baidu.live.business.model.data;
 
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -62,7 +61,7 @@ public class LiveSearchResultInfo {
         JSONObject optJSONObject = jSONObject.optJSONObject("stat");
         if (optJSONObject != null) {
             this.liveType = optJSONObject.optString("live_type");
-            this.yyuid = optJSONObject.optString(TiebaStatic.YYParams.YYUID);
+            this.yyuid = optJSONObject.optString("yyuid");
             this.sid = optJSONObject.optString("sid");
             this.ssid = optJSONObject.optString(YyLiveRoomConfig.KEY_SSID);
             this.tpl = optJSONObject.optString("tpl");

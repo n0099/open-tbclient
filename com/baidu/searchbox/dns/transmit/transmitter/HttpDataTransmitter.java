@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.RetryException;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.StopRequestException;
@@ -221,7 +220,7 @@ public abstract class HttpDataTransmitter<T> implements HttpTransmitter<T> {
                     if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.equals("gzip")) {
                         inputStream = new GZIPInputStream(inputStream);
                     }
-                    bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream, IMAudioTransRequest.CHARSET));
+                    bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
                 } catch (Exception e) {
                     e = e;
                 }
@@ -258,7 +257,7 @@ public abstract class HttpDataTransmitter<T> implements HttpTransmitter<T> {
                 if (readLine == null) {
                     break;
                 }
-                stringBuffer.append(new String(readLine.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
+                stringBuffer.append(new String(readLine.getBytes("utf-8"), "utf-8"));
             }
             String stringBuffer2 = stringBuffer.toString();
             if (inputStream != null) {

@@ -1,174 +1,51 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.view.animation.LinearInterpolator;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.t41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public abstract class g61 {
+public class g61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueAnimator.AnimatorUpdateListener a;
-    public final Rect b;
-    public Drawable.Callback c;
-    public ValueAnimator d;
-    public long e;
-    public float f;
-    public float g;
 
-    public abstract void c(float f);
-
-    public abstract void d(Canvas canvas);
-
-    public abstract void h();
-
-    public abstract void i(int i);
-
-    public abstract void l(ColorFilter colorFilter);
-
-    /* loaded from: classes5.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g61 a;
-
-        public a(g61 g61Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g61Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
                 }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            this.a = g61Var;
+            return sb.toString();
         }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.f();
-            }
-        }
+        return (String) invokeLLZ.objValue;
     }
 
-    public g61(Context context) {
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest(), "", z);
+            } catch (Exception unused) {
+                return String.valueOf(str.hashCode());
             }
         }
-        this.a = new a(this);
-        this.b = new Rect();
-        e(context);
-        m();
-    }
-
-    public void b(Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            this.d.addListener(animatorListener);
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f = t41.c.a(context, 31.0f);
-            this.g = t41.c.a(context, 31.0f);
-            this.e = 1333L;
-        }
-    }
-
-    public void j(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
-            this.b.set(rect);
-        }
-    }
-
-    public void k(Drawable.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
-            this.c = callback;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.invalidateDrawable(null);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.isRunning();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.removeUpdateListener(this.a);
-            this.d.setRepeatCount(0);
-            this.d.setDuration(0L);
-            this.d.end();
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.d = ofFloat;
-            ofFloat.setRepeatCount(-1);
-            this.d.setRepeatMode(1);
-            this.d.setDuration(this.e);
-            this.d.setInterpolator(new LinearInterpolator());
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            h();
-            this.d.addUpdateListener(this.a);
-            this.d.setRepeatCount(-1);
-            this.d.setDuration(this.e);
-            this.d.setStartDelay(200L);
-            this.d.start();
-        }
+        return (String) invokeLZ.objValue;
     }
 }

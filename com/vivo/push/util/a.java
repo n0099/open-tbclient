@@ -2,7 +2,6 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,10 +46,10 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String a = j.a(a());
             String a2 = j.a(b());
-            byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes(IMAudioTransRequest.CHARSET), "AES");
+            byte[] bytes = str.getBytes("utf-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes(IMAudioTransRequest.CHARSET)));
+            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
             return Base64.encodeToString(cipher.doFinal(bytes), 2);
         }
         return (String) invokeL.objValue;
@@ -76,7 +75,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new String(j.a(j.a(a()), j.a(b()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+            return new String(j.a(j.a(a()), j.a(b()), Base64.decode(str, 2)), "utf-8");
         }
         return (String) invokeL.objValue;
     }

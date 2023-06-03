@@ -1,7 +1,6 @@
 package kotlinx.coroutines.flow;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.facebook.imageutils.JfifUtil;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -13,18 +12,14 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 /* JADX INFO: Add missing generic type declarations: [R, T] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\u0006\u0010\u0005\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__MergeKt$flatMapLatest$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1", f = "Migration.kt", i = {0, 0, 1, 1, 1, 1}, l = {190, JfifUtil.MARKER_SOI}, m = "invokeSuspend", n = {"$this$transformLatest", AdvanceSetting.NETWORK_TYPE, "$this$transformLatest", AdvanceSetting.NETWORK_TYPE, "$this$emitAll$iv", "flow$iv"}, s = {"L$0", "L$1", "L$0", "L$1", "L$2", "L$3"})
+@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\u0006\u0010\u0005\u001a\u0002H\u0002H\u008a@¨\u0006\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "kotlinx/coroutines/flow/FlowKt__MergeKt$flatMapLatest$1"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1", f = "Migration.kt", i = {}, l = {190, 190}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes10.dex */
 public final class FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1<R, T> extends SuspendLambda implements Function3<FlowCollector<? super R>, T, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $transform;
-    public Object L$0;
-    public Object L$1;
-    public Object L$2;
-    public Object L$3;
+    public /* synthetic */ Object L$0;
+    public /* synthetic */ Object L$1;
     public int label;
-    public FlowCollector p$;
-    public Object p$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1(Function2 function2, Continuation continuation) {
@@ -32,67 +27,51 @@ public final class FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1<R, T> 
         this.$transform = function2;
     }
 
-    public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, T t, Continuation<? super Unit> continuation) {
-        FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1 flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1 = new FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1(this.$transform, continuation);
-        flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1.p$ = flowCollector;
-        flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1.p$0 = t;
-        return flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1;
-    }
-
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function3
-    public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
-        return ((FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1) create((FlowCollector) obj, obj2, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
+        return invoke((FlowCollector) ((FlowCollector) obj), (FlowCollector<? super R>) obj2, continuation);
+    }
+
+    public final Object invoke(FlowCollector<? super R> flowCollector, T t, Continuation<? super Unit> continuation) {
+        FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1 flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1 = new FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1(this.$transform, continuation);
+        flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1.L$0 = flowCollector;
+        flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1.L$1 = t;
+        return flowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1.invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        FlowCollector<? super T> flowCollector;
-        FlowCollector<? super T> flowCollector2;
-        Object obj2;
+        FlowCollector flowCollector;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         if (i != 0) {
             if (i != 1) {
                 if (i == 2) {
-                    Flow flow = (Flow) this.L$3;
-                    FlowCollector flowCollector3 = (FlowCollector) this.L$2;
-                    FlowCollector flowCollector4 = (FlowCollector) this.L$0;
                     ResultKt.throwOnFailure(obj);
                     return Unit.INSTANCE;
                 }
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
-            flowCollector = (FlowCollector) this.L$2;
-            obj2 = this.L$1;
-            flowCollector2 = (FlowCollector) this.L$0;
+            flowCollector = (FlowCollector) this.L$0;
             ResultKt.throwOnFailure(obj);
         } else {
             ResultKt.throwOnFailure(obj);
-            flowCollector = this.p$;
-            Object obj3 = this.p$0;
+            flowCollector = (FlowCollector) this.L$0;
+            Object obj2 = this.L$1;
             Function2 function2 = this.$transform;
             this.L$0 = flowCollector;
-            this.L$1 = obj3;
-            this.L$2 = flowCollector;
             this.label = 1;
-            Object invoke = function2.invoke(obj3, this);
-            if (invoke == coroutine_suspended) {
+            obj = function2.invoke(obj2, this);
+            if (obj == coroutine_suspended) {
                 return coroutine_suspended;
             }
-            flowCollector2 = flowCollector;
-            obj2 = obj3;
-            obj = invoke;
         }
-        Flow flow2 = (Flow) obj;
-        this.L$0 = flowCollector2;
-        this.L$1 = obj2;
-        this.L$2 = flowCollector;
-        this.L$3 = flow2;
+        this.L$0 = null;
         this.label = 2;
-        if (flow2.collect(flowCollector, this) == coroutine_suspended) {
+        if (FlowKt.emitAll(flowCollector, (Flow) obj, this) == coroutine_suspended) {
             return coroutine_suspended;
         }
         return Unit.INSTANCE;

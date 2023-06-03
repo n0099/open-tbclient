@@ -144,6 +144,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GROUP_CHAT_LIMIT_MESSAGE = 1003554;
     public static final int CMD_GET_GROUP_CHAT_ROLLBACK_MESSAGE = 1003555;
     public static final int CMD_GET_HISTORY_FORUM = 1003394;
+    public static final int CMD_GET_HOMEPAGE_REC_FORUM_INFO = 1003569;
     public static final int CMD_GET_HOT_THREAD = 1003005;
     public static final int CMD_GET_ICE_BREAK_EMOTIONS = 1003530;
     public static final int CMD_GET_IMAGE_WATERMARK_TYPE = 1003448;
@@ -266,6 +267,7 @@ public class CmdConfigHttp {
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_CALL_ROBOT_ROUTER = 1003565;
     public static final int CMD_POST_SEARCH = 1003016;
+    public static final int CMD_POST_SKILL_SUG = 1003570;
     public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
     public static final int CMD_QINGHUDONG_EMOTION = 1003545;

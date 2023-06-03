@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.RemoteException;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.c;
 import com.bytedance.pangle.d;
@@ -18,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static final Object a = new Object();
     public static final Object b = new Object();
@@ -40,7 +41,7 @@ public final class b {
         int hashCode;
         if (Zeus.hasInit()) {
             if (Zeus.getServerManagerHashMap().get(str2) != null) {
-                Bundle call = Zeus.getAppApplication().getContentResolver().call(Uri.parse("content://" + providerInfo.authority), AbsServerManager.METHOD_QUERY_BINDER, str, (Bundle) null);
+                Bundle call = Zeus.getAppApplication().getContentResolver().call(Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + providerInfo.authority), AbsServerManager.METHOD_QUERY_BINDER, str, (Bundle) null);
                 if (call != null) {
                     call.setClassLoader(AbsServerManager.class.getClassLoader());
                     a aVar = (a) call.getParcelable(AbsServerManager.BUNDLE_BINDER);

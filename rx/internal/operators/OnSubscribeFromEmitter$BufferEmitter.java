@@ -1,13 +1,13 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.cab;
-import com.baidu.tieba.cbb;
-import com.baidu.tieba.d8b;
-import com.baidu.tieba.ibb;
-import com.baidu.tieba.o7b;
+import com.baidu.tieba.cpb;
+import com.baidu.tieba.cqb;
+import com.baidu.tieba.dnb;
+import com.baidu.tieba.iqb;
+import com.baidu.tieba.omb;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 2427151001689639875L;
     public volatile boolean done;
@@ -15,15 +15,15 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    public OnSubscribeFromEmitter$BufferEmitter(o7b<? super T> o7bVar, int i) {
-        super(o7bVar);
-        Queue<Object> cabVar;
-        if (ibb.b()) {
-            cabVar = new cbb<>(i);
+    public OnSubscribeFromEmitter$BufferEmitter(omb<? super T> ombVar, int i) {
+        super(ombVar);
+        Queue<Object> cpbVar;
+        if (iqb.b()) {
+            cpbVar = new cqb<>(i);
         } else {
-            cabVar = new cab<>(i);
+            cpbVar = new cpb<>(i);
         }
-        this.queue = cabVar;
+        this.queue = cpbVar;
         this.wip = new AtomicInteger();
     }
 
@@ -33,7 +33,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
-        o7b<? super T> o7bVar = this.actual;
+        omb<? super T> ombVar = this.actual;
         Queue<Object> queue = this.queue;
         int i2 = 1;
         do {
@@ -43,7 +43,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                 i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i == 0) {
                     break;
-                } else if (o7bVar.isUnsubscribed()) {
+                } else if (ombVar.isUnsubscribed()) {
                     queue.clear();
                     return;
                 } else {
@@ -66,13 +66,13 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                     } else if (z) {
                         break;
                     } else {
-                        o7bVar.onNext((Object) NotificationLite.e(poll));
+                        ombVar.onNext((Object) NotificationLite.e(poll));
                         j2++;
                     }
                 }
             }
             if (i == 0) {
-                if (o7bVar.isUnsubscribed()) {
+                if (ombVar.isUnsubscribed()) {
                     queue.clear();
                     return;
                 }
@@ -90,7 +90,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                 }
             }
             if (j2 != 0) {
-                d8b.g(this, j2);
+                dnb.g(this, j2);
             }
             i2 = this.wip.addAndGet(-i2);
         } while (i2 != 0);

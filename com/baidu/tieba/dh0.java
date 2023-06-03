@@ -1,47 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
+import com.google.zxing.client.result.ResultParser;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 /* loaded from: classes5.dex */
-public final class dh0 extends hm0 {
+public class dh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
-    @JvmField
-    public boolean h;
-    @JvmField
-    public String i;
 
-    public dh0() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
+    }
+
+    public static String b(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream != null) {
+                if (TextUtils.isEmpty(str)) {
+                    str = System.getProperty("file.encoding", "utf-8");
+                }
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[4096];
+                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
+                    stringWriter.write(cArr, 0, read);
+                }
+                String stringWriter2 = stringWriter.toString();
+                inputStreamReader.close();
+                stringWriter.close();
+                if ("utf-8".equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                    return stringWriter2.substring(1);
+                }
+                return stringWriter2;
+            }
+            throw new IllegalArgumentException("stream may not be null.");
+        }
+        return (String) invokeLL.objValue;
     }
 }

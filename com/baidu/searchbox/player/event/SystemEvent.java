@@ -1,9 +1,10 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SystemEvent extends VideoEvent {
     public static final String ACTION_BATTERY_CHANGED = "system_event_battery_changed";
+    public static final String ACTION_BATTERY_CHARGING_CHANGED = "system_event_battery_charging_changed";
     public static final String ACTION_BLUETOOTH_HEADSET = "system_event_bluetooth_headset";
     public static final String ACTION_CLOSE_SYSTEM_DIALOGS = "system_event_net_changed";
     public static final String ACTION_CONFIGURATION_CHANGED = "system_event_configuration_changed";
@@ -12,12 +13,12 @@ public class SystemEvent extends VideoEvent {
     public static final String ACTION_SCREEN_OFF = "system_event_screen_off";
     public static final String ACTION_SCREEN_ON = "system_event_screen_on";
     public static final String ACTION_VOLUME_CHANGED = "system_event_volume_changed";
-    public static final int KEY_BATTERY_LEVEL = 4;
-    public static final int KEY_BLUETOOTH_HEADSET_CONNECT_STATE = 6;
+    public static final int KEY_BATTERY_CHARGING = 6;
+    public static final int KEY_BATTERY_LEVEL = 3;
+    public static final int KEY_BLUETOOTH_HEADSET_CONNECT_STATE = 5;
     public static final int KEY_CONNNECT_STATE = 1;
-    public static final int KEY_HEADSET_CONNECT_STATE = 3;
-    public static final int KEY_SCREEN_STATE = 2;
-    public static final int KEY_VOLUME = 5;
+    public static final int KEY_HEADSET_CONNECT_STATE = 2;
+    public static final int KEY_VOLUME = 4;
 
     public static VideoEvent obtainEvent(@NonNull String str) {
         return VideoEvent.obtain(str, 1);

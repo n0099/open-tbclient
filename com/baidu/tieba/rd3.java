@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.DelayTB;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rd3 extends db3 {
+public class rd3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements zn3<je3<JSONObject>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ Context a;
 
-        public a(rd3 rd3Var, CallbackHandler callbackHandler, String str) {
+        public a(rd3 rd3Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rd3Var, callbackHandler, str};
+                Object[] objArr = {rd3Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +41,28 @@ public class rd3 extends db3 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(je3<JSONObject> je3Var) {
-            JSONObject wrapCallbackParams;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
-                if (je3Var.c() && nx1.y(je3Var.a)) {
-                    JSONObject optJSONObject = je3Var.a.optJSONObject("data");
-                    if (optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(je3Var.b());
-                    os2.j().g(this.a, wrapCallbackParams.toString());
-                }
-                this.a.handleSchemeDispatchCallback(this.b, wrapCallbackParams.toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "5");
+                w83.k(this.a, bundle);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rd3(da3 da3Var) {
-        super(da3Var, "/swanAPI/checkSession");
+    public rd3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/preloadSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,45 +76,34 @@ public class rd3 extends db3 {
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
         InterceptResult invokeLLLL;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (g93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                os2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (vd3.b) {
+                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (!ProcessUtils.isMainProcess()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
                 return false;
             }
-            String O = g93Var.O();
-            if (TextUtils.isEmpty(O)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key");
-                os2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                os2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                os2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-                return false;
-            } else if (!g93Var.N().e(context)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
-                os2.j().g(callbackHandler, unitedSchemeEntity.result.toString());
-                return true;
+            JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                optInt = 0;
             } else {
-                me3 g = f93.K().x().a().b().g((Activity) context, O);
-                g.q("checkSession");
-                g.o(new a(this, callbackHandler, optString));
-                g.call();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                optInt = a2.optInt(DelayTB.DELAY, 0);
             }
+            if (optInt < 0) {
+                optInt = 0;
+            }
+            if (vd3.b) {
+                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
+            }
+            sp3.b0(new a(this, context), optInt);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

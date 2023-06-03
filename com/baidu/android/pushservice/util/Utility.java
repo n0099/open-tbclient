@@ -46,7 +46,6 @@ import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.android.pushservice.PushSettings;
@@ -62,6 +61,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.RomTypeUtil;
@@ -74,7 +74,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.google.protobuf.ByteString;
-import com.google.protobuf.CodedInputStream;
 import com.heytap.msp.push.HeytapPushManager;
 import com.heytap.msp.push.callback.ICallBackResultService;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
@@ -743,7 +742,7 @@ public final class Utility {
     public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i)) == null) ? Build.VERSION.SDK_INT >= 23 ? i | CodedInputStream.DEFAULT_SIZE_LIMIT : i : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i)) == null) ? Build.VERSION.SDK_INT >= 23 ? i | 67108864 : i : invokeI.intValue;
     }
 
     public static int a(Context context, float f) {
@@ -1522,7 +1521,7 @@ public final class Utility {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     byte[] decode = Base64.decode(str.getBytes(), 2);
-                    return new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), IMAudioTransRequest.CHARSET);
+                    return new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                 }
             } catch (Exception | UnsatisfiedLinkError unused) {
             }
@@ -1685,7 +1684,7 @@ public final class Utility {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65615, null, str)) == null) {
             try {
-                return new String(Base64.encode(BaiduAppSSOJni.encryptAES(str, 0), 2), IMAudioTransRequest.CHARSET);
+                return new String(Base64.encode(BaiduAppSSOJni.encryptAES(str, 0), 2), "utf-8");
             } catch (Exception | UnsatisfiedLinkError unused) {
                 return "";
             }
@@ -2602,7 +2601,7 @@ public final class Utility {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65658, null, context)) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             }

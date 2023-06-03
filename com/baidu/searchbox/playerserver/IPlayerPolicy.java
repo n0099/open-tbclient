@@ -5,6 +5,8 @@ public interface IPlayerPolicy {
 
     void register(IPlayerConfig iPlayerConfig);
 
+    void sendRequestManually(int i);
+
     void start();
 
     void stop();

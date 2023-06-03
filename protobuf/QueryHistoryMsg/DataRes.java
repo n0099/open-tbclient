@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataRes extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<MsgInfo> res;
@@ -13,7 +13,7 @@ public final class DataRes extends Message {
     public static final Integer DEFAULT_TOTAL = 0;
     public static final List<MsgInfo> DEFAULT_RES = Collections.emptyList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<MsgInfo> res;
         public Integer total;

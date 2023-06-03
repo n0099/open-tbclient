@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.po7;
+import com.baidu.tieba.bu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po7 orderInfo;
+    public bu7 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderHttpResponse(int i) {
@@ -51,18 +51,18 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
             setErrorString(placeOrderResIdl.error.usermsg);
         }
         if (placeOrderResIdl.data != null) {
-            po7 po7Var = new po7();
-            this.orderInfo = po7Var;
-            po7Var.c(placeOrderResIdl.data);
+            bu7 bu7Var = new bu7();
+            this.orderInfo = bu7Var;
+            bu7Var.c(placeOrderResIdl.data);
         }
     }
 
-    public po7 getOrderInfo() {
+    public bu7 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.orderInfo;
         }
-        return (po7) invokeV.objValue;
+        return (bu7) invokeV.objValue;
     }
 }

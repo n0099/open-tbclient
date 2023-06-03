@@ -15,14 +15,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ak6;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.e86;
-import com.baidu.tieba.j66;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.u76;
-import com.baidu.tieba.x66;
+import com.baidu.tieba.bb6;
+import com.baidu.tieba.ic6;
+import com.baidu.tieba.io6;
+import com.baidu.tieba.na6;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.vn;
+import com.baidu.tieba.yb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public u76 f;
+    public yb6 f;
     public long g;
     public int h;
     public int i;
@@ -49,9 +49,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public c m;
     public HttpMessageListener n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void a(boolean z, List<rn> list);
+        void a(boolean z, List<vn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -76,7 +76,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,18 +110,18 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    x66 x66Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    bb6 bb6Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(x66Var);
+                            this.a.f.a(bb6Var);
                         }
                     } else {
-                        j66.a(this.a.h);
+                        na6.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new u76(x66Var, alaLiveYYSubTabModel.j, this.a.k);
+                        alaLiveYYSubTabModel.f = new yb6(bb6Var, alaLiveYYSubTabModel.j, this.a.k);
                         this.a.g0();
                     }
                     if (this.a.f != null) {
@@ -139,7 +139,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements PollingModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            h0(1, j66.b(this.h) - 1);
+            h0(1, na6.b(this.h) - 1);
         }
     }
 
@@ -238,17 +238,17 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        e86 e86Var = new e86();
-        e86Var.a = new ak6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(e86Var);
+        ic6 ic6Var = new ic6();
+        ic6Var.a = new io6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(ic6Var);
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            u76 u76Var = this.f;
-            if (u76Var != null && !ListUtils.isEmpty(u76Var.d())) {
+            yb6 yb6Var = this.f;
+            if (yb6Var != null && !ListUtils.isEmpty(yb6Var.d())) {
                 return true;
             }
             return false;
@@ -283,7 +283,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.C0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            h0(0, j66.b(this.h));
+            h0(0, na6.b(this.h));
         }
     }
 
@@ -305,7 +305,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", ri.l(this.a.getPageActivity()) + "_" + ri.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", vi.l(this.a.getPageActivity()) + "_" + vi.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i);
             httpMessage.addParam("big_refresh_count", i2);

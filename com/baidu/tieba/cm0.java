@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lm0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cm0 implements jm0, Runnable {
+public class cm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<lm0.b<?>> a;
-    public final AtomicBoolean b;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cm0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-885830746, "Lcom/baidu/tieba/cm0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-885830746, "Lcom/baidu/tieba/cm0$a;");
-                    return;
-                }
-            }
-            a = new cm0();
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
 
     public cm0() {
         Interceptable interceptable = $ic;
@@ -54,44 +30,39 @@ public class cm0 implements jm0, Runnable {
                 return;
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
+        this.a = "";
+        this.b = "";
+        this.c = "";
     }
 
-    public static jm0 b() {
-        InterceptResult invokeV;
+    @NonNull
+    public static cm0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            cm0 cm0Var = new cm0();
+            JSONObject c = y21.c(str);
+            cm0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
+            cm0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
+            cm0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
+            return cm0Var;
         }
-        return (jm0) invokeV.objValue;
+        return (cm0) invokeL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static String b(@NonNull cm0 cm0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        while (true) {
-            lm0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cm0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, cm0Var.a);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, cm0Var.b);
+                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, cm0Var.c);
+            } catch (JSONException unused) {
             }
+            return jSONObject.toString();
         }
-    }
-
-    @Override // com.baidu.tieba.jm0
-    public <T extends hm0> void a(mm0 mm0Var, km0<T> km0Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, mm0Var, km0Var, t) == null) {
-            this.a.offer(new lm0.b<>(mm0Var, km0Var, t));
-            if (this.b.compareAndSet(false, true)) {
-                f31.c(this, "AsyncDeliver", 3);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

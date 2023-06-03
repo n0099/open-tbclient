@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class h extends MessageSnapshot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends b implements com.kwai.filedownloader.message.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -350,7 +350,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +387,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class f extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -493,7 +493,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -579,14 +579,14 @@ public abstract class h extends MessageSnapshot {
     }
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0670h extends d {
+    /* loaded from: classes10.dex */
+    public static class C0690h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int avw;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0670h(int i, int i2, Throwable th, int i3) {
+        public C0690h(int i, int i2, Throwable th, int i3) {
             super(i, i2, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -608,7 +608,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0670h(Parcel parcel) {
+        public C0690h(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -665,7 +665,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class i extends j implements com.kwai.filedownloader.message.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -692,7 +692,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class j extends f implements MessageSnapshot.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,222 +1,250 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.level.TbLevelView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.adapter.stats.StatsType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class rt5 {
+public abstract class rt5<T, V extends TypeAdapter.ViewHolder> extends in<T, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static final rt5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public TbPageContext<?> c;
+    public bo d;
+    public vz4 e;
+    public eu5 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133174, "Lcom/baidu/tieba/rt5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133174, "Lcom/baidu/tieba/rt5;");
-                return;
-            }
-        }
-        a = new rt5();
-    }
-
-    public rt5() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public rt5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(r1, bdUniqueId);
+        Activity pageActivity;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
-            Intrinsics.checkNotNullParameter(nickName, "nickName");
-            Intrinsics.checkNotNullParameter(levelView, "levelView");
-            Intrinsics.checkNotNullParameter(orderList, "orderList");
-            if (str == null) {
-                str2 = "";
-            } else {
-                str2 = str;
-            }
-            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
-            if (levelView.getVisibility() != 8) {
-                levelView.setMode(true);
-                measureText += levelView.b() + a.a(levelView);
-            }
-            for (View view2 : orderList) {
-                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
-                    measureText += a.b(view2);
-                }
-            }
-            if (userIconBox != null && userIconBox.getVisibility() != 8) {
-                int childCount = userIconBox.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = userIconBox.getChildAt(i2);
-                    if (childAt != null) {
-                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
-                        childAt.setVisibility(0);
-                        measureText += a.b(childAt);
-                    }
-                }
-            }
-            float f = i;
-            if (measureText <= f) {
-                nickName.setText(str);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            float e = a.e(i, measureText, str2, nickName);
-            if (e <= f) {
-                return;
-            }
-            float d = a.d(e, levelView);
-            if (d <= f) {
-                return;
-            }
-            a.f(i, d, orderList, userIconBox);
+        }
+        if (tbPageContext == null) {
+            pageActivity = null;
+        } else {
+            pageActivity = tbPageContext.getPageActivity();
+        }
+        this.a = 0;
+        this.b = true;
+        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+    }
+
+    public int A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            t();
+            return this.f.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            t();
+            return this.f.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            t();
+            return this.f.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            t();
+            return this.f.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            t();
+            return this.f.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            t();
+            return this.f.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f == null) {
+            this.f = new eu5(this.d);
         }
     }
 
-    public final int a(View view2) {
-        InterceptResult invokeL;
-        int i;
+    public int x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            ViewGroup.MarginLayoutParams marginLayoutParams = null;
-            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                layoutParams = null;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
-            int i2 = 0;
-            if (marginLayoutParams2 != null) {
-                i = marginLayoutParams2.leftMargin;
-            } else {
-                i = 0;
-            }
-            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
-            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-                marginLayoutParams = layoutParams2;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
-            if (marginLayoutParams3 != null) {
-                i2 = marginLayoutParams3.rightMargin;
-            }
-            return i + i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            t();
+            return this.f.e;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 
-    public final int b(View view2) {
-        InterceptResult invokeL;
+    public int y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            return view2.getMeasuredWidth() + a(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            t();
+            return this.f.f;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 
-    public final float d(float f, TbLevelView tbLevelView) {
-        InterceptResult invokeCommon;
+    public String z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
-            float b = tbLevelView.b();
-            tbLevelView.setMode(false);
-            return f - (b - tbLevelView.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            t();
+            return this.f.b;
         }
-        return invokeCommon.floatValue;
+        return (String) invokeV.objValue;
     }
 
-    public final float e(int i, float f, String str, TextView textView) {
-        InterceptResult invokeCommon;
-        float measureText;
+    public boolean H(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
-            if (lt5.e(str) <= 12) {
-                textView.setText(str);
-                return f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((i & this.a) > 0) {
+                return true;
             }
-            float measureText2 = textView.getPaint().measureText(str);
-            float f2 = f - i;
-            int e = lt5.e(str);
-            do {
-                str = lt5.m(str, e - 1);
-                Intrinsics.checkNotNullExpressionValue(str, "subStringWithEmoji(showName, showNameLen - 1)");
-                e = lt5.e(str);
-                TextPaint paint = textView.getPaint();
-                measureText = paint.measureText(str + StringHelper.STRING_MORE);
-                if (f2 <= measureText2 - measureText) {
-                    break;
-                }
-            } while (e > 10);
-            textView.setText(str + StringHelper.STRING_MORE);
-            return (f - measureText2) + measureText;
+            return false;
         }
-        return invokeCommon.floatValue;
+        return invokeI.booleanValue;
     }
 
-    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
-        InterceptResult invokeCommon;
-        float b;
+    public void I(eu5 eu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
-            if (userIconBox != null && userIconBox.getVisibility() != 8) {
-                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
-                    View childAt = userIconBox.getChildAt(childCount);
-                    if (childAt != null) {
-                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
-                        childAt.setVisibility(8);
-                        f -= a.b(childAt);
-                        if (f <= i) {
-                            return f;
-                        }
-                    }
-                }
-            }
-            for (int size = list.size() - 1; -1 < size; size--) {
-                if (list.get(size).getVisibility() != 8) {
-                    list.get(size).setVisibility(8);
-                    if (list.get(size) instanceof TbLevelView) {
-                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
-                    } else {
-                        b = b(list.get(size));
-                    }
-                    f -= b;
-                    if (f <= i) {
-                        return f;
-                    }
-                }
-            }
-            return f;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eu5Var) == null) {
+            this.f = eu5Var;
         }
-        return invokeCommon.floatValue;
+    }
+
+    public void J(vz4 vz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, vz4Var) == null) {
+            this.e = vz4Var;
+        }
+    }
+
+    public void K(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+            this.mPageId = bdUniqueId;
+        }
+    }
+
+    public void M(bo boVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, boVar) == null) {
+            this.d = boVar;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.a = i | this.a;
+        }
+    }
+
+    public void N(View view2, f15 f15Var, int i, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{view2, f15Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || f15Var == null) {
+            return;
+        }
+        vz4 vz4Var = this.e;
+        if (vz4Var != null) {
+            vz4Var.c(view2, f15Var, f15Var.position, j);
+        } else {
+            gu5.a(new fu5(StatsType.SHOW, f15Var, view2, this.mPageId));
+        }
+    }
+
+    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
+            this.mContext = tbPageContext.getPageActivity();
+            this.c = tbPageContext;
+            this.mPageId = bdUniqueId;
+        }
+    }
+
+    public void u(View view2, f15 f15Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048592, this, view2, f15Var) != null) || f15Var == null) {
+            return;
+        }
+        vz4 vz4Var = this.e;
+        if (vz4Var != null) {
+            int i = f15Var.position;
+            vz4Var.d(view2, f15Var, i, i);
+            return;
+        }
+        gu5.a(new fu5(StatsType.CLICK, f15Var, view2, this.mPageId));
     }
 }

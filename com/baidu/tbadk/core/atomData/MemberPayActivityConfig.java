@@ -64,6 +64,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final String SCENE_ID = "scene_id";
     public static final String SHOW_PRICE = "show_price";
     public static final String SHOW_VIP_TIP = "show_vip_tip";
+    public static final String START_TIME = "start_time";
     public static final String ST_TYPE = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,6 +87,7 @@ public class MemberPayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(MEMBER_TYPE, i);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -109,6 +111,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra(MEMBER_TYPE, i);
         getIntent().putExtra(IS_WRITE, i3);
         getIntent().putExtra("from", i2);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +135,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra(MEMBER_TYPE, i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,6 +161,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i2);
         getIntent().putExtra(SCENE_ID, str2);
         getIntent().putExtra(PAY_TYPE, i3);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -181,6 +186,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(SHOW_VIP_TIP, z);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -204,6 +210,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra(MEMBER_TYPE, i);
         getIntent().putExtra("close", z);
         getIntent().putExtra("from", i2);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -229,6 +236,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
         getIntent().putExtra(DEFAULT_GOODS, str);
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -256,6 +264,7 @@ public class MemberPayActivityConfig extends IntentConfig {
             setIntentAction(IntentAction.ActivityForResult);
             setRequestCode(i);
         }
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -285,6 +294,14 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
         if (i2 > 0) {
             getIntent().putExtra("from", i2);
+        }
+        init();
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            getIntent().putExtra("start_time", System.currentTimeMillis());
         }
     }
 

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.searchbox.download.manager.DownloadManager;
 /* loaded from: classes10.dex */
 public class DownloadHandleService extends Service {
     public static final String a = DownloadHandleService.class.getSimpleName();
@@ -25,7 +26,7 @@ public class DownloadHandleService extends Service {
             return;
         }
         String action = intent.getAction();
-        if (TextUtils.isEmpty(action) || (intExtra = intent.getIntExtra("extra_download_id", 0)) == 0) {
+        if (TextUtils.isEmpty(action) || (intExtra = intent.getIntExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0)) == 0) {
             return;
         }
         if (action.equals("com.ss.android.downloader.action.DOWNLOAD_WAKEUP")) {

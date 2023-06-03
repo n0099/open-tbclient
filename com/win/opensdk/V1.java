@@ -102,13 +102,13 @@ public class V1 {
                 if (!a(context, Uri.parse(str), info)) {
                     if (info.getOpent() == 1) {
                         if (N.d.c) {
-                            Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f2), 1).show();
+                            Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1856), 1).show();
                             e1.a(context).c(new f1(info), 5).a();
                             return;
                         }
                         if (!TextUtils.isEmpty(info.getDl_name())) {
                             Context applicationContext = context.getApplicationContext();
-                            Toast.makeText(applicationContext, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f6) + info.getDl_name(), 0).show();
+                            Toast.makeText(applicationContext, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f185a) + info.getDl_name(), 0).show();
                         }
                         d1 a = e1.a(context);
                         f1 f1Var = new f1(info);

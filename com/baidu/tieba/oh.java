@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class oh {
+import java.util.Comparator;
+/* loaded from: classes7.dex */
+public class oh implements Comparator<nh> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
 
     public oh() {
         Interceptable interceptable = $ic;
@@ -27,60 +21,26 @@ public class oh {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0L;
-        this.b = null;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(nh nhVar, nh nhVar2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            fc fcVar = new fc("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
-            fcVar.setSdCard(false);
-            fcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ac.f().call(fcVar);
-            if (fcVar.isSuccess()) {
-                str = fcVar.a();
-            } else {
-                str = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, nhVar, nhVar2)) == null) {
+            int i = (nhVar.c > nhVar2.c ? 1 : (nhVar.c == nhVar2.c ? 0 : -1));
+            if (i > 0) {
+                return 1;
             }
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            if (i == 0) {
+                return 0;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.getLong("time");
-                this.b = jSONObject.getString("data");
-                return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return true;
-            }
+            return -1;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("time", currentTimeMillis);
-            jSONObject.put("data", str);
-            fc fcVar = new fc("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
-            fcVar.setSdCard(false);
-            fcVar.b(jSONObject.toString());
-            fcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ac.f().call(fcVar);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return invokeLL.intValue;
     }
 }

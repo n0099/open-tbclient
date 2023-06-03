@@ -27,8 +27,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mb0;
-import com.baidu.tieba.oa0;
+import com.baidu.tieba.vc0;
+import com.baidu.tieba.xb0;
 import java.lang.ref.WeakReference;
 import java.util.List;
 @CoordinatorLayout.c(Behavior.class)
@@ -664,7 +664,7 @@ public class AppBarLayout extends LinearLayout {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oa0.LiveAppBarLayout_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xb0.LiveAppBarLayout_Layout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));
@@ -712,7 +712,7 @@ public class AppBarLayout extends LinearLayout {
 
         public ScrollingViewBehavior(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oa0.LiveScrollingViewBehavior_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xb0.LiveScrollingViewBehavior_Layout);
             if (obtainStyledAttributes.hasValue(0)) {
                 O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
@@ -911,7 +911,7 @@ public class AppBarLayout extends LinearLayout {
     @Deprecated
     public void setTargetElevation(float f) {
         if (Build.VERSION.SDK_INT >= 21) {
-            mb0.b(this, f);
+            vc0.b(this, f);
         }
     }
 
@@ -923,15 +923,15 @@ public class AppBarLayout extends LinearLayout {
         this.e = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            mb0.a(this);
-            mb0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f10012a);
+            vc0.a(this);
+            vc0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f10012c);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oa0.LiveAppBarLayout, 0, R.style.obfuscated_res_0x7f10012a);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xb0.LiveAppBarLayout, 0, R.style.obfuscated_res_0x7f10012c);
         if (obtainStyledAttributes.hasValue(2)) {
             l(obtainStyledAttributes.getBoolean(2, false), false, false);
         }
         if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(1)) {
-            mb0.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
+            vc0.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
             if (obtainStyledAttributes.hasValue(3)) {
@@ -1136,27 +1136,27 @@ public class AppBarLayout extends LinearLayout {
         int[] iArr = this.l;
         int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
         if (this.i) {
-            i2 = R.attr.obfuscated_res_0x7f0404bb;
+            i2 = R.attr.obfuscated_res_0x7f0404bc;
         } else {
-            i2 = -2130969787;
+            i2 = -2130969788;
         }
         iArr[0] = i2;
         if (this.i && this.j) {
-            i3 = R.attr.obfuscated_res_0x7f0404bc;
+            i3 = R.attr.obfuscated_res_0x7f0404bd;
         } else {
-            i3 = -2130969788;
+            i3 = -2130969789;
         }
         iArr[1] = i3;
         if (this.i) {
-            i4 = R.attr.obfuscated_res_0x7f0404ba;
+            i4 = R.attr.obfuscated_res_0x7f0404bb;
         } else {
-            i4 = -2130969786;
+            i4 = -2130969787;
         }
         iArr[2] = i4;
         if (this.i && this.j) {
-            i5 = R.attr.obfuscated_res_0x7f0404b9;
+            i5 = R.attr.obfuscated_res_0x7f0404ba;
         } else {
-            i5 = -2130969785;
+            i5 = -2130969786;
         }
         iArr[3] = i5;
         return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);

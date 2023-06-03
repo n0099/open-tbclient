@@ -1,65 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class uf0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948208938, "Lcom/baidu/tieba/uf0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948208938, "Lcom/baidu/tieba/uf0;");
         }
     }
 
-    public static String b(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            return c(inputStream, null);
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Log.i("cyber-" + str, str2);
     }
 
-    public static String c(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream != null) {
-                if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
-                }
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-                StringWriter stringWriter = new StringWriter();
-                char[] cArr = new char[4096];
-                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
-                    stringWriter.write(cArr, 0, read);
-                }
-                String stringWriter2 = stringWriter.toString();
-                inputStreamReader.close();
-                stringWriter.close();
-                if (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                    return stringWriter2.substring(1);
-                }
-                return stringWriter2;
-            }
-            throw new IllegalArgumentException("stream may not be null.");
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        Log.e("cyber-" + str, str2, th);
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
+            return;
+        }
+        Log.i("cyber-" + str, str2);
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
+            return;
+        }
+        Log.w("cyber-" + str, str2);
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
+            return;
+        }
+        Log.e("cyber-" + str, str2);
     }
 }

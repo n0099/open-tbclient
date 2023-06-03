@@ -1,64 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.text.StringsKt__StringsJVMKt;
+/* loaded from: classes7.dex */
 public final class o01 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978329, "Lcom/baidu/tieba/o01;")) == null) {
-            return;
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public o01() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947978329, "Lcom/baidu/tieba/o01;");
-        }
-    }
-
-    public static void a(ClarityUrlList clarityUrlList) {
-        ClarityUrlList.c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
-            Iterator it = clarityUrlList.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    cVar = (ClarityUrlList.c) it.next();
-                    if ("auto".equals(cVar.c())) {
-                        break;
-                    }
-                } else {
-                    cVar = null;
-                    break;
-                }
-            }
-            if (cVar != null) {
-                clarityUrlList.remove(cVar);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
     }
 
-    public static bz0 b(ClarityUrlList clarityUrlList, double d) {
-        InterceptResult invokeCommon;
+    public final boolean a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
-            a(clarityUrlList);
-            int f = c11.f(a);
-            a = f;
-            return c11.g(clarityUrlList, f, d, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.a;
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            return !z;
         }
-        return (bz0) invokeCommon.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
     }
 }

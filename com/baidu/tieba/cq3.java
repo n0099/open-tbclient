@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import java.util.Collections;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
 public class cq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static jq3 a() {
-        InterceptResult invokeV;
+    @NonNull
+    @SafeVarargs
+    public static <E> HashSet<E> a(E... eArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new m46();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
+            if (eArr != null && eArr.length > 0) {
+                HashSet<E> hashSet = new HashSet<>(eArr.length);
+                Collections.addAll(hashSet, eArr);
+                return hashSet;
+            }
+            return new HashSet<>();
         }
-        return (jq3) invokeV.objValue;
+        return (HashSet) invokeL.objValue;
     }
 }

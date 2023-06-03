@@ -1,112 +1,78 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeInfo;
-import com.win.opensdk.PBMediaView;
-import com.win.opensdk.PBNative;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wva implements FunNativeInfo {
-    public static /* synthetic */ Interceptable $ic;
+public class wva {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDFactory";
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PBNative a;
-    public final Context b;
-    public PBMediaView c;
+    public awa a;
 
-    public wva(Context context, PBNative pBNative) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948285415, "Lcom/baidu/tieba/wva;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948285415, "Lcom/baidu/tieba/wva;");
+                return;
+            }
+        }
+        c = tva.e();
+    }
+
+    public awa a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (awa) invokeV.objValue;
+    }
+
+    public wva(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, pBNative};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.a = pBNative;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this.a.getIM());
-            return arrayList;
+        int a = uva.a();
+        if (c) {
+            String str = b;
+            Log.e(str, "UnionIDFactory manufacturer:" + a);
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String adType = this.a.getAdType();
-            adType.hashCode();
-            if (!adType.equals("h5") && !adType.equals("video")) {
-                z = false;
-            } else {
-                z = true;
+        if (a != 10001) {
+            if (a != 10002) {
+                this.a = new dwa(context);
+                return;
             }
-            if (z && this.c == null) {
-                this.c = new PBMediaView(this.b.getApplicationContext());
+            if (c) {
+                Log.e(b, "UnionIDFactory XMUnionID");
             }
-            return this.c;
+            this.a = new ewa(context);
+            return;
         }
-        return (View) invokeV.objValue;
+        this.a = new cwa(context);
     }
 }

@@ -1,176 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetMemberTaskList.ImgInfo;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class sp8 {
+public class sp8 implements rp8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<rp8> a;
+    public static final rp8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> a;
-    public long b;
-    public List<op8> c;
-    public b d;
-    public fb e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void b(List<ImgInfo> list, List<op8> list2, long j);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sp8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(sp8 sp8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159214, "Lcom/baidu/tieba/sp8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = sp8Var;
-        }
-
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159214, "Lcom/baidu/tieba/sp8;");
                 return;
             }
-            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
-            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
-                return;
-            }
-            if (z) {
-                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
-                if (memberTaskCenterHttpResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterHttpResMessage.getImageList();
-                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
-                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
-            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
-                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
-                if (memberTaskCenterSocketResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterSocketResMessage.getImageList();
-                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
-                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
         }
+        a = new AtomicReference<>(null);
+        b = new sp8();
     }
 
     public sp8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        ar9.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        ar9.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public long h() {
+    public static rp8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            rp8 rp8Var = a.get();
+            if (rp8Var == null) {
+                return b;
+            }
+            return rp8Var;
         }
-        return invokeV.longValue;
+        return (rp8) invokeV.objValue;
     }
 
-    public List<op8> i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rp8
+    public jp8 a(np8 np8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, np8Var)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
-        return (List) invokeV.objValue;
+        return (jp8) invokeL.objValue;
     }
 
-    public void j() {
+    @Override // com.baidu.tieba.rp8
+    public no8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
+        return (no8) invokeLLI.objValue;
     }
 
-    public void k() {
+    @Override // com.baidu.tieba.rp8
+    public tp8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
+        return (tp8) invokeLL.objValue;
     }
 }

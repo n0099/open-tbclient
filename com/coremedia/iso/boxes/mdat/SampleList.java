@@ -16,7 +16,7 @@ import com.googlecode.mp4parser.authoring.samples.DefaultMp4SampleList;
 import com.googlecode.mp4parser.authoring.samples.FragmentedMp4SampleList;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

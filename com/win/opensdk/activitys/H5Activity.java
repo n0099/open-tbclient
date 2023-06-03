@@ -271,6 +271,7 @@ public class H5Activity extends Activity implements L1 {
         }
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:70:0x01eb -> B:82:0x01ee). Please submit an issue!!! */
     @Override // com.win.opensdk.L1
     public void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
@@ -287,6 +288,7 @@ public class H5Activity extends Activity implements L1 {
                 M1.a("onPlayProgress");
                 M1.a("onRewardedAdFinish");
                 M1.a("onRewardedAdStart");
+                M1.a("onCustomEvent");
                 return;
             }
             try {
@@ -347,13 +349,19 @@ public class H5Activity extends Activity implements L1 {
                             e2.printStackTrace();
                         }
                     }
-                } else if (str.equals("onT") && V1.a(this.e, this.h)) {
-                    this.h = System.currentTimeMillis();
-                    if (TextUtils.isEmpty(this.g)) {
-                        this.g = "";
-                    }
+                } else {
                     try {
-                        a((String) obj, this.g);
+                        if (str.equals("onT")) {
+                            if (V1.a(this.e, this.h)) {
+                                this.h = System.currentTimeMillis();
+                                if (TextUtils.isEmpty(this.g)) {
+                                    this.g = "";
+                                }
+                                a((String) obj, this.g);
+                            }
+                        } else if (str.equals("onCustomEvent")) {
+                            M.a(this.e, Integer.parseInt(str2), (String) obj);
+                        }
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
@@ -369,10 +377,10 @@ public class H5Activity extends Activity implements L1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d09df);
+            setContentView(R.layout.obfuscated_res_0x7f0d09f8);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09292a);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092921);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092963);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09295a);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);
@@ -381,6 +389,7 @@ public class H5Activity extends Activity implements L1 {
             M1.a("onPlayProgress", this);
             M1.a("onRewardedAdFinish", this);
             M1.a("onRewardedAdStart", this);
+            M1.a("onCustomEvent", this);
             boolean z = false;
             try {
                 Intent intent = getIntent();

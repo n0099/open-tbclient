@@ -35,10 +35,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.hj5;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.m89;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.ow4;
 import com.baidu.tieba.person.ChangePortraitResponse;
 import com.baidu.tieba.person.SetUserPicsResponse;
 import com.baidu.tieba.person.more.PersonCenterMoreActivity;
@@ -51,17 +51,17 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 import com.baidu.tieba.personPolymeric.mode.message.UserReportHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
-import com.baidu.tieba.pg;
 import com.baidu.tieba.post.PersonPostActivity;
-import com.baidu.tieba.qk5;
-import com.baidu.tieba.rd9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.se9;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
-import com.baidu.tieba.wt4;
-import com.baidu.tieba.xt4;
-import com.baidu.tieba.yt4;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yj9;
+import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,10 +134,10 @@ public class PersonExtraStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSON_INFO)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), yt5.c(str, "userid="), yt5.c(str, "un="))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), zx5.c(str, "userid="), zx5.c(str, "un="))));
                         return 1;
                     } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.OPEN_PERSON_INFO)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), yt5.c(str, "userid="), yt5.c(str, "un="))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), zx5.c(str, "userid="), zx5.c(str, "un="))));
                         return 0;
                     } else if (strArr[0].startsWith("com.baidu.tieba://unidispatch/usercenter")) {
                         UtilHelper.dealOneScheme(tbPageContext.getPageActivity(), strArr[0]);
@@ -212,9 +212,9 @@ public class PersonExtraStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSON_INFO)) {
-                        String c = yt5.c(str, "userid=");
-                        long g = pg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        long g2 = pg.g(c, 0L);
+                        String c = zx5.c(str, "userid=");
+                        long g = tg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                        long g2 = tg.g(c, 0L);
                         PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(tbPageContext.getPageActivity());
                         if (g2 == g) {
                             z = true;
@@ -232,7 +232,7 @@ public class PersonExtraStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class e implements yt4 {
+    public static class e implements qw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,16 +250,16 @@ public class PersonExtraStatic {
             }
         }
 
-        @Override // com.baidu.tieba.yt4
+        @Override // com.baidu.tieba.qw4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = xt4.a(context);
+                TextView a = pw4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(ri.g(context, R.dimen.obfuscated_res_0x7f07040b), 0, ri.g(context, R.dimen.obfuscated_res_0x7f07040b), 0);
+                    layoutParams.setMargins(vi.g(context, R.dimen.obfuscated_res_0x7f070416), 0, vi.g(context, R.dimen.obfuscated_res_0x7f070416), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -330,11 +330,11 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         UrlManager.getInstance().addListener(new b());
         l();
-        ip5 ip5Var = new ip5(107129);
-        ip5Var.setResponsedClass(ResponseGetLivableForumList.class);
-        ip5Var.h(false);
-        ip5Var.setParallel(TiebaIMConfig.getParallel());
-        MessageManager.getInstance().registerTask(ip5Var);
+        kt5 kt5Var = new kt5(107129);
+        kt5Var.setResponsedClass(ResponseGetLivableForumList.class);
+        kt5Var.h(false);
+        kt5Var.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(kt5Var);
         j();
         n();
         m();
@@ -345,12 +345,12 @@ public class PersonExtraStatic {
         e();
         b();
         c();
-        rd9.a();
+        yj9.a();
         h();
         i();
         k();
         q();
-        hj5.a(qk5.b, new m89());
+        jn5.a(so5.b, new se9());
     }
 
     public PersonExtraStatic() {
@@ -370,7 +370,7 @@ public class PersonExtraStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            wt4.b().c(7, new e());
+            ow4.b().c(7, new e());
         }
     }
 
@@ -391,7 +391,7 @@ public class PersonExtraStatic {
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            ar9.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
+            mx9.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
         }
     }
 
@@ -405,16 +405,16 @@ public class PersonExtraStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            ar9.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            ar9.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            mx9.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            mx9.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            ar9.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            ar9.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            mx9.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            mx9.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
@@ -450,8 +450,8 @@ public class PersonExtraStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            ar9.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, ar9.a("c/u/feed/userpost", 303002));
+            mx9.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, mx9.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -464,8 +464,8 @@ public class PersonExtraStatic {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            ar9.f(309684, RecommendGodSocketResponseMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, ar9.a("c/u/user/getRecommendGodList", 309684));
+            mx9.f(309684, RecommendGodSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, mx9.a("c/u/user/getRecommendGodList", 309684));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecommendGodHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -503,7 +503,7 @@ public class PersonExtraStatic {
             if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith("-")) {
                 Intent intent = personInfoActivityConfig.getIntent();
                 intent.setClass(context, PersonPolymericActivity.class);
-                intent.putExtra("user_id", pg.g(stringExtra, 0L));
+                intent.putExtra("user_id", tg.g(stringExtra, 0L));
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
                     intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
                 } else {
@@ -518,8 +518,8 @@ public class PersonExtraStatic {
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            ar9.h(309408, PersonPolymericSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, ar9.a("c/u/user/personal", 309408));
+            mx9.h(309408, PersonPolymericSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, mx9.a("c/u/user/personal", 309408));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

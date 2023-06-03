@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +14,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public final class fx3 implements ix3 {
+public class fx3 implements cw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
-    public static final int e;
-    public static final int f;
+    public static final boolean a;
+    public static final hz3<JSONObject> b;
+    public static final long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gx3 a;
-    public final SQLiteDatabase b;
-    public final SQLiteDatabase c;
+
+    @Override // com.baidu.tieba.cw1
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cw1
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return null;
+        }
+        return (File) invokeLL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,111 +64,168 @@ public final class fx3 implements ix3 {
                 return;
             }
         }
-        d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
-        e = DownloadState.DOWNLOADED.value();
-        f = DownloadState.DOWNLOAD_PAUSED.value();
+        a = is1.a;
+        b = new hz3<>();
+        c = TimeUnit.MINUTES.toMillis(2L);
     }
 
-    public fx3(Context context, ax3 ax3Var) {
+    public fx3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, ax3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        gx3 gx3Var = new gx3(context);
-        this.a = gx3Var;
-        this.b = gx3Var.getWritableDatabase();
-        this.c = this.a.getReadableDatabase();
     }
 
-    @Override // com.baidu.tieba.ix3
-    public void a(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            this.b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
-        }
-    }
-
-    @Override // com.baidu.tieba.ix3
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f), Integer.valueOf(e)});
-        }
-    }
-
-    @Override // com.baidu.tieba.ix3
-    public synchronized void close() {
+    @Override // com.baidu.tieba.cw1
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
+            b.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.cw1
+    public JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
+            }
+            String str2 = xb3.K().getAppId() + xb3.K().q().N().c(context);
+            JSONObject c2 = b.c(str2);
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
+            }
+            if (c2 != null) {
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
                 }
+                return c2;
+            } else if (sp3.O()) {
+                return null;
+            } else {
+                JSONObject f = f(context, str);
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f);
+                }
+                return b.a(str2, f, c);
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final JSONObject e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject2 = new JSONObject();
+            yo3.f(jSONObject2, Constants.EXTRA_PA_TYPE, 7);
+            yo3.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i));
+            jSONArray.put(jSONObject2);
+            yo3.f(jSONObject, "un_read_list", jSONArray);
+            return jSONObject;
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
+        r9 = r4.optString(com.baidu.android.imsdk.internal.Constants.EXTRA_PAUID_TYPE);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject f(Context context, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        ResponseBody responseBody;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, str)) == null) {
+            yb3 b0 = yb3.b0();
+            ResponseBody responseBody2 = null;
+            if (b0 == null) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                        if (optJSONObject.optInt(Constants.EXTRA_PA_TYPE) == 7) {
+                            break;
+                        }
+                        i2++;
+                    } else {
+                        str2 = null;
+                        break;
+                    }
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                String n = fv2.o().n();
+                bj4 bj4Var = new bj4(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", b0.O()).add("pa", str2).build()).build().body(), null);
+                bj4Var.f = true;
+                bj4Var.g = true;
+                bj4Var.h = true;
+                bj4Var.b = "POST";
+                HttpRequestBuilder a2 = dj4.a(bj4Var);
+                cj4.g().u(a2, bj4Var);
                 try {
-                    this.a.close();
-                    this.a = null;
-                } catch (Exception unused) {
+                    Response executeSync = a2.build().executeSync();
+                    if (!executeSync.isSuccessful()) {
+                        cs4.d(null);
+                        return null;
+                    }
+                    responseBody = executeSync.body();
+                    if (responseBody == null) {
+                        cs4.d(responseBody);
+                        return null;
+                    }
+                    try {
+                        JSONObject jSONObject = new JSONObject(responseBody.string());
+                        if (!"0".equals(jSONObject.optString("errno"))) {
+                            cs4.d(responseBody);
+                            return null;
+                        }
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                        if (optJSONObject2 != null) {
+                            i = optJSONObject2.optInt("num");
+                        }
+                        JSONObject e = e(i);
+                        fv2.K().i(e);
+                        cs4.d(responseBody);
+                        return e;
+                    } catch (IOException | JSONException unused) {
+                        cs4.d(responseBody);
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
+                        responseBody2 = responseBody;
+                        cs4.d(responseBody2);
+                        throw th;
+                    }
+                } catch (IOException | JSONException unused2) {
+                    responseBody = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
+            } catch (JSONException unused3) {
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ix3
-    public DownloadInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Cursor query = this.c.query("ad_download", d, "_id=?", new String[]{str}, null, null, "createAt desc");
-            if (query.moveToNext()) {
-                DownloadInfo downloadInfo = new DownloadInfo();
-                d(query, downloadInfo);
-                query.close();
-                return downloadInfo;
-            }
-            query.close();
-            return null;
-        }
-        return (DownloadInfo) invokeL.objValue;
-    }
-
-    public final void d(Cursor cursor, DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cursor, downloadInfo) == null) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex("createAt");
-            int columnIndex3 = cursor.getColumnIndex("uri");
-            int columnIndex4 = cursor.getColumnIndex("packagename");
-            int columnIndex5 = cursor.getColumnIndex("path");
-            int columnIndex6 = cursor.getColumnIndex("size");
-            int columnIndex7 = cursor.getColumnIndex("progress");
-            int columnIndex8 = cursor.getColumnIndex("status");
-            downloadInfo.setId(cursor.getString(columnIndex));
-            downloadInfo.setCreateAt(cursor.getLong(columnIndex2));
-            downloadInfo.setUri(cursor.getString(columnIndex3));
-            downloadInfo.setPackageName(cursor.getString(columnIndex4));
-            downloadInfo.setPath(cursor.getString(columnIndex5));
-            downloadInfo.setSize(cursor.getLong(columnIndex6));
-            downloadInfo.setProgress(cursor.getLong(columnIndex7));
-            downloadInfo.setStatus(cursor.getInt(columnIndex8));
-        }
-    }
-
-    @Override // com.baidu.tieba.ix3
-    public void delete(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            this.b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        } else {
+            return (JSONObject) invokeLL.objValue;
         }
     }
 }

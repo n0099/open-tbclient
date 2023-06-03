@@ -25,9 +25,11 @@ public interface OnStatusChangedListener {
         public static final VideoStatus INTERNAL_VIDEO_PAUSING_PLAY;
         public static final VideoStatus VIDEO_BUFFERING;
         public static final VideoStatus VIDEO_COMPLETE;
+        public static final VideoStatus VIDEO_ERROR;
         public static final VideoStatus VIDEO_PAUSING;
         public static final VideoStatus VIDEO_PLAYING;
         public static final VideoStatus VIDEO_PREPARED;
+        public static final VideoStatus VIDEO_PRERENDERING;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,11 +53,13 @@ public interface OnStatusChangedListener {
             INTERNAL_VIDEO_PAUSING_ERROR = new VideoStatus("INTERNAL_VIDEO_PAUSING_ERROR", 5);
             INTERNAL_VIDEO_PAUSING_BUFFER = new VideoStatus("INTERNAL_VIDEO_PAUSING_BUFFER", 6);
             VIDEO_BUFFERING = new VideoStatus("VIDEO_BUFFERING", 7);
-            INTERNAL_VIDEO_BUFFERING_ERROR = new VideoStatus("INTERNAL_VIDEO_BUFFERING_ERROR", 8);
-            INTERNAL_VIDEO_BUFFERING_BUFFER = new VideoStatus("INTERNAL_VIDEO_BUFFERING_BUFFER", 9);
-            VideoStatus videoStatus = new VideoStatus("VIDEO_COMPLETE", 10);
-            VIDEO_COMPLETE = videoStatus;
-            $VALUES = new VideoStatus[]{INIT, VIDEO_PREPARED, VIDEO_PLAYING, VIDEO_PAUSING, INTERNAL_VIDEO_PAUSING_PLAY, INTERNAL_VIDEO_PAUSING_ERROR, INTERNAL_VIDEO_PAUSING_BUFFER, VIDEO_BUFFERING, INTERNAL_VIDEO_BUFFERING_ERROR, INTERNAL_VIDEO_BUFFERING_BUFFER, videoStatus};
+            VIDEO_PRERENDERING = new VideoStatus("VIDEO_PRERENDERING", 8);
+            INTERNAL_VIDEO_BUFFERING_ERROR = new VideoStatus("INTERNAL_VIDEO_BUFFERING_ERROR", 9);
+            INTERNAL_VIDEO_BUFFERING_BUFFER = new VideoStatus("INTERNAL_VIDEO_BUFFERING_BUFFER", 10);
+            VIDEO_COMPLETE = new VideoStatus("VIDEO_COMPLETE", 11);
+            VideoStatus videoStatus = new VideoStatus("VIDEO_ERROR", 12);
+            VIDEO_ERROR = videoStatus;
+            $VALUES = new VideoStatus[]{INIT, VIDEO_PREPARED, VIDEO_PLAYING, VIDEO_PAUSING, INTERNAL_VIDEO_PAUSING_PLAY, INTERNAL_VIDEO_PAUSING_ERROR, INTERNAL_VIDEO_PAUSING_BUFFER, VIDEO_BUFFERING, VIDEO_PRERENDERING, INTERNAL_VIDEO_BUFFERING_ERROR, INTERNAL_VIDEO_BUFFERING_BUFFER, VIDEO_COMPLETE, videoStatus};
         }
 
         public VideoStatus(String str, int i) {

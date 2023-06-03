@@ -1,98 +1,140 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e21 {
+public final class e21 {
     public static /* synthetic */ Interceptable $ic;
+    public static n21 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public static class a extends n21 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k21 a;
-        public final /* synthetic */ bs0 b;
 
-        public a(k21 k21Var, bs0 bs0Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k21Var, bs0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = k21Var;
-            this.b = bs0Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.n21
+        public boolean c(int i, @Nullable String str) {
+            InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e21.d(this.a, this.b);
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+                return zt0.f();
             }
+            return invokeIL.booleanValue;
         }
     }
 
-    public static <T> void c(@NonNull k21 k21Var, @Nullable bs0<T> bs0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, k21Var, bs0Var) == null) {
-            k21Var.a();
-            f31.c(new a(k21Var, bs0Var), "als_async_executor", 2);
-        }
-    }
-
-    public static void b(@NonNull k21 k21Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, k21Var) == null) {
-            c(k21Var, null);
-        }
-    }
-
-    public static <T> void d(k21 k21Var, @Nullable bs0<T> bs0Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, k21Var, bs0Var) == null) && k21Var != null && k21Var.isValid()) {
-            String k21Var2 = k21Var.toString();
-            if (k21Var instanceof ClogBuilder) {
-                if (mg0.a) {
-                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog";
-                } else {
-                    str = "https://als.baidu.com/clog/clog";
-                }
-            } else if (k21Var instanceof l21) {
-                if (mg0.a) {
-                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog";
-                } else {
-                    str = "https://als.baidu.com/elog/plog";
-                }
-            } else if (k21Var instanceof i21) {
-                str = "https://afd.baidu.com/afd/close";
-            } else {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682341, "Lcom/baidu/tieba/e21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682341, "Lcom/baidu/tieba/e21;");
                 return;
             }
-            is0 is0Var = new is0();
-            is0Var.h(k21Var2);
-            is0Var.k(BodyStyle.STRING);
-            is0Var.i("application/x-www-form-urlencoded");
-            js0 js0Var = new js0();
-            js0Var.l(str);
-            js0Var.f(is0Var);
-            qr0.b().a().a(js0Var, bs0Var);
+        }
+        a = new a();
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            c(3, null, str, null);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            c(6, null, str, null);
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(4, null, str, null);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            c(2, null, str, null);
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c(5, null, str, null);
+        }
+    }
+
+    public static void b(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(3, str, str2, null);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(6, str, str2, null);
+        }
+    }
+
+    public static void f(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
+            c(6, null, str, th);
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            c(2, str, str2, null);
+        }
+    }
+
+    public static void k(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
+            c(5, null, str, th);
+        }
+    }
+
+    public static void c(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            a.a(i, str, str2, th);
         }
     }
 }

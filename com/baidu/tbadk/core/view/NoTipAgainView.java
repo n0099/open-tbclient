@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d25;
+import com.baidu.tieba.a55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public TextView a;
     public ImageView b;
     public boolean c;
-    public d25.f d;
+    public a55.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -96,7 +96,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
             this.a = (TextView) findViewById(R.id.no_tip_again_text);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906cb);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906d5);
             b();
             this.b.setOnClickListener(this);
         }
@@ -131,14 +131,14 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
             this.c = !this.c;
             c();
-            d25.f fVar = this.d;
+            a55.f fVar = this.d;
             if (fVar != null) {
                 fVar.a();
             }
         }
     }
 
-    public void setOnNoTipAgainCheckListener(d25.f fVar) {
+    public void setOnNoTipAgainCheckListener(a55.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;

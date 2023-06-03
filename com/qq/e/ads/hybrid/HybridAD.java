@@ -13,7 +13,7 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HybridAD extends AbstractAD<HADI> implements HADI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,29 +42,6 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
         a(context, "NO_POS_ID");
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public HybridAD(Context context, String str, HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
-        this(context, hybridADSetting, hybridADListener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, hybridADSetting, hybridADListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (HybridADSetting) objArr2[1], (HybridADListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        c();
-    }
-
     public HADI a(POFactory pOFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -80,7 +57,7 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.qq.e.ads.AbstractAD
     public /* bridge */ /* synthetic */ void a(HADI hadi) {
-        d();
+        c();
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -95,7 +72,7 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
         }
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.g.countDown();

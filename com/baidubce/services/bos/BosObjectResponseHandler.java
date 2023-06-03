@@ -18,7 +18,7 @@ import com.baidubce.util.LengthCheckInputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BosObjectResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

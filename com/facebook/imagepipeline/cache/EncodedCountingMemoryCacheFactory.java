@@ -4,7 +4,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EncodedCountingMemoryCacheFactory {
     public static CountingMemoryCache<CacheKey, PooledByteBuffer> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry) {
         CountingMemoryCache<CacheKey, PooledByteBuffer> countingMemoryCache = new CountingMemoryCache<>(new ValueDescriptor<PooledByteBuffer>() { // from class: com.facebook.imagepipeline.cache.EncodedCountingMemoryCacheFactory.1

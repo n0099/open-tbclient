@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface bm0 {
-    void a(long j);
-
-    void b(long j, long j2);
-
-    void c(long j, long j2);
-
-    void onProgress(long j, long j2);
+public class bm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 }

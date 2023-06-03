@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.Size;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -55,7 +56,7 @@ public final class PackageInfoCompat {
     public static List<Signature> getSignatures(@NonNull PackageManager packageManager, @NonNull String str) throws PackageManager.NameNotFoundException {
         Signature[] signatureArr;
         if (Build.VERSION.SDK_INT >= 28) {
-            SigningInfo signingInfo = packageManager.getPackageInfo(str, 134217728).signingInfo;
+            SigningInfo signingInfo = packageManager.getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo;
             if (Api28Impl.hasMultipleSigners(signingInfo)) {
                 signatureArr = Api28Impl.getApkContentsSigners(signingInfo);
             } else {

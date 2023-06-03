@@ -1,54 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class nx {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 3;
-    public static int c = 6;
-    public static int d = 7;
-    public static int e = 1;
-    public static int f = 2;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class nx {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ox a;
+    public JSONObject b;
+    public JSONObject c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448312611, "Lcom/baidu/tieba/nx;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public nx() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448312611, "Lcom/baidu/tieba/nx;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", str);
-            statisticItem.param("obj_locate", i2);
-            statisticItem.param("obj_source", i3);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
-            if (i3 == e) {
-                statisticItem.param("obj_name", str2);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+            return;
+        }
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
+        this.c = null;
+    }
+
+    public final void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            try {
+                if (this.b == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.b = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.b.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("staticWebkitInit JSON error");
             }
-            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            try {
+                if (this.c == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.c = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.c.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("mWebkitDownloadStatics JSON error");
+            }
         }
     }
 }

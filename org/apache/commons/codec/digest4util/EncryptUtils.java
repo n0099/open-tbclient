@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 @SuppressLint({"BDThrowableCheck"})
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class EncryptUtils {
     public static final boolean DEBUG = false;
     public static final String ENCRYPT_MD5 = "MD5";

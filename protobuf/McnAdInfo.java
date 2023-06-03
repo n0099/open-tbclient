@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class McnAdInfo extends Message {
     public static final String DEFAULT_BUTTONTITLE = "";
     public static final String DEFAULT_CARDTITLE = "";
@@ -29,7 +29,7 @@ public final class McnAdInfo extends Message {
     public static final Long DEFAULT_EFFECTTIME = 0L;
     public static final Long DEFAULT_EXPIRETIME = 0L;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<McnAdInfo> {
         public Long adEndTime;
         public Long adStartTime;

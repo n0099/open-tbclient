@@ -13,7 +13,7 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.widget.ProgressButton;
 import com.baidu.tbadk.widget.ad.DownloadGuidePart;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -191,10 +191,10 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            p45.d(this).f(R.color.CAM_X0905);
+            m75.d(this).f(R.color.CAM_X0905);
             TextView textView = this.m;
             if (textView != null) {
-                p45.d(textView).w(R.color.CAM_X0304);
+                m75.d(textView).w(R.color.CAM_X0304);
             }
             ProgressButton progressButton = this.n;
             if (progressButton != null) {
@@ -312,7 +312,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
                 progressButton = (ProgressButton) view2.findViewById(R.id.guide_progress);
             }
             this.n = progressButton;
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.su5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ty5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -326,7 +326,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
             });
             ProgressButton progressButton2 = this.n;
             if (progressButton2 != null) {
-                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uu5
+                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vy5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

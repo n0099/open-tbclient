@@ -1,55 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.cs2;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class k62 {
+public class k62 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m52 a;
 
-    public static cs2.g a(du2 du2Var) {
-        InterceptResult invokeL;
+    public k62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, du2Var)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory() + "/" + l62.d());
-            cs2.M(file, b(), du2Var);
-            kp4.j(file);
-            cs2.g gVar = new cs2.g();
-            File file2 = new File(b(), "app.json");
-            SwanAppConfigData c = SwanAppConfigData.c(kp4.E(file2), b());
-            gVar.a = b().getPath() + File.separator;
-            gVar.b = c;
-            g62.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (cs2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return file;
         }
-        return (File) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        m52 m52Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && (m52Var = this.a) != null && m52Var.d()) {
+            if (this.a.c()) {
+                f52Var.c.setShader(this.a.b());
+                return;
+            }
+            f52Var.m = this.a.a();
+            f52Var.c.setColor(this.a.a());
+            f52Var.b.setShader(null);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new m52(jSONArray);
+        }
     }
 }

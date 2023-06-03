@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd9;
+import com.baidu.tieba.ij9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public bd9 c;
+    public ij9 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -103,9 +103,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            bd9 bd9Var = new bd9(this, frameLayout2);
-            this.c = bd9Var;
-            bd9Var.setStageType("2006");
+            ij9 ij9Var = new ij9(this, frameLayout2);
+            this.c = ij9Var;
+            ij9Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -157,7 +157,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                 this.a = getIntent().getStringExtra("video_url");
                 this.b = getIntent().getStringExtra("thumb_url");
             }
-            this.c.C0(this.b, this.a);
+            this.c.E0(this.b, this.a);
         }
     }
 }

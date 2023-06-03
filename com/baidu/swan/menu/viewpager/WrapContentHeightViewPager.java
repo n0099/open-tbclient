@@ -14,7 +14,7 @@ public class WrapContentHeightViewPager extends ViewPager {
         super(context, attributeSet);
     }
 
-    public final int a(int i, View view2) {
+    public final int measureHeight(int i, View view2) {
         int i2;
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
@@ -56,7 +56,7 @@ public class WrapContentHeightViewPager extends ViewPager {
             if (view2 != null) {
                 view2.measure(i, i2);
             }
-            setMeasuredDimension(getMeasuredWidth(), a(i2, view2));
+            setMeasuredDimension(getMeasuredWidth(), measureHeight(i2, view2));
         }
     }
 }

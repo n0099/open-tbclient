@@ -1,12 +1,17 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tieba.f05;
+import com.baidu.tieba.wq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -164,12 +169,34 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 1) {
                 e(false);
             }
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            try {
+                super.onMeasure(i, i2);
+            } catch (Exception e) {
+                if (!f05.e() && !f05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    wq8 defaultLog = DefaultLog.getInstance();
+                    defaultLog.b("FrsTabViewPager", "FrsTabViewPager onMeasure crash, msg=" + e);
+                    if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
+                        ((Activity) getContext()).finish();
+                        return;
+                    }
+                    return;
+                }
+                throw e;
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class CloseableReference<T> implements Cloneable, Closeable {
     public static final int REF_TYPE_DEFAULT = 0;
     public static final int REF_TYPE_FINALIZER = 1;
@@ -50,11 +50,11 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface CloseableRefType {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
 
@@ -64,7 +64,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
-    public abstract CloseableReference<T> mo106clone();
+    public abstract CloseableReference<T> mo161clone();
 
     public static boolean useGc() {
         if (sBitmapCloseableRefType == 3) {
@@ -76,7 +76,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     @Nullable
     public synchronized CloseableReference<T> cloneOrNull() {
         if (isValid()) {
-            return mo106clone();
+            return mo161clone();
         }
         return null;
     }

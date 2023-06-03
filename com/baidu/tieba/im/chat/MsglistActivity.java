@@ -7,22 +7,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b18;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.v08;
+import com.baidu.tieba.k68;
+import com.baidu.tieba.lw5;
+import com.baidu.tieba.q68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements v08 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements k68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean U1(v08 v08Var);
+    public abstract boolean U1(k68 k68Var);
 
     public abstract boolean V1(Bundle bundle);
 
@@ -89,8 +89,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.v08
-    public void m1() {
+    @Override // com.baidu.tieba.k68
+    public void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             Y1();
@@ -157,13 +157,13 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (msglistModel != null) {
                 msglistModel.setImageUploadUIProgressCallback(this.j);
             }
-            G1();
+            F1();
             if (!U1(this)) {
                 return;
             }
             X1();
             a2();
-            b18.a = js5.b();
+            q68.a = lw5.b();
         }
     }
 
@@ -183,7 +183,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             initView();
             adjustResizeForSoftInput(R.color.common_color_10022, false);
-            G1();
+            F1();
             if (!U1(this)) {
                 return;
             }

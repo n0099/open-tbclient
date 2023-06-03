@@ -3,10 +3,10 @@ package com.baidu.tieba.sprite.edgefloat;
 import android.app.Activity;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.at9;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.tm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public final class SpriteTipEdgeFloat {
                             if (interceptable3 == null || interceptable3.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
                                 if (z2) {
                                     b2 = this.this$0.b();
-                                    b2.C();
+                                    b2.D();
                                     return;
                                 }
                                 b = this.this$0.b();
@@ -181,14 +181,14 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    tm9 tm9Var = new tm9(this.$activity);
-                    tm9Var.I(this.this$0.c());
-                    tm9Var.w(this.$gravity);
-                    tm9Var.E(this.$startX);
-                    tm9Var.F(this.$startY);
-                    tm9Var.d(this.$canDrag);
-                    tm9Var.B(this.$pageSupportList);
-                    return tm9Var.c();
+                    at9 at9Var = new at9(this.$activity);
+                    at9Var.M(this.this$0.c());
+                    at9Var.y(this.$gravity);
+                    at9Var.I(this.$startX);
+                    at9Var.J(this.$startY);
+                    at9Var.d(this.$canDrag);
+                    at9Var.D(this.$pageSupportList);
+                    return at9Var.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }

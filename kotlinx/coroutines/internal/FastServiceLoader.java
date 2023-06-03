@@ -16,7 +16,6 @@ import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 import kotlin.ExceptionsKt__ExceptionsKt;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.collections.CollectionsKt__MutableCollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
@@ -26,7 +25,7 @@ import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\bÀ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b'\u0010(J(\u0010\u0006\u001a\u0004\u0018\u00010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b\u0006\u0010\u0007J3\u0010\r\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\t\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001H\u0002¢\u0006\u0004\b\r\u0010\u000eJ1\u0010\u0010\u001a\b\u0012\u0004\u0012\u00028\u00000\u000f\"\u0004\b\u0000\u0010\b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00020\u000fH\u0000¢\u0006\u0004\b\u0012\u0010\u0013J1\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u000f\"\u0004\b\u0000\u0010\b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0000¢\u0006\u0004\b\u0015\u0010\u0011J\u001d\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u000f2\u0006\u0010\u0018\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\u001d\u0010\u001d\u001a\b\u0012\u0004\u0012\u00020\u00040\u000f2\u0006\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ.\u0010#\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u001f*\u00020 2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020 \u0012\u0004\u0012\u00028\u00000!H\u0082\b¢\u0006\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b%\u0010&¨\u0006)"}, d2 = {"Lkotlinx/coroutines/internal/FastServiceLoader;", "Ljava/lang/Class;", "Lkotlinx/coroutines/internal/MainDispatcherFactory;", "baseClass", "", "serviceClass", "createInstanceOf", "(Ljava/lang/Class;Ljava/lang/String;)Lkotlinx/coroutines/internal/MainDispatcherFactory;", ExifInterface.LATITUDE_SOUTH, "name", "Ljava/lang/ClassLoader;", "loader", "service", "getProviderInstance", "(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Object;", "", "load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;", "loadMainDispatcherFactory$kotlinx_coroutines_core", "()Ljava/util/List;", "loadMainDispatcherFactory", "loadProviders$kotlinx_coroutines_core", "loadProviders", "Ljava/net/URL;", "url", "parse", "(Ljava/net/URL;)Ljava/util/List;", "Ljava/io/BufferedReader;", "r", "parseFile", "(Ljava/io/BufferedReader;)Ljava/util/List;", "R", "Ljava/util/jar/JarFile;", "Lkotlin/Function1;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "use", "(Ljava/util/jar/JarFile;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", RenderUtils.PREFIX_HOLDER, "Ljava/lang/String;", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J!\u0010\u0005\u001a\u0004\u0018\u00010\u00062\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00060\b2\u0006\u0010\t\u001a\u00020\u0004H\u0082\bJ1\u0010\n\u001a\u0002H\u000b\"\u0004\b\u0000\u0010\u000b2\u0006\u0010\f\u001a\u00020\u00042\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\u000b0\bH\u0002¢\u0006\u0002\u0010\u0010J*\u0010\u0011\u001a\b\u0012\u0004\u0012\u0002H\u000b0\u0012\"\u0004\b\u0000\u0010\u000b2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\u000b0\b2\u0006\u0010\r\u001a\u00020\u000eH\u0002J\u0013\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00060\u0012H\u0000¢\u0006\u0002\b\u0014J/\u0010\u0015\u001a\b\u0012\u0004\u0012\u0002H\u000b0\u0012\"\u0004\b\u0000\u0010\u000b2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\u000b0\b2\u0006\u0010\r\u001a\u00020\u000eH\u0000¢\u0006\u0002\b\u0016J\u0016\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00040\u00122\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0016\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u00122\u0006\u0010\u001b\u001a\u00020\u001cH\u0002J,\u0010\u001d\u001a\u0002H\u001e\"\u0004\b\u0000\u0010\u001e*\u00020\u001f2\u0012\u0010 \u001a\u000e\u0012\u0004\u0012\u00020\u001f\u0012\u0004\u0012\u0002H\u001e0!H\u0082\b¢\u0006\u0002\u0010\"R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lkotlinx/coroutines/internal/FastServiceLoader;", "", "()V", RenderUtils.PREFIX_HOLDER, "", "createInstanceOf", "Lkotlinx/coroutines/internal/MainDispatcherFactory;", "baseClass", "Ljava/lang/Class;", "serviceClass", "getProviderInstance", ExifInterface.LATITUDE_SOUTH, "name", "loader", "Ljava/lang/ClassLoader;", "service", "(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Object;", "load", "", "loadMainDispatcherFactory", "loadMainDispatcherFactory$kotlinx_coroutines_core", "loadProviders", "loadProviders$kotlinx_coroutines_core", "parse", "url", "Ljava/net/URL;", "parseFile", "r", "Ljava/io/BufferedReader;", "use", "R", "Ljava/util/jar/JarFile;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/Function1;", "(Ljava/util/jar/JarFile;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class FastServiceLoader {
     public static final FastServiceLoader INSTANCE = new FastServiceLoader();
@@ -132,45 +131,41 @@ public final class FastServiceLoader {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         while (true) {
             String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                String substringBefore$default = StringsKt__StringsKt.substringBefore$default(readLine, "#", (String) null, 2, (Object) null);
-                if (substringBefore$default != null) {
-                    String obj = StringsKt__StringsKt.trim((CharSequence) substringBefore$default).toString();
-                    boolean z3 = false;
-                    int i = 0;
-                    while (true) {
-                        if (i < obj.length()) {
-                            char charAt = obj.charAt(i);
-                            if (charAt != '.' && !Character.isJavaIdentifierPart(charAt)) {
-                                z2 = false;
-                            } else {
-                                z2 = true;
-                            }
-                            if (!z2) {
-                                z = false;
-                                break;
-                            }
-                            i++;
-                        } else {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        if (obj.length() > 0) {
-                            z3 = true;
-                        }
-                        if (z3) {
-                            linkedHashSet.add(obj);
-                        }
+            if (readLine == null) {
+                return CollectionsKt___CollectionsKt.toList(linkedHashSet);
+            }
+            String obj = StringsKt__StringsKt.trim((CharSequence) StringsKt__StringsKt.substringBefore$default(readLine, "#", (String) null, 2, (Object) null)).toString();
+            boolean z3 = false;
+            int i = 0;
+            while (true) {
+                if (i < obj.length()) {
+                    char charAt = obj.charAt(i);
+                    i++;
+                    if (charAt != '.' && !Character.isJavaIdentifierPart(charAt)) {
+                        z2 = false;
+                        continue;
                     } else {
-                        throw new IllegalArgumentException(("Illegal service provider class name: " + obj).toString());
+                        z2 = true;
+                        continue;
+                    }
+                    if (!z2) {
+                        z = false;
+                        break;
                     }
                 } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
+                    z = true;
+                    break;
+                }
+            }
+            if (z) {
+                if (obj.length() > 0) {
+                    z3 = true;
+                }
+                if (z3) {
+                    linkedHashSet.add(obj);
                 }
             } else {
-                return CollectionsKt___CollectionsKt.toList(linkedHashSet);
+                throw new IllegalArgumentException(Intrinsics.stringPlus("Illegal service provider class name: ", obj).toString());
             }
         }
     }
@@ -206,8 +201,8 @@ public final class FastServiceLoader {
     }
 
     public final <S> List<S> loadProviders$kotlinx_coroutines_core(Class<S> cls, ClassLoader classLoader) {
-        ArrayList<URL> list = Collections.list(classLoader.getResources(PREFIX + cls.getName()));
-        Intrinsics.checkExpressionValueIsNotNull(list, "java.util.Collections.list(this)");
+        ArrayList<URL> list = Collections.list(classLoader.getResources(Intrinsics.stringPlus(PREFIX, cls.getName())));
+        Intrinsics.checkNotNullExpressionValue(list, "list(this)");
         ArrayList arrayList = new ArrayList();
         for (URL url : list) {
             CollectionsKt__MutableCollectionsKt.addAll(arrayList, INSTANCE.parse(url));

@@ -12,6 +12,7 @@ import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -794,7 +795,7 @@ public class DeviceUtil implements IDevices {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-                WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
+                WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
                 if (windowManager != null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     if (OSInfo.hasJellyBeanMR1()) {

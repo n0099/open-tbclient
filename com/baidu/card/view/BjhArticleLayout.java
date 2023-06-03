@@ -18,31 +18,31 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tx;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.wj6;
+import com.baidu.tieba.eo6;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.oy;
+import com.baidu.tieba.py;
+import com.baidu.tieba.qn6;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.OnClickListener, ux {
+public class BjhArticleLayout extends RelativeLayout implements oy<f15>, View.OnClickListener, py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TbImageView c;
     public View d;
-    public jy4 e;
+    public f15 e;
     public float f;
     public float g;
     public float h;
-    public wj6<jy4> i;
+    public eo6<f15> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,11 +85,11 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
                 return;
             }
         }
-        this.f = ri.g(context, R.dimen.tbds10);
-        ri.g(context, R.dimen.tbds21);
-        this.g = ri.g(context, R.dimen.tbds16);
-        ri.g(context, R.dimen.tbds30);
-        this.h = ri.g(context, R.dimen.tbds44);
+        this.f = vi.g(context, R.dimen.tbds10);
+        vi.g(context, R.dimen.tbds21);
+        this.g = vi.g(context, R.dimen.tbds16);
+        vi.g(context, R.dimen.tbds30);
+        this.h = vi.g(context, R.dimen.tbds44);
         b();
     }
 
@@ -101,9 +101,9 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            wj6<jy4> wj6Var = this.i;
-            if (wj6Var != null) {
-                wj6Var.a(view2, this.e);
+            eo6<f15> eo6Var = this.i;
+            if (eo6Var != null) {
+                eo6Var.a(view2, this.e);
             }
         }
     }
@@ -115,10 +115,10 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
         }
     }
 
-    public void setSubClickListener(wj6<jy4> wj6Var) {
+    public void setSubClickListener(eo6<f15> eo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wj6Var) == null) {
-            this.i = wj6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eo6Var) == null) {
+            this.i = eo6Var;
         }
     }
 
@@ -128,13 +128,13 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.bjh_article_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
             this.a = textView;
-            p45 d = p45.d(textView);
+            m75 d = m75.d(textView);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X06);
             this.a.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090fab);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090fbe);
             this.b = textView2;
             textView2.setOnClickListener(this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
@@ -145,7 +145,7 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             this.d = findViewById;
             findViewById.setOnClickListener(this);
             if (this.c.getLayoutParams() != null) {
-                this.c.getLayoutParams().height = (int) (((ri.l(getContext()) - (this.h * 2.0f)) / 16.0f) * 9.0f);
+                this.c.getLayoutParams().height = (int) (((vi.l(getContext()) - (this.h * 2.0f)) / 16.0f) * 9.0f);
             }
             this.b.setTranslationY(-this.g);
             this.c.setDrawCorner(true);
@@ -156,15 +156,15 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.oy
     /* renamed from: c */
-    public void a(jy4 jy4Var) {
+    public void a(f15 f15Var) {
         int i;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy4Var) == null) {
-            this.e = jy4Var;
-            ThreadData threadData = jy4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f15Var) == null) {
+            this.e = f15Var;
+            ThreadData threadData = f15Var.getThreadData();
             if (threadData.isShareThread && (originalThreadInfo = threadData.originalThreadData) != null) {
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     threadData = threadData.originalThreadData.b();
@@ -191,7 +191,7 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            ij6.l(textView, id, i, R.color.CAM_X0109);
+            qn6.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -213,13 +213,13 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            jy4 jy4Var = this.e;
-            if (jy4Var != null && jy4Var.getThreadData() != null) {
+            f15 f15Var = this.e;
+            if (f15Var != null && f15Var.getThreadData() != null) {
                 TextView textView = this.a;
                 String id = this.e.getThreadData().getId();
                 if (this.c.getVisibility() == 0) {
@@ -227,11 +227,11 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                ij6.l(textView, id, i2, R.color.CAM_X0109);
+                qn6.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(ri.g(getContext(), R.dimen.tbds21)).trRadius(ri.g(getContext(), R.dimen.tbds21)).blRadius(ri.g(getContext(), R.dimen.tbds21)).brRadius(ri.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.d);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(vi.g(getContext(), R.dimen.tbds21)).trRadius(vi.g(getContext(), R.dimen.tbds21)).blRadius(vi.g(getContext(), R.dimen.tbds21)).brRadius(vi.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.d);
         }
     }
 }

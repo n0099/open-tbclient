@@ -1,8 +1,42 @@
 package kotlinx.coroutines;
 
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b&\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0004\u001a\u00020\u00008&@&X¦\u0004¢\u0006\u0006\u001a\u0004\b\u0002\u0010\u0003¨\u0006\u0007"}, d2 = {"Lkotlinx/coroutines/MainCoroutineDispatcher;", "Lkotlinx/coroutines/CoroutineDispatcher;", "getImmediate", "()Lkotlinx/coroutines/MainCoroutineDispatcher;", "immediate", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlinx.coroutines.internal.LimitedDispatcherKt;
+@Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b&\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0007\u001a\u00020\bH\u0016J\b\u0010\t\u001a\u00020\nH\u0016J\n\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0005R\u0012\u0010\u0003\u001a\u00020\u0000X¦\u0004¢\u0006\u0006\u001a\u0004\b\u0004\u0010\u0005¨\u0006\f"}, d2 = {"Lkotlinx/coroutines/MainCoroutineDispatcher;", "Lkotlinx/coroutines/CoroutineDispatcher;", "()V", "immediate", "getImmediate", "()Lkotlinx/coroutines/MainCoroutineDispatcher;", "limitedParallelism", "parallelism", "", "toString", "", "toStringInternalImpl", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public abstract class MainCoroutineDispatcher extends CoroutineDispatcher {
     public abstract MainCoroutineDispatcher getImmediate();
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public String toString() {
+        String stringInternalImpl = toStringInternalImpl();
+        if (stringInternalImpl == null) {
+            return DebugStringsKt.getClassSimpleName(this) + '@' + DebugStringsKt.getHexAddress(this);
+        }
+        return stringInternalImpl;
+    }
+
+    @InternalCoroutinesApi
+    public final String toStringInternalImpl() {
+        MainCoroutineDispatcher mainCoroutineDispatcher;
+        MainCoroutineDispatcher main = Dispatchers.getMain();
+        if (this == main) {
+            return "Dispatchers.Main";
+        }
+        try {
+            mainCoroutineDispatcher = main.getImmediate();
+        } catch (UnsupportedOperationException unused) {
+            mainCoroutineDispatcher = null;
+        }
+        if (this != mainCoroutineDispatcher) {
+            return null;
+        }
+        return "Dispatchers.Main.immediate";
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public CoroutineDispatcher limitedParallelism(int i) {
+        LimitedDispatcherKt.checkParallelism(i);
+        return this;
+    }
 }

@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
@@ -437,7 +438,7 @@ public final class Util {
     }
 
     public static Point getPhysicalDisplaySize(Context context) {
-        return getPhysicalDisplaySize(context, ((WindowManager) context.getSystemService("window")).getDefaultDisplay());
+        return getPhysicalDisplaySize(context, ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay());
     }
 
     public static byte[] getUtf8Bytes(String str) {

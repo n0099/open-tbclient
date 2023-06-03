@@ -17,11 +17,12 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.as6;
-import com.baidu.tieba.bs6;
+import com.baidu.tieba.ax6;
+import com.baidu.tieba.bx6;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,19 +40,21 @@ import kotlin.Unit;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u001e\u0018\u00002\u00020\u0001:\u0001bB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010;\u001a\u00020<H\u0002J(\u0010=\u001a\u00020:2\u0006\u0010.\u001a\u00020\u00062\u0006\u0010/\u001a\u00020\u00062\u0006\u00102\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006H\u0002J\u000e\u0010>\u001a\u00020<2\u0006\u0010?\u001a\u00020@J&\u0010A\u001a\u00020<2\u0006\u0010B\u001a\u00020\u00192\u0006\u0010C\u001a\u00020\u00192\f\u0010D\u001a\b\u0012\u0004\u0012\u00020<0EH\u0002J\u0006\u0010F\u001a\u00020<J\b\u0010G\u001a\u00020\u0012H\u0002J\u0012\u0010H\u001a\u00020\u00122\b\u0010I\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u0010 \u001a\u00020\u0012J\u000e\u0010J\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0006J\b\u0010L\u001a\u00020<H\u0002J\b\u0010M\u001a\u00020<H\u0002J\u000e\u0010N\u001a\u00020<2\u0006\u0010\u0016\u001a\u00020\u0006J\u0016\u0010O\u001a\u00020<2\u0006\u0010P\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0006J\u000e\u0010Q\u001a\u00020<2\u0006\u0010K\u001a\u00020\u0006J\u0006\u0010R\u001a\u00020<J\u0010\u0010S\u001a\u00020<2\u0006\u0010T\u001a\u00020\u0006H\u0016J\u0016\u0010U\u001a\u00020<2\u0006\u0010V\u001a\u00020\u00122\u0006\u0010\"\u001a\u00020\u0006J\u0016\u0010W\u001a\u00020<2\u0006\u0010-\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u0006J\u000e\u0010X\u001a\u00020<2\u0006\u0010Y\u001a\u00020\u0012J\u0006\u0010Z\u001a\u00020<J\b\u0010[\u001a\u00020<H\u0002J\u0006\u0010\\\u001a\u00020<J\u000e\u0010]\u001a\u00020<2\u0006\u0010I\u001a\u00020\fJ \u0010^\u001a\u00020<2\u0006\u0010_\u001a\u00020\u00062\u0006\u0010`\u001a\u00020\u00062\u0006\u0010a\u001a\u00020\bH\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001e\u001a\u00020\u00122\u0006\u0010\u001d\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010 \u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010'\u001a\u0012\u0012\u0004\u0012\u00020)0(j\b\u0012\u0004\u0012\u00020)`*X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010+\u001a\u0012\u0012\u0004\u0012\u00020)0(j\b\u0012\u0004\u0012\u00020)`*X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u00103\u001a\u0002048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b7\u00108\u001a\u0004\b5\u00106R\u000e\u00109\u001a\u00020:X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006c"}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "builder", "Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;", "(Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;)V", "CLICK_MOTION_EVENT_DELTA", "", "FADE_IN_OUT_ANIM_TIME", "", "SLIDE_ANIM_TIME", "activityRef", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "avoidKeyboardHeight", "beforeKeyboardX", "beforeKeyboardY", "bottomLimit", "canDrag", "", "changeSkinListener", "contentView", "Landroid/view/View;", "deltaX", "deltaY", "downEventX", "", "downEventY", NotificationCompat.WearableExtender.KEY_GRAVITY, "height", "<set-?>", "isOnLeft", "()Z", "isShowing", "isTouching", "keyboardHeight", "onActivityDispatchTouchEvent", "Lcom/baidu/tieba/edgefloat/OnActivityDispatchTouchEventListener;", "onTouchListener", "Landroid/view/View$OnTouchListener;", "pageNoSupport", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "pageSupport", "screenHeight", "screenWidth", "startX", "startY", "statusBarHeight", "topLimit", "width", "wm", "Landroid/view/WindowManager;", "getWm", "()Landroid/view/WindowManager;", "wm$delegate", "Lkotlin/Lazy;", "wmParams", "Landroid/view/WindowManager$LayoutParams;", "addToWindow", "", "createLayoutParams", "dispatchTouchEvent", Config.EVENT_PART, "Landroid/view/MotionEvent;", "fadeAlpha", "oldAlpha", "newAlpha", "onEnd", "Lkotlin/Function0;", "hide", "isAttachedToCurrentActivityWindow", "isPageSupport", "activity", "limitY", "y", "moveToDefaultEdge", "moveToEdge", "moveToX", "moveXY", "x", "moveY", "onBackPressed", "onChangeSkinType", "type", "onKeyboardHeightChanged", "isVisible", "onScreenSizeChanged", "onWindowFocusChanged", "hasFocus", "release", "removeFromWindow", "show", "switchActivity", "translateX", "oldX", "newX", "duration", "Builder", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b \u0018\u00002\u00020\u0001:\u0002fgB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010>\u001a\u00020?H\u0002J(\u0010@\u001a\u00020=2\u0006\u00100\u001a\u00020\u00062\u0006\u00101\u001a\u00020\u00062\u0006\u00105\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006H\u0002J\u000e\u0010A\u001a\u00020?2\u0006\u0010B\u001a\u00020CJ&\u0010D\u001a\u00020?2\u0006\u0010E\u001a\u00020\u00192\u0006\u0010F\u001a\u00020\u00192\f\u0010G\u001a\b\u0012\u0004\u0012\u00020?0HH\u0002J\u0006\u0010I\u001a\u00020?J\b\u0010J\u001a\u00020\u0012H\u0002J\u0012\u0010K\u001a\u00020\u00122\b\u0010L\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u0010 \u001a\u00020\u0012J\u000e\u0010M\u001a\u00020\u00062\u0006\u0010N\u001a\u00020\u0006J\b\u0010O\u001a\u00020?H\u0002J\b\u0010P\u001a\u00020?H\u0002J\u000e\u0010Q\u001a\u00020?2\u0006\u0010\u0016\u001a\u00020\u0006J\u0016\u0010R\u001a\u00020?2\u0006\u0010S\u001a\u00020\u00062\u0006\u0010N\u001a\u00020\u0006J\u000e\u0010T\u001a\u00020?2\u0006\u0010N\u001a\u00020\u0006J\u0006\u0010U\u001a\u00020?J\u0010\u0010V\u001a\u00020?2\u0006\u0010W\u001a\u00020\u0006H\u0016J\u0016\u0010X\u001a\u00020?2\u0006\u0010Y\u001a\u00020\u00122\u0006\u0010\"\u001a\u00020\u0006J\u0016\u0010Z\u001a\u00020?2\u0006\u0010/\u001a\u00020\u00062\u0006\u0010.\u001a\u00020\u0006J\u000e\u0010[\u001a\u00020?2\u0006\u0010\\\u001a\u00020\u0012J\u0006\u0010]\u001a\u00020?J\b\u0010^\u001a\u00020?H\u0002J\u0016\u0010_\u001a\u00020?2\u0006\u00105\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006J\u0006\u0010`\u001a\u00020?J\u000e\u0010a\u001a\u00020?2\u0006\u0010L\u001a\u00020\fJ \u0010b\u001a\u00020?2\u0006\u0010c\u001a\u00020\u00062\u0006\u0010d\u001a\u00020\u00062\u0006\u0010e\u001a\u00020\bH\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001e\u001a\u00020\u00122\u0006\u0010\u001d\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010 \u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020(X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010)\u001a\u0012\u0012\u0004\u0012\u00020+0*j\b\u0012\u0004\u0012\u00020+`,X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010-\u001a\u0012\u0012\u0004\u0012\u00020+0*j\b\u0012\u0004\u0012\u00020+`,X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u00106\u001a\u0002078BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b:\u0010;\u001a\u0004\b8\u00109R\u000e\u0010<\u001a\u00020=X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006h"}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "builder", "Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;", "(Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;)V", "CLICK_MOTION_EVENT_DELTA", "", "FADE_IN_OUT_ANIM_TIME", "", "SLIDE_ANIM_TIME", "activityRef", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "avoidKeyboardHeight", "beforeKeyboardX", "beforeKeyboardY", "bottomLimit", "canDrag", "", "changeSkinListener", "contentView", "Landroid/view/View;", "deltaX", "deltaY", "downEventX", "", "downEventY", NotificationCompat.WearableExtender.KEY_GRAVITY, "height", "<set-?>", "isOnLeft", "()Z", "isShowing", "isTouching", "keyboardHeight", "onActivityDispatchTouchEvent", "Lcom/baidu/tieba/edgefloat/OnActivityDispatchTouchEventListener;", "onScreenSizeChangedCallback", "Lcom/baidu/tieba/edgefloat/EdgeFloat$OnScreenSizeChangedCallback;", "onTouchListener", "Landroid/view/View$OnTouchListener;", "pageNoSupport", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "pageSupport", "screenHeight", "screenWidth", "startX", "startY", "statusBarHeight", "topLimit", "useFadeAnimation", "width", "wm", "Landroid/view/WindowManager;", "getWm", "()Landroid/view/WindowManager;", "wm$delegate", "Lkotlin/Lazy;", "wmParams", "Landroid/view/WindowManager$LayoutParams;", "addToWindow", "", "createLayoutParams", "dispatchTouchEvent", Config.EVENT_PART, "Landroid/view/MotionEvent;", "fadeAlpha", "oldAlpha", "newAlpha", "onEnd", "Lkotlin/Function0;", "hide", "isAttachedToCurrentActivityWindow", "isPageSupport", "activity", "limitY", "y", "moveToDefaultEdge", "moveToEdge", "moveToX", "moveXY", "x", "moveY", "onBackPressed", "onChangeSkinType", "type", "onKeyboardHeightChanged", "isVisible", "onScreenSizeChanged", "onWindowFocusChanged", "hasFocus", "release", "removeFromWindow", "resetContentViewSize", "show", "switchActivity", "translateX", "oldX", "newX", "duration", "Builder", "OnScreenSizeChangedCallback", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class EdgeFloat implements as6 {
+public final class EdgeFloat implements ax6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
+    public boolean A;
+    public boolean B;
     public int C;
     public int D;
-    public float E;
-    public float F;
-    public boolean G;
-    public final View.OnTouchListener H;
+    public int E;
+    public int F;
+    public float G;
+    public float H;
+    public boolean I;
+    public final View.OnTouchListener J;
     public final int a;
     public final long b;
     public final long c;
@@ -72,12 +75,17 @@ public final class EdgeFloat implements as6 {
     public int r;
     public final ArrayList<String> s;
     public final ArrayList<String> t;
-    public as6 u;
-    public bs6 v;
-    public final Lazy w;
-    public WindowManager.LayoutParams x;
-    public boolean y;
-    public boolean z;
+    public ax6 u;
+    public bx6 v;
+    public final boolean w;
+    public final b x;
+    public final Lazy y;
+    public WindowManager.LayoutParams z;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, int i2);
+    }
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -99,8 +107,10 @@ public final class EdgeFloat implements as6 {
         public boolean n;
         public final ArrayList<String> o;
         public final ArrayList<String> p;
-        public as6 q;
-        public bs6 r;
+        public ax6 q;
+        public bx6 r;
+        public boolean s;
+        public b t;
 
         public a(Activity activity) {
             Interceptable interceptable = $ic;
@@ -125,12 +135,35 @@ public final class EdgeFloat implements as6 {
             this.n = true;
             this.o = new ArrayList<>();
             this.p = new ArrayList<>();
+            this.s = true;
         }
 
-        public final a A(List<String> pageNoSupport) {
+        public final a A(bx6 onActivityDispatchTouchEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pageNoSupport)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onActivityDispatchTouchEvent)) == null) {
+                Intrinsics.checkNotNullParameter(onActivityDispatchTouchEvent, "onActivityDispatchTouchEvent");
+                this.r = onActivityDispatchTouchEvent;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a B(ax6 onChangeSkinType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onChangeSkinType)) == null) {
+                Intrinsics.checkNotNullParameter(onChangeSkinType, "onChangeSkinType");
+                this.q = onChangeSkinType;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a C(List<String> pageNoSupport) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pageNoSupport)) == null) {
                 Intrinsics.checkNotNullParameter(pageNoSupport, "pageNoSupport");
                 this.p.clear();
                 this.p.addAll(pageNoSupport);
@@ -139,10 +172,10 @@ public final class EdgeFloat implements as6 {
             return (a) invokeL.objValue;
         }
 
-        public final a B(List<String> pageSupport) {
+        public final a D(List<String> pageSupport) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pageSupport)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pageSupport)) == null) {
                 Intrinsics.checkNotNullParameter(pageSupport, "pageSupport");
                 this.o.clear();
                 this.o.addAll(pageSupport);
@@ -151,31 +184,11 @@ public final class EdgeFloat implements as6 {
             return (a) invokeL.objValue;
         }
 
-        public final a C(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.m = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a D(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.l = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
         public final a E(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.f = i;
+                this.m = i;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -185,36 +198,77 @@ public final class EdgeFloat implements as6 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.l = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public final a G(b onScreenSizeChangedCallback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, onScreenSizeChangedCallback)) == null) {
+                Intrinsics.checkNotNullParameter(onScreenSizeChangedCallback, "onScreenSizeChangedCallback");
+                this.t = onScreenSizeChangedCallback;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a H(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.s = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public final a I(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                this.f = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public final a J(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 this.g = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a G(int i) {
+        public final a K(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
                 this.k = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a H(int i) {
+        public final a L(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
                 this.h = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a I(View contentView) {
+        public final a M(View contentView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentView)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, contentView)) == null) {
                 Intrinsics.checkNotNullParameter(contentView, "contentView");
                 this.b = contentView;
                 return this;
@@ -222,10 +276,10 @@ public final class EdgeFloat implements as6 {
             return (a) invokeL.objValue;
         }
 
-        public final a J(int i) {
+        public final a N(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
                 this.c = i;
                 return this;
             }
@@ -235,7 +289,7 @@ public final class EdgeFloat implements as6 {
         public final a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
                 this.j = i;
                 return this;
             }
@@ -245,7 +299,7 @@ public final class EdgeFloat implements as6 {
         public final a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
                 this.i = i;
                 return this;
             }
@@ -255,59 +309,37 @@ public final class EdgeFloat implements as6 {
         public final a d(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
                 this.n = z;
                 return this;
             }
             return (a) invokeZ.objValue;
         }
 
-        public final a w(int i) {
+        public final a y(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
                 this.e = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a x(int i) {
+        public final a z(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) {
                 this.d = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final a y(bs6 onActivityDispatchTouchEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, onActivityDispatchTouchEvent)) == null) {
-                Intrinsics.checkNotNullParameter(onActivityDispatchTouchEvent, "onActivityDispatchTouchEvent");
-                this.r = onActivityDispatchTouchEvent;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a z(as6 onChangeSkinType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, onChangeSkinType)) == null) {
-                Intrinsics.checkNotNullParameter(onChangeSkinType, "onChangeSkinType");
-                this.q = onChangeSkinType;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
         public final EdgeFloat c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 EdgeFloat edgeFloat = new EdgeFloat(this);
                 EdgeFloatLifecycle.b.a().i(edgeFloat);
                 return edgeFloat;
@@ -318,7 +350,7 @@ public final class EdgeFloat implements as6 {
         public final Activity e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.a;
             }
             return (Activity) invokeV.objValue;
@@ -327,7 +359,7 @@ public final class EdgeFloat implements as6 {
         public final int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 return this.j;
             }
             return invokeV.intValue;
@@ -336,7 +368,7 @@ public final class EdgeFloat implements as6 {
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 return this.i;
             }
             return invokeV.intValue;
@@ -345,25 +377,25 @@ public final class EdgeFloat implements as6 {
         public final boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 return this.n;
             }
             return invokeV.booleanValue;
         }
 
-        public final as6 i() {
+        public final ax6 i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.q;
             }
-            return (as6) invokeV.objValue;
+            return (ax6) invokeV.objValue;
         }
 
         public final View j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 return this.b;
             }
             return (View) invokeV.objValue;
@@ -372,7 +404,7 @@ public final class EdgeFloat implements as6 {
         public final int k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 return this.e;
             }
             return invokeV.intValue;
@@ -381,53 +413,53 @@ public final class EdgeFloat implements as6 {
         public final int l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
                 return this.d;
             }
             return invokeV.intValue;
         }
 
-        public final bs6 m() {
+        public final bx6 m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                 return this.r;
             }
-            return (bs6) invokeV.objValue;
+            return (bx6) invokeV.objValue;
         }
 
-        public final ArrayList<String> n() {
+        public final b n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-                return this.p;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                return this.t;
             }
-            return (ArrayList) invokeV.objValue;
+            return (b) invokeV.objValue;
         }
 
         public final ArrayList<String> o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                return this.p;
+            }
+            return (ArrayList) invokeV.objValue;
+        }
+
+        public final ArrayList<String> p() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
                 return this.o;
             }
             return (ArrayList) invokeV.objValue;
         }
 
-        public final int p() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-                return this.m;
-            }
-            return invokeV.intValue;
-        }
-
         public final int q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-                return this.l;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                return this.m;
             }
             return invokeV.intValue;
         }
@@ -435,8 +467,8 @@ public final class EdgeFloat implements as6 {
         public final int r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-                return this.f;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                return this.l;
             }
             return invokeV.intValue;
         }
@@ -444,8 +476,8 @@ public final class EdgeFloat implements as6 {
         public final int s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-                return this.g;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                return this.f;
             }
             return invokeV.intValue;
         }
@@ -453,8 +485,8 @@ public final class EdgeFloat implements as6 {
         public final int t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-                return this.k;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                return this.g;
             }
             return invokeV.intValue;
         }
@@ -462,8 +494,8 @@ public final class EdgeFloat implements as6 {
         public final int u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-                return this.h;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                return this.k;
             }
             return invokeV.intValue;
         }
@@ -471,7 +503,25 @@ public final class EdgeFloat implements as6 {
         public final int v() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                return this.h;
+            }
+            return invokeV.intValue;
+        }
+
+        public final boolean w() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                return this.s;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final int x() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
                 return this.c;
             }
             return invokeV.intValue;
@@ -479,7 +529,7 @@ public final class EdgeFloat implements as6 {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements Animator.AnimatorListener {
+    public static final class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function0 a;
@@ -505,7 +555,7 @@ public final class EdgeFloat implements as6 {
             }
         }
 
-        public b(Function0 function0) {
+        public c(Function0 function0) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -554,22 +604,24 @@ public final class EdgeFloat implements as6 {
         this.d = new WeakReference<>(builder.e());
         this.e = builder.j();
         this.f = builder.k();
-        this.g = builder.r();
-        this.h = builder.s();
-        this.i = builder.v();
+        this.g = builder.s();
+        this.h = builder.t();
+        this.i = builder.x();
         this.j = builder.l();
-        this.k = builder.u();
+        this.k = builder.v();
         this.l = builder.g();
         this.n = builder.f();
         this.o = builder.h();
-        this.p = builder.t();
-        this.q = builder.q();
-        this.r = builder.p();
-        this.s = builder.o();
-        this.t = builder.n();
+        this.p = builder.u();
+        this.q = builder.r();
+        this.r = builder.q();
+        this.s = builder.p();
+        this.t = builder.o();
         this.u = builder.i();
         this.v = builder.m();
-        this.w = LazyKt__LazyJVMKt.lazy(new Function0<WindowManager>(this) { // from class: com.baidu.tieba.edgefloat.EdgeFloat$wm$2
+        this.w = builder.w();
+        this.x = builder.n();
+        this.y = LazyKt__LazyJVMKt.lazy(new Function0<WindowManager>(this) { // from class: com.baidu.tieba.edgefloat.EdgeFloat$wm$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EdgeFloat this$0;
@@ -610,7 +662,7 @@ public final class EdgeFloat implements as6 {
                 }
                 weakReference = this.this$0.d;
                 if (weakReference != null && (activity = (Activity) weakReference.get()) != null && (applicationContext = activity.getApplicationContext()) != null) {
-                    obj = applicationContext.getSystemService("window");
+                    obj = applicationContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
                 } else {
                     obj = null;
                 }
@@ -620,8 +672,8 @@ public final class EdgeFloat implements as6 {
                 throw new NullPointerException("null cannot be cast to non-null type android.view.WindowManager");
             }
         });
-        this.x = new WindowManager.LayoutParams();
-        this.H = new View.OnTouchListener() { // from class: com.baidu.tieba.yr6
+        this.z = new WindowManager.LayoutParams();
+        this.J = new View.OnTouchListener() { // from class: com.baidu.tieba.yw6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -634,16 +686,16 @@ public final class EdgeFloat implements as6 {
         };
     }
 
-    public static final void F(EdgeFloat this$0, ValueAnimator valueAnimator) {
+    public static final void G(EdgeFloat this$0, ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, valueAnimator) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.e.isAttachedToWindow()) {
-                WindowManager.LayoutParams layoutParams = this$0.x;
+                WindowManager.LayoutParams layoutParams = this$0.z;
                 Object animatedValue = valueAnimator.getAnimatedValue();
                 if (animatedValue != null) {
                     layoutParams.x = ((Integer) animatedValue).intValue();
-                    this$0.j().updateViewLayout(this$0.e, this$0.x);
+                    this$0.j().updateViewLayout(this$0.e, this$0.z);
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Int");
@@ -651,30 +703,43 @@ public final class EdgeFloat implements as6 {
         }
     }
 
+    public final void C(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || !this.A) {
+            return;
+        }
+        this.i = i;
+        this.j = i2;
+        this.z = f(this.g, this.h, i, i2);
+        if (this.e.isAttachedToWindow()) {
+            j().updateViewLayout(this.e, this.z);
+        }
+    }
+
     public final void g(MotionEvent ev) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ev) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
-            bs6 bs6Var = this.v;
-            if (bs6Var != null) {
-                bs6Var.dispatchTouchEvent(ev);
+            bx6 bx6Var = this.v;
+            if (bx6Var != null) {
+                bx6Var.dispatchTouchEvent(ev);
             }
         }
     }
 
-    @Override // com.baidu.tieba.as6
+    @Override // com.baidu.tieba.ax6
     public void onChangeSkinType(int i) {
-        as6 as6Var;
+        ax6 ax6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (as6Var = this.u) != null) {
-            as6Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (ax6Var = this.u) != null) {
+            ax6Var.onChangeSkinType(i);
         }
     }
 
     public final int p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             int i2 = this.k - this.p;
             int height = (this.r - this.l) - this.e.getHeight();
             if (i < i2) {
@@ -690,20 +755,24 @@ public final class EdgeFloat implements as6 {
 
     public final void s(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048595, this, i) != null) || !this.y) {
+        if ((interceptable != null && interceptable.invokeI(1048596, this, i) != null) || !this.A) {
             return;
         }
-        this.x.x += i;
-        j().updateViewLayout(this.e, this.x);
+        this.z.x += i;
+        if (this.e.isAttachedToWindow()) {
+            j().updateViewLayout(this.e, this.z);
+        }
     }
 
     public final void u(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048597, this, i) != null) || !this.y) {
+        if ((interceptable != null && interceptable.invokeI(1048598, this, i) != null) || !this.A) {
             return;
         }
-        this.x.y = p(i);
-        j().updateViewLayout(this.e, this.x);
+        this.z.y = p(i);
+        if (this.e.isAttachedToWindow()) {
+            j().updateViewLayout(this.e, this.z);
+        }
     }
 
     public static final void i(EdgeFloat this$0, ValueAnimator valueAnimator) {
@@ -721,19 +790,21 @@ public final class EdgeFloat implements as6 {
 
     public final void t(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048596, this, i, i2) != null) || !this.y) {
+        if ((interceptable != null && interceptable.invokeII(1048597, this, i, i2) != null) || !this.A) {
             return;
         }
         int p = p(i2);
-        WindowManager.LayoutParams layoutParams = this.x;
+        WindowManager.LayoutParams layoutParams = this.z;
         layoutParams.x = i;
         layoutParams.y = p;
-        j().updateViewLayout(this.e, this.x);
+        if (this.e.isAttachedToWindow()) {
+            j().updateViewLayout(this.e, this.z);
+        }
     }
 
     public final void x(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048601, this, i, i2) == null) {
             if (i == this.q && i2 == this.r) {
                 return;
             }
@@ -741,6 +812,10 @@ public final class EdgeFloat implements as6 {
             this.r = i2;
             if (this.o) {
                 q();
+            }
+            b bVar = this.x;
+            if (bVar != null) {
+                bVar.a(i, i2);
             }
         }
     }
@@ -756,27 +831,27 @@ public final class EdgeFloat implements as6 {
                 int i = iArr[0];
                 int i2 = iArr[1];
                 if (motionEvent.getRawX() > i && motionEvent.getRawX() < this$0.e.getWidth() + i && motionEvent.getRawY() > i2 && motionEvent.getRawY() < this$0.e.getHeight() + i2) {
-                    this$0.z = true;
-                    this$0.C = ((int) motionEvent.getRawX()) - i;
-                    this$0.D = ((int) motionEvent.getRawY()) - i2;
+                    this$0.B = true;
+                    this$0.E = ((int) motionEvent.getRawX()) - i;
+                    this$0.F = ((int) motionEvent.getRawY()) - i2;
                 }
-                this$0.E = motionEvent.getRawX();
-                this$0.F = motionEvent.getRawY();
+                this$0.G = motionEvent.getRawX();
+                this$0.H = motionEvent.getRawY();
             } else if (motionEvent.getAction() == 2) {
-                if (this$0.z) {
-                    this$0.t(((int) motionEvent.getRawX()) - this$0.C, (((int) motionEvent.getRawY()) - this$0.D) - this$0.p);
+                if (this$0.B) {
+                    this$0.t(((int) motionEvent.getRawX()) - this$0.E, (((int) motionEvent.getRawY()) - this$0.F) - this$0.p);
                 }
             } else if (motionEvent.getAction() == 1) {
-                if (Math.abs(motionEvent.getRawX() - this$0.E) < this$0.a && Math.abs(motionEvent.getRawY() - this$0.F) < this$0.a) {
+                if (Math.abs(motionEvent.getRawX() - this$0.G) < this$0.a && Math.abs(motionEvent.getRawY() - this$0.H) < this$0.a) {
                     View view3 = this$0.e;
                     if (view3 instanceof View.OnClickListener) {
                         ((View.OnClickListener) view3).onClick(view3);
                     }
                 } else {
-                    if (this$0.z) {
+                    if (this$0.B) {
                         this$0.r();
                     }
-                    this$0.z = false;
+                    this$0.B = false;
                 }
             }
             return false;
@@ -791,84 +866,89 @@ public final class EdgeFloat implements as6 {
             if (weakReference != null) {
                 weakReference.clear();
             }
-            this.y = false;
-            this.G = false;
+            this.A = false;
+            this.I = false;
         }
     }
 
     public final WindowManager j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return (WindowManager) this.w.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return (WindowManager) this.y.getValue();
         }
         return (WindowManager) invokeV.objValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || !this.y) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !this.A) {
             return;
         }
-        this.y = false;
-        h(1.0f, 0.0f, new Function0<Unit>(this) { // from class: com.baidu.tieba.edgefloat.EdgeFloat$hide$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ EdgeFloat this$0;
+        this.A = false;
+        if (this.w) {
+            h(1.0f, 0.0f, new Function0<Unit>(this) { // from class: com.baidu.tieba.edgefloat.EdgeFloat$hide$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ EdgeFloat this$0;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function0
+                public /* bridge */ /* synthetic */ Unit invoke() {
+                    invoke2();
+                    return Unit.INSTANCE;
+                }
+
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2() {
+                    boolean z;
+                    View view2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                         return;
                     }
+                    z = this.this$0.A;
+                    if (z) {
+                        return;
+                    }
+                    view2 = this.this$0.e;
+                    view2.setVisibility(4);
+                    this.this$0.B();
                 }
-                this.this$0 = this;
-            }
-
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-            @Override // kotlin.jvm.functions.Function0
-            public /* bridge */ /* synthetic */ Unit invoke() {
-                invoke2();
-                return Unit.INSTANCE;
-            }
-
-            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
-            /* renamed from: invoke  reason: avoid collision after fix types in other method */
-            public final void invoke2() {
-                boolean z;
-                View view2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                    return;
-                }
-                z = this.this$0.y;
-                if (z) {
-                    return;
-                }
-                view2 = this.this$0.e;
-                view2.setVisibility(4);
-                this.this$0.B();
-            }
-        });
+            });
+            return;
+        }
+        this.e.setVisibility(4);
+        B();
     }
 
     public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.G;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.I;
         }
         return invokeV.booleanValue;
     }
@@ -876,8 +956,8 @@ public final class EdgeFloat implements as6 {
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.y;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.A;
         }
         return invokeV.booleanValue;
     }
@@ -885,22 +965,22 @@ public final class EdgeFloat implements as6 {
     public final void q() {
         int width;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            int i = this.x.x;
-            if (this.G) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            int i = this.z.x;
+            if (this.I) {
                 width = 0;
             } else {
                 width = this.q - this.e.getWidth();
             }
-            E(i, width, this.b);
+            F(i, width, this.b);
         }
     }
 
     public final void v() {
-        bs6 bs6Var;
+        bx6 bx6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (bs6Var = this.v) != null) {
-            bs6Var.onBackPressed();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (bx6Var = this.v) != null) {
+            bx6Var.onBackPressed();
         }
     }
 
@@ -921,35 +1001,37 @@ public final class EdgeFloat implements as6 {
 
     public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            int i = this.x.x;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            int i = this.z.x;
             int width = (this.e.getWidth() / 2) + i;
             int i2 = this.q;
             int i3 = 0;
             if (width > i2 / 2) {
-                this.G = false;
+                this.I = false;
                 i3 = i2 - this.e.getWidth();
             } else {
-                this.G = true;
+                this.I = true;
             }
-            E(i, i3, this.b);
+            F(i, i3, this.b);
         }
     }
 
-    public final void C() {
+    public final void D() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.y) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.A) {
             return;
         }
-        this.y = true;
+        this.A = true;
         if (this.o) {
-            this.e.setOnTouchListener(this.H);
+            this.e.setOnTouchListener(this.J);
         }
         this.e.setVisibility(0);
-        this.e.setAlpha(0.0f);
-        h(0.0f, 1.0f, EdgeFloat$show$1.INSTANCE);
-        this.x = f(this.g, this.h, this.i, this.j);
+        if (this.w) {
+            this.e.setAlpha(0.0f);
+            h(0.0f, 1.0f, EdgeFloat$show$1.INSTANCE);
+        }
+        this.z = f(this.g, this.h, this.i, this.j);
         WeakReference<Activity> weakReference = this.d;
         if (weakReference != null) {
             activity = weakReference.get();
@@ -969,23 +1051,23 @@ public final class EdgeFloat implements as6 {
         Window window;
         View decorView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             WeakReference<Activity> weakReference = this.d;
             if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
                 iBinder = decorView.getWindowToken();
             } else {
                 iBinder = null;
             }
-            this.x.token = iBinder;
+            this.z.token = iBinder;
             if (l()) {
                 return;
             }
             try {
-                if (this.x.token != null) {
+                if (this.z.token != null) {
                     if (this.e.isAttachedToWindow()) {
                         j().removeViewImmediate(this.e);
                     }
-                    j().addView(this.e, this.x);
+                    j().addView(this.e, this.z);
                 }
             } catch (Exception e) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
@@ -998,19 +1080,19 @@ public final class EdgeFloat implements as6 {
         }
     }
 
-    public final void D(Activity activity) {
+    public final void E(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             if (!n(activity)) {
                 return;
             }
             this.d = new WeakReference<>(activity);
-            if (!this.y) {
+            if (!this.A) {
                 return;
             }
-            WindowManager.LayoutParams layoutParams = this.x;
-            this.x = f(layoutParams.x, layoutParams.y, layoutParams.width, layoutParams.height);
+            WindowManager.LayoutParams layoutParams = this.z;
+            this.z = f(layoutParams.x, layoutParams.y, layoutParams.width, layoutParams.height);
             e();
         }
     }
@@ -1018,7 +1100,7 @@ public final class EdgeFloat implements as6 {
     public final void z(boolean z) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             boolean z2 = !z;
             WeakReference<Activity> weakReference = this.d;
             if (weakReference != null) {
@@ -1026,21 +1108,21 @@ public final class EdgeFloat implements as6 {
             } else {
                 activity = null;
             }
-            if (!(z2 | (!n(activity)) | (!this.y)) && this.x.token == null) {
+            if (!(z2 | (!n(activity)) | (!this.A)) && this.z.token == null) {
                 e();
             }
         }
     }
 
-    public final void E(int i, int i2, long j) {
+    public final void F(int i, int i2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) != null) || !this.y) {
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) != null) || !this.A) {
             return;
         }
         ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
         ofInt.setDuration(j);
         ofInt.setInterpolator(new DecelerateInterpolator());
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xr6
+        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xw6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1048,7 +1130,7 @@ public final class EdgeFloat implements as6 {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                    EdgeFloat.F(EdgeFloat.this, valueAnimator);
+                    EdgeFloat.G(EdgeFloat.this, valueAnimator);
                 }
             }
         });
@@ -1057,11 +1139,11 @@ public final class EdgeFloat implements as6 {
 
     public final void h(float f, float f2, Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), function0}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), function0}) == null) {
             ValueAnimator alphaAnim = ValueAnimator.ofFloat(f, f2);
             alphaAnim.setDuration(this.c);
             alphaAnim.setInterpolator(new AccelerateInterpolator());
-            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zr6
+            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zw6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1074,7 +1156,7 @@ public final class EdgeFloat implements as6 {
                 }
             });
             Intrinsics.checkNotNullExpressionValue(alphaAnim, "alphaAnim");
-            alphaAnim.addListener(new b(function0));
+            alphaAnim.addListener(new c(function0));
             alphaAnim.start();
         }
     }
@@ -1082,7 +1164,7 @@ public final class EdgeFloat implements as6 {
     public final WindowManager.LayoutParams f(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048582, this, i, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048583, this, i, i2, i3, i4)) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.type = 1003;
             layoutParams.flags = 520;
@@ -1104,7 +1186,7 @@ public final class EdgeFloat implements as6 {
         Window window;
         View decorView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             WeakReference<Activity> weakReference = this.d;
             if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
                 iBinder = decorView.getWindowToken();
@@ -1124,7 +1206,7 @@ public final class EdgeFloat implements as6 {
         String str;
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, activity)) == null) {
             if (activity != null && (cls = activity.getClass()) != null) {
                 str = cls.getSimpleName();
             } else {
@@ -1148,22 +1230,22 @@ public final class EdgeFloat implements as6 {
 
     public final void w(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (!z) {
                 int i2 = this.r - this.m;
-                WindowManager.LayoutParams layoutParams = this.x;
-                if (layoutParams.x == this.A && layoutParams.y == p((i2 - this.e.getHeight()) - this.n)) {
-                    t(this.A, this.B);
+                WindowManager.LayoutParams layoutParams = this.z;
+                if (layoutParams.x == this.C && layoutParams.y == p((i2 - this.e.getHeight()) - this.n)) {
+                    t(this.C, this.D);
                 }
-                this.A = 0;
-                this.B = 0;
+                this.C = 0;
+                this.D = 0;
                 return;
             }
             this.m = i;
-            WindowManager.LayoutParams layoutParams2 = this.x;
-            this.A = layoutParams2.x;
+            WindowManager.LayoutParams layoutParams2 = this.z;
+            this.C = layoutParams2.x;
             int i3 = layoutParams2.y;
-            this.B = i3;
+            this.D = i3;
             int height = i3 + this.e.getHeight();
             int i4 = this.r - i;
             if (height >= i4) {

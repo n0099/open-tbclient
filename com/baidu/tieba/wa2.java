@@ -1,62 +1,24 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public class wa2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wa2 {
+    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948263777, "Lcom/baidu/tieba/wa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948263777, "Lcom/baidu/tieba/wa2;");
-                return;
-            }
-        }
-        a = qp1.a;
-        b = new AtomicInteger(0);
-    }
+    void continueTimer();
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("localDebug")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = b.getAndIncrement();
-            String str = "localDebug";
-            if (andIncrement >= 1) {
-                str = "localDebug" + andIncrement;
-            }
-            if (a) {
-                Log.i("DaemonIdGenerator", "next daemon id - " + str);
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
+    String getContainerId();
+
+    String getUrl();
+
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

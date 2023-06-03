@@ -1,60 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+/* compiled from: OnWebScrollChangeListener.java */
 /* loaded from: classes5.dex */
-public final class dm6 implements j37 {
+public final /* synthetic */ class dm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.j37
-    public String getKey() {
-        InterceptResult invokeV;
+    public static void a(em6 em6Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
-
-    public dm6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{em6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.j37
-    public Map<String, String> a(vz6 businessInfo) {
-        InterceptResult invokeL;
+    public static void b(em6 em6Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "1");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            hashMap.put("obj_id", currentAccount);
-            String str = a.get("user_id");
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_param1", str);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{em6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
-        return (Map) invokeL.objValue;
     }
 }

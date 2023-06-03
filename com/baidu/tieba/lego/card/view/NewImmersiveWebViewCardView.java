@@ -17,10 +17,10 @@ import com.baidu.tbadk.browser.XiubaTbJsBridge;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.fs9;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.qh6;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ry9;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public TbWebView n;
-    public fs9 o;
+    public ry9 o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes6.dex */
@@ -73,7 +73,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
     }
 
     /* loaded from: classes6.dex */
-    public class b implements qh6 {
+    public class b implements yl6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewImmersiveWebViewCardView a;
@@ -96,7 +96,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             this.a = newImmersiveWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.qh6
+        @Override // com.baidu.tieba.yl6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -127,9 +127,9 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             }
         }
         this.i = tbPageContext;
-        fs9 fs9Var = new fs9();
-        this.o = fs9Var;
-        fs9Var.a(new XiubaTbJsBridge(this.i));
+        ry9 ry9Var = new ry9();
+        this.o = ry9Var;
+        ry9Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -202,7 +202,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
         if (immersiveWebViewCard.getHeight() > 0) {
             setWebviewHeight(immersiveWebViewCard.getHeight());
         } else {
-            setWebviewHeight(ri.j(getContext()));
+            setWebviewHeight(vi.j(getContext()));
         }
         if (!immersiveWebViewCard.mHasShown) {
             String pageUrl = immersiveWebViewCard.getPageUrl();
@@ -218,7 +218,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01df, (ViewGroup) null);
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e5, (ViewGroup) null);
             D();
             return this.m;
         }

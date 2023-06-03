@@ -19,15 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010$\u001a\u00020#¢\u0006\u0004\b%\u0010&B\u001b\b\u0016\u0012\u0006\u0010$\u001a\u00020#\u0012\b\u0010(\u001a\u0004\u0018\u00010'¢\u0006\u0004\b%\u0010)B!\u0012\u0006\u0010$\u001a\u00020#\u0012\b\u0010(\u001a\u0004\u0018\u00010'\u0012\u0006\u0010+\u001a\u00020*¢\u0006\u0004\b%\u0010,J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\b\u0010\u0006J\u0017\u0010\t\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\u0006J\u0017\u0010\n\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\n\u0010\u0006J\u000f\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u000e¢\u0006\u0004\b\u0013\u0010\u0011J\u0015\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0014\u001a\u00020\u000e¢\u0006\u0004\b\u0015\u0010\u0011J\u0015\u0010\u0017\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u000e¢\u0006\u0004\b\u0017\u0010\u0011J\u0015\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u0018\u001a\u00020\u000e¢\u0006\u0004\b\u0019\u0010\u0011R\u0016\u0010\u001a\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001bR\u0016\u0010\u001e\u001a\u00020\u001d8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010 \u001a\u00020\u001d8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b \u0010\u001fR\u0016\u0010!\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\u001bR\u0016\u0010\"\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010\u001b¨\u0006-"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/RoundAngleFrameLayout;", "Landroid/widget/FrameLayout;", "Landroid/graphics/Canvas;", "canvas", "", "dispatchDraw", "(Landroid/graphics/Canvas;)V", "drawBottomLeft", "drawBottomRight", "drawTopLeft", "drawTopRight", "", "isRoundAngle", "()Z", "", "bottomLeftRadius", "setBottomLeftRadius", "(F)V", "bottomRightRadius", "setBottomRightRadius", "topLeftRadius", "setTopLeftRadius", "topRadius", "setTopRadius", "topRightRadius", "setTopRightRadius", "mBottomLeftRadius", "F", "mBottomRightRadius", "Landroid/graphics/Paint;", "mImagePaint", "Landroid/graphics/Paint;", "mRoundPaint", "mTopLeftRadius", "mTopRightRadius", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "", "defStyle", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "lib-dialog_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\b\u0007\u0018\u00002\u00020\u0001B\u000f\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004B\u0019\b\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B\u001f\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0010\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0014J\u0010\u0010\u0017\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0010\u0010\u0018\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0010\u0010\u0019\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0010\u0010\u001a\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\b\u0010\u001b\u001a\u00020\u001cH\u0002J\u000e\u0010\u001d\u001a\u00020\u00142\u0006\u0010\u001e\u001a\u00020\fJ\u000e\u0010\u001f\u001a\u00020\u00142\u0006\u0010 \u001a\u00020\fJ\u000e\u0010!\u001a\u00020\u00142\u0006\u0010\"\u001a\u00020\fJ\u000e\u0010#\u001a\u00020\u00142\u0006\u0010$\u001a\u00020\fJ\u000e\u0010%\u001a\u00020\u00142\u0006\u0010&\u001a\u00020\fR\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006'"}, d2 = {"Lcom/baidu/android/ext/widget/dialog/RoundAngleFrameLayout;", "Landroid/widget/FrameLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyle", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mBottomLeftRadius", "", "mBottomRightRadius", "mImagePaint", "Landroid/graphics/Paint;", "mRoundPaint", "mTopLeftRadius", "mTopRightRadius", "dispatchDraw", "", "canvas", "Landroid/graphics/Canvas;", "drawBottomLeft", "drawBottomRight", "drawTopLeft", "drawTopRight", "isRoundAngle", "", "setBottomLeftRadius", "bottomLeftRadius", "setBottomRightRadius", "bottomRightRadius", "setTopLeftRadius", "topLeftRadius", "setTopRadius", "topRadius", "setTopRightRadius", "topRightRadius", "lib-dialog_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes.dex */
 public final class RoundAngleFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap _$_findViewCache;
+    public Map<Integer, View> _$_findViewCache;
     public float mBottomLeftRadius;
     public float mBottomRightRadius;
     public final Paint mImagePaint;
@@ -36,26 +37,25 @@ public final class RoundAngleFrameLayout extends FrameLayout {
     public float mTopRightRadius;
 
     public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this._$_findViewCache.clear();
         }
-        hashMap.clear();
     }
 
     public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+            Map<Integer, View> map = this._$_findViewCache;
+            View view2 = map.get(Integer.valueOf(i));
             if (view2 == null) {
                 View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
+                if (findViewById != null) {
+                    map.put(Integer.valueOf(i), findViewById);
+                    return findViewById;
+                }
+                return null;
             }
             return view2;
         }
@@ -86,7 +86,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
 
     private final void drawTopLeft(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, canvas) == null) && this.mTopLeftRadius > 0) {
+        if ((interceptable == null || interceptable.invokeL(65541, this, canvas) == null) && this.mTopLeftRadius > 0.0f) {
             Path path = new Path();
             path.moveTo(0.0f, this.mTopLeftRadius);
             path.lineTo(0.0f, 0.0f);
@@ -141,6 +141,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
+        this._$_findViewCache = new LinkedHashMap();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RoundAngleFrameLayout);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…le.RoundAngleFrameLayout)");
@@ -164,7 +165,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
 
     private final void drawBottomLeft(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, canvas) == null) && this.mBottomLeftRadius > 0) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, canvas) == null) && this.mBottomLeftRadius > 0.0f) {
             int height = getHeight();
             Path path = new Path();
             float f = height;
@@ -181,7 +182,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
 
     private final void drawBottomRight(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && this.mBottomRightRadius > 0) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && this.mBottomRightRadius > 0.0f) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
@@ -200,7 +201,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
 
     private final void drawTopRight(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, canvas) == null) && this.mTopRightRadius > 0) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, canvas) == null) && this.mTopRightRadius > 0.0f) {
             int width = getWidth();
             Path path = new Path();
             float f = width;
@@ -238,8 +239,7 @@ public final class RoundAngleFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            float f = 0;
-            if (this.mTopLeftRadius <= f && this.mTopRightRadius <= f && this.mBottomLeftRadius <= f && this.mBottomRightRadius <= f) {
+            if (this.mTopLeftRadius <= 0.0f && this.mTopRightRadius <= 0.0f && this.mBottomLeftRadius <= 0.0f && this.mBottomRightRadius <= 0.0f) {
                 return false;
             }
             return true;

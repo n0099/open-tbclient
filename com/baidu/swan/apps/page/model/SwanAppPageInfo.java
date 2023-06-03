@@ -3,6 +3,7 @@ package com.baidu.swan.apps.page.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -79,7 +80,7 @@ public class SwanAppPageInfo implements Parcelable {
         }
         this.url = jSONObject.optString("url");
         this.appName = jSONObject.optString("appName");
-        this.iconUrl = jSONObject.optString("iconUrl");
+        this.iconUrl = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
         this.appDesc = jSONObject.optString("appDesc");
         this.scheme = jSONObject.optString("scheme");
         this.fragmentId = jSONObject.optString(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID);

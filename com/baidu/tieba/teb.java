@@ -1,133 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tgb;
-import com.baidu.tieba.ugb;
-import com.baidu.tieba.vgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPaySignView;
-import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
 /* loaded from: classes7.dex */
-public class teb implements ndb {
+public class teb implements oeb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
 
-    public teb(int i, int i2, PayUIKitConfig payUIKitConfig) {
+    public teb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, kdb kdbVar) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.oeb
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, kdbVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, kdbVar);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            Log.d(str, str2);
         }
-        return (IYYPayAmountView) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, kdb kdbVar) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.oeb
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, kdbVar)) == null) {
-            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, kdbVar);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            Log.e(str, str2);
         }
-        return (IYYPayResultView) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public tgb f(Activity activity, tgb.b bVar, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.oeb
+    public void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
-            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            Log.i(str, str2);
         }
-        return (tgb) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public vgb g(Activity activity, vgb.b bVar, pdb pdbVar) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.oeb
+    public void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, pdbVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, pdbVar);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            Log.w(str, str2);
         }
-        return (vgb) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public rgb b(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oeb
+    public void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) {
+            Log.e(str, str2, th);
         }
-        return (rgb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public qgb c(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oeb
+    public void i(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
+            Log.i(str, str2, th);
         }
-        return (qgb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ndb
-    public sgb d(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oeb
+    public void w(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) {
+            Log.w(str, str2, th);
         }
-        return (sgb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ndb
-    public ugb h(Activity activity, PayUIKitConfig payUIKitConfig, ugb.b bVar, pdb pdbVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, pdbVar)) == null) {
-            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, pdbVar);
-        }
-        return (ugb) invokeLLLL.objValue;
     }
 }

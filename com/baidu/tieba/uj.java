@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uj extends bk {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public interface uj {
+    void a(String str);
 
-    public uj(byte[] bArr, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bArr;
-        this.b = j;
-        this.c = j2;
-    }
+    void b(int i, String str);
+
+    void c(qj qjVar);
+
+    void d(byte[] bArr);
+
+    void e();
+
+    void f(yj yjVar);
+
+    void g(int i, qj qjVar);
+
+    void h(qj qjVar);
+
+    void i(qj qjVar);
+
+    void onOpen(Map<String, String> map);
 }

@@ -19,7 +19,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.ByteString;
 import org.apache.http.message.BasicHeaderValueFormatter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class HttpHeaders {
     public static final ByteString QUOTED_STRING_DELIMITERS = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
     public static final ByteString TOKEN_DELIMITERS = ByteString.encodeUtf8("\t ,=");

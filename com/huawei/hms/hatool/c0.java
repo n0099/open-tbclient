@@ -1,10 +1,9 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.s2b;
-import com.baidu.tieba.w2b;
-import com.baidu.tieba.x2b;
+import com.baidu.tieba.cbb;
+import com.baidu.tieba.gbb;
+import com.baidu.tieba.hbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,13 +75,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = w2b.d(128);
+                b = gbb.d(128);
                 a("aprpap", b);
-                b2 = w2b.d(128);
+                b2 = gbb.d(128);
                 a("febdoc", b2);
-                b3 = w2b.d(128);
+                b3 = gbb.d(128);
                 a("marfil", b3);
-                b4 = w2b.d(128);
+                b4 = gbb.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -91,7 +90,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return x2b.a(s2b.b(a(b, b2, b3, c), x2b.b(b4), 10000, 16));
+            return hbb.a(cbb.b(a(b, b2, b3, c), hbb.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -100,7 +99,7 @@ public class c0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a + "/hms/component/".replace(NativeConstants.COMPONENT, str);
+            return this.a + "/hms/component/".replace("component", str);
         }
         return (String) invokeL.objValue;
     }
@@ -143,10 +142,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = x2b.b(str);
-            byte[] b2 = x2b.b(str2);
-            byte[] b3 = x2b.b(str3);
-            byte[] b4 = x2b.b(str4);
+            byte[] b = hbb.b(str);
+            byte[] b2 = hbb.b(str2);
+            byte[] b3 = hbb.b(str3);
+            byte[] b4 = hbb.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -175,7 +174,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = w2b.d(128);
+            String d = gbb.d(128);
             t0.a(file, d);
             return d;
         }

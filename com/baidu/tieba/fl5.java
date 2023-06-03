@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteOrder;
 /* loaded from: classes5.dex */
-public abstract class fl5<T extends xk5> extends z9 implements yk5<T> {
+public class fl5 extends kl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public BdUniqueId b;
 
     public fl5() {
         Interceptable interceptable = $ic;
@@ -25,35 +21,36 @@ public abstract class fl5<T extends xk5> extends z9 implements yk5<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = null;
     }
 
-    public BdUniqueId getTag() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kl5
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.d(i);
+            this.a.order(ByteOrder.BIG_ENDIAN);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean isSelfListener() {
-        InterceptResult invokeV;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            b((byte) (i & 255));
+            b((byte) ((i >> 8) & 255));
+            b((byte) ((i >> 16) & 255));
+            b((byte) ((i >> 24) & 255));
         }
-        return invokeV.booleanValue;
     }
 
-    public void setTag(BdUniqueId bdUniqueId) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            b((byte) ((i >> 24) & 255));
+            b((byte) ((i >> 16) & 255));
+            b((byte) ((i >> 8) & 255));
+            b((byte) (i & 255));
         }
     }
 }

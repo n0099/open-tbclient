@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.List;
 public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean i;
+    public boolean k;
 
     /* loaded from: classes6.dex */
     public static class Holder extends BaseViewHolder {
@@ -53,9 +53,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09246b);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f2);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a3);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09249f);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092225);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d7);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -87,56 +87,56 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                 return;
             }
         }
-        this.i = false;
+        this.k = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: N */
-    public Holder H(@NonNull ViewGroup viewGroup) {
+    /* renamed from: P */
+    public Holder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b1, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ca, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void P(boolean z) {
+    public void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.i = z;
+            this.k = z;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: O */
-    public View J(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysMsg subscribeSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: Q */
+    public View M(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysMsg subscribeSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, subscribeSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            p45 d = p45.d(holder.c);
+            m75 d = m75.d(holder.c);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            p45 d2 = p45.d(holder.a);
+            m75 d2 = m75.d(holder.a);
             int i3 = R.color.CAM_X0101;
             d2.w(R.color.CAM_X0101);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
-            p45 d3 = p45.d(holder.b);
+            m75 d3 = m75.d(holder.b);
             d3.B(R.dimen.T_X09);
-            if (!this.i) {
+            if (!this.k) {
                 i3 = R.color.CAM_X0304;
             }
             d3.w(i3);
             d3.C(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f13f0);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f1442);
             if (getContext() != null) {
                 TextView textView = holder.a;
-                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f13f1));
+                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f1443));
             }
             return holder.getView();
         }

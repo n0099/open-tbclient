@@ -22,6 +22,6 @@ public class FakeStartLiveButton extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a4, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b2, this);
     }
 }

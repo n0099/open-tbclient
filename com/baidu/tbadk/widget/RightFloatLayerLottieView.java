@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.jc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0213a extends AnimatorListenerAdapter {
+        public class C0227a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0213a(a aVar) {
+            public C0227a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.C(rightFloatLayerLottieView.z, new C0213a(this), 0L);
+                rightFloatLayerLottieView.C(rightFloatLayerLottieView.z, new C0227a(this), 0L);
             }
         }
     }
@@ -506,14 +506,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView E(n95 n95Var, @NonNull Context context) {
+    public static RightFloatLayerView E(jc5 jc5Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, n95Var, context)) == null) {
-            if (n95Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jc5Var, context)) == null) {
+            if (jc5Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (n95Var.c()) {
+            if (jc5Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -616,10 +616,10 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(n95 n95Var) {
+    public void setData(jc5 jc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, n95Var) == null) && n95Var != null && !this.s && !n95Var.a()) {
-            if (l(n95Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, jc5Var) == null) && jc5Var != null && !this.s && !jc5Var.a()) {
+            if (l(jc5Var)) {
                 this.w.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
@@ -627,9 +627,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             }
             this.x.setVisibility(0);
             this.z.setVisibility(8);
-            F(n95Var.d, this.y);
-            F(n95Var.c, this.A);
-            v(n95Var);
+            F(jc5Var.d, this.y);
+            F(jc5Var.c, this.A);
+            v(jc5Var);
             this.s = true;
         }
     }

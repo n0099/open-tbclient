@@ -1,117 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes8.dex */
-public abstract class xp2 extends db3 {
+public class xp2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public abstract boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull jq2 jq2Var, @NonNull List<String> list);
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
+    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xp2(da3 da3Var, String str) {
-        super(da3Var, str);
+    public xp2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var, str};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (g93Var == null) {
-                g62.c("componentFullScreen", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (db3.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                g62.c("componentFullScreen", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (db3.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    g62.c("componentFullScreen", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("slaveId");
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("componentId");
-                if (!TextUtils.isEmpty(optString) && optJSONArray != null && optJSONArray.length() != 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString2 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString2)) {
-                            arrayList.add(optString2);
-                        }
-                    }
-                    if (arrayList.size() == 0) {
-                        g62.c("componentFullScreen", "empty component id list");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    ov1 A = tu2.U().A(optString);
-                    if (!(A instanceof SwanAppWebViewManager)) {
-                        g62.c("componentFullScreen", "cant get WebView");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    }
-                    jq2 F0 = ((SwanAppWebViewManager) A).F0();
-                    if (F0 == null) {
-                        g62.c("componentFullScreen", "cant get CustomViewHelper");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    } else if (!j(unitedSchemeEntity, F0, arrayList)) {
-                        g62.c("componentFullScreen", "custom view handle fail");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    } else {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                        return true;
-                    }
-                }
-                g62.c("componentFullScreen", "param error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            yp2 yp2Var = new yp2(invoker, this.a);
+            if (is1.a) {
+                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + yp2Var.hashCode() + "」");
             }
+            return new wp2(yp2Var);
         }
-        return invokeLLLL.booleanValue;
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

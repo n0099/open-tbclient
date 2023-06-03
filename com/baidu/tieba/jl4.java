@@ -1,80 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Set<String> b;
 
-    public jl4(String str, Set<String> set) {
+    public static void a(@NonNull sm4 sm4Var, @Nullable List<yk4> list, @Nullable List<zk4> list2, @NonNull tj4 tj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, set};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, sm4Var, list, list2, tj4Var) == null) {
+            dm4 b = ll4.b(sm4Var, tj4Var);
+            if (list != null && !list.isEmpty()) {
+                ll4.a(b, cm4.h(list, tj4Var));
             }
+            if (list2 != null && !list2.isEmpty()) {
+                ll4.a(b, cm4.e(list2, tj4Var));
+            }
+            b.e();
         }
-        this.a = str;
-        this.b = set;
     }
 
-    public static jl4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    public static void b(tm4 tm4Var, tj4 tj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("version");
-            HashSet hashSet = new HashSet();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString2 = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString2)) {
-                    hashSet.add(optString2);
-                }
-            }
-            return new jl4(optString, hashSet);
+        if (interceptable == null || interceptable.invokeLL(65537, null, tm4Var, tj4Var) == null) {
+            ll4.c(tm4Var, tj4Var);
         }
-        return (jl4) invokeL.objValue;
     }
 
-    public Set<String> b() {
-        InterceptResult invokeV;
+    public static void c(um4 um4Var, tj4 tj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(65538, null, um4Var, tj4Var) == null) {
+            ll4.d(um4Var, tj4Var);
         }
-        return (Set) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void d(vm4 vm4Var, tj4 tj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(65539, null, vm4Var, tj4Var) == null) {
+            ll4.e(vm4Var, tj4Var);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void e(qo4 qo4Var, tj4 tj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qo4Var, tj4Var) == null) {
+            ll4.f(qo4Var, tj4Var);
+        }
+    }
+
+    public static synchronized void f(List<zk4> list, tj4 tj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, tj4Var) == null) {
+            synchronized (jl4.class) {
+                ll4.g(list, tj4Var);
+            }
+        }
     }
 }

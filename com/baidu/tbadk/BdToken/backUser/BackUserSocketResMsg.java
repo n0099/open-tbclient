@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.fv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ns4 mData;
+    public fv4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -36,13 +36,13 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public ns4 getData() {
+    public fv4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (ns4) invokeV.objValue;
+        return (fv4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -59,9 +59,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    ns4 ns4Var = new ns4();
-                    this.mData = ns4Var;
-                    ns4Var.a(backUserResIdl.data);
+                    fv4 fv4Var = new fv4();
+                    this.mData = fv4Var;
+                    fv4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;

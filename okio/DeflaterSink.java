@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.util.zip.Deflater;
 import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DeflaterSink implements Sink {
     public boolean closed;
     public final Deflater deflater;

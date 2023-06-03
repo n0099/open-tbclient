@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGameSubNode;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.kg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.List;
 public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg<CardFrsGameRecommendGameItemView> a;
+    public kg<CardFrsGameRecommendGameItemView> a;
     public int b;
     public int c;
     public int d;
@@ -160,10 +160,10 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(gg<CardFrsGameRecommendGameItemView> ggVar) {
+    public void setViewPool(kg<CardFrsGameRecommendGameItemView> kgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ggVar) == null) {
-            this.a = ggVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, kgVar) == null) {
+            this.a = kgVar;
         }
     }
 

@@ -37,7 +37,6 @@ import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.b;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.g;
@@ -79,8 +78,8 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0743a extends WebViewClient {
-        public C0743a() {
+    public class C0760a extends WebViewClient {
+        public C0760a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -303,7 +302,7 @@ public class a extends Dialog {
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
             g a = g.a();
-            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.a, false);
+            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt("ret", -6), this.a, false);
             IUiListener iUiListener = this.e;
             if (iUiListener != null) {
                 iUiListener.onComplete(jSONObject);
@@ -557,7 +556,7 @@ public class a extends Dialog {
     private void e() {
         this.k.setVerticalScrollBarEnabled(false);
         this.k.setHorizontalScrollBarEnabled(false);
-        this.k.setWebViewClient(new C0743a());
+        this.k.setWebViewClient(new C0760a());
         this.k.setWebChromeClient(new WebChromeClient());
         this.k.clearFormData();
         this.k.clearSslPreferences();

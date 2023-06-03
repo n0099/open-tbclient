@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class BdWorkThread$Status {
@@ -35,7 +34,7 @@ public final class BdWorkThread$Status {
             }
         }
         PENDING = new BdWorkThread$Status("PENDING", 0);
-        RUNNING = new BdWorkThread$Status(TornadoLiteRuntime.STATE_RUNNING, 1);
+        RUNNING = new BdWorkThread$Status("RUNNING", 1);
         WORKING = new BdWorkThread$Status("WORKING", 2);
         PROCESS = new BdWorkThread$Status("PROCESS", 3);
         WAITING = new BdWorkThread$Status("WAITING", 4);

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface TTAdManager {
     TTAdNative createAdNative(Context context);
 

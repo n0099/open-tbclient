@@ -130,7 +130,7 @@ public final class Engine$start$1 extends SuspendLambda implements Function2<Cor
                 }
             }
             if (((Boolean) obj).booleanValue()) {
-                TornadoLiteRuntime.INSTANCE.setStatus(TornadoLiteRuntime.STATE_RUNNING);
+                TornadoLiteRuntime.INSTANCE.setStatus("RUNNING");
                 TornadoLiteRuntime.INSTANCE.setStartTime$tun2tornadolite_release(System.currentTimeMillis());
                 Tun tun = Tun.INSTANCE;
                 this.label = 2;

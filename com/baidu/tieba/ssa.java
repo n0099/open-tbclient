@@ -1,98 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes7.dex */
-public class ssa {
+public class ssa implements lsa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Handler a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public nsa a;
+    public msa b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163368, "Lcom/baidu/tieba/ssa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163368, "Lcom/baidu/tieba/ssa;");
+    public ssa(nsa nsaVar, ksa ksaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nsaVar, ksaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashSet();
-        a = new a(Looper.getMainLooper());
+        this.a = nsaVar;
+        msa msaVar = new msa();
+        this.b = msaVar;
+        msaVar.k(ksaVar);
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lsa
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            long timeInMillis = calendar.getTimeInMillis();
-            calendar.add(6, 1);
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-            if (timeInMillis2 < 0) {
-                return 0L;
-            }
-            return timeInMillis2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
-        return invokeV.longValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    @Override // com.baidu.tieba.lsa
+    public void b(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
+    }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                SharedPreferences sharedPreferences = cua.a;
-                sharedPreferences.edit().clear().apply();
-                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                ssa.b.clear();
-                sendEmptyMessageDelayed(101, ssa.a());
-            }
+    @Override // com.baidu.tieba.lsa
+    public void onDownloadCompleted(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.r(105);
+            this.b.q(str);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.r(102);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.r(106);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.r(101);
+            this.b.a().h();
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.b.s(j);
+            this.b.j(z);
+            this.b.r(103);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.lsa
+    public void onDownloadProgress(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.b.n(j);
+            this.b.o(j2);
+            this.b.p(i);
+            this.b.r(104);
+            this.a.a(this.b);
         }
     }
 }

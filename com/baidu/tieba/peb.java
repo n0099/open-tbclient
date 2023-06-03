@@ -1,42 +1,86 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
-import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes7.dex */
-public class peb implements IH5PayActivityVisit {
+public class peb {
     public static /* synthetic */ Interceptable $ic;
+    public static oeb a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public peb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060572, "Lcom/baidu/tieba/peb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948060572, "Lcom/baidu/tieba/peb;");
+                return;
+            }
+        }
+        a = new teb();
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            a.d(str, str2);
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
-    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
-            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
-            PayFlowType a = zfb.a(i3);
-            if (a == null) {
-                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
-                return;
-            }
-            yeb.b(str, i, i2, a);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            a.e(str, str2);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            a.i(str, str2);
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            a.w(str, str2);
+        }
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            a.e(str, str2, th);
+        }
+    }
+
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
+            a.i(str, str2, th);
+        }
+    }
+
+    public static void h(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) {
+            a.w(str, str2, th);
+        }
+    }
+
+    public static void f(oeb oebVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, oebVar) == null) && oebVar != null) {
+            a = oebVar;
         }
     }
 }

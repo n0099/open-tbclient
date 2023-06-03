@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static NetworkInfo a(Context context) {
         try {

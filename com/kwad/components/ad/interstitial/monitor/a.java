@@ -42,10 +42,10 @@ public final class a {
             }
             return r5;
         } else {
-            a.C0652a c0652a = new a.C0652a();
+            a.C0672a c0672a = new a.C0672a();
             f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
-            r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0652a);
-            str = c0652a.Qd;
+            r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0672a);
+            str = c0672a.Qd;
             adTemplate.mDownloadSize = sc * 1024;
             i = 3;
         }

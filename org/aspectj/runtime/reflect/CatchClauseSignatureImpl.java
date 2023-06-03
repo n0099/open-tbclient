@@ -2,7 +2,7 @@ package org.aspectj.runtime.reflect;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.aspectj.lang.reflect.CatchClauseSignature;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CatchClauseSignatureImpl extends SignatureImpl implements CatchClauseSignature {
     public String parameterName;
     public Class parameterType;

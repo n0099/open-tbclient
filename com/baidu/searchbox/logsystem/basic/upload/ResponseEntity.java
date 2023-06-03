@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseEntity {
     @Nullable
     public String mResponseMessage;

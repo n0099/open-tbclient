@@ -1,15 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import androidx.annotation.NonNull;
+import com.baidu.tieba.write.data.QuestionTagListData;
+/* loaded from: classes7.dex */
 public interface nja {
-    void a(int i);
-
-    void b();
-
-    void c();
-
-    void d();
-
-    void e(String str);
-
-    void f(String str);
+    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
 }

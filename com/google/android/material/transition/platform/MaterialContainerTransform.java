@@ -35,6 +35,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.ViewCompat;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tieba.R;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
@@ -243,7 +244,7 @@ public final class MaterialContainerTransform extends Transition {
             this.progressThresholds = progressThresholdsGroup;
             this.drawDebugEnabled = z3;
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) view2.getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             this.displayWidth = displayMetrics.widthPixels;
             this.displayHeight = displayMetrics.heightPixels;
             this.containerPaint.setColor(i);
@@ -487,7 +488,7 @@ public final class MaterialContainerTransform extends Transition {
 
     @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407b1});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407bb});
         int resourceId = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
         return resourceId;
@@ -620,9 +621,9 @@ public final class MaterialContainerTransform extends Transition {
             transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
         } else if (view2 != null) {
             transitionValues.view = view2;
-        } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091769) instanceof View) {
-            transitionValues.view.setTag(R.id.obfuscated_res_0x7f091769, null);
-            transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091769);
+        } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f09178d) instanceof View) {
+            transitionValues.view.setTag(R.id.obfuscated_res_0x7f09178d, null);
+            transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f09178d);
         }
         View view3 = transitionValues.view;
         if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
@@ -647,8 +648,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view2.getTag(R.id.obfuscated_res_0x7f091769) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091769);
+        if (view2.getTag(R.id.obfuscated_res_0x7f09178d) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f09178d);
         }
         Context context = view2.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

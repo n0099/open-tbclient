@@ -7,6 +7,7 @@ import android.content.Context;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.player.layer.AbsLayer;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
@@ -23,7 +24,7 @@ public interface FloatingService {
         void onCloseClick();
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;", "Lkotlin/Any;", "", "onCancel", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;", "Lkotlin/Any;", "", GameAssistConstKt.TYPE_CALLBACK_CANCEL, "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public interface OnPermissionCancelListener {
         void onCancel();
@@ -126,7 +127,7 @@ public interface FloatingService {
         public static /* synthetic */ Notification getFloatingNotification$default(FloatingService floatingService, Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {
             if (obj == null) {
                 if ((i2 & 4) != 0) {
-                    str = FloatingServiceKt.NOTIFICATION_CHANNEL_ID;
+                    str = "floating_bd_video";
                 }
                 return floatingService.getFloatingNotification(context, i, str, str2, str3, str4);
             }

@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingDeque;
-@SuppressLint({"MobilebdThread"})
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes6.dex */
-public final class lb4 extends Thread {
+public class lb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedBlockingDeque<cb4> a;
-    public volatile boolean b;
+    @V8JavascriptField
+    public String key;
+    @V8JavascriptField
+    public String value;
 
     public lb4() {
         Interceptable interceptable = $ic;
@@ -26,49 +27,54 @@ public final class lb4 extends Thread {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedBlockingDeque<>(1024);
     }
 
-    public final LinkedBlockingDeque<cb4> a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (LinkedBlockingDeque) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            try {
+                if (this.key != null) {
+                    if (this.key.getBytes("UTF-8").length <= 128) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
         }
         return invokeV.booleanValue;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.b) {
-                try {
-                    this.a.take().a();
-                } catch (InterruptedException unused) {
-                    return;
-                } catch (Throwable unused2) {
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.key + ":" + this.value;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void c(boolean z) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                if (this.key != null && this.value != null) {
+                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
         }
+        return invokeV.booleanValue;
     }
 }

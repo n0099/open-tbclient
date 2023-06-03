@@ -5,13 +5,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Executor {
     public final ThreadPoolExecutor a;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0679a {
+    /* loaded from: classes10.dex */
+    public static class C0699a {
         public static a a = new a();
     }
 
@@ -20,7 +20,7 @@ public class a implements Executor {
     }
 
     public static a a() {
-        return C0679a.a;
+        return C0699a.a;
     }
 
     @Override // java.util.concurrent.Executor

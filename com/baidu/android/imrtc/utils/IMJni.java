@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import android.util.Base64;
+import com.baidu.searchbox.download.util.AesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +49,7 @@ public class IMJni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                byte[] encrypt = AESUtil.encrypt("2011121211143000", "AFD311832EDEEAEF", str.getBytes());
+                byte[] encrypt = AESUtil.encrypt(AesUtil.IV, "AFD311832EDEEAEF", str.getBytes());
                 if (encrypt != null) {
                     return Base64.encodeToString(encrypt, 11);
                 }

@@ -10,13 +10,13 @@ import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e21;
-import com.baidu.tieba.oq0;
-import com.baidu.tieba.qq0;
-import com.baidu.tieba.sq0;
+import com.baidu.tieba.bs0;
+import com.baidu.tieba.n31;
+import com.baidu.tieba.xr0;
+import com.baidu.tieba.zr0;
 /* loaded from: classes3.dex */
 public class HorizontalVideoTailView extends AdBaseTailFrameView {
-    public sq0 m;
+    public bs0 m;
     public SimpleAdInfoView n;
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -26,10 +26,10 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
 
     /* loaded from: classes3.dex */
     public class a implements SimpleAdInfoView.c {
-        public final /* synthetic */ qq0 a;
+        public final /* synthetic */ zr0 a;
 
-        public a(qq0 qq0Var) {
-            this.a = qq0Var;
+        public a(zr0 zr0Var) {
+            this.a = zr0Var;
         }
 
         @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
@@ -49,15 +49,15 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     }
 
     public boolean n(AdBaseModel adBaseModel) {
-        oq0 oq0Var;
-        if (adBaseModel != null && (oq0Var = adBaseModel.j) != null) {
-            return k(oq0Var.i);
+        xr0 xr0Var;
+        if (adBaseModel != null && (xr0Var = adBaseModel.j) != null) {
+            return k(xr0Var.i);
         }
         return false;
     }
 
-    public void setAdInfo(sq0 sq0Var) {
-        this.m = sq0Var;
+    public void setAdInfo(bs0 bs0Var) {
+        this.m = bs0Var;
     }
 
     public HorizontalVideoTailView(Context context, @Nullable AttributeSet attributeSet) {
@@ -68,23 +68,23 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         super(context, attributeSet, i);
     }
 
-    public final void m(ClogBuilder.LogType logType, String str, qq0 qq0Var) {
-        if (qq0Var == null) {
+    public final void m(ClogBuilder.LogType logType, String str, zr0 zr0Var) {
+        if (zr0Var == null) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(logType);
         clogBuilder.j(str);
-        clogBuilder.p(qq0Var.q);
-        e21.b(clogBuilder);
+        clogBuilder.p(zr0Var.q);
+        n31.b(clogBuilder);
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public boolean k(qq0 qq0Var) {
-        qq0Var.t = false;
-        boolean k = super.k(qq0Var);
-        sq0 sq0Var = this.m;
-        if (sq0Var != null && sq0Var.k) {
+    public boolean k(zr0 zr0Var) {
+        zr0Var.t = false;
+        boolean k = super.k(zr0Var);
+        bs0 bs0Var = this.m;
+        if (bs0Var != null && bs0Var.k) {
             Resources resources = getContext().getResources();
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.nad_dimen_15dp);
@@ -92,7 +92,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
             this.n.setLayoutParams(layoutParams);
             this.n.setAdInfo(this.m);
             this.n.setVisibility(0);
-            this.n.setAfterListener(new a(qq0Var));
+            this.n.setAfterListener(new a(zr0Var));
         } else {
             this.n.setVisibility(8);
         }

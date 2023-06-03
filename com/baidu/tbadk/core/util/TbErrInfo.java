@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.res.Resources;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class TbErrInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int x = mi.x();
+            int x = qi.x();
             if (x != 1) {
                 if (x != 2) {
                     if (x != 3) {
@@ -176,9 +176,9 @@ public class TbErrInfo {
                                                                     return resources.getString(R.string.tb_err_user_operation);
                                                                 default:
                                                                     switch (i) {
-                                                                        case ERR_FILE_SD_FULL /* -26 */:
+                                                                        case -26:
                                                                             return resources.getString(R.string.error_sd_full);
-                                                                        case ERR_FILE_IO_SD /* -25 */:
+                                                                        case -25:
                                                                             return resources.getString(R.string.error_sd_error);
                                                                         case -24:
                                                                             return resources.getString(R.string.error_sd_shared);
@@ -201,9 +201,9 @@ public class TbErrInfo {
                             return resources.getString(R.string.tb_err_unknown);
                         }
                     }
-                    return resources.getString(R.string.obfuscated_res_0x7f0f0db6);
+                    return resources.getString(R.string.obfuscated_res_0x7f0f0def);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f17a7);
+                return resources.getString(R.string.obfuscated_res_0x7f0f180b);
             }
             return resources.getString(R.string.tb_err_location_failed);
         }

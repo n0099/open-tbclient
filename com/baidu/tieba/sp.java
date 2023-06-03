@@ -1,48 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.response.TaskProcessData;
+import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class sp {
+public class sp extends ei5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskStatus a;
-    public final pp b;
-    public final TaskProcessData c;
-    public final String d;
 
-    public sp(TaskStatus taskStatus, pp ppVar, TaskProcessData taskProcessData, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp(Context context) {
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskStatus, ppVar, taskProcessData, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = taskStatus;
-        this.b = ppVar;
-        this.c = taskProcessData;
-        this.d = str;
+        this.d = R.drawable.icon_pure_post_voice_n_svg;
+        this.e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.i = true;
+        this.n = 6;
+        this.o = true;
+        this.m = VoiceRecordButton.z(context);
+        this.p = new int[]{1, 9};
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.ei5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
+            if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
+                String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
+                if (StringUtils.isNull(uegVoiceWarning)) {
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
+                }
+                UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
+                return false;
+            }
+            return super.a();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

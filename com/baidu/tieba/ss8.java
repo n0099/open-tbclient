@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ss8 {
+public final class ss8 extends sl1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vd5> a;
-    public boolean b;
 
     public ss8() {
         Interceptable interceptable = $ic;
@@ -29,24 +26,15 @@ public class ss8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sl1
+    /* renamed from: a */
+    public LiveUserSecurityBehaviorService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
-        boolean z = false;
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                vd5 vd5Var = new vd5();
-                vd5Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(vd5Var);
-            }
-        }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z = true;
-        }
-        this.b = z;
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

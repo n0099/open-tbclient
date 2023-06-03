@@ -1,36 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kd3 {
+public class kd3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Boolean> a;
-    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements zn3<ge3> {
+    public interface b {
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ zn3 b;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ Uri b;
 
-        public a(String str, zn3 zn3Var) {
+        public a(kd3 kd3Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, zn3Var};
+                Object[] objArr = {kd3Var, activity, uri, str, callbackHandler, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,79 +49,126 @@ public class kd3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = zn3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(ge3 ge3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ge3Var) == null) {
-                boolean z = true;
-                z = (ge3Var == null || ge3Var.d || ge3Var.j != 1) ? false : false;
-                kd3.a.put(this.a, Boolean.valueOf(z));
-                this.b.a(Boolean.valueOf(z));
-            }
+            this.a = activity;
+            this.b = uri;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947909199, "Lcom/baidu/tieba/kd3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947909199, "Lcom/baidu/tieba/kd3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kd3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/file/openDocument");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        b = new ConcurrentHashMap();
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = b.get(f93.K().getAppId());
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b.clear();
-            a.clear();
-        }
-    }
-
-    public static void b(zn3<Boolean> zn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, zn3Var) == null) {
-            String appId = f93.K().getAppId();
-            Boolean bool = a.get(appId);
-            if (bool != null) {
-                zn3Var.a(bool);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            } else if (yb3Var.n0()) {
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
             } else {
-                f93.K().q().e0().e("mapp_custom_screenshot_image", new a(appId, zn3Var));
+                JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                    return false;
+                }
+                String optString = a2.optString("filePath");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                    return false;
+                }
+                String g0 = yb3.g0();
+                if (TextUtils.isEmpty(g0)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                    return false;
+                }
+                String M = gj3.M(optString, g0);
+                if (TextUtils.isEmpty(M)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                    return false;
+                }
+                String optString2 = a2.optString("fileType");
+                String t = cs4.t(M);
+                if (TextUtils.isEmpty(t)) {
+                    if (TextUtils.isEmpty(optString2)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                        return false;
+                    }
+                } else {
+                    optString2 = t;
+                }
+                String b2 = po3.b(optString2);
+                if (TextUtils.isEmpty(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                    return false;
+                }
+                Uri parse = Uri.parse(M);
+                if (parse == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                    return false;
+                }
+                if (parse.getScheme() == null) {
+                    uri = Uri.fromFile(new File(M));
+                } else {
+                    uri = parse;
+                }
+                SwanAppActivity w = yb3Var.w();
+                if (w == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                    return false;
+                } else if (!po3.a(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
+                    return false;
+                } else {
+                    String optString3 = a2.optString("cb");
+                    kw1 r = fv2.r();
+                    if (!r.b(w, b2)) {
+                        if (TextUtils.isEmpty(optString3)) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
+                            return false;
+                        }
+                        j(w, b2, uri, optString3, callbackHandler);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
+                    }
+                    r.c(w, uri, b2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return true;
+                }
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void e(boolean z) {
+    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            b.put(f93.K().getAppId(), Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
+            fv2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
         }
     }
 }

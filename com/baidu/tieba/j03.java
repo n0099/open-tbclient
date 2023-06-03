@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.searchbox.permission.DangerousPermissionConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,54 +14,204 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j03 extends i03 {
+public class j03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j03(da3 da3Var) {
-        super(da3Var, "/swanAPI/cancelRequest");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((da3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829436, "Lcom/baidu/tieba/j03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829436, "Lcom/baidu/tieba/j03;");
                 return;
             }
         }
+        boolean z = is1.a;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public j03() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (g93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            JSONObject a = db3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
-            }
-            String optString = a.optString("cancelTag");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
-                return false;
-            }
-            SwanAppNetworkUtils.a(kg4.g().getOkHttpClient(), optString);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        this.a = 60000;
+        this.b = "aac";
+        this.c = 1;
+        this.d = 8000;
+        this.e = 16000;
+        this.f = 1;
+    }
+
+    public static j03 a(JSONObject jSONObject, j03 j03Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, j03Var)) == null) {
+            if (jSONObject != null && jSONObject.length() > 0) {
+                j03Var = new j03();
+                j03Var.a = jSONObject.optInt("duration", 60000);
+                String optString = jSONObject.optString("format");
+                j03Var.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    j03Var.b = "aac";
+                }
+                j03Var.c = jSONObject.optInt("numberOfChannels", 1);
+                j03Var.d = jSONObject.optInt("sampleRate", 8000);
+                int optInt = jSONObject.optInt("encodeBitRate");
+                j03Var.e = optInt;
+                if (optInt == 0) {
+                    int i = j03Var.d;
+                    if (i != 8000) {
+                        if (i != 16000) {
+                            if (i == 44100) {
+                                j03Var.e = 64000;
+                            }
+                        } else {
+                            j03Var.e = 24000;
+                        }
+                    } else {
+                        j03Var.e = 16000;
+                    }
+                }
+                j03Var.f = b(jSONObject.optString("audioSource", "auto"));
+                j03Var.g = jSONObject.optString("cb");
+            }
+            return j03Var;
+        }
+        return (j03) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static int b(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -401509030:
+                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 108103:
+                    if (str.equals(DangerousPermissionConstants.DANGEROUS_PERMISSION_MIC)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3005871:
+                    if (str.equals("auto")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1059882026:
+                    if (str.equals("voice_recognition")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1611170697:
+                    if (str.equals("voice_communication")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0 && c != 1) {
+                if (c != 2) {
+                    if (c != 3) {
+                        if (c != 4) {
+                            return -1;
+                        }
+                        return 6;
+                    }
+                    return 7;
+                }
+                return 5;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
+        r2 = false;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.a;
+            if (i <= 600000 && i >= 0) {
+                int i2 = this.c;
+                boolean z = true;
+                if (i2 != 1 && i2 != 2) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
+                }
+                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
+                }
+                int i3 = this.d;
+                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
+                }
+                if (!TextUtils.equals(this.b, "pcm")) {
+                    if ((r3 = this.d) != 8000) {
+                        if (z) {
+                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
+                        }
+                    } else if (z) {
+                    }
+                }
+                if (this.f < 0) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
+                }
+                return null;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        }
+        return (String) invokeV.objValue;
     }
 }

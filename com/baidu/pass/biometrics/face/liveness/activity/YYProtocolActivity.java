@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.tieba.R;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -38,8 +37,8 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ac);
-        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0928e3);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bf);
+        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09291c);
         this.b = webView;
         webView.setWebChromeClient(new WebChromeClient());
         this.b.setWebViewClient(new WebViewClient());
@@ -83,7 +82,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         int i;
         Window window = activity.getWindow();
         window.addFlags(Integer.MIN_VALUE);
-        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        window.clearFlags(67108864);
         window.getDecorView().setSystemUiVisibility(8192);
         Class<?> cls = activity.getWindow().getClass();
         try {
@@ -118,11 +117,11 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     public void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            getWindow().addFlags(67108864);
         }
         getWindow().addFlags(128);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d051a);
+        setContentView(R.layout.obfuscated_res_0x7f0d0526);
         b();
         a();
         newLoginStatusBarTint(this);
@@ -155,7 +154,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         } else if (i2 >= 19) {
             Window window2 = activity.getWindow();
             WindowManager.LayoutParams attributes = window2.getAttributes();
-            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+            attributes.flags |= 67108864;
             window2.setAttributes(attributes);
         }
     }

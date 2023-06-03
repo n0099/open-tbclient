@@ -13,7 +13,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ZeusDialogFragmentV4 extends DialogFragment {
     public Application.ActivityLifecycleCallbacks callbacks = new b(this);
 
@@ -21,7 +21,7 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
         a.a(ZeusDialogFragmentV4.class);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.u1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.y1
     @Nullable
     public Context getContext() {
         try {

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImmutableSet<E> extends HashSet<E> {
     public ImmutableSet(Set<E> set) {
         super(set);

@@ -1,59 +1,91 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-/* loaded from: classes6.dex */
-public class oha {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.data.AtSelectData;
+import java.util.ArrayList;
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public interface oha {
+    void A();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948033633, "Lcom/baidu/tieba/oha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948033633, "Lcom/baidu/tieba/oha;");
-                return;
-            }
-        }
-        a = nga.m();
-    }
+    void B();
 
-    public static void a(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
-            try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    void D(sh5 sh5Var);
 
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    void E();
+
+    LinkedList<db5> F();
+
+    void b(boolean z);
+
+    void c(String str);
+
+    void d(int i, boolean z);
+
+    void e();
+
+    void f();
+
+    int g();
+
+    void h();
+
+    boolean i();
+
+    void j();
+
+    void k(boolean z);
+
+    void m();
+
+    void n(@Nullable ArrayList<AtSelectData> arrayList);
+
+    void o(boolean z);
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    boolean onBackPressed();
+
+    void onChangeSkinType(int i);
+
+    void onCreate(Bundle bundle);
+
+    void onDestroy();
+
+    void onNewIntent(Intent intent);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void onStart();
+
+    void onStop();
+
+    void p(boolean z);
+
+    void r();
+
+    void s();
+
+    @NonNull
+    PermissionJudgePolicy t();
+
+    void u();
+
+    void v();
+
+    void w();
+
+    void x(int[] iArr);
+
+    void y(boolean z);
+
+    void z(sh5 sh5Var);
 }

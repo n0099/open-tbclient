@@ -1,129 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class r83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public CharSequence b;
-    public Drawable c;
-    public boolean d;
-    public long e;
-    public int f;
-    public a g;
-    public Context h;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(r83 r83Var);
-    }
-
-    public void g(q83 q83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, q83Var) == null) {
-        }
-    }
-
-    public r83(Context context, int i, CharSequence charSequence, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), charSequence, drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075452, "Lcom/baidu/tieba/r83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948075452, "Lcom/baidu/tieba/r83;");
                 return;
             }
         }
-        this.d = true;
-        this.e = 0L;
-        this.f = 0;
-        this.h = context;
-        this.a = i;
-        this.b = charSequence;
-        this.c = drawable;
+        a = is1.a;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public Drawable b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Drawable drawable = this.c;
-            if (drawable != null) {
-                return drawable;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            if (this.f != 0) {
-                Drawable drawable2 = this.h.getResources().getDrawable(this.f);
-                this.f = 0;
-                this.c = drawable2;
-                return drawable2;
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            return null;
+            z73.a(i, str2, str, bundle);
         }
-        return (Drawable) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            z73.a(-1000, str2, str, bundle);
         }
-        return invokeV.intValue;
     }
 
-    public a d() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            b83 b83Var = new b83(bundle.getString("key_observer_id", ""));
+            b83Var.setResult(bundle.getBundle("key_result_data"));
+            c83.b().c(b83Var);
         }
-        return (a) invokeV.objValue;
     }
 
-    public CharSequence e() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            b83 b83Var = new b83(bundle.getString("key_observer_id", ""));
+            b83Var.setResult(bundle.getBundle("key_result_data"));
+            c83.b().c(b83Var);
         }
-        return (CharSequence) invokeV.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public static void e(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            o83 e = o83.e();
+            q83 q83Var = new q83(126, bundle);
+            q83Var.a(i);
+            e.h(q83Var);
         }
-        return invokeV.booleanValue;
     }
 
-    public void h(a aVar) {
+    public static void f(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.g = aVar;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            o83.e().h(new q83(21, bundle));
         }
     }
 }

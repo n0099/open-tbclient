@@ -12,15 +12,15 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements Closeable {
     public final FileInputStream a;
     public a b;
     public b[] c;
-    public C0532c[] d;
-    public final Map<String, C0532c> e = new HashMap();
+    public C0552c[] d;
+    public final Map<String, C0552c> e = new HashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public final byte[] a;
         public final short b;
@@ -98,7 +98,7 @@ public final class c implements Closeable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public final int a;
         public final int b;
@@ -140,8 +140,8 @@ public final class c implements Closeable {
     }
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0532c {
+    /* loaded from: classes9.dex */
+    public static class C0552c {
         public final int a;
         public final int b;
         public final long c;
@@ -154,7 +154,7 @@ public final class c implements Closeable {
         public final long j;
         public String k;
 
-        public C0532c(ByteBuffer byteBuffer, int i) {
+        public C0552c(ByteBuffer byteBuffer, int i) {
             if (i != 1) {
                 if (i == 2) {
                     this.a = byteBuffer.getInt();
@@ -185,15 +185,15 @@ public final class c implements Closeable {
             this.k = null;
         }
 
-        public /* synthetic */ C0532c(ByteBuffer byteBuffer, int i, byte b) {
+        public /* synthetic */ C0552c(ByteBuffer byteBuffer, int i, byte b) {
             this(byteBuffer, i);
         }
     }
 
     public c(File file) {
         ByteOrder byteOrder;
-        C0532c[] c0532cArr;
-        C0532c[] c0532cArr2;
+        C0552c[] c0552cArr;
+        C0552c[] c0552cArr2;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -217,28 +217,28 @@ public final class c implements Closeable {
         }
         channel.position(this.b.g);
         allocate.limit(this.b.l);
-        this.d = new C0532c[this.b.m];
+        this.d = new C0552c[this.b.m];
         int i2 = 0;
         while (true) {
-            c0532cArr = this.d;
-            if (i2 >= c0532cArr.length) {
+            c0552cArr = this.d;
+            if (i2 >= c0552cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.d[i2] = new C0532c(allocate, this.b.a[4], (byte) 0);
+            this.d[i2] = new C0552c(allocate, this.b.a[4], (byte) 0);
             i2++;
         }
         short s = this.b.n;
         if (s > 0) {
-            C0532c c0532c = c0532cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0532c.f);
-            this.a.getChannel().position(c0532c.e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c0532c.k);
-            for (C0532c c0532c2 : this.d) {
-                allocate2.position(c0532c2.a);
+            C0552c c0552c = c0552cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0552c.f);
+            this.a.getChannel().position(c0552c.e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c0552c.k);
+            for (C0552c c0552c2 : this.d) {
+                allocate2.position(c0552c2.a);
                 String a2 = a(allocate2);
-                c0532c2.k = a2;
-                this.e.put(a2, c0532c2);
+                c0552c2.k = a2;
+                this.e.put(a2, c0552c2);
             }
         }
     }

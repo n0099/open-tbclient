@@ -1,8 +1,8 @@
 package com.facebook.animated.gif;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class R {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class attr {
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
@@ -37,21 +37,21 @@ public final class R {
         public static final int viewAspectRatio = 0x7f040489;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class id {
-        public static final int center = 0x7f09066d;
-        public static final int centerCrop = 0x7f090671;
-        public static final int centerInside = 0x7f090672;
-        public static final int fitBottomStart = 0x7f090afd;
-        public static final int fitCenter = 0x7f090afe;
-        public static final int fitEnd = 0x7f090aff;
-        public static final int fitStart = 0x7f090b00;
-        public static final int fitXY = 0x7f090b02;
-        public static final int focusCrop = 0x7f090b45;
-        public static final int none = 0x7f0918cf;
+        public static final int center = 0x7f090677;
+        public static final int centerCrop = 0x7f09067b;
+        public static final int centerInside = 0x7f09067c;
+        public static final int fitBottomStart = 0x7f090b0f;
+        public static final int fitCenter = 0x7f090b10;
+        public static final int fitEnd = 0x7f090b11;
+        public static final int fitStart = 0x7f090b12;
+        public static final int fitXY = 0x7f090b14;
+        public static final int focusCrop = 0x7f090b57;
+        public static final int none = 0x7f0918f5;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class styleable {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;

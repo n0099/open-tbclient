@@ -1,46 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static zc5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-236446497, "Lcom/baidu/tieba/zc5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-236446497, "Lcom/baidu/tieba/zc5$b;");
-                    return;
-                }
-            }
-            a = new zc5(null);
-        }
-    }
+    public Hashtable<String, String> a;
+    public Hashtable<String, String> b;
 
     public zc5() {
         Interceptable interceptable = $ic;
@@ -52,48 +29,68 @@ public class zc5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Hashtable<>();
+        this.b = new Hashtable<>();
+    }
+
+    public final void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) && (length = jSONArray.length()) > 0) {
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        hashtable.put(next, optJSONObject.get(next));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
 
-    public static zc5 e() {
-        InterceptResult invokeV;
+    public boolean b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            String str2 = null;
+            if (i == 1) {
+                str2 = this.b.get(str);
+            } else if (i == 2) {
+                str2 = this.a.get(str);
+            }
+            if (StringUtils.isNull(str2)) {
+                return true;
+            }
+            return str2.equals("3");
         }
-        return (zc5) invokeV.objValue;
+        return invokeIL.booleanValue;
     }
 
-    public void b() {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c("kLCSError=1");
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public /* synthetic */ zc5(a aVar) {
-        this();
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            c("kNetStatus=" + i);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            ka.a("IpReconnLogHelper", 0, 0, null, nx4.b, str);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            c("kNewIpResult=" + str);
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+            BdLog.e("consumepath is:" + jSONObject.toString());
+            a(this.a, optJSONArray);
+            a(this.b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.a.toString());
+            BdLog.e("pay mPayCashierType:" + this.b.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

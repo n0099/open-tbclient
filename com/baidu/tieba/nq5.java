@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lq5;
-import com.baidu.tieba.mq5;
-/* loaded from: classes6.dex */
-public interface nq5<Q extends lq5, P extends mq5> {
-    int a();
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public interface nq5 extends iq5 {
+    HashMap<String, Object> O();
 
-    Q b();
-
-    String c();
-
-    P d();
-
-    int e();
+    HashMap<String, String> S();
 }

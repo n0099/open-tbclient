@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,19 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class v62 {
+/* loaded from: classes8.dex */
+public class v62 extends o72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
+    public boolean j;
 
     static {
         InterceptResult invokeClinit;
@@ -38,60 +31,63 @@ public class v62 {
                 return;
             }
         }
-        e = qp1.a;
+        boolean z = is1.a;
     }
 
-    public v62() {
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v62(String str) {
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.j = false;
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            y82.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
         }
     }
 
-    public static v62 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            v62 v62Var = new v62();
-            try {
-                v62Var.b = jSONObject.getJSONArray("host");
-                v62Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                v62Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                v62Var.d = Uri.decode(jSONObject.optString("url"));
-                return v62Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
+            } else {
+                z = true;
             }
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "0");
         }
-        return (v62) invokeL.objValue;
-    }
-
-    public String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
-            }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
-        }
-        return (String) invokeI.objValue;
     }
 }

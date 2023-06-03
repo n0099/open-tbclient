@@ -5,19 +5,19 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fb;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.jy7;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.y38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jy7 a;
-    public fb b;
-    public fb c;
+    public y38 a;
+    public jb b;
+    public jb c;
     public boolean d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -34,9 +34,9 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                jy7 jy7Var = this.a;
-                if (jy7Var != null) {
-                    jy7Var.i0(-1, null);
+                y38 y38Var = this.a;
+                if (y38Var != null) {
+                    y38Var.k0(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -51,10 +51,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void V(jy7 jy7Var) {
+    public void V(y38 y38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jy7Var) == null) {
-            this.a = jy7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y38Var) == null) {
+            this.a = y38Var;
         }
     }
 

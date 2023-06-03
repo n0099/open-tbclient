@@ -1,5 +1,6 @@
 package com.baidu.live.business.model.data;
 
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.List;
 import org.json.JSONObject;
@@ -44,7 +45,7 @@ public class LiveFeedData {
         if (optJSONObject == null) {
             return;
         }
-        this.resource = optJSONObject.optString("resource");
+        this.resource = optJSONObject.optString(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE);
         JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
         if (optJSONObject2 != null) {
             LiveBannerWrapData liveBannerWrapData = new LiveBannerWrapData();

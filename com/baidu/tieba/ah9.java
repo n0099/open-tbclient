@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import java.util.List;
+import tbclient.GetRecommendGodList.DataRes;
+import tbclient.User;
+/* loaded from: classes5.dex */
 public class ah9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
+    public int a;
+    public List<User> b;
 
     public ah9() {
         Interceptable interceptable = $ic;
@@ -29,30 +30,25 @@ public class ah9 {
         }
     }
 
-    public boolean a() {
+    public a45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+            a45 a45Var = new a45();
+            a45Var.d = false;
+            a45Var.d(this.b);
+            return a45Var;
         }
-        return invokeV.booleanValue;
+        return (a45) invokeV.objValue;
     }
 
-    public static ah9 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ah9 ah9Var = new ah9();
-            ah9Var.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            ah9Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            ah9Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
-            return ah9Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (ah9) invokeL.objValue;
+        this.b = dataRes.recom_user_list;
+        dataRes.has_more.intValue();
+        this.a = dataRes.current_page.intValue();
     }
 }

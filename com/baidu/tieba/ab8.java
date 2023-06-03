@@ -1,39 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class ab8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static xb8 a(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, recyclerView, i)) == null) {
-            return new xb8(context, recyclerView, new ya8(), new za8(), i, 1);
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        return (xb8) invokeLLI.objValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 100);
+        TiebaStatic.log(statisticItem);
     }
 
-    public static xb8 b(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
-            return new xb8(context, recyclerView, new ya8(), new za8(), i, 2);
+        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        return (xb8) invokeLLI.objValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
     }
 
-    public static wb8 c(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public static void b(GroupInfoData groupInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, recyclerView, i)) == null) {
-            return new wb8(context, recyclerView, new ya8(), new za8(), i, 1);
+        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        return (wb8) invokeLLI.objValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public static void d(@NonNull String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_source", i2);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

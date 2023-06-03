@@ -1,9 +1,29 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes8.dex */
 public interface ys4 {
-    String a(String[] strArr, Map<String, String> map);
+    void a();
 
-    String b();
+    void b(boolean z);
+
+    void c(SwanVideoView swanVideoView);
+
+    void d(boolean z);
+
+    void onBufferingUpdate(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onVideoSizeChanged(int i, int i2);
 }

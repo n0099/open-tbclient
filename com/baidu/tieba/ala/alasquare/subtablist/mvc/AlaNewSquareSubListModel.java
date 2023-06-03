@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.x86;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.bd6;
+import com.baidu.tieba.cd6;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.la6;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaNewSquareSubListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_PN = 0;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<rn> n;
+    public List<vn> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -58,7 +58,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int s;
     public HttpMessageListener t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i, String str);
 
@@ -85,7 +85,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public List<rn> i0() {
+    public List<vn> i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -233,18 +233,18 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaNewSquareSubListModel(g9 g9Var) {
-        super(g9Var);
+    public AlaNewSquareSubListModel(k9 k9Var) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    x86 x86Var = new x86();
-                    h66 h66Var = new h66();
-                    h66Var.e = this.i;
-                    h66Var.b = this.e;
-                    h66Var.c = this.d;
-                    h66Var.d = list.get(i);
-                    x86Var.a = h66Var;
+                    bd6 bd6Var = new bd6();
+                    la6 la6Var = new la6();
+                    la6Var.e = this.i;
+                    la6Var.b = this.e;
+                    la6Var.c = this.d;
+                    la6Var.d = list.get(i);
+                    bd6Var.a = la6Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        h66 h66Var2 = new h66();
-                        h66Var2.e = this.i;
-                        h66Var2.b = this.e;
-                        h66Var2.c = this.d;
-                        h66Var2.d = list.get(i2);
-                        x86Var.b = h66Var2;
+                        la6 la6Var2 = new la6();
+                        la6Var2.e = this.i;
+                        la6Var2.b = this.e;
+                        la6Var2.c = this.d;
+                        la6Var2.d = list.get(i2);
+                        bd6Var.b = la6Var2;
                     }
-                    this.n.add(x86Var);
+                    this.n.add(bd6Var);
                 } else {
-                    y86 y86Var = new y86();
-                    h66 h66Var3 = new h66();
-                    h66Var3.e = this.i;
-                    h66Var3.b = this.e;
-                    h66Var3.c = this.d;
-                    h66Var3.d = list.get(i);
-                    y86Var.a = h66Var3;
+                    cd6 cd6Var = new cd6();
+                    la6 la6Var3 = new la6();
+                    la6Var3.e = this.i;
+                    la6Var3.b = this.e;
+                    la6Var3.c = this.d;
+                    la6Var3.d = list.get(i);
+                    cd6Var.a = la6Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        h66 h66Var4 = new h66();
-                        h66Var4.e = this.i;
-                        h66Var4.b = this.e;
-                        h66Var4.c = this.d;
-                        h66Var4.d = list.get(i3);
-                        y86Var.b = h66Var4;
+                        la6 la6Var4 = new la6();
+                        la6Var4.e = this.i;
+                        la6Var4.b = this.e;
+                        la6Var4.c = this.d;
+                        la6Var4.d = list.get(i3);
+                        cd6Var.b = la6Var4;
                     }
-                    this.n.add(y86Var);
+                    this.n.add(cd6Var);
                 }
             }
         }

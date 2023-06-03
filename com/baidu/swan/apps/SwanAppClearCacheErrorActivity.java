@@ -3,13 +3,13 @@ package com.baidu.swan.apps;
 import android.util.Log;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.du2;
-import com.baidu.tieba.g62;
+import com.baidu.tieba.vw2;
+import com.baidu.tieba.y82;
 /* loaded from: classes4.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
     public volatile boolean v;
 
-    public void G() {
+    public void F() {
         this.v = true;
     }
 
@@ -24,13 +24,13 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
         }
         this.v = false;
         try {
-            du2 z = z();
+            vw2 y = y();
             if (SwanAppNetworkUtils.i(this)) {
-                SwanLauncher.j().n(z, null);
+                SwanLauncher.j().n(y, null);
                 finish();
             }
         } catch (Exception e) {
-            g62.l("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart", e);
+            y82.l("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart", e);
         }
     }
 }

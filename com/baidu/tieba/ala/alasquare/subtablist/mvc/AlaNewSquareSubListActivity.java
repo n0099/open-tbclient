@@ -7,17 +7,17 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.a96;
+import com.baidu.tieba.ed6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a96 a;
+    public ed6 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            a96 a96Var = this.a;
-            if (a96Var != null) {
-                a96Var.i();
+            ed6 ed6Var = this.a;
+            if (ed6Var != null) {
+                ed6Var.i();
             }
         }
     }
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            a96 a96Var = this.a;
-            if (a96Var != null) {
-                a96Var.h(getPageContext(), i);
+            ed6 ed6Var = this.a;
+            if (ed6Var != null) {
+                ed6Var.h(getPageContext(), i);
             }
         }
     }
@@ -76,7 +76,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new a96(getPageContext(), true);
+            this.a = new ed6(getPageContext(), true);
             if (getIntent() != null) {
                 x1(getIntent());
             } else {

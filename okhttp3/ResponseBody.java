@@ -11,7 +11,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ResponseBody implements Closeable {
     @Nullable
     public Reader reader;
@@ -23,7 +23,7 @@ public abstract class ResponseBody implements Closeable {
 
     public abstract BufferedSource source();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class BomAwareReader extends Reader {
         public final Charset charset;
         public boolean closed;

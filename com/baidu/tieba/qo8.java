@@ -1,63 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class qo8 implements ToastService {
+public class qo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
+    public static po8 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof po8)) {
+                return null;
+            }
+            return (po8) iLegoAdvert;
         }
+        return (po8) invokeL.objValue;
     }
 
-    public qo8() {
+    public static void b(po8 po8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65537, null, po8Var) == null) && po8Var != null && po8Var.getParallelCharge() != null) {
+            o31.b(po8Var.getParallelCharge().b);
+            Iterator<String> it = po8Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                o31.b(it.next());
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
+    public static void c(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
-            ri.Q(TbadkCoreApplication.getInst(), str);
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            n31.b(clogBuilder);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showNormal(Context context, String str, int i) {
+    public static boolean d(po8 po8Var) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-            ri.Q(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, po8Var)) == null) {
+            if (po8Var == null || po8Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = po8Var.getParallelCharge().a;
+            o31.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = po8Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                o31.b(next);
+            }
+            return z;
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastBottom(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
-            ri.Q(TbadkCoreApplication.getInst(), str);
-        }
+        return invokeL.booleanValue;
     }
 }

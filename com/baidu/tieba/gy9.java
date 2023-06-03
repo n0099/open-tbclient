@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetCardByCategory.ThemeCardInMain;
-import tbclient.ThemeCardPropMain;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<jx9> b;
+    public int a;
+    public String b;
+    public Bitmap c;
+    public String d;
+    public String e;
 
     public gy9() {
         Interceptable interceptable = $ic;
@@ -27,44 +25,9 @@ public class gy9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public ArrayList<jx9> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(ThemeCardInMain themeCardInMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
-            return;
-        }
-        this.a = themeCardInMain.card_category;
-        List<ThemeCardPropMain> list = themeCardInMain.props;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (ThemeCardPropMain themeCardPropMain : list) {
-                if (themeCardPropMain != null) {
-                    jx9 jx9Var = new jx9();
-                    jx9Var.k(themeCardPropMain);
-                    this.b.add(jx9Var);
-                }
-            }
-        }
+        this.a = 0;
     }
 }

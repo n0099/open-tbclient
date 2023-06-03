@@ -1,7 +1,7 @@
 package org.aspectj.lang;
 
 import org.aspectj.lang.reflect.SourceLocation;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface JoinPoint {
     public static final String ADVICE_EXECUTION = "adviceexecution";
     public static final String CONSTRUCTOR_CALL = "constructor-call";
@@ -17,11 +17,11 @@ public interface JoinPoint {
     public static final String SYNCHRONIZATION_LOCK = "lock";
     public static final String SYNCHRONIZATION_UNLOCK = "unlock";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface EnclosingStaticPart extends StaticPart {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface StaticPart {
         int getId();
 

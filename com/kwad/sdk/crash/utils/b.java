@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URLConnection;
 import java.util.zip.ZipFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static void a(URLConnection uRLConnection) {
         if (uRLConnection instanceof HttpURLConnection) {

@@ -10,7 +10,7 @@ import com.facebook.fresco.ui.common.DimensionsInfo;
 import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public final MonotonicClock mClock;
     public final ImagePerfMonitor mImagePerfMonitor;

@@ -2,7 +2,7 @@ package org.aspectj.internal.lang.reflect;
 
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.InterTypeDeclaration;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class InterTypeDeclarationImpl implements InterTypeDeclaration {
     public AjType<?> declaringType;
     public int modifiers;

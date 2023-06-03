@@ -1,19 +1,19 @@
 package kotlinx.coroutines;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import kotlin.Metadata;
 import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.Unit;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u001d\u0012\u0006\u0010\u000f\u001a\u00020\u000e\u0012\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b¢\u0006\u0004\b\u0010\u0010\u0011J\u001a\u0010\u0006\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0096\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\t\u0010\nR\u001c\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\r¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/ResumeAwaitOnCompletion;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/JobNode;", "", "cause", "", "invoke", "(Ljava/lang/Throwable;)V", "", "toString", "()Ljava/lang/String;", "Lkotlinx/coroutines/CancellableContinuationImpl;", "continuation", "Lkotlinx/coroutines/CancellableContinuationImpl;", "Lkotlinx/coroutines/JobSupport;", "job", "<init>", "(Lkotlinx/coroutines/JobSupport;Lkotlinx/coroutines/CancellableContinuationImpl;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0003\n\u0000\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u0013\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004¢\u0006\u0002\u0010\u0005J\u0013\u0010\u0006\u001a\u00020\u00072\b\u0010\b\u001a\u0004\u0018\u00010\tH\u0096\u0002R\u0014\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\n"}, d2 = {"Lkotlinx/coroutines/ResumeAwaitOnCompletion;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/JobNode;", "continuation", "Lkotlinx/coroutines/CancellableContinuationImpl;", "(Lkotlinx/coroutines/CancellableContinuationImpl;)V", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "", "cause", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
-public final class ResumeAwaitOnCompletion<T> extends JobNode<JobSupport> {
+public final class ResumeAwaitOnCompletion<T> extends JobNode {
     public final CancellableContinuationImpl<T> continuation;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.CancellableContinuationImpl<? super T> */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.CancellableContinuationImpl<? super T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public ResumeAwaitOnCompletion(JobSupport jobSupport, CancellableContinuationImpl<? super T> cancellableContinuationImpl) {
-        super(jobSupport);
+    public ResumeAwaitOnCompletion(CancellableContinuationImpl<? super T> cancellableContinuationImpl) {
         this.continuation = cancellableContinuationImpl;
     }
 
@@ -28,25 +28,18 @@ public final class ResumeAwaitOnCompletion<T> extends JobNode<JobSupport> {
     @Override // kotlinx.coroutines.CompletionHandlerBase
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public void invoke2(Throwable th) {
-        Object state$kotlinx_coroutines_core = ((JobSupport) this.job).getState$kotlinx_coroutines_core();
+        Object state$kotlinx_coroutines_core = getJob().getState$kotlinx_coroutines_core();
         if (DebugKt.getASSERTIONS_ENABLED() && !(!(state$kotlinx_coroutines_core instanceof Incomplete))) {
             throw new AssertionError();
         }
         if (state$kotlinx_coroutines_core instanceof CompletedExceptionally) {
             CancellableContinuationImpl<T> cancellableContinuationImpl = this.continuation;
-            Throwable th2 = ((CompletedExceptionally) state$kotlinx_coroutines_core).cause;
             Result.Companion companion = Result.Companion;
-            cancellableContinuationImpl.resumeWith(Result.m789constructorimpl(ResultKt.createFailure(th2)));
+            cancellableContinuationImpl.resumeWith(Result.m844constructorimpl(ResultKt.createFailure(((CompletedExceptionally) state$kotlinx_coroutines_core).cause)));
             return;
         }
         CancellableContinuationImpl<T> cancellableContinuationImpl2 = this.continuation;
-        Object unboxState = JobSupportKt.unboxState(state$kotlinx_coroutines_core);
         Result.Companion companion2 = Result.Companion;
-        cancellableContinuationImpl2.resumeWith(Result.m789constructorimpl(unboxState));
-    }
-
-    @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode
-    public String toString() {
-        return "ResumeAwaitOnCompletion[" + this.continuation + ']';
+        cancellableContinuationImpl2.resumeWith(Result.m844constructorimpl(JobSupportKt.unboxState(state$kotlinx_coroutines_core)));
     }
 }

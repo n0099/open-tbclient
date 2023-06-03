@@ -109,13 +109,13 @@ public class SapiScheme {
         this.invokeScAppResult = invokeScAppResult;
         SapiScheme sapiScheme = new SapiScheme();
         if (!sapiScheme.checkPackageSign(activity, SC_APP_PACKAGENAME)) {
-            this.invokeScAppResult.setInvokeResult(buildResult(SchemeResult.ERROR_CODE_SC_PACKAGE_SIGN_ERROR, SchemeResult.ERROR_MSG_SC_PACKAGE_SIGN_ERROR));
+            this.invokeScAppResult.setInvokeResult(buildResult(-604, SchemeResult.ERROR_MSG_SC_PACKAGE_SIGN_ERROR));
             return;
         }
         try {
             sapiScheme.startActivityForResult(activity, sapiScheme.buildScheme(str, str2, list));
         } catch (Exception unused) {
-            this.invokeScAppResult.setInvokeResult(buildResult(SchemeResult.ERROR_CODE_SYSTEM_ERROR, SchemeResult.ERROR_MSG_SYSTEM_ERROR));
+            this.invokeScAppResult.setInvokeResult(buildResult(-603, SchemeResult.ERROR_MSG_SYSTEM_ERROR));
         }
     }
 }

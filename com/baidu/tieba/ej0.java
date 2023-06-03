@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes5.dex */
-public class ej0 {
+public final /* synthetic */ class ej0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable unused) {
-            }
-        }
+    static {
+        int[] iArr = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+        $EnumSwitchMapping$0[AdDownloadStatus.PAUSE.ordinal()] = 3;
+        $EnumSwitchMapping$0[AdDownloadStatus.COMPLETED.ordinal()] = 4;
+        $EnumSwitchMapping$0[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+        $EnumSwitchMapping$0[AdDownloadStatus.FAILED.ordinal()] = 6;
     }
 }

@@ -1,55 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.viewpager.PointPageIndicator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class rf4 extends PointPageIndicator {
+public class rf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rf4(Context context) {
-        super(context);
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis()));
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
-    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        g(drawable, drawable2);
-        return this;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return mk3.a().getString(str, null);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public rf4 g(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            return this;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            mk3.a().putString(str, str2);
         }
-        return (rf4) invokeLL.objValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.player.model.YYOption;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
@@ -13,7 +14,7 @@ public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
         adStyleConfInfo.rewardSkipConfirmSwitch = jSONObject.optInt("rewardSkipConfirmSwitch", new Integer("1").intValue());
         adStyleConfInfo.closeDelaySeconds = jSONObject.optLong("closeDelaySeconds");
         adStyleConfInfo.playableCloseSeconds = jSONObject.optLong("playableCloseSeconds");
-        adStyleConfInfo.rewardReflowSwitch = jSONObject.optBoolean("rewardReflowSwitch", new Boolean("true").booleanValue());
+        adStyleConfInfo.rewardReflowSwitch = jSONObject.optBoolean("rewardReflowSwitch", new Boolean(YYOption.IsLive.VALUE_TRUE).booleanValue());
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */

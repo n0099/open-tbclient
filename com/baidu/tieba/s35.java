@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s35 extends k35 {
+public class s35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
 
     public s35() {
         Interceptable interceptable = $ic;
@@ -31,19 +24,5 @@ public class s35 extends k35 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.k35
-    public void a(@NonNull Context context, @NonNull c35 c35Var) {
-        JSONObject syncJson;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, c35Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
-            return;
-        }
-        VersionData versionData = new VersionData();
-        versionData.parserJson(syncJson.optJSONObject("version"));
-        CombineDownload combineDownload = new CombineDownload();
-        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
     }
 }

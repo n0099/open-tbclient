@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class i56 implements wu3 {
+import java.util.WeakHashMap;
+/* loaded from: classes6.dex */
+public final class i56<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WeakHashMap<K, V> a;
 
     public i56() {
         Interceptable interceptable = $ic;
@@ -29,47 +23,41 @@ public class i56 implements wu3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new WeakHashMap<>();
     }
 
-    @Override // com.baidu.tieba.yu3
-    public void a(da3 da3Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, da3Var) == null) && da3Var != null) {
-            da3Var.b(new k56(da3Var));
-            da3Var.b(new d56(da3Var));
-            da3Var.b(new wq3(da3Var));
-            da3Var.b(new yq3(da3Var));
-            da3Var.b(new ar3(da3Var));
-            da3Var.b(new ub3(da3Var));
-            da3Var.b(new vb3(da3Var));
-            da3Var.b(new vd3(da3Var));
-            da3Var.b(new br3(da3Var));
-            da3Var.b(new yv1(da3Var));
-            da3Var.b(new h56(da3Var));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.tieba.yu3
-    @Nullable
-    public Map<String, Object> b(@NonNull hx1 hx1Var) {
+    public final boolean b(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hx1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(hx1Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+            return this.a.containsKey(k);
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yu3
-    @Nullable
-    public Map<String, Object> c(@NonNull hx1 hx1Var) {
+    public final V c(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hx1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(hx1Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
+            return this.a.get(k);
         }
-        return (Map) invokeL.objValue;
+        return (V) invokeL.objValue;
+    }
+
+    public final void d(K k, V v) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
+        }
     }
 }

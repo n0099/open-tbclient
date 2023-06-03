@@ -1,28 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ca7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<ba7> b;
+public interface ca7 {
+    void setRadius(float f);
 
-    public ca7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void setRadius(float f, float f2, float f3, float f4);
+
+    void setRadiusBottom(float f);
+
+    void setRadiusBottomLeft(float f);
+
+    void setRadiusBottomRight(float f);
+
+    void setRadiusLeft(float f);
+
+    void setRadiusRight(float f);
+
+    void setRadiusTop(float f);
+
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

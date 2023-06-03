@@ -11,21 +11,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.b9;
-import com.baidu.tieba.c9;
-import com.baidu.tieba.fm3;
-import com.baidu.tieba.i46;
-import com.baidu.tieba.jv3;
+import com.baidu.tieba.by3;
+import com.baidu.tieba.f9;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.m86;
+import com.baidu.tieba.xo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,14 +103,14 @@ public class SwanEntryActivity extends Activity {
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
             SwanAppAbTestStatic.a = uri;
-        } else if (!c9.f().h("MainTabActivity")) {
+        } else if (!g9.f().h("MainTabActivity")) {
             LogoActivityConfig logoActivityConfig = new LogoActivityConfig(this, intent);
             intent.setData(Uri.parse(uri));
             logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
         } else {
-            i46.a();
-            jv3.a(uri);
+            m86.a();
+            by3.a(uri);
         }
     }
 
@@ -118,9 +118,9 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            b9.b(this);
+            f9.b(this);
             super.onCreate(bundle);
-            if (fm3.a(this)) {
+            if (xo3.a(this)) {
                 return;
             }
             a();
@@ -140,7 +140,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (b9.d(this) && b9.a(i)) {
+            if (f9.d(this) && f9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

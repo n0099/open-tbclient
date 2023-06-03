@@ -1,58 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.animation.ScaleAnimation;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.forumMember.member.FrsMemberHeaderViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class gb7 {
+public class gb7 extends gd7<hb7, FrsMemberHeaderViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsCommonTabFragment a;
-    public BdTypeRecyclerView b;
-    public PbListView c;
-    public fb7 d;
-    public ib7 e;
-    public ic9 f;
-    public RelativeLayout g;
-    public ad7 h;
-    public boolean i;
-    public c97 j;
-    public ItemInfo k;
-    public View.OnClickListener l;
-    public BdListView.p m;
-    public RecyclerView.OnScrollListener n;
+    public LikeModel l;
+    public int m;
+    public int n;
+    public View.OnClickListener o;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -82,13 +70,35 @@ public class gb7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.m.onScrollToBottom();
+                Object tag = view2.getTag();
+                if (!(tag instanceof Integer)) {
+                    return;
+                }
+                vn item = this.a.getItem(((Integer) tag).intValue());
+                if (!(item instanceof hb7)) {
+                    return;
+                }
+                hb7 hb7Var = (hb7) item;
+                if (view2.getId() == R.id.obfuscated_res_0x7f0914d0) {
+                    if (!ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
+                        return;
+                    }
+                    if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0def);
+                        return;
+                    }
+                    String a = hb7Var.a();
+                    this.a.l.m0(hb7Var.b(), a);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092769) {
+                    String a2 = hb7Var.a();
+                    this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, hb7Var.b(), a2)));
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements BdListView.p {
+    public class b extends j9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gb7 a;
@@ -111,510 +121,186 @@ public class gb7 {
             this.a = gb7Var;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
+        @Override // com.baidu.tieba.j9
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.b != null) {
-                    this.a.b.stopScroll();
-                }
-                if (this.a.c != null && this.a.a != null) {
-                    if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        this.a.b.setNextPage(this.a.c);
-                        this.a.c.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                        this.a.c.E(null);
-                        if (this.a.i) {
-                            this.a.c.P();
-                            this.a.c.E(null);
-                            this.a.a.a2();
-                            return;
-                        }
-                        this.a.c.F(this.a.a.getResources().getString(R.string.list_has_no_more));
-                        this.a.c.g();
-                        this.a.c.E(null);
-                        return;
-                    }
-                    this.a.b.setNextPage(null);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ gb7 b;
-
-        public c(gb7 gb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gb7Var;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) && i == 0) {
-                if (this.b.f != null) {
-                    this.b.f.n(this.b.b.getFirstVisiblePosition(), this.b.b.getLastVisiblePosition(), this.a, true);
-                }
-                pj6.b().e(true);
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
-                super.onScrolled(recyclerView, i, i2);
-                if (i2 > 0) {
-                    this.a = false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if ((obj instanceof ex9) && this.a.l.getErrorCode() == 0) {
+                    ex9 ex9Var = (ex9) obj;
+                    ex9Var.y(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ex9Var));
+                } else if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
+                    AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
                 } else {
-                    this.a = true;
+                    this.a.c.showToast(this.a.l.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements RecyclerView.RecyclerListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsCommonTabFragment a;
-        public final /* synthetic */ gb7 b;
-
-        public d(gb7 gb7Var, FrsCommonTabFragment frsCommonTabFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb7Var, frsCommonTabFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gb7Var;
-            this.a = frsCommonTabFragment;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.RecyclerListener
-        public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
-            FrsCommonTabFragment frsCommonTabFragment;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) {
-                View view2 = viewHolder.itemView;
-                if (this.b.f != null && (frsCommonTabFragment = this.a) != null && frsCommonTabFragment.isPrimary()) {
-                    this.b.f.k(view2);
-                    this.b.f.n(this.b.b.getFirstVisiblePosition(), this.b.b.getLastVisiblePosition(), false, true);
-                }
-                if (view2 != null) {
-                    PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view2.findViewById(R.id.abstract_voice);
-                    if (playVoiceBnt != null) {
-                        playVoiceBnt.k();
-                    }
-                    FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view2.findViewById(R.id.abstract_img_layout);
-                    if (frsCommonImageLayout != null) {
-                        frsCommonImageLayout.p();
-                    }
-                    if (view2 instanceof UserPhotoLayout) {
-                        ((UserPhotoLayout) view2).reset();
-                    }
-                }
-            }
-        }
-    }
-
-    public gb7(FrsCommonTabFragment frsCommonTabFragment, View view2, FrsViewData frsViewData) {
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gb7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsCommonTabFragment, view2, frsViewData};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
-        this.m = new b(this);
-        this.n = new c(this);
-        if (frsCommonTabFragment != null && view2 != null) {
-            this.a = frsCommonTabFragment;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c47);
-            this.b = bdTypeRecyclerView;
-            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
-            this.b.setFadingEdgeLength(0);
-            this.b.setOverScrollMode(2);
-            this.b.setOnSrollToBottomListener(this.m);
-            this.b.addOnScrollListener(this.n);
-            this.b.setRecyclerListener(new d(this, frsCommonTabFragment));
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            BdTypeRecyclerView bdTypeRecyclerView2 = this.b;
-            bdTypeRecyclerView2.setPadding(dimenPixelSize, bdTypeRecyclerView2.getPaddingTop(), dimenPixelSize, this.b.getPaddingBottom());
-            PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
-            this.c = pbListView;
-            pbListView.c();
-            this.c.r(R.color.transparent);
-            this.c.v(ri.g(this.a.getActivity(), R.dimen.tbds182));
-            this.c.A();
-            this.c.J(R.dimen.tbfontsize33);
-            this.c.H(SkinManager.getColor(R.color.CAM_X0107));
-            this.c.D(R.color.CAM_X0110);
-            this.c.u();
-            FrsCommonTabFragment frsCommonTabFragment2 = this.a;
-            BdTypeRecyclerView bdTypeRecyclerView3 = this.b;
-            if (frsCommonTabFragment2.h == 16) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = new fb7(frsCommonTabFragment2, bdTypeRecyclerView3, frsViewData, z);
-            x(false);
-            if (this.f == null) {
-                this.f = new ic9(this.a.getPageContext(), this.b);
-            }
-            this.f.p(2);
-            this.f.u(this.a.getUniqueId());
-            if (g()) {
-                this.g = new RelativeLayout(this.a.getContext());
-                this.g.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                this.h = new ad7(this.a, this.g);
-                this.b.addHeaderView(this.g, 0);
-                this.h.i(h());
-            }
-            FrsCommonTabFragment frsCommonTabFragment3 = this.a;
-            if (frsCommonTabFragment3.h == 16) {
-                c97 c97Var = new c97(frsCommonTabFragment3);
-                this.j = c97Var;
-                this.b.addHeaderView(c97Var.a(), 0);
-                this.j.c(this.k);
-            }
-        }
+        this.m = 0;
+        this.n = 0;
+        this.o = new a(this);
     }
 
-    public void v(boolean z) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        int i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: Q */
+    public FrsMemberHeaderViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && (bdTypeRecyclerView = this.b) != null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            if (this.l == null) {
+                P();
             }
-            bdTypeRecyclerView.setVisibility(i);
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null), this.o);
         }
+        return (FrsMemberHeaderViewHolder) invokeL.objValue;
     }
 
-    public void w(boolean z) {
-        fb7 fb7Var;
+    public final int[] O(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && (fb7Var = this.d) != null) {
-            fb7Var.k(z);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 3) {
+                return new int[]{-8331843, -10499102};
+            }
+            if (i <= 9) {
+                return new int[]{-10499102, -154262};
+            }
+            if (i <= 15) {
+                return new int[]{-154262, -148180};
+            }
+            return new int[]{-148180, -100818};
         }
+        return (int[]) invokeI.objValue;
     }
 
-    public void x(boolean z) {
+    public final void P() {
+        TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048593, this, z) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (tbPageContext = this.c) == null) {
             return;
         }
-        n87 n87Var = new n87();
-        n87Var.a = this.a.g;
-        n87Var.b = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, n87Var));
+        LikeModel likeModel = new LikeModel(tbPageContext);
+        this.l = likeModel;
+        likeModel.setLoadDataCallBack(new b(this));
     }
 
-    public void y(RecyclerView.OnScrollListener onScrollListener) {
+    public View R(int i, View view2, ViewGroup viewGroup, hb7 hb7Var, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
+        InterceptResult invokeCommon;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onScrollListener) == null) {
-            this.b.setOnScrollListener(onScrollListener);
-        }
-    }
-
-    public void z(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.setSelection(i);
-        }
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsCommonTabFragment frsCommonTabFragment = this.a;
-            if (frsCommonTabFragment != null) {
-                if (frsCommonTabFragment.j == 1 || frsCommonTabFragment.h == 16) {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ic9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (ic9) invokeV.objValue;
-    }
-
-    public BdTypeRecyclerView j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (BdTypeRecyclerView) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ic9 ic9Var = this.f;
-            if (ic9Var != null) {
-                ic9Var.h();
-            }
-            fb7 fb7Var = this.d;
-            if (fb7Var != null) {
-                fb7Var.h();
-            }
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                bdTypeRecyclerView.setRecyclerListener(null);
-                this.b.setAdapter(null);
-                this.b.setOnScrollListener(null);
-            }
-        }
-    }
-
-    public void p() {
-        ic9 ic9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ic9Var = this.f) != null) {
-            ic9Var.z();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d.g();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            n87 n87Var = new n87();
-            n87Var.a = this.a.g;
-            n87Var.b = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, n87Var));
-        }
-    }
-
-    public void s() {
-        ic9 ic9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (ic9Var = this.f) != null) {
-            ic9Var.o();
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.b.scrollToPosition(0);
-        }
-    }
-
-    public final List<FrsTabInfo> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
-            builder.tab_id = 2;
-            builder.tab_type = Integer.valueOf(this.a.h);
-            FrsTabInfo build = builder.build(true);
-            FrsTabInfo.Builder builder2 = new FrsTabInfo.Builder();
-            builder2.tab_id = 3;
-            builder2.tab_type = Integer.valueOf(this.a.h);
-            FrsTabInfo build2 = builder2.build(true);
-            arrayList.add(build);
-            arrayList.add(build2);
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean k(ArrayList<rn> arrayList, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, arrayList, i)) == null) {
-            if (ListUtils.isEmpty(arrayList) || i < 0) {
-                return false;
-            }
-            if (i == 0) {
-                return true;
-            }
-            int i2 = 1;
-            for (int i3 = 1; i3 < arrayList.size() && i2 <= i; i3++) {
-                if (arrayList.get(i3) instanceof o15) {
-                    int i4 = i3 - 1;
-                    if ((arrayList.get(i4) instanceof o15) && ((o15) arrayList.get(i3)).position == ((o15) arrayList.get(i4)).position) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hb7Var, frsMemberHeaderViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) hb7Var, (hb7) frsMemberHeaderViewHolder);
+            if (hb7Var != null && hb7Var.c() != null) {
+                int parseColor = Color.parseColor("#56cfa1");
+                int color = SkinManager.getColor(R.color.CAM_X0109);
+                ex9 c = hb7Var.c();
+                if (TbadkCoreApplication.isLogin()) {
+                    if (c.n() == 1) {
+                        frsMemberHeaderViewHolder.a.setVisibility(8);
+                        frsMemberHeaderViewHolder.b.setVisibility(0);
+                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0cf6);
+                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.m()));
+                        if (StringUtils.isNull(c.h())) {
+                            frsMemberHeaderViewHolder.d.setVisibility(8);
+                        } else {
+                            frsMemberHeaderViewHolder.d.setText(c.h());
+                            frsMemberHeaderViewHolder.d.setVisibility(0);
+                        }
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                        SpannableString spannableString = new SpannableString(c.c() + "");
+                        spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
+                        SpannableString spannableString2 = new SpannableString("/" + c.i());
+                        spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
+                        spannableStringBuilder.append((CharSequence) spannableString);
+                        spannableStringBuilder.append((CharSequence) spannableString2);
+                        frsMemberHeaderViewHolder.g.setText(spannableStringBuilder);
+                        frsMemberHeaderViewHolder.g.setVisibility(0);
+                        frsMemberHeaderViewHolder.k.setVisibility(0);
+                        frsMemberHeaderViewHolder.l.setVisibility(0);
+                    } else {
+                        frsMemberHeaderViewHolder.a.setVisibility(0);
+                        frsMemberHeaderViewHolder.b.setVisibility(8);
+                        frsMemberHeaderViewHolder.c.setVisibility(8);
+                        frsMemberHeaderViewHolder.d.setVisibility(8);
+                        frsMemberHeaderViewHolder.g.setVisibility(8);
+                        frsMemberHeaderViewHolder.k.setVisibility(8);
+                        frsMemberHeaderViewHolder.l.setVisibility(8);
                     }
+                } else {
+                    frsMemberHeaderViewHolder.a.setVisibility(8);
+                    frsMemberHeaderViewHolder.b.setVisibility(8);
+                    frsMemberHeaderViewHolder.c.setVisibility(8);
+                    frsMemberHeaderViewHolder.d.setVisibility(8);
+                    frsMemberHeaderViewHolder.g.setVisibility(8);
+                    frsMemberHeaderViewHolder.k.setVisibility(8);
+                    frsMemberHeaderViewHolder.l.setVisibility(8);
                 }
-                i2++;
-            }
-            if (i2 <= i) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            fb7 fb7Var = this.d;
-            if (fb7Var != null) {
-                fb7Var.g();
-            }
-            PbListView pbListView = this.c;
-            if (pbListView != null) {
-                pbListView.H(SkinManager.getColor(R.color.CAM_X0107));
-                this.c.e(i);
-            }
-            ad7 ad7Var = this.h;
-            if (ad7Var != null) {
-                ad7Var.h();
-            }
-            c97 c97Var = this.j;
-            if (c97Var != null) {
-                c97Var.b();
-            }
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.FALSE));
-            ((LinearLayoutManager) this.b.getLayoutManager()).scrollToPositionWithOffset(i, 0);
-            if (!this.i) {
-                this.m.onScrollToBottom();
-            }
-        }
-    }
-
-    public void m(String str) {
-        ib7 ib7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !StringUtils.isNull(str) && (ib7Var = this.e) != null && !ListUtils.isEmpty(ib7Var.c)) {
-            Iterator<rn> it = this.e.c.iterator();
-            while (it.hasNext()) {
-                rn next = it.next();
-                ThreadData threadData = null;
-                if (next instanceof o15) {
-                    threadData = ((o15) next).t;
-                } else if (next instanceof ThreadData) {
-                    threadData = (ThreadData) next;
-                }
-                if (threadData != null && TextUtils.equals(str, threadData.getId())) {
-                    it.remove();
+                frsMemberHeaderViewHolder.a.setTag(Integer.valueOf(i));
+                frsMemberHeaderViewHolder.d.setTag(Integer.valueOf(i));
+                frsMemberHeaderViewHolder.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.h, R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.e, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.a, R.drawable.frs_btn_like);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.a, R.color.white_alpha100, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
+                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f0806b8);
+                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
+                if (this.m != c.m() || this.n != c.c()) {
+                    this.m = c.m();
+                    this.n = c.c();
+                    frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, O(this.m)));
+                    int c2 = c.c();
+                    this.n = c2;
+                    if (c2 > c.i()) {
+                        this.n = c.i();
+                    }
+                    if (c.i() != 0) {
+                        f = this.n / c.i();
+                    } else {
+                        f = 0.0f;
+                    }
+                    if (f > 0.999f) {
+                        f = 1.0f;
+                    }
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
+                    scaleAnimation.setFillAfter(true);
+                    scaleAnimation.setDuration(1000L);
+                    hw9.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
                 }
             }
-            if (ListUtils.isEmpty(this.e.c)) {
-                this.e.c.add(new l87());
-            }
-            this.d.j(this.e.c);
-            this.d.g();
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void o(ib7 ib7Var) {
-        c97 c97Var;
-        ad7 ad7Var;
-        FrsCommonTabFragment frsCommonTabFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ib7Var) != null) || ib7Var == null) {
-            return;
-        }
-        this.i = ib7Var.a;
-        if (ListUtils.isEmpty(ib7Var.c)) {
-            l87 l87Var = new l87();
-            ArrayList<rn> arrayList = new ArrayList<>();
-            ib7Var.c = arrayList;
-            arrayList.add(l87Var);
-            ib7Var.a = false;
-        }
-        this.e = ib7Var;
-        this.c.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        if (this.i) {
-            this.b.setNextPage(this.c);
-            if (k(ib7Var.c, 3)) {
-                this.c.E(null);
-                this.c.O();
-            } else {
-                this.c.O();
-                this.c.E(this.l);
-                this.c.F(this.a.getResources().getString(R.string.list_click_load_more));
-            }
-        } else {
-            this.b.setNextPage(null);
-            this.c.F(this.a.getResources().getString(R.string.list_has_no_more));
-            this.c.E(null);
-            this.c.g();
-        }
-        this.d.j(ib7Var.c);
-        this.d.g();
-        if (this.f != null && (frsCommonTabFragment = this.a) != null && frsCommonTabFragment.isPrimary()) {
-            this.f.n(this.b.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
-        }
-        if (this.a != null && g() && (ad7Var = this.h) != null) {
-            ad7Var.g(this.a.Z1());
-            this.h.j(this.a.e);
-        }
-        this.k = ib7Var.j;
-        FrsCommonTabFragment frsCommonTabFragment2 = this.a;
-        if (frsCommonTabFragment2 != null && (frsCommonTabFragment2.getFragmentActivity() instanceof h97)) {
-            ((h97) this.a.getFragmentActivity()).p1(this.k);
-        }
-        FrsCommonTabFragment frsCommonTabFragment3 = this.a;
-        if (frsCommonTabFragment3 != null && frsCommonTabFragment3.h == 16 && (c97Var = this.j) != null) {
-            c97Var.c(this.k);
-        }
+    @Override // com.baidu.tieba.gd7, com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        R(i, view2, viewGroup, (hb7) obj, (FrsMemberHeaderViewHolder) viewHolder);
+        return view2;
     }
 }

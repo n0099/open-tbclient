@@ -1,225 +1,297 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
-import com.qq.e.comm.util.AdError;
+import com.baidu.ugc.editvideo.data.MediaInfo;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class eva extends ReporterPidLoader<UnifiedBannerView> {
+public class eva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements UnifiedBannerADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ UnifiedBannerView[] c;
-        public final /* synthetic */ eva d;
+    public static long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
 
-        public a(eva evaVar, UnifiedBannerView[] unifiedBannerViewArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {evaVar, unifiedBannerViewArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0L;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    long c = xua.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return c;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0L;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeL.longValue;
+        }
+    }
+
+    public static int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    int b = xua.b(mediaMetadataRetriever.extractMetadata(20), 0);
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return b;
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return parseInt;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeL.intValue;
+        }
+    }
+
+    public static long c(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            long j = 0;
+            if (!FileUtils.isExists(str)) {
+                return 0L;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            try {
+                try {
+                    mediaExtractor.setDataSource(str);
+                    MediaFormat mediaFormat = null;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= mediaExtractor.getTrackCount()) {
+                            break;
+                        }
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                        String string = trackFormat.getString("mime");
+                        if (i == 0) {
+                            str2 = "audio/";
+                        } else {
+                            str2 = com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START;
+                        }
+                        if (string.startsWith(str2)) {
+                            mediaExtractor.selectTrack(i2);
+                            mediaFormat = trackFormat;
+                            break;
+                        }
+                        i2++;
+                    }
+                    if (mediaFormat != null) {
+                        j = mediaFormat.getLong("durationUs");
+                    }
+                } catch (Exception e) {
+                    tua.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
+                }
+                return j / 1000;
+            } finally {
+                mediaExtractor.release();
+            }
+        }
+        return invokeLI.longValue;
+    }
+
+    public static MediaInfo d(String str) {
+        InterceptResult invokeL;
+        MediaInfo mediaInfo;
+        File file;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever2 = null;
+            try {
+                try {
+                    file = new File(str);
+                } catch (Exception e) {
+                    e = e;
+                    mediaInfo = null;
+                }
+                if (file.exists() && file.isFile()) {
+                    mediaInfo = new MediaInfo();
+                    try {
+                        mediaInfo.setVideoPath(str);
+                        mediaInfo.setLastModified(file.lastModified());
+                        mediaMetadataRetriever = new MediaMetadataRetriever();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                    try {
+                        mediaMetadataRetriever.setDataSource(str);
+                        mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                        mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                        mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                        mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+                        mediaInfo.setRotation(xua.b(mediaMetadataRetriever.extractMetadata(24), 0));
+                        sua.a(mediaMetadataRetriever);
+                    } catch (Exception e3) {
+                        e = e3;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        tua.g(e);
+                        if (mediaMetadataRetriever2 != null) {
+                            sua.a(mediaMetadataRetriever2);
+                        }
+                        return mediaInfo;
+                    } catch (Throwable th) {
+                        th = th;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        if (mediaMetadataRetriever2 != null) {
+                            sua.a(mediaMetadataRetriever2);
+                        }
+                        throw th;
+                    }
+                    return mediaInfo;
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (MediaInfo) invokeL.objValue;
+        }
+    }
+
+    @TargetApi(16)
+    public static boolean g(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str);
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (dva.j(mediaExtractor.getTrackFormat(i))) {
+                    return true;
                 }
             }
-            this.d = evaVar;
-            this.c = unifiedBannerViewArr;
+            return false;
         }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c[0], this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADCloseOverlay() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.d.onAdClose(this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c[0], this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADOpenOverlay() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.e();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((eva) this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eva(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new qua(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
-                return;
-            }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        UnifiedBannerView unifiedBannerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (unifiedBannerView = (UnifiedBannerView) obj) != null) {
-            unifiedBannerView.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((UnifiedBannerView) obj).getECPM() / 100.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                unifiedBannerView.sendWinNotification((int) d3);
-                return;
-            }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
-            }
-            unifiedBannerView.sendLossNotification((int) d3, i2, "");
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
-            onShowStart(unifiedBannerView);
-            if (unifiedBannerView.getParent() != null) {
-                ((ViewGroup) unifiedBannerView.getParent()).removeView(unifiedBannerView);
-            }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView(unifiedBannerView, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

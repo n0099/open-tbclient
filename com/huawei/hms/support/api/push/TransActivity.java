@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.push.i;
 /* loaded from: classes9.dex */
 public class TransActivity extends Activity {
@@ -34,7 +33,7 @@ public class TransActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.hwpush_trans_activity);
-            getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            getWindow().addFlags(67108864);
             i.a(this, getIntent());
             finish();
         }

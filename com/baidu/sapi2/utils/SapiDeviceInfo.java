@@ -12,6 +12,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -344,7 +345,7 @@ public class SapiDeviceInfo implements NoProguard {
         try {
             String buildIV = buildIV();
             String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, buildIV, AES_KEY));
-            return TextUtils.join("_", new String[]{buildIV, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{buildIV, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
+            return TextUtils.join("_", new String[]{buildIV, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{buildIV, base64Encode, ApkCheckUBCManagerKt.PAGE}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";

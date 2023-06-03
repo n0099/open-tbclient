@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.F;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -23,18 +23,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0174a a;
+    public C0188a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0174a extends SQLiteOpenHelper {
+    public class C0188a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0174a(a aVar, Context context) {
+        public C0188a(a aVar, Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,7 +93,7 @@ public class a {
             }
         }
         this.c = context;
-        this.a = new C0174a(this, context);
+        this.a = new C0188a(this, context);
         a();
     }
 
@@ -203,7 +203,7 @@ public class a {
             contentValues.put("j", aVar.j);
             String str = aVar.d;
             try {
-                str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
+                str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes("utf-8")), 0);
             } catch (Exception unused) {
                 int i = b.a;
             }
@@ -274,7 +274,7 @@ public class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
+                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
                             } catch (Exception unused) {
                                 int i3 = b.a;
                             }
@@ -335,7 +335,7 @@ public class a {
             try {
                 try {
                     if (i == 2) {
-                        cursor = this.b.query("r", null, str2, null, null, null, "d desc", "100");
+                        cursor = this.b.query("r", null, str2, null, null, null, "d desc", YYOption.UrlProtocol.USER);
                     } else {
                         cursor = this.b.query("r", null, str2, null, null, null, "d desc", Integer.toString(com.baidu.sofire.j.a.a(this.c).e.getInt("up_nu_li", 100)));
                     }
@@ -353,7 +353,7 @@ public class a {
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
-                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
+                                string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
                             } catch (Exception unused) {
                                 int i2 = b.a;
                             }

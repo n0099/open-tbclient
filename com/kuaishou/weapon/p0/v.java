@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.qq.e.comm.constants.Constants;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.File;
 import java.util.ArrayList;
@@ -151,7 +150,7 @@ public class v implements Runnable {
                     if (file5.exists()) {
                         file5.delete();
                     }
-                    int b = b.b(file3.getAbsolutePath(), file5.getAbsolutePath(), d.a("a3NyaXNrY3RsYnVzaW5zc3Z4cHprd3NwYWlvcXBrc3M=".getBytes(IMAudioTransRequest.CHARSET), 2));
+                    int b = b.b(file3.getAbsolutePath(), file5.getAbsolutePath(), d.a("a3NyaXNrY3RsYnVzaW5zc3Z4cHprd3NwYWlvcXBrc3M=".getBytes("utf-8"), 2));
                     if (b != 0) {
                         long length = file5.exists() ? file5.length() : -1L;
                         if (file5.exists()) {
@@ -220,7 +219,7 @@ public class v implements Runnable {
                 this.b.a(tVar.a, tVar.d, (PackageInfo) null);
                 HashMap hashMap3 = new HashMap();
                 hashMap3.put(obj, l2.q);
-                hashMap3.put(Constants.KEYS.RET, a2 ? "1" : "0");
+                hashMap3.put("ret", a2 ? "1" : "0");
                 hashMap3.put(FunAdSdk.PLATFORM_AM, tVar.j);
                 hashMap3.put("acm", a3);
                 hashMap3.put("p", file.getAbsolutePath());
@@ -293,7 +292,7 @@ public class v implements Runnable {
         boolean z;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 try {
                 } finally {

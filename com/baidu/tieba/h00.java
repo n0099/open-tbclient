@@ -1,43 +1,44 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-/* loaded from: classes5.dex */
-public class h00 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class h00 extends f00 {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public h00(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] byteArray = new BigInteger(g00.a).modPow(new BigInteger(g00.b), new BigInteger(g00.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f00
+    public com.baidu.cesium.a.b b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(g00.c).modPow(new BigInteger(g00.d), new BigInteger(g00.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            i00 i00Var = new i00();
+            i00Var.b(bArr, i, i2);
+            return com.baidu.cesium.a.b.a(new long[]{i00Var.c()});
         }
-        return (byte[]) invokeV.objValue;
+        return (com.baidu.cesium.a.b) invokeLII.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.kwad.components.ad.reward.monitor.RewardWebViewInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class eq implements com.kwad.sdk.core.d<RewardWebViewInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {

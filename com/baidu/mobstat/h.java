@@ -44,7 +44,7 @@ public class h {
                 b = "";
             }
             jSONObject2.put(Config.ROM, b);
-            jSONObject.put(Config.TRACE_PART, jSONObject2);
+            jSONObject.put("trace", jSONObject2);
             jSONObject.put("im", bw.w(context));
             jSONObject.put(Config.OAID, bw.b(2, context));
             jSONObject.put(Config.OUT_OAID, bw.c(2, context));
@@ -82,7 +82,7 @@ public class h {
 
     public static void b(JSONObject jSONObject) {
         try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("trace");
             jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
         } catch (Exception unused) {
         }
@@ -90,7 +90,7 @@ public class h {
 
     public static void c(JSONObject jSONObject) {
         try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("trace");
             jSONObject2.put("send_index", jSONObject2.getLong("send_index") + 1);
         } catch (Exception unused) {
         }

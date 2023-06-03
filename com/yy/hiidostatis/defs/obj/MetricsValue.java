@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.defs.obj;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -69,13 +68,13 @@ public class MetricsValue implements IJsonSerialize {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("scode", this.scode);
-            jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
-            jSONObject.put("topic", URLEncoder.encode(this.topic, IMAudioTransRequest.CHARSET));
+            jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
+            jSONObject.put("topic", URLEncoder.encode(this.topic, "utf-8"));
             jSONObject.put("val", this.val);
             if (this.extra != null && !this.extra.isEmpty()) {
                 JSONObject jSONObject2 = new JSONObject();
                 for (Map.Entry<String, String> entry : this.extra.entrySet()) {
-                    jSONObject2.put(URLEncoder.encode(entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode(entry.getValue(), IMAudioTransRequest.CHARSET));
+                    jSONObject2.put(URLEncoder.encode(entry.getKey(), "utf-8"), URLEncoder.encode(entry.getValue(), "utf-8"));
                 }
                 jSONObject.put("extra", jSONObject2);
             } else {

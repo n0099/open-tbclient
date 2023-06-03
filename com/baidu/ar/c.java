@@ -44,7 +44,9 @@ public abstract class c implements c.a {
     public List<k> O = new ArrayList();
     public boolean P = false;
     public List<String> Q = new CopyOnWriteArrayList();
-    public boolean T = true;
+
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1034T = true;
     public boolean mIsFrontCamera = true;
 
     /* loaded from: classes.dex */
@@ -83,7 +85,7 @@ public abstract class c implements c.a {
         this.mOutputWidth = cVar.bu().getOutputWidth();
         this.mOutputHeight = cVar.bu().getOutputHeight();
         this.S = cVar.bt().getInputDegree();
-        this.T = cVar.bt().isCameraInput();
+        this.f1034T = cVar.bt().isCameraInput();
         this.mIsFrontCamera = cVar.bt().isFrontCamera();
         c.b bVar = new c.b() { // from class: com.baidu.ar.c.1
             @Override // com.baidu.ar.arrender.c.b
@@ -139,7 +141,7 @@ public abstract class c implements c.a {
             jVar.a(this.mHandler);
             jVar.b(this.P);
             PixelReadParams di = jVar.di();
-            if (this.T && di.getIsPortrait()) {
+            if (this.f1034T && di.getIsPortrait()) {
                 if (!this.mIsFrontCamera) {
                     pixelRotation = PixelRotation.RotateRight;
                     di.setPixelRotate(pixelRotation);
@@ -149,7 +151,7 @@ public abstract class c implements c.a {
                 di.setPixelRotate(pixelRotation);
                 this.g.createPixelReader(di, jVar);
             } else {
-                if (!this.T) {
+                if (!this.f1034T) {
                     int i = this.S;
                     if (i == 0) {
                         pixelRotation = PixelRotation.FlipVertical;
@@ -208,7 +210,7 @@ public abstract class c implements c.a {
         for (k kVar : this.O) {
             if ((kVar instanceof j) && this.g != null) {
                 PixelReadParams di = ((j) kVar).di();
-                if (this.T && di.getIsPortrait()) {
+                if (this.f1034T && di.getIsPortrait()) {
                     PixelRotation pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
                     di.setPixelRotate(pixelRotation);
                     this.g.updatePixelReader(di, pixelRotation);

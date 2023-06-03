@@ -3,10 +3,10 @@ package com.baidu.searchbox.network.outback.request;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.Request;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetRequest extends Request {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class GetRequestBuilder extends Request.Builder<GetRequestBuilder> {
         public GetRequestBuilder(GetRequest getRequest) {
             super(getRequest);

@@ -1,67 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class g38 {
+public class g38 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public static short b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743101, "Lcom/baidu/tieba/g38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743101, "Lcom/baidu/tieba/g38;");
+                return;
             }
         }
-        return invokeI.shortValue;
+        e = BdUniqueId.gen();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public g38() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.message_text_error_because_network;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b != 4) {
-                        if (b != 5) {
-                            if (b == 6) {
-                                i2 = R.string.message_text_error_because_refuse;
-                            }
-                            i2 = -1;
-                        } else {
-                            i2 = R.string.message_text_error_because_refuse_stranger;
-                        }
-                    } else {
-                        i2 = R.string.message_text_error_because_refuse_friend;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (i2 != -1) {
-                return TbadkCoreApplication.getInst().getResources().getString(i2);
-            }
-            return str;
         }
-        return (String) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static g38 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            g38 g38Var = new g38();
+            g38Var.a = jSONObject.optString("title");
+            g38Var.b = jSONObject.optString("desc");
+            g38Var.c = jSONObject.optString("tag");
+            g38Var.d = jSONObject.optString("img");
+            return g38Var;
+        }
+        return (g38) invokeL.objValue;
     }
 }

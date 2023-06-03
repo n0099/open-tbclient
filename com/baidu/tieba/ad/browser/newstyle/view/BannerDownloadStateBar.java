@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BannerDownloadStateBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,8 +95,8 @@ public class BannerDownloadStateBar extends LinearLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029c);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09029f);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029d);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a0);
             setState(0);
         }
     }

@@ -1,23 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+@TargetApi(23)
 /* loaded from: classes4.dex */
 public class a71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static g71 a() {
-        InterceptResult invokeV;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
+    }
+
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return g71.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
         }
-        return (g71) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
+            }
+            activity.requestPermissions(strArr, i);
+        }
     }
 }

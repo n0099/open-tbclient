@@ -29,7 +29,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResourceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAWABLE = "drawable";

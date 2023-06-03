@@ -1,7 +1,5 @@
 package com.qq.e.ads.interstitial2;
-
-import java.util.Map;
-/* loaded from: classes9.dex */
-public interface ADRewardListener {
-    void onReward(Map<String, Object> map);
+@Deprecated
+/* loaded from: classes10.dex */
+public interface ADRewardListener extends com.qq.e.comm.listeners.ADRewardListener {
 }

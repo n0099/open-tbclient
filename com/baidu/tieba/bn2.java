@@ -1,45 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bn2<W extends dn2> implements ZeusPlugin {
+public class bn2 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public cn2<W> a;
-    public ZeusPlugin.Callback b;
-    @NonNull
-    public W c;
-    public boolean d;
-    public final List<ZeusPlugin.Command> e;
-    public dn2.a f;
 
     /* loaded from: classes5.dex */
-    public class a implements dn2.a {
+    public class a implements rq3<bh3<dh3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bn2 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ Context d;
 
-        public a(bn2 bn2Var) {
+        public a(bn2 bn2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bn2Var};
+                Object[] objArr = {bn2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,122 +43,75 @@ public abstract class bn2<W extends dn2> implements ZeusPlugin {
                     return;
                 }
             }
-            this.a = bn2Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = jSONObject;
+            this.d = context;
         }
 
-        @Override // com.baidu.tieba.dn2.a
-        public void a(boolean z) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(bh3<dh3.e> bh3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.a) {
-                    if (bn2.g) {
-                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                    }
-                    this.a.d();
-                    this.a.d = true;
-                    if (bn2.g) {
-                        Log.i("BaseInlineController", "指令flush完成=========================");
-                    }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
+                if (!wg3.h(bh3Var)) {
+                    wg3.p(bh3Var, this.a, this.b);
+                    return;
                 }
+                boolean b = mm2.b(this.c.optInt("useExtension"));
+                if (b && !pm2.b().exists()) {
+                    qb3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f016d).G();
+                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f016d));
+                    return;
+                }
+                x73.V(b);
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
+                x73.Z();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650659, "Lcom/baidu/tieba/bn2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947650659, "Lcom/baidu/tieba/bn2;");
-                return;
-            }
-        }
-        g = qp1.a;
-    }
-
-    public bn2(@NonNull W w) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bn2(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/debug/setExtensionConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {w};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = new ArrayList();
-        this.f = new a(this);
-        this.a = new cn2<>();
-        this.c = w;
-        if (g) {
-            Log.i("BaseInlineController", "开始初始化组件");
-        }
-        this.c.A(this.f);
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.b = callback;
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
-            return;
-        }
-        Iterator<ZeusPlugin.Command> it = this.e.iterator();
-        while (it.hasNext()) {
-            ZeusPlugin.Command next = it.next();
-            if (g) {
-                Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
-            }
-            this.a.b(next, this.c);
-            it.remove();
-        }
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            synchronized (this) {
-                if (command == null) {
-                    return;
-                }
-                if (this.d) {
-                    if (g) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
-                    }
-                    this.a.b(command, this.c);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.e.add(command2);
-                    if (g) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
-                    }
-                    this.a.c(command);
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            JSONObject a2 = vd3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                y82.c("ExtCore-SetConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!a2.has("useExtension")) {
+                y82.c("ExtCore-SetConfig", "useExtension is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                yb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

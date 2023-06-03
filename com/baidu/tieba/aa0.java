@@ -1,80 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class aa0 extends z90 {
+public class aa0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean y;
-    public boolean z;
+    public byte[] a;
+    public long b;
+    public long c;
+    public int d;
+    public String e;
+    public boolean f;
+    public byte[] g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public long o;
+    public boolean p;
+    public List<v90> q;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa0(Context context) {
-        super(context);
+    public aa0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.z = false;
+        this.a = new byte[0];
+        this.b = -1L;
+        this.c = 5000L;
+        this.d = -1;
+        this.e = "";
+        this.f = false;
+        this.g = new byte[0];
+        this.h = 60000L;
+        this.i = -1L;
+        this.j = -1L;
+        this.k = -1;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = -1L;
+        this.p = false;
+        this.q = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.z90, com.baidu.tieba.x90
-    public void g(boolean z) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.g(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.z90, com.baidu.tieba.x90
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.l(z);
-            if (!this.y) {
-                u(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.n) {
+                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
             }
+            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
         }
-    }
-
-    @Override // com.baidu.tieba.z90
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.u(i);
-            LinearLayout linearLayout = this.e;
-            if (linearLayout == null) {
-                return;
-            }
-            this.y = false;
-            if (this.z) {
-                linearLayout.setBackgroundColor(0);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z90, com.baidu.tieba.x90
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.m();
-        }
+        return (String) invokeV.objValue;
     }
 }

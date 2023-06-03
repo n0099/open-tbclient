@@ -10,10 +10,10 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q83;
-import com.baidu.tieba.qp1;
+import com.baidu.tieba.ib3;
+import com.baidu.tieba.is1;
 /* loaded from: classes4.dex */
-public class BdContextMenuView extends FrameLayout implements q83.g {
+public class BdContextMenuView extends FrameLayout implements ib3.g {
     public b a;
     public Context b;
     public ListView c;
@@ -38,7 +38,7 @@ public class BdContextMenuView extends FrameLayout implements q83.g {
     }
 
     static {
-        boolean z = qp1.a;
+        boolean z = is1.a;
     }
 
     public BdContextMenuView(Context context) {
@@ -66,7 +66,7 @@ public class BdContextMenuView extends FrameLayout implements q83.g {
         ListView listView = new ListView(this.b);
         this.c = listView;
         listView.setCacheColorHint(0);
-        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060403));
+        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060407));
         this.c.setDividerHeight(1);
         this.c.setSelector(new ColorDrawable(0));
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));

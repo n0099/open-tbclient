@@ -1,45 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ve1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a(Context context) {
+    public static boolean a(Application application) {
         InterceptResult invokeL;
+        Object f;
+        ClassLoader classLoader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager == null) {
-                    return null;
+                Context baseContext = application.getBaseContext();
+                if (baseContext == null || (f = ig1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) ig1.f(f, "mClassLoader")) == null) {
+                    return false;
                 }
-                return connectivityManager.getActiveNetworkInfo();
-            } catch (SecurityException unused) {
-                return null;
-            }
-        }
-        return (NetworkInfo) invokeL.objValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo a = a(context);
-            if (a != null && a.isAvailable() && a.getType() == 1) {
+                we1 we1Var = new we1(classLoader.getParent(), classLoader);
+                ig1.k(f, "mClassLoader", we1Var);
+                Thread.currentThread().setContextClassLoader(we1Var);
                 return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
     }

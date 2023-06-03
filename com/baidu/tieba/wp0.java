@@ -1,87 +1,67 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes8.dex */
-public final class wp0 {
+public class wp0 extends uj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g91 a;
-    public qa1 b;
 
-    public wp0(vp0 vp0Var, Context context) {
-        Integer num;
+    @Override // com.baidu.tieba.uj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
+    }
+
+    public wp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vp0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        if (vp0Var != null) {
-            num = Integer.valueOf(vp0Var.b());
-        } else {
-            num = null;
-        }
-        if (num != null && num.intValue() == 1) {
-            this.a = new g91(context);
-        } else if (num != null && num.intValue() == 0) {
-            this.b = new qa1(context);
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qa1 qa1Var = this.b;
-            if (qa1Var != null) {
-                qa1Var.i();
-            }
-            g91 g91Var = this.a;
-            if (g91Var != null) {
-                g91Var.h();
             }
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.uj0
+    public boolean b(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qa1 qa1Var = this.b;
-            if (qa1Var != null) {
-                qa1Var.l();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yj0Var, map, ck0Var)) == null) {
+            super.b(context, yj0Var, map, ck0Var);
+            HashMap<String, String> d = yj0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(ck0Var, yj0Var, 202, false);
+                return true;
             }
-            g91 g91Var = this.a;
-            if (g91Var != null) {
-                g91Var.k();
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = u51.d(context, intent);
+            if (!d2) {
+                i = 1001;
             }
+            c(ck0Var, yj0Var, i, d2);
+            return true;
         }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            qa1 qa1Var = this.b;
-            if (qa1Var != null) {
-                qa1Var.o(z);
-            }
-            g91 g91Var = this.a;
-            if (g91Var != null) {
-                g91Var.n(z);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

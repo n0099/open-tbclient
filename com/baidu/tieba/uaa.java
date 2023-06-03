@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+
+import com.baidu.tieba.video.VideoItemModel;
+/* loaded from: classes8.dex */
 public interface uaa {
-    void onUpdate(Object obj);
+    VideoItemModel O0();
+
+    void w0(int i);
+
+    int y();
 }

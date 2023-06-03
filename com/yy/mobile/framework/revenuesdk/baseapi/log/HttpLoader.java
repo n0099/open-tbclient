@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class HttpLoader {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                     httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setRequestProperty(Config.LAUNCH_REFERER, "https://www.yy.com/index.html");
+                    httpURLConnection.setRequestProperty("referer", "https://www.yy.com/index.html");
                     httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);

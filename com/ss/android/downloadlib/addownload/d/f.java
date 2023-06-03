@@ -4,7 +4,7 @@ import android.content.Context;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static f a;
     public List<d> b;

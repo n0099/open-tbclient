@@ -1,7 +1,7 @@
 package okio;
 
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Pipe {
     public final long maxBufferSize;
     public boolean sinkClosed;
@@ -10,7 +10,7 @@ public final class Pipe {
     public final Sink sink = new PipeSink();
     public final Source source = new PipeSource();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class PipeSink implements Sink {
         public final Timeout timeout = new Timeout();
 
@@ -75,7 +75,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class PipeSource implements Source {
         public final Timeout timeout = new Timeout();
 

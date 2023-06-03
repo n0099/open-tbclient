@@ -58,11 +58,11 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (ip.class.equals(ipVar.getClass())) {
-            int compareTo = Boolean.valueOf(m623a()).compareTo(Boolean.valueOf(ipVar.m623a()));
+            int compareTo = Boolean.valueOf(m678a()).compareTo(Boolean.valueOf(ipVar.m678a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m623a() || (a9 = it.a(this.f784a, ipVar.f784a)) == 0) {
+            if (!m678a() || (a9 = it.a(this.f784a, ipVar.f784a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ipVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -137,19 +137,19 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo640a();
+        jdVar.mo695a();
         while (true) {
-            ja mo636a = jdVar.mo636a();
-            byte b2 = mo636a.a;
+            ja mo691a = jdVar.mo691a();
+            byte b2 = mo691a.a;
             if (b2 == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            switch (mo636a.f813a) {
+            switch (mo691a.f813a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f784a = jdVar.mo641a();
+                        this.f784a = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
@@ -165,45 +165,45 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f786b = jdVar.mo641a();
+                        this.f786b = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f787c = jdVar.mo641a();
+                        this.f787c = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f788d = jdVar.mo641a();
+                        this.f788d = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f789e = jdVar.mo641a();
+                        this.f789e = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f790f = jdVar.mo641a();
+                        this.f790f = jdVar.mo696a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 15) {
-                        jb mo637a = jdVar.mo637a();
-                        this.f785a = new ArrayList(mo637a.f814a);
-                        for (int i = 0; i < mo637a.f814a; i++) {
-                            this.f785a.add(jdVar.mo641a());
+                        jb mo692a = jdVar.mo692a();
+                        this.f785a = new ArrayList(mo692a.f814a);
+                        for (int i = 0; i < mo692a.f814a; i++) {
+                            this.f785a.add(jdVar.mo696a());
                         }
                         jdVar.i();
                         continue;
@@ -217,23 +217,23 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m623a() {
+    public boolean m678a() {
         return this.f784a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m624a(ip ipVar) {
+    public boolean m679a(ip ipVar) {
         if (ipVar == null) {
             return false;
         }
-        boolean m623a = m623a();
-        boolean m623a2 = ipVar.m623a();
-        if ((m623a || m623a2) && !(m623a && m623a2 && this.f784a.equals(ipVar.f784a))) {
+        boolean m678a = m678a();
+        boolean m678a2 = ipVar.m678a();
+        if ((m678a || m678a2) && !(m678a && m678a2 && this.f784a.equals(ipVar.f784a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = ipVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f783a.m536a(ipVar.f783a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f783a.m591a(ipVar.f783a))) {
             return false;
         }
         boolean c2 = c();
@@ -278,7 +278,7 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
     public void b(jd jdVar) {
         a();
         jdVar.a(f782a);
-        if (this.f784a != null && m623a()) {
+        if (this.f784a != null && m678a()) {
             jdVar.a(a);
             jdVar.a(this.f784a);
             jdVar.b();
@@ -323,7 +323,7 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo644a();
+        jdVar.mo699a();
     }
 
     public boolean b() {
@@ -359,7 +359,7 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ip)) {
-            return m624a((ip) obj);
+            return m679a((ip) obj);
         }
         return false;
     }
@@ -384,7 +384,7 @@ public class ip implements is<ip, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("XmPushActionUnSubscription(");
         boolean z2 = false;
-        if (m623a()) {
+        if (m678a()) {
             sb.append("debug:");
             String str = this.f784a;
             if (str == null) {

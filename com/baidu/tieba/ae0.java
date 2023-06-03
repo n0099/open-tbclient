@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,29 +9,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
-public class ae0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "ae0";
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class ae0 extends wd0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
+    public static ae0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaMuxer a;
-    public volatile boolean b;
-    public be0 c;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ae0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-950477216, "Lcom/baidu/tieba/ae0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-950477216, "Lcom/baidu/tieba/ae0$a;");
+                    return;
+                }
+            }
+            a = new ae0();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947612157, "Lcom/baidu/tieba/ae0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612157, "Lcom/baidu/tieba/ae0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947612157, "Lcom/baidu/tieba/ae0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        b = new HashMap<>();
+    }
+
+    public static ae0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                c = a.a;
+            }
+            return c;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947612157, "Lcom/baidu/tieba/ae0;");
-        }
+        return (ae0) invokeV.objValue;
     }
 
     public ae0() {
@@ -50,120 +81,46 @@ public class ae0 {
                 return;
             }
         }
-        this.b = false;
+        b.put("color_1F1F1F", new String[]{"#FFFFFF"});
+        b.put("color_white1", new String[]{"#161823"});
+        b.put("color_white2", new String[]{"#1F2337"});
+        b.put("color_white3", new String[]{"#FFFFFF"});
+        b.put("color_F5F5F51", new String[]{"#161823"});
+        b.put("color_F5F5F52", new String[]{"#161823"});
+        b.put("color_F5F5F53", new String[]{"#1AFFFFFF"});
+        b.put("color_FF33551", new String[]{"#FF3355"});
+        b.put("color_FF33552", new String[]{"#26FF3355"});
+        b.put("color_858585", new String[]{"#858585"});
+        b.put("color_525252", new String[]{"#858585"});
+        b.put("color_FF3333", new String[]{"#FF3333"});
+        b.put("color_768CAE", new String[]{"#768CAE"});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2"});
+        b.put("color_8585852", new String[]{"#858585"});
+        b.put("color_5252522", new String[]{"#99FFFFFF"});
+        b.put("color_btn_stroke", new String[]{"#99FFFFFF"});
+        b.put("color_btn_fill", new String[]{"#66666666"});
+        b.put("color_sub_tab_normal", new String[]{"#858585"});
+        b.put("color_main_bg", new String[]{"#161823"});
+        b.put("color_white4", new String[]{"#FFFFFF"});
+        b.put("color_E0E0E0", new String[]{"#33ffffff"});
+        b.put("color_EEEEEE", new String[]{"#121212"});
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wd0
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            this.a.release();
-            this.a = null;
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                boolean z = true;
-                try {
-                    this.a.start();
-                    this.b = true;
-                } catch (Exception unused) {
-                    Log.e(d, "startMuxer error!!!");
-                    z = false;
-                }
-                if (this.c != null) {
-                    this.c.a(z);
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -1;
             }
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                boolean z = false;
-                try {
-                    this.a.stop();
-                    this.b = false;
-                    z = true;
-                } catch (Exception unused) {
-                    Log.e(d, "stopMuxer error!!!");
-                }
-                if (this.c != null) {
-                    this.c.b(z);
-                }
-            }
-        }
-    }
-
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                try {
-                    int addTrack = this.a.addTrack(mediaFormat);
-                    if (addTrack >= 0) {
-                        return addTrack;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.e(d, "addMuxerTrack error!!!");
+            try {
+                return Color.parseColor(b.get(str2)[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return -1;
             }
         }
-        return invokeL.intValue;
-    }
-
-    public boolean b(String str, int i, be0 be0Var) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, be0Var)) == null) {
-            if (!de0.a(str)) {
-                de0.b(str);
-            }
-            try {
-                this.a = new MediaMuxer(str, i);
-                this.c = be0Var;
-                this.b = false;
-                return true;
-            } catch (Exception e) {
-                Log.e(d, "initMovieMuxer init error!!!");
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public boolean g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                    return true;
-                } catch (Exception unused) {
-                    Log.e(d, "startMuxer error!!!");
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeILL.booleanValue;
+        return invokeLLL.intValue;
     }
 }

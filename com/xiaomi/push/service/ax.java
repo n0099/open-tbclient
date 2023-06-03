@@ -93,7 +93,7 @@ public class ax {
             a = context.getApplicationContext();
             NotificationManager a2 = a();
             Boolean bool = (Boolean) com.xiaomi.push.bj.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
-            m717a("fwk is support.init:" + bool);
+            m772a("fwk is support.init:" + bool);
             boolean booleanValue = bool != null ? bool.booleanValue() : false;
             f916a = booleanValue;
             if (booleanValue) {
@@ -103,35 +103,35 @@ public class ax {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m717a(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m120a("NMHelper:" + str);
+    public static void m772a(String str) {
+        com.xiaomi.channel.commonutils.logger.b.m175a("NMHelper:" + str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m718a() {
-        if (com.xiaomi.push.j.m650a() && ba.a(a).a(hm.NotificationBelongToAppSwitch.a(), true)) {
+    public static boolean m773a() {
+        if (com.xiaomi.push.j.m705a() && ba.a(a).a(hm.NotificationBelongToAppSwitch.a(), true)) {
             return f916a;
         }
         return false;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m719a(Context context) {
+    public static boolean m774a(Context context) {
         a(context);
-        return m718a();
+        return m773a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private StatusBarNotification[] m720a() {
-        if (com.xiaomi.push.j.m651a(m722a())) {
+    private StatusBarNotification[] m775a() {
+        if (com.xiaomi.push.j.m706a(m777a())) {
             try {
-                Object a2 = com.xiaomi.push.bj.a(f914a, "getActiveNotifications", m722a().getPackageName());
+                Object a2 = com.xiaomi.push.bj.a(f914a, "getActiveNotifications", m777a().getPackageName());
                 if (a2 instanceof StatusBarNotification[]) {
                     return (StatusBarNotification[]) a2;
                 }
                 return null;
             } catch (Throwable th) {
-                m717a("getAllNotifications error " + th);
+                m772a("getAllNotifications error " + th);
                 return null;
             }
         }
@@ -139,18 +139,18 @@ public class ax {
     }
 
     private String b(String str) {
-        return a(m718a() ? "mipush|%s|%s" : "mipush_%s_%s", this.f917a, str);
+        return a(m773a() ? "mipush|%s|%s" : "mipush_%s_%s", this.f917a, str);
     }
 
     @TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public NotificationChannel m721a(String str) {
+    public NotificationChannel m776a(String str) {
         NotificationChannel notificationChannel = null;
         try {
-            if (m718a()) {
-                List<NotificationChannel> m725a = m725a();
-                if (m725a != null) {
-                    for (NotificationChannel notificationChannel2 : m725a) {
+            if (m773a()) {
+                List<NotificationChannel> m780a = m780a();
+                if (m780a != null) {
+                    for (NotificationChannel notificationChannel2 : m780a) {
                         if (str.equals(notificationChannel2.getId())) {
                             notificationChannel = notificationChannel2;
                             break;
@@ -161,24 +161,24 @@ public class ax {
                 notificationChannel = a().getNotificationChannel(str);
             }
         } catch (Exception e) {
-            m717a("getNotificationChannel error" + e);
+            m772a("getNotificationChannel error" + e);
         }
         return notificationChannel;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Context m722a() {
+    public Context m777a() {
         return a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m723a() {
+    public String m778a() {
         return this.f917a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m724a(String str) {
-        return TextUtils.isEmpty(str) ? b() : com.xiaomi.push.j.m651a(m722a()) ? b(str) : str;
+    public String m779a(String str) {
+        return TextUtils.isEmpty(str) ? b() : com.xiaomi.push.j.m706a(m777a()) ? b(str) : str;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -189,12 +189,12 @@ public class ax {
         */
     @android.annotation.TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public java.util.List<android.app.NotificationChannel> m725a() {
+    public java.util.List<android.app.NotificationChannel> m780a() {
         /*
             r8 = this;
             java.lang.String r0 = r8.f917a
             r1 = 0
-            boolean r2 = m718a()     // Catch: java.lang.Exception -> L78
+            boolean r2 = m773a()     // Catch: java.lang.Exception -> L78
             if (r2 == 0) goto L3b
             int r2 = a(r0)     // Catch: java.lang.Exception -> L78
             r3 = -1
@@ -231,7 +231,7 @@ public class ax {
             java.util.List r1 = r2.getNotificationChannels()     // Catch: java.lang.Exception -> L78
             java.lang.String r2 = "mipush_%s_%s"
         L45:
-            boolean r3 = com.xiaomi.push.j.m650a()     // Catch: java.lang.Exception -> L78
+            boolean r3 = com.xiaomi.push.j.m705a()     // Catch: java.lang.Exception -> L78
             if (r3 == 0) goto L8d
             if (r1 == 0) goto L8d
             java.util.ArrayList r3 = new java.util.ArrayList     // Catch: java.lang.Exception -> L78
@@ -261,30 +261,30 @@ public class ax {
             r2.append(r3)
             r2.append(r0)
             java.lang.String r0 = r2.toString()
-            m717a(r0)
+            m772a(r0)
         L8d:
             return r1
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.xiaomi.push.service.ax.m725a():java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.xiaomi.push.service.ax.m780a():java.util.List");
     }
 
     public void a(int i) {
         String str = this.f917a;
         try {
-            if (!m718a()) {
+            if (!m773a()) {
                 a().cancel(i);
                 return;
             }
             int a2 = com.xiaomi.push.i.a();
-            String packageName = m722a().getPackageName();
+            String packageName = m777a().getPackageName();
             if (Build.VERSION.SDK_INT >= 30) {
                 com.xiaomi.push.bj.b(f914a, "cancelNotificationWithTag", str, packageName, null, Integer.valueOf(i), Integer.valueOf(a2));
             } else {
                 com.xiaomi.push.bj.b(f914a, "cancelNotificationWithTag", str, null, Integer.valueOf(i), Integer.valueOf(a2));
             }
-            m717a("cancel succ:" + i);
+            m772a("cancel succ:" + i);
         } catch (Exception e) {
-            m717a("cancel error" + e);
+            m772a("cancel error" + e);
         }
     }
 
@@ -293,7 +293,7 @@ public class ax {
         NotificationManager a2 = a();
         try {
             int i2 = Build.VERSION.SDK_INT;
-            if (m718a()) {
+            if (m773a()) {
                 if (i2 >= 19) {
                     notification.extras.putString("xmsf_target_package", str);
                 }
@@ -311,7 +311,7 @@ public class ax {
     public void a(NotificationChannel notificationChannel) {
         String str = this.f917a;
         try {
-            if (m718a()) {
+            if (m773a()) {
                 int a2 = a(str);
                 if (a2 != -1) {
                     com.xiaomi.push.bj.b(f914a, "createNotificationChannelsForPackage", str, Integer.valueOf(a2), a(Arrays.asList(notificationChannel)));
@@ -320,7 +320,7 @@ public class ax {
                 a().createNotificationChannel(notificationChannel);
             }
         } catch (Exception e) {
-            m717a("createNotificationChannel error" + e);
+            m772a("createNotificationChannel error" + e);
         }
     }
 
@@ -336,12 +336,12 @@ public class ax {
                 a(notificationChannel);
             }
         } catch (Exception e) {
-            m717a("updateNotificationChannel error " + e);
+            m772a("updateNotificationChannel error " + e);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m726a(String str) {
+    public boolean m781a(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -356,23 +356,23 @@ public class ax {
     }
 
     public String b(String str, String str2) {
-        return m718a() ? str : str2;
+        return m773a() ? str : str2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public List<StatusBarNotification> m727b() {
+    public List<StatusBarNotification> m782b() {
         String str = this.f917a;
         NotificationManager a2 = a();
         ArrayList arrayList = null;
         try {
-            if (m718a()) {
+            if (m773a()) {
                 int a3 = com.xiaomi.push.i.a();
                 if (a3 != -1) {
                     return (List) a(com.xiaomi.push.bj.a(f914a, "getAppActiveNotifications", str, Integer.valueOf(a3)));
                 }
                 return null;
             }
-            StatusBarNotification[] activeNotifications = Build.VERSION.SDK_INT >= 23 ? a2.getActiveNotifications() : m720a();
+            StatusBarNotification[] activeNotifications = Build.VERSION.SDK_INT >= 23 ? a2.getActiveNotifications() : m775a();
             if (activeNotifications == null || activeNotifications.length <= 0) {
                 return null;
             }
@@ -387,7 +387,7 @@ public class ax {
             } catch (Throwable th) {
                 th = th;
                 arrayList = arrayList2;
-                m717a("getActiveNotifications error " + th);
+                m772a("getActiveNotifications error " + th);
                 return arrayList;
             }
         } catch (Throwable th2) {

@@ -1,42 +1,44 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.MutableContextWrapper;
+import android.graphics.Bitmap;
 import android.net.Uri;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mc1;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eb1 {
+public final class eb1 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CheckBox a;
-    public TextView b;
-    public String c;
-    public Context d;
-    public mc1 e;
-    public za1 f;
+    public za1 a;
+    public NadNativeBrowserView b;
 
+    @RequiresApi(21)
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnClickListener {
+    public static final class a implements c81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb1 a;
+        public final WebChromeClient.FileChooserParams a;
 
-        public a(eb1 eb1Var) {
+        public a(WebChromeClient.FileChooserParams fileChooserParams) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eb1Var};
+                Object[] objArr = {fileChooserParams};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,59 +48,58 @@ public class eb1 {
                     return;
                 }
             }
-            this.a = eb1Var;
+            this.a = fileChooserParams;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.baidu.tieba.c81
+        public Intent a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb1 a;
-
-        public b(eb1 eb1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.createIntent();
                 }
+                return null;
             }
-            this.a = eb1Var;
+            return (Intent) invokeV.objValue;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.baidu.tieba.c81
+        public String[] b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getAcceptTypes();
+                }
+                return null;
             }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.c81
+        public int getMode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getMode();
+                }
+                return -1;
+            }
+            return invokeV.intValue;
         }
     }
 
-    public eb1(Context context, String str, @NonNull za1 za1Var) {
+    public eb1(NadNativeBrowserView webView, za1 za1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, za1Var};
+            Object[] objArr = {webView, za1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,66 +109,115 @@ public class eb1 {
                 return;
             }
         }
-        this.d = context;
-        this.f = za1Var;
-        this.c = str;
-        b();
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = za1Var;
+        this.b = webView;
     }
 
-    public final void b() {
+    public final Activity a(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091dce);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916f4);
-            this.b = textView;
-            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
-            this.b.setText(c());
-            mc1.a aVar = new mc1.a(this.d);
-            aVar.q(R.string.nad_geolocation_permissions_prompt_title);
-            aVar.s(inflate);
-            aVar.l(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
-            aVar.o(R.string.nad_geolocation_permissions_prompt_share, new a(this));
-            this.e = aVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
+            if (webView == null) {
+                return null;
+            }
+            if (webView.getContext() instanceof Activity) {
+                Context context = webView.getContext();
+                if (context != null) {
+                    return (Activity) context;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+            } else if (!(webView.getContext() instanceof MutableContextWrapper)) {
+                return null;
+            } else {
+                Context context2 = webView.getContext();
+                if (context2 != null) {
+                    if (!(((MutableContextWrapper) context2).getBaseContext() instanceof Activity)) {
+                        return null;
+                    }
+                    Context context3 = webView.getContext();
+                    if (context3 != null) {
+                        Context baseContext = ((MutableContextWrapper) context3).getBaseContext();
+                        if (baseContext != null) {
+                            return (Activity) baseContext;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+            }
         }
+        return (Activity) invokeL.objValue;
     }
 
-    public final String c() {
+    @Override // android.webkit.WebChromeClient
+    public Bitmap getDefaultVideoPoster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri parse = Uri.parse(this.c);
-            String str = this.c;
-            if ("http".equals(parse.getScheme())) {
-                str = this.c.substring(7);
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.RGB_565);
+                createBitmap.eraseColor(0);
+                return createBitmap;
+            } catch (Exception unused) {
+                return super.getDefaultVideoPoster();
             }
-            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
         }
-        return (String) invokeV.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 
-    public final void d(boolean z) {
-        int i;
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            boolean isChecked = this.a.isChecked();
-            if (isChecked) {
-                if (z) {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
-                } else {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
-                }
-                x31.a().a(this.d.getApplicationContext(), i);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i) == null) {
+            super.onProgressChanged(webView, i);
+            za1 za1Var = this.a;
+            if (za1Var != null) {
+                za1Var.a(this.b, i);
             }
-            this.f.a(this.c, z, isChecked);
         }
     }
 
-    public void e() {
-        mc1 mc1Var;
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mc1Var = this.e) != null) {
-            l41.b(mc1Var);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
+            za1 za1Var = this.a;
+            if (za1Var != null) {
+                za1Var.b(this.b, str);
+            }
         }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onRequestFocus(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
+            super.onRequestFocus(webView);
+            za1 za1Var = this.a;
+            if (za1Var != null) {
+                za1Var.c(this.b);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
+            this.b.U();
+            Activity a2 = a(webView);
+            if (a2 != null && Build.VERSION.SDK_INT >= 21) {
+                return f81.h(a2, valueCallback, new a(fileChooserParams));
+            }
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

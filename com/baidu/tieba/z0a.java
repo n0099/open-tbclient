@@ -1,123 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@TargetApi(18)
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class z0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public d1a g;
-    public b1a h;
-    public c1a i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public TbPageContext a;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
-
-        void onGenFilterVideoRecordError(int i, String str);
-
-        void onGenFilterVideoSuccess(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends d1a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z0a f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z0a z0aVar, Context context, String str, String str2, c1a c1aVar, c cVar) {
-            super(context, str, str2, c1aVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z0aVar, context, str, str2, c1aVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (c1a) objArr2[3], (c) objArr2[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = z0aVar;
-        }
-
-        @Override // com.baidu.tieba.d1a
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends b1a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z0a f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z0a z0aVar, Context context, String str, c1a c1aVar, c cVar) {
-            super(context, str, c1aVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z0aVar, context, str, c1aVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (c1a) objArr2[2], (c) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = z0aVar;
-        }
-
-        @Override // com.baidu.tieba.b1a
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
-            }
-        }
-    }
-
-    public z0a(Context context, String str, String str2, String str3) {
+    public z0a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,99 +38,61 @@ public class z0a {
                 return;
             }
         }
-        this.e = false;
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
+        this.a = tbPageContext;
+        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public void h(c cVar) {
+    public void a(Intent intent, v0a v0aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d1a d1aVar = this.g;
-            if (d1aVar != null) {
-                d1aVar.interrupt();
-                this.g = null;
-            }
-            b1a b1aVar = this.h;
-            if (b1aVar != null) {
-                b1aVar.interrupt();
-                this.h = null;
-            }
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
-                } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
-                }
-            }
-            this.e = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.e) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, v0aVar) != null) || intent == null) {
             return;
         }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
+        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        if (!TextUtils.isEmpty(stringExtra)) {
+            String string = this.a.getString(R.string.des_page_home_recommend);
+            s35 s35Var = new s35();
+            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
+            int i = 1;
+            if (matcher.find()) {
+                s35Var.c = matcher.group(1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, mr8.a(e));
+            if (stringExtra.equals(string)) {
+                s35Var.a = 1;
+            } else {
+                s35Var.a = 2;
+                s35Var.b = stringExtra;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, s35Var));
+            if (stringExtra.equals(string)) {
+                intent.putExtra("sub_locate_type", 1);
+                i = 2;
+            } else {
+                intent.putExtra("sub_locate_type", stringExtra);
+            }
+            if (v0aVar != null && v0aVar.y() != null) {
+                v0aVar.y().setCurrentTabByType(i);
+                FragmentTabHost.c h = v0aVar.y().h(i);
+                if (h != null) {
+                    Fragment fragment = h.c;
+                    if (fragment instanceof h05) {
+                        ((h05) fragment).t1(intent);
+                    }
+                }
             }
         }
-        try {
-            this.i = new c1a(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
+        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
+        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+    }
+
+    public boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

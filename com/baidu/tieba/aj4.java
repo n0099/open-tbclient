@@ -1,24 +1,48 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.tieba.gj4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Response;
-/* loaded from: classes4.dex */
-public class aj4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class aj4 extends gj4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static cj4 a(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            Response executeSync = kg4.g().getRequest().requestFrom(6).requestSubFrom(i).url(str).build().executeSync();
-            if (executeSync == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new yi4(executeSync);
         }
-        return (cj4) invokeLI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gj4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public gj4 build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qi4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (gj4) invokeV.objValue;
     }
 }

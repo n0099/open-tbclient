@@ -1,24 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.tbadk.core.data.ForumRuleBaseData;
 /* loaded from: classes7.dex */
-public interface qi7 extends wi7 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public interface qi7 {
+    void Y0(ForumRuleBaseData forumRuleBaseData, boolean z);
 
-    void b(@NonNull ThemeElement themeElement);
+    void l1(int i, ForumRuleBaseData forumRuleBaseData, String str);
 
-    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
-
-    @NonNull
-    ui7 e();
-
-    void f(boolean z);
-
-    int l(@NonNull LogicField logicField);
+    void t1(int i, String str, boolean z);
 }

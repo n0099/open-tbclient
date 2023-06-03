@@ -1,7 +1,6 @@
 package com.baidu.platform.comapi.map.b.b;
 
 import android.graphics.Point;
-import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Pair;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
@@ -23,6 +22,7 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import org.chromium.net.NetError;
 /* loaded from: classes3.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class d extends a {
                 return 179;
             }
             if (i <= -180) {
-                return -179;
+                return NetError.ERR_WRONG_VERSION_ON_EARLY_DATA;
             }
             return i;
         }
@@ -151,9 +151,9 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, mapStatus) == null) {
             com.baidu.platform.comapi.map.b.a.b bVar = this.i;
-            double abs = Math.abs(new a.c(new a.C0128a(bVar.b.a, bVar.c.a), this.i.b).a);
+            double abs = Math.abs(new a.c(new a.C0133a(bVar.b.a, bVar.c.a), this.i.b).a);
             com.baidu.platform.comapi.map.b.a.b bVar2 = this.i;
-            double abs2 = Math.abs(new a.c(new a.C0128a(bVar2.b.b, bVar2.c.b), this.i.b).a);
+            double abs2 = Math.abs(new a.c(new a.C0133a(bVar2.b.b, bVar2.c.b), this.i.b).a);
             double d = this.k;
             boolean z3 = false;
             if (d != 0.0d && d * this.g.b < 0.0d) {
@@ -216,8 +216,8 @@ public class d extends a {
             if (d3 * ((a.d) obj2).a > 0.0d && ((a.d) obj).b * ((a.d) obj2).b > 0.0d) {
                 a(mapStatus, a);
             } else if (Math.abs(((a.d) pair.first).a - ((a.d) pair.second).a) >= 1.0d && Math.abs(((a.d) pair.first).b - ((a.d) pair.second).b) >= 1.0d) {
-                double abs = Math.abs(new a.c(new a.C0128a(bVar.b.a, bVar.c.a), bVar.b).a);
-                double abs2 = Math.abs(new a.c(new a.C0128a(bVar.b.b, bVar.c.b), bVar.b).a);
+                double abs = Math.abs(new a.c(new a.C0133a(bVar.b.a, bVar.c.a), bVar.b).a);
+                double abs2 = Math.abs(new a.c(new a.C0133a(bVar.b.b, bVar.c.b), bVar.b).a);
                 double d4 = this.k;
                 if (d4 != 0.0d && d4 * this.g.b < 0.0d) {
                     z = true;
@@ -231,7 +231,7 @@ public class d extends a {
                 Object obj3 = pair.first;
                 Object obj4 = pair.second;
                 float sqrt = ((float) Math.sqrt((((a.d) obj3).a * ((a.d) obj3).a) + (((a.d) obj4).a * ((a.d) obj4).a) + (((a.d) obj3).b * ((a.d) obj3).b) + (((a.d) obj4).b * ((a.d) obj4).b))) * 2.0f;
-                if (sqrt > (SysOSUtil.getInstance().getDensityDPI() * 100) / MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP) {
+                if (sqrt > (SysOSUtil.getInstance().getDensityDPI() * 100) / 320) {
                     mapStatus.hasAnimation = 1;
                     mapStatus.animationTime = 600;
                     a.c cVar2 = null;

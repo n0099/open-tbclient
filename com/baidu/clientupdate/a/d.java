@@ -112,7 +112,7 @@ public final class d {
                 aVar.a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
                 aVar.d = cursor.getString(cursor.getColumnIndex("flag"));
                 aVar.e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
-                aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
+                aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex("sc")));
                 aVar.g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
                 aVar.h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
                 aVar.i = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.EXCEPTION_PART)));
@@ -154,7 +154,7 @@ public final class d {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject2.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.b());
                     jSONObject2.put("tm", aVar.c());
-                    jSONObject3.put(Config.STAT_SDK_CHANNEL, aVar.d());
+                    jSONObject3.put("sc", aVar.d());
                     jSONObject3.put("tm", aVar.e());
                     jSONObject3.put("mg", aVar.f());
                     jSONObject3.put(Config.EXCEPTION_PART, aVar.g());
@@ -183,16 +183,16 @@ public final class d {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0048, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0047, code lost:
         if (r1 != null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0049, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0059, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0058, code lost:
         if (r1 == null) goto L7;
      */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0060  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

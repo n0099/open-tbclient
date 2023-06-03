@@ -1,43 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class cs1 implements mu1 {
+public class cs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.mu1
-    public void a(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mu1
-    public jd2 b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
-            return null;
-        }
-        return (jd2) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.mu1
-    public void c(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-        }
-    }
+    public Object a;
+    public Class<?> b;
+    public Method c;
 
     public cs1() {
         Interceptable interceptable = $ic;
@@ -51,5 +27,26 @@ public class cs1 implements mu1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public final String a(Context context, Method method) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
+            Object obj = this.a;
+            if (obj == null || method == null) {
+                return null;
+            }
+            try {
+                Object invoke = method.invoke(obj, context);
+                if (invoke != null) {
+                    return (String) invoke;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

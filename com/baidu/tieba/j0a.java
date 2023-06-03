@@ -1,138 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.location.Address;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class j0a<T> {
+public class j0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public T b;
-    public T c;
-    public a d;
-    public String e;
-    public Long f;
 
-    /* loaded from: classes6.dex */
-    public interface a<T> {
-        void a(j0a<T> j0aVar, T t, T t2);
-    }
-
-    public abstract long e(String str, long j);
-
-    public abstract T f();
-
-    public abstract void g(String str, long j);
-
-    public abstract void h();
-
-    public j0a(String str, T t, String str2) {
+    public static void a(NetWork netWork, WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address j = pf.n().j(false);
+            if (j != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+            }
+            LocationData b = cz9.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
             }
         }
-        this.e = str2;
-        i(t);
-        j(str);
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null && !TextUtils.isEmpty(this.e)) {
-                d();
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.experience_score);
+            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
             }
-            Long l = this.f;
-            if (l == null) {
-                return 0L;
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.send_success);
             }
-            return l.longValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public T d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null && !TextUtils.isEmpty(this.a)) {
-                this.b = f();
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.f = Long.valueOf(e(this.e, 0L));
-                }
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
             }
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.c = t;
+            c(context, inflate);
         }
     }
 
-    public void j(String str) {
+    public static void c(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(T t) {
-        T t2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, t) == null) && !TextUtils.isEmpty(this.a) && t != (t2 = this.b)) {
-            if (t == null || !t.equals(t2)) {
-                T t3 = this.b;
-                this.b = t;
-                h();
-                if (!TextUtils.isEmpty(this.e)) {
-                    Long valueOf = Long.valueOf(System.currentTimeMillis());
-                    this.f = valueOf;
-                    g(this.e, valueOf.longValue());
-                }
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.a(this, t3, t);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            GreyUtil.grey(toast);
+            toast.show();
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,6 +64,7 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
         }
     }
 
+    @Nullable
     public T getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

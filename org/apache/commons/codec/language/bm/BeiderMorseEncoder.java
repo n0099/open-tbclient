@@ -2,7 +2,7 @@ package org.apache.commons.codec.language.bm;
 
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BeiderMorseEncoder implements StringEncoder {
     public PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
 

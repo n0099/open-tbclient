@@ -26,7 +26,7 @@ public class g {
         Map<String, String> a(Context context, String str);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m461a(Context context, String str);
+        boolean m516a(Context context, String str);
 
         boolean b(Context context, String str);
     }
@@ -79,30 +79,30 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m453a(Context context, String str) {
+    public static ApplicationInfo m508a(Context context, String str) {
         if (str.equals(context.getPackageName())) {
             return context.getApplicationInfo();
         }
         try {
             return context.getPackageManager().getApplicationInfo(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("not found app info " + str);
+            com.xiaomi.channel.commonutils.logger.b.m175a("not found app info " + str);
             return null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m454a(Context context, String str) {
-        ApplicationInfo m453a = m453a(context, str);
+    public static Drawable m509a(Context context, String str) {
+        ApplicationInfo m508a = m508a(context, str);
         Drawable drawable = null;
-        if (m453a != null) {
+        if (m508a != null) {
             try {
-                drawable = m453a.loadIcon(context.getPackageManager());
+                drawable = m508a.loadIcon(context.getPackageManager());
                 if (drawable == null) {
-                    drawable = m453a.loadLogo(context.getPackageManager());
+                    drawable = m508a.loadLogo(context.getPackageManager());
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m120a("get app icon drawable failed, " + e);
+                com.xiaomi.channel.commonutils.logger.b.m175a("get app icon drawable failed, " + e);
             }
         }
         return drawable != null ? drawable : new ColorDrawable(0);
@@ -127,7 +127,7 @@ public class g {
                 return bool.booleanValue() ? b.ALLOWED : b.NOT_ALLOWED;
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("are notifications enabled error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m175a("are notifications enabled error " + e);
         }
         return b.UNKNOWN;
     }
@@ -143,7 +143,7 @@ public class g {
             applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
             a2 = a(context, applicationInfo);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("get app op error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m175a("get app op error " + th);
         }
         if (a2 != b.UNKNOWN) {
             return a2;
@@ -174,7 +174,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m455a(Context context, String str) {
+    public static String m510a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -185,7 +185,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Map<String, String> m456a(Context context, String str) {
+    public static Map<String, String> m511a(Context context, String str) {
         a aVar = a;
         if (aVar == null) {
             return null;
@@ -194,7 +194,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m457a(Context context) {
+    public static boolean m512a(Context context) {
         String a2 = a();
         if (TextUtils.isEmpty(a2) || context == null) {
             return false;
@@ -203,28 +203,28 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m458a(Context context, String str) {
+    public static boolean m513a(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (j.m650a()) {
+        if (j.m705a()) {
             a aVar = a;
-            return aVar != null && aVar.m461a(context, str);
+            return aVar != null && aVar.m516a(context, str);
         }
         return context.getPackageName().equals(str);
     }
 
     public static int b(Context context, String str) {
-        ApplicationInfo m453a = m453a(context, str);
-        if (m453a != null) {
-            int i = m453a.icon;
-            return i == 0 ? m453a.logo : i;
+        ApplicationInfo m508a = m508a(context, str);
+        if (m508a != null) {
+            int i = m508a.icon;
+            return i == 0 ? m508a.logo : i;
         }
         return 0;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m459b(Context context, String str) {
+    public static String m514b(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -236,7 +236,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m460b(Context context, String str) {
+    public static boolean m515b(Context context, String str) {
         a aVar = a;
         return aVar != null && aVar.b(context, str);
     }

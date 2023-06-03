@@ -6,13 +6,13 @@ import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
 import com.baidu.searchbox.network.outback.core.internal.Util;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostStringRequest extends Request {
     public PostStringRequest(PostStringRequestBuilder postStringRequestBuilder) {
         super(postStringRequestBuilder);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PostStringRequestBuilder extends Request.Builder<PostStringRequestBuilder> {
         public static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
         public String content;

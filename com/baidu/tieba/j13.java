@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j13 {
+public class j13 extends l13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final j13 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<l13> a;
-    public final Map<String, l13> b;
-    public boolean c;
-    public i13 d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,161 +34,66 @@ public class j13 {
                 return;
             }
         }
-        e = qp1.a;
-        f = new j13();
+        boolean z = is1.a;
     }
 
-    public static j13 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (j13) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = true;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "done");
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "reset");
-            }
-        }
-    }
-
-    public j13() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j13(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new HashMap();
-        this.c = false;
     }
 
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // com.baidu.tieba.l13
+    public boolean a(g13 g13Var, i13 i13Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{g13Var, i13Var, context, unitedSchemeEntity, callbackHandler, yb3Var})) == null) {
+            y82.i("vrvideo", "open, video id:" + i13Var.j + " slave id: " + i13Var.c);
+            d(g13Var, i13Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        JSONArray e2 = e();
-        if (e2 != null && e2.length() > 0) {
-            hybridUbcFlow.D("ma_update_recorder", e2.toString());
-        }
-        c();
+        return invokeCommon.booleanValue;
     }
 
-    public void h(i13 i13Var) {
+    @Override // com.baidu.tieba.l13
+    public g13 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, i13Var) == null) {
-            this.d = i13Var;
-        }
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
                 return null;
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            wy2 f = xy2.f(str, str2, str3);
+            if (f == null) {
+                return new g13(context, i13.h(jSONObject, new i13()));
             }
-            if (TextUtils.isEmpty(str)) {
+            if (!(f.i() instanceof g13)) {
                 return null;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
-            l13 l13Var = new l13(str);
-            l13Var.a(currentTimeMillis);
-            synchronized (this.a) {
-                this.b.put(str2, l13Var);
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
-                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
-            }
-            return str2;
+            return (g13) f.i();
         }
-        return (String) invokeL.objValue;
+        return (g13) invokeLLLLL.objValue;
     }
 
-    public void d(String str) {
+    public final void d(g13 g13Var, i13 i13Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, g13Var, i13Var, unitedSchemeEntity, callbackHandler) == null) {
+            g13Var.g(i13Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.a) {
-            l13 l13Var = this.b.get(str);
-            if (l13Var != null) {
-                l13Var.c(currentTimeMillis);
-                this.a.add(l13Var);
-                this.b.remove(str);
-            }
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
-        }
-    }
-
-    public final JSONArray e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (l13 l13Var : this.a) {
-                        if (l13Var != null && (this.d == null || this.d.a(l13Var))) {
-                            jSONArray.put(l13Var.d());
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (e) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", jSONArray.toString());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

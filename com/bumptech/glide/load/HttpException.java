@@ -2,7 +2,7 @@ package com.bumptech.glide.load;
 
 import androidx.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HttpException extends IOException {
     public static final int UNKNOWN = -1;
     public static final long serialVersionUID = 1;

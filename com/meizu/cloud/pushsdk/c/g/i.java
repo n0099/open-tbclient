@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class i implements d {
     public final b a;
     public final m b;

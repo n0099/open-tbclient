@@ -1,40 +1,92 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 /* loaded from: classes7.dex */
 public class t80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
 
-    public t80() {
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            DisplayMetrics c = c(context);
+            if (c != null) {
+                return c.densityDpi;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            DisplayMetrics c = c(context);
+            if (c != null) {
+                return c.heightPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static DisplayMetrics c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return context.getResources().getDisplayMetrics();
+        }
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            DisplayMetrics c = c(context);
+            if (c != null) {
+                return c.widthPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "unknown";
             }
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            int d = d(context);
+            int b = b(context);
+            int a = a(context);
+            String f = f(context);
+            return d + "_" + b + "_android_" + f + "_" + a;
+        }
+        return (String) invokeL.objValue;
     }
 }

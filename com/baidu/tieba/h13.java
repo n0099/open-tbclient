@@ -1,110 +1,109 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
+import com.facebook.imageutils.JfifUtil;
+import com.qq.e.comm.adevent.AdEventType;
+import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class h13 {
+/* loaded from: classes6.dex */
+public class h13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Integer> b;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements d13 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
-
-        public a(Function1 function1, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770815, "Lcom/baidu/tieba/h13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = function1;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.d13
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray a = h13.a();
-                if (a != null && a.length() != 0) {
-                    int length = a.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, a.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
-                }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770815, "Lcom/baidu/tieba/h13;");
+                return;
             }
         }
+        HashMap<String, Integer> hashMap = new HashMap<>(16);
+        a = hashMap;
+        hashMap.put("VRModeProjectionSphere", 201);
+        a.put("VRModeProjectionDome180", 202);
+        a.put("VRModeProjectionDome230", 203);
+        a.put("VRModeProjectionDome180Upper", 204);
+        a.put("VRModeProjectionDome230Upper", 205);
+        a.put("VRModeProjectionPlaneFit", 207);
+        a.put("VRModeProjectionPlaneCrop", 208);
+        a.put("VRModeProjectionPlaneFull", 209);
+        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        a.put("VRModeProjectionMultiFishEyeVertical", Integer.valueOf((int) AdEventType.VIDEO_LOADING));
+        a.put("VRModeProjectionStereoSphereHorizontal", Integer.valueOf((int) AdEventType.VIDEO_PRELOADED));
+        a.put("VRModeProjectionStereoSphereVertical", Integer.valueOf((int) AdEventType.VIDEO_PRELOAD_ERROR));
+        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
+        a.put("VRModeProjectionPlaneFullVertical", 217);
+        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
+        b = hashMap2;
+        hashMap2.put("VRModeDisplayNormal", 101);
+        b.put("VRModeDisplayGlass", 102);
+        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
+        c = hashMap3;
+        hashMap3.put("VRModeInteractiveMotion", 1);
+        c.put("VRModeInteractiveTouch", 2);
+        c.put("VRModeInteractiveMotionWithTouch", 3);
+        c.put("VRModeInteractiveGVRMotion", 4);
+        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
-    public static final /* synthetic */ JSONArray a() {
-        return c();
-    }
-
-    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+    public h13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            c13.g().z(new a(function1, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static final JSONArray c() {
-        InterceptResult invokeV;
-        boolean z;
+    public h13 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            g93 b0 = g93.b0();
-            if (b0 == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            h13 h13Var = new h13();
+            if (jSONObject == null) {
+                return h13Var;
             }
-            String q = b0.e0().q("note_data_pay_check_list", "");
-            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
-                z = false;
-            } else {
-                z = true;
+            String optString = jSONObject.optString("projectionMode");
+            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
+                a.get(optString).intValue();
             }
-            if (z) {
-                return null;
+            String optString2 = jSONObject.optString("displayMode");
+            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
+                b.get(optString2).intValue();
             }
-            return new JSONObject(q).optJSONArray("pay_keys");
+            String optString3 = jSONObject.optString("interactiveMode");
+            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
+                c.get(optString3).intValue();
+            }
+            jSONObject.optInt("fov", -1);
+            jSONObject.optInt("minFov", -1);
+            jSONObject.optInt("maxFov", -1);
+            jSONObject.optBoolean("pinchEnable", true);
+            return h13Var;
         }
-        return (JSONArray) invokeV.objValue;
+        return (h13) invokeL.objValue;
     }
 }

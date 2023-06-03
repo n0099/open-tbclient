@@ -11,7 +11,7 @@ import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.memory.PoolFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HoneycombBitmapCreator implements BitmapCreator {
     public final FlexByteArrayPool mFlexByteArrayPool;
     public final EmptyJpegGenerator mJpegGenerator;

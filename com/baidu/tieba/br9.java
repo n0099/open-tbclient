@@ -1,90 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.common.config.AppIdentityManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class br9 extends ThreadData {
+public class br9 implements IDeviceInfoAppHost {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public p15 a;
-    public s15 b;
-    public boolean c;
+    public IDeviceInfoAppHost.OAIDResult a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654720, "Lcom/baidu/tieba/br9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947654720, "Lcom/baidu/tieba/br9;");
-                return;
-            }
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    public long getForceMappingCacheInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 86400000L;
         }
-        d = BdUniqueId.gen();
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    public boolean useMapping() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public br9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = false;
     }
 
-    public p15 c() {
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return AppIdentityManager.getInstance().getAppName();
         }
-        return (p15) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public s15 d() {
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getEnUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                return AppCuidRuntime.getAppCuidManager().getEnCuid();
+            }
+            return "";
         }
-        return (s15) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean e() {
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public String getUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return xi.l();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
+    @NonNull
+    public static String a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                return new u50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(str.getBytes());
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
+    @NonNull
+    public IDeviceInfoAppHost.OAIDResult getOAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d;
+            IDeviceInfoAppHost.OAIDResult oAIDResult = this.a;
+            if (oAIDResult != null) {
+                return oAIDResult;
+            }
+            if (PermissionUtil.isBrowseMode()) {
+                IDeviceInfoAppHost.OAIDResult oAIDResult2 = new IDeviceInfoAppHost.OAIDResult(true, "", "");
+                this.a = oAIDResult2;
+                return oAIDResult2;
+            }
+            String g = j30.f(AppRuntime.getAppContext()).g();
+            IDeviceInfoAppHost.OAIDResult oAIDResult3 = new IDeviceInfoAppHost.OAIDResult(true, g, a(g));
+            this.a = oAIDResult3;
+            return oAIDResult3;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (IDeviceInfoAppHost.OAIDResult) invokeV.objValue;
     }
 }

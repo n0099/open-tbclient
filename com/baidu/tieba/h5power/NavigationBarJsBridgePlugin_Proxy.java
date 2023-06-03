@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.ms9;
-import com.baidu.tieba.xv4;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.sl6;
+import com.baidu.tieba.uy9;
+import com.baidu.tieba.wy9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,18 +18,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class NavigationBarJsBridgePlugin_Proxy extends is9 {
+/* loaded from: classes6.dex */
+public class NavigationBarJsBridgePlugin_Proxy extends uy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xv4 mJsBridge;
+    public py4 mJsBridge;
 
-    public NavigationBarJsBridgePlugin_Proxy(xv4 xv4Var) {
+    public NavigationBarJsBridgePlugin_Proxy(py4 py4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xv4Var};
+            Object[] objArr = {py4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,49 +39,49 @@ public class NavigationBarJsBridgePlugin_Proxy extends is9 {
                 return;
             }
         }
-        this.mJsBridge = xv4Var;
+        this.mJsBridge = py4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.is9
-    public ks9 dispatch(WebView webView, ms9 ms9Var, ks9 ks9Var) {
+    @Override // com.baidu.tieba.uy9
+    public wy9 dispatch(WebView webView, yy9 yy9Var, wy9 wy9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ms9Var, ks9Var)) == null) {
-            if (ks9Var == null) {
-                ks9Var = new ks9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, yy9Var, wy9Var)) == null) {
+            if (wy9Var == null) {
+                wy9Var = new wy9();
             }
-            String b = ms9Var.b();
-            ms9Var.e();
+            String b = yy9Var.b();
+            yy9Var.e();
             if (b.equals("navigationBar/isDisableGoBack")) {
-                ks9Var.s(true);
-                ks9 c = this.mJsBridge.c(webView);
+                wy9Var.s(true);
+                wy9 c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    ks9Var.y(c.f());
-                    ks9Var.u(c.b());
-                    ks9Var.o(c.a());
-                    ks9Var.x(c.e());
+                    wy9Var.y(c.f());
+                    wy9Var.u(c.b());
+                    wy9Var.o(c.a());
+                    wy9Var.x(c.e());
                 }
-                ks9Var.z(0);
+                wy9Var.z(0);
             }
-            return ks9Var;
+            return wy9Var;
         }
-        return (ks9) invokeLLL.objValue;
+        return (wy9) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.is9
-    public kh6 getJsBridge() {
+    @Override // com.baidu.tieba.uy9
+    public sl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (kh6) invokeV.objValue;
+        return (sl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.is9
-    public List<ks9> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.uy9
+    public List<wy9> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

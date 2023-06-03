@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public final class z81 {
-    public static /* synthetic */ Interceptable $ic;
-    public static p61 a;
-    public static c91 b;
-    public static r61 c;
-    public static b91 d;
+public class z81 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,38 +31,42 @@ public final class z81 {
         }
     }
 
-    public z81() {
+    public static double a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1.0d - ((((Color.red(i) * 0.299d) + (Color.green(i) * 0.587d)) + (Color.blue(i) * 0.114d)) / 255.0d);
+        }
+        return invokeI.doubleValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a(i) >= 0.3d) {
+                return true;
             }
+            return false;
         }
+        return invokeI.booleanValue;
     }
 
-    @JvmStatic
-    public static final Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b2 = bj0.b();
-            Intrinsics.checkNotNullExpressionValue(b2, "AdRuntime.applicationContext()");
-            return b2;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final boolean b() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (vm0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) != 1) {
+            int i = a;
+            if (i >= 0) {
+                if (i != 1) {
+                    return false;
+                }
+                return true;
+            }
+            if ("Xiaomi".equals(cl0.c().g(true))) {
+                a = 1;
+            }
+            if (a != 1) {
                 return false;
             }
             return true;
@@ -76,100 +74,57 @@ public final class z81 {
         return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean f() {
-        InterceptResult invokeV;
+    @TargetApi(21)
+    public static void d(Window window, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (vm0.b().a().a("nairobi_kernel_type", u71.b()) == u71.b()) {
-                return true;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i) == null) && window != null) {
+            try {
+                if (c()) {
+                    if (e(window, !b(i))) {
+                        window.setStatusBarColor(i);
+                    }
+                } else {
+                    if (i == -16777216 && window.getNavigationBarColor() == -16777216) {
+                        window.clearFlags(Integer.MIN_VALUE);
+                    } else {
+                        window.addFlags(Integer.MIN_VALUE);
+                        int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+                        if (b(i)) {
+                            i2 = systemUiVisibility & (-8193);
+                        } else {
+                            i2 = systemUiVisibility | 8192;
+                        }
+                        window.getDecorView().setSystemUiVisibility(i2);
+                    }
+                    window.setStatusBarColor(i);
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static boolean e(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i));
+                    }
+                    return true;
+                } catch (Exception unused) {
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final b91 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                synchronized (z81.class) {
-                    if (d == null) {
-                        d = (b91) ServiceManager.getService(b91.a);
-                    }
-                    if (d == null) {
-                        d = b91.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
-                }
-            }
-            return d;
-        }
-        return (b91) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final r61 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (z81.class) {
-                    if (c == null) {
-                        c = (r61) ServiceManager.getService(r61.a);
-                    }
-                    if (c == null) {
-                        c = r61.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
-                }
-            }
-            return c;
-        }
-        return (r61) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final p61 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a == null) {
-                synchronized (z81.class) {
-                    if (a == null) {
-                        a = (p61) ServiceManager.getService(p61.a);
-                    }
-                    if (a == null) {
-                        a = p61.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
-                }
-            }
-            return a;
-        }
-        return (p61) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final c91 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == null) {
-                synchronized (z81.class) {
-                    if (b == null) {
-                        b = (c91) ServiceManager.getService(c91.a);
-                    }
-                    if (b == null) {
-                        b = c91.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
-                }
-            }
-            return b;
-        }
-        return (c91) invokeV.objValue;
+        return invokeLZ.booleanValue;
     }
 }

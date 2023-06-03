@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_LINK = "";
@@ -40,8 +40,6 @@ public final class MsgInfo extends Message {
     public final ImShareChatroomInfo shareChatroomInfo;
     @ProtoField(tag = 28)
     public final ImCommonShareInfo shareInfo;
-    @ProtoField(tag = 26)
-    public final UserInfo shareUserInfo;
     @ProtoField(tag = 17, type = Message.Datatype.INT64)
     public final Long sid;
     @ProtoField(tag = 20, type = Message.Datatype.STRING)
@@ -79,7 +77,7 @@ public final class MsgInfo extends Message {
     public static final Integer DEFAULT_RELATION = 0;
     public static final Integer DEFAULT_ISRENDERSTLOG = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer createTime;
@@ -97,7 +95,6 @@ public final class MsgInfo extends Message {
         public Long serviceId;
         public ImShareChatroomInfo shareChatroomInfo;
         public ImCommonShareInfo shareInfo;
-        public UserInfo shareUserInfo;
         public Long sid;
         public String stExt;
         public String stat;
@@ -141,7 +138,6 @@ public final class MsgInfo extends Message {
             this.relation = msgInfo.relation;
             this.threadInfo = msgInfo.threadInfo;
             this.isRenderStlog = msgInfo.isRenderStlog;
-            this.shareUserInfo = msgInfo.shareUserInfo;
             this.shareChatroomInfo = msgInfo.shareChatroomInfo;
             this.shareInfo = msgInfo.shareInfo;
         }
@@ -280,7 +276,6 @@ public final class MsgInfo extends Message {
             } else {
                 this.isRenderStlog = num8;
             }
-            this.shareUserInfo = builder.shareUserInfo;
             this.shareChatroomInfo = builder.shareChatroomInfo;
             this.shareInfo = builder.shareInfo;
             return;
@@ -309,7 +304,6 @@ public final class MsgInfo extends Message {
         this.relation = builder.relation;
         this.threadInfo = builder.threadInfo;
         this.isRenderStlog = builder.isRenderStlog;
-        this.shareUserInfo = builder.shareUserInfo;
         this.shareChatroomInfo = builder.shareChatroomInfo;
         this.shareInfo = builder.shareInfo;
     }

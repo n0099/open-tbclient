@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -53,7 +53,7 @@ public class SapiSystemBarTintManager {
             }
             this.e = z3;
             this.f = a(activity);
-            this.a = a(resources, g);
+            this.a = a(resources, "status_bar_height");
             this.c = a((Context) activity);
             this.d = b(activity);
             this.b = this.c > 0;
@@ -75,7 +75,7 @@ public class SapiSystemBarTintManager {
         private int b(Context context) {
             Resources resources = context.getResources();
             if (Build.VERSION.SDK_INT >= 14 && c(context)) {
-                return a(resources, j);
+                return a(resources, "navigation_bar_width");
             }
             return 0;
         }
@@ -86,9 +86,9 @@ public class SapiSystemBarTintManager {
             Resources resources = context.getResources();
             if (Build.VERSION.SDK_INT >= 14 && c(context)) {
                 if (this.e) {
-                    str = h;
+                    str = "navigation_bar_height";
                 } else {
-                    str = i;
+                    str = "navigation_bar_height_landscape";
                 }
                 return a(resources, str);
             }
@@ -106,7 +106,7 @@ public class SapiSystemBarTintManager {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(k, "bool", "android");
+            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(SapiSystemBarTintManager.g)) {
@@ -165,16 +165,16 @@ public class SapiSystemBarTintManager {
         Window window = activity.getWindow();
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (Build.VERSION.SDK_INT >= 19) {
-            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
+            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{SystemBarTintManager.windowTranslucentStatus, SystemBarTintManager.windowTranslucentNavigation});
             try {
                 this.b = obtainStyledAttributes.getBoolean(0, false);
                 this.c = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                if ((attributes.flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0) {
+                if ((attributes.flags & 67108864) != 0) {
                     this.b = true;
                 }
-                if ((attributes.flags & 134217728) != 0) {
+                if ((attributes.flags & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0) {
                     this.c = true;
                 }
             } catch (Throwable th) {

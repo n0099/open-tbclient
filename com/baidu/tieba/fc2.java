@@ -1,187 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fc2 extends gc2 {
+public final class fc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean D;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<bc2> a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.kc2
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759252, "Lcom/baidu/tieba/fc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947759252, "Lcom/baidu/tieba/fc2;");
-                return;
-            }
-        }
-        D = qp1.a;
-    }
-
-    @Override // com.baidu.tieba.bh4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            if (this.n != null) {
-                u0();
-                H0("checkForUpdate", false);
-                wc2.c(this.o);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gc2
-    public PMSDownloadType k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return PMSDownloadType.ASYNC;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc2(String str) {
-        super(str);
+    public fc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
-    public void C(ai4 ai4Var) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ai4Var) == null) {
-            super.C(ai4Var);
-            if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + ai4Var.toString());
-            }
-            H0("checkForUpdate", false);
-            m0(ai4Var.a);
-            if (wc2.m(ai4Var)) {
-                wc2.c(this.o);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
-    public void G(om4 om4Var) {
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om4Var) == null) {
-            super.G(om4Var);
-            if (om4Var != null && om4Var.f()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            H0("checkForUpdate", z);
-        }
-    }
-
-    @Override // com.baidu.tieba.bh4
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            super.H(str, i);
-            li4 a = li4.a(str);
-            if (a == null) {
-                return;
-            }
-            boolean b = nm4.b(a.c());
-            g62.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
-            if (b) {
-                w53 e = w53.e();
-                y53 y53Var = new y53(129);
-                y53Var.f(true);
-                e.h(y53Var);
-            }
-        }
-    }
-
-    public final void H0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
-            return;
-        }
-        ic2.f(str, this.o, z);
-    }
-
-    @Override // com.baidu.tieba.gc2
-    public void v0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.v0();
-            this.p.add(new UbcFlowEvent("na_start_update_db"));
-            zk3 F0 = F0();
-            this.p.add(new UbcFlowEvent("na_end_update_db"));
-            if (F0 == null) {
-                if (D) {
-                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String g = mo3.g(System.currentTimeMillis(), "【HH:mm:ss】");
+            List<bc2> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                int i = 0;
+                int i2 = 0;
+                int i3 = 0;
+                for (bc2 bc2Var : this.a) {
+                    if (bc2Var.c()) {
+                        i++;
+                        if (bc2Var.b()) {
+                            i2++;
+                        } else {
+                            i3++;
+                        }
+                    }
                 }
-                H0("updateReady", true);
-                A0("main_async_download", "0");
-                wc2.c(this.o);
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
+                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             }
+            return String.format("\n%s jserror：共0个；", g);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(List<bc2> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+            this.a = list;
         }
     }
 
-    @Override // com.baidu.tieba.gc2
-    public void w0(Throwable th) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
-            H0("updateFailed", false);
-            if (th instanceof PkgDownloadError) {
-                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
-                if (D) {
-                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
-                }
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
     }
 }

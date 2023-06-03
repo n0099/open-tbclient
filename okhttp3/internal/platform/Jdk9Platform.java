@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Jdk9Platform extends Platform {
     public final Method getProtocolMethod;
     public final Method setProtocolMethod;

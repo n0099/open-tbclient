@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GETTYPE = "";
     public static final String DEFAULT_MAX_TIME = "";
@@ -44,7 +44,7 @@ public final class DataReq extends Message {
     public static final List<GroupLastId> DEFAULT_GROUPMIDS = Collections.emptyList();
     public static final Long DEFAULT_NOTIFY_MSG_ID = 0L;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String gettype;
         public List<GroupLastId> groupMids;

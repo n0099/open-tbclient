@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.util.devices.DeviceUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,19 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class m20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public boolean a;
+    public String b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        l20 a();
-    }
-
-    public m20(a aVar) {
+    public m20() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,12 +29,38 @@ public class m20 {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = false;
+        this.b = "";
     }
 
-    public l20 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (l20) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.a) {
+                StringBuilder sb = new StringBuilder();
+                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
+                    sb.append("BDOS/1.0");
+                    sb.append(" ");
+                    sb.append("(");
+                    sb.append("HarmonyOS");
+                    sb.append(" ");
+                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
+                    if (TextUtils.isEmpty(harmonyVersion)) {
+                        harmonyVersion = "0.0";
+                    }
+                    sb.append(harmonyVersion);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                }
+                String sb2 = sb.toString();
+                this.b = sb2;
+                if (!TextUtils.isEmpty(sb2)) {
+                    this.b = o20.a(this.b);
+                }
+                this.a = true;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

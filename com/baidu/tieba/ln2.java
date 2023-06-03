@@ -1,27 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class ln2 extends an2<gn2> {
+public class ln2 extends kn2<fn2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.an2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showsoftkeyboard" : (String) invokeV.objValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ln2() {
+        super(new fn2());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,22 +22,43 @@ public class ln2 extends an2<gn2> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((hn2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gn2 gn2Var) {
+    @Override // com.baidu.tieba.kn2
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gn2Var) == null) {
-            int i = command.arg1;
-            String str = command.what;
-            d(gn2Var, str, "Type:" + i, false);
-            gn2Var.z0(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (r(h().extensionCorePath) && !super.k()) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            y82.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str, "extension.js");
+            if (file.exists() && file.length() > 0) {
+                z = true;
+            }
+            y82.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

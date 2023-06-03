@@ -1,24 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import com.baidu.tieba.wn4;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xn4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(LayoutInflater layoutInflater, yn4 yn4Var) {
-        wn4.a aVar;
+    public xn4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, yn4Var) == null) {
-            if (yn4Var != null) {
-                aVar = new wn4.a(yn4Var);
-            } else {
-                aVar = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            layoutInflater.setFactory2(aVar);
+        }
+    }
+
+    public static xn4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (xn4.class) {
+                    if (a == null) {
+                        a = new xn4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (xn4) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (jj4.b() == null) {
+                return "0";
+            }
+            return jj4.b().i().getString("local_debug_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && jj4.b() != null) {
+            jj4.b().i().putString("local_debug_version", optString);
+            jj4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
+            jj4.b().i().putString("error_url", optJSONObject.optString("error_url"));
+            jj4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
         }
     }
 }

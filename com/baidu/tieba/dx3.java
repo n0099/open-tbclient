@@ -1,91 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tieba.ex3;
+import com.baidu.tieba.bx3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dx3 implements ex3.a {
+public final class dx3 extends bx3.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final dx3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final lx3 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
-    }
-
-    public dx3(ExecutorService executorService, lx3 lx3Var, DownloadInfo downloadInfo, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, lx3Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719882, "Lcom/baidu/tieba/dx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719882, "Lcom/baidu/tieba/dx3;");
                 return;
             }
         }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = lx3Var;
-        this.c = downloadInfo;
-        this.d = aVar;
+        b = new dx3();
     }
 
-    @Override // com.baidu.tieba.ex3.a
-    public void a() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public dx3() {
+        super(r0);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(yy3.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((bx3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ex3.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
-            synchronized (this) {
-                if (!this.f.get()) {
-                    this.f.set(true);
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.e > 1000) {
-                        this.b.b(this.c);
-                        this.e = currentTimeMillis;
-                    }
-                    this.f.set(false);
-                }
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new ex3(this.b, this.c, this));
-        }
+        bx3 a = cx3.a();
+        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
     }
 }

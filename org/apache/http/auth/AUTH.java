@@ -1,6 +1,6 @@
 package org.apache.http.auth;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class AUTH {
     public static final String PROXY_AUTH = "Proxy-Authenticate";
     public static final String PROXY_AUTH_RESP = "Proxy-Authorization";

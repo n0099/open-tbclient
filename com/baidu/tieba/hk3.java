@@ -1,145 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class hk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
 
-    public static WifiConfiguration a(ek3 ek3Var) {
+    public hk3(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.d = str3;
+    }
+
+    public static Bundle a(String str, int i, String str2, String str3) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("bundle_sp_name_key", str);
+            bundle.putString("bundle_prefs_key", str2);
+            bundle.putInt("bundle_data_type_key", i);
+            bundle.putString("bundle_data_value_key", str3);
+            return bundle;
+        }
+        return (Bundle) invokeLILL.objValue;
+    }
+
+    public static hk3 b(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ek3Var)) == null) {
-            int b = ik3.b(ek3Var);
-            if (!f(ek3Var.a)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
+            if (bundle.isEmpty()) {
                 return null;
             }
-            WifiConfiguration wifiConfiguration = new WifiConfiguration();
-            wifiConfiguration.SSID = "\"" + ek3Var.a + "\"";
-            if (!TextUtils.isEmpty(ek3Var.b)) {
-                wifiConfiguration.BSSID = ek3Var.b;
-            }
-            if (b != 0) {
-                if (b != 1) {
-                    if (b != 2) {
-                        if (b == 3) {
-                            ik3.d(wifiConfiguration, 3);
-                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                            wifiEnterpriseConfig.setEapMethod(0);
-                            wifiEnterpriseConfig.setIdentity(ek3Var.c);
-                            wifiEnterpriseConfig.setPassword(ek3Var.d);
-                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                        }
-                    } else {
-                        ik3.d(wifiConfiguration, 2);
-                        wifiConfiguration.preSharedKey = "\"" + ek3Var.d + "\"";
-                    }
-                } else {
-                    ik3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + ek3Var.d + "\"";
-                }
-            } else {
-                ik3.d(wifiConfiguration, 0);
-            }
-            return wifiConfiguration;
+            return new hk3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
-        return (WifiConfiguration) invokeL.objValue;
+        return (hk3) invokeL.objValue;
     }
 
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
         }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, ek3 ek3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, ek3Var)) == null) {
-            if (ek3Var != null && f(ek3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), ek3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
-            try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                g62.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
-                int i = length - 1;
-                if (str.charAt(i) == '\"') {
-                    return str.substring(1, i);
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
-                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -29,7 +29,7 @@ import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WbShareTransActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

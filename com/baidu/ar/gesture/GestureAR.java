@@ -9,6 +9,7 @@ import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class GestureAR extends c {
     public GestureDetector qp;
 
     private void a(Bundle bundle, HashMap<String, Object> hashMap) {
-        bundle.putString(HttpConstants.FUNCTION_TYPE, com.baidu.ar.arplay.c.c.a(hashMap.get(HttpConstants.FUNCTION_TYPE), "gesture"));
+        bundle.putString(HttpConstants.FUNCTION_TYPE, com.baidu.ar.arplay.c.c.a(hashMap.get(HttpConstants.FUNCTION_TYPE), AppFrameworkConstants.VALUE_GESTURE_BACK));
         Map map = (Map) hashMap.get(WriteVoteActivityConfig.EXTRA_DATA_KEY);
         if (map == null || map.isEmpty()) {
             return;

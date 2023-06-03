@@ -9,9 +9,9 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.xj1;
+import com.baidu.tieba.gl1;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PerfFrameContext {
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT = new IPerfFrameCallBack() { // from class: com.baidu.searchbox.perfframe.impl.PerfFrameContext.1
         @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack
@@ -19,7 +19,7 @@ public class PerfFrameContext {
             if (AppConfig.isDebug()) {
                 Log.d("PerfFrame", "onPerfFrameCallBack");
             }
-            xj1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
+            gl1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
             if (perfFrameRegister != null && perfFrameRegister.getList() != null && perfExpInfo != null) {
                 if (AppConfig.isDebug()) {
                     Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());

@@ -1,99 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ry2 extends ty2 {
+public class ry2 implements x13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public double a;
+    public double b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137886, "Lcom/baidu/tieba/ry2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948137886, "Lcom/baidu/tieba/ry2;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ry2(String str) {
-        super(str);
+    public ry2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = -200.0d;
+        this.b = -200.0d;
     }
 
-    @Override // com.baidu.tieba.ty2
-    public boolean a(oy2 oy2Var, qy2 qy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{oy2Var, qy2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
-            g62.i("vrvideo", "open, video id:" + qy2Var.j + " slave id: " + qy2Var.c);
-            d(oy2Var, qy2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
+            this.a = jSONObject.optDouble("latitude", this.a);
+            this.b = jSONObject.optDouble("longitude", this.b);
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ty2
-    public oy2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.x13
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            double d = this.a;
+            if (d >= -90.0d && d <= 90.0d) {
+                double d2 = this.b;
+                if (d2 >= -180.0d && d2 <= 180.0d) {
+                    return true;
+                }
             }
-            ew2 f = fw2.f(str, str2, str3);
-            if (f == null) {
-                return new oy2(context, qy2.h(jSONObject, new qy2()));
-            }
-            if (!(f.i() instanceof oy2)) {
-                return null;
-            }
-            return (oy2) f.i();
+            return false;
         }
-        return (oy2) invokeLLLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void d(oy2 oy2Var, qy2 qy2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, oy2Var, qy2Var, unitedSchemeEntity, callbackHandler) == null) {
-            oy2Var.g(qy2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "[latitude：" + this.a + "longitude：" + this.b + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

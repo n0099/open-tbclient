@@ -12,8 +12,19 @@ public class c {
         this.a = i;
     }
 
+    public void a(e eVar) {
+        this.b.add(eVar);
+    }
+
     public int a() {
         return this.a;
+    }
+
+    public void b() {
+        ArrayList<e> arrayList = this.b;
+        if (arrayList != null) {
+            arrayList.clear();
+        }
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -32,16 +43,5 @@ public class c {
             }
         }
         return jSONObject;
-    }
-
-    public void a(e eVar) {
-        this.b.add(eVar);
-    }
-
-    public void b() {
-        ArrayList<e> arrayList = this.b;
-        if (arrayList != null) {
-            arrayList.clear();
-        }
     }
 }

@@ -5,13 +5,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SymbolEMTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,10 +103,10 @@ public class SymbolEMTextView extends EMTextView {
             String substring = charSequence.substring(charSequence.length() - 1);
             int measuredWidth = getMeasuredWidth() * getLineCount();
             while (true) {
-                if (a(charSequence + StringHelper.STRING_MORE + substring) > measuredWidth) {
+                if (a(charSequence + "..." + substring) > measuredWidth) {
                     charSequence = charSequence.substring(0, charSequence.length() - 1);
                 } else {
-                    setText(charSequence + StringHelper.STRING_MORE + substring);
+                    setText(charSequence + "..." + substring);
                     return;
                 }
             }

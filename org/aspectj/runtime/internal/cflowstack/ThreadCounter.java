@@ -1,5 +1,5 @@
 package org.aspectj.runtime.internal.cflowstack;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ThreadCounter {
     void dec();
 

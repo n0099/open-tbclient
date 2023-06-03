@@ -41,7 +41,7 @@ public class cp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m274a() {
+    public JSONObject m329a() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("cost", this.f181a);
         jSONObject.put("size", this.c);

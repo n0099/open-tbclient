@@ -1,84 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class vm0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static an0 a;
-    public static ym0 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vm0 {
+    void a(int i, long j, long j2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948245456, "Lcom/baidu/tieba/vm0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948245456, "Lcom/baidu/tieba/vm0;");
-        }
-    }
+    void b(long j, File file);
 
-    public vm0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void c(int i, int i2);
 
-    public static ym0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (vm0.class) {
-                    if (b == null) {
-                        b = (ym0) ServiceManager.getService(ym0.a);
-                    }
-                    if (b == null) {
-                        b = ym0.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (ym0) invokeV.objValue;
-    }
+    void d(@Nullable hm0 hm0Var);
 
-    public static an0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (vm0.class) {
-                    if (a == null) {
-                        a = (an0) ServiceManager.getService(an0.a);
-                    }
-                    if (a == null) {
-                        a = an0.b;
-                    }
-                }
-            }
-            return a;
-        }
-        return (an0) invokeV.objValue;
-    }
+    void onSuccess(int i);
 }

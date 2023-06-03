@@ -1,164 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes6.dex */
-public final class os2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class os2 extends ps2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static ru2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new f74();
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ bt2 b;
+
+        public a(os2 os2Var, List list, bt2 bt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {os2Var, list, bt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = bt2Var;
         }
-        return (ru2) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (String str : this.a) {
+                    this.b.c(str);
+                }
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static wg2 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public os2(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/addComponentToFullScreenSync");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new p44();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (wg2) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static kq1 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ps2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull bt2 bt2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return rb4.a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, bt2Var, list)) == null) {
+            sp3.a0(new a(this, list, bt2Var));
+            return true;
         }
-        return (kq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static lq1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h64.a();
-        }
-        return (lq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static mq1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new i64();
-        }
-        return (mq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static nq1 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new j64();
-        }
-        return (nq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static oq1 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new k64();
-        }
-        return (oq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static pq1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new a44();
-        }
-        return (pq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static qq1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return f54.a();
-        }
-        return (qq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rq1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return z94.a();
-        }
-        return (rq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static sq1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new zb4();
-        }
-        return (sq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static tq1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return m64.a();
-        }
-        return (tq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vq1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return la4.a();
-        }
-        return (vq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static wq1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return ca4.a();
-        }
-        return (wq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static yq1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return jb4.a();
-        }
-        return (yq1) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

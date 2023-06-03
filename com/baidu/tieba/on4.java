@@ -1,90 +1,120 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class on4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final Object[] b;
+    public static volatile on4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            for (int i2 = 4; i2 < 32; i2++) {
-                int i3 = (1 << i2) - 12;
-                if (i <= i3) {
-                    return i3;
+    /* loaded from: classes7.dex */
+    public static class a extends is4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i;
         }
-        return invokeI.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038004, "Lcom/baidu/tieba/on4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038004, "Lcom/baidu/tieba/on4;");
+    public on4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new int[0];
-        b = new Object[0];
+        this.a = new a();
     }
 
-    public static int a(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static on4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
-            int i3 = i - 1;
-            int i4 = 0;
-            while (i4 <= i3) {
-                int i5 = (i4 + i3) >>> 1;
-                int i6 = iArr[i5];
-                if (i6 < i2) {
-                    i4 = i5 + 1;
-                } else if (i6 > i2) {
-                    i3 = i5 - 1;
-                } else {
-                    return i5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (on4.class) {
+                    if (b == null) {
+                        b = new on4();
+                    }
                 }
             }
-            return ~i4;
+            return b;
         }
-        return invokeLII.intValue;
+        return (on4) invokeV.objValue;
     }
 
-    public static boolean b(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("ceres_info", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("global_info", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public nn4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return true;
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new nn4(optJSONArray, optJSONObject3);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(i * 4) / 4;
-        }
-        return invokeI.intValue;
+        return (nn4) invokeL.objValue;
     }
 }

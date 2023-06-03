@@ -55,7 +55,7 @@ public class FrsNoFullViewPager extends FrsTabViewPager {
         }
     }
 
-    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    @Override // com.baidu.tieba.frs.FrsTabViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {

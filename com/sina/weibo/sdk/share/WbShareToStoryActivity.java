@@ -22,7 +22,7 @@ import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WbShareToStoryActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

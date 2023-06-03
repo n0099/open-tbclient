@@ -1,83 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class de7 {
     public static /* synthetic */ Interceptable $ic;
+    public static de7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public List<rn> d;
-    public boolean e;
-    public int f;
+    public final SparseArray<String> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701747, "Lcom/baidu/tieba/de7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947701747, "Lcom/baidu/tieba/de7;");
+                return;
+            }
+        }
+        b = new de7();
+    }
 
     public de7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
     }
 
-    public int a(List<rn> list) {
-        InterceptResult invokeL;
-        boolean z;
+    public static de7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
-            }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                rn rnVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 < this.d.size()) {
-                        rn rnVar2 = this.d.get(i2);
-                        if (rnVar != null && (rnVar instanceof ce7) && rnVar2 != null && (rnVar2 instanceof ce7)) {
-                            ThreadData threadData = ((ce7) rnVar).getThreadData();
-                            ThreadData threadData2 = ((ce7) rnVar2).getThreadData();
-                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                                z = true;
-                                break;
-                            }
-                        }
-                        i2++;
-                    } else {
-                        z = false;
-                        break;
-                    }
-                }
-                if (!z) {
-                    ListUtils.add(linkedList2, rnVar);
-                }
-            }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeL.intValue;
+        return (de7) invokeV.objValue;
+    }
+
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return !TextUtils.isEmpty(this.a.get(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.put(i, "1");
+        }
     }
 }

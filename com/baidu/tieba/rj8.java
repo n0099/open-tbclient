@@ -1,185 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.lego.indicator.SlidingTabLayout;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import androidx.annotation.CallSuper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rj8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public View b;
-    public TextView c;
-    public SlidingTabLayout d;
-    public Context e;
-    public Animation f;
-    public Animation g;
-    public boolean h;
-    public rg i;
+public interface rj8 {
 
     /* loaded from: classes7.dex */
-    public class a extends rg {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rj8 a;
 
-        public a(rj8 rj8Var) {
+        @CallSuper
+        public static void a(rj8 rj8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeL(65536, null, rj8Var) == null) {
             }
-            this.a = rj8Var;
         }
 
-        @Override // com.baidu.tieba.rg
-        public void a(Animation animation) {
+        @CallSuper
+        public static void b(rj8 rj8Var, int i, int i2, Intent intent) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, animation) != null) || this.a.c == null) {
-                return;
-            }
-            if (animation == this.a.f) {
-                this.a.c.setVisibility(0);
-                this.a.c.setClickable(true);
-            } else if (animation == this.a.g) {
-                this.a.c.setVisibility(8);
-                this.a.c.setClickable(false);
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{rj8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
             }
         }
-    }
 
-    public rj8(Context context, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @CallSuper
+        public static void c(rj8 rj8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65538, null, rj8Var, z) == null) {
             }
         }
-        this.h = true;
-        this.i = new a(this);
-        this.b = view2;
-        this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092272);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092270);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092271);
-    }
 
-    public void h(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (imageView = this.a) != null) {
-            imageView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.startAnimation(f());
-            }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
-        }
-    }
-
-    public final Animation e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_in);
-                this.f = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
-            }
-            return this.f;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public final Animation f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010064);
-                this.g = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
-            }
-            return this.g;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = false;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.setVisibility(0);
-                this.c.startAnimation(e());
-            }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            if (this.h) {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
-            } else {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
-            }
-            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
-            SlidingTabLayout slidingTabLayout = this.d;
-            if (slidingTabLayout != null) {
-                slidingTabLayout.onChangeSkinType(i);
+        @CallSuper
+        public static void d(rj8 rj8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65539, null, rj8Var, i) == null) {
             }
         }
-    }
 
-    public void i(ViewPager viewPager, int i) {
-        SlidingTabLayout slidingTabLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) && (slidingTabLayout = this.d) != null) {
-            slidingTabLayout.setViewPager(viewPager, i);
+        @CallSuper
+        public static boolean e(rj8 rj8Var, int i, KeyEvent event) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, rj8Var, i, event)) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                return false;
+            }
+            return invokeLIL.booleanValue;
+        }
+
+        @CallSuper
+        public static void f(rj8 rj8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65541, null, rj8Var, z) == null) {
+            }
+        }
+
+        @CallSuper
+        public static void g(rj8 rj8Var, int i, String[] permissions, int[] grantResults) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(65542, null, rj8Var, i, permissions, grantResults) == null) {
+                Intrinsics.checkNotNullParameter(permissions, "permissions");
+                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            }
+        }
+
+        public static void h(rj8 rj8Var, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65543, null, rj8Var, outState) == null) {
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @CallSuper
+        public static void i(rj8 rj8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65544, null, rj8Var, z) == null) {
+            }
         }
     }
 }

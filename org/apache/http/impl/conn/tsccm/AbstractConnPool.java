@@ -10,7 +10,7 @@ import org.apache.http.conn.OperatedClientConnection;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.impl.conn.IdleConnectionHandler;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractConnPool implements RefQueueHandler {
     public IdleConnectionHandler idleConnHandler;
     public volatile boolean isShutDown;

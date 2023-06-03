@@ -421,6 +421,28 @@ public class AnimatorInflaterCompat {
         }
     }
 
+    public static void parseAnimatorFromTypeArray(ValueAnimator valueAnimator, TypedArray typedArray, TypedArray typedArray2, float f, XmlPullParser xmlPullParser) {
+        long namedInt = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "duration", 1, 300);
+        long namedInt2 = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "startOffset", 2, 0);
+        int namedInt3 = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "valueType", 7, 4);
+        if (TypedArrayUtils.hasAttribute(xmlPullParser, "valueFrom") && TypedArrayUtils.hasAttribute(xmlPullParser, "valueTo")) {
+            if (namedInt3 == 4) {
+                namedInt3 = inferValueTypeFromValues(typedArray, 5, 6);
+            }
+            PropertyValuesHolder pvh = getPVH(typedArray, namedInt3, 5, 6, "");
+            if (pvh != null) {
+                valueAnimator.setValues(pvh);
+            }
+        }
+        valueAnimator.setDuration(namedInt);
+        valueAnimator.setStartDelay(namedInt2);
+        valueAnimator.setRepeatCount(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "repeatCount", 3, 0));
+        valueAnimator.setRepeatMode(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "repeatMode", 4, 1));
+        if (typedArray2 != null) {
+            setupObjectAnimator(valueAnimator, typedArray2, namedInt3, f, xmlPullParser);
+        }
+    }
+
     public static void setupObjectAnimator(ValueAnimator valueAnimator, TypedArray typedArray, int i, float f, XmlPullParser xmlPullParser) {
         ObjectAnimator objectAnimator = (ObjectAnimator) valueAnimator;
         String namedString = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "pathData", 1);
@@ -613,28 +635,6 @@ public class AnimatorInflaterCompat {
             }
         }
         return propertyValuesHolderArr;
-    }
-
-    public static void parseAnimatorFromTypeArray(ValueAnimator valueAnimator, TypedArray typedArray, TypedArray typedArray2, float f, XmlPullParser xmlPullParser) {
-        long namedInt = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "duration", 1, 300);
-        long namedInt2 = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "startOffset", 2, 0);
-        int namedInt3 = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "valueType", 7, 4);
-        if (TypedArrayUtils.hasAttribute(xmlPullParser, "valueFrom") && TypedArrayUtils.hasAttribute(xmlPullParser, "valueTo")) {
-            if (namedInt3 == 4) {
-                namedInt3 = inferValueTypeFromValues(typedArray, 5, 6);
-            }
-            PropertyValuesHolder pvh = getPVH(typedArray, namedInt3, 5, 6, "");
-            if (pvh != null) {
-                valueAnimator.setValues(pvh);
-            }
-        }
-        valueAnimator.setDuration(namedInt);
-        valueAnimator.setStartDelay(namedInt2);
-        valueAnimator.setRepeatCount(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "repeatCount", 3, 0));
-        valueAnimator.setRepeatMode(TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "repeatMode", 4, 1));
-        if (typedArray2 != null) {
-            setupObjectAnimator(valueAnimator, typedArray2, namedInt3, f, xmlPullParser);
-        }
     }
 
     public static void setupPathMotion(Path path, ObjectAnimator objectAnimator, float f, String str, String str2) {

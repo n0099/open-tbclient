@@ -1,28 +1,41 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class ov {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface ov {
+    @CallSuper
+    void a(SubTaskState subTaskState);
 
-    public static void a(View view2, View view3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
-            b(view2, view3, i, i, i, i);
+    boolean b(TaskInfo taskInfo, int i);
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static boolean b(ov ovVar, TaskInfo taskInfo, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, ovVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
         }
-    }
 
-    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
-            if (view2.getTouchDelegate() instanceof mv) {
-                ((mv) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
-            } else {
-                view2.setTouchDelegate(new mv(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
+        public static void a(ov ovVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(65536, null, ovVar, subTaskState) == null) && !ovVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
+                ovVar.a(subTaskState);
+            }
+        }
+
+        @CallSuper
+        public static void c(ov ovVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, null, ovVar, subTaskState) == null) {
+                rv.c.b(subTaskState);
             }
         }
     }

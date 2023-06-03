@@ -9,10 +9,8 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.tieba.k46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -281,7 +279,7 @@ public class c {
                             if (bufferedReader2 != null) {
                                 bufferedReader2.close();
                             }
-                            jSONObject.put(k46.d, g.a(Long.toString(j2)));
+                            jSONObject.put("k46", g.a(Long.toString(j2)));
                             jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                             jSONObject.put("k111", g.a("KWE_NPN"));
                             jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
@@ -302,7 +300,7 @@ public class c {
                             sb.append(System.currentTimeMillis() - currentTimeMillis);
                             byte[] magicWrapper = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
                             new StringBuilder("get mini lenth ").append(magicWrapper.length);
-                            this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), IMAudioTransRequest.CHARSET);
+                            this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
                             this.c.unlock();
                             if (TextUtils.isEmpty(this.b)) {
                             }
@@ -310,7 +308,7 @@ public class c {
                         }
                     } catch (IOException unused3) {
                     }
-                    jSONObject.put(k46.d, g.a(Long.toString(j2)));
+                    jSONObject.put("k46", g.a(Long.toString(j2)));
                     jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                     jSONObject.put("k111", g.a("KWE_NPN"));
                     jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
@@ -331,7 +329,7 @@ public class c {
                     sb2.append(System.currentTimeMillis() - currentTimeMillis);
                     byte[] magicWrapper2 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
                     new StringBuilder("get mini lenth ").append(magicWrapper2.length);
-                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper2, 0), IMAudioTransRequest.CHARSET);
+                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper2, 0), "utf-8");
                     this.c.unlock();
                     if (TextUtils.isEmpty(this.b)) {
                     }
@@ -347,7 +345,7 @@ public class c {
                     } catch (Throwable th3) {
                         th = th3;
                     }
-                    jSONObject.put(k46.d, g.a(Long.toString(j2)));
+                    jSONObject.put("k46", g.a(Long.toString(j2)));
                     jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                     jSONObject.put("k111", g.a("KWE_NPN"));
                     jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
@@ -380,7 +378,7 @@ public class c {
                     sb22.append(System.currentTimeMillis() - currentTimeMillis);
                     byte[] magicWrapper22 = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
                     new StringBuilder("get mini lenth ").append(magicWrapper22.length);
-                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper22, 0), IMAudioTransRequest.CHARSET);
+                    this.b = URLEncoder.encode(Base64.encodeToString(magicWrapper22, 0), "utf-8");
                 } catch (Throwable th4) {
                     th = th4;
                     try {

@@ -535,8 +535,8 @@ public class MotionScene {
     public MotionScene(Context context, MotionLayout motionLayout, int i) {
         this.mMotionLayout = motionLayout;
         load(context, i);
-        this.mConstraintSetMap.put(com.baidu.tieba.R.id.obfuscated_res_0x7f09173d, new ConstraintSet());
-        this.mConstraintSetIdMap.put("motion_base", Integer.valueOf((int) com.baidu.tieba.R.id.obfuscated_res_0x7f09173d));
+        this.mConstraintSetMap.put(com.baidu.tieba.R.id.obfuscated_res_0x7f091761, new ConstraintSet());
+        this.mConstraintSetIdMap.put("motion_base", Integer.valueOf((int) com.baidu.tieba.R.id.obfuscated_res_0x7f091761));
     }
 
     public MotionScene(MotionLayout motionLayout) {

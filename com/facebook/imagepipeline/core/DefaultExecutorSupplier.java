@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.core;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultExecutorSupplier implements ExecutorSupplier {
     public static final int NUM_IO_BOUND_THREADS = 2;
     public static final int NUM_LIGHTWEIGHT_BACKGROUND_THREADS = 1;

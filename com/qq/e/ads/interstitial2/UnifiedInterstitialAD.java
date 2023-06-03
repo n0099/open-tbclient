@@ -13,30 +13,32 @@ import com.qq.e.ads.LiteAbstractAD;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
+import com.qq.e.comm.listeners.NegativeFeedbackListener;
+import com.qq.e.comm.pi.IReward;
+import com.qq.e.comm.pi.NFBI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.UIADI;
 import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
-public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
+/* loaded from: classes10.dex */
+public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> implements NFBI, IReward {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger g;
     public AtomicInteger h;
-    public volatile UnifiedInterstitialMediaListener i;
-    public volatile VideoOption j;
+    public volatile VideoOption i;
+    public volatile int j;
     public volatile int k;
-    public volatile int l;
-    public volatile LoadAdParams m;
-    public UnifiedInterstitialADListener n;
-    public volatile ADRewardListener o;
-    public ServerSideVerificationOptions p;
+    public volatile LoadAdParams l;
+    public UnifiedInterstitialADListener m;
+    public ServerSideVerificationOptions n;
+    public final ADListenerAdapter o;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifiedInterstitialAD(Activity activity, String str, UnifiedInterstitialADListener unifiedInterstitialADListener) {
-        this(activity, str, unifiedInterstitialADListener, (Map) null);
+        this(activity, str, unifiedInterstitialADListener, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +74,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         }
         this.g = new AtomicInteger(0);
         this.h = new AtomicInteger(0);
-        this.n = unifiedInterstitialADListener;
+        this.m = unifiedInterstitialADListener;
+        this.o = new ADListenerAdapter(unifiedInterstitialADListener);
         a(activity, str);
     }
 
@@ -93,90 +96,35 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         }
         this.g = new AtomicInteger(0);
         this.h = new AtomicInteger(0);
-        this.n = unifiedInterstitialADListener;
+        this.m = unifiedInterstitialADListener;
+        this.o = new ADListenerAdapter(unifiedInterstitialADListener);
         a(activity, str, str2);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public UnifiedInterstitialAD(Activity activity, String str, String str2, UnifiedInterstitialADListener unifiedInterstitialADListener) {
-        this(activity, str, str2, unifiedInterstitialADListener, (Map) null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, unifiedInterstitialADListener};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], (UnifiedInterstitialADListener) objArr2[3], (Map) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public UnifiedInterstitialAD(Activity activity, String str, String str2, UnifiedInterstitialADListener unifiedInterstitialADListener, Map map) {
-        this(activity, str2, unifiedInterstitialADListener, map);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, unifiedInterstitialADListener, map};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (String) objArr2[1], (UnifiedInterstitialADListener) objArr2[2], (Map) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        c();
     }
 
     @Override // com.qq.e.ads.AbstractAD
     public /* bridge */ /* synthetic */ void a(Object obj) {
         UIADI uiadi = (UIADI) obj;
-        d();
+        c();
     }
 
     @Override // com.qq.e.ads.AbstractAD
     public void b(int i) {
         UnifiedInterstitialADListener unifiedInterstitialADListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (unifiedInterstitialADListener = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (unifiedInterstitialADListener = this.m) == null) {
             return;
         }
         unifiedInterstitialADListener.onNoAD(AdErrorConvertor.formatErrorCode(i));
     }
 
-    public void close() {
-        T t;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (t = this.a) == 0) {
-            return;
-        }
-        ((UIADI) t).close();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVideoOption(this.j);
-            setMediaListener(this.i);
-            setMinVideoDuration(this.k);
-            setMaxVideoDuration(this.l);
-            setRewardListener(this.o);
-            setLoadAdParams(this.m);
-            setServerSideVerificationOptions(this.p);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setVideoOption(this.i);
+            setMinVideoDuration(this.j);
+            setMaxVideoDuration(this.k);
+            setLoadAdParams(this.l);
+            setServerSideVerificationOptions(this.n);
             while (this.g.getAndDecrement() > 0) {
                 loadAD();
             }
@@ -186,12 +134,21 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         }
     }
 
+    public void close() {
+        T t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (t = this.a) == 0) {
+            return;
+        }
+        ((UIADI) t).close();
+    }
+
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             T t = this.a;
             if (t != 0) {
-                ((UIADI) t).destory();
+                ((UIADI) t).destroy();
             } else {
                 a("destroy");
             }
@@ -226,25 +183,10 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         return invokeV.intValue;
     }
 
-    public Map getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                UIADI uiadi = (UIADI) t;
-                return UIADI.ext;
-            }
-            a("getExt");
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             T t = this.a;
             if (t != 0) {
                 return ((UIADI) t).getVideoDuration();
@@ -255,23 +197,9 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         return invokeV.intValue;
     }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UIADI) t).isValid();
-            }
-            a("isValid");
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void loadAD() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a()) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && a()) {
             if (!b()) {
                 this.g.incrementAndGet();
                 return;
@@ -287,7 +215,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void loadFullScreenAD() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && a()) {
             if (!b()) {
                 this.h.incrementAndGet();
                 return;
@@ -303,20 +231,20 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, loadAdParams) == null) {
-            this.m = loadAdParams;
+        if (interceptable == null || interceptable.invokeL(1048587, this, loadAdParams) == null) {
+            this.l = loadAdParams;
             T t = this.a;
             if (t != 0) {
-                ((UIADI) t).setLoadAdParams(this.m);
+                ((UIADI) t).setLoadAdParams(this.l);
             }
         }
     }
 
     public void setMaxVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = i;
-            if (this.l > 0 && this.k > this.l) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.k = i;
+            if (this.k > 0 && this.j > this.k) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
             T t = this.a;
@@ -328,20 +256,16 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, unifiedInterstitialMediaListener) == null) {
-            this.i = unifiedInterstitialMediaListener;
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI) t).setMediaListener(unifiedInterstitialMediaListener);
-            }
+        if (interceptable == null || interceptable.invokeL(1048589, this, unifiedInterstitialMediaListener) == null) {
+            this.o.setMediaListener(unifiedInterstitialMediaListener);
         }
     }
 
     public void setMinVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.k = i;
-            if (this.l > 0 && this.k > this.l) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.j = i;
+            if (this.k > 0 && this.j > this.k) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
             T t = this.a;
@@ -351,21 +275,27 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         }
     }
 
-    public void setRewardListener(ADRewardListener aDRewardListener) {
+    @Override // com.qq.e.comm.pi.NFBI
+    public void setNegativeFeedbackListener(NegativeFeedbackListener negativeFeedbackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, aDRewardListener) == null) {
-            this.o = aDRewardListener;
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI) t).setRewardListener(aDRewardListener);
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, negativeFeedbackListener) == null) {
+            this.o.setNegativeFeedbackListener(negativeFeedbackListener);
         }
     }
 
+    @Override // com.qq.e.comm.pi.IReward
+    public void setRewardListener(com.qq.e.comm.listeners.ADRewardListener aDRewardListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, aDRewardListener) == null) {
+            this.o.setAdRewardListener(aDRewardListener);
+        }
+    }
+
+    @Override // com.qq.e.comm.pi.IReward
     public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, serverSideVerificationOptions) == null) {
-            this.p = serverSideVerificationOptions;
+        if (interceptable == null || interceptable.invokeL(1048593, this, serverSideVerificationOptions) == null) {
+            this.n = serverSideVerificationOptions;
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setServerSideVerificationOptions(serverSideVerificationOptions);
@@ -375,8 +305,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void setVideoOption(VideoOption videoOption) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, videoOption) == null) {
-            this.j = videoOption;
+        if (interceptable == null || interceptable.invokeL(1048594, this, videoOption) == null) {
+            this.i = videoOption;
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setVideoOption(videoOption);
@@ -384,16 +314,9 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         }
     }
 
-    @Deprecated
-    public void setVideoPlayPolicy(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-        }
-    }
-
     public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).show();
@@ -405,7 +328,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void show(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, activity) == null) {
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).show(activity);
@@ -417,7 +340,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void showAsPopupWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showAsPopupWindow();
@@ -429,7 +352,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void showAsPopupWindow(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showAsPopupWindow(activity);
@@ -441,7 +364,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
 
     public void showFullScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, activity) == null) {
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showFullScreenAD(activity);
@@ -456,7 +379,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) {
-            return pOFactory.getUnifiedInterstitialADDelegate((Activity) context, str, str2, str3, this.n);
+            return pOFactory.getUnifiedInterstitialADDelegate((Activity) context, str, str2, str3, this.o);
         }
         return invokeLLLLL.objValue;
     }

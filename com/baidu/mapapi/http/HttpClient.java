@@ -123,9 +123,9 @@ public class HttpClient {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x008a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:73:0x0138 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:73:0x0137 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0147 A[Catch: Exception -> 0x014d, TryCatch #0 {Exception -> 0x014d, blocks: (B:14:0x0038, B:26:0x0073, B:27:0x0079, B:29:0x007d, B:68:0x0128, B:69:0x012e, B:71:0x0132, B:76:0x013d, B:77:0x0143, B:79:0x0147, B:80:0x014c, B:53:0x00f4, B:55:0x00f8), top: B:88:0x0038 }] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0146 A[Catch: Exception -> 0x014c, TryCatch #0 {Exception -> 0x014c, blocks: (B:14:0x0038, B:26:0x0073, B:27:0x0079, B:29:0x007d, B:68:0x0127, B:69:0x012d, B:71:0x0131, B:76:0x013c, B:77:0x0142, B:79:0x0146, B:80:0x014b, B:53:0x00f3, B:55:0x00f7), top: B:88:0x0038 }] */
     /* JADX WARN: Type inference failed for: r1v11, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r1v13, types: [int] */
     /* JADX WARN: Type inference failed for: r1v20, types: [java.io.InputStream] */

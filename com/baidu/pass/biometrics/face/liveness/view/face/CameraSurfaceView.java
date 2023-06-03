@@ -13,6 +13,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -146,7 +147,7 @@ public class CameraSurfaceView extends SurfaceView {
     public int getRotateAngle() {
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(this.a, cameraInfo);
-        int rotation = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getRotation();
+        int rotation = ((WindowManager) getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRotation();
         int i = 0;
         if (rotation != 0) {
             if (rotation != 1) {

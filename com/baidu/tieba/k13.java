@@ -1,145 +1,109 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k13 implements zn3<HybridUbcFlow> {
+public class k13 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public j13 c;
+    public n13 d;
+    public m13 e;
 
-    /* loaded from: classes6.dex */
-    public class a implements i13 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UbcFlowEvent a;
-        public final /* synthetic */ UbcFlowEvent b;
-        public final /* synthetic */ k13 c;
-
-        public a(k13 k13Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k13Var, ubcFlowEvent, ubcFlowEvent2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = k13Var;
-            this.a = ubcFlowEvent;
-            this.b = ubcFlowEvent2;
-        }
-
-        @Override // com.baidu.tieba.i13
-        public boolean a(l13 l13Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l13Var)) == null) {
-                if (l13Var == null) {
-                    return false;
-                }
-                return this.c.c(l13Var, this.a, this.b);
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860188, "Lcom/baidu/tieba/k13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860188, "Lcom/baidu/tieba/k13;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
-
-    public k13() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k13(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/vrvideo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j13.f().g();
-        if (a) {
-            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
-        }
     }
 
-    public final boolean c(@NonNull l13 l13Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l13Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
-            long b = l13Var.b();
-            if (b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g()) {
-                return true;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            y82.b("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zn3
-    /* renamed from: d */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // com.baidu.tieba.vd3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, yb3 yb3Var) {
+        InterceptResult invokeLLLLL;
+        char c;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (hybridUbcFlow == null) {
-                return;
-            }
-            UbcFlowEvent g = hybridUbcFlow.g("naStart");
-            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
-            if (g != null && g2 != null) {
-                j13.f().h(new a(this, g, g2));
-                j13.f().a(hybridUbcFlow);
-                if (a) {
-                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
-                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
-                    return;
-                }
-                return;
-            }
-            if (a) {
-                if (g == null) {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, yb3Var)) == null) {
+            y82.b("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", vd3.a(unitedSchemeEntity, "params"));
+            int hashCode = str.hashCode();
+            if (hashCode != 533456719) {
+                if (hashCode != 1626770505) {
+                    if (hashCode == 1722535054 && str.equals("/swanAPI/vrvideo/update")) {
+                        c = 1;
+                    }
+                    c = 65535;
                 } else {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
+                    if (str.equals("/swanAPI/vrvideo/remove")) {
+                        c = 2;
+                    }
+                    c = 65535;
                 }
+            } else {
+                if (str.equals("/swanAPI/vrvideo/open")) {
+                    c = 0;
+                }
+                c = 65535;
             }
-            j13.f().c();
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        c2 = false;
+                    } else {
+                        if (this.e == null) {
+                            this.e = new m13("/swanAPI/vrvideo/remove");
+                        }
+                        c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, yb3Var);
+                    }
+                } else {
+                    if (this.d == null) {
+                        this.d = new n13("/swanAPI/vrvideo/update");
+                    }
+                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, yb3Var);
+                }
+            } else {
+                if (this.c == null) {
+                    this.c = new j13("/swanAPI/vrvideo/open");
+                }
+                c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, yb3Var);
+            }
+            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, yb3Var)) {
+                return false;
+            }
+            return true;
         }
+        return invokeLLLLL.booleanValue;
     }
 }

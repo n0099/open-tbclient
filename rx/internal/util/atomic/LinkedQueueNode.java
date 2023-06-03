@@ -1,7 +1,7 @@
 package rx.internal.util.atomic;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
     public static final long serialVersionUID = 2404266111789071508L;
     public E value;

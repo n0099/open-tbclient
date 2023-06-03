@@ -6,7 +6,7 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.math.BigInteger;
 import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Base64 extends BaseNCodec {
     public static final int BITS_PER_ENCODED_BYTE = 6;
     public static final int BYTES_PER_ENCODED_BLOCK = 4;

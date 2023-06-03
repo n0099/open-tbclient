@@ -1,62 +1,116 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class up2 {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public final class up2<W extends vp2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
+    public final HashMap<String, sp2<W>> a;
 
-    public up2(String str, long j, String str2, String str3, String str4) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218610, "Lcom/baidu/tieba/up2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948218610, "Lcom/baidu/tieba/up2;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    public up2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = j;
-        this.c = str2;
-        this.d = str3;
-        this.e = str4;
+        this.a = new HashMap<>();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(sp2<W> sp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.e) && pp2.a(this.b)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sp2Var) == null) {
+            if (b) {
+                Log.v("CommandDispatcher", sp2Var.b() + " command added to supported command list");
             }
-            return false;
+            this.a.put(sp2Var.b(), sp2Var);
         }
-        return invokeV.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "roomName=" + this.a + ";localUserId=" + this.b + ";displayName=" + this.c + ";rtcAppId=" + this.d + ";token=" + this.e;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                if (w == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                sp2<W> sp2Var = this.a.get(command.what);
+                if (sp2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " command dispatched");
+                }
+                sp2Var.a(command, w);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void c(@Nullable ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                sp2<W> sp2Var = this.a.get(command.what);
+                if (sp2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                }
+                sp2Var.c(command);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
+            }
+        }
     }
 }

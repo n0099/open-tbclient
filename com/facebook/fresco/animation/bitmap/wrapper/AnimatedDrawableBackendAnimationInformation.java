@@ -2,7 +2,7 @@ package com.facebook.fresco.animation.bitmap.wrapper;
 
 import com.facebook.fresco.animation.backend.AnimationInformation;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatedDrawableBackendAnimationInformation implements AnimationInformation {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
 

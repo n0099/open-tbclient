@@ -6,17 +6,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.fg2;
-import com.baidu.tieba.iv2;
+import com.baidu.tieba.ay2;
+import com.baidu.tieba.xi2;
 /* loaded from: classes4.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    public volatile fg2 a;
+    public volatile xi2 a;
 
-    public final fg2 a() {
+    public final xi2 a() {
         if (this.a == null) {
             synchronized (SwanAppFavoriteProvider.class) {
                 if (this.a == null) {
-                    this.a = new fg2();
+                    this.a = new xi2();
                 }
             }
         }
@@ -25,7 +25,7 @@ public class SwanAppFavoriteProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        iv2.a().b(getContext());
+        ay2.a().b(getContext());
         return true;
     }
 

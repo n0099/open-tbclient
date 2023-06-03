@@ -1,57 +1,233 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
-import com.baidu.swan.game.ad.view.RewardWebView;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity;
+import com.baidu.tieba.by1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.memory.PooledByteBuffer;
+import com.facebook.common.memory.PooledByteBufferInputStream;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.BaseDataSubscriber;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imageformat.ImageFormat;
+import com.facebook.imageformat.ImageFormatChecker;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class cy3 {
+public class cy3 implements sw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qx3 a;
-    public RewardWebView b;
-    public Context c;
-    public String d;
+
+    @Override // com.baidu.tieba.sw1
+    public void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, genericDraweeHierarchy, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.sw1
+    public ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, imageRequestBuilder, map)) == null) ? imageRequestBuilder : (ImageRequestBuilder) invokeLL.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements ValueCallback<String> {
+    public class a implements by1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        public a(cy3 cy3Var) {
+        public a(cy3 cy3Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cy3Var};
+                Object[] objArr = {cy3Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = context;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements tq3<OutputStream, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PooledByteBufferInputStream a;
+
+        public b(PooledByteBufferInputStream pooledByteBufferInputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pooledByteBufferInputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pooledByteBufferInputStream;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.tq3
+        /* renamed from: b */
+        public Boolean a(OutputStream outputStream) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
+                if (cs4.g(this.a, outputStream) > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class c extends BaseDataSubscriber<CloseableReference<PooledByteBuffer>> implements Runnable, b73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
+        public final JSONObject b;
+        public final /* synthetic */ cy3 c;
+
+        public c(cy3 cy3Var, Context context, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cy3Var, context, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = cy3Var;
+            this.a = context;
+            this.b = jSONObject;
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            this.c.l(this.a, this.b, this);
+        }
+
+        public final void c(boolean z) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                if (z) {
+                    i = R.string.obfuscated_res_0x7f0f146e;
+                } else {
+                    i = R.string.obfuscated_res_0x7f0f146b;
+                }
+                qb3.f(this.a, i).v();
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
+                c(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.b73
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                c(false);
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onNewResultImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, dataSource) != null) || !dataSource.isFinished()) {
+                return;
+            }
+            CloseableReference<PooledByteBuffer> result = dataSource.getResult();
+            if (result == null) {
+                c(false);
+                return;
+            }
+            PooledByteBufferInputStream pooledByteBufferInputStream = new PooledByteBufferInputStream(result.get());
+            try {
+                c(cy3.m(this.a, pooledByteBufferInputStream));
+            } finally {
+                CloseableReference.closeSafely(result);
+                cs4.d(pooledByteBufferInputStream);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                cy3.j(this.a, this);
             }
         }
     }
@@ -66,138 +242,180 @@ public class cy3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = null;
     }
 
-    public void g() {
+    public static void j(Context context, b73 b73Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && h() && !TextUtils.isEmpty(this.d)) {
-            a(this.d);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, b73Var) == null) {
+            a73.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, b73Var);
         }
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sw1
+    public void a(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (Build.VERSION.SDK_INT < 24 && d(this.c) < 24) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
+            PictureWallpaperActivity.I(context, jSONObject.optString("imageUrl"), jSONObject.optString("referer"));
+        }
+    }
+
+    public static boolean m(Context context, PooledByteBufferInputStream pooledByteBufferInputStream) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, pooledByteBufferInputStream)) == null) {
+            try {
+                ImageFormat imageFormat = ImageFormatChecker.getImageFormat(pooledByteBufferInputStream);
+                if (imageFormat != null) {
+                    String fileExtension = imageFormat.getFileExtension();
+                    if (!TextUtils.isEmpty(fileExtension)) {
+                        String format = String.format("IMG_%s.%s", new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.CHINA).format(new Date()), fileExtension);
+                        String format2 = String.format("image/%s", fileExtension);
+                        if (Build.VERSION.SDK_INT >= 29) {
+                            return n(context, pooledByteBufferInputStream, format2, format);
+                        }
+                        String str = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Image" + File.separator + format;
+                        boolean q = wo3.q(str, new b(pooledByteBufferInputStream));
+                        if (q) {
+                            wo3.r(context, str);
+                        }
+                        return q;
+                    }
+                }
+                return false;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                cs4.d(pooledByteBufferInputStream);
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean n(@NonNull Context context, @NonNull InputStream inputStream, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, inputStream, str, str2)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("_display_name", str2);
+            contentValues.put("mime_type", str);
+            if (Build.VERSION.SDK_INT >= 29) {
+                contentValues.put("relative_path", Environment.DIRECTORY_PICTURES + "/Image/");
+            } else {
+                contentValues.put("_data", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath() + "/Image");
+            }
+            Uri insert = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+            if (insert == null) {
+                y82.o("FacadeSwanAppImageImpl", "insert uri is null");
                 return false;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b != null) {
             try {
-                if (!str.startsWith("javascript:")) {
-                    str = "javascript:" + str;
+                OutputStream openOutputStream = context.getContentResolver().openOutputStream(insert);
+                if (openOutputStream == null) {
+                    cs4.d(openOutputStream);
+                    return false;
                 }
-                this.b.evaluateJavascript(str, new a(this));
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public boolean e(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri == null) {
+                byte[] bArr = new byte[4096];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read != -1) {
+                        openOutputStream.write(bArr, 0, read);
+                    } else {
+                        cs4.d(openOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException unused) {
+                cs4.d(null);
                 return false;
-            }
-            String scheme = uri.getScheme();
-            String host = uri.getHost();
-            CommandType fromJavascriptString = CommandType.fromJavascriptString(host);
-            try {
-                if ("mobadssdk".equals(scheme)) {
-                    if (this.a != null) {
-                        this.a.b(fromJavascriptString, uri);
-                    }
-                    try {
-                        c(host);
-                    } catch (Exception unused) {
-                    }
-                    return true;
-                }
-            } catch (Exception unused2) {
             } catch (Throwable th) {
-                try {
-                    c(host);
-                } catch (Exception unused3) {
-                }
+                cs4.d(null);
                 throw th;
             }
-            try {
-                c(host);
-            } catch (Exception unused4) {
-                return false;
-            }
         } else {
-            return invokeL.booleanValue;
+            return invokeLLLL.booleanValue;
         }
     }
 
-    public void j(RewardWebView rewardWebView) {
+    @Override // com.baidu.tieba.sw1
+    public void b(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, rewardWebView) != null) || rewardWebView == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.b = rewardWebView;
-        this.c = rewardWebView.getContext().getApplicationContext();
-        this.b.loadUrl("javascript:(function(){})()");
-        f();
-        a(String.format("javascript:(function(){window.mobadssdkbridge.setPlacementType('%s');})()", "inline"));
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
-            a("window.mobadssdkbridge.fireAnonymousEvent('" + str + "', '" + str2 + "')");
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a("window.mobadssdkbridge && window.mobadssdkbridge.nativeCallComplete && window.mobadssdkbridge.nativeCallComplete(" + JSONObject.quote(str) + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    public final int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            try {
-                return context.getApplicationContext().getApplicationInfo().targetSdkVersion;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
+        int optInt = jSONObject.optInt("index");
+        JSONArray optJSONArray = jSONObject.optJSONArray("urls");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            int length = optJSONArray.length();
+            ArrayList<MediaModel> arrayList = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                String optString = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString)) {
+                    arrayList.add(new ImageModel(optString));
+                }
             }
-        }
-        return invokeL.intValue;
-    }
-
-    public void i(qx3 qx3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qx3Var) == null) {
-            this.a = qx3Var;
+            k(context, arrayList, optInt);
         }
     }
 
-    public final void f() {
+    @Override // com.baidu.tieba.sw1
+    public void f(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = dy3.a + ";}());";
-            if (!h()) {
-                a("javascript:(function() {\n    window.baidu = {};\n    window.baidu.mobads = {};\n    window.baidu.mobads.Sdk = {\n        isIOS: false\n    };\n    window.mobadssdkbridge = window.mobadssdkbridge || {} \n    var Sdk = window.baidu.mobads.Sdk;\n    Sdk.isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n    var mob = window.baidu.mobads;\n    mob.Act = {\n        LP: 1,\n        DL: 2,\n        MAP: 4,\n        SMS: 8,\n        MAIL: 16,\n        PHONE: 32,\n        VIDEO: 64,\n        RM: 128,\n        NA: 256,\n        APO: 512\n    };\n    var win = window;\n    win.MobadsSdk = win.MobadsSdk || {};\n    var MobadsSdk = win.MobadsSdk;\n    var send3rdLog = function(isShowLog, ad) {\n        if (!ad || !ad.mon) {\n            return;\n        }\n        var url;\n        for (var i = 0; i < ad.mon.length; ++i) {\n            url = isShowLog ? ad.mon[i].s: ad.mon[i].c;\n            if (!url) {\n                continue;\n            }\n            new Image().src = url;\n        }\n    };\n     function createUniqueId(n = 12) { // 生成n位长度的字符串\n         var str = 'abcdefghijklmnopqrstuvwxyz0123456789'; // 可以作为常量放到random外面 \n         let result = '';\n         for (let i = 0; i < n; i++) {\n             result += str[parseInt(Math.random() * str.length, 10)];\n         } \n         return result;\n     };\n     // 执行回调 \n     window.mobadssdkbridge.fireAnonymousEvent = function (token = '', res = '') { \n         var jssdkNamespace = window['__baidu_adserv'] || {};\n         var callback = jssdkNamespace['baidu_' + token];\n         if (callback) { \n             let callbackRes; \n             try {\n                 callbackRes = res && JSON.parse(res); \n             } catch (e) { \n                 callbackRes = res;\n             }\n             callback(callbackRes); \n             delete jssdkNamespace['baidu_' + token]; \n         }\n     };     Sdk.device = 'baidubox';\n     Sdk.isSupportPause = 'YES';\n    Sdk.setPrivacyActionUrl = function (jsonStr) {\n        var args = ['setPrivacyActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPrivacyActionUrl(JSON.stringify(args));\n    };\n    Sdk.setPermissionActionUrl = function (jsonStr) {\n        var args = ['setPermissionActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPermissionActionUrl(JSON.stringify(args));\n    };\n    Sdk.setActionUrl = function(url, inapp, act, title, close) {\n        var opt = {};\n        if (\"[object Object]\" === Object.prototype.toString.call(url)) {\n            opt = url;\n            url = opt.url;\n            inapp = opt.inapp;\n            act = opt.act;\n            title = opt.title;\n            close = opt.close;\n               if (opt.allParamsJson) {\n                   if (opt.allParamsJson.action) {\n                       opt.action = opt.allParamsJson.action;\n                       opt.v_video = opt.allParamsJson.v_video || \"\";\n                       opt.v_video_w = opt.allParamsJson.v_video_w || \"\";\n                       opt.v_video_h = opt.allParamsJson.v_video_h || \"\";\n                       opt.v_image = opt.allParamsJson.v_image || \"\";\n                       opt.v_url = opt.allParamsJson.v_url || \"\";\n                       opt.allParamsJson = null;\n                   }\n               }\n        }\n        opt.url = url || \"\";\n        opt.inapp = inapp || false;\n        opt.act = act || 1;\n        opt.title = title || \"\";\n        opt.close = close || false;\n        opt.logurl = opt.logurl || \"\";\n        opt.weibo = opt.weibo || \"\";\n        opt.map = opt.map || \"\";\n        opt.search = opt.search || \"\";\n        opt.sms = opt.sms || \"\";\n        opt.at = opt.at || 1;\n        opt.tid = opt.tid || \"\";\n        if (MobadsSdk.setActionUrl) {\n            var DUMP_PAR = opt.inapp;\n            MobadsSdk.setActionUrl(JSON.stringify(opt), DUMP_PAR)\n        }\n    };\n    Sdk.sendClickLog = function(logurl) {\n        new Image().src = logurl;\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            setTimeout(function() {\n                MobadsSdk.onAdPlayEnd();\n            },\n            300);\n        }\n    };\n    Sdk.open = function(url, options) {\n        var option = {\n            url: url,\n            inapp: true,\n            act: mob.Act.LP,\n            allParamsJson: options\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.startDownload = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || options.appname || \"应用\";\n        var mobadsJumpUrl = url;\n        if (/^itms-services:\\/\\//.test(url)) {\n            Sdk.setActionUrl(url, false, mob.Act.DL, ad.tit, true);\n            return;\n        }\n        if (Sdk.isIOS) {\n            var tid = options && options.pinfo && options.pinfo.tid;\n            if (tid) {\n                Sdk.sendClickLog(mobadsJumpUrl);\n            }\n            Sdk.setActionUrl({\n                url: url,\n                tid: tid || \"\",\n                inapp: true,\n                act: mob.Act.DL\n            });\n            return;\n        }\n        var mon = options && options.mon || [];\n        var id = options && options.id || 1;\n        var pk = options && options.pk || \"\";\n        var qk = options && options.qk || \"\";\n        var exp2 = options && options.exp2 || {};\n        var apoObj = options && options.apo || {};\n        var wi = options && options.wi ? true: false;\n        var title = ad.tit;\n        Sdk.setActionUrl({\n            url: mobadsJumpUrl,\n            act: mob.Act.DL,\n            apo: JSON.stringify(apoObj),\n            close: true,\n            adid: id,\n            originUrl: mobadsJumpUrl,\n            dlTunnel: 3,\n            autoOpen: true,\n            popNotif: true,\n            canCancel: true,\n            canDelete: 5,\n            mon: mon,\n            pk: pk,\n            qk: qk,\n            adid: id,\n            title: ad.tit,\n            action: options.action,\n            allParamsJson: options \n        });\n        send3rdLog(false, options);\n    };\n    Sdk.openScheme = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || \"应用\";\n        var pk = options && options.pk || \"\";\n        var option = {\n            url: url,\n            inapp: true,\n            act: ad.act,\n            title: ad.tit,\n            close: true,\n            pk: pk\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.handleClick = function(options) {\n        var ad = options || {};\n        var Act = mob.Act;\n        if (Act.LP === ad.act) {\n            Sdk.open(ad.curl, ad);\n        } else if (Act.DL === ad.act) {\n            Sdk.startDownload(ad.curl, ad);\n        } else if (Act.APO === ad.act) {\n            new Image().src = ad.curl;\n            Sdk.openScheme(ad.apo, ad);\n        }\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            MobadsSdk.onAdPlayEnd();\n        }\n    };\n    Sdk.needsAdIcon = function() {\n        return true;\n    };\n    Sdk.getAdViewState = function(callback) {\n        if (!MobadsSdk || !MobadsSdk.getAdViewState) {\n            callback('BaiduMobAdSpamOK');\n            return;\n        }\n        MobadsSdk.getAdViewState(MobadsSdk.addAnonymousEvent(function(state) {\n            var iState = parseInt(state);\n            var sState = 'BaiduMobAdSpamOK';\n            if (iState != 0) {\n                sState = 'BaiduMobAdSpamNotOK';\n            }\n            callback(sState);\n        }));\n    };\n     // 注册回调 \n    Sdk.natRegEv = function (callback) { \n         var mobadsSdk = window['MobadsSdk'] || {};\n         var jssdkNamespace = mobadsSdk.__anoymousEvents || {}\n         var token = createUniqueId(14); \n         jssdkNamespace[token] = callback || function () { \n         }\n         mobadsSdk.__anoymousEvents = jssdkNamespace\n         return token;\n     };\n     // 获取下载状态 \n    Sdk.getDownloadStatus = function (callback, pkg) { \n         if (MobadsSdk.getDownloadStatus) {\n             var token = Sdk.natRegEv(callback);\n             MobadsSdk.getDownloadStatus(token, pkg);\n         } \n     };\n     Sdk.pauseDownload = function (pkg) { \n         if (MobadsSdk.pauseDownload) { \n             MobadsSdk.pauseDownload(pkg); \n         } \n     };\n})();");
-                a(this.d);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, jSONObject) == null) {
+            by1 v = fv2.v();
+            if (v.i()) {
+                String optString = jSONObject.optString("imageUrl");
+                if (!TextUtils.isEmpty(optString)) {
+                    v.C(context, new cy1().H(optString).I(true), new a(this, context));
+                    return;
+                } else {
+                    qb3.g(context, "保存失败").v();
+                    return;
+                }
             }
+            new c(this, context, jSONObject).run();
+        }
+    }
+
+    @Override // com.baidu.tieba.sw1
+    public void d(Context context, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(1048579, this, context, strArr, i) == null) && strArr != null && strArr.length > 0) {
+            ArrayList<MediaModel> arrayList = new ArrayList<>(strArr.length);
+            for (String str : strArr) {
+                arrayList.add(new ImageModel(str));
+            }
+            k(context, arrayList, i);
+        }
+    }
+
+    public final void k(Context context, ArrayList<MediaModel> arrayList, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, context, arrayList, i) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("mediaModels", arrayList);
+            bundle.putInt("previewPosition", i);
+            bundle.putString("previewFrom", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
+            Intent intent = new Intent(context, SwanAppAlbumPreviewActivity.class);
+            intent.putExtra("launchParams", bundle);
+            context.startActivity(intent);
+        }
+    }
+
+    public final void l(Context context, JSONObject jSONObject, BaseDataSubscriber<CloseableReference<PooledByteBuffer>> baseDataSubscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, jSONObject, baseDataSubscriber) == null) {
+            String optString = jSONObject.optString("imageUrl");
+            String optString2 = jSONObject.optString("referer");
+            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(optString));
+            HashMap hashMap = new HashMap();
+            if (!TextUtils.isEmpty(optString2)) {
+                hashMap.put("referer", optString2);
+            }
+            fv2.C().e(newBuilderWithSource, hashMap);
+            Fresco.getImagePipeline().fetchEncodedImage(newBuilderWithSource.build(), context).subscribe(baseDataSubscriber, UiThreadImmediateExecutorService.getInstance());
         }
     }
 }

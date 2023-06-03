@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HandlerBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "hdlr";
@@ -69,7 +69,7 @@ public class HandlerBox extends AbstractFullBox {
         hashMap.put("mp7t", "MPEG-7 XML");
         hashMap.put("vide", "Video Track");
         hashMap.put("soun", "Sound Track");
-        hashMap.put(TrackReferenceTypeBox.TYPE1, "Hint Track");
+        hashMap.put("hint", "Hint Track");
         hashMap.put("appl", "Apple specific");
         hashMap.put("meta", "Timed Metadata track - defined in ISO/IEC JTC1/SC29/WG11 - CODING OF MOVING PICTURES AND AUDIO");
         readableTypes = Collections.unmodifiableMap(hashMap);

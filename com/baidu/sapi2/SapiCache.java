@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.SapiOptions;
@@ -189,8 +188,8 @@ public final class SapiCache {
         sb.append(str2);
         sb.append(parse.getPath());
         String sb2 = sb.toString();
-        if (!sb2.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
-            return sb2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
+        if (!sb2.endsWith(".html")) {
+            return sb2 + ".html";
         }
         return sb2;
     }

@@ -1,41 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.la1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class d91 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static final int b = 0;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        boolean a(HashMap<String, String> hashMap, int i);
+
+        void b(Context context, int i);
+
+        AbsNadBrowserView c(Context context, na1 na1Var, int i);
+
+        void d(Context context, boolean z, int i, la1.b bVar);
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947659277, "Lcom/baidu/tieba/d91;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659277, "Lcom/baidu/tieba/d91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659277, "Lcom/baidu/tieba/d91;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947659277, "Lcom/baidu/tieba/d91;");
-        }
+        a aVar = c91.b;
+        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
+        a = aVar;
+        c = 1;
     }
 
-    @JvmStatic
-    public static final a91 a() {
+    public static final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            a91 a91Var = a91.a;
-            Intrinsics.checkNotNullExpressionValue(a91Var, "INativeWebViewCreator.EMPTY");
-            return a91Var;
+            return a;
         }
-        return (a91) invokeV.objValue;
+        return (a) invokeV.objValue;
+    }
+
+    public static final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
     }
 }

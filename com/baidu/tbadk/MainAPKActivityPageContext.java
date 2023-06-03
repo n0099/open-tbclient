@@ -12,8 +12,8 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.hx4;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.jb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         this.activity = baseActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public String getString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, messageListener) == null) {
@@ -61,7 +61,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, message) == null) {
@@ -85,7 +85,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         }
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,17 +96,17 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public hx4 getLayoutMode() {
+    public d05 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.activity.getLayoutMode();
         }
-        return (hx4) invokeV.objValue;
+        return (d05) invokeV.objValue;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [T, com.baidu.tbadk.BaseActivity<T>] */
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public T getOrignalPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public Activity getPageActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         return (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
         return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.g9
+    @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.k9
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,10 +163,10 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, fb fbVar) {
+    public void registerListener(int i, jb jbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, fbVar) == null) {
-            this.activity.registerListener(i, fbVar);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, jbVar) == null) {
+            this.activity.registerListener(i, jbVar);
         }
     }
 
@@ -179,10 +179,10 @@ public class MainAPKActivityPageContext<T> implements TbPageContext<T> {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(fb fbVar) {
+    public void registerListener(jb jbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fbVar) == null) {
-            this.activity.registerListener(fbVar);
+        if (interceptable == null || interceptable.invokeL(1048586, this, jbVar) == null) {
+            this.activity.registerListener(jbVar);
         }
     }
 

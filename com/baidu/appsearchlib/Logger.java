@@ -3,7 +3,6 @@ package com.baidu.appsearchlib;
 import android.app.ActivityManager;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +88,7 @@ public class Logger {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                return URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return "";

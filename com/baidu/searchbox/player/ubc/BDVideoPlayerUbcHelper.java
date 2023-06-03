@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.helper.NetUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BDVideoPlayerUbcHelper {
     public static String getNetType() {
         String networkClass = NetUtils.getNetworkClass();
@@ -60,6 +60,16 @@ public class BDVideoPlayerUbcHelper {
         JSONObject extStatisticsLog = bDVideoPlayerUbcContent.getExtStatisticsLog();
         extStatisticsLog.put("currentPosition", positive(bDVideoPlayerUbcContent.getPlayerFetcher().getCurrentPosition()));
         extStatisticsLog.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
+        extStatisticsLog.put("enterPathWay", bDVideoPlayerUbcContent.getPlayerFetcher().getVideoInfoEnterFlag());
+        float launchSpeedScore = bDVideoPlayerUbcContent.getPlayerFetcher().getLaunchSpeedScore();
+        if (launchSpeedScore >= 0.0f) {
+            extStatisticsLog.put(PlayerStatConstants.STAT_KEY_LAUNCH_SCORE, launchSpeedScore);
+        }
+        float staticDeviceScore = bDVideoPlayerUbcContent.getPlayerFetcher().getStaticDeviceScore();
+        if (staticDeviceScore >= 0.0f) {
+            extStatisticsLog.put(PlayerStatConstants.STAT_KEY_STATIC_SCORE, staticDeviceScore);
+        }
+        extStatisticsLog.put(PlayerStatConstants.STAT_KEY_KERNEL_TYPE, bDVideoPlayerUbcContent.getKernelType());
         appendSessionContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
         appendUrlContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
         jSONObject.put("ext", extStatisticsLog.toString());
@@ -88,6 +98,7 @@ public class BDVideoPlayerUbcHelper {
         JSONObject extStatisticsLog = bDVideoPlayerUbcContent.getExtStatisticsLog();
         extStatisticsLog.put("currentPosition", positive(bDVideoPlayerUbcContent.getPlayerFetcher().getCurrentPosition()));
         extStatisticsLog.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
+        extStatisticsLog.put(PlayerStatConstants.STAT_KEY_KERNEL_TYPE, bDVideoPlayerUbcContent.getKernelType());
         appendSessionContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
         appendUrlContent(extStatisticsLog, bDVideoPlayerUbcContent.getPlayerFetcher());
         jSONObject.put("ext", extStatisticsLog.toString());
@@ -113,12 +124,14 @@ public class BDVideoPlayerUbcHelper {
         jSONObject.put("auto_play", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayType());
         float launchSpeedScore = bDVideoPlayerUbcContent.getPlayerFetcher().getLaunchSpeedScore();
         if (launchSpeedScore >= 0.0f) {
-            jSONObject.put("launchScore", launchSpeedScore);
+            jSONObject.put(PlayerStatConstants.STAT_KEY_LAUNCH_SCORE, launchSpeedScore);
         }
         float staticDeviceScore = bDVideoPlayerUbcContent.getPlayerFetcher().getStaticDeviceScore();
         if (staticDeviceScore >= 0.0f) {
-            jSONObject.put("staticScore", staticDeviceScore);
+            jSONObject.put(PlayerStatConstants.STAT_KEY_STATIC_SCORE, staticDeviceScore);
         }
+        jSONObject.put("play_phase", bDVideoPlayerUbcContent.getPlayerFetcher().getPlayErrorPart());
+        jSONObject.put(PlayerStatConstants.STAT_KEY_KERNEL_TYPE, bDVideoPlayerUbcContent.getKernelType());
         appendSessionContent(jSONObject, bDVideoPlayerUbcContent.getPlayerFetcher());
         appendUrlContent(jSONObject, bDVideoPlayerUbcContent.getPlayerFetcher());
         jSONObject2.put("ext", jSONObject.toString());

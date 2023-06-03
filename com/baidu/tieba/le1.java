@@ -1,210 +1,290 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class le1 {
+public class le1 extends he1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public me1 b;
-    public ne1 c;
+    public final TextView f;
+    public final RelativeLayout g;
+    public final sm0<?> h;
+    public mm0 i;
 
-    public le1(BundleInfo bundleInfo) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ le1 a;
+
+        public a(le1 le1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = le1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null) {
+                this.a.i.m();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements qm0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ zl0 b;
+        public final /* synthetic */ le1 c;
+
+        public b(le1 le1Var, AdBaseModel adBaseModel, zl0 zl0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le1Var, adBaseModel, zl0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = le1Var;
+            this.a = adBaseModel;
+            this.b = zl0Var;
+        }
+
+        @Override // com.baidu.tieba.qm0
+        public void a(AdDownloadStatus adDownloadStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) {
+                int i = c.a[adDownloadStatus.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i == 4) {
+                                le1 le1Var = this.c;
+                                if (le1Var.e != null && le1Var.n(this.a)) {
+                                    this.c.e.a(this.a);
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        le1 le1Var2 = this.c;
+                        if (le1Var2.e != null && le1Var2.n(this.a)) {
+                            this.c.e.e(this.a);
+                            return;
+                        }
+                        return;
+                    }
+                    le1 le1Var3 = this.c;
+                    if (le1Var3.e != null && le1Var3.n(this.a)) {
+                        this.c.e.d(this.a);
+                        return;
+                    }
+                    return;
+                }
+                le1 le1Var4 = this.c;
+                if (le1Var4.e != null && le1Var4.n(this.a)) {
+                    this.c.e.f(this.a, this.b.i);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qm0
+        public void b(AdDownloadCode adDownloadCode) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) {
+                boolean z2 = true;
+                if (adDownloadCode != AdDownloadCode.ERROR_FAST_CLICK) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.c.e == null) {
+                    z2 = false;
+                }
+                if ((z & z2) && this.c.n(this.a)) {
+                    this.c.e.b(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-635526702, "Lcom/baidu/tieba/le1$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-635526702, "Lcom/baidu/tieba/le1$c;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public le1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
+            Object[] objArr = {Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        ge1.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
+        this.f = (TextView) a(R.id.feed_ad_operate_download_app_name);
+        this.g = (RelativeLayout) a(R.id.nad_feed_ad_operate_progress_button);
+        view2.setBackgroundColor(0);
+        this.h = jn0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
+        this.g.setOnClickListener(new a(this));
+        m();
     }
 
-    public static le1 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.he1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            le1 le1Var = new le1(bundleInfo);
-            le1Var.d();
-            return le1Var;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            if (he1.c(adBaseModel) && adBaseModel.h != null) {
+                m();
+                String str = adBaseModel.h.b.a;
+                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
+                    textView.setText(str);
+                    o(adBaseModel);
+                }
+                if (TextUtils.isEmpty(adBaseModel.f.d)) {
+                    return;
+                }
+                zl0 c2 = zl0.c(adBaseModel);
+                this.i = new mm0(c2, this.h);
+                yd1 yd1Var = this.e;
+                if (yd1Var != null) {
+                    yd1Var.c(adBaseModel);
+                }
+                this.i.o(new b(this, adBaseModel, c2));
+                return;
+            }
+            i(8);
         }
-        return (le1) invokeL.objValue;
     }
 
-    public final boolean a(BundleInfo bundleInfo) {
+    public final boolean n(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
+        ir0 ir0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
+            if (adBaseModel == null || (ir0Var = adBaseModel.l) == null) {
                 return false;
             }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            if (!ue1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
-                return false;
-            }
-            return true;
+            return ir0Var.e;
         }
         return invokeL.booleanValue;
     }
 
-    public ClassLoader c() {
-        InterceptResult invokeV;
+    public final void o(AdBaseModel adBaseModel) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || this.f == null) {
+            return;
         }
-        return (ClassLoader) invokeV.objValue;
+        if (adBaseModel.b) {
+            i = R.color.NAD_FC4;
+        } else {
+            i = R.color.NAD_FC1;
+        }
+        this.f.setTextColor(getResources().getColor(i));
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.he1
+    public void e() {
+        mm0 mm0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = ke1.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
-                    }
-                    return;
-                } else if (f()) {
-                    return;
-                } else {
-                    throw new InitException(20, "resources init error");
-                }
-            }
-            throw new InitException(16, "class loader init error");
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mm0Var = this.i) != null) {
+            mm0Var.k();
+            this.i = null;
         }
     }
 
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
+    public final void m() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = vd1.c().a();
-                    Resources b = vd1.c().b();
-                    Resources[] d = vd1.c().d();
-                    pe1.a().b(applicationContext);
-                    String absolutePath = ue1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (textView = this.f) != null) {
+            textView.setTextColor(getResources().getColor(R.color.NAD_FC1));
         }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = ue1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = vd1.c().a();
-                    this.c = new ne1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (te1.a()) {
-                        Log.e("Runtime", "resource", e);
-                        return false;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = ue1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new ne1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new ne1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
-            }
-        }
-        return (Resources) invokeL.objValue;
     }
 }

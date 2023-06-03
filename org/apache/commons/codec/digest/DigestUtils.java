@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.binary.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DigestUtils {
     public static final int STREAM_BUFFER_LENGTH = 1024;
 

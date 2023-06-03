@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -238,7 +239,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             String deviceId;
             try {
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enableIMEI");
-                return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) WebViewFactory.getContext().getSystemService("phone"))) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
+                return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals(YYOption.IsLive.VALUE_TRUE) || (deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) WebViewFactory.getContext().getSystemService("phone"))) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "0";

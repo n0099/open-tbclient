@@ -2,12 +2,10 @@ package kotlinx.coroutines;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.coroutines.AbstractCoroutineContextElement;
 import kotlin.coroutines.AbstractCoroutineContextKey;
 import kotlin.coroutines.Continuation;
@@ -15,13 +13,16 @@ import kotlin.coroutines.ContinuationInterceptor;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\u0006\b&\u0018\u0000 \u001e2\u00020\u00012\u00020\u0002:\u0001\u001eB\u0007¢\u0006\u0004\b\u001c\u0010\u001dJ#\u0010\t\u001a\u00020\b2\u0006\u0010\u0004\u001a\u00020\u00032\n\u0010\u0007\u001a\u00060\u0005j\u0002`\u0006H&¢\u0006\u0004\b\t\u0010\nJ#\u0010\u000b\u001a\u00020\b2\u0006\u0010\u0004\u001a\u00020\u00032\n\u0010\u0007\u001a\u00060\u0005j\u0002`\u0006H\u0017¢\u0006\u0004\b\u000b\u0010\nJ'\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\r\"\u0004\b\u0000\u0010\f2\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00000\r¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J\u0018\u0010\u0015\u001a\u00020\u00002\u0006\u0010\u0014\u001a\u00020\u0000H\u0087\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u001b\u0010\u0017\u001a\u00020\b2\n\u0010\u000e\u001a\u0006\u0012\u0002\b\u00030\rH\u0017¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u001a\u001a\u00020\u0019H\u0016¢\u0006\u0004\b\u001a\u0010\u001b¨\u0006\u001f"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher;", "Lkotlin/coroutines/ContinuationInterceptor;", "Lkotlin/coroutines/AbstractCoroutineContextElement;", "Lkotlin/coroutines/CoroutineContext;", "context", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "", StatConstants.VALUE_TYPE_DISPATCH, "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V", "dispatchYield", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/coroutines/Continuation;", "continuation", "interceptContinuation", "(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;", "", "isDispatchNeeded", "(Lkotlin/coroutines/CoroutineContext;)Z", "other", "plus", "(Lkotlinx/coroutines/CoroutineDispatcher;)Lkotlinx/coroutines/CoroutineDispatcher;", "releaseInterceptedContinuation", "(Lkotlin/coroutines/Continuation;)V", "", "toString", "()Ljava/lang/String;", "<init>", "()V", "Key", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlinx.coroutines.internal.DispatchedContinuation;
+import kotlinx.coroutines.internal.LimitedDispatcher;
+import kotlinx.coroutines.internal.LimitedDispatcherKt;
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\b&\u0018\u0000 \u001a2\u00020\u00012\u00020\u0002:\u0001\u001aB\u0005¢\u0006\u0002\u0010\u0003J\u001c\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\n\u0010\b\u001a\u00060\tj\u0002`\nH&J\u001c\u0010\u000b\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\n\u0010\b\u001a\u00060\tj\u0002`\nH\u0017J \u0010\f\u001a\b\u0012\u0004\u0012\u0002H\u000e0\r\"\u0004\b\u0000\u0010\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u0002H\u000e0\rJ\u0010\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0006\u001a\u00020\u0007H\u0016J\u0010\u0010\u0012\u001a\u00020\u00002\u0006\u0010\u0013\u001a\u00020\u0014H\u0017J\u0011\u0010\u0015\u001a\u00020\u00002\u0006\u0010\u0016\u001a\u00020\u0000H\u0087\u0002J\u0012\u0010\u0017\u001a\u00020\u00052\n\u0010\u000f\u001a\u0006\u0012\u0002\b\u00030\rJ\b\u0010\u0018\u001a\u00020\u0019H\u0016¨\u0006\u001b"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher;", "Lkotlin/coroutines/AbstractCoroutineContextElement;", "Lkotlin/coroutines/ContinuationInterceptor;", "()V", "dispatch", "", "context", "Lkotlin/coroutines/CoroutineContext;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", "dispatchYield", "interceptContinuation", "Lkotlin/coroutines/Continuation;", ExifInterface.GPS_DIRECTION_TRUE, "continuation", "isDispatchNeeded", "", "limitedParallelism", "parallelism", "", "plus", "other", "releaseInterceptedContinuation", "toString", "", "Key", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public abstract class CoroutineDispatcher extends AbstractCoroutineContextElement implements ContinuationInterceptor {
     public static final Key Key = new Key(null);
 
     /* renamed from: dispatch */
-    public abstract void mo2258dispatch(CoroutineContext coroutineContext, Runnable runnable);
+    public abstract void mo2339dispatch(CoroutineContext coroutineContext, Runnable runnable);
 
     public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
         return true;
@@ -32,25 +33,25 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
         return coroutineDispatcher;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0087\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher$Key;", "Lkotlin/coroutines/AbstractCoroutineContextKey;", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0087\u0003\u0018\u00002\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0004¨\u0006\u0005"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher$Key;", "Lkotlin/coroutines/AbstractCoroutineContextKey;", "Lkotlin/coroutines/ContinuationInterceptor;", "Lkotlinx/coroutines/CoroutineDispatcher;", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
     @ExperimentalStdlibApi
     /* loaded from: classes10.dex */
     public static final class Key extends AbstractCoroutineContextKey<ContinuationInterceptor, CoroutineDispatcher> {
+        public /* synthetic */ Key(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public Key() {
             super(ContinuationInterceptor.Key, new Function1<CoroutineContext.Element, CoroutineDispatcher>() { // from class: kotlinx.coroutines.CoroutineDispatcher.Key.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
                 public final CoroutineDispatcher invoke(CoroutineContext.Element element) {
-                    if (!(element instanceof CoroutineDispatcher)) {
-                        element = null;
+                    if (element instanceof CoroutineDispatcher) {
+                        return (CoroutineDispatcher) element;
                     }
-                    return (CoroutineDispatcher) element;
+                    return null;
                 }
             });
-        }
-
-        public /* synthetic */ Key(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -64,7 +65,7 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
 
     @InternalCoroutinesApi
     public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
-        mo2258dispatch(coroutineContext, runnable);
+        mo2339dispatch(coroutineContext, runnable);
     }
 
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext
@@ -77,22 +78,19 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
         return new DispatchedContinuation(this, continuation);
     }
 
+    @ExperimentalCoroutinesApi
+    public CoroutineDispatcher limitedParallelism(int i) {
+        LimitedDispatcherKt.checkParallelism(i);
+        return new LimitedDispatcher(this, i);
+    }
+
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext
     public CoroutineContext minusKey(CoroutineContext.Key<?> key) {
         return ContinuationInterceptor.DefaultImpls.minusKey(this, key);
     }
 
     @Override // kotlin.coroutines.ContinuationInterceptor
-    @InternalCoroutinesApi
-    public void releaseInterceptedContinuation(Continuation<?> continuation) {
-        if (continuation != null) {
-            CancellableContinuationImpl<?> reusableCancellableContinuation = ((DispatchedContinuation) continuation).getReusableCancellableContinuation();
-            if (reusableCancellableContinuation != null) {
-                reusableCancellableContinuation.detachChild$kotlinx_coroutines_core();
-                return;
-            }
-            return;
-        }
-        throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.DispatchedContinuation<*>");
+    public final void releaseInterceptedContinuation(Continuation<?> continuation) {
+        ((DispatchedContinuation) continuation).release();
     }
 }

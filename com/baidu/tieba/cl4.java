@@ -2,96 +2,380 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.cn4;
+import com.baidu.tieba.xm4;
+import com.baidu.tieba.zm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cl4 extends ok4 {
+public class cl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cl4() {
+    @NonNull
+    public static JSONArray a(String str, long j, boolean z) {
+        InterceptResult invokeCommon;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ok4, com.baidu.tieba.rk4
-    public void b(JSONObject jSONObject, bh4 bh4Var, @Nullable bh4 bh4Var2, @Nullable bh4 bh4Var3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, bh4Var, bh4Var2, bh4Var3) != null) || jSONObject == null) {
-            return;
-        }
-        el4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        il4.f().k(jSONObject.optJSONObject("page_tips"));
-        al4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        kl4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        sl4.f(jSONObject.optJSONObject("app_inner_preload"));
-        dl4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        pl4.b().d(jSONObject.optJSONObject("tts"));
-        ll4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        ql4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (ml4.a) {
-            c(jSONObject);
-        }
-        ol4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        fl4.a().c(jSONObject.optJSONObject("local_debug"));
-        rg4.a().b(jSONObject.optJSONObject(rg4.a().c()));
-        if (nl4.b()) {
-            hl4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        gl4.a().e(jSONObject.optJSONObject("no_history_apps"));
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
-            return;
-        }
-        pg4 b = rg4.b();
-        ip4 ip4Var = null;
-        if (b != null) {
-            ip4Var = b.i();
-        }
-        String optString = optJSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString)) {
-            ml4.b = optString;
-            if (ip4Var != null) {
-                ip4Var.putString("key_h2_heart_beat_version", optString);
-            }
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
-                int optInt = optJSONObject2.optInt("timespan");
-                int optInt2 = optJSONObject2.optInt("timeout");
-                if (ip4Var != null) {
-                    if (optInt > 0) {
-                        ip4Var.putInt("key_h2_heart_beat_timespan", optInt);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            List<rk4> l = jj4.b().l(str, j);
+            JSONArray jSONArray = new JSONArray();
+            if (l != null && !l.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                try {
+                    for (rk4 rk4Var : l) {
+                        if (rk4Var.b) {
+                            j2 = rk4Var.c;
+                        } else {
+                            zk4 b = ep4.b(rk4Var.a, rk4Var.d, rk4Var.e, arrayList);
+                            if (b == null) {
+                                j2 = 0;
+                            } else {
+                                j2 = b.i;
+                            }
+                        }
+                        if (j2 != 0) {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("bundle_id", rk4Var.a);
+                            jSONObject.put("pkg_ver", j2);
+                            if (z) {
+                                jSONObject.put("category", 6);
+                            }
+                            jSONArray.put(jSONObject);
+                        }
                     }
-                    if (optInt2 > 0) {
-                        ip4Var.putInt("key_h2_heart_beat_timeout", optInt2);
-                        return;
-                    }
-                    return;
+                } catch (JSONException unused) {
                 }
-                return;
+                if (!arrayList.isEmpty()) {
+                    vj4.i().g(arrayList);
+                }
             }
-            ml4.a = false;
+            return jSONArray;
         }
+        return (JSONArray) invokeCommon.objValue;
+    }
+
+    @NonNull
+    public static JSONObject b() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("swan_ext_ver", g(0));
+            jSONObject.put("game_ext_ver", g(1));
+            jSONObject.put("swan_ext_vercode", jj4.b().j(0));
+            jSONObject.put("game_ext_vercode", jj4.b().j(1));
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("swan_core_ver", h(0));
+            jSONObject.put("swan_game_ver", h(1));
+            jSONObject.put("swan_vercode", jj4.b().w(0));
+            jSONObject.put("game_vercode", jj4.b().w(1));
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static JSONObject d(xm4 xm4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xm4Var)) == null) {
+            if (xm4Var != null && xm4Var.f() != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("framework", c());
+                    jSONObject.put(ETAG.KEY_EXTENSION, b());
+                    JSONArray jSONArray = new JSONArray();
+                    for (xm4.a aVar : xm4Var.f()) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("bundle_id", aVar.a());
+                        jSONObject2.put("category", aVar.b());
+                        jSONObject2.put("pkg_ver", aVar.e());
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("min_version", aVar.d());
+                        jSONObject3.put("max_version", aVar.c());
+                        jSONObject2.put("version_range", jSONObject3);
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("list", jSONArray);
+                    return jSONObject;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject e(zm4 zm4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zm4Var)) == null) {
+            if (zm4Var != null && zm4Var.f() != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("framework", c());
+                    jSONObject.put(ETAG.KEY_EXTENSION, b());
+                    JSONArray jSONArray = new JSONArray();
+                    for (zm4.a aVar : zm4Var.f()) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("bundle_id", aVar.b());
+                        if (aVar.c() != -1) {
+                            jSONObject2.put("category", aVar.c());
+                        }
+                        jSONObject2.put("pkg_ver", aVar.d());
+                        jSONObject2.put("app_sign", aVar.a());
+                        if (aVar.c() == 0 && aVar.d() != -1 && aVar.d() != 0) {
+                            jSONObject2.put("dep", a(aVar.b(), aVar.d(), true));
+                        }
+                        if (aVar instanceof cn4.b) {
+                            cn4.b bVar = (cn4.b) aVar;
+                            String[] i = bVar.i();
+                            if (i != null && i.length > 0) {
+                                jSONObject2.put("path", new JSONArray((Collection) Arrays.asList(i)));
+                            }
+                            JSONObject jSONObject3 = new JSONObject();
+                            List<cn4.a> j = bVar.j();
+                            if (j != null && !j.isEmpty()) {
+                                JSONArray jSONArray2 = new JSONArray();
+                                for (cn4.a aVar2 : j) {
+                                    JSONObject jSONObject4 = new JSONObject();
+                                    jSONObject4.put("id", aVar2.a());
+                                    jSONObject4.put("type", aVar2.getType());
+                                    jSONArray2.put(jSONObject4);
+                                }
+                                jSONObject3.put("list", jSONArray2);
+                                jSONObject3.put("ver", j.get(0).b());
+                            }
+                            jSONObject2.put("sub_info", jSONObject3);
+                        }
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("list", jSONArray);
+                    return jSONObject;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static HashMap<String, String> k(dn4 dn4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, dn4Var)) == null) {
+            if (dn4Var == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("bundle_id", dn4Var.f());
+            hashMap.put("category", String.valueOf(dn4Var.a()));
+            hashMap.put("pkg_ver", String.valueOf(dn4Var.j()));
+            hashMap.put("expect_pkg_ver", String.valueOf(dn4Var.j()));
+            hashMap.put("sub_id", dn4Var.k());
+            if (!TextUtils.equals(dn4Var.b(), "-1")) {
+                hashMap.put("from", dn4Var.b());
+            }
+            if (TextUtils.isEmpty(dn4Var.i())) {
+                dn4Var.m(h(dn4Var.a()));
+            }
+            if (!TextUtils.isEmpty(dn4Var.i())) {
+                hashMap.put("framework_ver", dn4Var.i());
+            }
+            if (TextUtils.isEmpty(dn4Var.h())) {
+                dn4Var.l(g(dn4Var.a()));
+            }
+            if (!TextUtils.isEmpty(dn4Var.h())) {
+                hashMap.put("extension_ver", dn4Var.h());
+            }
+            long w = jj4.b().w(dn4Var.a());
+            long j = jj4.b().j(dn4Var.a());
+            if (dn4Var.a() == 1) {
+                hashMap.put("game_vercode", w + "");
+                hashMap.put("game_ext_vercode", j + "");
+            } else {
+                hashMap.put("swan_vercode", w + "");
+                hashMap.put("swan_ext_vercode", j + "");
+            }
+            if (dn4Var.g() != -1) {
+                hashMap.put("expect_pkg_ver", String.valueOf(dn4Var.g()));
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static HashMap<String, String> f(en4 en4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, en4Var)) == null) {
+            if (en4Var == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (!TextUtils.equals(en4Var.b(), "-1")) {
+                hashMap.put("from", en4Var.b());
+            }
+            if (!TextUtils.equals(en4Var.c(), "-1")) {
+                hashMap.put("scene", en4Var.c());
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            String v = jj4.b().v(i);
+            if (TextUtils.isEmpty(v)) {
+                return "0";
+            }
+            return v;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            String J = jj4.b().J(i);
+            if (TextUtils.isEmpty(J)) {
+                return "0";
+            }
+            return J;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static HashMap<String, String> i(an4 an4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, an4Var)) == null) {
+            PMSAppInfo pMSAppInfo = null;
+            if (an4Var == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("bundle_id", an4Var.g());
+            hashMap.put("category", String.valueOf(an4Var.a()));
+            if (an4Var.m() == -1) {
+                pMSAppInfo = vj4.i().u(an4Var.g());
+                if (pMSAppInfo != null && vj4.i().o(xk4.class, an4Var.g()) != null) {
+                    an4Var.u(pMSAppInfo.versionCode);
+                } else {
+                    an4Var.u(0L);
+                }
+            }
+            hashMap.put("pkg_ver", String.valueOf(an4Var.m()));
+            if (an4Var.a() == 0 && an4Var.m() != -1 && an4Var.m() != 0) {
+                hashMap.put("dep", a(an4Var.g(), an4Var.m(), false).toString());
+            }
+            if (an4Var.f() == -1) {
+                if (pMSAppInfo == null) {
+                    pMSAppInfo = vj4.i().u(an4Var.g());
+                }
+                if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.a.a()) {
+                    an4Var.o(pMSAppInfo.appSign);
+                } else {
+                    an4Var.o(0L);
+                }
+            }
+            hashMap.put("app_sign", String.valueOf(an4Var.f()));
+            if (an4Var.i() != -1) {
+                hashMap.put("expect_pkg_ver", String.valueOf(an4Var.i()));
+            }
+            String k = an4Var.k();
+            if (TextUtils.isEmpty(k)) {
+                k = h(an4Var.a());
+                an4Var.s(k);
+            }
+            String str = "0";
+            if (TextUtils.isEmpty(k)) {
+                k = "0";
+            }
+            hashMap.put("framework_ver", k);
+            long w = jj4.b().w(an4Var.a());
+            long j = jj4.b().j(an4Var.a());
+            if (an4Var.a() == 1) {
+                hashMap.put("game_vercode", w + "");
+                hashMap.put("game_ext_vercode", j + "");
+            } else {
+                hashMap.put("swan_vercode", w + "");
+                hashMap.put("swan_ext_vercode", j + "");
+            }
+            String j2 = an4Var.j();
+            if (TextUtils.isEmpty(j2)) {
+                j2 = g(an4Var.a());
+                an4Var.r(j2);
+            }
+            if (!TextUtils.isEmpty(j2)) {
+                str = j2;
+            }
+            hashMap.put("extension_ver", str);
+            if (!TextUtils.isEmpty(an4Var.l())) {
+                hashMap.put("path", an4Var.l());
+            }
+            if (!TextUtils.equals(an4Var.b(), "-1")) {
+                hashMap.put("from", an4Var.b());
+            }
+            if (!TextUtils.equals(an4Var.c(), "-1")) {
+                hashMap.put("scene", an4Var.c());
+            }
+            hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(an4Var.n()));
+            hashMap.put("host_env", String.valueOf(jj4.b().B()));
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static HashMap<String, String> j(bn4 bn4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bn4Var)) == null) {
+            if (bn4Var == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("bundle_id", bn4Var.f());
+            hashMap.put("category", String.valueOf(bn4Var.a()));
+            if (TextUtils.isEmpty(bn4Var.h())) {
+                bn4Var.i(String.valueOf(-1));
+            }
+            hashMap.put("plugin_ver", bn4Var.h());
+            if (bn4Var.g() >= 0) {
+                hashMap.put("plugin_vercode", bn4Var.g() + "");
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
     }
 }

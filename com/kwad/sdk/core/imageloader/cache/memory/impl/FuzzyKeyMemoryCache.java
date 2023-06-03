@@ -5,7 +5,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FuzzyKeyMemoryCache implements MemoryCache {
     public final MemoryCache cache;
     public final Comparator<String> keyComparator;

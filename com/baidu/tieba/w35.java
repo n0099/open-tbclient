@@ -1,22 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes8.dex */
-public class w35 {
+public class w35 extends e25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends k35>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public int e;
+    public String f;
+    public ArrayList<v35> g;
+
+    @Override // com.baidu.tieba.e25, com.baidu.tieba.f15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,41 +47,72 @@ public class w35 {
                 return;
             }
         }
-        ArrayMap arrayMap = new ArrayMap();
-        a = arrayMap;
-        arrayMap.put("WebViewYunDialog", v35.class);
-        a.put("userIcon", u35.class);
-        a.put("userGrowth", t35.class);
-        a.put("newGod", q35.class);
-        a.put("operateNew", r35.class);
-        a.put("homeLiveRemind", p35.class);
-        a.put("updateDialog", s35.class);
-        a.put("lcUpdateDialog", o35.class);
-        l35 l35Var = new l35();
-        xj1<m35> xj1Var = l35Var.a;
-        if (xj1Var != null && !ListUtils.isEmpty(xj1Var.getList())) {
-            for (m35 m35Var : l35Var.a.getList()) {
-                a.put(m35Var.name(), m35Var.a());
-            }
-        }
+        BdUniqueId.gen();
     }
 
-    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public w35() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
-            c35 b = c35.b(str, str2);
-            try {
-                String a2 = b.a("yun_dialogClass");
-                if (TextUtils.isEmpty(a2)) {
-                    return;
-                }
-                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
-            } catch (Exception e) {
-                zk8 yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.b("YunDialogManager", "云弹窗 " + str + " 渲染失败：" + e.getMessage());
-                a35.s(str);
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        d(9);
+        this.g = new ArrayList<>();
+    }
+
+    public ArrayList<v35> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e25, com.baidu.tieba.f15
+    public e35 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new e35();
+        }
+        return (e35) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return e25.b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void f(List<RecommendForumInfo> list) {
+        Long l;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                RecommendForumInfo recommendForumInfo = list.get(i);
+                v35 v35Var = new v35();
+                if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
+                    v35Var.m(recommendForumInfo);
+                    arrayList.add(v35Var);
+                }
+            }
+            this.g.clear();
+            this.g.addAll(ListUtils.trimToSize(arrayList, 15));
         }
     }
 }

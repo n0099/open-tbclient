@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 import android.content.Context;
 import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.d;
+import com.baidu.cyberplayer.sdk.f;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberCaptureManager {
@@ -20,28 +20,7 @@ public class CyberCaptureManager {
     }
 
     public static void enableDebug(boolean z) {
-        d.b(z);
-    }
-
-    public void destroySurface() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.destroySurface();
-        }
-    }
-
-    public void doAutoFocus() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.doAutoFocus();
-        }
-    }
-
-    public void doFocus(int i, int i2, int i3, int i4) {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.doFocus(i, i2, i3, i4);
-        }
+        f.b(z);
     }
 
     public void enableZoom(boolean z) {
@@ -51,39 +30,10 @@ public class CyberCaptureManager {
         }
     }
 
-    public boolean isFrontCamera() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            return captureManagerProvider.isFrontCamera();
-        }
-        return false;
-    }
-
     public void muteCamera(boolean z) {
         CaptureManagerProvider captureManagerProvider = this.a;
         if (captureManagerProvider != null) {
             captureManagerProvider.muteCamera(z);
-        }
-    }
-
-    public void pause() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.pause();
-        }
-    }
-
-    public void release() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.release();
-        }
-    }
-
-    public void resume() {
-        CaptureManagerProvider captureManagerProvider = this.a;
-        if (captureManagerProvider != null) {
-            captureManagerProvider.resume();
         }
     }
 
@@ -157,10 +107,53 @@ public class CyberCaptureManager {
         }
     }
 
-    public void setSurfaceSize(int i, int i2) {
+    public void zoom(int i) {
         CaptureManagerProvider captureManagerProvider = this.a;
         if (captureManagerProvider != null) {
-            captureManagerProvider.setSurfaceSize(i, i2);
+            captureManagerProvider.zoom(i);
+        }
+    }
+
+    public void destroySurface() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.destroySurface();
+        }
+    }
+
+    public void doAutoFocus() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.doAutoFocus();
+        }
+    }
+
+    public boolean isFrontCamera() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            return captureManagerProvider.isFrontCamera();
+        }
+        return false;
+    }
+
+    public void pause() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.pause();
+        }
+    }
+
+    public void release() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.release();
+        }
+    }
+
+    public void resume() {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.resume();
         }
     }
 
@@ -171,10 +164,17 @@ public class CyberCaptureManager {
         }
     }
 
-    public void zoom(int i) {
+    public void doFocus(int i, int i2, int i3, int i4) {
         CaptureManagerProvider captureManagerProvider = this.a;
         if (captureManagerProvider != null) {
-            captureManagerProvider.zoom(i);
+            captureManagerProvider.doFocus(i, i2, i3, i4);
+        }
+    }
+
+    public void setSurfaceSize(int i, int i2) {
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setSurfaceSize(i, i2);
         }
     }
 }

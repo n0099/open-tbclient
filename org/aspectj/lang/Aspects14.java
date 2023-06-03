@@ -3,7 +3,7 @@ package org.aspectj.lang;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Aspects14 {
     public static final String ASPECTOF = "aspectOf";
     public static final Class[] EMPTY_CLASS_ARRAY = new Class[0];

@@ -27,23 +27,23 @@ public final class af extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo695a() {
+    public String mo750a() {
         return "send ack message for clear push message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo412a() {
+    public void mo467a() {
         try {
             hy hyVar = new hy();
             hyVar.c(hr.CancelPushMessageACK.f508a);
-            hyVar.a(this.f885a.m579a());
+            hyVar.a(this.f885a.m634a());
             hyVar.a(this.f885a.a());
             hyVar.b(this.f885a.b());
             hyVar.e(this.f885a.c());
             hyVar.a(0L);
             hyVar.d("success clear push message.");
-            ah.a(this.f886a, ah.b(this.a.b(), this.a.m565a(), hyVar, hh.Notification));
+            ah.a(this.f886a, ah.b(this.a.b(), this.a.m620a(), hyVar, hh.Notification));
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
             this.f886a.a(10, e);

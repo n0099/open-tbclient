@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qp1;
-import com.baidu.tieba.xm3;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.pp3;
 /* loaded from: classes4.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean k = qp1.a;
+    public static final boolean k = is1.a;
     public int e;
     public int f;
     public int g;
@@ -36,7 +36,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onPullToRefresh");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onPullToRefresh");
         }
         this.j.setAlpha(1.0f);
         this.j.A();
@@ -53,7 +53,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return xm3.f(getContext(), 50.0f);
+        return pp3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -64,7 +64,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onRefreshing");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onRefreshing");
         }
         this.j.r();
     }
@@ -72,7 +72,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void i() {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onReleaseToLongRefresh");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onReleaseToLongRefresh");
         }
         this.j.setAnimPercent(1.0f);
     }
@@ -80,7 +80,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onReleaseToRefresh");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onReleaseToRefresh");
         }
         this.j.setAnimPercent(1.0f);
     }
@@ -88,7 +88,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onReset");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onReset");
         }
         this.j.A();
         this.j.setAlpha(1.0f);
@@ -143,7 +143,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void e(int i) {
         if (k) {
-            Log.e("NeutralLoadingLayout", "pullLength = " + i);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "pullLength = " + i);
         }
         if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
             this.j.setAnimPercent(n(i));
@@ -157,29 +157,29 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void f(boolean z, String str, Runnable runnable) {
         if (k) {
-            Log.e("NeutralLoadingLayout", "onPullRefreshComplete");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "onPullRefreshComplete");
         }
         this.j.A();
         if (k) {
-            Log.e("NeutralLoadingLayout", "current thread name:" + Thread.currentThread().getName());
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "current thread name:" + Thread.currentThread().getName());
         }
         this.j.q();
         post(new a(runnable));
     }
 
     public final void o() {
-        this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091865);
-        int f = xm3.f(getContext(), 29.0f);
+        this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09188b);
+        int f = pp3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);
         this.h = i;
         this.g = i;
         if (k) {
-            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.e);
-            Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.f);
-            Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.h);
-            Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.g);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "mRefreshingViewSizeInPixel" + this.e);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "mTriggerRefreshLength" + this.f);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "mRefreshingHeight" + this.h);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralHeaderLoadingLayout.TAG, "mScrollStartLength" + this.g);
         }
     }
 }

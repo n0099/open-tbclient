@@ -1,4 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
+
+import com.baidu.searchbox.player.model.YYOption;
 /* loaded from: classes10.dex */
 public class BitEncoding {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -77,7 +79,7 @@ public class BitEncoding {
         } catch (SecurityException unused) {
             str = null;
         }
-        FORCE_8TO7_ENCODING = "true".equals(str);
+        FORCE_8TO7_ENCODING = YYOption.IsLive.VALUE_TRUE.equals(str);
     }
 
     public static void addModuloByte(byte[] bArr, int i) {

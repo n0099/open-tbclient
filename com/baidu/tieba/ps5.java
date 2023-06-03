@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ps5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppLaunchInfoFetcher.Type a;
-    public Intent b;
+    public String a;
 
-    public ps5(AppLaunchInfoFetcher.Type type, Intent intent) {
+    public ps5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,7 +25,15 @@ public class ps5 {
                 return;
             }
         }
-        this.a = type;
-        this.b = intent;
+        this.a = null;
+    }
+
+    public static bh a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        }
+        return (bh) invokeV.objValue;
     }
 }

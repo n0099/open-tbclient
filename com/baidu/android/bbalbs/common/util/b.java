@@ -24,7 +24,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
@@ -362,7 +361,7 @@ public final class b {
                             if (bundle != null) {
                                 String string = bundle.getString("galaxy_data");
                                 if (!TextUtils.isEmpty(string)) {
-                                    byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET));
+                                    byte[] decode = Base64.decode(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(decode));
                                     a aVar = new a(null);
                                     aVar.b = jSONObject.getInt("priority");
@@ -774,7 +773,7 @@ public final class b {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(Base64.encode(com.baidu.android.bbalbs.common.security.a.a(a, a, (str + "=" + str2).getBytes()), IMAudioTransRequest.CHARSET));
+            fileWriter.write(Base64.encode(com.baidu.android.bbalbs.common.security.a.a(a, a, (str + "=" + str2).getBytes()), "utf-8"));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException | Exception unused) {
@@ -947,7 +946,7 @@ public final class b {
                 return null;
             }
             try {
-                return Base64.encode(com.baidu.android.bbalbs.common.security.a.a(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
+                return Base64.encode(com.baidu.android.bbalbs.common.security.a.a(a, a, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception e2) {
                 b(e2);
                 return "";

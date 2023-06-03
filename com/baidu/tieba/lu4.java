@@ -1,78 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class lu4 {
+public class lu4 extends ju4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long e;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
-    }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
-
-    public lu4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lu4(du4 du4Var, long j) {
+        super(du4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {du4Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((du4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = j;
     }
 
-    public static lu4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    public long i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, lu4.class, baseActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (lu4) runTask.getData();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (lu4) invokeL.objValue;
-    }
-
-    public static lu4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, lu4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (lu4) runTask.getData();
-            }
-            return null;
-        }
-        return (lu4) invokeL.objValue;
+        return invokeV.longValue;
     }
 }

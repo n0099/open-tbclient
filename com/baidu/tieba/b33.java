@@ -1,88 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b33 implements c33 {
+/* loaded from: classes5.dex */
+public class b33 extends a33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b33() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b33(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/cancelRequest");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.c33
-    public List<o23> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
-            c("api-name " + optString);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            }
+            JSONObject a = vd3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                return false;
+            }
+            String optString = a.optString("cancelTag");
             if (TextUtils.isEmpty(optString)) {
-                return arrayList;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
+                return false;
             }
-            int optInt = jSONObject.optInt("count");
-            c("api-count " + optInt);
-            if (optInt <= 0) {
-                return arrayList;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("caller");
-            if (optJSONObject == null) {
-                return arrayList;
-            }
-            b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
-            b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
-            return arrayList;
+            SwanAppNetworkUtils.a(cj4.g().getOkHttpClient(), optString);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<o23> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) && jSONObject != null && jSONObject.length() > 0) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                for (int i2 = 0; i2 < min; i2++) {
-                    o23 o23Var = new o23();
-                    o23Var.g(i);
-                    o23Var.f(str);
-                    o23Var.i(optJSONArray.optLong(i2));
-                    o23Var.h(optJSONArray2.optLong(i2));
-                    list.add(o23Var);
-                }
-            }
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && c33.a) {
-            Log.d("Api-Parser", str);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

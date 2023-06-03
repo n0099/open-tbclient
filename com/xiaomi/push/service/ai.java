@@ -25,17 +25,17 @@ public final class ai extends bx.a {
     public void a(bx bxVar) {
         com.xiaomi.push.az a = com.xiaomi.push.az.a(this.a);
         String a2 = bxVar.a("MSAID", "msaid");
-        String mo205a = a.mo205a();
-        if (TextUtils.isEmpty(mo205a) || TextUtils.equals(a2, mo205a)) {
+        String mo260a = a.mo260a();
+        if (TextUtils.isEmpty(mo260a) || TextUtils.equals(a2, mo260a)) {
             return;
         }
-        bxVar.a("MSAID", "msaid", mo205a);
+        bxVar.a("MSAID", "msaid", mo260a);
         ig igVar = new ig();
         igVar.b(this.f888a.d);
         igVar.c(hr.ClientInfoUpdate.f508a);
         igVar.a(bd.a());
         igVar.a(new HashMap());
-        a.a(igVar.m580a());
+        a.a(igVar.m635a());
         byte[] a3 = ir.a(ah.a(this.a.getPackageName(), this.f888a.d, igVar, hh.Notification));
         XMPushService xMPushService = this.a;
         xMPushService.a(xMPushService.getPackageName(), a3, true);

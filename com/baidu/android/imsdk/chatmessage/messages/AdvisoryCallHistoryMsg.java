@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.download.manager.DownloadManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +204,7 @@ public class AdvisoryCallHistoryMsg extends NormalMsg {
             if (!TextUtils.isEmpty(this.mjsonContent)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mjsonContent);
-                    this.mMediaType = jSONObject.optInt("media_type");
+                    this.mMediaType = jSONObject.optInt(DownloadManager.COLUMN_MEDIA_TYPE);
                     this.mRoomId = jSONObject.optString("room_id");
                     JSONObject optJSONObject = jSONObject.optJSONObject("from");
                     if (optJSONObject != null) {
@@ -237,7 +238,7 @@ public class AdvisoryCallHistoryMsg extends NormalMsg {
                 jSONObject2.put("tips", this.mFromTips);
                 jSONObject3.put("uid", this.mToUid);
                 jSONObject3.put("tips", this.mToTips);
-                jSONObject.put("media_type", this.mMediaType);
+                jSONObject.put(DownloadManager.COLUMN_MEDIA_TYPE, this.mMediaType);
                 jSONObject.put("room_id", this.mRoomId);
                 jSONObject.put("from", jSONObject2);
                 jSONObject.put("to", jSONObject3);

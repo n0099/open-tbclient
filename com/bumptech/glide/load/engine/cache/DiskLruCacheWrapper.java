@@ -6,7 +6,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DiskLruCacheWrapper implements DiskCache {
     public static final int APP_VERSION = 1;
     public static final String TAG = "DiskLruCacheWrapper";

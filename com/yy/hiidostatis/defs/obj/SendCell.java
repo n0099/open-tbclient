@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.defs.obj;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.cipher.AesCipher;
@@ -69,7 +68,7 @@ public class SendCell {
                 byte[] readInputStream = Util.readInputStream(fileInputStream);
                 long parseId = parseId(file.getName());
                 long j = NumberUtil.getLong(readInputStream, 0);
-                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), IMAudioTransRequest.CHARSET).trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
+                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), "utf-8").trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {
@@ -104,7 +103,7 @@ public class SendCell {
         }
         FileOutputStream fileOutputStream = null;
         try {
-            byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes(IMAudioTransRequest.CHARSET));
+            byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes("utf-8"));
             FileOutputStream fileOutputStream2 = new FileOutputStream(randomFile);
             try {
                 fileOutputStream2.write(NumberUtil.getBytes(this.timestamp));

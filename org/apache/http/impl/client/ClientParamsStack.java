@@ -3,7 +3,7 @@ package org.apache.http.impl.client;
 import org.apache.http.params.AbstractHttpParams;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClientParamsStack extends AbstractHttpParams {
     public final HttpParams applicationParams;
     public final HttpParams clientParams;

@@ -1,37 +1,61 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fr8 {
+public class fr8 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public fr8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Color.parseColor(b(str));
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeL.intValue;
     }
 
-    public static String b(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
+                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                z45.d();
+                we<String> f = z45.f("tb.searchperson_history", currentAccount);
+                if (requestSearchPersonHistoryWriteMessage.isClear()) {
+                    BdCacheService.n().l(f);
+                } else {
+                    Object data = requestSearchPersonHistoryWriteMessage.getData();
+                    if (data != null && (data instanceof String)) {
+                        f.g((String) data, null);
+                    }
+                }
+                return new ResponseSearchPersonHistoryWriteMessage();
             }
-            return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

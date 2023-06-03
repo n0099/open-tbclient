@@ -1,261 +1,205 @@
 package com.baidu.cyberplayer.sdk;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.os.Build;
-import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
+import android.text.TextUtils;
+import android.view.Display;
+import android.view.WindowManager;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.live.interfaces.DI;
 @Keep
 /* loaded from: classes3.dex */
 public class DeviceInfoUtils {
-    public static String a;
-    public static String b;
+    public static final Object a = new Object();
+    public static String b = "";
+    public static String c = "";
+    public static String d = "";
+    public static String e = "";
+    public static String f = "";
+    public static boolean g = true;
+    public static HDRInfo h;
 
-    public static String getAvailMemorySize() {
-        ActivityManager activityManager = (ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService("activity");
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        if (activityManager != null) {
-            activityManager.getMemoryInfo(memoryInfo);
-            return String.valueOf(memoryInfo.availMem / 1000);
-        }
-        return null;
+    @Keep
+    /* loaded from: classes3.dex */
+    public static final class HDRInfo {
+        public int[] hdrTypes;
+        public boolean isColorGamut;
+        public boolean isScreenHdr;
+        public float maxLum;
+        public float maxLumAVG;
+        public float minLum;
     }
 
-    public static String getBatteryHealth() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("health", 1));
-        }
-        return null;
+    public static boolean a(int i) {
+        return i == -2 || i == 2 || i == -3;
     }
 
-    public static String[] getBatteryInfos() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        String[] strArr = new String[7];
-        if (registerReceiver != null) {
-            strArr[0] = String.valueOf(registerReceiver.getIntExtra("health", 1));
-            strArr[1] = String.valueOf(registerReceiver.getIntExtra("status", 1));
-            strArr[2] = String.valueOf(registerReceiver.getIntExtra("level", 0));
-            strArr[3] = String.valueOf(registerReceiver.getIntExtra("scale", 0));
-            strArr[4] = String.valueOf(registerReceiver.getIntExtra("voltage", 0));
-            strArr[5] = String.valueOf(registerReceiver.getIntExtra("temperature", 0));
-            strArr[6] = registerReceiver.getStringExtra("technology");
-            return strArr;
+    public static void clearOperator() {
+        synchronized (a) {
+            g = true;
         }
-        return null;
     }
 
-    public static String getBatteryLevel() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("level", 0));
+    public static String getDeviceDevice() {
+        if (TextUtils.isEmpty(d)) {
+            d = Build.DEVICE;
         }
-        return null;
+        return d;
     }
 
-    public static String getBatteryScale() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("scale", 0));
+    public static String getDeviceManufacturer() {
+        if (TextUtils.isEmpty(b)) {
+            try {
+                b = DeviceInfoManager.INSTANCE.getManufacturer(DI.LIVE_PLAYER, "").deviceId;
+            } catch (Error | Exception e2) {
+                e2.printStackTrace();
+            }
         }
-        return null;
+        return b;
     }
 
-    public static String getBatteryStatus() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("status", 1));
+    public static String getDeviceModel() {
+        if (TextUtils.isEmpty(c)) {
+            try {
+                c = DeviceInfoManager.INSTANCE.getModel(DI.LIVE_PLAYER, "").deviceId;
+            } catch (Error | Exception unused) {
+                c = Build.MODEL;
+            }
         }
-        return null;
+        return c;
     }
 
-    public static String getBatteryTechnology() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return registerReceiver.getStringExtra("technology");
+    public static String getOsVersion() {
+        if (TextUtils.isEmpty(e)) {
+            try {
+                e = DeviceInfoManager.INSTANCE.getOsVersion(DI.LIVE_PLAYER, "").deviceId;
+            } catch (Error | Exception e2) {
+                e2.printStackTrace();
+            }
         }
-        return null;
+        return e;
     }
 
-    public static String getBatteryTemperature() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("temperature", 0));
+    public static boolean a(Context context) {
+        int i = 0;
+        if (Build.VERSION.SDK_INT < 24) {
+            return false;
         }
-        return null;
+        int[] supportedHdrTypes = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities().getSupportedHdrTypes();
+        boolean z = false;
+        while (i < supportedHdrTypes.length) {
+            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "type= " + supportedHdrTypes[i]);
+            i++;
+            z = true;
+        }
+        h.hdrTypes = supportedHdrTypes;
+        return z;
     }
 
-    public static String getBatteryVoltage() {
-        Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver != null) {
-            return String.valueOf(registerReceiver.getIntExtra("voltage", 0));
+    public static boolean c(Context context) {
+        boolean z = false;
+        if (Build.VERSION.SDK_INT >= 26) {
+            Configuration configuration = context.getResources().getConfiguration();
+            boolean isScreenWideColorGamut = configuration.isScreenWideColorGamut();
+            boolean isScreenHdr = configuration.isScreenHdr();
+            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "Configuration color " + isScreenWideColorGamut + " hdr " + isScreenHdr);
+            if (isScreenWideColorGamut && isScreenHdr) {
+                z = true;
+            }
+            HDRInfo hDRInfo = h;
+            hDRInfo.isColorGamut = isScreenWideColorGamut;
+            hDRInfo.isScreenHdr = isScreenHdr;
         }
-        return null;
+        return z;
     }
 
-    public static String getCurCpuFreq() {
+    public static String getOperator(Context context) {
+        boolean z;
+        synchronized (a) {
+            z = g;
+            g = false;
+        }
         try {
-            return new BufferedReader(new FileReader(DeviceInfoUtil.CurPath)).readLine().trim();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        } catch (IOException e2) {
+            DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", z);
+            if (operator != null && a(operator.errorCode)) {
+                operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", true);
+            }
+            return operator.deviceId;
+        } catch (Error | Exception e2) {
             e2.printStackTrace();
-            return null;
+            return "";
         }
     }
 
-    public static String getDeviceBoard() {
-        return Build.BOARD;
-    }
-
-    public static String getDeviceBrand() {
-        return Build.BRAND;
+    public static boolean b(Context context) {
+        boolean z = false;
+        if (Build.VERSION.SDK_INT >= 24) {
+            Display.HdrCapabilities hdrCapabilities = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities();
+            float desiredMaxAverageLuminance = hdrCapabilities.getDesiredMaxAverageLuminance();
+            float desiredMaxLuminance = hdrCapabilities.getDesiredMaxLuminance();
+            float desiredMinLuminance = hdrCapabilities.getDesiredMinLuminance();
+            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "MaxAverageLuminance = " + desiredMaxAverageLuminance + " MaxLuminance= " + desiredMaxLuminance + " MinLuminance = " + desiredMinLuminance);
+            if (desiredMaxLuminance > 1000.0f) {
+                z = true;
+            }
+            HDRInfo hDRInfo = h;
+            hDRInfo.maxLumAVG = desiredMaxAverageLuminance;
+            hDRInfo.maxLum = desiredMaxLuminance;
+            hDRInfo.minLum = desiredMinLuminance;
+        }
+        return z;
     }
 
     public static int getDeviceDensityDpi(Context context) {
         return context.getResources().getDisplayMetrics().densityDpi;
     }
 
-    public static String getDeviceDevice() {
-        return Build.DEVICE;
-    }
-
-    public static String getDeviceDisplay() {
-        return Build.DISPLAY;
-    }
-
-    public static String getDeviceFubgerprint() {
-        return Build.FINGERPRINT;
-    }
-
-    public static String getDeviceHardware() {
-        return Build.HARDWARE;
-    }
-
     public static int getDeviceHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
-    }
-
-    public static String getDeviceHost() {
-        return Build.HOST;
-    }
-
-    public static String getDeviceId() {
-        return Build.ID;
-    }
-
-    public static String getDeviceManufacturer() {
-        return Build.MANUFACTURER;
-    }
-
-    public static String getDeviceModel() {
-        return Build.MODEL;
-    }
-
-    public static String getDeviceProduct() {
-        return Build.PRODUCT;
-    }
-
-    public static String getDeviceSerial() {
-        return Build.SERIAL;
-    }
-
-    public static String getDeviceUser() {
-        return Build.USER;
     }
 
     public static int getDeviceWidth(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
 
-    public static String getMaxCpuFreq() {
-        String str;
-        byte[] bArr;
-        String str2 = a;
-        if (str2 != null) {
-            return str2;
-        }
-        try {
-            InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
-            String str3 = "";
-            while (inputStream.read(new byte[24]) != -1) {
-                str3 = str3 + new String(bArr);
+    public static synchronized HDRInfo getDisplayHDRInfo(Context context) {
+        HDRInfo hDRInfo;
+        synchronized (DeviceInfoUtils.class) {
+            if (h == null) {
+                try {
+                    h = new HDRInfo();
+                    a(context);
+                    b(context);
+                    c(context);
+                } catch (Error | Exception e2) {
+                    e2.printStackTrace();
+                }
             }
-            str = str3.trim();
-            inputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            str = null;
+            hDRInfo = h;
         }
-        if (str != null) {
-            a = str;
-        }
-        return str;
+        return hDRInfo;
     }
 
-    public static String[] getMemoryInfos() {
-        String[] strArr = new String[3];
-        ActivityManager activityManager = (ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService("activity");
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        if (activityManager != null) {
-            activityManager.getMemoryInfo(memoryInfo);
-            strArr[0] = String.valueOf(memoryInfo.totalMem / 1000);
-            strArr[1] = String.valueOf(memoryInfo.availMem / 1000);
-            strArr[2] = String.valueOf(memoryInfo.threshold / 1000);
-            return strArr;
-        }
-        return null;
-    }
-
-    public static String getMemorySize() {
-        ActivityManager activityManager = (ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService("activity");
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        if (activityManager != null) {
-            activityManager.getMemoryInfo(memoryInfo);
-            return String.valueOf(memoryInfo.totalMem / 1000);
-        }
-        return null;
-    }
-
-    public static String getMemoryThresholdSize() {
-        ActivityManager activityManager = (ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService("activity");
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        if (activityManager != null) {
-            activityManager.getMemoryInfo(memoryInfo);
-            return String.valueOf(memoryInfo.threshold / 1000);
-        }
-        return null;
-    }
-
-    public static String getMinCpuFreq() {
-        String str;
-        byte[] bArr;
-        String str2 = b;
-        if (str2 != null) {
-            return str2;
-        }
-        try {
-            InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
-            String str3 = "";
-            while (inputStream.read(new byte[24]) != -1) {
-                str3 = str3 + new String(bArr);
+    public static boolean isHarmonyOs(Context context) {
+        boolean z = false;
+        if (TextUtils.isEmpty(f)) {
+            try {
+                try {
+                    f = DeviceInfoManager.INSTANCE.getHarmonyVersion(context, DI.LIVE_PLAYER, "").deviceId;
+                } catch (Exception unused) {
+                }
+            } catch (Error | Exception unused2) {
+                if (Class.forName("ohos.utils.system.SystemCapability") != null) {
+                    z = true;
+                }
             }
-            str = str3.trim();
-            inputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            str = null;
         }
-        if (str != null) {
-            b = str;
+        if (!TextUtils.isEmpty(f)) {
+            return true;
         }
-        return str;
+        return z;
     }
 }

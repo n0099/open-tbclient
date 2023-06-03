@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vqa;
-import com.baidu.tieba.wqa;
+import com.baidu.tieba.iya;
+import com.baidu.tieba.jya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,21 +26,21 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public wqa b;
+    public jya b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends AsyncTask<Integer, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends AsyncTask<InputStream, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new wqa();
+        this.b = new jya();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -247,7 +247,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new wqa();
+        this.b = new jya();
         d(attributeSet, 0);
     }
 
@@ -271,7 +271,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new wqa();
+        this.b = new jya();
         d(attributeSet, i);
     }
 
@@ -387,7 +387,7 @@ public class SVGImageView extends ImageView {
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) != null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, vqa.SVGImageView, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, iya.SVGImageView, i, 0);
         try {
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {

@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.outback.core;
 
 import androidx.annotation.Nullable;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class RealResponseBody extends ResponseBody {
     public final long contentLength;
     @Nullable

@@ -2,8 +2,10 @@ package com.baidu.cyberplayer.sdk;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.view.Surface;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import java.util.Map;
 @Keep
 /* loaded from: classes3.dex */
@@ -17,11 +19,19 @@ public interface ICyberVideoView {
 
     void changeProxyDynamic(String str);
 
+    void debugShowOptions(View view2);
+
     void destory();
 
     int getCurrentPosition();
 
+    int getDecodeMode();
+
     int getDuration();
+
+    MediaInfo getMediaInfo();
+
+    void getMediaRuntimeInfo(CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
 
     long getPlayedTime();
 
@@ -48,6 +58,10 @@ public interface ICyberVideoView {
     void setDecodeMode(int i);
 
     void setExternalInfo(String str, Object obj);
+
+    void setExternalSurface(Surface surface);
+
+    boolean setFilterRegion(float f, float f2, float f3, float f4);
 
     void setLooping(boolean z);
 
@@ -83,11 +97,18 @@ public interface ICyberVideoView {
 
     void setVideoURI(Uri uri, Map<String, String> map);
 
+    void setVideoURI(Uri uri, Map<String, String> map, Map<String, String> map2);
+
     void start();
+
+    void stepToNextFrame();
 
     void stopPlayback();
 
+    @Deprecated
     void switchMediaSource(int i);
+
+    void switchMediaSource(int i, CyberPlayerManager.MediaSourceSwitchMode mediaSourceSwitchMode);
 
     boolean takeSnapshotAsync(OnSnapShotCompleteListener onSnapShotCompleteListener);
 

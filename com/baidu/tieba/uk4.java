@@ -1,28 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class uk4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public abstract class uk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
 
-    public static rk4 a(Node node) {
-        InterceptResult invokeL;
-        Class<? extends rk4> processor;
+    public uk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, node)) == null) {
-            if (node == null || (processor = node.getProcessor()) == null) {
-                return null;
-            }
-            try {
-                return processor.newInstance();
-            } catch (IllegalAccessException | InstantiationException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (rk4) invokeL.objValue;
+        this.a = "";
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
     }
 }

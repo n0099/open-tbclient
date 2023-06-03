@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes5.dex */
-public class dm5 implements yk5<ThirdPartyActivityLifecycleEvent> {
+public class dm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FutureTask<Boolean>> a;
+    public List<cm5> b;
+    public ErrorData c;
 
     public dm5() {
         Interceptable interceptable = $ic;
@@ -30,23 +30,31 @@ public class dm5 implements yk5<ThirdPartyActivityLifecycleEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk5
-    /* renamed from: a */
-    public boolean onEvent(ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent) {
-        InterceptResult invokeL;
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thirdPartyActivityLifecycleEvent)) == null) {
-            if (thirdPartyActivityLifecycleEvent == null || thirdPartyActivityLifecycleEvent.event == null || !TbadkCoreApplication.getInst().isMainProcess(false) || !UbsABTestHelper.isFixHotSplashRule()) {
-                return true;
-            }
-            if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_PAUSE)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, TbadkCoreApplication.getInst()));
-            } else if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_RESUME) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, TbadkCoreApplication.getInst()));
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.c = errorData;
+        for (FutureTask<Boolean> futureTask : this.a) {
+            futureTask.cancel(true);
+        }
+        for (cm5 cm5Var : this.b) {
+            cm5Var.a();
+        }
+    }
+
+    public void b(List<cm5> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+        }
     }
 }

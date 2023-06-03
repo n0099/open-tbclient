@@ -1,64 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class sr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static String a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
             }
-            return jSONObject.toString();
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
+                    }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
+                }
+            }
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static AppTransmitData b() {
-        InterceptResult invokeV;
+    public static List<String> b(List<String> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count > 0 && i >= 0 && count > i) {
+                return new ArrayList(ListUtils.subList(list, count - i, count));
+            }
+            return list;
         }
-        return (AppTransmitData) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
-        }
+        return (List) invokeLI.objValue;
     }
 }

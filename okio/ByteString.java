@@ -21,7 +21,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     public static final long serialVersionUID = 1;
     public final byte[] data;

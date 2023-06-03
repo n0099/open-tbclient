@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.nps.interfa.IPackageGetCallback;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import java.util.List;
 @Service
 /* loaded from: classes6.dex */
-public class ml implements IResourcesFetcher {
+public class ml implements IPackageGetter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,30 +31,19 @@ public class ml implements IResourcesFetcher {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getBaseContextResources() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            ll.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
         }
-        return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getGlobalResources() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
+            ll.f().g().k(list, iPackageGetCallback);
         }
-        return (Resources) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources[] getWrapperResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

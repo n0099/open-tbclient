@@ -1,119 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.util.BdLog;
-import com.baidu.permissionhelper.ApiUtil;
-import com.baidu.permissionhelper.context.ContextCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+import kotlin.Unit;
 /* loaded from: classes6.dex */
-public class lw {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "lw";
+public final class lw<T> implements kw<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Stack<T> a;
+    public final ReentrantLock b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310658, "Lcom/baidu/tieba/lw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public lw() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448310658, "Lcom/baidu/tieba/lw;");
-        }
+        this.a = new Stack<>();
+        this.b = new ReentrantLock(true);
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kw
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
             try {
-                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                if (ApiUtil.shouldCheckPermission()) {
-                    return false;
+                if (!c()) {
+                    return this.a.pop();
                 }
-                return true;
+                return null;
+            } finally {
+                reentrantLock.unlock();
             }
         }
-        return invokeL.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kw
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
             try {
-                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (Build.VERSION.SDK_INT >= 16) {
-                    if (!checkPermissionGranted) {
-                    }
-                    z = true;
-                    return z;
-                }
-                return checkPermissionGranted;
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                if (ApiUtil.shouldCheckPermission()) {
-                    return false;
-                }
-                return true;
+                this.a.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean c(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.kw
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                return this.a.isEmpty();
+            } finally {
+                reentrantLock.unlock();
             }
-            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
-            if (sharedPreferences == null) {
-                return true;
-            }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = sharedPreferences.getBoolean(str, true);
-            d(context, str);
-            return z;
         }
-        return invokeLI.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(Context context, String str) {
-        SharedPreferences sharedPreferences;
+    @Override // com.baidu.tieba.kw
+    public void a(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && (sharedPreferences = context.getSharedPreferences(a, 0)) != null) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putBoolean(str, false);
-            edit.apply();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.push(t);
+            } finally {
+                reentrantLock.unlock();
+            }
         }
     }
 }

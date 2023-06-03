@@ -3,14 +3,13 @@ package com.baidu.searchbox.player.session;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class VideoSession {
     public StringBuilder mDesc;
     @Nullable
@@ -31,18 +30,15 @@ public final class VideoSession {
     }
 
     @Nullable
-    @PublicMethod
     public IMessenger getMessenger() {
         return this.mMessenger;
     }
 
     @NonNull
-    @PublicMethod
     public PlayerStatus getStatus() {
         return this.mStatus;
     }
 
-    @PublicMethod
     public boolean isComplete() {
         if (this.mStatus == PlayerStatus.COMPLETE) {
             return true;
@@ -50,7 +46,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isError() {
         if (this.mStatus == PlayerStatus.ERROR) {
             return true;
@@ -58,7 +53,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isIdle() {
         if (this.mStatus == PlayerStatus.IDLE) {
             return true;
@@ -66,7 +60,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isPause() {
         if (this.mStatus == PlayerStatus.PAUSE) {
             return true;
@@ -74,7 +67,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isPlaying() {
         if (this.mStatus == PlayerStatus.PLAYING) {
             return true;
@@ -82,7 +74,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isPrepared() {
         if (this.mStatus == PlayerStatus.PREPARED) {
             return true;
@@ -90,7 +81,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isPreparing() {
         if (this.mStatus == PlayerStatus.PREPARING) {
             return true;
@@ -98,7 +88,6 @@ public final class VideoSession {
         return false;
     }
 
-    @PublicMethod
     public boolean isStop() {
         if (this.mStatus == PlayerStatus.STOP) {
             return true;

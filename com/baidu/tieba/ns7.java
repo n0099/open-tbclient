@@ -1,82 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ns7 extends en<ao, NoDataItemViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
+/* loaded from: classes7.dex */
+public class ns7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), ao.c);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static List<js7> a(List<VoiceRoom> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
-            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            return new NoDataItemViewHolder(inflate);
-        }
-        return (NoDataItemViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ao aoVar, NoDataItemViewHolder noDataItemViewHolder) {
-        t(i, view2, viewGroup, aoVar, noDataItemViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, ao aoVar, NoDataItemViewHolder noDataItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aoVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(aoVar.a);
-            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, aoVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.a = TbadkCoreApplication.getInst().getSkinType();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (VoiceRoom voiceRoom : list) {
+                if (voiceRoom != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    js7 js7Var = new js7();
+                    js7Var.a = voiceRoom.room_name;
+                    js7Var.c = String.valueOf(voiceRoom.talker_num);
+                    js7Var.d = String.valueOf(voiceRoom.joined_num);
+                    js7Var.e = voiceRoom.room_id.longValue();
+                    for (User user : voiceRoom.talker) {
+                        if (user != null) {
+                            arrayList2.add(user.portrait);
+                        }
+                    }
+                    js7Var.b = arrayList2;
+                    arrayList.add(js7Var);
+                }
             }
-            return view2;
+            return arrayList;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeL.objValue;
     }
 }

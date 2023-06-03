@@ -1,8 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import android.view.MotionEvent;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManager {
     public IUniversalPlayerCallback mUniversalCallback;
 
@@ -10,7 +9,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         return this.mUniversalCallback;
     }
 
-    @PublicMethod
     public void onBeforeSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -18,7 +16,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onBeforeSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -26,7 +23,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onGestureActionEnd() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -34,7 +30,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onGestureActionStart() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -42,7 +37,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onPauseBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -50,7 +44,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onReplayBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -58,7 +51,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onStartBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -66,7 +58,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onVideoSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -74,7 +65,6 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
-    @PublicMethod
     public void onVideoSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -83,13 +73,11 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     }
 
     @Override // com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager
-    @PublicMethod
     public void release() {
         super.release();
         this.mUniversalCallback = null;
     }
 
-    @PublicMethod
     public boolean onGestureDoubleClick(MotionEvent motionEvent) {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
@@ -98,11 +86,17 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         return false;
     }
 
-    @PublicMethod
     public void onPanelVisibilityChanged(boolean z) {
         IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
         if (iUniversalPlayerCallback != null) {
             iUniversalPlayerCallback.onPanelVisibilityChanged(z);
+        }
+    }
+
+    public void onVideoSwitchToFloating(String str) {
+        IUniversalPlayerCallback iUniversalPlayerCallback = this.mUniversalCallback;
+        if (iUniversalPlayerCallback != null) {
+            iUniversalPlayerCallback.onVideoSwitchToFloating(str);
         }
     }
 

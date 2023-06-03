@@ -10,7 +10,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static boolean a(int i) {
         return i == 0 || i == 1;

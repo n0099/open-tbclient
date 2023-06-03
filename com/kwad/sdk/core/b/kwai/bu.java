@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -10,7 +11,7 @@ public final class bu implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
             return;
         }
         endCardInfo.cardShowPlayCount = jSONObject.optInt("cardShowPlayCount");
-        endCardInfo.cardType = jSONObject.optInt("cardType");
+        endCardInfo.cardType = jSONObject.optInt(DownloadCenterFunConstants.CARD_TYPE);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -24,7 +25,7 @@ public final class bu implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
         }
         int i2 = endCardInfo.cardType;
         if (i2 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "cardType", i2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, DownloadCenterFunConstants.CARD_TYPE, i2);
         }
         return jSONObject;
     }

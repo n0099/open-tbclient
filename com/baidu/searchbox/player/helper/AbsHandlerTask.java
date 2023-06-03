@@ -3,14 +3,13 @@ package com.baidu.searchbox.player.helper;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsHandlerTask implements ITimerTask {
     public static final int REFRESH_ACTION = 1;
     public final PrivateHandler mHandler = new PrivateHandler(Looper.getMainLooper());
     public int mInterval = 500;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PrivateHandler extends Handler {
         public PrivateHandler(Looper looper) {
             super(looper);
@@ -26,20 +25,17 @@ public abstract class AbsHandlerTask implements ITimerTask {
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void cancel() {
         this.mHandler.removeMessages(1);
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void start() {
         cancel();
         this.mHandler.obtainMessage(1).sendToTarget();
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void setInterval(int i) {
         if (i > 0) {
             this.mInterval = i;

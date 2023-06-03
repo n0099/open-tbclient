@@ -3,14 +3,15 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class ml4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+    public static /* synthetic */ Interceptable $ic;
+    public static final ap4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,35 +27,39 @@ public class ml4 {
                 return;
             }
         }
-        pg4 b2 = rg4.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
+        a = ap4.e();
+    }
+
+    public ml4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public Integer a(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            pg4 b2 = rg4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timespan", i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
+                try {
+                    int intValue = ((Integer) map.get("queue_priority")).intValue();
+                    if (intValue == 200 || intValue == 300) {
+                        return Integer.valueOf(intValue);
+                    }
+                } catch (Exception e) {
+                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
+                }
             }
-            return i;
+            return 100;
         }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            pg4 b2 = rg4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timeout", i);
-            }
-            return i;
-        }
-        return invokeI.longValue;
+        return (Integer) invokeL.objValue;
     }
 }

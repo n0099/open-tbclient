@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hl4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kf2 {
+public class kf2 extends if2 implements hl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final boolean d;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,46 +32,63 @@ public class kf2 {
                 return;
             }
         }
-        c = qp1.a;
-        ns2.g0().getSwitch("swan_sailor_init_delay", false);
-        d = false;
+        fv2.g0().getSwitch("swan_pms_http_request_retry_use_default_net_lib", false);
+        b = false;
     }
 
-    public kf2() {
+    @NonNull
+    public static im4 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b) {
+                return fv2.r0();
+            }
+            return new km4();
+        }
+        return (im4) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kf2(xb3 xb3Var) {
+        super(xb3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xb3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xb3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.if2, com.baidu.tieba.hl4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hl4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c) {
-                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            K().b(str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.if2, com.baidu.tieba.hl4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, hl4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            String b2 = y53.b();
+            if (b2 != null) {
+                if (map == null) {
+                    map = new HashMap<>();
+                }
+                map.put("launchid", b2);
             }
-            return d;
+            K().z(str, map, map2, aVar);
         }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

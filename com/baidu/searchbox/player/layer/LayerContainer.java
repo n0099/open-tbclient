@@ -2,16 +2,15 @@ package com.baidu.searchbox.player.layer;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
+import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LayerContainer extends FrameLayout {
     public ArrayList<AbsLayer> mLayers;
     public FrameLayout.LayoutParams mLayoutParams;
@@ -22,12 +21,10 @@ public class LayerContainer extends FrameLayout {
         init();
     }
 
-    @PublicMethod
     public void addLayer(@NonNull AbsLayer absLayer) {
         addLayer(absLayer, getContainerParams());
     }
 
-    @PublicMethod
     public void attachKernelLayer(@NonNull AbsLayer absLayer) {
         detachLayer(absLayer);
         absLayer.setLayerContainer(this);
@@ -46,7 +43,6 @@ public class LayerContainer extends FrameLayout {
         this.mPlayer = bDVideoPlayer;
     }
 
-    @PublicMethod
     public void detachLayer(@NonNull AbsLayer absLayer) {
         detachLayer(absLayer, false);
     }
@@ -60,20 +56,18 @@ public class LayerContainer extends FrameLayout {
         init();
     }
 
-    @PublicMethod
     public void detachLayer(@NonNull AbsLayer absLayer, boolean z) {
-        ViewGroup viewGroup;
+        if (absLayer instanceof BaseKernelLayer) {
+            this.mPlayer.onKernelLayerPreDetach();
+        }
         this.mLayers.remove(absLayer);
         absLayer.onLayerDetach();
-        if (absLayer.getContentView() != null && (viewGroup = (ViewGroup) absLayer.getContentView().getParent()) != null) {
-            viewGroup.removeView(absLayer.getContentView());
-        }
+        BdPlayerUtils.removeViewFromParent(absLayer.getContentView());
         if (z) {
             absLayer.detachMessenger();
         }
     }
 
-    @PublicMethod
     public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i) {
         detachLayer(absLayer);
         if (i < this.mLayers.size()) {
@@ -95,7 +89,6 @@ public class LayerContainer extends FrameLayout {
     }
 
     @NonNull
-    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         return this.mPlayer;
     }
@@ -104,7 +97,6 @@ public class LayerContainer extends FrameLayout {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
-    @PublicMethod
     public ArrayList<AbsLayer> getLayerList() {
         return this.mLayers;
     }
@@ -119,7 +111,6 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
-    @PublicMethod
     public void release() {
         int size = this.mLayers.size();
         for (int i = 0; i < size; i++) {
@@ -129,16 +120,33 @@ public class LayerContainer extends FrameLayout {
         removeAllViews();
     }
 
-    @PublicMethod
-    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+    public boolean addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
         if (this.mLayers.contains(absLayer)) {
-            return;
+            return false;
         }
         absLayer.setLayerContainer(this);
         absLayer.initLayer();
         absLayer.attachMessenger(getBindPlayer().getMessenger());
         this.mLayers.add(absLayer);
-        if (absLayer.getContentView() != null && absLayer.getContentView() != this) {
+        if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
+            return false;
+        }
+        addView(absLayer.getContentView(), layoutParams);
+        return true;
+    }
+
+    public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
+        if (this.mLayers.contains(absLayer)) {
+            return;
+        }
+        detachLayer(absLayer);
+        absLayer.setLayerContainer(this);
+        absLayer.attachMessenger(getBindPlayer().getMessenger());
+        this.mLayers.add(absLayer);
+        if (layoutParams == null) {
+            layoutParams = getContainerParams();
+        }
+        if (absLayer.getContentView() != this) {
             addView(absLayer.getContentView(), layoutParams);
         }
     }
@@ -154,22 +162,6 @@ public class LayerContainer extends FrameLayout {
     public void detachLayer(@NonNull ILayer iLayer, boolean z) {
         if (iLayer instanceof AbsLayer) {
             detachLayer((AbsLayer) iLayer, z);
-        }
-    }
-
-    @PublicMethod
-    public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
-        if (this.mLayers.contains(absLayer)) {
-            return;
-        }
-        absLayer.setLayerContainer(this);
-        absLayer.attachMessenger(getBindPlayer().getMessenger());
-        this.mLayers.add(absLayer);
-        if (layoutParams == null) {
-            layoutParams = getContainerParams();
-        }
-        if (absLayer.getContentView() != this) {
-            addView(absLayer.getContentView(), layoutParams);
         }
     }
 }

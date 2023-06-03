@@ -1,448 +1,238 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.BIMManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tbadk.core.atomData.SyncServiceConfig;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class o98 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static o98 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public lb a;
+    public CustomMessageListener b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987195, "Lcom/baidu/tieba/o98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947987195, "Lcom/baidu/tieba/o98;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947987195, "Lcom/baidu/tieba/o98;");
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends lb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o98 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(o98 o98Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o98Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947987195, "Lcom/baidu/tieba/o98;");
+            this.a = o98Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
+                this.a.d((PushNotifyMessage) socketResponsedMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(o98 o98Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o98Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ImMessageCenterPojo imMessageCenterPojo;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            g98.n().v(tg.g(imMessageCenterPojo.getGid(), 0L), hb8.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+        }
+    }
+
+    public o98() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e4);
-        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e5);
+        new ArrayList();
+        this.a = new a(this, 202006);
+        this.b = new b(this, 0);
     }
 
-    public static String a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public static synchronized o98 b() {
+        InterceptResult invokeV;
+        o98 o98Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (o98.class) {
+                if (c == null) {
+                    c = new o98();
+                }
+                o98Var = c;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return String.format(b, str);
-            }
-            return String.format(a, str, str2);
+            return o98Var;
         }
-        return (String) invokeLL.objValue;
+        return (o98) invokeV.objValue;
     }
 
-    @NonNull
-    public static AtUserInfo j(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull String str) {
-        InterceptResult invokeLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, userDTO, str)) == null) {
-            xs5.d(i(userDTO));
-            return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(BIMManager.getBdUidFromBdUK(userDTO.getUk())), str, userDTO.getPortrait(), 0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
         }
-        return (AtUserInfo) invokeLL.objValue;
     }
 
-    public static String b(@NonNull List<AtSelectData> list) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (AtSelectData atSelectData : list) {
-                sb.append("@");
-                sb.append(atSelectData.getNameShow());
-                sb.append(" ");
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
+            MessageManager.getInstance().registerListener(2016014, this.b);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(@NonNull String str, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLL;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
+    public final void d(PushNotifyMessage pushNotifyMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, skillDTO, list, list2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null && (opts = itemsDTO.getOpts()) != null && !opts.isEmpty()) {
-                        if (itemsDTO.isNormalType()) {
-                            sb.append(a(itemsDTO.getName(), opts.get(0).getName()));
-                            sb.append("\n");
-                        } else if (itemsDTO.isFileType()) {
-                            sb2.append(a(itemsDTO.getName(), null));
-                            sb2.append("\n");
-                        } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                            list2.addAll(atUserInfos);
-                            sb.append(a(itemsDTO.getName(), b(atUserInfos)));
-                            sb.append("\n");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushNotifyMessage) == null) && pushNotifyMessage != null) {
+            if (pushNotifyMessage.getType() == 3) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
+            } else if (pushNotifyMessage.getType() == 4) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
+            } else if (pushNotifyMessage.getType() == 36) {
+                if (!TextUtils.isEmpty(pushNotifyMessage.getContent())) {
+                    try {
+                        String optString = new JSONObject(pushNotifyMessage.getContent()).optString("url");
+                        if (TbConfig.GET_POLLING_DATA.equals(optString)) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
                         }
+                        if (!TextUtils.isEmpty(optString)) {
+                            qe5.b().f(optString);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-            }
-            if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
-                sb.append(a(skillDTO.getAlias(), str));
-                sb.append("\n");
-            }
-            sb.append((CharSequence) sb2);
-            return sb.toString();
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static String d(@NonNull String str, @NonNull String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("@");
-            sb.append(str);
-            if (z) {
-                str3 = " ";
+            } else if (!z88.n().w()) {
             } else {
-                str3 = "\n";
-            }
-            sb.append(str3);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    public static String f(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, userDTO, skillDTO, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(userDTO.getNameShow());
-            if (!z) {
-                sb.append("/");
-                sb.append(skillDTO.getName());
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static HashMap<String, Object> g(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @Nullable String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, skillDTO, list, str)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("type", Integer.valueOf(skillDTO.getType()));
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("promot", str);
-            hashMap.put("scene", "tieba_group_chat");
-            e(hashMap, list);
-            return hashMap;
-        }
-        return (HashMap) invokeLLL.objValue;
-    }
-
-    public static void e(@NonNull Map<String, Object> map, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, map, list) == null) && list != null && list.size() > 0) {
-            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                if (itemsDTO != null) {
-                    o(map, itemsDTO);
+                String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
+                boolean z = false;
+                a95.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
+                if (TextUtils.isEmpty(valueOf)) {
+                    return;
                 }
-            }
-        }
-    }
-
-    @NonNull
-    public static String h(@NonNull String str, @NonNull String str2, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLLL;
-        String str3;
-        List<AtSelectData> atUserInfos;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, str, str2, skillDTO, list, list2)) == null) {
-            xs5.b(str);
-            String replaceAll = str.replaceAll(skillDTO.getAliasHolder(), skillDTO.getAlias()).replaceAll(skillDTO.getKeyboardHolder(), str2);
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null) {
-                        String value = itemsDTO.getValue();
-                        replaceAll = replaceAll.replaceAll(itemsDTO.getNameHolder(), itemsDTO.getName()).replaceAll(itemsDTO.getAliasHolder(), itemsDTO.getAlias());
-                        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-                        if (opts != null && !opts.isEmpty() && !TextUtils.isEmpty(value)) {
-                            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = opts.get(0);
-                            if (itemsDTO.isNormalType()) {
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), optsDTO.getName()).replaceAll(optsDTO.getAliasHolder(value), optsDTO.getAlias());
-                            } else if (itemsDTO.isAtType()) {
-                                BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = optsDTO.getExt();
-                                if (ext != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                                    list2.addAll(atUserInfos);
-                                    str3 = b(atUserInfos);
-                                } else {
-                                    str3 = "";
-                                }
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), str3).replaceAll(optsDTO.getAliasHolder(value), str3);
-                            }
-                        }
-                    }
+                BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
+                if (pushNotifyMessage.getGroupType() == 0) {
+                    g98.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                    return;
                 }
-            }
-            return replaceAll;
-        }
-        return (String) invokeLLLLL.objValue;
-    }
-
-    public static TextMsg l(@NonNull String str, @Nullable BaseMsg baseMsg, @NonNull v78 v78Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        boolean z;
-        String c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, baseMsg, v78Var, list, map)) == null) {
-            BotsDTO.BotListDTO.UserDTO userDTO = v78Var.a;
-            BotsDTO.BotListDTO.SkillDTO skillDTO = v78Var.b;
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list2 = v78Var.c;
-            if (userDTO != null && skillDTO != null && i(userDTO)) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null) {
-                    arrayList.addAll(list);
-                }
-                String showTemplate = skillDTO.getShowTemplate(list2);
-                if (showTemplate != null && !TextUtils.isEmpty(showTemplate)) {
+                int a2 = f98.a(pushNotifyMessage.getGroupType());
+                if (z88.n().h(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
                     z = true;
-                } else {
-                    z = false;
                 }
                 if (z) {
-                    c = h(showTemplate, str, skillDTO, list2, arrayList);
+                    g98.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                 } else {
-                    c = c(str, skillDTO, list2, arrayList);
-                }
-                String f = f(userDTO, skillDTO, z);
-                String q = q(d(f, c, z));
-                TextMsg create = TextMsg.create(q);
-                create.addAtUserInfo(j(userDTO, f));
-                create.addAtUserInfo(n(q, arrayList));
-                HashMap<String, Object> g = g(skillDTO, list2, str);
-                if (baseMsg == null) {
-                    create.setRobotParams(g);
-                    return create;
-                }
-                if (v78Var.c()) {
-                    create.setReMsgInfo(ReMsgInfo.create(baseMsg, baseMsg.getThumbnailText().toString()));
-                }
-                if (baseMsg.getReMsgInfo() != null) {
-                    if (baseMsg instanceof TextGenImageMsg) {
-                        g.put("last_promot", ((TextGenImageMsg) baseMsg).getLastPrompt());
-                    }
-                    g.put("user_msg_id", Long.valueOf(baseMsg.getReMsgInfo().getMsgId()));
-                    g.put("user_msg_key", baseMsg.getReMsgInfo().getMsgKey());
-                }
-                if (baseMsg.getTaskInfo() != null) {
-                    g.put("robot_msg_id", Long.valueOf(baseMsg.getTaskInfo().getOriginMsgId()));
-                    g.put("robot_msg_key", baseMsg.getTaskInfo().getOriginMsgKey());
-                }
-                create.setRobotParams(g);
-                return create;
-            }
-            return k(str, list, map);
-        }
-        return (TextMsg) invokeLLLLL.objValue;
-    }
-
-    public static boolean i(@NonNull BotsDTO.BotListDTO.UserDTO userDTO) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, userDTO)) == null) {
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
-                if (TextUtils.isEmpty(bdUidFromBdUK)) {
-                    return false;
-                }
-                Long.parseLong(bdUidFromBdUK);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String q(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (str.endsWith("\n")) {
-                return str.substring(0, str.length() - 1);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TextMsg k(@NonNull String str, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, list, map)) == null) {
-            TextMsg create = TextMsg.create(str);
-            create.addAtUserInfo(p(list, map));
-            return create;
-        }
-        return (TextMsg) invokeLLL.objValue;
-    }
-
-    public static TextMsg m(@NonNull String str, @Nullable BaseMsg baseMsg, @Nullable v78 v78Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65549, null, str, baseMsg, v78Var, list, map)) == null) {
-            if (v78Var == null) {
-                return k(str, list, map);
-            }
-            return l(str, baseMsg, v78Var, list, map);
-        }
-        return (TextMsg) invokeLLLLL.objValue;
-    }
-
-    @NonNull
-    public static List<AtUserInfo> n(@NonNull String str, @NonNull List<AtSelectData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, list)) == null) {
-            HashMap hashMap = new HashMap();
-            for (AtSelectData atSelectData : list) {
-                int i = 0;
-                String str2 = "@" + atSelectData.getNameShow();
-                while (true) {
-                    int indexOf = str.indexOf(str2, i);
-                    if (indexOf == -1) {
-                        break;
-                    }
-                    i = indexOf + 1;
-                    if (hashMap.get(Integer.valueOf(indexOf)) == null) {
-                        AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
-                        if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                            atType = AtUserInfo.AtType.ALL;
-                        }
-                        hashMap.put(Integer.valueOf(indexOf), AtUserInfo.create(atType, pg.g(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), indexOf));
-                    }
-                }
-            }
-            return new ArrayList(hashMap.values());
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static List<AtUserInfo> p(@Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, list, map)) == null) {
-            if (list != null && !list.isEmpty() && map != null && !map.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (AtSelectData atSelectData : list) {
-                    AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
-                    if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                        atType = AtUserInfo.AtType.ALL;
-                    }
-                    arrayList.add(AtUserInfo.create(atType, pg.g(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), map.get(atSelectData.getUid()).intValue()));
-                }
-                return arrayList;
-            }
-            return Collections.emptyList();
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static void o(@NonNull Map<String, Object> map, @NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, map, itemsDTO) == null) {
-            Map map2 = (Map) map.get("opts");
-            if (map2 == null) {
-                map2 = new HashMap();
-                map.put("opts", map2);
-            }
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-            if (opts != null && !opts.isEmpty()) {
-                String str = null;
-                if (itemsDTO.isNormalType()) {
-                    str = opts.get(0).getName();
-                } else if (itemsDTO.isFileType()) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext2 = opts.get(0).getExt();
-                    if (ext2 != null) {
-                        str = ext2.getPicPath();
-                    }
-                } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < atUserInfos.size(); i++) {
-                        sb.append(BIMManager.getBdUKFromBdUid(atUserInfos.get(i).getUid()));
-                        if (i < atUserInfos.size() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    str = sb.toString();
-                }
-                if (str != null && !str.isEmpty()) {
-                    map2.put(itemsDTO.getValue(), str);
+                    g(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
                 }
             }
         }
     }
 
-    @NonNull
-    public static BaseChatMsg<?> r(@NonNull TextMsg textMsg, @Nullable v78 v78Var) {
-        InterceptResult invokeLL;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO b2;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+    public final void g(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, textMsg, v78Var)) == null) {
-            if (v78Var != null && (b2 = v78Var.b()) != null && (opts = b2.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
-                SingleTextImageMsg create = SingleTextImageMsg.create(textMsg.getText(), ext.getPicPath(), ext.getPicSize());
-                create.fillSdkMsg4Base(textMsg);
-                create.setRobotParams(textMsg.getRobotParams());
-                create.setFileItem(b2);
-                return create;
-            }
-            return textMsg;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) != null) || j2 <= 0) {
+            return;
         }
-        return (BaseChatMsg) invokeLL.objValue;
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setCustomGroupType(i);
+        imMessageCenterPojo.setGid(String.valueOf(j));
+        imMessageCenterPojo.setPulled_msgId(hb8.a(j2 - 1));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
     }
 }

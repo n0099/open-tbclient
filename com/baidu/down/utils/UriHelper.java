@@ -3,7 +3,6 @@ package com.baidu.down.utils;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +95,7 @@ public class UriHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                return URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
+                return URLDecoder.decode(str, "utf-8");
             } catch (UnsupportedEncodingException | Exception unused) {
                 return str;
             }

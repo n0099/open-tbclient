@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zt8 implements Comparable<zt8> {
+public class zt8 extends sl1<RouterService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
 
     public zt8() {
         Interceptable interceptable = $ic;
@@ -32,32 +27,14 @@ public class zt8 implements Comparable<zt8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
+    @Override // com.baidu.tieba.sl1
     /* renamed from: a */
-    public int compareTo(zt8 zt8Var) {
-        InterceptResult invokeL;
+    public RouterService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zt8Var)) == null) {
-            if (this == zt8Var) {
-                return 0;
-            }
-            if (zt8Var == null || this.a <= zt8Var.a) {
-                return -1;
-            }
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new au8();
         }
-        return invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof zt8) || compareTo((zt8) obj) != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (RouterService) invokeV.objValue;
     }
 }

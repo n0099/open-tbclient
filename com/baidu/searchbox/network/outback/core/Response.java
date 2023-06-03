@@ -7,7 +7,7 @@ import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Response implements Closeable {
     @Nullable
     public ResponseBody body;
@@ -34,7 +34,7 @@ public final class Response implements Closeable {
     public final NetworkStatRecord statRecord;
     public final long tcpTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         @Nullable
         public ResponseBody body;

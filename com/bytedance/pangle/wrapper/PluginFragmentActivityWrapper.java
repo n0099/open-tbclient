@@ -9,7 +9,7 @@ import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapper {
     public boolean hasInit = true;
 

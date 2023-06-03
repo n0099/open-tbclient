@@ -108,13 +108,13 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903e0);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903e3);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092422);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092456);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);

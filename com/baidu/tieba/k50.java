@@ -1,38 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.n50;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.math.BigInteger;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes6.dex */
-public class k50 {
+public final class k50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, n50.a aVar) {
-        String str;
+    public static int a(BigInteger bigInteger) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bigInteger)) == null) ? (bigInteger.bitLength() + 7) >> 3 : invokeL.intValue;
+    }
+
+    public static BigInteger b(byte[] bArr, BigInteger bigInteger) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bigInteger)) == null) {
+            BigInteger bigInteger2 = new BigInteger(1, bArr);
+            if (bigInteger2.compareTo(bigInteger) < 0) {
+                return bigInteger2;
             }
-            try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
-                if (query != null) {
-                    query.moveToFirst();
-                    int columnIndex = query.getColumnIndex("value");
-                    str = columnIndex > 0 ? query.getString(columnIndex) : null;
-                    query.close();
-                } else {
-                    str = null;
-                }
-                aVar.a(true, str);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
+            throw new BadPaddingException("Message is larger than modulus");
+        }
+        return (BigInteger) invokeLL.objValue;
+    }
+
+    public static byte[] c(BigInteger bigInteger, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bigInteger, i)) == null) {
+            byte[] byteArray = bigInteger.toByteArray();
+            int length = byteArray.length;
+            if (length == i) {
+                return byteArray;
+            }
+            if (length == i + 1 && byteArray[0] == 0) {
+                byte[] bArr = new byte[i];
+                System.arraycopy(byteArray, 1, bArr, 0, i);
+                return bArr;
+            } else if (length >= i) {
+                return null;
+            } else {
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(byteArray, 0, bArr2, i - length, length);
+                return bArr2;
             }
         }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            if (i == 0 && i2 == bArr.length) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, s50 s50Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, s50Var)) == null) ? f(bArr, s50Var.b(), s50Var.a()) : (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] f(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bigInteger, bigInteger2)) == null) ? c(b(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger)) : (byte[]) invokeLLL.objValue;
     }
 }

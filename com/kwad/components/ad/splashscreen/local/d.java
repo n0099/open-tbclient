@@ -17,8 +17,8 @@ public final class d {
     }
 
     public static boolean Y(Context context) {
-        a T = b.T(context);
-        return !(T == null || !T.w(com.kwad.components.ad.splashscreen.a.b.jO()));
+        a T2 = b.T(context);
+        return !(T2 == null || !T2.w(com.kwad.components.ad.splashscreen.a.b.jO()));
     }
 
     public static int a(Context context, AdInfo adInfo, SceneImpl sceneImpl) {

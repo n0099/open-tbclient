@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class h62 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class h62 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static File a() {
-        InterceptResult invokeV;
+    public h62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new File(cs2.q(), "sConsole-core");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (File) invokeV.objValue;
+        this.a = -1;
     }
 
-    public static long b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return uh3.a().getLong("get_app_console_core_code", -1L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return uh3.a().getString("get_app_console_core", "-1");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            e("-1", -1L);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && (i = this.a) >= 0) {
+            f52Var.c.setStrokeWidth(i);
         }
     }
 
-    public static void e(@NonNull String str, long j) {
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
-            uh3.a().putString("get_app_console_core", str);
-            uh3.a().putLong("get_app_console_core_code", j);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = pp3.g((float) jSONArray.optDouble(0));
         }
     }
 }

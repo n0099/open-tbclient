@@ -12,12 +12,12 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.hpa;
-import com.baidu.tieba.ipa;
-import com.baidu.tieba.upa;
-import com.baidu.tieba.vpa;
-import com.baidu.tieba.xpa;
-import com.baidu.tieba.ypa;
+import com.baidu.tieba.hxa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.kxa;
+import com.baidu.tieba.lxa;
+import com.baidu.tieba.uwa;
+import com.baidu.tieba.vwa;
 import com.baidu.yalog.LoggerManager;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -46,12 +46,12 @@ public class UploadHelper {
     public static final String UPLOAD_RESULT_VALID = "1";
     public static ExecutorService mExecutorService;
     public static volatile UploadHelper sSingleton;
-    public vpa mVoyager;
+    public ixa mVoyager;
 
     public UploadHelper() {
         mExecutorService = Executors.newSingleThreadExecutor();
         if (this.mVoyager == null) {
-            this.mVoyager = (vpa) ServiceManager.getService(vpa.a);
+            this.mVoyager = (ixa) ServiceManager.getService(ixa.a);
         }
     }
 
@@ -98,10 +98,10 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "zip file is null, and not upload");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                    UploadHelper.this.statActiveData(false, "zip", str2, str);
                     return;
                 }
-                UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                UploadHelper.this.statActiveData(true, "zip", str2, str);
                 FileZipUtil.deleteDirWithFile(new File(str4));
                 UploadHelper.this.activeUploadZipFile(str, str2, list, str3, jSONObject2.toString(), zipFetchFile, jSONObject);
             }
@@ -133,23 +133,23 @@ public class UploadHelper {
     }
 
     public void uploadFetchZipFile(final String str, final String str2, final String str3, final File file, final JSONObject jSONObject) {
-        vpa vpaVar;
-        if (file != null && file.length() != 0 && (vpaVar = this.mVoyager) != null) {
-            vpaVar.e(file.getAbsolutePath(), "fetchlog", new upa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
-                @Override // com.baidu.tieba.upa
+        ixa ixaVar;
+        if (file != null && file.length() != 0 && (ixaVar = this.mVoyager) != null) {
+            ixaVar.e(file.getAbsolutePath(), "fetchlog", new hxa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
+                @Override // com.baidu.tieba.hxa
                 public void onFailure(String str4, JSONObject jSONObject2) {
                     UploadHelper uploadHelper = UploadHelper.this;
                     String str5 = str;
                     String str6 = str2;
                     String str7 = str3;
                     JSONObject jSONObject3 = jSONObject;
-                    xpa.a(jSONObject3, str4);
+                    kxa.a(jSONObject3, str4);
                     uploadHelper.reportTaskDone(str5, str6, str7, "", "1", jSONObject3);
                 }
 
-                @Override // com.baidu.tieba.upa
+                @Override // com.baidu.tieba.hxa
                 public void onSuccess(String str4, JSONObject jSONObject2) {
-                    UploadHelper.this.statFetchData(StatConstants.VALUE_TYPE_UPLOAD, true, str2, str, str3, "", str4, jSONObject);
+                    UploadHelper.this.statFetchData("upload", true, str2, str, str3, "", str4, jSONObject);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -194,7 +194,7 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "not get upload dir");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                    UploadHelper.this.statActiveData(false, "zip", str2, str);
                     IActiveUploadListener iActiveUploadListener3 = iActiveUploadListener;
                     if (iActiveUploadListener3 != null) {
                         iActiveUploadListener3.onFailure(IActiveUploadListener.DIR_ERR_MSG);
@@ -209,7 +209,7 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "zip file is null, and not upload");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                    UploadHelper.this.statActiveData(false, "zip", str2, str);
                     IActiveUploadListener iActiveUploadListener4 = iActiveUploadListener;
                     if (iActiveUploadListener4 != null) {
                         iActiveUploadListener4.onFailure(IActiveUploadListener.PRE_ZIP_ERR_MSG);
@@ -217,7 +217,7 @@ public class UploadHelper {
                     }
                     return;
                 }
-                UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                UploadHelper.this.statActiveData(true, "zip", str2, str);
                 UploadHelper.this.activeUploadZipFile(str, str2, list, jSONObject.toString(), zipFetchFile, iActiveUploadListener);
             }
         });
@@ -255,7 +255,7 @@ public class UploadHelper {
                                     File zipFetchFile = UploadHelper.this.zipFetchFile(fetchDirSet, baseDir, str, str2, str3, j, j2, j3, jSONObject);
                                     if (zipFetchFile != null && zipFetchFile.length() > 0) {
                                         AnonymousClass1 anonymousClass15 = AnonymousClass1.this;
-                                        UploadHelper.this.statFetchData(StatConstants.VALUE_TYPE_ZIP, true, str2, str, str3, "", "", jSONObject);
+                                        UploadHelper.this.statFetchData("zip", true, str2, str, str3, "", "", jSONObject);
                                         AnonymousClass1 anonymousClass16 = AnonymousClass1.this;
                                         UploadHelper.this.uploadFetchZipFile(str, str2, str3, zipFetchFile, jSONObject);
                                         return;
@@ -266,13 +266,13 @@ public class UploadHelper {
                                     AnonymousClass1 anonymousClass17 = AnonymousClass1.this;
                                     UploadHelper.this.reportTaskDone(str, str2, str3, "", "1", jSONObject);
                                     AnonymousClass1 anonymousClass18 = AnonymousClass1.this;
-                                    UploadHelper.this.statFetchData(StatConstants.VALUE_TYPE_ZIP, false, str2, str, str3, "zip failed", "", jSONObject);
+                                    UploadHelper.this.statFetchData("zip", false, str2, str, str3, "zip failed", "", jSONObject);
                                     return;
                                 }
                                 AnonymousClass1 anonymousClass19 = AnonymousClass1.this;
-                                UploadHelper.this.reportTaskDone(str, str2, str3, "", "1", xpa.c(list));
+                                UploadHelper.this.reportTaskDone(str, str2, str3, "", "1", kxa.c(list));
                                 AnonymousClass1 anonymousClass110 = AnonymousClass1.this;
-                                UploadHelper.this.statFetchData("query", false, str2, str, str3, StatConstants.ERR_MSG_QUERY_FAIL, "", xpa.c(list));
+                                UploadHelper.this.statFetchData("query", false, str2, str, str3, StatConstants.ERR_MSG_QUERY_FAIL, "", kxa.c(list));
                                 return;
                             }
                             AnonymousClass1 anonymousClass111 = AnonymousClass1.this;
@@ -358,8 +358,8 @@ public class UploadHelper {
         statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-            vpa vpaVar = (vpa) ServiceManager.getService(vpa.a);
-            if (vpaVar == null) {
+            ixa ixaVar = (ixa) ServiceManager.getService(ixa.a);
+            if (ixaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
@@ -368,8 +368,8 @@ public class UploadHelper {
             }
             final ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, null);
             activeUpObj.setFileType("2");
-            vpaVar.g(list, "acupload", j * 1024, new upa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
-                @Override // com.baidu.tieba.upa
+            ixaVar.g(list, "acupload", j * 1024, new hxa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
+                @Override // com.baidu.tieba.hxa
                 public void onFailure(String str3, JSONObject jSONObject) {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "Active upload normal file failed, errMsg: " + str3);
@@ -384,7 +384,7 @@ public class UploadHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.upa
+                @Override // com.baidu.tieba.hxa
                 public void onSuccess(String str3, JSONObject jSONObject) {
                     activeUpObj.setFileID(str3);
                     activeUpObj.setFileMeta(jSONObject.toString());
@@ -406,8 +406,8 @@ public class UploadHelper {
         statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-            vpa vpaVar = (vpa) ServiceManager.getService(vpa.a);
-            if (vpaVar == null) {
+            ixa ixaVar = (ixa) ServiceManager.getService(ixa.a);
+            if (ixaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
@@ -425,13 +425,13 @@ public class UploadHelper {
                 jSONObject2.put("dataId", str2);
                 jSONObject2.put("space", list.toString());
                 jSONObject2.put("source", str3);
-                jSONObject2.put(UploadConstant.KEY_FILE_TYPE, "2");
+                jSONObject2.put("fileType", "2");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            vpaVar.b(list, "acupload", j2, jSONObject2);
+            ixaVar.b(list, "acupload", j2, jSONObject2);
             return;
         }
         if (DEBUG) {
@@ -511,10 +511,10 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "zip file is null, and not upload");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                    UploadHelper.this.statActiveData(false, "zip", str2, str);
                     return;
                 }
-                UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                UploadHelper.this.statActiveData(true, "zip", str2, str);
                 UploadHelper.this.activeUploadZipFile(str, str2, list, str3, jSONObject2.toString(), zipFetchFile, jSONObject);
             }
         });
@@ -562,7 +562,7 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "zip file is null, and not upload");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                    UploadHelper.this.statActiveData(false, "zip", str2, str);
                     IActiveUploadListener iActiveUploadListener4 = iActiveUploadListener;
                     if (iActiveUploadListener4 != null) {
                         iActiveUploadListener4.onFailure("zip failed");
@@ -570,7 +570,7 @@ public class UploadHelper {
                     }
                     return;
                 }
-                UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_ZIP, str2, str);
+                UploadHelper.this.statActiveData(true, "zip", str2, str);
                 FileZipUtil.deleteDirWithFile(new File(str3));
                 UploadHelper.this.activeUploadZipFile(str, str2, list, jSONObject.toString(), zipFetchFile, iActiveUploadListener);
             }
@@ -581,17 +581,17 @@ public class UploadHelper {
     public void statMultiActiveFileData(boolean z, String str, String str2, String str3) {
         if (z) {
             statActiveFileData(true, "query", str, str2);
-            statActiveFileData(true, StatConstants.VALUE_TYPE_ZIP, str, str2);
-            statActiveFileData(true, StatConstants.VALUE_TYPE_UPLOAD, str, str2);
+            statActiveFileData(true, "zip", str, str2);
+            statActiveFileData(true, "upload", str, str2);
         } else if (TextUtils.equals("dir not found", str3)) {
             statActiveFileData(false, "query", str, str2);
         } else if (TextUtils.equals("zip failed", str3)) {
             statActiveFileData(true, "query", str, str2);
-            statActiveFileData(false, StatConstants.VALUE_TYPE_ZIP, str, str2);
+            statActiveFileData(false, "zip", str, str2);
         } else {
             statActiveFileData(true, "query", str, str2);
-            statActiveFileData(true, StatConstants.VALUE_TYPE_ZIP, str, str2);
-            statActiveFileData(false, StatConstants.VALUE_TYPE_UPLOAD, str, str2);
+            statActiveFileData(true, "zip", str, str2);
+            statActiveFileData(false, "upload", str, str2);
         }
     }
 
@@ -618,14 +618,14 @@ public class UploadHelper {
                     if (checkValid(next, j2, j3)) {
                         j5 += file.length();
                         if (j5 > j4) {
-                            ipa.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
+                            vwa.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                             break;
                         }
                         String substring = file.getAbsolutePath().substring(str.length());
                         if (DEBUG) {
                             Log.d(TAG, "new Path:" + substring);
                         }
-                        ipa.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
+                        vwa.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
                     } else {
                         continue;
                     }
@@ -642,7 +642,7 @@ public class UploadHelper {
                 Log.d(TAG, "zipPath: " + str7);
             }
             File file3 = new File(str7);
-            if (ypa.i(new ArrayList(hashSet), str7, str)) {
+            if (lxa.i(new ArrayList(hashSet), str7, str)) {
                 if (file3.length() > 0) {
                     if (DEBUG) {
                         Log.d(TAG, "zip directory is succeed, zip length is: " + file3.length());
@@ -661,8 +661,8 @@ public class UploadHelper {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && file != null && file.length() != 0) {
             final ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, str3);
             activeUpObj.setFileType("1");
-            vpa vpaVar = this.mVoyager;
-            if (vpaVar == null) {
+            ixa ixaVar = this.mVoyager;
+            if (ixaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "voyager component fail");
                 }
@@ -672,13 +672,13 @@ public class UploadHelper {
                 }
                 return;
             }
-            vpaVar.a(file.getAbsolutePath(), "acupload", hpa.m, new upa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
-                @Override // com.baidu.tieba.upa
+            ixaVar.a(file.getAbsolutePath(), "acupload", uwa.m, new hxa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+                @Override // com.baidu.tieba.hxa
                 public void onFailure(String str4, JSONObject jSONObject) {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "Active upload yalog file failed");
                     }
-                    UploadHelper.this.statActiveData(false, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType());
+                    UploadHelper.this.statActiveData(false, "upload", activeUpObj.getDataId(), activeUpObj.getType());
                     if (iActiveUploadListener != null) {
                         if (!TextUtils.isEmpty(str4)) {
                             iActiveUploadListener.onFailure(str4);
@@ -688,10 +688,10 @@ public class UploadHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.upa
+                @Override // com.baidu.tieba.hxa
                 public void onSuccess(String str4, JSONObject jSONObject) {
                     activeUpObj.setFileID(str4);
-                    UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType());
+                    UploadHelper.this.statActiveData(true, "upload", activeUpObj.getDataId(), activeUpObj.getType());
                     ActiveUploadManager.getInstance().activeUploadReportContent(activeUpObj, iActiveUploadListener);
                 }
             });
@@ -716,7 +716,7 @@ public class UploadHelper {
                 jSONObject.put("space", list.toString());
                 jSONObject.put("fileMeta", str4);
                 jSONObject.put("source", str3);
-                jSONObject.put(UploadConstant.KEY_FILE_TYPE, "1");
+                jSONObject.put("fileType", "1");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();

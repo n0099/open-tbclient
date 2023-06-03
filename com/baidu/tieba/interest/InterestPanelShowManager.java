@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh8;
-import com.baidu.tieba.eh8;
-import com.baidu.tieba.fh8;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.o65;
+import com.baidu.tieba.an8;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.cn8;
+import com.baidu.tieba.id5;
+import com.baidu.tieba.l95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh8 a;
+    public cn8 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -133,13 +133,13 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            ma5 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            id5 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long o = o65.m().o("key_app_launch_time", 0L);
+            long o = l95.m().o("key_app_launch_time", 0L);
             int i = (int) (((((j - o) / 1000) / 60) / 60) / 24);
-            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(o65.m().s("key_interest_guide_show", ""), interestBoardConfigData);
+            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(l95.m().s("key_interest_guide_show", ""), interestBoardConfigData);
             if (o == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
                 return false;
             }
@@ -148,10 +148,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(fh8 fh8Var) {
+    public void c(cn8 cn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh8Var) == null) {
-            this.a = fh8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cn8Var) == null) {
+            this.a = cn8Var;
         }
     }
 
@@ -187,14 +187,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        fh8 fh8Var;
+        cn8 cn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(o65.m().o("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (fh8Var = this.a) != null && fh8Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(l95.m().o("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (cn8Var = this.a) != null && cn8Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                dh8 a = this.a.a();
-                List<eh8> b = a.b();
+                an8 a = this.a.a();
+                List<bn8> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

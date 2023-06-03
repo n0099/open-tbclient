@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.ImageViewPressedEffectHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +130,7 @@ public final class e extends aa {
                             }
                             parseUri.setSelector(null);
                             parseUri.setPackage(this.a.getPackageName());
-                            parseUri.addFlags(335544320);
+                            parseUri.addFlags(ImageViewPressedEffectHelper.DEFAULT_PRESSED_MASK_LAYER_COLOR);
                             b(parseUri, a.getParams());
                             ActivityInfo resolveActivityInfo = parseUri.resolveActivityInfo(this.a.getPackageManager(), 65536);
                             if (resolveActivityInfo != null && !resolveActivityInfo.exported) {

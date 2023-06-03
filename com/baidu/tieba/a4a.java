@@ -1,247 +1,213 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.lg9;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.video.VideoItemModel;
-import com.baidu.tieba.videoplay.VideoPlayView;
-import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 /* loaded from: classes4.dex */
-public class a4a implements IAdBaseAsyncController.a, jg9<VideoItemModel> {
+public class a4a extends i9<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final List<VideoItemModel> b;
-    public final lg9 c;
-    public final Queue<AdvertAppInfo> d;
-    public final Map<VideoItemModel, AdvertAppInfo> e;
+    public b4a a;
+    public BdListView b;
+    public NoNetworkView c;
+    public MemberRecommendView d;
+    public NavigationBar e;
     public int f;
-    public boolean g;
-    public int h;
-    public VideoPlayView i;
-    public gg9 j;
-    public final boolean k;
-    public lg9.a l;
-    public int m;
-    public VideoItemModel n;
+    public TextView g;
+    public TextView h;
+    public AvatarPendantActivity i;
+    public View j;
+    public TextView k;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg9
-    /* renamed from: l */
-    public void d(int i, int i2, int i3, ig9 ig9Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ig9Var, videoItemModel}) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
+        void R0(DressItemData dressItemData);
     }
 
-    public a4a(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a4a(AvatarPendantActivity avatarPendantActivity) {
+        super(avatarPendantActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext};
+            Object[] objArr = {avatarPendantActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = false;
         this.f = 0;
-        this.g = true;
-        this.b = list;
-        this.a = tbPageContext;
-        lg9 lg9Var = (lg9) xf9.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = lg9Var;
-        lg9Var.a(this.a);
-        this.d = new LinkedList();
-        this.e = new HashMap();
-        int d = bz5.a().d();
-        int e = bz5.a().e();
-        if (d > 0 && e > 0) {
-            z = true;
-        }
-        this.k = z;
-        if (!z) {
-            return;
-        }
-        gg9 gg9Var = new gg9();
-        this.j = gg9Var;
-        gg9Var.d(d - 1);
-        this.j.e(e);
+        this.i = avatarPendantActivity;
+        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0130);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091ed0);
+        this.f = vi.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b6);
+        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090320);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
+        this.e = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.setTitleText(R.string.obfuscated_res_0x7f0f0300);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090322);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(8);
+        this.d.getButton().setOnClickListener(avatarPendantActivity);
+        TextView textView = new TextView(avatarPendantActivity.getActivity());
+        this.g = textView;
+        textView.setHeight(vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.k = new TextView(avatarPendantActivity.getActivity());
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
+        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
+        this.h = textView2;
+        textView2.setHeight(vi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0703e6));
+        this.k.setLayoutParams(layoutParams);
+        this.b.w(this.k, 0);
+        this.b.addFooterView(this.h);
+        b4a b4aVar = new b4a(avatarPendantActivity);
+        this.a = b4aVar;
+        this.b.setAdapter((ListAdapter) b4aVar);
     }
 
-    @Override // com.baidu.tieba.jg9
-    public void a(int i, int i2) {
+    public TextView A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i2 != 0) {
-                this.h = i2;
-            }
-            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
-                this.c.loadAd();
-                this.g = false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
+    public void x() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || yi8.e(list)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.i.hideNetRefreshView(this.j);
+            this.b.setVisibility(0);
         }
-        this.g = true;
-        this.d.addAll(list);
-        VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel;
-        hg9.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
     }
 
-    public List<VideoItemModel> h(@NonNull String str) {
+    public MemberRecommendView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (MemberRecommendView) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            et5.a(this.i.getPageContext(), this.j);
+            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.a.notifyDataSetChanged();
+            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.c.d(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.d.d();
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+        }
+    }
+
+    public void C(List<y3a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.b.setVisibility(0);
+                this.a.c(list);
+                this.a.notifyDataSetChanged();
+                return;
+            }
+            this.b.setVisibility(8);
+        }
+    }
+
+    public void E(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a.b(aVar);
+        }
+    }
+
+    public void u(NoNetworkView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.c.a(bVar);
+        }
+    }
+
+    public final boolean D(a5a a5aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().a, str)) {
-                    arrayList.add(entry.getKey());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a5aVar)) == null) {
+            if (a5aVar != null && !StringUtils.isNull(a5aVar.c())) {
+                this.d.setVisibility(0);
+                this.d.e(a5aVar);
+                return true;
+            }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.setVisibility(8);
+            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
+            this.i.setNetRefreshViewTopMargin(this.f);
+            this.i.showNetRefreshView(this.j, string, false);
+        }
+    }
+
+    public void G(a5a a5aVar, List<y3a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, a5aVar, list) == null) {
+            if ((a5aVar != null && !StringUtils.isNull(a5aVar.c())) || (list != null && list.size() > 0)) {
+                x();
+                if (D(a5aVar)) {
+                    this.b.removeHeaderView(this.g);
+                    this.b.addHeaderView(this.g);
+                } else {
+                    this.b.removeHeaderView(this.g);
                 }
+                C(list);
+                return;
             }
-            return arrayList;
+            F();
         }
-        return (List) invokeL.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            VideoItemModel videoItemModel = this.b.get(i);
-            if (this.e.containsKey(videoItemModel)) {
-                this.c.m(this.e.get(videoItemModel));
-            }
-        }
-    }
-
-    public void n(lg9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
-
-    public void o(VideoPlayView videoPlayView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.i = videoPlayView;
-        }
-    }
-
-    public AdVideoFlowFragment g(int i) {
-        InterceptResult invokeI;
-        lf9 i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
-            if (advertAppInfo == null || (i2 = this.c.i(advertAppInfo)) == null) {
-                return null;
-            }
-            if ((i2 instanceof View) && (this.a.getPageActivity() instanceof fi0)) {
-                advertAppInfo.r = hi0.b(advertAppInfo.r, (fi0) this.a.getPageActivity(), (View) i2);
-            }
-            i2.setPageChangeHandler(this.l, i);
-            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
-            adVideoFlowFragment.G1(i2);
-            return adVideoFlowFragment;
-        }
-        return (AdVideoFlowFragment) invokeI.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !this.k) {
-            return;
-        }
-        this.f = 0;
-        this.h = bz5.a().d() - 1;
-        if (this.d.size() < 1 && this.g) {
-            this.c.loadAd();
-            this.g = false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg9
-    /* renamed from: j */
-    public void c(int i, int i2, ig9 ig9Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), ig9Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) ig9Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.i;
-            if (videoPlayView != null) {
-                videoPlayView.notifyDataSetChanged();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg9
-    /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, ig9 ig9Var, VideoItemModel videoItemModel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, ig9Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) ig9Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || !this.k) {
-            return;
-        }
-        this.m = i;
-        VideoItemModel videoItemModel = (VideoItemModel) yi8.d(this.b, i);
-        if (this.e.containsKey(videoItemModel)) {
-            AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-            lh9.o(advertAppInfo);
-            this.c.c(advertAppInfo, true);
-            return;
-        }
-        this.c.c(null, false);
-        if (i <= this.f) {
-            return;
-        }
-        VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel2;
-        hg9.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
     }
 }

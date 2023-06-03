@@ -11,7 +11,7 @@ import java.io.InterruptedIOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h implements l {
     public m aeG;
     public HttpURLConnection aeH;

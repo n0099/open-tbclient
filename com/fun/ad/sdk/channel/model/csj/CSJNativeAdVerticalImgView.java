@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
-import com.fun.module.csj.g0;
+import com.fun.module.csj.f0;
 import java.util.List;
 /* loaded from: classes9.dex */
-public final class CSJNativeAdVerticalImgView extends g0 {
+public final class CSJNativeAdVerticalImgView extends f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView f;
@@ -83,7 +83,7 @@ public final class CSJNativeAdVerticalImgView extends g0 {
         }
     }
 
-    @Override // com.fun.module.csj.g0
+    @Override // com.fun.module.csj.f0
     public void a(TTNativeAd tTNativeAd) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public final class CSJNativeAdVerticalImgView extends g0 {
         }
     }
 
-    @Override // com.fun.module.csj.g0, android.view.View
+    @Override // com.fun.module.csj.f0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

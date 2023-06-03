@@ -1,7 +1,6 @@
 package com.facebook.imageutils;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
 import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class JfifUtil {
             case 192:
             case 193:
             case 194:
-            case DownloadConstants.STATUS_WAITING_FOR_NETWORK /* 195 */:
+            case 195:
             case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
             case Constants.METHOD_IM_FETCH_BUSINESS_SESSION_MSG /* 198 */:
             case Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG /* 199 */:

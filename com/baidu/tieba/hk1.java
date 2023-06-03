@@ -1,141 +1,226 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class hk1 extends gk1 {
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class hk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gk1
-    public int delete(int i, Uri uri, String str, String[] strArr) {
-        InterceptResult invokeCommon;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public String getType(int i, Uri uri) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
-            return null;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public Uri insert(int i, Uri uri, ContentValues contentValues) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
-            return null;
-        }
-        return (Uri) invokeILL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hk1() {
-        super(0, 100);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 != null && optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) && (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) != null && optJSONObject.has("src_ext_info")) {
+                    return new JSONObject(optJSONObject.optString("src_ext_info")).has("query_ret_code");
+                }
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gk1
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public static int b(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
-            if ("_get_service_handler".equals(str)) {
-                return zj1.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null || !optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return 0;
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    return 1;
+                }
+                if (optJSONObject.optInt("isCPC") == 1) {
+                    return 3;
+                }
+                if (optJSONObject.optInt("realTimeLoading") != 1) {
+                    return 0;
+                }
+                return 2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONObject optJSONObject2;
+        ok1 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject optJSONObject3 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject3 == null || !optJSONObject3.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject3.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return "";
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    ok1 p = mk1.p(optJSONObject.optString("ukey"));
+                    if (p == null) {
+                        return "";
+                    }
+                    return p.O;
+                } else if (optJSONObject.optInt("isCPC") == 1 || optJSONObject.optInt("realTimeLoading") != 1 || (optJSONArray = optJSONObject3.optJSONArray("ad")) == null || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null || (d = ok1.d(optJSONObject2)) == null) {
+                    return "";
+                } else {
+                    return d.O;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List<ok1> d(JSONArray jSONArray, String str, boolean z) throws ParseError {
+        InterceptResult invokeLLZ;
+        List<ok1> r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONArray, str, z)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0 || (r = ok1.r(jSONArray)) == null || r.size() == 0) {
+                return null;
+            }
+            if (z) {
+                for (ok1 ok1Var : r) {
+                    ok1Var.y = true;
+                    if (nk1.s()) {
+                        mk1.j(ok1Var);
+                    }
+                }
+            } else {
+                HashMap<String, ok1> t = mk1.t();
+                if (t != null && t.size() != 0) {
+                    mk1.i(r);
+                    mk1.E(r);
+                } else {
+                    mk1.E(r);
+                }
+                mk1.B(r);
+            }
+            lk1.m().g();
+            return r;
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static List<ok1> e(String str, String str2) throws ParseError {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return f(new JSONObject(str), str2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    throw new ParseError(1, "afd/entry retun invalid json");
+                }
+            }
+            throw new ParseError(1, "afd/entry retun null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<ok1> f(JSONObject jSONObject, String str) throws ParseError {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
+            List<ok1> arrayList = new ArrayList<>();
+            if (jSONObject != null) {
+                int i = 0;
+                if (jSONObject.optInt("errno", 0) > 0 || (optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME)) == null) {
+                    return null;
+                }
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    SplashStyleRecorder.b(optJSONObject2.optJSONObject("style_desc"));
+                    nk1.L(optJSONObject2.optString("src_ext_info"));
+                    if (TextUtils.equals(StickerDataChangeType.UPDATE, optString)) {
+                        nk1.K(optJSONObject2.optString("src_ext_info"));
+                        arrayList = d(optJSONArray, str, false);
+                        String optString2 = optJSONObject2.optString("empty_ext_info");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            k31.a().b("splash_sp_name").i("empty_ext_info", optString2, false);
+                        }
+                    } else if (TextUtils.equals("query", optString)) {
+                        int optInt = optJSONObject2.optInt("realTimeLoading");
+                        int optInt2 = optJSONObject2.optInt("isCPC");
+                        if (optInt != 1 && optInt2 != 1) {
+                            String optString3 = optJSONObject2.optString("ukey");
+                            if (TextUtils.isEmpty(optString3)) {
+                                BaseVM.h(32);
+                                return arrayList;
+                            }
+                            List<ok1> w = mk1.w();
+                            if (w == null) {
+                                return arrayList;
+                            }
+                            Iterator<ok1> it = w.iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    break;
+                                }
+                                ok1 next = it.next();
+                                if (TextUtils.equals(next.c, optString3)) {
+                                    x21.b(arrayList, next);
+                                    break;
+                                }
+                            }
+                            if (arrayList.size() == 0) {
+                                BaseVM.h(64);
+                            }
+                        } else {
+                            List<ok1> d = d(optJSONArray, str, true);
+                            if (d == null || d.size() == 0) {
+                                BaseVM.h(128);
+                            }
+                            arrayList = d;
+                        }
+                        if (arrayList != null && arrayList.size() > 0 && arrayList.get(0) != null) {
+                            ok1 ok1Var = arrayList.get(0);
+                            if (optInt == 1) {
+                                i = 1;
+                            }
+                            ok1Var.D = i;
+                        }
+                    }
+                }
+                return arrayList;
             }
             return null;
         }
-        return (Bundle) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) {
-            return "_get_service_handler".equals(str);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public void e(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, uri, i) != null) || i == 3) {
-            return;
-        }
-        super.e(uri, i);
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public void f(UriMatcher uriMatcher, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
-            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
-        }
-    }
-
-    @Override // com.baidu.tieba.gk1
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
-            if (i == 1) {
-                return new ak1(zj1.a());
-            }
-            return null;
-        }
-        return (Cursor) invokeCommon.objValue;
+        return (List) invokeLL.objValue;
     }
 }

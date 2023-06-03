@@ -1,165 +1,160 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public abstract class r3 implements Comparable<r3> {
+public class r3 extends s1<q3, a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final o6<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final int b;
+    public a b;
+    public com.badlogic.gdx.math.a c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314316, "Lcom/baidu/tieba/r3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a extends c1<q3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+        public int c;
+        public String[] d;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448314316, "Lcom/baidu/tieba/r3;");
-                return;
-            }
+            this.b = "i ";
+            this.c = 1024;
+            this.d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
         }
-        c = new o6<>();
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b * 7489;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b(this.a);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public r3(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r3(j1 j1Var) {
+        super(j1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {j1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((j1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = j;
-        this.b = Long.numberOfTrailingZeros(j);
+        this.b = new a();
+        this.c = new com.badlogic.gdx.math.a();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
-        r7 = com.baidu.tieba.r3.c;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
-        if (r0 >= r7.b) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
-        return r7.get(r0);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final String b(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.s1
+    /* renamed from: e */
+    public q3 c(e1 e1Var, String str, b3 b3Var, a aVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            int i = -1;
-            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
-            }
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, e1Var, str, b3Var, aVar)) == null) {
+            return f(new u3((Texture) e1Var.i(e1Var.n(str).first())), b3Var);
         }
-        return (String) invokeJ.objValue;
+        return (q3) invokeLLLL.objValue;
     }
 
-    public static final long c(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f1
+    /* renamed from: d */
+    public s6<a1> a(String str, b3 b3Var, a aVar) {
+        InterceptResult invokeLLL;
+        String str2;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int i = 0;
-            while (true) {
-                o6<String> o6Var = c;
-                if (i < o6Var.b) {
-                    if (o6Var.get(i).compareTo(str) == 0) {
-                        return 1 << i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, b3Var, aVar)) == null) {
+            if (aVar == null) {
+                aVar = this.b;
+            }
+            try {
+                BufferedReader q = b3Var.q(aVar.c);
+                while (true) {
+                    String readLine = q.readLine();
+                    if (readLine != null) {
+                        if (readLine.startsWith(aVar.b)) {
+                            str2 = readLine.substring(aVar.b.length());
+                            break;
+                        }
+                    } else {
+                        str2 = null;
+                        break;
                     }
-                    i++;
-                } else {
-                    return 0L;
                 }
+                q.close();
+                if (str2 == null && (strArr = aVar.d) != null) {
+                    for (String str3 : strArr) {
+                        b3 s = b3Var.s(b3Var.h().concat("." + str3));
+                        if (s.c()) {
+                            str2 = s.g();
+                        }
+                    }
+                }
+                if (str2 == null) {
+                    return null;
+                }
+                s6<a1> s6Var = new s6<>(1);
+                s6Var.a(new a1(b3Var.s(str2), Texture.class));
+                return s6Var;
+            } catch (IOException e) {
+                throw new GdxRuntimeException("Error reading " + str, e);
             }
-        } else {
-            return invokeL.longValue;
         }
+        return (s6) invokeLLL.objValue;
     }
 
-    public static final long d(String str) {
-        InterceptResult invokeL;
+    public q3 f(u3 u3Var, b3 b3Var) {
+        InterceptResult invokeLL;
+        String readLine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            long c2 = c(str);
-            if (c2 > 0) {
-                return c2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, u3Var, b3Var)) == null) {
+            BufferedReader q = b3Var.q(256);
+            do {
+                try {
+                    try {
+                        readLine = q.readLine();
+                        if (readLine == null) {
+                            a8.a(q);
+                            throw new GdxRuntimeException("Polygon shape not found: " + b3Var);
+                        }
+                    } catch (IOException e) {
+                        throw new GdxRuntimeException("Error reading polygon shape file: " + b3Var, e);
+                    }
+                } finally {
+                    a8.a(q);
+                }
+            } while (!readLine.startsWith("s"));
+            String[] split = readLine.substring(1).trim().split(",");
+            int length = split.length;
+            float[] fArr = new float[length];
+            for (int i = 0; i < length; i++) {
+                fArr[i] = Float.parseFloat(split[i]);
             }
-            c.a(str);
-            return 1 << (c.b - 1);
+            return new q3(u3Var, fArr, this.c.c(fArr).f());
         }
-        return invokeL.longValue;
-    }
-
-    public boolean a(r3 r3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r3Var)) == null) {
-            if (r3Var.hashCode() == hashCode()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof r3)) {
-                return false;
-            }
-            r3 r3Var = (r3) obj;
-            if (this.a != r3Var.a) {
-                return false;
-            }
-            return a(r3Var);
-        }
-        return invokeL.booleanValue;
+        return (q3) invokeLL.objValue;
     }
 }

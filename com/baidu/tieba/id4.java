@@ -1,140 +1,142 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes6.dex */
 public class id4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947849648, "Lcom/baidu/tieba/id4;")) == null) {
-            return;
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                default:
+                    return "unknown";
+                case 6:
+                    return "array";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function";
+                case 9:
+                    return "object";
+                case 10:
+                    return "arraybuffer";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        return (String) invokeI.objValue;
+    }
+
+    public id4(String str, Object obj) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947849648, "Lcom/baidu/tieba/id4;");
-        }
+        this.a = str;
+        this.b = obj;
     }
 
-    public static boolean a(String... strArr) {
-        InterceptResult invokeL;
+    public static Object a(ij2 ij2Var, String str, String str2, id4 id4Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, ij2Var, str, str2, id4Var)) == null) {
+            if (id4Var.g()) {
+                return id4Var.d();
             }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
+            String a = fd4.a(str, str2, id4Var.e());
+            ij2Var.throwJSException(JSExceptionType.Error, a);
+            return a;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.objValue;
     }
 
-    public static boolean c(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
+    public static id4 b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll("\\.", "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
+            return new id4(str, null);
         }
-        return (String) invokeL.objValue;
+        return (id4) invokeL.objValue;
     }
 
-    public static synchronized void e() {
+    public static id4 i(@Nullable Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (id4.class) {
-                if (c) {
-                    return;
-                }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = jd4.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = jd4.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new id4(null, obj);
         }
+        return (id4) invokeL.objValue;
     }
 
-    public static boolean f() {
+    public static Object h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new JsObject();
+        }
+        return invokeV.objValue;
+    }
+
+    public Object d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
                 return true;
             }
             return false;
@@ -142,15 +144,15 @@ public class id4 {
         return invokeV.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (g()) {
+                return fd4.b(str);
             }
-            return false;
+            return fd4.a(str, str2, e());
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

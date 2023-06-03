@@ -1,86 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface mj0 {
-    public static final ServiceReference d = new ServiceReference("nad.core", "hostCI");
-    public static final mj0 e = new a();
+public class mj0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String j();
-
-    String k();
-
-    @NonNull
-    String u();
-
-    @NonNull
-    String x();
-
-    @NonNull
-    String y();
-
-    /* loaded from: classes6.dex */
-    public static class a implements mj0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.mj0
-        public String j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.mj0
-        public String k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.mj0
-        @NonNull
-        public String u() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.mj0
-        @NonNull
-        public String x() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.mj0
-        @NonNull
-        public String y() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
+        InterceptResult invokeLLLL;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
+            if (map != null) {
+                str3 = map.get(str);
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = map.get("default");
                 }
+            } else {
+                str3 = null;
             }
+            if (!TextUtils.isEmpty(str3)) {
+                str = str3;
+            }
+            if (map2 != null) {
+                str4 = map2.get(str);
+            } else {
+                str4 = null;
+            }
+            if (TextUtils.equals(str4, "__CMD_NONE__")) {
+                return null;
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                return str4;
+            }
+            return str2;
         }
+        return (String) invokeLLLL.objValue;
     }
 }

@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w58 {
+public class w58 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
-        final boolean z3;
+    public w58() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (i == 3) {
-                z3 = true;
-            } else {
-                z3 = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            sg.a().post(new Runnable() { // from class: com.baidu.tieba.j58
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        w58.b(currentActivity, z, z2, z3, str);
-                    }
-                }
-            });
         }
     }
 
-    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
-        if (activity != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (z) {
-                if (z2 && !z3 && pr4.d().b("share_thread")) {
-                    return;
-                }
-                spannableStringBuilder.append((CharSequence) str);
-            } else {
-                spannableStringBuilder.append((CharSequence) str);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
+                return null;
             }
-            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).o();
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
+            try {
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
+            }
+            return hotSelectCacheResponseMessage;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

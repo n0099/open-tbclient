@@ -42,7 +42,7 @@ public class CircularRevealHelper {
     @NonNull
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1072view;
+    public final View f1208view;
 
     /* loaded from: classes9.dex */
     public interface Delegate {
@@ -75,7 +75,7 @@ public class CircularRevealHelper {
                 this.revealPath.addCircle(revealInfo.centerX, revealInfo.centerY, revealInfo.radius, Path.Direction.CW);
             }
         }
-        this.f1072view.invalidate();
+        this.f1208view.invalidate();
     }
 
     private boolean shouldDrawCircularReveal() {
@@ -112,9 +112,9 @@ public class CircularRevealHelper {
     public void destroyCircularRevealCache() {
         if (STRATEGY == 0) {
             this.hasCircularRevealCache = false;
-            this.f1072view.destroyDrawingCache();
+            this.f1208view.destroyDrawingCache();
             this.revealPaint.setShader(null);
-            this.f1072view.invalidate();
+            this.f1208view.invalidate();
         }
     }
 
@@ -151,7 +151,7 @@ public class CircularRevealHelper {
     public CircularRevealHelper(Delegate delegate) {
         this.delegate = delegate;
         View view2 = (View) delegate;
-        this.f1072view = view2;
+        this.f1208view = view2;
         view2.setWillNotDraw(false);
         this.revealPath = new Path();
         this.revealPaint = new Paint(7);
@@ -185,17 +185,17 @@ public class CircularRevealHelper {
     }
 
     private float getDistanceToFurthestCorner(@NonNull CircularRevealWidget.RevealInfo revealInfo) {
-        return MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.f1072view.getWidth(), this.f1072view.getHeight());
+        return MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.f1208view.getWidth(), this.f1208view.getHeight());
     }
 
     public void setCircularRevealOverlayDrawable(@Nullable Drawable drawable) {
         this.overlayDrawable = drawable;
-        this.f1072view.invalidate();
+        this.f1208view.invalidate();
     }
 
     public void setCircularRevealScrimColor(@ColorInt int i) {
         this.scrimPaint.setColor(i);
-        this.f1072view.invalidate();
+        this.f1208view.invalidate();
     }
 
     public void setRevealInfo(@Nullable CircularRevealWidget.RevealInfo revealInfo) {
@@ -226,11 +226,11 @@ public class CircularRevealHelper {
         if (STRATEGY == 0) {
             this.buildingCircularRevealCache = true;
             this.hasCircularRevealCache = false;
-            this.f1072view.buildDrawingCache();
-            Bitmap drawingCache = this.f1072view.getDrawingCache();
-            if (drawingCache == null && this.f1072view.getWidth() != 0 && this.f1072view.getHeight() != 0) {
-                drawingCache = Bitmap.createBitmap(this.f1072view.getWidth(), this.f1072view.getHeight(), Bitmap.Config.ARGB_8888);
-                this.f1072view.draw(new Canvas(drawingCache));
+            this.f1208view.buildDrawingCache();
+            Bitmap drawingCache = this.f1208view.getDrawingCache();
+            if (drawingCache == null && this.f1208view.getWidth() != 0 && this.f1208view.getHeight() != 0) {
+                drawingCache = Bitmap.createBitmap(this.f1208view.getWidth(), this.f1208view.getHeight(), Bitmap.Config.ARGB_8888);
+                this.f1208view.draw(new Canvas(drawingCache));
             }
             if (drawingCache != null) {
                 Paint paint = this.revealPaint;
@@ -250,7 +250,7 @@ public class CircularRevealHelper {
                     if (i == 2) {
                         this.delegate.actualDraw(canvas);
                         if (shouldDrawScrim()) {
-                            canvas.drawRect(0.0f, 0.0f, this.f1072view.getWidth(), this.f1072view.getHeight(), this.scrimPaint);
+                            canvas.drawRect(0.0f, 0.0f, this.f1208view.getWidth(), this.f1208view.getHeight(), this.scrimPaint);
                         }
                     } else {
                         throw new IllegalStateException("Unsupported strategy " + STRATEGY);
@@ -260,7 +260,7 @@ public class CircularRevealHelper {
                     canvas.clipPath(this.revealPath);
                     this.delegate.actualDraw(canvas);
                     if (shouldDrawScrim()) {
-                        canvas.drawRect(0.0f, 0.0f, this.f1072view.getWidth(), this.f1072view.getHeight(), this.scrimPaint);
+                        canvas.drawRect(0.0f, 0.0f, this.f1208view.getWidth(), this.f1208view.getHeight(), this.scrimPaint);
                     }
                     canvas.restoreToCount(save);
                 }
@@ -275,7 +275,7 @@ public class CircularRevealHelper {
         } else {
             this.delegate.actualDraw(canvas);
             if (shouldDrawScrim()) {
-                canvas.drawRect(0.0f, 0.0f, this.f1072view.getWidth(), this.f1072view.getHeight(), this.scrimPaint);
+                canvas.drawRect(0.0f, 0.0f, this.f1208view.getWidth(), this.f1208view.getHeight(), this.scrimPaint);
             }
         }
         drawOverlayDrawable(canvas);

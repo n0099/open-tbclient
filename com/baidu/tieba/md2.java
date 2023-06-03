@@ -1,8 +1,15 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tieba.be2;
 /* loaded from: classes6.dex */
 public interface md2 {
-    boolean a(@NonNull be2.a aVar);
+    boolean a(String str);
+
+    void b(int i);
+
+    void c(int i, String str, String str2);
+
+    void d(String str);
+
+    void e(String str);
+
+    void goBack();
 }

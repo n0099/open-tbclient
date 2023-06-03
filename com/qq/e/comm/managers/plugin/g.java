@@ -1,17 +1,20 @@
 package com.qq.e.comm.managers.plugin;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.util.FileUtil;
+import com.qq.e.comm.managers.plugin.c;
 import com.qq.e.comm.util.GDTLogger;
-import com.qq.e.comm.util.Md5Util;
-import com.qq.e.comm.util.StringUtil;
+import java.io.BufferedReader;
 import java.io.File;
-/* loaded from: classes9.dex */
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,6 +22,7 @@ public class g {
     public final File b;
     public String c;
     public int d;
+    public String e;
 
     public g(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -39,10 +43,69 @@ public class g {
         this.b = file2;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x003e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    private String a(File file) throws IOException {
+        InterceptResult invokeL;
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
+            ?? r1 = 0;
+            if (file != null) {
+                try {
+                    if (file.exists()) {
+                        try {
+                            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+                            try {
+                                StringBuilder sb = new StringBuilder();
+                                while (true) {
+                                    String readLine = bufferedReader.readLine();
+                                    if (readLine == null) {
+                                        break;
+                                    }
+                                    sb.append(readLine);
+                                }
+                                String sb2 = sb.toString();
+                                try {
+                                    bufferedReader.close();
+                                } catch (Exception unused) {
+                                    GDTLogger.d("Exception while close bufferreader");
+                                }
+                                return sb2;
+                            } catch (IOException e) {
+                                throw e;
+                            }
+                        } catch (IOException e2) {
+                            throw e2;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (r1 != 0) {
+                                try {
+                                    r1.close();
+                                } catch (Exception unused2) {
+                                    GDTLogger.d("Exception while close bufferreader");
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th3) {
+                    r1 = file;
+                    th = th3;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public boolean a(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.b) || FileUtil.renameTo(this.b, file2)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || h.a(this.a, file)) && (file2.equals(this.b) || h.a(this.b, file2)) : invokeLL.booleanValue;
     }
 
     public String b() {
@@ -57,44 +120,41 @@ public class g {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004b A[Catch: all -> 0x0054, TryCatch #0 {all -> 0x0054, blocks: (B:5:0x0005, B:7:0x000d, B:9:0x0015, B:11:0x0025, B:14:0x0038, B:17:0x003f, B:20:0x004b, B:24:0x0052), top: B:32:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0050 A[RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
     public boolean a() {
         InterceptResult invokeV;
-        boolean z;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 if (this.b.exists() && this.a.exists()) {
-                    String[] split = StringUtil.readAll(this.b).split("#####");
+                    String a = a(this.b);
+                    this.e = a;
+                    if (TextUtils.isEmpty(a)) {
+                        return false;
+                    }
+                    String[] split = this.e.split("#####");
                     if (split.length == 2) {
                         String str = split[1];
-                        int parseInteger = StringUtil.parseInteger(split[0], 0);
-                        com.qq.e.comm.util.a a = com.qq.e.comm.util.a.a();
-                        File file = this.a;
-                        if (a != null) {
-                            if (file != null && file.exists()) {
-                                z = a.a(str, Md5Util.encode(file));
-                                if (z) {
-                                    return false;
-                                }
-                                this.c = str;
-                                this.d = parseInteger;
-                                return true;
-                            }
-                            z = false;
-                            if (z) {
-                            }
-                        } else {
-                            throw null;
+                        try {
+                            i = Integer.parseInt(split[0]);
+                        } catch (Throwable unused) {
+                            i = 0;
+                        }
+                        if (c.b.a.a(str, this.a)) {
+                            this.c = str;
+                            this.d = i;
+                            return true;
                         }
                     }
                 }
                 return false;
-            } catch (Throwable unused) {
+            } catch (Throwable unused2) {
                 GDTLogger.d("Exception while checking plugin");
                 return false;
             }

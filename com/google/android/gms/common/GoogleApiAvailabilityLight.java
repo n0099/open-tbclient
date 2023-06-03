@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.HideFirstParty;
 import com.google.android.gms.common.internal.ShowFirstParty;
@@ -126,7 +127,7 @@ public class GoogleApiAvailabilityLight {
         if (errorResolutionIntent == null) {
             return null;
         }
-        return com.google.android.gms.internal.common.zzd.zza(context, i2, errorResolutionIntent, com.google.android.gms.internal.common.zzd.zza | 134217728);
+        return com.google.android.gms.internal.common.zzd.zza(context, i2, errorResolutionIntent, com.google.android.gms.internal.common.zzd.zza | SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
     }
 
     @KeepForSdk

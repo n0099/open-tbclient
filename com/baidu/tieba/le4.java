@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,20 +17,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class le4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static le4 c = null;
+    public static String d = "banner_ad_close_btn_show_key";
+    public static String e = "banner_ad_close_duration_key";
+    public static String f = "gdt_banner_ad_app_id_key";
+    public static String g = "gdt_video_ad_app_id_key";
+    public static String h = "gdt_banner_ad_id_key";
+    public static String i = "gdt_video_ad_id_key";
+    public static String j = "gdt_video_ad_config_time";
+    public static String k = "video_interaction_optimization";
+    public static String l = "video_request_optimization";
+    public static String m = "first_request_optimization";
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSONObject a;
+        public final /* synthetic */ le4 a;
 
-        public a() {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        public a(le4 le4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,41 +61,96 @@ public class le4 {
                     return;
                 }
             }
-            this.a = new JSONObject();
+            this.a = le4Var;
         }
 
-        public static a a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a();
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public JSONObject b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public a c(String str, Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        this.a.put(str, obj);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                try {
+                    if (ga4.a(str, i) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
+                        this.a.J(optJSONObject.optString("show", "1"));
+                        this.a.L(optJSONObject.optString("duration", "1"));
+                        this.a.I(optJSONObject.optLong("startNoBannerADGap", 5L));
+                        this.a.H(optJSONObject.optLong("bannerShowSuccGap", 120L));
+                        this.a.G(optJSONObject.optLong("preventBannerADShowingGap", 60L));
                     }
+                } catch (JSONException unused) {
                 }
-                return this;
             }
-            return (a) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ le4 a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        public b(le4 le4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = le4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && 200 == i) {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (jSONObject.optInt("errno") != 0) {
+                            return;
+                        }
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                        if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("ads_config")) == null) {
+                            this.a.N("");
+                            this.a.P("");
+                            this.a.Q("");
+                            this.a.R("");
+                            this.a.O(0L);
+                            this.a.T(false);
+                            this.a.S(false);
+                            this.a.M(false);
+                            return;
+                        }
+                        this.a.N(optJSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER));
+                        this.a.P(optJSONObject.optString("video"));
+                        this.a.Q(optJSONObject.optString("banner_app_id"));
+                        this.a.R(optJSONObject.optString("video_app_id"));
+                        this.a.O(System.currentTimeMillis());
+                        this.a.T(optJSONObject.optBoolean("video_ui_opt"));
+                        this.a.S(optJSONObject.optBoolean("video_request_opt"));
+                        this.a.M(optJSONObject.optBoolean("first_request_opt"));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
         }
     }
 
@@ -94,162 +167,327 @@ public class le4 {
                 return;
             }
         }
-        a = qp1.a;
+        c = new le4();
     }
 
-    public static void a(qe4 qe4Var, aw2 aw2Var) {
+    public le4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, qe4Var, aw2Var) == null) {
-            a a2 = a.a();
-            a2.c("mapId", qe4Var.j);
-            a2.c("markerId", aw2Var.a);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "callouttap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            no3.d(qe4Var.i, qe4Var.j, "map", "callouttap", jSONObject);
         }
     }
 
-    public static void b(View view2, qe4 qe4Var) {
-        String str;
-        yv2 yv2Var;
+    public static le4 A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, qe4Var) == null) {
-            oe4 G = qe4Var.G(view2);
-            if (G != null && (yv2Var = G.a) != null) {
-                str = yv2Var.a;
-            } else {
-                str = "";
-            }
-            a a2 = a.a();
-            a2.c("mapId", qe4Var.j);
-            a2.c("controlId", str);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "controltap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            no3.d(qe4Var.i, qe4Var.j, "map", "controltap", jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (le4) invokeV.objValue;
+    }
+
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return mk3.a().getBoolean(l, false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return mk3.a().getBoolean(k, false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = System.currentTimeMillis();
         }
     }
 
-    public static void e(Marker marker, qe4 qe4Var) {
-        String str;
-        aw2 aw2Var;
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, marker, qe4Var) == null) {
-            pe4 H = qe4Var.H(marker);
-            if (H != null && (aw2Var = H.a) != null) {
-                str = aw2Var.a;
-            } else {
-                str = "";
-            }
-            a a2 = a.a();
-            a2.c("mapId", qe4Var.j);
-            a2.c("markerId", str);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "markertap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            no3.d(qe4Var.i, qe4Var.j, "map", "markertap", jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = System.currentTimeMillis();
         }
     }
 
-    public static void c(qe4 qe4Var, LatLng latLng) {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, qe4Var, latLng) == null) {
-            a a2 = a.a();
-            a2.c("latitude", Double.valueOf(latLng.latitude));
-            a2.c("longitude", Double.valueOf(latLng.longitude));
-            JSONObject b = a2.b();
-            a a3 = a.a();
-            a3.c("mapId", qe4Var.j);
-            a3.c(CriusAttrConstants.POSITION, b);
-            JSONObject b2 = a3.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "tap");
-                jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.a != 0 && System.currentTimeMillis() - this.a <= p()) {
+                return true;
             }
-            no3.d(qe4Var.i, qe4Var.j, "map", "tap", jSONObject);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.b != 0 && System.currentTimeMillis() - this.b <= o()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return mk3.a().getLong("banner_ad_close_key", 60L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public long o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return mk3.a().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return mk3.a().getLong("banner_ad_start_show_key", 5L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return mk3.a().getBoolean(d, true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return mk3.a().getBoolean(m, false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return mk3.a().getString(h, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return Long.valueOf(mk3.a().getLong(j, 0L));
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return mk3.a().getString(i, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return mk3.a().getString(f, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return mk3.a().getString(g, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void K(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+            mk3.a().putString(str, str2);
         }
     }
 
-    public static void d(qe4 qe4Var) {
+    public void F() {
+        yb3 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qe4Var) == null) {
-            a a2 = a.a();
-            a2.c("mapId", qe4Var.j);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "updated");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            no3.d(qe4Var.i, qe4Var.j, "map", "updated", jSONObject);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (M = yb3.M()) != null && p84.b() != null && fv2.q() != null) {
+            M.i0().getRequest().cookieManager(fv2.q().a()).url(p84.b().b()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam("host", M.getPackageName()).addUrlParam("os", "android").requestFrom(16).requestFrom(1604).build().executeAsync(new b(this));
         }
     }
 
-    public static void f(qe4 qe4Var, MapStatus mapStatus, int i) {
+    public final void G(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, qe4Var, mapStatus, i) == null) {
-            a a2 = a.a();
-            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
-            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
-            JSONObject b = a2.b();
-            a a3 = a.a();
-            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
-            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
-            JSONObject b2 = a3.b();
-            a a4 = a.a();
-            a4.c("mapId", qe4Var.j);
-            a4.c("northeast", b);
-            a4.c("southwest", b2);
-            a4.c("scale", Float.valueOf(mapStatus.zoom));
-            a4.c("reason", Integer.valueOf(i));
-            JSONObject b3 = a4.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "regionchange");
-                jSONObject.put("data", b3.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            no3.d(qe4Var.i, qe4Var.j, "map", "regionchange", jSONObject);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            mk3.a().putLong("banner_ad_close_key", j2);
         }
+    }
+
+    public final void H(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            mk3.a().putLong("banner_ad_repeat_show_key", j2);
+        }
+    }
+
+    public final void I(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            mk3.a().putLong("banner_ad_start_show_key", j2);
+        }
+    }
+
+    public final void J(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            mk3.a().putBoolean(d, "1".equals(str));
+        }
+    }
+
+    public final void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            mk3.a().putString(e, str);
+        }
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            mk3.a().putBoolean(m, z);
+        }
+    }
+
+    public final void N(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            mk3.a().putString(h, str);
+        }
+    }
+
+    public final void O(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            mk3.a().putLong(j, j2);
+        }
+    }
+
+    public final void P(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            mk3.a().putString(i, str);
+        }
+    }
+
+    public final void Q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            mk3.a().putString(f, str);
+        }
+    }
+
+    public final void R(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            mk3.a().putString(g, str);
+        }
+    }
+
+    public void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            mk3.a().putBoolean(l, z);
+        }
+    }
+
+    public void T(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            mk3.a().putBoolean(k, z);
+        }
+    }
+
+    public final long r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+            String string = mk3.a().getString(str, "0");
+            if (string != null) {
+                return Long.valueOf(string).longValue();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+            if (System.currentTimeMillis() - r(str) <= s()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void m() {
+        yb3 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (M = yb3.M()) != null && fv2.o() != null && fv2.q() != null) {
+            M.i0().getRequest().cookieManager(fv2.q().a()).url(p84.b().e()).requestFrom(16).requestFrom(1603).build().executeAsync(new a(this));
+        }
+    }
+
+    public final long s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            String string = mk3.a().getString(e, "1");
+            if (string != null) {
+                return Long.valueOf(string).longValue() * 60 * 60 * 1000;
+            }
+            return 3600000L;
+        }
+        return invokeV.longValue;
     }
 }

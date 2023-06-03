@@ -285,7 +285,7 @@ public final class MatroskaExtractor implements Extractor {
             case 160:
             case ID_TRACK_ENTRY /* 174 */:
             case 183:
-            case ID_CUE_POINT /* 187 */:
+            case 187:
             case 224:
             case 225:
             case ID_CONTENT_ENCRYPTION_AES_SETTINGS /* 18407 */:

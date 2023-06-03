@@ -15,23 +15,23 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.df5;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.se5;
-import com.baidu.tieba.ze5;
+import com.baidu.tieba.ai5;
+import com.baidu.tieba.ei5;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BLauncher extends ImageView implements ze5 {
+public class BLauncher extends ImageView implements ai5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public df5 d;
+    public ei5 d;
     public Drawable e;
     public boolean f;
 
@@ -42,13 +42,13 @@ public class BLauncher extends ImageView implements ze5 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, df5 df5Var) {
+    public BLauncher(Context context, ei5 ei5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, df5Var};
+            Object[] objArr = {context, ei5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,19 +61,19 @@ public class BLauncher extends ImageView implements ze5 {
         }
         this.c = 0;
         this.f = false;
-        if (df5Var == null) {
+        if (ei5Var == null) {
             return;
         }
-        this.d = df5Var;
+        this.d = ei5Var;
         setIcon();
-        setToolId(df5Var.c);
+        setToolId(ei5Var.c);
     }
 
-    @Override // com.baidu.tieba.te5
-    public void C(se5 se5Var) {
+    @Override // com.baidu.tieba.th5
+    public void C(sh5 sh5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, se5Var) == null) && se5Var != null && se5Var.a == 2) {
-            Object obj = se5Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sh5Var) == null) && sh5Var != null && sh5Var.a == 2) {
+            Object obj = sh5Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -120,7 +120,7 @@ public class BLauncher extends ImageView implements ze5 {
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
         this.a.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         if (!str.equals(" ")) {
-            p45 d = p45.d(this.a);
+            m75 d = m75.d(this.a);
             d.w(R.color.CAM_X0101);
             d.B(R.dimen.T_X10);
             d.C(R.string.F_X02);
@@ -143,7 +143,7 @@ public class BLauncher extends ImageView implements ze5 {
         }
     }
 
-    @Override // com.baidu.tieba.ze5
+    @Override // com.baidu.tieba.ai5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -151,7 +151,7 @@ public class BLauncher extends ImageView implements ze5 {
         }
     }
 
-    @Override // com.baidu.tieba.ze5
+    @Override // com.baidu.tieba.ai5
     public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -178,7 +178,7 @@ public class BLauncher extends ImageView implements ze5 {
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ze5
+    @Override // com.baidu.tieba.ai5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class BLauncher extends ImageView implements ze5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ze5
+    @Override // com.baidu.tieba.ai5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -212,7 +212,7 @@ public class BLauncher extends ImageView implements ze5 {
         }
     }
 
-    @Override // com.baidu.tieba.ze5
+    @Override // com.baidu.tieba.ai5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -246,19 +246,19 @@ public class BLauncher extends ImageView implements ze5 {
     }
 
     public void setIcon() {
-        df5 df5Var;
+        ei5 ei5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (df5Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (ei5Var = this.d) == null) {
             return;
         }
-        if (df5Var.i) {
+        if (ei5Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            df5 df5Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(df5Var2.d, df5Var2.e, this.c));
-        } else if (df5Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(df5Var.d, df5Var.e, df5Var.f, df5Var.g, this.c));
+            ei5 ei5Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(ei5Var2.d, ei5Var2.e, this.c));
+        } else if (ei5Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(ei5Var.d, ei5Var.e, ei5Var.f, ei5Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, df5Var.d, this.c);
+            SkinManager.setImageResource(this, ei5Var.d, this.c);
         }
         if (!this.d.c()) {
             setEnabled(false);

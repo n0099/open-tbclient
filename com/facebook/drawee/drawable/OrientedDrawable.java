@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OrientedDrawable extends ForwardingDrawable {
     public int mExifOrientation;
     public int mRotationAngle;

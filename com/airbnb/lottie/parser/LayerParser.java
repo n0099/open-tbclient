@@ -13,8 +13,8 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.hiidostatis.inner.BaseStatisContent;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", "sc", FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", ClarityUrlList.ClarityUrl.KEY_HD);
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 

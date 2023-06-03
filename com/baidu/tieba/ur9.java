@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class ur9 {
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class ur9 implements qna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
 
     public ur9() {
         Interceptable interceptable = $ic;
@@ -25,9 +25,17 @@ public class ur9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
+    }
+
+    @Override // com.baidu.tieba.qna
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return PermissionUtil.isAgreePrivacyPolicy();
+        }
+        return invokeV.booleanValue;
     }
 }

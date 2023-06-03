@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.mobstat.Config;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -8,7 +7,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class p implements com.kwad.sdk.core.d<AdInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo adInfo, JSONObject jSONObject) {
@@ -91,8 +90,8 @@ public final class p implements com.kwad.sdk.core.d<AdInfo> {
         AdMatrixInfo adMatrixInfo = new AdMatrixInfo();
         adInfo.adMatrixInfo = adMatrixInfo;
         adMatrixInfo.parseJson(jSONObject.optJSONObject("adMatrixInfo"));
-        adInfo.trace = jSONObject.optString(Config.TRACE_PART);
-        if (jSONObject.opt(Config.TRACE_PART) == JSONObject.NULL) {
+        adInfo.trace = jSONObject.optString("trace");
+        if (jSONObject.opt("trace") == JSONObject.NULL) {
             adInfo.trace = "";
         }
     }
@@ -151,7 +150,7 @@ public final class p implements com.kwad.sdk.core.d<AdInfo> {
         com.kwad.sdk.utils.r.a(jSONObject, "adMatrixInfo", adInfo.adMatrixInfo);
         String str3 = adInfo.trace;
         if (str3 != null && !str3.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, Config.TRACE_PART, adInfo.trace);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "trace", adInfo.trace);
         }
         return jSONObject;
     }

@@ -963,7 +963,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
             if (obtainStyledAttributes2.hasValue(0)) {
                 this.mDrawerElevation = obtainStyledAttributes2.getDimension(0, 0.0f);
             } else {
-                this.mDrawerElevation = getResources().getDimension(R.dimen.obfuscated_res_0x7f070292);
+                this.mDrawerElevation = getResources().getDimension(R.dimen.obfuscated_res_0x7f07029d);
             }
             obtainStyledAttributes2.recycle();
             this.mNonDrawerViews = new ArrayList<>();

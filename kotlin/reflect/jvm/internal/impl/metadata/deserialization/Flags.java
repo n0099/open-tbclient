@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.metadata.deserialization;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.protobuf.Internal;
 /* loaded from: classes10.dex */
@@ -62,7 +61,7 @@ public class Flags {
                     if (i != 8) {
                         if (i != 9) {
                             if (i != 11) {
-                                objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                                objArr[0] = "visibility";
                             }
                         }
                     }

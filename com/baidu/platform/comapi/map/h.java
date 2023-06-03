@@ -478,14 +478,14 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                     }
                     if ((hVar.l & 3) != 0) {
                         int i = 0;
-                        C0131h c0131h = null;
+                        C0136h c0136h = null;
                         if ((hVar.l & 1) != 0) {
                             i = 1;
                         }
                         if ((hVar.l & 2) != 0) {
-                            c0131h = new C0131h();
+                            c0136h = new C0136h();
                         }
-                        return GLDebugHelper.wrap(gl, i, c0131h);
+                        return GLDebugHelper.wrap(gl, i, c0136h);
                     }
                     return gl;
                 }
@@ -655,9 +655,9 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        /* JADX WARN: Removed duplicated region for block: B:146:0x037d  */
-        /* JADX WARN: Removed duplicated region for block: B:162:0x03ae  */
-        /* JADX WARN: Removed duplicated region for block: B:191:0x022c A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:146:0x0377  */
+        /* JADX WARN: Removed duplicated region for block: B:162:0x03a8  */
+        /* JADX WARN: Removed duplicated region for block: B:191:0x0228 A[SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -1288,12 +1288,12 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
 
     /* renamed from: com.baidu.platform.comapi.map.h$h  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0131h extends Writer {
+    public static class C0136h extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder a;
 
-        public C0131h() {
+        public C0136h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

@@ -2,7 +2,7 @@ package protobuf.QueryChatroomTopicList;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ChatroomTopic extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_TITLE = "";
@@ -11,7 +11,7 @@ public final class ChatroomTopic extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String title;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<ChatroomTopic> {
         public String content;
         public String title;

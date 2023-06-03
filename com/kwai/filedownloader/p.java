@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.b.a;
 import com.kwai.filedownloader.b.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public static class a extends a.AbstractBinderC0664a {
+    /* loaded from: classes10.dex */
+    public static class a extends a.AbstractBinderC0684a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

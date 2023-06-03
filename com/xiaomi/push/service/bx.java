@@ -77,7 +77,7 @@ public final class bx implements ar {
 
     @Override // com.xiaomi.push.service.ar
     /* renamed from: a  reason: collision with other method in class */
-    public void mo751a() {
+    public void mo806a() {
         if (this.f961a) {
             return;
         }

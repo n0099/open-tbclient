@@ -21,7 +21,6 @@ import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -312,7 +311,7 @@ public class PortraitService extends AbstractService implements NoProguard {
             multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
             multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
             if (TextUtils.isEmpty(setPortraitDTO.contentType)) {
-                str = WordCommandManager.IMAGE_JPEG;
+                str = "image/jpeg";
             } else {
                 str = setPortraitDTO.contentType;
             }

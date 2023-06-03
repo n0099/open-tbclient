@@ -13,19 +13,20 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tieba.ct6;
 import com.baidu.tieba.danmu.ecs.system.DataSystem;
 import com.baidu.tieba.danmu.ecs.system.RenderSystem;
 import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.tieba.fo6;
-import com.baidu.tieba.hq6;
-import com.baidu.tieba.lo6;
-import com.baidu.tieba.lq6;
-import com.baidu.tieba.mo6;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.no6;
-import com.baidu.tieba.ro6;
-import com.baidu.tieba.sq6;
-import com.baidu.tieba.wp6;
+import com.baidu.tieba.dv6;
+import com.baidu.tieba.hu6;
+import com.baidu.tieba.qs6;
+import com.baidu.tieba.su6;
+import com.baidu.tieba.ws6;
+import com.baidu.tieba.wu6;
+import com.baidu.tieba.xs6;
+import com.baidu.tieba.xu6;
+import com.baidu.tieba.ys6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,24 +46,24 @@ import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000°\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u001f\u0018\u0000 p2\u00020\u0001:\u0003opqB\u0019\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u000e\u0010:\u001a\u00020;2\u0006\u0010\u001d\u001a\u00020\u001eJ\u0015\u0010<\u001a\u00020;2\u0006\u0010=\u001a\u00020>H\u0000¢\u0006\u0002\b?J\b\u0010@\u001a\u0004\u0018\u00010\u0017J\u0006\u0010A\u001a\u00020BJ\u0016\u0010C\u001a\n\u0012\u0004\u0012\u00020E\u0018\u00010D2\u0006\u0010F\u001a\u00020GJ\u0016\u0010H\u001a\n\u0012\u0004\u0012\u00020E\u0018\u00010D2\u0006\u0010I\u001a\u00020JJ\u0010\u0010K\u001a\u00020;2\b\u0010L\u001a\u0004\u0018\u00010EJ\u001d\u0010M\u001a\u00020;2\u0006\u0010N\u001a\u00020\u00192\u0006\u0010O\u001a\u00020\u0019H\u0000¢\u0006\u0002\bPJ\u000e\u0010Q\u001a\u00020E2\u0006\u0010R\u001a\u00020SJ\u0006\u0010T\u001a\u00020;J\b\u0010U\u001a\u00020;H\u0002J\u0006\u0010V\u001a\u00020;J\u000e\u0010W\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\b\u0010X\u001a\u00020;H\u0002J\u000e\u0010Y\u001a\u00020;2\u0006\u0010Z\u001a\u00020BJ\u000e\u0010[\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\u000e\u0010[\u001a\u00020E2\u0006\u0010R\u001a\u00020SJ\u0012\u0010\\\u001a\u00020;2\n\b\u0002\u0010]\u001a\u0004\u0018\u00010\u0017J\u000e\u0010^\u001a\u00020;2\u0006\u0010_\u001a\u00020\u0019J\u0006\u0010`\u001a\u00020;J\u0010\u0010a\u001a\u00020;2\b\u0010]\u001a\u0004\u0018\u00010\u0017J\u001a\u0010b\u001a\b\u0012\u0004\u0012\u00020E0D2\f\u0010c\u001a\b\u0012\u0004\u0012\u00020S0DJ\u0019\u0010d\u001a\u00020;2\n\b\u0002\u0010e\u001a\u0004\u0018\u00010\u001bH\u0002¢\u0006\u0002\u0010fJ\u000e\u0010g\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\u0014\u0010h\u001a\u00020;2\f\u0010i\u001a\b\u0012\u0004\u0012\u00020E0DJ\b\u0010j\u001a\u00020;H\u0002J\u000e\u0010k\u001a\u00020;2\u0006\u0010l\u001a\u00020\u001bJ \u0010m\u001a\u00020;2\u0006\u0010N\u001a\u00020\u00192\u0006\u0010O\u001a\u00020\u00192\u0006\u0010n\u001a\u00020\u001bH\u0002R\u001f\u0010\u0007\u001a\u00060\bR\u00020\u00008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\f\u001a\u0004\b\u000f\u0010\u0010R\u0013\u0010\u0012\u001a\u0004\u0018\u00010\u00138F¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0015R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u001f\u001a\u0004\u0018\u00010 8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\"R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010%\u001a\u00020&X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b'\u0010(R\u001b\u0010)\u001a\u00020*8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b-\u0010\f\u001a\u0004\b+\u0010,R\u001e\u00100\u001a\u00020/2\u0006\u0010.\u001a\u00020/@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b0\u00101R(\u00104\u001a\u0004\u0018\u0001032\b\u00102\u001a\u0004\u0018\u000103@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u00106\"\u0004\b7\u00108R\u000e\u00109\u001a\u00020/X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006r"}, d2 = {"Lcom/baidu/tieba/danmu/ui/DanmakuPlayer;", "", "renderer", "Lcom/baidu/tieba/danmu/render/DanmakuRenderer;", "dataSource", "Lcom/baidu/tieba/danmu/data/DataSource;", "(Lcom/baidu/tieba/danmu/render/DanmakuRenderer;Lcom/baidu/tieba/danmu/data/DataSource;)V", "actionHandler", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$ActionHandler;", "getActionHandler", "()Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$ActionHandler;", "actionHandler$delegate", "Lkotlin/Lazy;", "actionThread", "Landroid/os/HandlerThread;", "getActionThread", "()Landroid/os/HandlerThread;", "actionThread$delegate", "cacheHit", "Lcom/baidu/tieba/danmu/utils/Fraction;", "getCacheHit", "()Lcom/baidu/tieba/danmu/utils/Fraction;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "currentDisplayerHeight", "", "currentDisplayerSizeFactor", "", "currentDisplayerWidth", "danmakuView", "Lcom/baidu/tieba/danmu/ui/DanmakuView;", "dataSystem", "Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "getDataSystem", "()Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "drawSemaphore", "Ljava/util/concurrent/Semaphore;", "engine", "Lcom/baidu/tieba/danmu/ecs/DanmakuEngine;", "getEngine$danmu_release", "()Lcom/baidu/tieba/danmu/ecs/DanmakuEngine;", "frameCallback", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$FrameCallback;", "getFrameCallback", "()Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$FrameCallback;", "frameCallback$delegate", "<set-?>", "", "isReleased", "()Z", "value", "Lcom/baidu/tieba/danmu/ui/DanmakuListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "getListener", "()Lcom/baidu/tieba/danmu/ui/DanmakuListener;", "setListener", "(Lcom/baidu/tieba/danmu/ui/DanmakuListener;)V", "started", "bindView", "", "draw", "canvas", "Landroid/graphics/Canvas;", "draw$danmu_release", "getConfig", "getCurrentTimeMs", "", "getDanmakusAtPoint", "", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", Config.EVENT_HEAT_POINT, "Landroid/graphics/Point;", "getDanmakusInRect", "hitRect", "Landroid/graphics/RectF;", "hold", "item", "notifyDisplayerSizeChanged", "width", "height", "notifyDisplayerSizeChanged$danmu_release", "obtainItem", "danmaku", "Lcom/baidu/tieba/danmu/data/DanmakuItemData;", "pause", "postFrameCallback", "release", "releaseItem", "releaseSemaphore", "seekTo", "positionMs", "send", "start", "danmakuConfig", "step", "deltaTimeMs", "stop", "updateConfig", "updateData", "dataList", "updateFrame", "deltaTimeSeconds", "(Ljava/lang/Float;)V", "updateItem", "updateItems", "items", "updateMaxDanmakuDuration", "updatePlaySpeed", "speed", "updateViewportState", "viewportSizeFactor", "ActionHandler", "Companion", "FrameCallback", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000°\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u001f\u0018\u0000 p2\u00020\u0001:\u0003opqB\u0019\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u000e\u0010:\u001a\u00020;2\u0006\u0010\u001d\u001a\u00020\u001eJ\u0015\u0010<\u001a\u00020;2\u0006\u0010=\u001a\u00020>H\u0000¢\u0006\u0002\b?J\b\u0010@\u001a\u0004\u0018\u00010\u0017J\u0006\u0010A\u001a\u00020BJ\u0016\u0010C\u001a\n\u0012\u0004\u0012\u00020E\u0018\u00010D2\u0006\u0010F\u001a\u00020GJ\u0016\u0010H\u001a\n\u0012\u0004\u0012\u00020E\u0018\u00010D2\u0006\u0010I\u001a\u00020JJ\u0010\u0010K\u001a\u00020;2\b\u0010L\u001a\u0004\u0018\u00010EJ\u001d\u0010M\u001a\u00020;2\u0006\u0010N\u001a\u00020\u00192\u0006\u0010O\u001a\u00020\u0019H\u0000¢\u0006\u0002\bPJ\u000e\u0010Q\u001a\u00020E2\u0006\u0010R\u001a\u00020SJ\u0006\u0010T\u001a\u00020;J\b\u0010U\u001a\u00020;H\u0002J\u0006\u0010V\u001a\u00020;J\u000e\u0010W\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\b\u0010X\u001a\u00020;H\u0002J\u000e\u0010Y\u001a\u00020;2\u0006\u0010Z\u001a\u00020BJ\u000e\u0010[\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\u000e\u0010[\u001a\u00020E2\u0006\u0010R\u001a\u00020SJ\u0012\u0010\\\u001a\u00020;2\n\b\u0002\u0010]\u001a\u0004\u0018\u00010\u0017J\u000e\u0010^\u001a\u00020;2\u0006\u0010_\u001a\u00020\u0019J\u0006\u0010`\u001a\u00020;J\u0010\u0010a\u001a\u00020;2\b\u0010]\u001a\u0004\u0018\u00010\u0017J\u001a\u0010b\u001a\b\u0012\u0004\u0012\u00020E0D2\f\u0010c\u001a\b\u0012\u0004\u0012\u00020S0DJ\u0019\u0010d\u001a\u00020;2\n\b\u0002\u0010e\u001a\u0004\u0018\u00010\u001bH\u0002¢\u0006\u0002\u0010fJ\u000e\u0010g\u001a\u00020;2\u0006\u0010L\u001a\u00020EJ\u0014\u0010h\u001a\u00020;2\f\u0010i\u001a\b\u0012\u0004\u0012\u00020E0DJ\b\u0010j\u001a\u00020;H\u0002J\u000e\u0010k\u001a\u00020;2\u0006\u0010l\u001a\u00020\u001bJ \u0010m\u001a\u00020;2\u0006\u0010N\u001a\u00020\u00192\u0006\u0010O\u001a\u00020\u00192\u0006\u0010n\u001a\u00020\u001bH\u0002R\u001f\u0010\u0007\u001a\u00060\bR\u00020\u00008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\f\u001a\u0004\b\u000f\u0010\u0010R\u0013\u0010\u0012\u001a\u0004\u0018\u00010\u00138F¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0015R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u001f\u001a\u0004\u0018\u00010 8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\"R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010%\u001a\u00020&X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b'\u0010(R\u001b\u0010)\u001a\u00020*8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b-\u0010\f\u001a\u0004\b+\u0010,R\u001e\u00100\u001a\u00020/2\u0006\u0010.\u001a\u00020/@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b0\u00101R(\u00104\u001a\u0004\u0018\u0001032\b\u00102\u001a\u0004\u0018\u000103@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u00106\"\u0004\b7\u00108R\u000e\u00109\u001a\u00020/X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006r"}, d2 = {"Lcom/baidu/tieba/danmu/ui/DanmakuPlayer;", "", "renderer", "Lcom/baidu/tieba/danmu/render/DanmakuRenderer;", "dataSource", "Lcom/baidu/tieba/danmu/data/DataSource;", "(Lcom/baidu/tieba/danmu/render/DanmakuRenderer;Lcom/baidu/tieba/danmu/data/DataSource;)V", "actionHandler", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$ActionHandler;", "getActionHandler", "()Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$ActionHandler;", "actionHandler$delegate", "Lkotlin/Lazy;", "actionThread", "Landroid/os/HandlerThread;", "getActionThread", "()Landroid/os/HandlerThread;", "actionThread$delegate", "cacheHit", "Lcom/baidu/tieba/danmu/utils/Fraction;", "getCacheHit", "()Lcom/baidu/tieba/danmu/utils/Fraction;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "currentDisplayerHeight", "", "currentDisplayerSizeFactor", "", "currentDisplayerWidth", "danmakuView", "Lcom/baidu/tieba/danmu/ui/DanmakuView;", "dataSystem", "Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "getDataSystem", "()Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "drawSemaphore", "Ljava/util/concurrent/Semaphore;", "engine", "Lcom/baidu/tieba/danmu/ecs/DanmakuEngine;", "getEngine$danmu_release", "()Lcom/baidu/tieba/danmu/ecs/DanmakuEngine;", "frameCallback", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$FrameCallback;", "getFrameCallback", "()Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$FrameCallback;", "frameCallback$delegate", "<set-?>", "", "isReleased", "()Z", "value", "Lcom/baidu/tieba/danmu/ui/DanmakuListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "getListener", "()Lcom/baidu/tieba/danmu/ui/DanmakuListener;", "setListener", "(Lcom/baidu/tieba/danmu/ui/DanmakuListener;)V", "started", "bindView", "", "draw", "canvas", "Landroid/graphics/Canvas;", "draw$danmu_release", "getConfig", "getCurrentTimeMs", "", "getDanmakusAtPoint", "", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", Config.EVENT_HEAT_POINT, "Landroid/graphics/Point;", "getDanmakusInRect", "hitRect", "Landroid/graphics/RectF;", "hold", "item", "notifyDisplayerSizeChanged", "width", "height", "notifyDisplayerSizeChanged$danmu_release", "obtainItem", "danmaku", "Lcom/baidu/tieba/danmu/data/DanmakuItemData;", DownloadStatisticConstants.UBC_TYPE_PAUSE, "postFrameCallback", "release", "releaseItem", "releaseSemaphore", "seekTo", "positionMs", "send", "start", "danmakuConfig", "step", "deltaTimeMs", "stop", "updateConfig", "updateData", "dataList", "updateFrame", "deltaTimeSeconds", "(Ljava/lang/Float;)V", "updateItem", "updateItems", "items", "updateMaxDanmakuDuration", "updatePlaySpeed", "speed", "updateViewportState", "viewportSizeFactor", "ActionHandler", "Companion", "FrameCallback", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class DanmakuPlayer {
     public static /* synthetic */ Interceptable $ic;
     public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
     public DanmakuView a;
-    public final ro6 b;
+    public final ct6 b;
     public final Lazy c;
     public final Lazy d;
     public final Lazy e;
     public int f;
     public int g;
     public float h;
-    public fo6 i;
+    public qs6 i;
     public final Semaphore j;
     public boolean k;
-    public mq6 l;
+    public xu6 l;
     public boolean m;
 
     static {
@@ -123,7 +124,7 @@ public final class DanmakuPlayer {
                 int i = msg.what;
                 if (i != 2101) {
                     if (i == 2201) {
-                        fo6 c = this.a.m().u().c();
+                        qs6 c = this.a.m().u().c();
                         c.F();
                         c.G();
                         c.C();
@@ -178,12 +179,12 @@ public final class DanmakuPlayer {
         }
     }
 
-    public DanmakuPlayer(hq6 renderer, no6 no6Var) {
+    public DanmakuPlayer(su6 renderer, ys6 ys6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {renderer, no6Var};
+            Object[] objArr = {renderer, ys6Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -194,7 +195,7 @@ public final class DanmakuPlayer {
             }
         }
         Intrinsics.checkNotNullParameter(renderer, "renderer");
-        this.b = ro6.a.c(ro6.m, renderer, null, 2, null);
+        this.b = ct6.a.c(ct6.m, renderer, null, 2, null);
         this.c = LazyKt__LazyJVMKt.lazy(DanmakuPlayer$actionThread$2.INSTANCE);
         this.d = LazyKt__LazyJVMKt.lazy(new Function0<a>(this) { // from class: com.baidu.tieba.danmu.ui.DanmakuPlayer$actionHandler$2
             public static /* synthetic */ Interceptable $ic;
@@ -281,15 +282,15 @@ public final class DanmakuPlayer {
         });
         this.h = 1.0f;
         this.j = new Semaphore(0);
-        if (no6Var == null) {
+        if (ys6Var == null) {
             return;
         }
-        no6Var.a(l());
+        ys6Var.a(l());
         throw null;
     }
 
-    public /* synthetic */ DanmakuPlayer(hq6 hq6Var, no6 no6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(hq6Var, (i & 2) != 0 ? null : no6Var);
+    public /* synthetic */ DanmakuPlayer(su6 su6Var, ys6 ys6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(su6Var, (i & 2) != 0 ? null : ys6Var);
     }
 
     public static final void y(DanmakuPlayer this$0) {
@@ -300,19 +301,19 @@ public final class DanmakuPlayer {
         }
     }
 
-    public final void A(fo6 fo6Var) {
+    public final void A(qs6 qs6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fo6Var) == null) {
-            this.i = fo6Var;
-            ro6 ro6Var = this.b;
-            if (fo6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, qs6Var) == null) {
+            this.i = qs6Var;
+            ct6 ct6Var = this.b;
+            if (qs6Var == null) {
                 return;
             }
-            ro6Var.F(fo6Var);
+            ct6Var.F(qs6Var);
         }
     }
 
-    public final List<lo6> k(RectF hitRect) {
+    public final List<ws6> k(RectF hitRect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, hitRect)) == null) {
@@ -326,53 +327,53 @@ public final class DanmakuPlayer {
         return (List) invokeL.objValue;
     }
 
-    public final lo6 p(mo6 danmaku) {
+    public final ws6 p(xs6 danmaku) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, danmaku)) == null) {
             Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            return sq6.a.a(danmaku, this);
+            return dv6.a.a(danmaku, this);
         }
-        return (lo6) invokeL.objValue;
+        return (ws6) invokeL.objValue;
     }
 
-    public final lo6 v(mo6 danmaku) {
+    public final ws6 v(xs6 danmaku) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, danmaku)) == null) {
             Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            lo6 p = p(danmaku);
+            ws6 p = p(danmaku);
             DataSystem l = l();
             if (l != null) {
                 l.w(p);
             }
             return p;
         }
-        return (lo6) invokeL.objValue;
+        return (ws6) invokeL.objValue;
     }
 
-    public final void w(mq6 mq6Var) {
+    public final void w(xu6 xu6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, mq6Var) == null) && !Intrinsics.areEqual(this.l, mq6Var)) {
-            this.l = mq6Var;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, xu6Var) == null) && !Intrinsics.areEqual(this.l, xu6Var)) {
+            this.l = xu6Var;
             RenderSystem renderSystem = (RenderSystem) this.b.k(RenderSystem.class);
             if (renderSystem != null) {
-                renderSystem.q(mq6Var);
+                renderSystem.q(xu6Var);
             }
         }
     }
 
-    public final void x(fo6 fo6Var) {
+    public final void x(qs6 qs6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, fo6Var) == null) {
-            if (fo6Var != null) {
-                A(fo6Var);
+        if (interceptable == null || interceptable.invokeL(1048600, this, qs6Var) == null) {
+            if (qs6Var != null) {
+                A(qs6Var);
             }
             this.b.C();
             if (!this.k) {
                 this.k = true;
                 if (!n) {
-                    g().post(new Runnable() { // from class: com.baidu.tieba.kq6
+                    g().post(new Runnable() { // from class: com.baidu.tieba.vu6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -389,14 +390,14 @@ public final class DanmakuPlayer {
         }
     }
 
-    public final List<lo6> B(List<mo6> dataList) {
+    public final List<ws6> B(List<xs6> dataList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataList)) == null) {
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(dataList, 10));
-            for (mo6 mo6Var : dataList) {
-                arrayList.add(p(mo6Var));
+            for (xs6 xs6Var : dataList) {
+                arrayList.add(p(xs6Var));
             }
             DataSystem l = l();
             if (l != null) {
@@ -431,7 +432,7 @@ public final class DanmakuPlayer {
                 return;
             }
             if (!n) {
-                ro6.E(this.b, null, 1, null);
+                ct6.E(this.b, null, 1, null);
             }
             this.j.tryAcquire();
             if (!this.k) {
@@ -488,7 +489,7 @@ public final class DanmakuPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             BdLog.d("DanmakuEngine [Player] SeekTo(" + j + ')');
-            fo6 i = i();
+            qs6 i = i();
             if (i != null) {
                 i.E();
             }
@@ -511,22 +512,22 @@ public final class DanmakuPlayer {
         if (!this.k) {
             return;
         }
-        wp6.b("updateFrame");
+        hu6.b("updateFrame");
         this.b.r();
-        wp6.b("postInvalidate");
+        hu6.b("postInvalidate");
         DanmakuView danmakuView = this.a;
         if (danmakuView != null) {
             danmakuView.postInvalidateOnAnimation();
         }
-        wp6.a();
-        wp6.a();
+        hu6.a();
+        hu6.a();
     }
 
     public final void E(int i, int i2, float f) {
-        fo6 fo6Var;
+        qs6 qs6Var;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (fo6Var = this.i) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (qs6Var = this.i) == null) {
             return;
         }
         if (this.f == i && this.g == i2) {
@@ -540,11 +541,11 @@ public final class DanmakuPlayer {
             }
         }
         long clamp = MathUtils.clamp(((float) 13000) * ((i * f) / 682), 9000L, 15000L);
-        if (fo6Var.t() != clamp) {
-            fo6Var.A(clamp);
-            fo6Var.I();
-            fo6Var.F();
-            fo6Var.J();
+        if (qs6Var.t() != clamp) {
+            qs6Var.A(clamp);
+            qs6Var.I();
+            qs6Var.F();
+            qs6Var.J();
         }
         BdLog.d("XanaDanmaku [Factor] update rolling duration to " + clamp);
         this.f = i;
@@ -570,13 +571,13 @@ public final class DanmakuPlayer {
         return (HandlerThread) invokeV.objValue;
     }
 
-    public final fo6 i() {
+    public final qs6 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b.t();
         }
-        return (fo6) invokeV.objValue;
+        return (qs6) invokeV.objValue;
     }
 
     public final long j() {
@@ -597,13 +598,13 @@ public final class DanmakuPlayer {
         return (DataSystem) invokeV.objValue;
     }
 
-    public final ro6 m() {
+    public final ct6 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.b;
         }
-        return (ro6) invokeV.objValue;
+        return (ct6) invokeV.objValue;
     }
 
     public final b n() {
@@ -647,7 +648,7 @@ public final class DanmakuPlayer {
     public final void o(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            lq6 d = this.b.u().d();
+            wu6 d = this.b.u().d();
             E(i, i2, d.d());
             D();
             if (d.getWidth() != i || d.getHeight() != i2) {

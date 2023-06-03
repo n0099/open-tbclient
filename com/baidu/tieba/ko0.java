@@ -1,24 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface ko0 {
-    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
-    public static final ko0 b = new a();
+    public static final ko0 a = new a();
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(do0 do0Var);
-
-        void onFail(Exception exc);
-    }
-
-    void a(@NonNull lq0 lq0Var, @NonNull br0 br0Var, @NonNull b bVar);
+    void a(boolean z);
 
     /* loaded from: classes6.dex */
     public static class a implements ko0 {
@@ -26,9 +16,9 @@ public interface ko0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.ko0
-        public void a(@NonNull lq0 lq0Var, @NonNull br0 br0Var, @NonNull b bVar) {
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, lq0Var, br0Var, bVar) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             }
         }
 

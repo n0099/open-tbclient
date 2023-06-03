@@ -1,52 +1,179 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class cja {
+public class cja extends zia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tga V;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull lha lhaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                char[] charArray = str.toCharArray();
-                StringBuilder sb = new StringBuilder();
-                for (char c : charArray) {
-                    String binaryString = Integer.toBinaryString(c);
-                    while (binaryString.length() < 8) {
-                        binaryString = "0" + binaryString;
-                    }
-                    sb.append(binaryString);
-                }
-                while (sb.length() % 6 != 0) {
-                    sb.append("0");
-                }
-                String valueOf = String.valueOf(sb);
-                int length = valueOf.length() / 6;
-                char[] cArr = new char[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                    valueOf = valueOf.substring(6);
-                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-                }
-                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-                if (str.length() % 3 == 1) {
-                    sb2.append("==");
-                } else if (str.length() % 3 == 2) {
-                    sb2.append("=");
-                }
-                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                    sb2.insert(i2, "\r\n");
-                }
-                sb2.append("\r\n");
-                return String.valueOf(sb2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (lha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void M(@NonNull List<mha<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(pia.f(this.a));
+            tga e = pia.e(this.a);
+            this.V = e;
+            list.add(e);
+            rga c = pia.c(this.a, this, this.d, this.s, this.J);
+            this.E = c;
+            list.add(c);
+            eha p = pia.p(this.a);
+            this.G = p;
+            list.add(p);
+            list.add(pia.h(this.a, this.C));
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.p.getFrom())) {
+                ria.h(this.a, editorTools, this);
+                ria.j(this.a, editorTools, this);
+                ria.k(this.a, editorTools, this);
+                ria.b(this.a, editorTools, this);
+                ria.i(this.a, editorTools);
+                ria.m(this.a, editorTools, this.p.getCallFrom(), this);
+            }
+            ria.d(editorTools, this);
+            ria.a(this.a, editorTools, this);
+            if (StringHelper.equals("2", this.p.getCallFrom())) {
+                si5 g = ria.g(this.a, editorTools, this);
+                g.g(false);
+                g.h(false);
+            }
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1131));
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.p.setIsNoTitle(true);
+            this.p.setTitle("");
+            this.p.setIsEvaluate(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.hx9.g
+    public void a(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || writeData == null || writeData.getType() != 12) {
+            return;
+        }
+        super.a(writeData);
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            hx9.k(this.p.getItem_id(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.c0();
+            hx9.t(this.p.getItem_id(), this.p);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.oha
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.j();
+            hx9.t(this.p.getItem_id(), null);
+        }
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public boolean e0() {
+        InterceptResult invokeV;
+        rga rgaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.p.isSaveDraft() && this.l != null && (((rgaVar = this.E) != null && rgaVar.t()) || this.C.g().size() != 0)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.oha
+    public boolean i() {
+        InterceptResult invokeV;
+        tga tgaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            rga rgaVar = this.E;
+            if (rgaVar != null && rgaVar.t() && this.E.p() != null && this.E.p().getText().length() >= 20 && this.E.p().getText().length() <= 500 && (tgaVar = this.V) != null && tgaVar.t()) {
+                return super.i();
+            }
+            d0(false);
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

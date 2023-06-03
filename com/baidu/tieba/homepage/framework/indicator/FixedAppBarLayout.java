@@ -39,21 +39,21 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.ib5;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.o65;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FixedAppBarLayout extends AppBarLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,13 +66,13 @@ public class FixedAppBarLayout extends AppBarLayout {
     public View.OnClickListener g;
     public Runnable h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FixedAppBarLayout a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class b implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +217,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -324,7 +324,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,13 +393,13 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 f fVar = new f();
                 fVar.a = view2;
-                fVar.b = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090f3f);
-                fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09083e);
-                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09201a);
-                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09202e);
-                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092035);
-                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ffa);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091072);
+                fVar.b = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090f52);
+                fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090849);
+                fVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092048);
+                fVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09205c);
+                fVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092063);
+                fVar.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092028);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091085);
                 fVar.h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 fVar.h.setUseNightOrDarkMask(false);
@@ -446,7 +446,7 @@ public class FixedAppBarLayout extends AppBarLayout {
                 AlaLiveTipView alaLiveTipView = new AlaLiveTipView(getContext());
                 this.e = alaLiveTipView;
                 viewGroup.addView(alaLiveTipView);
-                ib5.f();
+                ee5.f();
             }
             AlaLiveTipView alaLiveTipView2 = this.e;
             if (alaLiveTipView2 != null) {
@@ -546,7 +546,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c1, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) this, true);
             this.a = f.a(this);
             q();
             r();
@@ -563,7 +563,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.c;
-            if (jx4.h()) {
+            if (f05.h()) {
                 i = 0;
             } else {
                 i = 8;
@@ -576,10 +576,10 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091566)) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091583)) == null) {
             return;
         }
-        wb.b().a("livesquare", new c(this, viewGroup));
+        ac.b().a("livesquare", new c(this, viewGroup));
     }
 
     public final void k() {
@@ -592,7 +592,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            sg.a().removeCallbacks(this.h);
+            wg.a().removeCallbacks(this.h);
             AnimatorSet animatorSet = this.c;
             if (animatorSet != null) {
                 animatorSet.cancel();
@@ -612,7 +612,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.d) {
-                sg.a().postDelayed(this.h, 2000L);
+                wg.a().postDelayed(this.h, 2000L);
                 this.d = false;
             }
             AlaLiveTipView alaLiveTipView = this.e;
@@ -662,7 +662,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1273));
+            this.a.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f12c5));
             if (l()) {
                 this.d = true;
                 this.a.g.setVisibility(0);
@@ -682,10 +682,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = o65.m().s("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = l95.m().s("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
-            if (split.length < 7 && !TimeHelper.isSameDay(pg.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                o65 m = o65.m();
+            if (split.length < 7 && !TimeHelper.isSameDay(tg.g(split[split.length - 1], 0L), currentTimeMillis)) {
+                l95 m = l95.m();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {
@@ -709,7 +709,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
             if (this.a.h.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.a.h.getLayoutParams();
-                layoutParams2.height = UtilHelper.getStatusBarHeight() + ri.g(getContext(), R.dimen.tbds156);
+                layoutParams2.height = UtilHelper.getStatusBarHeight() + vi.g(getContext(), R.dimen.tbds156);
                 this.a.h.setLayoutParams(layoutParams2);
             }
         }

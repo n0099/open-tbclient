@@ -12,5 +12,7 @@ public final class SizeType {
     public static final SizeType INSTANCE = new SizeType();
     public static final int LAST = 4;
     public static final int NOT_SCALE = -1;
-    public static final int T = 3;
+
+    /* renamed from: T  reason: collision with root package name */
+    public static final int f1058T = 3;
 }

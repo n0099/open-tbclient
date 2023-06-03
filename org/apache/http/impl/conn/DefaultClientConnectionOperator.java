@@ -10,7 +10,7 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DefaultClientConnectionOperator implements ClientConnectionOperator {
     public SchemeRegistry schemeRegistry;
 

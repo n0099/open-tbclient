@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.C0128a a;
-    public a.C0128a b;
-    public a.C0128a c;
+    public a.C0133a a;
+    public a.C0133a b;
+    public a.C0133a c;
     public MotionEvent d;
     public f e;
     public a f;
@@ -117,12 +117,12 @@ public class b {
     private void c(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent) == null) {
-            a.C0128a a2 = a.C0128a.a(motionEvent);
-            a.C0128a c0128a = this.c;
-            if (c0128a == null) {
-                c0128a = a2;
+            a.C0133a a2 = a.C0133a.a(motionEvent);
+            a.C0133a c0133a = this.c;
+            if (c0133a == null) {
+                c0133a = a2;
             }
-            this.b = c0128a;
+            this.b = c0133a;
             this.c = a2;
             if (this.a == null) {
                 this.a = a2;

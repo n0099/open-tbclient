@@ -51,7 +51,7 @@ public final class c extends a implements RewardActionBarControl.d {
         super.aq();
         if (cc()) {
             this.ts = this.hP.getVisibility();
-            getRootView().findViewById(R.id.obfuscated_res_0x7f0913df).setVisibility(8);
+            getRootView().findViewById(R.id.obfuscated_res_0x7f0913f7).setVisibility(8);
             this.nM.a(this.mPlayEndPageListener);
             this.nM.ml.a(this);
         }
@@ -94,7 +94,7 @@ public final class c extends a implements RewardActionBarControl.d {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.hP = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091297);
+        this.hP = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912af);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

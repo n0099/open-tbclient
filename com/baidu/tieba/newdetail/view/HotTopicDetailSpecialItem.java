@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pt8;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.mz8;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public TextView g;
     public TextView h;
     public TextView i;
-    public pt8 j;
-    public zw4<pt8> k;
+    public mz8 j;
+    public vz4<mz8> k;
     public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,12 +69,12 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        pt8 pt8Var;
+        mz8 mz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (pt8Var = this.j) != null && pt8Var.h != null) {
-            zw4<pt8> zw4Var = this.k;
-            if (zw4Var != null) {
-                zw4Var.d(view2, pt8Var, 0, 0L);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (mz8Var = this.j) != null && mz8Var.h != null) {
+            vz4<mz8> vz4Var = this.k;
+            if (vz4Var != null) {
+                vz4Var.d(view2, mz8Var, 0, 0L);
             }
             ThreadCardUtils.jumpToPB(this.j.h, view2.getContext(), 17, false, this.l, "1");
         }
@@ -126,45 +126,45 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         b();
     }
 
-    public void a(pt8 pt8Var) {
+    public void a(mz8 mz8Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pt8Var) == null) && pt8Var != null) {
-            this.j = pt8Var;
-            if (TextUtils.isEmpty(pt8Var.d)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, mz8Var) == null) && mz8Var != null) {
+            this.j = mz8Var;
+            if (TextUtils.isEmpty(mz8Var.d)) {
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
                 this.e.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams.addRule(8, 0);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090865);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090870);
                 this.i.setLayoutParams(layoutParams);
             } else {
-                this.c.N(pt8Var.d, 10, false);
+                this.c.N(mz8Var.d, 10, false);
                 this.c.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
-                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0907de);
+                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0907e9);
                 layoutParams2.addRule(3, 0);
                 this.i.setLayoutParams(layoutParams2);
-                if (pt8Var.e > 0) {
+                if (mz8Var.e > 0) {
                     this.e.setVisibility(0);
                     this.d.setVisibility(0);
-                    this.g.setText(StringUtils.translateSecondsToString(pt8Var.e));
+                    this.g.setText(StringUtils.translateSecondsToString(mz8Var.e));
                 } else {
                     this.e.setVisibility(8);
                     this.d.setVisibility(8);
                 }
             }
-            this.h.setText(pt8Var.a);
-            String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(pt8Var.b);
-            String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f09cf, numberUniformFormatExtra);
-            String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(pt8Var.c);
+            this.h.setText(mz8Var.a);
+            String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(mz8Var.b);
+            String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a07, numberUniformFormatExtra);
+            String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(mz8Var.c);
             if (str.length() > 0) {
                 str = str + GlideException.IndentedAppendable.INDENT;
             }
-            this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f09ce, numberUniformFormatExtra2));
-            if (pt8Var.g) {
-                i = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+            this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a06, numberUniformFormatExtra2));
+            if (mz8Var.g) {
+                i = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
             } else {
                 i = 0;
             }
@@ -175,19 +175,19 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f2, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091e8d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03fe, (ViewGroup) this, true);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ebb);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0907de);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0907dd);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092787);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092785);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092786);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090865);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092280);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0907e9);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0907e8);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0927bf);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0927bd);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0927be);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090870);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b3);
             this.c.setPlaceHolder(2);
-            this.c.setRadius(ri.g(getContext(), R.dimen.tbds10));
+            this.c.setRadius(vi.g(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);
         }
     }
@@ -211,10 +211,10 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         }
     }
 
-    public void setOnItemCoverListener(zw4<pt8> zw4Var) {
+    public void setOnItemCoverListener(vz4<mz8> vz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zw4Var) == null) {
-            this.k = zw4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vz4Var) == null) {
+            this.k = vz4Var;
         }
     }
 }

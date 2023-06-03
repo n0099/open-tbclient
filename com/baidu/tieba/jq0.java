@@ -1,67 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.max.event.VideoEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jq0 {
+public final class jq0 implements ik0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public final VideoEventTypeEnum a;
+    public final int b;
+    public final int c;
 
-    public jq0() {
+    public jq0(VideoEventTypeEnum type, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = i;
+        this.c = i2;
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.ik0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            un0.b().a(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String simpleName = jq0.class.getSimpleName();
+            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoProgressEvent::class.java.simpleName");
+            return simpleName;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public static List<jq0> a(@Nullable JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            int length = jSONArray.length();
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    jq0 jq0Var = new jq0();
-                    jq0Var.a = optJSONObject.optString("url");
-                    jq0Var.b = optJSONObject.optInt("size");
-                    if (!TextUtils.isEmpty(jq0Var.a) && jq0Var.b > 0) {
-                        o11.b(arrayList, jq0Var);
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (List) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final VideoEventTypeEnum getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (VideoEventTypeEnum) invokeV.objValue;
     }
 }

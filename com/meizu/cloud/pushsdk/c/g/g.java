@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static final Logger a = Logger.getLogger(g.class.getName());
 

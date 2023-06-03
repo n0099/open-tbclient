@@ -7,9 +7,16 @@ import androidx.annotation.RequiresApi;
 @RequiresApi(api = 21)
 /* loaded from: classes4.dex */
 public class RoundOutlineProvider extends ViewOutlineProvider {
-    public final float mRadius;
+    public float mRadius;
+
+    public RoundOutlineProvider() {
+    }
 
     public RoundOutlineProvider(float f) {
+        this.mRadius = f;
+    }
+
+    public void setRadius(float f) {
         this.mRadius = f;
     }
 

@@ -1,124 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.TooltipCompatHandler;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class u23 implements ku2 {
+import java.util.Iterator;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class u23 extends s23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long c;
-    public ConcurrentHashMap<String, JSONObject> d;
-    public ConcurrentHashMap<String, Integer> e;
-    public c43 f;
-
-    /* loaded from: classes7.dex */
-    public class a implements c43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u23 c;
-
-        @Override // com.baidu.tieba.c43
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.c43
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.c43
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
-        }
-
-        public a(u23 u23Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u23Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = u23Var;
-        }
-
-        @Override // com.baidu.tieba.c43
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
-                return;
-            }
-            this.c.g();
-        }
-
-        @Override // com.baidu.tieba.c43
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.c = System.currentTimeMillis();
-            }
-        }
-
-        @Override // com.baidu.tieba.c43
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.g();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final u23 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-424904363, "Lcom/baidu/tieba/u23$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-424904363, "Lcom/baidu/tieba/u23$b;");
-                    return;
-                }
-            }
-            a = new u23(null);
-        }
-    }
 
     public u23() {
         Interceptable interceptable = $ic;
@@ -130,93 +26,71 @@ public class u23 implements ku2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = -1L;
-        this.d = new ConcurrentHashMap<>(10);
-        this.e = new ConcurrentHashMap<>(10);
-        this.f = new a(this);
     }
 
-    public /* synthetic */ u23(a aVar) {
-        this();
-    }
-
-    public void h(String str, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.s23
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        boolean z;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, jSONObject) != null) || TextUtils.isEmpty(str) || !e()) {
-            return;
-        }
-        this.d.put(str, jSONObject);
-    }
-
-    public static u23 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
-        }
-        return (u23) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c == -1 || System.currentTimeMillis() - this.c > TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (s23.c) {
+                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
                 return false;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a43.g().i(this.f, 2500);
-        }
-    }
-
-    public JSONObject d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !e()) {
-                return null;
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            JSONObject jSONObject = this.d.get(str);
-            if (ku2.a && jSONObject != null) {
-                Integer num = this.e.get(str);
-                if (num == null) {
-                    num = 0;
+            try {
+                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+                if (pixel != -1 && pixel != -657931) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-                this.e.put(str, Integer.valueOf(num.intValue() + 1));
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = -1L;
-            if (ku2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("adopt cache api = [ ");
-                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
-                    sb.append((Object) entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append(" ");
+                if (!z && (set = this.b) != null) {
+                    Iterator<Integer> it = set.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().intValue() == pixel) {
+                                z = true;
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
                 }
-                sb.append(PreferencesUtil.RIGHT_MOUNT);
-                Log.d("SwanPerformance", sb.toString());
+                if (!z) {
+                    return false;
+                }
+                for (int i = rect.left + 1; i < rect.right - 1; i++) {
+                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
+                        if (pixel != bitmap.getPixel(i, i2)) {
+                            if (is1.a) {
+                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                            return false;
+                        }
+                    }
+                }
+                if (s23.c) {
+                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                }
+                return true;
+            } catch (IllegalArgumentException e) {
+                if (s23.c) {
+                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
+                    e.printStackTrace();
+                }
+                return false;
             }
-            this.e.clear();
-            this.d.clear();
         }
+        return invokeLL.booleanValue;
     }
 }

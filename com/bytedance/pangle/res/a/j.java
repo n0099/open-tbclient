@@ -3,7 +3,7 @@ package com.bytedance.pangle.res.a;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class j extends FilterInputStream {
     public void a(int i) {
     }

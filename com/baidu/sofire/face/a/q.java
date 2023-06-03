@@ -15,6 +15,7 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 import com.baidu.sofire.ac.FH;
 import com.baidu.sofire.face.api.IVideoRecordProcess;
 import com.baidu.sofire.face.api.RecordCallback;
@@ -595,7 +596,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
                                 jSONObject4.put("video", jSONObject5);
                                 JSONObject jSONObject6 = new JSONObject();
                                 jSONObject6.put("zid", FH.gzfi(this.a, "", 5002));
-                                jSONObject6.put(Config.EVENT_PART, "face");
+                                jSONObject6.put(Config.EVENT_PART, UgcTranscoderConstant.URL_GET_FACE);
                                 jSONObject6.put(NotificationStyle.NOTIFICATION_STYLE, this.G);
                                 jSONObject6.put("ts", System.currentTimeMillis());
                                 TimeZone timeZone = TimeZone.getDefault();

@@ -11,7 +11,7 @@ import com.baidu.searchbox.net.update.v2.UpdateAction;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = DangerousPermissionCommandListener.HEADER_ACTION, module = ShareLoginStat.GetShareListStat.KEY_PERMISSION)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionCommandListener extends JSONObjectCommandListener {
     public static final String DANGEROUS_PERMISSION_MESSAGE = "message";
     public static final String DANGEROUS_PERMISSION_VERSION = "dangerous_permission_version";

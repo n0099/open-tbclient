@@ -1,55 +1,201 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Formatter;
-import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class aoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623286, "Lcom/baidu/tieba/aoa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947623286, "Lcom/baidu/tieba/aoa;");
-                return;
-            }
+    public static void a() {
+        poa c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = voa.c()) != null) {
+            c.b();
         }
-        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     }
 
-    public static boolean a(String str) {
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static pna i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return voa.e();
+        }
+        return (pna) invokeV.objValue;
+    }
+
+    public static tna j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return voa.f();
+        }
+        return (tna) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            ooa b = voa.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.trim().length() != 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.c(str);
             }
-            return true;
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000) {
-                i = 1000;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            poa c = voa.c();
+            if (c != null) {
+                return c.a(str);
             }
-            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
+            return null;
         }
-        return (String) invokeI.objValue;
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        noa a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = voa.a()) != null) {
+            a.a(i);
+        }
+    }
+
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            noa a = voa.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        noa a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = voa.a()) != null) {
+            a.putInt(str, i);
+        }
+    }
+
+    public static void o(String str, long j) {
+        noa a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = voa.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        noa a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = voa.a()) != null) {
+            a.putString(str, str2);
+        }
     }
 }

@@ -2,7 +2,7 @@ package org.apache.http.message;
 
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicNameValuePair implements NameValuePair {
     public BasicNameValuePair(String str, String str2) {
         throw new RuntimeException("Stub!");

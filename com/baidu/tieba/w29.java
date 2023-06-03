@@ -1,59 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.ax;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes8.dex */
-public abstract class w29 {
+public class w29 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public wj6 b;
-    public ax.a c;
-    public OriginalThreadInfo d;
-    public int e;
 
-    public abstract View a();
-
-    public abstract void b(TbPageContext tbPageContext, int i);
-
-    public abstract void c(OriginalThreadInfo originalThreadInfo);
-
-    public w29(TbPageContext tbPageContext) {
+    public w29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 3;
-        this.a = tbPageContext;
     }
 
-    public void d(ax.a aVar) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.c = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            v29 v29Var = null;
+            if (customMessage == null || customMessage.getCmd() != 2001314) {
+                return null;
+            }
+            z45.d();
+            byte[] bArr = z45.b("tb.pb_normal").get("chosen_pb_page_cache");
+            if (bArr != null) {
+                try {
+                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                } catch (Exception unused) {
+                    excPbPageResIdl = null;
+                }
+                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                    v29Var = new v29(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                }
+            }
+            return new ReadChosenPbCacheResponse(v29Var);
         }
-    }
-
-    public void e(wj6 wj6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
-            this.b = wj6Var;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

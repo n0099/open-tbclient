@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tieba.R;
 import com.baidu.validation.result.ValidationResult;
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("u", u));
         arrayList.add(new PassNameValuePair("scene", BindVerifyActivity.SCENE));
-        arrayList.add(new PassNameValuePair("isnew", "true"));
+        arrayList.add(new PassNameValuePair("isnew", YYOption.IsLive.VALUE_TRUE));
         arrayList.add(new PassNameValuePair("authid", this.t));
         this.sapiWebView.loadAuthWidget(arrayList, true);
     }

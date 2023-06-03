@@ -1,436 +1,485 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.bubbleView.ArrowDirection;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
+import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalBackdropGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalCardCategoryActivityConfig;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class y4a extends Drawable {
+public class y4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public Path b;
-    public Paint c;
-    public Path d;
-    public Paint e;
-    public float f;
-    public float g;
-    public float h;
-    public float i;
-    public float j;
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
+    public DressupCenterActivity a;
+    public View b;
+    public BdListView c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public CoverFlowView<w4a> f;
+    public MemberRecommendView g;
+    public TextView h;
+    public x4a i;
+    public int j;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4a a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-307170362, "Lcom/baidu/tieba/y4a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-307170362, "Lcom/baidu/tieba/y4a$a;");
+        public a(y4a y4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[ArrowDirection.values().length];
-            a = iArr;
-            try {
-                iArr[ArrowDirection.LEFT.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.a = y4aVar;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            z4a item;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (item = this.a.i.getItem(i)) == null) {
+                return;
             }
-            try {
-                a[ArrowDirection.TOP.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            l95 m = l95.m();
+            m.A("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), item.c());
+            this.a.i.notifyDataSetChanged();
+            if (StringUtils.isNull(item.getType())) {
+                return;
             }
-            try {
-                a[ArrowDirection.RIGHT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            String type = item.getType();
+            int e = tg.e(type, 0);
+            CustomMessage customMessage = null;
+            if (e != 1) {
+                if (e != 2) {
+                    if (e != 3) {
+                        if (e != 4) {
+                            if (e != 5) {
+                                UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{type});
+                            } else {
+                                TiebaStatic.log("c11611");
+                                customMessage = new CustomMessage(2002001, new AvatarPendantActivityConfig(this.a.a.getActivity()));
+                            }
+                        } else {
+                            customMessage = new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(this.a.a.getPageContext().getPageActivity()));
+                        }
+                    } else {
+                        customMessage = new CustomMessage(2002001, new BubbleGroupActivityConfig(this.a.a.getActivity()));
+                    }
+                } else {
+                    TiebaStatic.log("c10264");
+                    customMessage = new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.a.a.getActivity()));
+                }
+            } else {
+                TiebaStatic.log("c10263");
+                this.a.m();
             }
-            try {
-                a[ArrowDirection.BOTTOM.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            if (customMessage != null) {
+                MessageManager.getInstance().sendMessage(customMessage);
             }
         }
     }
 
-    public y4a(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
+    /* loaded from: classes8.dex */
+    public class b implements a55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(y4a y4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.a55.e
+        public void onClick(a55 a55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, a55Var) == null) {
+                a55Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements p75 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.p75
+        public View b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (View) invokeV.objValue;
+        }
+
+        public c(y4a y4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.p75
+        public TbImageView d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                TbImageView tbImageView = new TbImageView(context);
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                tbImageView.setGifIconSupport(false);
+                return tbImageView;
+            }
+            return (TbImageView) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.p75
+        public s75 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                s75 s75Var = new s75();
+                s75Var.c(R.drawable.icon_diandian_white_n);
+                s75Var.g(R.drawable.icon_diandian_white_s);
+                s75Var.h(R.dimen.obfuscated_res_0x7f070198);
+                s75Var.d(85);
+                s75Var.f(R.dimen.obfuscated_res_0x7f070201);
+                s75Var.e(R.dimen.obfuscated_res_0x7f0701d5);
+                return s75Var;
+            }
+            return (s75) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.p75
+        public v75 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                v75 v75Var = new v75();
+                v75Var.a(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703aa));
+                return v75Var;
+            }
+            return (v75) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements t75<w4a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4a a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.t75
+        /* renamed from: c */
+        public void a(int i, w4a w4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, w4aVar) == null) {
+            }
+        }
+
+        public d(y4a y4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4aVar;
+        }
+
+        @Override // com.baidu.tieba.t75
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                TiebaStatic.log("c10262");
+                UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{str});
+            }
+        }
+    }
+
+    public y4a(DressupCenterActivity dressupCenterActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rectF, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), arrowDirection};
+            Object[] objArr = {dressupCenterActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Path();
-        Paint paint = new Paint(1);
-        this.c = paint;
-        this.a = rectF;
-        this.f = f;
-        this.g = f2;
-        this.h = f3;
-        this.i = f4;
-        this.j = f5;
-        paint.setColor(i2);
-        if (f5 > 0.0f) {
-            Paint paint2 = new Paint(1);
-            this.e = paint2;
-            paint2.setColor(i);
-            this.d = new Path();
-            e(arrowDirection, this.b, f5);
-            e(arrowDirection, this.d, 0.0f);
+        this.j = 0;
+        this.a = dressupCenterActivity;
+        this.j = vi.g(dressupCenterActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0274, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.dressup_center_title));
+        this.e = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+        this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09094b);
+        this.f = (CoverFlowView) this.b.findViewById(R.id.obfuscated_res_0x7f09094c);
+        l();
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09094d);
+        this.g = memberRecommendView;
+        memberRecommendView.setFromType(1);
+        this.i = new x4a(this.a.getPageContext());
+        TextView textView = new TextView(this.a.getActivity());
+        this.h = textView;
+        textView.setHeight(vi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070201));
+        this.c.setAdapter((ListAdapter) this.i);
+        this.c.setOnItemClickListener(new a(this));
+    }
+
+    public final boolean i(List<w4a> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            if (list != null && list.size() > 0) {
+                this.f.setVisibility(0);
+                this.f.setData(list);
+                return true;
+            }
+            this.f.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
+            this.g.setVisibility(0);
+            this.f.setVisibility(0);
+        }
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void g() {
+        CoverFlowView<w4a> coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (coverFlowView = this.f) != null) {
+            coverFlowView.x();
+        }
+    }
+
+    public void h() {
+        CoverFlowView<w4a> coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (coverFlowView = this.f) != null) {
+            coverFlowView.m();
+        }
+    }
+
+    public final void l() {
+        CoverFlowView<w4a> coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (coverFlowView = this.f) == null) {
             return;
         }
-        e(arrowDirection, this.b, 0.0f);
+        coverFlowView.setCoverFlowFactory(new c(this));
+        this.f.setCallback(new d(this));
     }
 
-    public final void a(RectF rectF, Path path, float f) {
+    @SuppressLint({"ResourceAsColor"})
+    public void f() {
+        boolean z;
+        x4a x4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.g + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = rectF.top;
-            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, ((rectF.bottom - this.h) - this.g) - f);
-            float f5 = rectF.right;
-            float f6 = this.g;
-            float f7 = rectF.bottom;
-            float f8 = this.h;
-            path.arcTo(new RectF(f5 - f6, (f7 - f6) - f8, f5 - f, (f7 - f8) - f), 0.0f, 90.0f);
-            float f9 = f / 2.0f;
-            path.lineTo(((rectF.left + this.f) + this.i) - f9, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
-            path.lineTo(rectF.left + this.i + f9, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + Math.min(this.g, this.i) + f, (rectF.bottom - this.h) - f);
-            float f10 = rectF.left;
-            float f11 = rectF.bottom;
-            float f12 = this.g;
-            float f13 = this.h;
-            path.arcTo(new RectF(f10 + f, (f11 - f12) - f13, f12 + f10, (f11 - f13) - f), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f, rectF.top + this.g + f);
-            float f14 = rectF.left;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
-            path.close();
-        }
-    }
-
-    public final void c(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(this.f + rectF.left + this.g + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = rectF.top;
-            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
-            float f5 = rectF.right;
-            float f6 = this.g;
-            float f7 = rectF.bottom;
-            path.arcTo(new RectF(f5 - f6, f7 - f6, f5 - f, f7 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f + this.g + f, rectF.bottom - f);
-            float f8 = rectF.left;
-            float f9 = this.f;
-            float f10 = rectF.bottom;
-            float f11 = this.g;
-            path.arcTo(new RectF(f8 + f9 + f, f10 - f11, f11 + f8 + f9, f10 - f), 90.0f, 90.0f);
-            float f12 = f / 2.0f;
-            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f12);
-            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
-            path.lineTo(rectF.left + this.f + f, this.i + f12);
-            path.lineTo(rectF.left + this.f + f, rectF.top + this.g + f);
-            float f13 = rectF.left;
-            float f14 = this.f;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f13 + f14 + f, f + f15, f13 + f16 + f14, f16 + f15), 180.0f, 90.0f);
-            path.close();
-        }
-    }
-
-    public final void f(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.g + f, rectF.top + f);
-            path.lineTo(((rectF.width() - this.g) - this.f) - f, rectF.top + f);
-            float f2 = rectF.right;
-            float f3 = this.g;
-            float f4 = this.f;
-            float f5 = rectF.top;
-            path.arcTo(new RectF((f2 - f3) - f4, f5 + f, (f2 - f4) - f, f3 + f5), 270.0f, 90.0f);
-            float f6 = f / 2.0f;
-            path.lineTo((rectF.right - this.f) - f, this.i + f6);
-            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
-            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f6);
-            path.lineTo((rectF.right - this.f) - f, (rectF.bottom - this.g) - f);
-            float f7 = rectF.right;
-            float f8 = this.g;
-            float f9 = this.f;
-            float f10 = rectF.bottom;
-            path.arcTo(new RectF((f7 - f8) - f9, f10 - f8, (f7 - f9) - f, f10 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
-            float f11 = rectF.left;
-            float f12 = rectF.bottom;
-            float f13 = this.g;
-            path.arcTo(new RectF(f11 + f, f12 - f13, f13 + f11, f12 - f), 90.0f, 90.0f);
-            float f14 = rectF.left;
-            float f15 = rectF.top;
-            float f16 = this.g;
-            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
-            path.close();
-        }
-    }
-
-    public final void h(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + Math.min(this.i, this.g) + f, rectF.top + this.h + f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
-            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
-            path.lineTo((rectF.right - this.g) - f, rectF.top + this.h + f);
-            float f3 = rectF.right;
-            float f4 = this.g;
-            float f5 = rectF.top;
-            float f6 = this.h;
-            path.arcTo(new RectF(f3 - f4, f5 + f6 + f, f3 - f, f4 + f5 + f6), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
-            float f7 = rectF.right;
-            float f8 = this.g;
-            float f9 = rectF.bottom;
-            path.arcTo(new RectF(f7 - f8, f9 - f8, f7 - f, f9 - f), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.g + f, rectF.bottom - f);
-            float f10 = rectF.left;
-            float f11 = rectF.bottom;
-            float f12 = this.g;
-            path.arcTo(new RectF(f10 + f, f11 - f12, f12 + f10, f11 - f), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f, rectF.top + this.h + this.g + f);
-            float f13 = rectF.left;
-            float f14 = f13 + f;
-            float f15 = rectF.top;
-            float f16 = this.h;
-            float f17 = f15 + f16 + f;
-            float f18 = this.g;
-            path.arcTo(new RectF(f14, f17, f13 + f18, f18 + f15 + f16), 180.0f, 90.0f);
-            path.close();
-        }
-    }
-
-    public final void b(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + f, rectF.top + f);
-            path.lineTo(rectF.right - f, rectF.top + f);
-            path.lineTo(rectF.right - f, (rectF.bottom - this.h) - f);
-            float f2 = f / 2.0f;
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
-            path.lineTo(rectF.left + this.i + f2, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + this.i + f, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + f, (rectF.bottom - this.h) - f);
-            path.lineTo(rectF.left + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    public final void e(ArrowDirection arrowDirection, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f)}) == null) {
-            int i = a.a[arrowDirection.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            float f2 = this.g;
-                            if (f2 <= 0.0f) {
-                                b(this.a, path, f);
-                                return;
-                            } else if (f > 0.0f && f > f2) {
-                                b(this.a, path, f);
-                                return;
-                            } else {
-                                a(this.a, path, f);
-                                return;
-                            }
-                        }
-                        return;
-                    }
-                    float f3 = this.g;
-                    if (f3 <= 0.0f) {
-                        g(this.a, path, f);
-                        return;
-                    } else if (f > 0.0f && f > f3) {
-                        g(this.a, path, f);
-                        return;
-                    } else {
-                        f(this.a, path, f);
-                        return;
-                    }
-                }
-                float f4 = this.g;
-                if (f4 <= 0.0f) {
-                    i(this.a, path, f);
-                    return;
-                } else if (f > 0.0f && f > f4) {
-                    i(this.a, path, f);
-                    return;
-                } else {
-                    h(this.a, path, f);
-                    return;
-                }
-            }
-            float f5 = this.g;
-            if (f5 <= 0.0f) {
-                d(this.a, path, f);
-            } else if (f > 0.0f && f > f5) {
-                d(this.a, path, f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d05 layoutMode = this.a.getLayoutMode();
+            if (TbadkApplication.getInst().getSkinType() == 4) {
+                z = true;
             } else {
-                c(this.a, path, f);
+                z = false;
             }
-        }
-    }
-
-    public final void i(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + this.i + f, rectF.top + this.h + f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
-            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
-            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
-            path.lineTo(rectF.right - f, rectF.top + this.h + f);
-            path.lineTo(rectF.right - f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.top + this.h + f);
-            path.lineTo(rectF.left + this.i + f, rectF.top + this.h + f);
-            path.close();
-        }
-    }
-
-    public final void d(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(this.f + rectF.left + f, rectF.top + f);
-            path.lineTo(rectF.width() - f, rectF.top + f);
-            path.lineTo(rectF.right - f, rectF.bottom - f);
-            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
-            float f2 = f / 2.0f;
-            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f2);
-            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
-            path.lineTo(rectF.left + this.f + f, this.i + f2);
-            path.lineTo(rectF.left + this.f + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    public final void g(RectF rectF, Path path, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
-            path.moveTo(rectF.left + f, rectF.top + f);
-            path.lineTo((rectF.width() - this.f) - f, rectF.top + f);
-            float f2 = f / 2.0f;
-            path.lineTo((rectF.right - this.f) - f, this.i + f2);
-            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
-            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f2);
-            path.lineTo((rectF.right - this.f) - f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.bottom - f);
-            path.lineTo(rectF.left + f, rectF.top + f);
-            path.close();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.j > 0.0f) {
-                canvas.drawPath(this.d, this.e);
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
-            canvas.drawPath(this.b, this.c);
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            CoverFlowView<w4a> coverFlowView = this.f;
+            if (coverFlowView != null && coverFlowView.getVisibility() == 0) {
+                this.f.t();
+            }
+            BdListView bdListView = this.c;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (x4aVar = this.i) != null) {
+                x4aVar.notifyDataSetChanged();
+            }
+            MemberRecommendView memberRecommendView = this.g;
+            if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
+                this.g.d();
+            }
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    public final void j(List<z4a> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
-            super.onBoundsChange(rect);
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                if (z) {
+                    this.c.removeHeaderView(this.h);
+                    this.c.addHeaderView(this.h);
+                } else {
+                    this.c.removeHeaderView(this.h);
+                }
+                this.c.setVisibility(0);
+                this.i.b(list);
+                this.i.notifyDataSetChanged();
+                return;
+            }
+            this.c.setVisibility(8);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public final boolean k(a5a a5aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.c.setAlpha(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, a5aVar)) == null) {
+            if (a5aVar != null && !StringUtils.isNull(a5aVar.c())) {
+                this.g.setVisibility(0);
+                this.g.e(a5aVar);
+                return true;
+            }
+            this.g.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            a55 a55Var = new a55(this.a.getPageContext().getPageActivity());
+            a55Var.setMessageId(R.string.obfuscated_res_0x7f0f08a0);
+            a55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04bb, new b(this));
+            a55Var.create(this.a.getPageContext()).show();
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
-            this.c.setColorFilter(colorFilter);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.c.setVisibility(8);
+            this.f.setVisibility(8);
+            this.g.setVisibility(8);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.j);
+            this.a.showNetRefreshView(this.b, string, false);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
+    public void o(List<w4a> list, a5a a5aVar, List<z4a> list2, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return (int) this.a.height();
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{list, a5aVar, list2, Boolean.valueOf(z)}) == null) {
+            if ((list != null && list.size() > 0) || ((a5aVar != null && !StringUtils.isNull(a5aVar.c())) || (list2 != null && list2.size() > 0))) {
+                d();
+                boolean i = i(list);
+                boolean k = k(a5aVar);
+                if (!i && !k) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                j(list2, z2);
+                return;
+            }
+            n();
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return (int) this.a.width();
-        }
-        return invokeV.intValue;
     }
 }

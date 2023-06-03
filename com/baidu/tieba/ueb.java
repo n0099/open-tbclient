@@ -1,101 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes7.dex */
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes8.dex */
 public class ueb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public boolean b;
-    public Runnable c;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ueb a;
-
-        public a(ueb uebVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uebVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return b(str, "1234567890abcdef");
+            } catch (Exception unused) {
+                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
+                if (str.isEmpty()) {
+                    return "";
                 }
-            }
-            this.a = uebVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
-                this.a.b = false;
+                return str;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public ueb() {
+    public static String b(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return d(c(str, str2));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] c(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
+            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            int length = bArr.length;
+            char[] cArr2 = new char[length << 1];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i + 1;
+                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
+                i = i3 + 1;
+                cArr2[i3] = cArr[bArr[i2] & 15];
             }
+            return new String(cArr2);
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = false;
-        this.c = new a(this);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
-            this.b = false;
-            this.a.removeCallbacks(this.c);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
-            this.b = z;
-            this.a.removeCallbacks(this.c);
-            if (this.b) {
-                this.a.postDelayed(this.c, 3000L);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

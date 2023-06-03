@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.iia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,16 +13,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public final class hia {
+/* loaded from: classes6.dex */
+public class hia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final iha b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final bga d;
+    @NonNull
+    public final tia e;
+    @NonNull
+    public final xia f;
+    @NonNull
+    public final WriteData g;
 
-    public hia() {
+    public hia(@NonNull TbPageContext<?> tbPageContext, @NonNull iha ihaVar, @NonNull EditorTools editorTools, @NonNull bga bgaVar, @NonNull tia tiaVar, @NonNull xia xiaVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, ihaVar, editorTools, bgaVar, tiaVar, xiaVar, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,62 +47,180 @@ public final class hia {
                 return;
             }
         }
-        this.a = cia.a().c();
+        this.a = tbPageContext;
+        this.b = ihaVar;
+        this.c = editorTools;
+        this.d = bgaVar;
+        this.e = tiaVar;
+        this.f = xiaVar;
+        this.g = writeData;
     }
 
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
-        }
-    }
-
-    public final boolean b(String str) {
+    public List<mha<?>> a(List<iia.a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
-            int count = rawQuery.getCount();
-            rawQuery.close();
-            if (count > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void d(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
-        }
-    }
-
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
-        }
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
-                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
-                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                arrayList.add(nVar);
+            for (iia.a aVar : list) {
+                mha<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
+                }
             }
-            rawQuery.close();
             return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public mha<?> b(iia.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return pia.a(this.a);
+                case 1:
+                    return pia.b(this.a);
+                case 2:
+                    return pia.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return pia.e(this.a);
+                case 4:
+                    return pia.f(this.a);
+                case 5:
+                    return pia.g(this.a);
+                case 6:
+                    return pia.h(this.a, this.f);
+                case 7:
+                    return pia.i(this.a);
+                case '\b':
+                    return pia.j(this.a);
+                case '\t':
+                    return pia.k(this.a);
+                case '\n':
+                    return pia.l(this.a);
+                case 11:
+                    return pia.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return pia.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return pia.o(this.a);
+                case 14:
+                    return pia.p(this.a);
+                case 15:
+                    return pia.q(this.a);
+                default:
+                    return null;
+            }
+        }
+        return (mha) invokeL.objValue;
     }
 }

@@ -40,7 +40,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
@@ -707,7 +706,7 @@ public class SapiWebView extends WebView {
                     if (webResourceRequest.getUrl().toString().contains(SapiWebView.CUSTOM_CSS_INTERPRETER_URL)) {
                         String str = SapiAccountManager.getInstance().getSapiConfiguration().skin;
                         if (!TextUtils.isEmpty(str)) {
-                            return new WebResourceResponse("text/css", IMAudioTransRequest.CHARSET, SapiCoreUtil.getCacheInputStream(SapiWebView.this.getContext(), str));
+                            return new WebResourceResponse("text/css", "utf-8", SapiCoreUtil.getCacheInputStream(SapiWebView.this.getContext(), str));
                         }
                     }
                 } catch (Exception unused) {
@@ -723,7 +722,7 @@ public class SapiWebView extends WebView {
                     if (str.contains(SapiWebView.CUSTOM_CSS_INTERPRETER_URL)) {
                         String str2 = SapiAccountManager.getInstance().getSapiConfiguration().skin;
                         if (!TextUtils.isEmpty(str2)) {
-                            return new WebResourceResponse("text/css", IMAudioTransRequest.CHARSET, SapiCoreUtil.getCacheInputStream(SapiWebView.this.getContext(), str2));
+                            return new WebResourceResponse("text/css", "utf-8", SapiCoreUtil.getCacheInputStream(SapiWebView.this.getContext(), str2));
                         }
                     }
                 } catch (Exception unused) {
@@ -1861,6 +1860,31 @@ public class SapiWebView extends WebView {
         }
     }
 
+    private void setAsynJsMehodName() {
+        ArrayList arrayList = new ArrayList();
+        this.asynJsMehodName = arrayList;
+        arrayList.add("sapi_action_pick_image");
+        this.asynJsMehodName.add("sapi_action_pick_date");
+        this.asynJsMehodName.add("sapi_action_third_safety_verification");
+        this.asynJsMehodName.add("sapi_biometrics_identification");
+        this.asynJsMehodName.add("sapi_biometrics_identification_no_bduss");
+        this.asynJsMehodName.add("sapi_biometrics_identification_with_authtoken");
+        this.asynJsMehodName.add("sapi_biometrics_identification_with_uid");
+        this.asynJsMehodName.add("sapi_action_sc_app_invoke");
+        this.asynJsMehodName.add("oauth_sso_hash");
+        this.asynJsMehodName.add("sapi_action_china_mobile_oauth");
+        this.asynJsMehodName.add("address_manage_get_contact");
+        this.asynJsMehodName.add("touchid_open_guide");
+        this.asynJsMehodName.add("touchid_change_status");
+        this.asynJsMehodName.add("touchid_login");
+        this.asynJsMehodName.add("speech_recognition_get_content");
+        this.asynJsMehodName.add("sapi_onekey_oauth_token");
+        this.asynJsMehodName.add("sapi_biometrics_identification_live");
+        this.asynJsMehodName.add("sapi_idcard_ocr_image");
+        this.asynJsMehodName.add("get_all_client_accounts");
+        this.asynJsMehodName.add("sapi_action_open_du_vip");
+    }
+
     public List<PassNameValuePair> buildDarkModeCookie() {
         ArrayList arrayList = new ArrayList();
         String replaceAll = this.configuration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
@@ -2036,8 +2060,8 @@ public class SapiWebView extends WebView {
         return this.jsCallBacks;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0026 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0026  */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0025 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2468,60 +2492,6 @@ public class SapiWebView extends WebView {
         throw new IllegalArgumentException("Invalid Params: verifyToken can't be empty");
     }
 
-    private void setAsynJsMehodName() {
-        ArrayList arrayList = new ArrayList();
-        this.asynJsMehodName = arrayList;
-        arrayList.add("sapi_action_pick_image");
-        this.asynJsMehodName.add("sapi_action_pick_date");
-        this.asynJsMehodName.add("sapi_action_third_safety_verification");
-        this.asynJsMehodName.add("sapi_biometrics_identification");
-        this.asynJsMehodName.add("sapi_biometrics_identification_no_bduss");
-        this.asynJsMehodName.add("sapi_biometrics_identification_with_authtoken");
-        this.asynJsMehodName.add("sapi_biometrics_identification_with_uid");
-        this.asynJsMehodName.add("sapi_action_sc_app_invoke");
-        this.asynJsMehodName.add("oauth_sso_hash");
-        this.asynJsMehodName.add("sapi_action_china_mobile_oauth");
-        this.asynJsMehodName.add("address_manage_get_contact");
-        this.asynJsMehodName.add("touchid_open_guide");
-        this.asynJsMehodName.add("touchid_change_status");
-        this.asynJsMehodName.add("touchid_login");
-        this.asynJsMehodName.add("speech_recognition_get_content");
-        this.asynJsMehodName.add("sapi_onekey_oauth_token");
-        this.asynJsMehodName.add("sapi_biometrics_identification_live");
-        this.asynJsMehodName.add("sapi_idcard_ocr_image");
-        this.asynJsMehodName.add("get_all_client_accounts");
-        this.asynJsMehodName.add("sapi_action_open_du_vip");
-    }
-
-    public List<PassNameValuePair> buildDeviceInfoCookie() {
-        String diCookieInfo;
-        String str;
-        List<String> loginCookieDiKeys = SapiContext.getInstance().getSapiOptions().getLoginCookieDiKeys();
-        ArrayList arrayList = new ArrayList();
-        String str2 = "";
-        String replaceAll = this.configuration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-        String replaceAll2 = this.configuration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-        Log.e("APP_VERSION", "wap_pass=" + replaceAll, ", passport=" + replaceAll2);
-        if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
-            diCookieInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
-        } else {
-            diCookieInfo = SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
-        }
-        String wap = this.configuration.environment.getWap();
-        if (diCookieInfo == null) {
-            str = "";
-        } else {
-            str = diCookieInfo;
-        }
-        arrayList.add(new PassNameValuePair(wap, SapiUtils.buildDeviceInfoCookie(replaceAll, "DVIF", str)));
-        String url = this.configuration.environment.getURL();
-        if (diCookieInfo != null) {
-            str2 = diCookieInfo;
-        }
-        arrayList.add(new PassNameValuePair(url, SapiUtils.buildDeviceInfoCookie(replaceAll2, "DVIF", str2)));
-        return arrayList;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void statLoadLogin(String str, boolean z) {
         if (statLoadLogin == null) {
@@ -2629,6 +2599,35 @@ public class SapiWebView extends WebView {
         if ((view4 != null && view4.getVisibility() == 0) || ((view3 = this.timeoutView) != null && view3.getVisibility() == 0)) {
             finish();
         }
+    }
+
+    public List<PassNameValuePair> buildDeviceInfoCookie() {
+        String diCookieInfo;
+        String str;
+        List<String> loginCookieDiKeys = SapiContext.getInstance().getSapiOptions().getLoginCookieDiKeys();
+        ArrayList arrayList = new ArrayList();
+        String str2 = "";
+        String replaceAll = this.configuration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        String replaceAll2 = this.configuration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        Log.e("APP_VERSION", "wap_pass=" + replaceAll, ", passport=" + replaceAll2);
+        if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
+            diCookieInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
+        } else {
+            diCookieInfo = SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
+        }
+        String wap = this.configuration.environment.getWap();
+        if (diCookieInfo == null) {
+            str = "";
+        } else {
+            str = diCookieInfo;
+        }
+        arrayList.add(new PassNameValuePair(wap, SapiUtils.buildDeviceInfoCookie(replaceAll, "DVIF", str)));
+        String url = this.configuration.environment.getURL();
+        if (diCookieInfo != null) {
+            str2 = diCookieInfo;
+        }
+        arrayList.add(new PassNameValuePair(url, SapiUtils.buildDeviceInfoCookie(replaceAll2, "DVIF", str2)));
+        return arrayList;
     }
 
     public void loadAccountCenter(List<PassNameValuePair> list, String str, String str2) {

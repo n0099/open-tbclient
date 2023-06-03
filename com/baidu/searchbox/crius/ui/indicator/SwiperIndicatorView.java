@@ -96,7 +96,7 @@ public class SwiperIndicatorView extends View {
         paint.setStyle(Paint.Style.FILL);
         int indicatorDefaultColor = getIndicatorDefaultColor();
         if (indicatorDefaultColor == Integer.MAX_VALUE) {
-            this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0606d5));
+            this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0606da));
         } else {
             this.mPaint.setColor(indicatorDefaultColor);
         }
@@ -147,7 +147,7 @@ public class SwiperIndicatorView extends View {
                 if (i == this.mCurrentIndex) {
                     int indicateSelectedColor = getIndicateSelectedColor();
                     if (indicateSelectedColor == Integer.MAX_VALUE) {
-                        this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d6));
+                        this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606db));
                     } else {
                         this.mPaint.setColor(indicateSelectedColor);
                     }
@@ -161,7 +161,7 @@ public class SwiperIndicatorView extends View {
                 } else {
                     int indicatorDefaultColor = getIndicatorDefaultColor();
                     if (indicatorDefaultColor == Integer.MAX_VALUE) {
-                        this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d5));
+                        this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606da));
                     } else {
                         this.mPaint.setColor(indicatorDefaultColor);
                     }
@@ -185,7 +185,7 @@ public class SwiperIndicatorView extends View {
         int mode = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            size = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028b);
+            size = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070296);
         }
         if (isSelectedDrawRectangle()) {
             float f = this.mIndicatorAttrs.indicatorItemSelectedWidth * this.mDensity;

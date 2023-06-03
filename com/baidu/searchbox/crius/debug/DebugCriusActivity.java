@@ -6,8 +6,7 @@ import com.baidu.searchbox.crius.CriusLoader;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class DebugCriusActivity extends BaseActivity {
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusActivity */
-    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.searchbox.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         CriusLoader.init(this);
         super.onCreate(bundle);

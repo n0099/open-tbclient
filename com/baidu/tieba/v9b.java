@@ -1,214 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l7b;
-import com.baidu.tieba.m7b;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class v9b<T> extends m7b<T> {
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public final class v9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T b;
 
-    /* loaded from: classes7.dex */
-    public class a implements m7b.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
-
-        public a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = obj;
-        }
-
-        public void call(n7b<? super T> n7bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
-                n7bVar.c((Object) this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((n7b) ((n7b) obj));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b<T> implements m7b.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final g9b a;
-        public final T b;
-
-        public b(g9b g9bVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g9bVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g9bVar;
-            this.b = t;
-        }
-
-        public void call(n7b<? super T> n7bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
-                n7bVar.a(this.a.a(new d(n7bVar, this.b)));
-            }
-        }
-
-        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((n7b) ((n7b) obj));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c<T> implements m7b.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final l7b a;
-        public final T b;
-
-        public c(l7b l7bVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l7bVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l7bVar;
-            this.b = t;
-        }
-
-        public void call(n7b<? super T> n7bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
-                l7b.a createWorker = this.a.createWorker();
-                n7bVar.a(createWorker);
-                createWorker.b(new d(n7bVar, this.b));
-            }
-        }
-
-        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((n7b) ((n7b) obj));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d<T> implements v7b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final n7b<? super T> a;
-        public final T b;
-
-        public d(n7b<? super T> n7bVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n7bVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n7bVar;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // com.baidu.tieba.v7b
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.c((T) this.b);
-                } catch (Throwable th) {
-                    this.a.b(th);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v9b(T t) {
-        super(new a(t));
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((m7b.c) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
+        }
+    }
+
+    public static void b(Reader reader, Writer writer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
+    }
+
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
                 return;
             }
+            writer.write(cArr, 0, read);
         }
-        this.b = t;
     }
 
-    public static <T> v9b<T> m(T t) {
+    public static Map<String, String> d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
-            return new v9b<>(t);
-        }
-        return (v9b) invokeL.objValue;
-    }
-
-    public m7b<T> n(l7b l7bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l7bVar)) == null) {
-            if (l7bVar instanceof g9b) {
-                return m7b.b(new b((g9b) l7bVar, this.b));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
-            return m7b.b(new c(l7bVar, this.b));
+            return hashMap;
         }
-        return (m7b) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
+                }
+            }
+            return "/" + str.substring(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static m9b f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
+                    }
+                } else if (str.equals("CN")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    return m9b.c;
+                }
+                if (c == 1) {
+                    return m9b.d;
+                }
+                if (c == 2) {
+                    return m9b.e;
+                }
+                if (c == 3) {
+                    return m9b.f;
+                }
+            }
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return m9b.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return m9b.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return m9b.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return m9b.f;
+                }
+            }
+            return m9b.b;
+        }
+        return (m9b) invokeLL.objValue;
+    }
+
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

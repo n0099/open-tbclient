@@ -51,7 +51,7 @@ public class i1 extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i1(Context context) {
-        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100441);
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100444);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,8 +84,8 @@ public class i1 extends Dialog {
                 attributes.width = -1;
                 window.setAttributes(attributes);
             }
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d095b);
-            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904ac);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0973);
+            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904b2);
             this.a = imageButton;
             imageButton.setOnClickListener(new a(this));
         }

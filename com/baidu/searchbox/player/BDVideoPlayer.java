@@ -8,12 +8,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.player.annotation.PublicMethod;
+import com.baidu.searchbox.player.callback.IPlayerPropertyStateCallback;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager;
+import com.baidu.searchbox.player.config.PlayerConfig;
+import com.baidu.searchbox.player.config.PlayerConfigKit;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.InternalSyncControlEventTrigger;
@@ -26,25 +29,36 @@ import com.baidu.searchbox.player.helper.VideoSystemHelper;
 import com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper;
 import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.interfaces.InternalEventDispatcher;
+import com.baidu.searchbox.player.interfaces.OnMediaRuntimeInfoListener;
 import com.baidu.searchbox.player.kernel.AbsVideoKernel;
+import com.baidu.searchbox.player.kernel.EmptyKernel;
 import com.baidu.searchbox.player.kernel.IKernelPlayer;
 import com.baidu.searchbox.player.layer.AbsLayer;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.searchbox.player.layer.LayerContainer;
 import com.baidu.searchbox.player.message.IMessenger;
-import com.baidu.searchbox.player.model.VideoTask;
+import com.baidu.searchbox.player.model.BasicVideoSeries;
+import com.baidu.searchbox.player.model.KernelMediaInfo;
 import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.searchbox.player.plugin.PluginManager;
+import com.baidu.searchbox.player.property.MuteProperty;
+import com.baidu.searchbox.player.property.PlayerProperties;
+import com.baidu.searchbox.player.property.PlayerPropertyKit;
+import com.baidu.searchbox.player.property.PropertyManager;
+import com.baidu.searchbox.player.property.SpeedProperty;
 import com.baidu.searchbox.player.session.VideoSessionManager;
 import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
+import com.baidu.searchbox.player.utils.IVideoParser;
+import com.baidu.searchbox.player.utils.PlayerConfigUtils;
+import com.baidu.searchbox.player.utils.TraceUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+import java.util.Map;
+/* loaded from: classes4.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static final String TAG = "BDVideoPlayer";
-    public static boolean sGlobalMute;
     public boolean isUseCache;
     public AudioFocusChangedListener mAudioFocusListener;
     public AudioManager mAudioManager;
@@ -53,7 +67,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public final ControlEventTrigger mControlEventTrigger;
     public boolean mHasAudioFocus;
     public boolean mIsForeground;
-    public boolean mIsMute;
     @Nullable
     public String mKLayerCacheKey;
     @Nullable
@@ -62,23 +75,26 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public String mKey;
     public LayerContainer mLayerContainer;
     public IMessenger mMessenger;
+    @Nullable
+    public PlayerConfig mPlayerConfig;
     public ViewGroup mPlayerContainer;
     public final PlayerEventTrigger mPlayerEventTrigger;
     public PluginManager mPluginManager;
+    @NonNull
+    public final PlayerProperties mProperty;
     public IKernelLayerReuseHelper mReuseHelper;
     public int mScaleMode;
     public float mSpeed;
     public final StatisticsEventTrigger mStatEventTrigger;
     public final InternalSyncControlEventTrigger mSyncControlEventTrigger;
     public int mVideoLoopCount;
-    public VideoTask mVideoTask;
+    public BasicVideoSeries mVideoSeries;
 
     @NonNull
     public String getBackupKernelType() {
         return AbsVideoKernel.CYBER_PLAYER;
     }
 
-    @PublicMethod
     public int getPlayerStageType() {
         return -1;
     }
@@ -86,8 +102,23 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void initPlayer() {
     }
 
+    public boolean isUseCacheEnable() {
+        return false;
+    }
+
+    public void onKernelLayerPreDetach() {
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onKernelPreDetach() {
+    }
+
     @Deprecated
     public void setParameter(String str, int i) {
+    }
+
+    @Deprecated
+    public void setPlayConf(@Nullable String str) {
     }
 
     public abstract void setupLayers(@NonNull Context context);
@@ -95,7 +126,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setupPlugin(@NonNull Context context) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public AudioFocusChangedListener() {
         }
@@ -106,7 +137,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class InternalPlayerDispatcher implements InternalEventDispatcher {
         @Override // com.baidu.searchbox.player.interfaces.InternalEventDispatcher
         public int getExpectOrder() {
@@ -118,6 +149,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
         @Override // com.baidu.searchbox.player.interfaces.InternalEventDispatcher
         public void onVideoEventNotify(VideoEvent videoEvent) {
+            BDVideoPlayer.this.onPropertyStateChange(videoEvent);
             BDVideoPlayer.this.getPlayerCallbackManager().dispatchPlayerAction(videoEvent);
         }
     }
@@ -128,7 +160,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void createEnv(Context context) {
         this.mContainerLayoutParams = new ViewGroup.LayoutParams(-1, -1);
-        this.mVideoTask = new VideoTask();
         initMessenger();
         this.mPluginManager = new PluginManager(this);
         LayerContainer createLayerContainer = createLayerContainer(context);
@@ -138,23 +169,31 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         initCallBackManager();
     }
 
-    private void createSessionId(boolean z) {
-        if (z || TextUtils.isEmpty(this.mVideoTask.sessionId)) {
-            this.mVideoTask.sessionId = VideoSessionManager.getInstance().getSessionId(getVideoUniqueKey());
-        }
+    private void setupMuteProperty(@Nullable PlayerConfig playerConfig) {
+        MuteProperty muteConfig = PlayerConfigKit.getMuteConfig(playerConfig);
+        PlayerPropertyKit.syncFrom(getProperties().getMute(), muteConfig);
+        setMuteMode(muteConfig.getState().booleanValue());
     }
 
-    @PublicMethod
+    private void setupPlayerCore(@Nullable BaseKernelLayer baseKernelLayer) {
+        setupTrigger();
+        setupKernelLayer(baseKernelLayer);
+    }
+
+    private void setupSpeedProperty(@Nullable PlayerConfig playerConfig) {
+        SpeedProperty speedConfig = PlayerConfigKit.getSpeedConfig(playerConfig);
+        PlayerPropertyKit.syncFrom(getProperties().getSpeed(), speedConfig);
+        setSpeed(speedConfig.getState().floatValue());
+    }
+
     public void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         this.mMessenger.addInterceptor(iVideoEventInterceptor);
     }
 
-    @PublicMethod
     public void addLayer(@NonNull AbsLayer absLayer) {
         this.mLayerContainer.addLayer(absLayer);
     }
 
-    @PublicMethod
     public void addPlugin(@NonNull AbsPlugin absPlugin) {
         this.mPluginManager.addPlugin(absPlugin);
     }
@@ -163,7 +202,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return getReuseHelper().attachCache(this, str);
     }
 
-    @PublicMethod
     public void attachToContainer(@NonNull ViewGroup viewGroup) {
         attachToContainer(viewGroup, true);
     }
@@ -180,12 +218,17 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return detachCache;
     }
 
-    @PublicMethod
     public void detachLayer(@NonNull AbsLayer absLayer) {
         this.mLayerContainer.detachLayer(absLayer, true);
     }
 
-    @PublicMethod
+    public void getMediaRuntimeInfo(@Nullable OnMediaRuntimeInfoListener onMediaRuntimeInfoListener) {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.getMediaRuntimeInfo(onMediaRuntimeInfoListener);
+        }
+    }
+
     public void insertLayer(@NonNull AbsLayer absLayer) {
         this.mLayerContainer.insertLayer(absLayer, (FrameLayout.LayoutParams) null);
     }
@@ -199,7 +242,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void mute(boolean z) {
         BdVideoLog.i(wrapMessage("mute(" + z + SmallTailInfo.EMOTION_SUFFIX));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -230,13 +272,17 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         getPlayerEventTrigger().onBufferingUpdate(i);
     }
 
-    @PublicMethod
+    @CallSuper
+    public void onPropertyStateChange(VideoEvent videoEvent) {
+        PlayerPropertyKit.processPropertyChanged(this, videoEvent);
+    }
+
+    @Deprecated
     public void pauseInternal(boolean z) {
         pause(z ? 1 : 0);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void play(String str) {
         BdVideoLog.i(wrapMessage("play(), url = " + str));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -250,40 +296,37 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mMessenger.removeInterceptor(iVideoEventInterceptor);
     }
 
-    @PublicMethod
     public void removePlugin(@NonNull AbsPlugin absPlugin) {
         this.mPluginManager.removePlugin(absPlugin);
     }
 
-    @PublicMethod
     public void replaceVideoHolder(@NonNull ViewGroup viewGroup) {
         this.mPlayerContainer = viewGroup;
     }
 
-    public void restoreVideoTask(@NonNull BaseKernelLayer baseKernelLayer) {
-        this.mVideoTask.videoUrl = baseKernelLayer.getVideoUrl();
-        this.mVideoTask.duration = baseKernelLayer.getDuration();
-        this.mVideoTask.position = baseKernelLayer.getPosition();
-        this.mVideoTask.positionMs = baseKernelLayer.getPositionMs();
+    @CallSuper
+    public void restoreVideoSeries(@NonNull BaseKernelLayer baseKernelLayer) {
+        this.mVideoSeries.setVideoUrl(baseKernelLayer.getVideoUrl());
+        this.mVideoSeries.setDuration(baseKernelLayer.getDuration());
+        this.mVideoSeries.setPosition(baseKernelLayer.getPosition());
+        this.mVideoSeries.setPositionMs(baseKernelLayer.getPositionMs());
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void seekTo(int i) {
         getControlEventTrigger().seekToMs(i * 1000, 3);
+        BdVideoLog.i(wrapMessage("seekTo(), pos=" + i));
     }
 
-    @PublicMethod
     public void seekToMs(int i) {
         getControlEventTrigger().seekToMs(i, 3);
+        BdVideoLog.i(wrapMessage("seekToMs(), pos=" + i));
     }
 
-    @PublicMethod
     public void sendEvent(@NonNull VideoEvent videoEvent) {
         this.mMessenger.notifyEvent(videoEvent);
     }
 
-    @PublicMethod(version = "12.0.0.0")
     public void setClarityInfo(@Nullable String str) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -291,7 +334,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void setDecodeMode(int i) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -299,13 +341,10 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void setGlobalMuteMode(boolean z) {
-        sGlobalMute = z;
         setMuteMode(z);
     }
 
-    @PublicMethod
     public void setHasReplaceUrl(boolean z) {
         if (z && this.mKernelLayer != null) {
             BdVideoLog.i(wrapMessage("setHasReplaceUrl(" + z + SmallTailInfo.EMOTION_SUFFIX));
@@ -313,7 +352,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void setHttpHeader(HashMap<String, String> hashMap) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -321,17 +359,18 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void setInterceptor(@Nullable IVideoEventInterceptor iVideoEventInterceptor) {
         this.mMessenger.setInterceptor(iVideoEventInterceptor);
     }
 
-    @PublicMethod(version = "11.26.0.0")
     public void setKLayerCacheKey(@NonNull String str) {
         this.mKLayerCacheKey = str;
     }
 
-    @PublicMethod
+    public void setKeepScreenOnOff(boolean z) {
+        VideoSystemHelper.setKeepScreenOnOff(getActivity(), z);
+    }
+
     public void setLooping(boolean z) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -340,20 +379,18 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         baseKernelLayer.setLooping(z);
     }
 
-    @PublicMethod(version = "12.0.0.0")
-    public void setPlayConf(@Nullable String str) {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setPlayConf(str);
-        }
+    public void setMuteMode(boolean z) {
+        setMute(z, true);
     }
 
-    @PublicMethod
     public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
         getPlayerCallbackManager().setVideoPlayerCallback(iVideoPlayerCallback);
     }
 
-    @PublicMethod
+    public void setPlayerPropertyListener(IPlayerPropertyStateCallback iPlayerPropertyStateCallback) {
+        getPlayerCallbackManager().setPropertyStateCallback(iPlayerPropertyStateCallback);
+    }
+
     public void setProxy(@Nullable String str) {
         BdVideoLog.i(wrapMessage("setProxy(" + str + SmallTailInfo.EMOTION_SUFFIX));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -363,7 +400,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         baseKernelLayer.setProxy(str);
     }
 
-    @PublicMethod(version = "11.26.0.0")
     public void setRadius(float f) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -375,18 +411,12 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mReuseHelper = iKernelLayerReuseHelper;
     }
 
-    @PublicMethod
     public void setSpeed(float f) {
-        this.mSpeed = f;
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.setSpeed(f);
-            BdVideoLog.i(wrapMessage("setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX));
-        }
+        setSpeed(f, true);
     }
 
     public void setTraceId(@NonNull String str) {
-        this.mVideoTask.traceId = str;
+        TraceUtil.setTraceId(this.mVideoSeries, str);
     }
 
     public void setUseCache(boolean z) {
@@ -394,7 +424,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void setUserAgent(String str) {
         BdVideoLog.i(wrapMessage("setUserAgent(" + str + SmallTailInfo.EMOTION_SUFFIX));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -405,7 +434,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void setVideoBackground(Drawable drawable) {
         View bVideoView;
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -416,7 +444,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void setVideoRotation(int i) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -426,7 +453,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void setVideoScalingMode(int i) {
         BdVideoLog.i(wrapMessage("setVideoScalingMode(" + i + SmallTailInfo.EMOTION_SUFFIX));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -437,27 +463,43 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         baseKernelLayer.setVideoScalingMode(i);
     }
 
-    @PublicMethod
+    public void setVideoSeries(@NonNull BasicVideoSeries basicVideoSeries) {
+        setVideoSeries(basicVideoSeries, true);
+    }
+
     public void setVideoUniqueKey(@NonNull String str) {
         this.mKey = str;
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void setVideoUrl(@NonNull String str) {
         setVideoUrl(str, true);
     }
 
-    @PublicMethod
+    @CallSuper
+    public void setupConfig(@Nullable PlayerConfig playerConfig) {
+        this.mPlayerConfig = playerConfig;
+        if (TextUtils.isEmpty(this.mKLayerCacheKey)) {
+            this.mKLayerCacheKey = PlayerConfigUtils.getCacheKey(playerConfig);
+        }
+    }
+
     public void setupKernelLayer(@Nullable BaseKernelLayer baseKernelLayer) {
+        BaseKernelLayer kernelLayer = getReuseHelper().getKernelLayer(this, baseKernelLayer);
         getStatDispatcher().startInitPlayerKernel();
-        if (baseKernelLayer != null) {
-            attachKernelLayer(baseKernelLayer);
+        if (kernelLayer != null) {
+            attachKernelLayer(kernelLayer);
         }
         getStatDispatcher().endInitPlayerKernel();
     }
 
-    @PublicMethod(version = "12.0.0.0")
+    @CallSuper
+    public void setupProperties(@Nullable PlayerConfig playerConfig) {
+        setupMuteProperty(playerConfig);
+        setupSpeedProperty(playerConfig);
+    }
+
+    @Deprecated
     public void switchMediaSource(int i) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -465,7 +507,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void syncStatus(@NonNull PlayerStatus playerStatus) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -473,7 +514,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod(version = "11.23.0.0")
     public void updateFreeProxy(@Nullable String str) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -481,28 +521,51 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void updateStatisticsContent(@NonNull Object obj) {
         VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_UPDATE_CONTENT);
         obtainEvent.putExtra(13, obj);
         getStatEventTrigger().triggerEvent(obtainEvent);
     }
 
+    public void updateVideoSeries(@NonNull BasicVideoSeries basicVideoSeries) {
+        this.mVideoSeries = basicVideoSeries;
+        basicVideoSeries.setPlayerStageType(getPlayerStageType());
+        getPlayerEventTrigger().updateDataSource();
+    }
+
     public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
         this(context, baseKernelLayer, "", "");
     }
 
-    @PublicMethod
+    private void setMute(boolean z, boolean z2) {
+        PlayerPropertyKit.setMuteState(this, z, z2);
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.mute(z);
+        }
+        if (z) {
+            abandonAudioFocus();
+        } else if (isPlaying()) {
+            requestAudioFocus();
+        }
+        getPlayerCallbackManager().onMuteStateChanged(z, z2);
+    }
+
     public void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         this.mMessenger.addInterceptor(i, iVideoEventInterceptor);
     }
 
-    @PublicMethod
     public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
         this.mLayerContainer.addLayer(absLayer, layoutParams);
     }
 
-    @PublicMethod(version = "11.24.0.0")
+    public void setDynamicOption(String str, String str2) {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.setDynamicOption(str, str2);
+        }
+    }
+
     public void setExternalInfo(String str, Object obj) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -510,7 +573,10 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod(version = "11.24.0.0")
+    public void setMuteMode(boolean z, boolean z2) {
+        setMute(z, z2);
+    }
+
     public void setOption(String str, String str2) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -518,46 +584,110 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
-    public void setVideoUrl(@NonNull String str, boolean z) {
-        BdVideoLog.i(wrapMessage("setVideoUrl = " + str));
-        this.mVideoTask.videoUrl = str;
-        createSessionId(z);
-        getPlayerEventTrigger().setDataSource(this.mVideoTask.videoUrl, z, getPlayerStageType());
+    public void setVideoSeries(@NonNull BasicVideoSeries basicVideoSeries, boolean z) {
+        this.mVideoSeries = basicVideoSeries;
+        basicVideoSeries.setPlayerStageType(getPlayerStageType());
+        this.mVideoSeries.setNeedPrepare(z);
+        getPlayerEventTrigger().setDataSource(basicVideoSeries);
     }
 
     public void setupPlayer(@NonNull Context context, @Nullable BaseKernelLayer baseKernelLayer) {
-        setupTrigger();
-        setupKernelLayer(baseKernelLayer);
         setupLayers(context);
         setupPlugin(context);
     }
 
+    public void switchMediaSource(int i, int i2) {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.switchMediaSource(i, i2);
+        }
+    }
+
     public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str, @Nullable String str2) {
+        this(context, baseKernelLayer, str, str2, null);
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+        getPlayerEventTrigger().onVideoSizeChanged(i, i2, i3, i4);
+    }
+
+    public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str, @Nullable String str2, @Nullable PlayerConfig playerConfig) {
         this.mIsForeground = false;
         this.mStatEventTrigger = new StatisticsEventTrigger();
         this.mPlayerEventTrigger = new PlayerEventTrigger();
         this.mControlEventTrigger = new ControlEventTrigger();
         this.mSyncControlEventTrigger = new InternalSyncControlEventTrigger();
-        this.mIsMute = false;
         this.mSpeed = 1.0f;
         this.mVideoLoopCount = 0;
         this.isUseCache = false;
         this.mScaleMode = 2;
+        this.mProperty = new PlayerProperties();
+        this.mVideoSeries = createDefaultVideoSeries();
         this.mKey = str;
         this.mKLayerCacheKey = str2;
         BdVideoLog.i(wrapMessage("BDVideoPlayer(" + context + ",  kernelLayer@" + System.identityHashCode(baseKernelLayer) + ", key@" + this.mKey + SmallTailInfo.EMOTION_SUFFIX));
         getStatDispatcher().startInitPlayer();
         context = context == null ? getAppContext() : context;
+        setupConfig(playerConfig);
         createEnv(context);
         initPlayer();
+        setupPlayerCore(baseKernelLayer);
+        setupProperties(playerConfig);
         setupPlayer(context, baseKernelLayer);
         getStatDispatcher().endInitPlayer();
     }
 
-    @NonNull
-    private InternalSyncControlEventTrigger getInternalSyncControlEventTrigger() {
-        return this.mSyncControlEventTrigger;
+    public BDVideoPlayer(@Nullable Context context, @NonNull String str, @Nullable PlayerConfig playerConfig) {
+        this(context, null, str, null, playerConfig);
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public boolean onError(int i, int i2, Object obj) {
+        getPlayerEventTrigger().onError(i, i2, obj);
+        getStatDispatcher().onError(i, i2, obj);
+        getStatEventTrigger().onError(i, i2, obj);
+        setKeepScreenOnOff(false);
+        return true;
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public boolean onInfo(int i, int i2, Object obj) {
+        String str;
+        getPlayerEventTrigger().onInfo(i, i2, obj);
+        IPlayerStatisticsDispatcher statDispatcher = getStatDispatcher();
+        if (obj != null) {
+            str = obj.toString();
+        } else {
+            str = "";
+        }
+        statDispatcher.onInfo(i, i2, str);
+        getStatEventTrigger().onInfo(i, i2, obj);
+        return false;
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
+    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
+        getPlayerEventTrigger().onMediaSourceChanged(i, i2, obj);
+        return true;
+    }
+
+    public void setStageInfo(String str, String str2, String str3) {
+        BdVideoLog.i(wrapMessage("setStageInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str3 + SmallTailInfo.EMOTION_SUFFIX));
+    }
+
+    public void updateKernelLayoutParams(int i, int i2, int i3) {
+        View contentView;
+        ViewGroup.LayoutParams layoutParams;
+        if (getPlayerKernelLayer() == null || getPlayerKernelLayer().getContentView() == null || (layoutParams = (contentView = getPlayerKernelLayer().getContentView()).getLayoutParams()) == null) {
+            return;
+        }
+        layoutParams.width = i;
+        layoutParams.height = i2;
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            ((FrameLayout.LayoutParams) layoutParams).gravity = i3;
+        }
+        contentView.setLayoutParams(layoutParams);
     }
 
     private void initMessenger() {
@@ -565,15 +695,17 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mMessenger = createMessenger;
         createMessenger.addInternalDispatcher(new InternalPlayerDispatcher());
         VideoSessionManager.getInstance().bindPlayer(this);
+        PropertyManager.bindPropertyNotify(this);
     }
 
-    @PublicMethod
+    @Deprecated
     public static boolean isGlobalMute() {
-        return sGlobalMute;
+        return PropertyManager.queryMuteState();
     }
 
     private void releaseMessenger() {
         VideoSessionManager.getInstance().unbindPlayer(this);
+        PropertyManager.unbindPropertyNotify(this);
         this.mMessenger.release();
     }
 
@@ -589,7 +721,15 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mHasAudioFocus = false;
     }
 
-    @PublicMethod
+    public BasicVideoSeries createDefaultVideoSeries() {
+        return new BasicVideoSeries();
+    }
+
+    @NonNull
+    public String createSessionId() {
+        return VideoSessionManager.getInstance().getSessionId(getVideoUniqueKey());
+    }
+
     public void detachFromContainer() {
         detachFromContainer(true);
     }
@@ -599,7 +739,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Nullable
-    @PublicMethod
     public BaseKernelLayer detachKernelLayer() {
         if (this.mKernelLayer == null) {
             return null;
@@ -613,7 +752,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Nullable
-    @PublicMethod
     public Activity getActivity() {
         ViewGroup viewGroup = this.mPlayerContainer;
         if (viewGroup != null && (viewGroup.getContext() instanceof Activity)) {
@@ -623,18 +761,15 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @NonNull
-    @PublicMethod
     public Context getAppContext() {
         return BDPlayerConfig.getAppContext();
     }
 
     @Nullable
-    @PublicMethod
     public ViewGroup getAttachedContainer() {
         return this.mPlayerContainer;
     }
 
-    @PublicMethod
     public int getBufferingPosition() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -643,13 +778,16 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return baseKernelLayer.getBufferingPosition();
     }
 
+    @Nullable
+    public PlayerConfig getConfig() {
+        return this.mPlayerConfig;
+    }
+
     @NonNull
-    @PublicMethod
     public ControlEventTrigger getControlEventTrigger() {
         return this.mControlEventTrigger;
     }
 
-    @PublicMethod
     public int getDecodeMode() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -658,46 +796,69 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return 0;
     }
 
-    @PublicMethod
     public int getDuration() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
-            return this.mVideoTask.duration;
+            return this.mVideoSeries.getDuration();
         }
         return baseKernelLayer.getDuration();
     }
 
-    @PublicMethod
     public int getDurationMs() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
-            return this.mVideoTask.duration * 1000;
+            return this.mVideoSeries.getDuration() * 1000;
         }
         return baseKernelLayer.getDurationMs();
     }
 
+    @NonNull
+    public InternalSyncControlEventTrigger getInternalSyncControlEventTrigger() {
+        return this.mSyncControlEventTrigger;
+    }
+
     @Nullable
-    @PublicMethod(version = "11.26.0.0")
     public String getKLayerCacheKey() {
         return this.mKLayerCacheKey;
     }
 
     @Nullable
     public String getKLogId() {
+        return TraceUtil.getLogId(this.mVideoSeries);
+    }
+
+    @Nullable
+    public Map<String, String> getKernelInfo() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            return baseKernelLayer.getKernelLogId();
+        if (baseKernelLayer == null) {
+            return null;
         }
-        return "";
+        return baseKernelLayer.getKernelInfo();
+    }
+
+    @Nullable
+    public KernelMediaInfo getKernelMediaInfo() {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer == null) {
+            return null;
+        }
+        return baseKernelLayer.getKernelMediaInfo();
     }
 
     @NonNull
-    @PublicMethod
+    public String getKernelType() {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer == null) {
+            return EmptyKernel.KERNEL_TYPE_EMPTY;
+        }
+        return baseKernelLayer.getVideoKernel().getKernelType();
+    }
+
+    @NonNull
     public LayerContainer getLayerContainer() {
         return this.mLayerContainer;
     }
 
-    @PublicMethod
     public int getLoopCount() {
         return this.mVideoLoopCount;
     }
@@ -707,7 +868,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @NonNull
-    @PublicMethod
     public VideoPlayerCallbackBaseManager getPlayerCallbackManager() {
         return this.mCallbackManager;
     }
@@ -717,12 +877,10 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Nullable
-    @PublicMethod
     public BaseKernelLayer getPlayerKernelLayer() {
         return this.mKernelLayer;
     }
 
-    @PublicMethod
     public int getPosition() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -731,13 +889,17 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return baseKernelLayer.getPosition();
     }
 
-    @PublicMethod
     public int getPositionMs() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
             return 0;
         }
         return baseKernelLayer.getPositionMs();
+    }
+
+    @NonNull
+    public PlayerProperties getProperties() {
+        return this.mProperty;
     }
 
     @NonNull
@@ -748,13 +910,11 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return this.mReuseHelper;
     }
 
-    @PublicMethod(version = "12.10.0.0")
     public int getScaleMode() {
         return this.mScaleMode;
     }
 
     @Nullable
-    @PublicMethod
     public String getServerIpInfo() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -765,29 +925,25 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @Nullable
     public String getSessionId() {
-        return this.mVideoTask.sessionId;
+        return TraceUtil.getSessionId(this.mVideoSeries);
     }
 
-    @PublicMethod(version = "12.2.0.0")
     public float getSpeed() {
-        return this.mSpeed;
+        return getProperties().getSpeed().getState().floatValue();
     }
 
     @NonNull
-    @PublicMethod
     @Deprecated
     public IPlayerStatisticsDispatcher getStatDispatcher() {
         return SimpleVideoStatisticsDispatcher.EMPTY;
     }
 
     @NonNull
-    @PublicMethod(version = "11.24.0.0")
     public StatisticsEventTrigger getStatEventTrigger() {
         return this.mStatEventTrigger;
     }
 
     @NonNull
-    @PublicMethod
     public PlayerStatus getStatus() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -796,7 +952,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return baseKernelLayer.getStatus();
     }
 
-    @PublicMethod
     public int getSyncPositionMs() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -805,7 +960,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return baseKernelLayer.getSyncPositionMs();
     }
 
-    @PublicMethod(version = "11.24.0.0")
     public int getVideoHeight() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -814,18 +968,16 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return 0;
     }
 
-    @PublicMethod
-    public VideoTask getVideoTask() {
-        return this.mVideoTask;
+    @Nullable
+    public BasicVideoSeries getVideoSeries() {
+        return this.mVideoSeries;
     }
 
     @NonNull
-    @PublicMethod
     public String getVideoUniqueKey() {
         return this.mKey;
     }
 
-    @PublicMethod
     public String getVideoUrl() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
@@ -834,7 +986,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return baseKernelLayer.getVideoUrl();
     }
 
-    @PublicMethod(version = "11.24.0.0")
     public int getVideoWidth() {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -847,7 +998,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mCallbackManager = new VideoPlayerCallbackBaseManager();
     }
 
-    @PublicMethod
     public boolean isAttachToContainer() {
         if (this.mLayerContainer.getParent() != null) {
             return true;
@@ -855,7 +1005,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isComplete() {
         if (getStatus() == PlayerStatus.COMPLETE) {
             return true;
@@ -863,7 +1012,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isError() {
         if (getStatus() == PlayerStatus.ERROR) {
             return true;
@@ -871,17 +1019,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isForeground() {
         return this.mIsForeground;
     }
 
-    @PublicMethod
     public boolean isHasAudioFocus() {
         return this.mHasAudioFocus;
     }
 
-    @PublicMethod
     public boolean isIdle() {
         if (getStatus() == PlayerStatus.IDLE) {
             return true;
@@ -889,12 +1034,10 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isMute() {
-        return this.mIsMute;
+        return getProperties().getMute().getState().booleanValue();
     }
 
-    @PublicMethod
     public boolean isPause() {
         if (getStatus() == PlayerStatus.PAUSE) {
             return true;
@@ -902,13 +1045,11 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isPlayerMute() {
-        return isGlobalMute();
+        return isMute();
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public boolean isPlaying() {
         if (getStatus() == PlayerStatus.PLAYING) {
             return true;
@@ -916,7 +1057,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isPrepared() {
         if (getStatus() == PlayerStatus.PREPARED) {
             return true;
@@ -924,7 +1064,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isPreparing() {
         if (getStatus() == PlayerStatus.PREPARING) {
             return true;
@@ -932,7 +1071,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return false;
     }
 
-    @PublicMethod
     public boolean isStop() {
         if (getStatus() == PlayerStatus.STOP) {
             return true;
@@ -963,13 +1101,11 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void pause() {
         pause(0);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void prepare() {
         BdVideoLog.i(wrapMessage("prepare()"));
         getControlEventTrigger().prepare();
@@ -977,12 +1113,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     public void releaseKernelLayer() {
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.pause();
-            this.mKernelLayer.stop();
-            this.mKernelLayer.release();
-        }
+        getReuseHelper().onReleaseKernelLayer(this);
     }
 
     public void releaseTrigger() {
@@ -999,7 +1130,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             baseKernelLayer.stopPlayback();
         }
         setVideoScalingMode(getScaleMode());
-        setVideoUrl(this.mVideoTask.videoUrl);
+        setVideoUrl(this.mVideoSeries.getPlayUrl());
         resumePlayer(false);
     }
 
@@ -1011,22 +1142,30 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void start() {
         BdVideoLog.i(wrapMessage("start()"));
         doPlay();
     }
 
-    @PublicMethod
     public void attachKernelLayer(@NonNull BaseKernelLayer baseKernelLayer) {
         detachKernelLayer();
         BdVideoLog.i(wrapMessage("attachKernelLayer(" + System.identityHashCode(baseKernelLayer) + "), kernel = " + System.identityHashCode(baseKernelLayer.getVideoKernel())));
         this.mKernelLayer = baseKernelLayer;
         baseKernelLayer.setKernelCallBack(this);
         this.mLayerContainer.attachKernelLayer(baseKernelLayer);
+        this.mPlayerEventTrigger.sendAttachKernelLayerEvent();
     }
 
-    @PublicMethod
+    public void goBackOrForeground(boolean z) {
+        BdVideoLog.i(wrapMessage("goBackOrForeground(" + z + SmallTailInfo.EMOTION_SUFFIX));
+        this.mIsForeground = z;
+        getStatDispatcher().goBackOrForeground(z, getLoopCount());
+        getStatEventTrigger().onPlayerBackOrForeground(z);
+        setKeepScreenOnOff(z);
+        getPlayerEventTrigger().goBackOrForeground(z);
+        getPlayerCallbackManager().onGoBackOrForeground(z);
+    }
+
     public void pause(int i) {
         BdVideoLog.i(wrapMessage("pause(" + i + SmallTailInfo.EMOTION_SUFFIX));
         if (this.mKernelLayer == null) {
@@ -1037,21 +1176,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         getInternalSyncControlEventTrigger().pause();
         getStatDispatcher().pause();
         getStatEventTrigger().onPlayerPause();
-    }
-
-    @PublicMethod
-    public void setMuteMode(boolean z) {
-        BdVideoLog.i(wrapMessage("setMuteMode(" + z + SmallTailInfo.EMOTION_SUFFIX));
-        this.mIsMute = z;
-        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-        if (baseKernelLayer != null) {
-            baseKernelLayer.mute(z);
-        }
-        if (z) {
-            abandonAudioFocus();
-        } else if (isPlaying()) {
-            requestAudioFocus();
-        }
     }
 
     public String wrapMessage(@NonNull String str) {
@@ -1068,7 +1192,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return sb.toString();
     }
 
-    @PublicMethod
     public void attachToContainer(@NonNull ViewGroup viewGroup, boolean z) {
         detachFromContainer(z);
         BdVideoLog.i(wrapMessage("attachToContainer(" + System.identityHashCode(viewGroup) + StringUtil.ARRAY_ELEMENT_SEPARATOR + z + SmallTailInfo.EMOTION_SUFFIX));
@@ -1077,7 +1200,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         getPlayerEventTrigger().onPlayerAttach();
     }
 
-    @PublicMethod
+    public void setVideoUrl(@NonNull String str, boolean z) {
+        BdVideoLog.i(wrapMessage("setVideoUrl = " + str));
+        this.mVideoSeries.setVideoUrl(str);
+        this.mVideoSeries.setNeedPrepare(z);
+        this.mVideoSeries.setPlayerStageType(getPlayerStageType());
+        getPlayerEventTrigger().setDataSource(this.mVideoSeries);
+    }
+
     public void detachFromContainer(boolean z) {
         if (this.mLayerContainer.getParent() instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) this.mLayerContainer.getParent();
@@ -1091,18 +1221,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
-    public void goBackOrForeground(boolean z) {
-        BdVideoLog.i(wrapMessage("goBackOrForeground(" + z + SmallTailInfo.EMOTION_SUFFIX));
-        this.mIsForeground = z;
-        getStatDispatcher().goBackOrForeground(z, getLoopCount());
-        getStatEventTrigger().onPlayerBackOrForeground(z);
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), z);
-        getPlayerEventTrigger().goBackOrForeground(z);
-        getPlayerCallbackManager().onGoBackOrForeground(z);
-    }
-
-    @PublicMethod
     public void resumePlayer(boolean z) {
         BdVideoLog.i(wrapMessage("resumePlayer(" + z + SmallTailInfo.EMOTION_SUFFIX));
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -1110,14 +1228,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             return;
         }
         if (z) {
-            VideoTask videoTask = this.mVideoTask;
-            videoTask.position = 0;
-            videoTask.duration = 0;
-            videoTask.positionMs = 0;
+            this.mVideoSeries.setPosition(0);
+            this.mVideoSeries.setDuration(0);
+            this.mVideoSeries.setPositionMs(0);
         } else {
-            this.mVideoTask.position = baseKernelLayer.getPosition();
-            this.mVideoTask.duration = this.mKernelLayer.getDuration();
-            this.mVideoTask.positionMs = this.mKernelLayer.getPositionMs();
+            this.mVideoSeries.setPosition(baseKernelLayer.getPosition());
+            this.mVideoSeries.setDuration(this.mKernelLayer.getDuration());
+            this.mVideoSeries.setPositionMs(this.mKernelLayer.getPositionMs());
         }
         if (isPause()) {
             resume();
@@ -1126,14 +1243,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     public void doPlay() {
         BdVideoLog.i(wrapMessage("doPlay(), status = " + getStatus()));
         if (this.mKernelLayer != null && !isPause()) {
             if (!isPlayerMute()) {
                 requestAudioFocus();
             }
-            VideoSystemHelper.setKeepScreenOnOff(getActivity(), true);
+            setKeepScreenOnOff(true);
             getControlEventTrigger().start();
             getInternalSyncControlEventTrigger().start();
             BdVideoLog.i(wrapMessage("doPlay, url = " + getVideoUrl()));
@@ -1142,53 +1258,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onError(int i, int i2, Object obj) {
-        getPlayerEventTrigger().onError(i, i2, obj);
-        getStatDispatcher().onError(i, i2, obj);
-        getStatEventTrigger().onError(i, i2, obj);
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
-        return true;
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onInfo(int i, int i2, Object obj) {
-        String str;
-        getPlayerEventTrigger().onInfo(i, i2, obj);
-        IPlayerStatisticsDispatcher statDispatcher = getStatDispatcher();
-        if (obj != null) {
-            str = obj.toString();
-        } else {
-            str = "";
-        }
-        statDispatcher.onInfo(i, i2, str);
-        getStatEventTrigger().onInfo(i, i2, obj);
-        return false;
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
-        getPlayerEventTrigger().onMediaSourceChanged(i, i2, obj);
-        return true;
-    }
-
-    public void setStageInfo(String str, String str2, String str3) {
-        BdVideoLog.i(wrapMessage("setStageInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str3 + SmallTailInfo.EMOTION_SUFFIX));
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        getPlayerEventTrigger().onVideoSizeChanged(i, i2, i3, i4);
-    }
-
-    @PublicMethod
     public void release() {
         BdVideoLog.i(wrapMessage("release()"));
         getStatDispatcher().stop(getLoopCount());
         getStatEventTrigger().onPlayerStop(getLoopCount());
         getStatDispatcher().release();
         releaseKernelLayer();
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
+        setKeepScreenOnOff(false);
         getPlayerCallbackManager().release();
         abandonAudioFocus();
         releaseTrigger();
@@ -1220,7 +1296,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void resume() {
         BdVideoLog.i(wrapMessage("resume()"));
         if (this.mKernelLayer != null && isPause()) {
@@ -1235,7 +1310,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
-    @PublicMethod
     public void stop() {
         BdVideoLog.i(wrapMessage("stop()"));
         if (this.mKernelLayer == null) {
@@ -1246,6 +1320,23 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         getStatEventTrigger().onPlayerStop(getLoopCount());
         getControlEventTrigger().stop();
         getInternalSyncControlEventTrigger().stop();
-        VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
+        setKeepScreenOnOff(false);
+    }
+
+    public void setSpeed(float f, boolean z) {
+        BdVideoLog.i(wrapMessage("setSpeed(speed = " + f + ", isNotify = " + z + SmallTailInfo.EMOTION_SUFFIX));
+        PlayerPropertyKit.setSpeedState(this, f, z);
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.setSpeed(f);
+            BdVideoLog.i(wrapMessage("setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX));
+        }
+    }
+
+    public void setVideoSeries(@NonNull String str, @NonNull IVideoParser iVideoParser) {
+        BasicVideoSeries parseVideoInfo = iVideoParser.parseVideoInfo(str);
+        if (parseVideoInfo != null) {
+            setVideoSeries(parseVideoInfo);
+        }
     }
 }

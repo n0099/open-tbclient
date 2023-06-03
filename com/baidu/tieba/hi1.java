@@ -1,141 +1,159 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import java.net.URLDecoder;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class hi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static hi1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<a> b;
+    public String a;
+    public b b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onResult(int i, String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends fh1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public Long g;
-        public int h;
-        public String i;
+        public final /* synthetic */ jj1 a;
 
-        public a() {
+        public a(hi1 hi1Var, jj1 jj1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hi1Var, jj1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            if (jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("display_name");
-            this.d = jSONObject.optString("pay_text");
-            this.f = jSONObject.optString("icon");
-            this.e = jSONObject.optString("valid_info");
-            this.i = jSONObject.optString("host_marketing_detail");
-            this.g = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.h = jSONObject.optInt("is_selected");
-            this.b = jSONObject.optInt("style");
-            this.a = jSONObject.optInt("type");
+            this.a = jj1Var;
         }
 
-        public JSONObject a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.fh1
+        public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("display_name", this.c);
-                    jSONObject.put("pay_text", this.d);
-                    jSONObject.put("icon", this.f);
-                    jSONObject.put("valid_info", this.e);
-                    jSONObject.put("host_marketing_detail", this.i);
-                    jSONObject.put("available_par_money", this.g);
-                    jSONObject.put("is_selected", this.h);
-                    jSONObject.put("style", this.b);
-                    jSONObject.put("type", this.a);
-                } catch (JSONException e) {
-                    if (oh1.d) {
-                        e.printStackTrace();
-                    }
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                this.a.onResult(119501, "");
+                th.printStackTrace();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fh1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                int optInt = jSONObject.optInt("status", -1);
+                int optInt2 = jSONObject.optInt("signStatus", -1);
+                int optInt3 = jSONObject.optInt("payStatus", -1);
+                if (2 != optInt && 2 != optInt3) {
+                    this.a.onResult(optInt2, "");
+                } else {
+                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
                 }
-                return jSONObject;
             }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CouponItem{type=" + this.a + ", style=" + this.b + ", displayName='" + this.c + "', payText='" + this.d + "', validInfo='" + this.e + "', icon='" + this.f + "', cutMoney=" + this.g + ", isSelected=" + this.h + ", hostMarketingDetail='" + this.i + "'}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public hi1(JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947824569, "Lcom/baidu/tieba/hi1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947824569, "Lcom/baidu/tieba/hi1;");
+                return;
+            }
+        }
+        c = new hi1();
+    }
+
+    public hi1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (jSONArray == null) {
-            return;
+    }
+
+    public static hi1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
-        this.b = new ArrayList();
-        int length = jSONArray.length();
-        for (int i3 = 0; i3 < length; i3++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i3);
-            if (jSONObject != null) {
-                this.b.add(new a(jSONObject));
+        return (hi1) invokeV.objValue;
+    }
+
+    public b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public void a(jj1 jj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jj1Var) == null) {
+            String[] split = this.a.split("&");
+            gh1 gh1Var = new gh1();
+            for (String str : split) {
+                String[] split2 = str.split("=");
+                if (split2 != null && split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        gh1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        gh1Var.d(split2[0], split2[1]);
+                    }
+                }
             }
+            nh1.j().g(ph1.e(), gh1Var, new a(this, jj1Var));
         }
-        this.a = this.b.size() > 1;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

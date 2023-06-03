@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +98,7 @@ public class NASLib extends Activity {
                 if (!str.contains(Info.kUrlSecStart)) {
                     return null;
                 }
-                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), IMAudioTransRequest.CHARSET)).trim();
+                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), "utf-8")).trim();
                 if (trim.contains(Info.kUrlLogStart)) {
                     String[] split = trim.split(Info.kUrlLogStart);
                     trim = split[0];

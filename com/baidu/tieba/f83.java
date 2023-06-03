@@ -1,70 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f83 extends Dialog {
+public abstract class f83 implements d83<b83> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f83(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.d83
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717960, "Lcom/baidu/tieba/f83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947717960, "Lcom/baidu/tieba/f83;");
                 return;
             }
         }
-        this.a = c83.b;
+        b = is1.a;
     }
 
-    public void a(boolean z) {
-        boolean z2;
+    public f83() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (c83.b && z) {
-                z2 = true;
-            } else {
-                z2 = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            this.a = z2;
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    @Override // com.baidu.tieba.d83
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a) {
-                c83.k(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
-            boolean f = c83.f(this);
-            if (f) {
-                getWindow().setFlags(8, 8);
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && g83.a(str)) {
+                throw new RuntimeException("illegal observer id");
             }
-            super.show();
-            if (f) {
-                getWindow().clearFlags(8);
-            }
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

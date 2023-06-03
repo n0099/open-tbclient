@@ -6,10 +6,10 @@ import android.content.ContextWrapper;
 import com.facebook.common.internal.Preconditions;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ActivityListenerManager {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Listener extends BaseActivityListener {
         public final WeakReference<ActivityListener> mActivityListenerRef;
 

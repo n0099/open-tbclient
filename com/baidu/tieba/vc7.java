@@ -1,163 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.ActivityManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsPage.ForumGroup;
-import tbclient.FrsPage.GroupFeedCard;
-/* loaded from: classes7.dex */
-public final class vc7 extends BaseCardInfo {
+import com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier;
+import com.facebook.imagepipeline.cache.MemoryCacheParams;
+/* loaded from: classes8.dex */
+public class vc7 extends DefaultBitmapMemoryCacheParamsSupplier {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GroupFeedCard a;
-    public final String b;
+    public final ActivityManager a;
 
-    @JvmStatic
-    public static final void f(ForumGroup forumGroup, List<rn> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
-            c.b(forumGroup, list, str);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final BdUniqueId a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (BdUniqueId) invokeV.objValue;
-            }
-            return vc7.d;
-        }
-
-        @JvmStatic
-        public final void b(ForumGroup frsForumGroup, List<rn> newList, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
-                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
-                Intrinsics.checkNotNullParameter(newList, "newList");
-                int i = 0;
-                int i2 = 0;
-                for (rn rnVar : newList) {
-                    Integer num = frsForumGroup.feed_card.index;
-                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
-                    if (i >= num.intValue()) {
-                        break;
-                    }
-                    if (!Intrinsics.areEqual(rnVar.getType(), ThreadData.TYPE_TOP) && !nr5.p(rnVar)) {
-                        i++;
-                    }
-                    i2++;
-                }
-                if (i2 <= newList.size()) {
-                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
-                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
-                    newList.add(i2, new vc7(groupFeedCard, str));
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236063, "Lcom/baidu/tieba/vc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948236063, "Lcom/baidu/tieba/vc7;");
-                return;
-            }
-        }
-        c = new a(null);
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        d = gen;
-    }
-
-    public vc7(GroupFeedCard data, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc7(ActivityManager activityManager) {
+        super(activityManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {activityManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ActivityManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
-        this.b = str;
+        this.a = activityManager;
     }
 
-    public final GroupFeedCard d() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            int min = Math.min(this.a.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+            if (min < 33554432) {
+                return 4194304;
+            }
+            if (min < 67108864) {
+                return TbConfig.THREAD_GIF_MIN_USE_MEMORY;
+            }
+            return min / 8;
         }
-        return (GroupFeedCard) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier, com.facebook.common.internal.Supplier
+    public MemoryCacheParams get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            MemoryCacheParams memoryCacheParams = super.get();
+            return new MemoryCacheParams(a(), memoryCacheParams.maxCacheEntries, memoryCacheParams.maxEvictionQueueSize, memoryCacheParams.maxEvictionQueueEntries, memoryCacheParams.maxCacheEntrySize, memoryCacheParams.paramsCheckIntervalMs);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (MemoryCacheParams) invokeV.objValue;
     }
 }

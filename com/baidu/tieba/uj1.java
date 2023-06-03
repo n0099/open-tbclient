@@ -1,72 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uj1<T> implements wj1<T> {
+/* loaded from: classes8.dex */
+public class uj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
-    public tj1<T> b;
-    public tj1<T> c;
 
-    public uj1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ToastLoadingView a;
+
+        public a(ToastLoadingView toastLoadingView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {toastLoadingView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = toastLoadingView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                uj1.b(this.a);
             }
         }
     }
 
-    public static uj1 b() {
-        InterceptResult invokeV;
+    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new uj1();
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
+            if (toastLoadingView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
+            }
+            viewGroup.addView(toastLoadingView, layoutParams);
+            toastLoadingView.setLoading(true);
+            if (j != -1) {
+                viewGroup.postDelayed(new a(toastLoadingView), j);
+            }
         }
-        return (uj1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wj1
-    public T get() {
-        InterceptResult invokeV;
+    public static void b(ToastLoadingView toastLoadingView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t != null) {
-                return t;
-            }
-            tj1<T> tj1Var = this.b;
-            if (tj1Var != null) {
-                T t2 = tj1Var.get();
-                this.a = t2;
-                return t2;
-            }
-            tj1<T> tj1Var2 = this.c;
-            if (tj1Var2 != null) {
-                return tj1Var2.get();
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
+            toastLoadingView.setLoading(false);
         }
-        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wj1
-    public void a(tj1<T> tj1Var) {
+    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tj1Var) == null) {
-            this.b = tj1Var;
-            this.a = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
+            if (viewGroup == null) {
+                return null;
+            }
+            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
+            if (!TextUtils.isEmpty(str)) {
+                toastLoadingView.setText(str);
+            }
+            a(viewGroup, layoutParams, toastLoadingView, j);
+            return toastLoadingView;
         }
+        return (ToastLoadingView) invokeCommon.objValue;
     }
 }

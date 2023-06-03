@@ -9,9 +9,9 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import com.ss.android.downloadlib.addownload.b.d;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -32,8 +32,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713a, ag {
+/* loaded from: classes10.dex */
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0730a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -41,11 +41,11 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
 
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class RunnableC0696a implements Runnable {
+    /* loaded from: classes10.dex */
+    public class RunnableC0713a implements Runnable {
         public final int b;
 
-        public RunnableC0696a(int i) {
+        public RunnableC0713a(int i) {
             this.b = i;
         }
 
@@ -64,7 +64,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Runnable {
         public long a;
         public int b;
@@ -184,7 +184,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
                 jSONObject.putOpt("total_space", Long.valueOf(a / 1048576));
                 int i3 = (totalBytes > 0L ? 1 : (totalBytes == 0L ? 0 : -1));
                 if (i3 > 0) {
-                    jSONObject.putOpt("package_size", Long.valueOf(totalBytes / 1048576));
+                    jSONObject.putOpt(NativeUnifiedADAppInfoImpl.Keys.PACKAGE_SIZE, Long.valueOf(totalBytes / 1048576));
                 }
                 int i4 = 2;
                 if (z) {
@@ -217,7 +217,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements Runnable {
         public final com.ss.android.downloadad.api.a.b b;
 
@@ -256,14 +256,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
         return d;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0730a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0730a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
@@ -419,7 +419,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
                 jSONObject.put("download_id", downloadInfo.getId());
                 jSONObject.put("name", downloadInfo.getName());
                 jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-                jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
+                jSONObject.put("total_bytes", downloadInfo.getTotalBytes());
                 jSONObject.put("network_quality", downloadInfo.getNetworkQuality());
                 jSONObject.put("current_network_quality", k.a().b().name());
                 int i11 = 0;
@@ -861,13 +861,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0713
             return;
         }
         d a2 = d.a();
-        RunnableC0696a runnableC0696a = new RunnableC0696a(i);
+        RunnableC0713a runnableC0713a = new RunnableC0713a(i);
         if (this.b > 0) {
             j = 2000;
         } else {
             j = 8000;
         }
-        a2.a(runnableC0696a, j);
+        a2.a(runnableC0713a, j);
         this.b = currentTimeMillis;
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.pass.face.platform.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -22,7 +21,7 @@ public class a {
             throw new IllegalArgumentException("stream may not be null.");
         }
         if (TextUtils.isEmpty(str)) {
-            str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
+            str = System.getProperty("file.encoding", "utf-8");
         }
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
         StringWriter stringWriter = new StringWriter();

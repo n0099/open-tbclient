@@ -1,41 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class ih9 implements kg9 {
+public class ih9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r16 a;
-    public Map<String, AdvertAppInfo> b;
-    public gh9 c;
-    public int d;
-    public final Set<String> e;
-    public boolean f;
+    public TbPageContext a;
+    public a55 b;
+    public boolean c;
+    public View d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public final View.OnClickListener i;
 
-    public ih9(IAdBaseAsyncController.a aVar) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih9 a;
+
+        public a(ih9 ih9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ih9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null) {
+                this.a.b.dismiss();
+            }
+        }
+    }
+
+    public ih9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,153 +76,77 @@ public class ih9 implements kg9 {
                 return;
             }
         }
-        this.e = new LinkedHashSet();
-        this.f = false;
-        r16 r16Var = new r16(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
-        this.a = r16Var;
-        r16Var.e(false);
-        this.b = new HashMap();
-        this.d = bz5.a().c();
+        this.i = new a(this);
+        this.a = tbPageContext;
+        this.c = l95.m().i("key_person_dynamic_tab_guide_has_shown", false);
     }
 
-    @Override // com.baidu.tieba.kg9
-    public View b(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
+    public final void e(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            this.f = z;
-            return this.c.b(this.b.get(str), z);
-        }
-        return (View) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
-            this.b.put(str, advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public AdvertAppInfo d(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (AdvertAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public boolean f(@NonNull String str) {
-        InterceptResult invokeL;
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || af9.l(advertAppInfo)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void g(@NonNull qr5 qr5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qr5Var) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("forum_id", qr5Var.c);
-            hashMap.put("forum_name", qr5Var.d);
-            this.a.d(this.d, hashMap);
-        }
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void k(@NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
-            lh9.h(advertAppInfo, 0, 2);
-        }
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.c.f(this.b.get(str));
-        }
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public int getAdCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = 0;
-            if (this.b.isEmpty()) {
-                return 0;
-            }
-            for (AdvertAppInfo advertAppInfo : this.b.values()) {
-                if (!af9.l(advertAppInfo)) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
-            this.c = new gh9(tbPageContext, z, hVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.kg9
-    public void j(@NonNull String str) {
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (advertAppInfo = this.b.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
             return;
         }
-        lh9.o(advertAppInfo);
-        boolean add = this.e.add(str);
-        if (!this.f && add) {
-            this.c.d();
-        } else {
-            this.c.c();
-        }
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
+        int l = vi.l(this.a.getPageActivity()) - (vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
+        layoutParams.width = l;
+        layoutParams.height = (l * 214) / 380;
+        tbImageView.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.kg9
-    public void l() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.clear();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
+            this.d = inflate;
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fef);
+            this.e = tbImageView;
+            e(tbImageView);
+            this.e.setAutoChangeStyle(true);
+            this.e.setRadius(vi.g(this.a.getPageActivity(), R.dimen.tbds24));
+            this.e.setConrers(3);
+            this.e.setIsBitmapPic(true);
+            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ff1);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090fee);
+            this.h = textView;
+            textView.setOnClickListener(this.i);
+            d();
         }
     }
 
-    @Override // com.baidu.tieba.kg9
-    public boolean n() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return !this.b.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kg9
-    public void onDestroy() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c.e();
-            this.a.b();
-            this.e.clear();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f0811b7);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
         }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c) {
+            return;
+        }
+        this.c = true;
+        l95.m().w("key_person_dynamic_tab_guide_has_shown", true);
+        b();
+        a55 a55Var = new a55(this.a.getPageActivity());
+        this.b = a55Var;
+        a55Var.setContentViewSize(1);
+        this.b.setCancelable(true);
+        this.b.setCanceledOnTouchOutside(false);
+        this.b.setContentView(this.d);
+        this.b.create(this.a).show();
     }
 }

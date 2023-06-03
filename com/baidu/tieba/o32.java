@@ -1,55 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public class o32 extends m22 {
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes7.dex */
+public class o32 extends l32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981243, "Lcom/baidu/tieba/o32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981243, "Lcom/baidu/tieba/o32;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
 
     public o32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.m22
-    public void a(n22 n22Var, Canvas canvas) {
-        Paint.Join join;
+    @Override // com.baidu.tieba.m32
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && (join = this.a) != null) {
-            n22Var.c.setStrokeJoin(join);
-        }
-    }
-
-    @Override // com.baidu.tieba.m22
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            String optString = jSONArray.optString(0);
-            if (TextUtils.equals(optString, "bevel")) {
-                this.a = Paint.Join.BEVEL;
-            } else if (TextUtils.equals(optString, "round")) {
-                this.a = Paint.Join.ROUND;
-            } else if (TextUtils.equals(optString, "miter")) {
-                this.a = Paint.Join.MITER;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (BasePendingOperation basePendingOperation : this.a) {
+                if (b) {
+                    Log.d("NetworkOperation", "       *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
+                }
+                so3.c(basePendingOperation, "operation_request", 100L, TimeUnit.MILLISECONDS);
             }
+            this.a.clear();
         }
     }
 }

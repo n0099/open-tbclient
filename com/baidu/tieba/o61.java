@@ -1,74 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public interface o61 {
-    public static final o61 a = new a();
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+/* loaded from: classes7.dex */
+public final class o61 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(Context context, String str, String str2, @Nullable ti0 ti0Var);
-
-    /* loaded from: classes6.dex */
-    public static class a implements o61 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    @Nullable
+    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, publicKey);
+                return cipher.doFinal(bArr);
+            } catch (Exception unused) {
+                return null;
             }
         }
-
-        @Override // com.baidu.tieba.o61
-        public boolean a(Context context, String str, String str2, @Nullable ti0 ti0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, ti0Var)) == null) {
-                if (str != null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(TiebaStatic.Params.REFER, str2);
-                    hashMap.put("from_web_view", Boolean.TRUE);
-                    return ki0.e(str, context, hashMap, ti0Var);
-                }
-                return false;
-            }
-            return invokeLLLL.booleanValue;
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @NonNull
-        @Inject(force = false)
-        public static o61 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return o61.a;
-            }
-            return (o61) invokeV.objValue;
+    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
         }
+        return (PublicKey) invokeL.objValue;
     }
 }

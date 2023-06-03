@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class GlideBuilder {
     public GlideExecutor animationExecutor;
     public ArrayPool arrayPool;
@@ -57,19 +57,19 @@ public final class GlideBuilder {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class EnableImageDecoderForBitmaps implements GlideExperiments.Experiment {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class LogRequestOrigins implements GlideExperiments.Experiment {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class WaitForFramesAfterTrimMemory implements GlideExperiments.Experiment {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ManualOverrideHardwareBitmapMaxFdCount implements GlideExperiments.Experiment {
         public final int fdCount;
 

@@ -1,68 +1,182 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cs2;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.uu2;
+import com.baidu.tieba.vw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class ii2 implements fi2 {
+public class ii2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
-    public ii2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854391, "Lcom/baidu/tieba/ii2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947854391, "Lcom/baidu/tieba/ii2;");
                 return;
             }
         }
-        this.a = new String[]{og3.w(), og3.y(), ld2.c()};
+        a = is1.a;
+        fv2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    @Override // com.baidu.tieba.fi2
-    public ArraySet<String> a() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = kp4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
             }
-            if (qp1.a) {
-                b(arraySet);
-            }
-            g62.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
         }
-        return (ArraySet) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void b(ArraySet<String> arraySet) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
         }
-        String[] strArr = {xj2.b().getAbsolutePath(), ni3.c().getAbsolutePath(), cs2.b.d(), vl3.b(), fs2.k(), d33.b()};
-        for (int i = 0; i < 6; i++) {
-            String K = kp4.K(strArr[i]);
-            if (!TextUtils.isEmpty(K)) {
-                arraySet.add(K);
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!si2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!fv2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = si2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && x73.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
             }
         }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(@Nullable nc3 nc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nc3Var)) == null) {
+            if (nc3Var == null || !d()) {
+                return 0;
+            }
+            return "na".equals(nc3Var.r) ? 1 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(lx2.T().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(yb3 yb3Var) {
+        InterceptResult invokeL;
+        vw2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, yb3Var)) == null) {
+            if (yb3Var == null || !yb3Var.E()) {
+                return false;
+            }
+            if (x73.B(yb3Var.W())) {
+                str = uu2.b.g().getPath() + File.separator;
+            } else {
+                str = uu2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            lx2.T().K(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

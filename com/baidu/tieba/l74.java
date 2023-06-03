@@ -1,33 +1,140 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.gm2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class l74 {
+public class l74 extends km2<t74, u74> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static volatile l74 e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Integer a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -1727084929) {
-                    if (hashCode != -1538208320) {
-                        if (hashCode == 155362205 && str.equals("menuAddToLauncher")) {
-                            return 35;
-                        }
-                    } else if (str.equals("menuShare")) {
-                        return 4;
-                    }
-                } else if (str.equals("menuAttention")) {
-                    return 38;
+    /* loaded from: classes6.dex */
+    public static class a extends gm2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.gm2.a
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895776, "Lcom/baidu/tieba/l74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895776, "Lcom/baidu/tieba/l74;");
+                return;
+            }
+        }
+        d = is1.a;
+    }
+
+    public static l74 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (l74.class) {
+                    if (e == null) {
+                        e = new l74();
+                    }
+                }
+            }
+            return e;
+        }
+        return (l74) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l74() {
+        super(new t74(), new u74());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((kn2) objArr[0], (nn2) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.km2
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return n74.b().getPath();
             }
             return null;
         }
-        return (Integer) invokeL.objValue;
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.km2
+    @Nullable
+    public ExtensionCore c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return d();
+            }
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
+            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
+            if (d) {
+                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                return extensionCore;
+            }
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

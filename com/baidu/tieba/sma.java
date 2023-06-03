@@ -1,34 +1,116 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.faceunity.encoder.AudioEncoderCore;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
+import java.io.IOException;
+import java.net.ProtocolException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class sma {
+public final class sma extends xma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uma a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public int d;
-    public boolean e;
-    public long f;
+    public final int d;
+    public final UploadDataProvider e;
+    public ByteBuffer f;
+    public boolean g;
 
-    public sma(uma umaVar) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.xma
+    public void e() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends UploadDataProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sma a;
+
+        public b(sma smaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {smaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = smaVar;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                this.a.f.position(0);
+                uploadDataSink.c();
+            }
+        }
+
+        public /* synthetic */ b(sma smaVar, a aVar) {
+            this(smaVar);
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            int position;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.d == -1) {
+                    if (this.a.g) {
+                        position = this.a.f.limit();
+                    } else {
+                        position = this.a.f.position();
+                    }
+                    return position;
+                }
+                return this.a.d;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                int remaining = byteBuffer.remaining();
+                if (remaining < this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
+                    this.a.f.position(this.a.f.position() + remaining);
+                } else {
+                    byteBuffer.put(this.a.f);
+                }
+                uploadDataSink.a(false);
+            }
+        }
+    }
+
+    public sma(vma vmaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {umaVar};
+            Object[] objArr = {vmaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,137 +120,105 @@ public class sma {
                 return;
             }
         }
-        this.f = 0L;
-        this.c = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
-        createAudioFormat.setInteger("aac-profile", 2);
-        createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
-        createAudioFormat.setInteger("max-input-size", 163840);
-        try {
-            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.b.start();
-        this.d = -1;
-        this.e = false;
-        this.a = umaVar;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
-        int dequeueInputBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
-            while (true) {
-                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    break;
-                } else if (dequeueInputBuffer == -1) {
-                    gna.b("wait for MediaCodec encoder");
-                }
-            }
-            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
-            byteBuffer2.clear();
-            if (byteBuffer != null) {
-                byteBuffer2.put(byteBuffer);
-            }
-            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
-        }
-    }
-
-    public void c() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+        this.e = new b(this, null);
+        if (vmaVar != null) {
+            this.d = -1;
+            this.f = ByteBuffer.allocate(16384);
             return;
         }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
-                if (dequeueOutputBuffer == -1) {
+        throw null;
+    }
+
+    public sma(vma vmaVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vmaVar, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new b(this, null);
+        if (vmaVar != null) {
+            if (j <= 2147483647L) {
+                if (j >= 0) {
+                    int i3 = (int) j;
+                    this.d = i3;
+                    this.f = ByteBuffer.allocate(i3);
                     return;
                 }
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.e) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.b.getOutputFormat();
-                    gna.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.d = this.a.a(outputFormat);
-                    if (!this.a.c()) {
-                        synchronized (this.a) {
-                            while (!this.a.e()) {
-                                try {
-                                    this.a.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                    this.e = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    gna.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                    }
-                    MediaCodec.BufferInfo bufferInfo = this.c;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.c;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.e) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        long j = this.f;
-                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
-                            bufferInfo2.presentationTimeUs = j + 20000;
-                        }
-                        byteBuffer.position(this.c.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.c;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.a.b(this.d, byteBuffer, this.c);
-                        this.f = this.c.presentationTimeUs;
-                    }
-                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.c.flags & 4) != 0) {
-                        return;
-                    }
+                throw new IllegalArgumentException("Content length < 0.");
+            }
+            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
+        }
+        throw new NullPointerException("Argument connection cannot be null.");
+    }
+
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            c();
+            l(1);
+            this.f.put((byte) i);
+        }
+    }
+
+    @Override // com.baidu.tieba.xma
+    public UploadDataProvider f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (UploadDataProvider) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xma
+    public void g() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = true;
+            if (this.f.position() >= this.d) {
+                this.f.flip();
+                return;
+            }
+            throw new ProtocolException("Content received is less than Content-Length");
+        }
+    }
+
+    public final void l(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.d != -1 && this.f.position() + i > this.d) {
+                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
+            } else if (!this.g) {
+                if (this.d != -1 || this.f.limit() - this.f.position() > i) {
+                    return;
                 }
+                ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
+                this.f.flip();
+                allocate.put(this.f);
+                this.f = allocate;
+            } else {
+                throw new IllegalStateException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for writing after connect");
             }
         }
     }
 
-    public void d() {
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.b != null) {
-                    this.b.stop();
-                    this.b.release();
-                    this.b = null;
-                }
-                if (this.a != null) {
-                    this.a.d();
-                    this.a = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            c();
+            l(i2);
+            this.f.put(bArr, i, i2);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.ui.animview.praise.guide;
 
 import android.text.TextUtils;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -39,7 +38,7 @@ public class ControlShowData {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) == 1) {
+            if (jSONObject.optInt("switch", 1) == 1) {
                 z = true;
             } else {
                 z = false;
@@ -83,7 +82,7 @@ public class ControlShowData {
             } else {
                 str = "0";
             }
-            jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, str);
+            jSONObject.put("switch", str);
             jSONObject.put("session_max_count", this.sessionMaxCount);
             jSONObject.put("day_max_count", this.dayMaxCount);
             jSONObject.put("cycle_max_count", this.cycleMaxcount);

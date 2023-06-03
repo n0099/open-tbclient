@@ -1,100 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class z28 {
+public final class z28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
+    public final BaseFragment a;
+    public boolean b;
+    public String c;
 
-    public z28() {
+    public z28(BaseFragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = fragment;
+    }
+
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            if (this.a.getArguments() != null) {
+                Bundle arguments = this.a.getArguments();
+                Intrinsics.checkNotNull(arguments);
+                this.b = arguments.getBoolean("tab_is_second_tab");
+                Bundle arguments2 = this.a.getArguments();
+                Intrinsics.checkNotNull(arguments2);
+                this.c = arguments2.getString("tab_code");
+            } else if (bundle != null) {
+                this.b = bundle.getBoolean("tab_is_second_tab");
+                this.c = bundle.getString("tab_code");
             }
         }
     }
 
-    public static z28 a(Item item) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            z28 z28Var = new z28();
-            z28Var.a = item.itemId;
-            z28Var.b = item.itemName;
-            z28Var.c = item.iconSize;
-            z28Var.d = item.iconUrl;
-            z28Var.e = item.tags;
-            z28Var.f = item.score;
-            z28Var.g = item.star;
-            z28Var.h = item.buttonName;
-            z28Var.i = item.buttonLink;
-            z28Var.j = item.itemAppid;
-            z28Var.k = item.categoryId;
-            z28Var.l = item.buttonLinkType;
-            z28Var.m = item.apkName;
-            z28Var.n = item.forumName;
-            z28Var.o = ApkDetailPojo.U(item.apkDetail);
-            return z28Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            x55.n(w55.h);
+            x55.n(w55.a(this.c));
         }
-        return (z28) invokeL.objValue;
     }
 
-    public static z28 b(tbclient.Item item) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            z28 z28Var = new z28();
-            z28Var.a = item.item_id;
-            z28Var.b = item.item_name;
-            z28Var.c = item.icon_size;
-            z28Var.d = item.icon_url;
-            z28Var.e = item.tags;
-            z28Var.f = item.score;
-            z28Var.g = item.star;
-            z28Var.h = item.button_name;
-            z28Var.i = item.button_link;
-            z28Var.j = item.item_appid;
-            z28Var.k = item.category_id;
-            z28Var.l = item.button_link_type;
-            z28Var.m = item.apk_name;
-            z28Var.n = item.forum_name;
-            z28Var.o = ApkDetailPojo.V(item.apk_detail);
-            return z28Var;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
         }
-        return (z28) invokeL.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b) {
+            return;
+        }
+        if (this.a.isPrimary()) {
+            c();
+        } else {
+            b();
+        }
+    }
+
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getContext() == null) {
+            return;
+        }
+        Context context = this.a.getContext();
+        Intrinsics.checkNotNull(context);
+        x55.o(context, w55.h);
+        Context context2 = this.a.getContext();
+        Intrinsics.checkNotNull(context2);
+        x55.o(context2, w55.a(this.c));
     }
 }

@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static SimpleDateFormat EB = new SimpleDateFormat("yyyy-MM-dd");
     public static volatile a XK;

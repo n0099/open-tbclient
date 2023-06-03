@@ -1,84 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class po4 {
+public class po4 extends gn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public long d;
-    public int e;
 
-    public po4(String str, int i, int i2) {
+    public po4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = i2;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gn4, com.baidu.tieba.jn4
+    public void b(JSONObject jSONObject, tj4 tj4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3) {
+        JSONObject optJSONObject;
+        mo4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, tj4Var, tj4Var2, tj4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = mo4.a(optJSONObject)) != null) {
+            no4.e().i(a);
+            no4.e().j(a.k);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i == this.c) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b != 0 && this.c != 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long j = this.d;
-                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
-                    return true;
-                }
-                long j2 = this.d;
-                if (j2 == 0) {
-                    this.d = currentTimeMillis;
-                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
-                    this.d = currentTimeMillis;
-                    this.e = 0;
-                }
-                this.e++;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

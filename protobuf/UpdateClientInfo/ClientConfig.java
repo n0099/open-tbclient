@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ClientConfig extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2, type = Message.Datatype.STRING)
     public final List<String> groupTypes;
@@ -13,7 +13,7 @@ public final class ClientConfig extends Message {
     public static final List<String> DEFAULT_SERVICEIDS = Collections.emptyList();
     public static final List<String> DEFAULT_GROUPTYPES = Collections.emptyList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<ClientConfig> {
         public List<String> groupTypes;
         public List<String> serviceIds;

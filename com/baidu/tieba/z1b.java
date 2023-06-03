@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.b1b;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes8.dex */
-public class z1b extends b1b {
+public class z1b {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<b1b.a> a;
+    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,15 +26,6 @@ public class z1b extends b1b {
                 return;
             }
         }
-        a = new CopyOnWriteArrayList();
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            for (b1b.a aVar : a) {
-                aVar.onFinish();
-            }
-        }
+        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
     }
 }

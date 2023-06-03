@@ -2,8 +2,8 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
+import com.baidu.cyberplayer.sdk.f;
 @Keep
 /* loaded from: classes3.dex */
 public class Dlna {
@@ -41,6 +41,14 @@ public class Dlna {
         return a.a;
     }
 
+    public synchronized void stop() {
+        if (this.a != null) {
+            this.a.stop();
+        } else {
+            CyberLog.d(TAG, "Dlna: provider == null");
+        }
+    }
+
     public synchronized PnPController getCtrlPoint(String str) {
         if (this.a != null && str != null) {
             return new PnPController(str, this.a);
@@ -50,21 +58,13 @@ public class Dlna {
 
     public synchronized void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
         if (this.a == null) {
-            this.a = d.f();
+            this.a = f.f();
         }
         if (this.a != null) {
             this.a.stop();
             if (dlnaSearchListener != null) {
                 this.a.search(dlnaSearchListener);
             }
-        }
-    }
-
-    public synchronized void stop() {
-        if (this.a != null) {
-            this.a.stop();
-        } else {
-            CyberLog.d(TAG, "Dlna: provider == null");
         }
     }
 }

@@ -1,106 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class s6a {
+public final class s6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes7.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(s6a s6aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s6aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) && bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: b */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-                return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public s6a(int i) {
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            i6a.b();
         }
-        if (i > 0) {
-            this.a = new a(this, i);
-            return;
-        }
-        throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    public Bitmap a(String str) {
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
+            } else {
+                l95.m().d();
+            }
+        }
+    }
+
+    public static final Application d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return t6a.a();
+        }
+        return (Application) invokeV.objValue;
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return g6a.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String cacheDir = FileHelper.getCacheDir();
+            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
+            return cacheDir;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return o6a.a();
+        }
+        return invokeV.intValue;
+    }
+
+    public static final boolean c(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            return FileHelper.deleteFileOrDir(file);
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void b(String str, Bitmap bitmap) {
+    public static final File g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) && !TextUtils.isEmpty(str) && bitmap != null && !bitmap.isRecycled()) {
-            this.a.put(str, bitmap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
+            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
+            return GetFileByAbsolutePath;
         }
+        return (File) invokeL.objValue;
     }
 }

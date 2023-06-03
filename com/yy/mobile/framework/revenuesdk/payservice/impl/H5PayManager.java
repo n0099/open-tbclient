@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.b.a;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
@@ -250,10 +250,10 @@ public class H5PayManager {
                     str2 = "success";
                 } else if (getChargeOrderStatusResult.finish) {
                     H5PayManager.this.onOrderVerifyAck(1, str, h5PayVerifyTask, getChargeOrderStatusResult);
-                    str2 = a.g0;
+                    str2 = "fail";
                 } else {
                     H5PayManager.this.onOrderVerifyAck(2, str, h5PayVerifyTask, getChargeOrderStatusResult);
-                    str2 = "unknow";
+                    str2 = DownloadStatisticConstants.UBC_VALUE_UNKNOW;
                 }
                 RLog.info(H5PayManager.TAG, "verifyOrder onSuccess orderId:" + str + " orderStatus:" + str2);
             }

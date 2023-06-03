@@ -6,22 +6,22 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import java.util.concurrent.locks.ReentrantLock;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuationImplKt;
 import kotlinx.coroutines.DebugKt;
 import kotlinx.coroutines.channels.AbstractSendChannel;
 import kotlinx.coroutines.internal.AtomicKt;
+import kotlinx.coroutines.internal.OnUndeliveredElementKt;
 import kotlinx.coroutines.internal.Symbol;
+import kotlinx.coroutines.internal.UndeliveredElementException;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0010\u0018\u0000 **\u0004\b\u0000\u0010\u00012\u00020\u0002:\u0001*B\u0007¢\u0006\u0004\b(\u0010)J\u001d\u0010\u0006\u001a\u00020\u00052\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003H\u0014¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\n\u0010\u000bJ#\u0010\u000e\u001a\u00020\t2\u0006\u0010\b\u001a\u00028\u00002\n\u0010\r\u001a\u0006\u0012\u0002\b\u00030\fH\u0014¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0010\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0012\u0010\u0013J\u0011\u0010\u0014\u001a\u0004\u0018\u00010\tH\u0014¢\u0006\u0004\b\u0014\u0010\u0015J\u001d\u0010\u0016\u001a\u0004\u0018\u00010\t2\n\u0010\r\u001a\u0006\u0012\u0002\b\u00030\fH\u0014¢\u0006\u0004\b\u0016\u0010\u0017R\u0016\u0010\u001b\u001a\u00020\u00188T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u001aR\u0016\u0010\u001c\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001e\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001f\u0010\u001dR\u0016\u0010 \u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b \u0010\u001dR\u0016\u0010!\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\u001dR\u001a\u0010$\u001a\u00060\"j\u0002`#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0018\u0010&\u001a\u0004\u0018\u00010\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'¨\u0006+"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/AbstractChannel;", "Lkotlinx/coroutines/channels/Receive;", StatConstants.VALUE_TYPE_RECEIVE, "", "enqueueReceiveInternal", "(Lkotlinx/coroutines/channels/Receive;)Z", "element", "", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "wasClosed", "", "onCancelIdempotent", "(Z)V", "pollInternal", "()Ljava/lang/Object;", "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "isBufferAlwaysEmpty", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "isEmpty", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "value", "Ljava/lang/Object;", "<init>", "()V", "Companion", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u0002B'\u0012 \u0010\u0003\u001a\u001c\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004j\n\u0012\u0004\u0012\u00028\u0000\u0018\u0001`\u0006¢\u0006\u0002\u0010\u0007J\u0016\u0010\u0018\u001a\u00020\r2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00028\u00000\u001aH\u0014J\u0015\u0010\u001b\u001a\u00020\u00172\u0006\u0010\u001c\u001a\u00028\u0000H\u0014¢\u0006\u0002\u0010\u001dJ!\u0010\u001e\u001a\u00020\u00172\u0006\u0010\u001c\u001a\u00028\u00002\n\u0010\u001f\u001a\u0006\u0012\u0002\b\u00030 H\u0014¢\u0006\u0002\u0010!J\u0010\u0010\"\u001a\u00020\u00052\u0006\u0010#\u001a\u00020\rH\u0014J\n\u0010$\u001a\u0004\u0018\u00010\u0017H\u0014J\u0016\u0010%\u001a\u0004\u0018\u00010\u00172\n\u0010\u001f\u001a\u0006\u0012\u0002\b\u00030 H\u0014J\u0014\u0010&\u001a\u0004\u0018\u00010'2\b\u0010\u001c\u001a\u0004\u0018\u00010\u0017H\u0002R\u0014\u0010\b\u001a\u00020\t8TX\u0094\u0004¢\u0006\u0006\u001a\u0004\b\n\u0010\u000bR\u0014\u0010\f\u001a\u00020\r8DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\f\u0010\u000eR\u0014\u0010\u000f\u001a\u00020\r8DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u000f\u0010\u000eR\u0014\u0010\u0010\u001a\u00020\r8DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0010\u0010\u000eR\u0014\u0010\u0011\u001a\u00020\r8DX\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0011\u0010\u000eR\u0014\u0010\u0012\u001a\u00020\r8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u000eR\u0012\u0010\u0013\u001a\u00060\u0014j\u0002`\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006("}, d2 = {"Lkotlinx/coroutines/channels/ConflatedChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/AbstractChannel;", "onUndeliveredElement", "Lkotlin/Function1;", "", "Lkotlinx/coroutines/internal/OnUndeliveredElement;", "(Lkotlin/jvm/functions/Function1;)V", "bufferDebugString", "", "getBufferDebugString", "()Ljava/lang/String;", "isBufferAlwaysEmpty", "", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "isEmpty", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "value", "", "enqueueReceiveInternal", StatConstants.VALUE_TYPE_RECEIVE, "Lkotlinx/coroutines/channels/Receive;", "offerInternal", "element", "(Ljava/lang/Object;)Ljava/lang/Object;", "offerSelectInternal", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlinx/coroutines/selects/SelectInstance;", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "onCancelIdempotent", "wasClosed", "pollInternal", "pollSelectInternal", "updateValueLocked", "Lkotlinx/coroutines/internal/UndeliveredElementException;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public class ConflatedChannel<E> extends AbstractChannel<E> {
-    public static final Companion Companion = new Companion(null);
-    public static final Symbol EMPTY = new Symbol("EMPTY");
-    public final ReentrantLock lock = new ReentrantLock();
-    public Object value = EMPTY;
+    public final ReentrantLock lock;
+    public Object value;
 
     @Override // kotlinx.coroutines.channels.AbstractChannel
     public final boolean isBufferAlwaysEmpty() {
@@ -38,17 +38,50 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
         return false;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0082\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0005R\u001c\u0010\u0002\u001a\u00020\u00018\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u0012\u0004\b\u0004\u0010\u0005¨\u0006\u0007"}, d2 = {"Lkotlinx/coroutines/channels/ConflatedChannel$Companion;", "Lkotlinx/coroutines/internal/Symbol;", "EMPTY", "Lkotlinx/coroutines/internal/Symbol;", "EMPTY$annotations", "()V", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes10.dex */
-    public static final class Companion {
-        public static /* synthetic */ void EMPTY$annotations() {
-        }
+    public ConflatedChannel(Function1<? super E, Unit> function1) {
+        super(function1);
+        this.lock = new ReentrantLock();
+        this.value = AbstractChannelKt.EMPTY;
+    }
 
-        public Companion() {
+    private final UndeliveredElementException updateValueLocked(Object obj) {
+        Function1<E, Unit> function1;
+        Object obj2 = this.value;
+        UndeliveredElementException undeliveredElementException = null;
+        if (obj2 != AbstractChannelKt.EMPTY && (function1 = this.onUndeliveredElement) != null) {
+            undeliveredElementException = OnUndeliveredElementKt.callUndeliveredElementCatchingException$default(function1, obj2, null, 2, null);
         }
+        this.value = obj;
+        return undeliveredElementException;
+    }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // kotlinx.coroutines.channels.AbstractChannel
+    public boolean enqueueReceiveInternal(Receive<? super E> receive) {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            return super.enqueueReceiveInternal(receive);
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractChannel
+    public void onCancelIdempotent(boolean z) {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            UndeliveredElementException updateValueLocked = updateValueLocked(AbstractChannelKt.EMPTY);
+            Unit unit = Unit.INSTANCE;
+            reentrantLock.unlock();
+            super.onCancelIdempotent(z);
+            if (updateValueLocked == null) {
+                return;
+            }
+            throw updateValueLocked;
+        } catch (Throwable th) {
+            reentrantLock.unlock();
+            throw th;
         }
     }
 
@@ -59,7 +92,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
 
     @Override // kotlinx.coroutines.channels.AbstractChannel
     public final boolean isBufferEmpty() {
-        if (this.value == EMPTY) {
+        if (this.value == AbstractChannelKt.EMPTY) {
             return true;
         }
         return false;
@@ -81,7 +114,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            if (this.value == EMPTY) {
+            if (this.value == AbstractChannelKt.EMPTY) {
                 Object closedForSend = getClosedForSend();
                 if (closedForSend == null) {
                     closedForSend = AbstractChannelKt.POLL_FAILED;
@@ -89,38 +122,12 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
                 return closedForSend;
             }
             Object obj = this.value;
-            this.value = EMPTY;
+            this.value = AbstractChannelKt.EMPTY;
             Unit unit = Unit.INSTANCE;
             return obj;
         } finally {
             reentrantLock.unlock();
         }
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractChannel
-    public boolean enqueueReceiveInternal(Receive<? super E> receive) {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            return super.enqueueReceiveInternal(receive);
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractChannel
-    public void onCancelIdempotent(boolean z) {
-        if (z) {
-            ReentrantLock reentrantLock = this.lock;
-            reentrantLock.lock();
-            try {
-                this.value = EMPTY;
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        super.onCancelIdempotent(z);
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
@@ -132,47 +139,39 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
         reentrantLock.lock();
         try {
             Closed<?> closedForSend = getClosedForSend();
-            if (closedForSend != null) {
-                return closedForSend;
-            }
-            if (this.value == EMPTY) {
-                do {
-                    takeFirstReceiveOrPeekClosed = takeFirstReceiveOrPeekClosed();
-                    if (takeFirstReceiveOrPeekClosed != null) {
-                        if (takeFirstReceiveOrPeekClosed instanceof Closed) {
-                            if (takeFirstReceiveOrPeekClosed == null) {
-                                Intrinsics.throwNpe();
+            if (closedForSend == null) {
+                if (this.value == AbstractChannelKt.EMPTY) {
+                    do {
+                        takeFirstReceiveOrPeekClosed = takeFirstReceiveOrPeekClosed();
+                        if (takeFirstReceiveOrPeekClosed != null) {
+                            if (takeFirstReceiveOrPeekClosed instanceof Closed) {
+                                return takeFirstReceiveOrPeekClosed;
                             }
-                            return takeFirstReceiveOrPeekClosed;
+                            tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e, null);
                         }
-                        if (takeFirstReceiveOrPeekClosed == null) {
-                            Intrinsics.throwNpe();
+                    } while (tryResumeReceive == null);
+                    if (DebugKt.getASSERTIONS_ENABLED()) {
+                        if (tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN) {
+                            z = true;
+                        } else {
+                            z = false;
                         }
-                        tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e, null);
+                        if (!z) {
+                            throw new AssertionError();
+                        }
                     }
-                } while (tryResumeReceive == null);
-                if (DebugKt.getASSERTIONS_ENABLED()) {
-                    if (tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        throw new AssertionError();
-                    }
+                    Unit unit = Unit.INSTANCE;
+                    reentrantLock.unlock();
+                    takeFirstReceiveOrPeekClosed.completeResumeReceive(e);
+                    return takeFirstReceiveOrPeekClosed.getOfferResult();
                 }
-                Unit unit = Unit.INSTANCE;
-                if (takeFirstReceiveOrPeekClosed == null) {
-                    Intrinsics.throwNpe();
+                UndeliveredElementException updateValueLocked = updateValueLocked(e);
+                if (updateValueLocked == null) {
+                    return AbstractChannelKt.OFFER_SUCCESS;
                 }
-                takeFirstReceiveOrPeekClosed.completeResumeReceive(e);
-                if (takeFirstReceiveOrPeekClosed == null) {
-                    Intrinsics.throwNpe();
-                }
-                return takeFirstReceiveOrPeekClosed.getOfferResult();
+                throw updateValueLocked;
             }
-            this.value = e;
-            return AbstractChannelKt.OFFER_SUCCESS;
+            return closedForSend;
         } finally {
             reentrantLock.unlock();
         }
@@ -184,39 +183,39 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
         reentrantLock.lock();
         try {
             Closed<?> closedForSend = getClosedForSend();
-            if (closedForSend != null) {
-                return closedForSend;
-            }
-            if (this.value == EMPTY) {
-                while (true) {
-                    AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e);
-                    Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryOffer);
-                    if (performAtomicTrySelect == null) {
-                        ReceiveOrClosed<? super E> result = describeTryOffer.getResult();
-                        Unit unit = Unit.INSTANCE;
-                        if (result == null) {
-                            Intrinsics.throwNpe();
+            if (closedForSend == null) {
+                if (this.value == AbstractChannelKt.EMPTY) {
+                    while (true) {
+                        AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e);
+                        Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryOffer);
+                        if (performAtomicTrySelect == null) {
+                            ReceiveOrClosed<? super E> result = describeTryOffer.getResult();
+                            Unit unit = Unit.INSTANCE;
+                            reentrantLock.unlock();
+                            Intrinsics.checkNotNull(result);
+                            ReceiveOrClosed<? super E> receiveOrClosed = result;
+                            receiveOrClosed.completeResumeReceive(e);
+                            return receiveOrClosed.getOfferResult();
+                        } else if (performAtomicTrySelect == AbstractChannelKt.OFFER_FAILED) {
+                            break;
+                        } else if (performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
+                            if (performAtomicTrySelect != SelectKt.getALREADY_SELECTED() && !(performAtomicTrySelect instanceof Closed)) {
+                                throw new IllegalStateException(Intrinsics.stringPlus("performAtomicTrySelect(describeTryOffer) returned ", performAtomicTrySelect).toString());
+                            }
+                            return performAtomicTrySelect;
                         }
-                        result.completeResumeReceive(e);
-                        if (result == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        return result.getOfferResult();
-                    } else if (performAtomicTrySelect == AbstractChannelKt.OFFER_FAILED) {
-                        break;
-                    } else if (performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
-                        if (performAtomicTrySelect != SelectKt.getALREADY_SELECTED() && !(performAtomicTrySelect instanceof Closed)) {
-                            throw new IllegalStateException(("performAtomicTrySelect(describeTryOffer) returned " + performAtomicTrySelect).toString());
-                        }
-                        return performAtomicTrySelect;
                     }
                 }
+                if (!selectInstance.trySelect()) {
+                    return SelectKt.getALREADY_SELECTED();
+                }
+                UndeliveredElementException updateValueLocked = updateValueLocked(e);
+                if (updateValueLocked == null) {
+                    return AbstractChannelKt.OFFER_SUCCESS;
+                }
+                throw updateValueLocked;
             }
-            if (!selectInstance.trySelect()) {
-                return SelectKt.getALREADY_SELECTED();
-            }
-            this.value = e;
-            return AbstractChannelKt.OFFER_SUCCESS;
+            return closedForSend;
         } finally {
             reentrantLock.unlock();
         }
@@ -227,7 +226,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            if (this.value == EMPTY) {
+            if (this.value == AbstractChannelKt.EMPTY) {
                 Object closedForSend = getClosedForSend();
                 if (closedForSend == null) {
                     closedForSend = AbstractChannelKt.POLL_FAILED;
@@ -237,7 +236,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
                 return SelectKt.getALREADY_SELECTED();
             } else {
                 Object obj = this.value;
-                this.value = EMPTY;
+                this.value = AbstractChannelKt.EMPTY;
                 Unit unit = Unit.INSTANCE;
                 return obj;
             }

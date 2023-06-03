@@ -3,9 +3,8 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.gna;
+import com.baidu.tieba.tua;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes8.dex */
@@ -196,7 +195,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            gna.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            tua.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -392,7 +391,7 @@ public class Texture2dProgram {
     }
 
     public void release() {
-        gna.c("Grafika", "deleting program " + this.mProgramHandle);
+        tua.c("Grafika", "deleting program " + this.mProgramHandle);
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }
@@ -432,7 +431,7 @@ public class Texture2dProgram {
             GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
         }
         if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, LoginConstants.DX_ONE_KEY_LOGIN), this.mDx);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
             GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
         }
     }

@@ -1,75 +1,41 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes7.dex */
 public class r80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
-    public int d;
-    public String e;
-    public boolean f;
-    public byte[] g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public long o;
-    public boolean p;
-    public List<m80> q;
 
-    public r80() {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                if (bArr.length <= 0) {
+                    return null;
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return bArr2;
             }
         }
-        this.a = new byte[0];
-        this.b = -1L;
-        this.c = 5000L;
-        this.d = -1;
-        this.e = "";
-        this.f = false;
-        this.g = new byte[0];
-        this.h = 60000L;
-        this.i = -1L;
-        this.j = -1L;
-        this.k = -1;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = -1L;
-        this.p = false;
-        this.q = new ArrayList();
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.n) {
-                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
-            }
-            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
-        }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj5;
-import com.baidu.tieba.fj5;
-import com.baidu.tieba.xi5;
-import com.baidu.tieba.yi5;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.cn5;
+import com.baidu.tieba.hn5;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class WriteThreadDelegateStatic extends xi5 {
+public class WriteThreadDelegateStatic extends zm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xi5
+    @Override // com.baidu.tieba.zm5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class WriteThreadDelegateStatic extends xi5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements aj5.b {
+    public class a implements cn5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -60,7 +60,7 @@ public class WriteThreadDelegateStatic extends xi5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.aj5.b
+        @Override // com.baidu.tieba.cn5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class WriteThreadDelegateStatic extends xi5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((zi5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            ((bn5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
         }
     }
 
@@ -137,28 +137,28 @@ public class WriteThreadDelegateStatic extends xi5 {
         }
     }
 
-    @Override // com.baidu.tieba.xi5
-    public yi5 a() {
+    @Override // com.baidu.tieba.zm5
+    public an5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yi5 yi5Var = new yi5();
-            yi5Var.a = new WriteThreadFragment();
-            yi5Var.e = 9;
-            yi5Var.d = R.drawable.icon_mask_home_publish;
-            yi5Var.h = fj5.f().d("write");
-            yi5Var.i = yi5.j;
-            return yi5Var;
+            an5 an5Var = new an5();
+            an5Var.a = new WriteThreadFragment();
+            an5Var.e = 9;
+            an5Var.d = R.drawable.icon_mask_home_publish;
+            an5Var.h = hn5.f().d("write");
+            an5Var.i = an5.j;
+            return an5Var;
         }
-        return (yi5) invokeV.objValue;
+        return (an5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xi5
+    @Override // com.baidu.tieba.zm5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) aj5.e().d(1003, new a(this, context));
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) cn5.e().d(1003, new a(this, context));
             this.b = maintabBottomIndicator;
             return maintabBottomIndicator;
         }

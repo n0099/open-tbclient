@@ -3,25 +3,25 @@ package com.baidu.swan.apps.optimization.quotasaver;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$optSwitcher$2;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.d93;
-import com.baidu.tieba.dv2;
-import com.baidu.tieba.f93;
-import com.baidu.tieba.g62;
-import com.baidu.tieba.ju2;
-import com.baidu.tieba.k93;
-import com.baidu.tieba.l93;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.s53;
-import com.baidu.tieba.zn3;
+import com.baidu.tieba.bx2;
+import com.baidu.tieba.cc3;
+import com.baidu.tieba.dc3;
+import com.baidu.tieba.fv2;
+import com.baidu.tieba.k83;
+import com.baidu.tieba.rq3;
+import com.baidu.tieba.vb3;
+import com.baidu.tieba.vx2;
+import com.baidu.tieba.xb3;
+import com.baidu.tieba.y82;
 import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u001b\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b>\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\t\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\t\u0010\u0006J\u0015\u0010\f\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\f\u0010\rR\u001d\u0010\u0013\u001a\u00020\u000e8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012R\u001d\u0010\u0018\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0017R%\u0010\u001e\u001a\n \u001a*\u0004\u0018\u00010\u00190\u00198B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0010\u001a\u0004\b\u001c\u0010\u001dR\u001d\u0010#\u001a\u00020\u001f8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b!\u0010\"R\u001d\u0010(\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u0010\u001a\u0004\b&\u0010'R\u001d\u0010+\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0010\u001a\u0004\b*\u0010\u0017R\u001d\u0010.\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010\u0010\u001a\u0004\b-\u0010\u0017R\u001d\u00101\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0010\u001a\u0004\b0\u0010\u0017R\u001d\u00104\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\u0010\u001a\u0004\b3\u0010\u0017R\u001d\u00107\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b5\u0010\u0010\u001a\u0004\b6\u0010\u0017R\u001d\u0010:\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b9\u0010\u0017R\u001d\u0010=\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b<\u0010'¨\u0006?"}, d2 = {"Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;", "Lcom/baidu/tieba/zn3;", "Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;", "msg", "", "handleKillMsgOnSwanProcess", "(Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;)V", "killAllSwanProcess", "()V", "onCallback", "Lcom/baidu/swan/apps/runtime/SwanImpl;", "swanImpl", "regEventSubscriberOn", "(Lcom/baidu/swan/apps/runtime/SwanImpl;)V", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config$delegate", "Lkotlin/Lazy;", "getConfig", "()Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config", "", "enableSuspend$delegate", "getEnableSuspend", "()Z", "enableSuspend", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "eventSubscriber$delegate", "getEventSubscriber", "()Lcom/baidu/swan/apps/runtime/EventSubscriber;", "eventSubscriber", "Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher$delegate", "getOptSwitcher", "()Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher", "", "rescueRefractoryPeriod$delegate", "getRescueRefractoryPeriod", "()J", "rescueRefractoryPeriod", "shouldSuspendAll$delegate", "getShouldSuspendAll", "shouldSuspendAll", "shouldSuspendAnything$delegate", "getShouldSuspendAnything", "shouldSuspendAnything", "shouldSuspendMasterTimer$delegate", "getShouldSuspendMasterTimer", "shouldSuspendMasterTimer", "shouldSuspendSlaveTimer$delegate", "getShouldSuspendSlaveTimer", "shouldSuspendSlaveTimer", "shouldSuspendV8Timer$delegate", "getShouldSuspendV8Timer", "shouldSuspendV8Timer", "shouldSuspendWebViewTimer$delegate", "getShouldSuspendWebViewTimer", "shouldSuspendWebViewTimer", "suspendDelayTime$delegate", "getSuspendDelayTime", "suspendDelayTime", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u001b\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b>\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\t\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\t\u0010\u0006J\u0015\u0010\f\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\f\u0010\rR\u001d\u0010\u0013\u001a\u00020\u000e8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012R\u001d\u0010\u0018\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0017R%\u0010\u001e\u001a\n \u001a*\u0004\u0018\u00010\u00190\u00198B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0010\u001a\u0004\b\u001c\u0010\u001dR\u001d\u0010#\u001a\u00020\u001f8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b!\u0010\"R\u001d\u0010(\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u0010\u001a\u0004\b&\u0010'R\u001d\u0010+\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0010\u001a\u0004\b*\u0010\u0017R\u001d\u0010.\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010\u0010\u001a\u0004\b-\u0010\u0017R\u001d\u00101\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0010\u001a\u0004\b0\u0010\u0017R\u001d\u00104\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\u0010\u001a\u0004\b3\u0010\u0017R\u001d\u00107\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b5\u0010\u0010\u001a\u0004\b6\u0010\u0017R\u001d\u0010:\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b9\u0010\u0017R\u001d\u0010=\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b<\u0010'¨\u0006?"}, d2 = {"Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;", "Lcom/baidu/tieba/rq3;", "Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;", "msg", "", "handleKillMsgOnSwanProcess", "(Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;)V", "killAllSwanProcess", "()V", "onCallback", "Lcom/baidu/swan/apps/runtime/SwanImpl;", "swanImpl", "regEventSubscriberOn", "(Lcom/baidu/swan/apps/runtime/SwanImpl;)V", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config$delegate", "Lkotlin/Lazy;", "getConfig", "()Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config", "", "enableSuspend$delegate", "getEnableSuspend", "()Z", "enableSuspend", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "eventSubscriber$delegate", "getEventSubscriber", "()Lcom/baidu/swan/apps/runtime/EventSubscriber;", "eventSubscriber", "Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher$delegate", "getOptSwitcher", "()Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher", "", "rescueRefractoryPeriod$delegate", "getRescueRefractoryPeriod", "()J", "rescueRefractoryPeriod", "shouldSuspendAll$delegate", "getShouldSuspendAll", "shouldSuspendAll", "shouldSuspendAnything$delegate", "getShouldSuspendAnything", "shouldSuspendAnything", "shouldSuspendMasterTimer$delegate", "getShouldSuspendMasterTimer", "shouldSuspendMasterTimer", "shouldSuspendSlaveTimer$delegate", "getShouldSuspendSlaveTimer", "shouldSuspendSlaveTimer", "shouldSuspendV8Timer$delegate", "getShouldSuspendV8Timer", "shouldSuspendV8Timer", "shouldSuspendWebViewTimer$delegate", "getShouldSuspendWebViewTimer", "shouldSuspendWebViewTimer", "suspendDelayTime$delegate", "getSuspendDelayTime", "suspendDelayTime", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
-public final class QuotaSaver implements zn3<k93.a> {
+public final class QuotaSaver implements rq3<cc3.a> {
     public static final Lazy b;
     public static final Lazy c;
     public static final Lazy d;
@@ -33,31 +33,31 @@ public final class QuotaSaver implements zn3<k93.a> {
     public static final Lazy j;
     public static final Lazy k;
     public static final QuotaSaver l = new QuotaSaver();
-    public static final Lazy a = LazyKt__LazyJVMKt.lazy(new Function0<ju2.a>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$config$2
+    public static final Lazy a = LazyKt__LazyJVMKt.lazy(new Function0<bx2.a>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$config$2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
-        public final ju2.a invoke() {
-            ju2.a aVar = new ju2.a();
-            ns2.H0().a(aVar);
-            return new ju2.a(aVar.D());
+        public final bx2.a invoke() {
+            bx2.a aVar = new bx2.a();
+            fv2.H0().a(aVar);
+            return new bx2.a(aVar.D());
         }
     });
 
-    public final ju2.a b() {
-        return (ju2.a) a.getValue();
+    public final bx2.a b() {
+        return (bx2.a) a.getValue();
     }
 
     public final boolean c() {
         return ((Boolean) i.getValue()).booleanValue();
     }
 
-    public final d93 d() {
-        return (d93) k.getValue();
+    public final vb3 d() {
+        return (vb3) k.getValue();
     }
 
-    public final dv2 e() {
-        return (dv2) j.getValue();
+    public final vx2 e() {
+        return (vx2) j.getValue();
     }
 
     public final boolean f() {
@@ -125,7 +125,7 @@ public final class QuotaSaver implements zn3<k93.a> {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2() {
-                return QuotaSaver.l.b().e("should_suspend_all", false);
+                return QuotaSaver.l.b().d("should_suspend_all", false);
             }
         });
         d = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendV8Timer$2
@@ -138,7 +138,7 @@ public final class QuotaSaver implements zn3<k93.a> {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2() {
-                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_v8_timer", false)) {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().d("should_suspend_v8_timer", false)) {
                     return false;
                 }
                 return true;
@@ -154,7 +154,7 @@ public final class QuotaSaver implements zn3<k93.a> {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2() {
-                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_web_view_timer", false)) {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().d("should_suspend_web_view_timer", false)) {
                     return false;
                 }
                 return true;
@@ -170,7 +170,7 @@ public final class QuotaSaver implements zn3<k93.a> {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2() {
-                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_master_timer", false)) {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().d("should_suspend_master_timer", false)) {
                     return false;
                 }
                 return true;
@@ -186,7 +186,7 @@ public final class QuotaSaver implements zn3<k93.a> {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final boolean invoke2() {
-                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_slave_timer", false)) {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().d("should_suspend_slave_timer", false)) {
                     return false;
                 }
                 return true;
@@ -227,8 +227,8 @@ public final class QuotaSaver implements zn3<k93.a> {
         j = LazyKt__LazyJVMKt.lazy(new Function0<QuotaSaver$optSwitcher$2.a>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$optSwitcher$2
 
             /* loaded from: classes4.dex */
-            public static final class a implements dv2 {
-                @Override // com.baidu.tieba.dv2
+            public static final class a implements vx2 {
+                @Override // com.baidu.tieba.vx2
                 public int a() {
                     if (QuotaSaver.l.l() > 0) {
                         return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.l());
@@ -236,7 +236,7 @@ public final class QuotaSaver implements zn3<k93.a> {
                     return -1;
                 }
 
-                @Override // com.baidu.tieba.dv2
+                @Override // com.baidu.tieba.vx2
                 public boolean b() {
                     if (QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k()) {
                         return true;
@@ -244,7 +244,7 @@ public final class QuotaSaver implements zn3<k93.a> {
                     return false;
                 }
 
-                @Override // com.baidu.tieba.dv2
+                @Override // com.baidu.tieba.vx2
                 public boolean c() {
                     if (QuotaSaver.l.c() && QuotaSaver.l.i()) {
                         return true;
@@ -252,7 +252,7 @@ public final class QuotaSaver implements zn3<k93.a> {
                     return false;
                 }
 
-                @Override // com.baidu.tieba.dv2
+                @Override // com.baidu.tieba.vx2
                 public boolean d() {
                     if (QuotaSaver.l.c() && QuotaSaver.l.j()) {
                         return true;
@@ -260,7 +260,7 @@ public final class QuotaSaver implements zn3<k93.a> {
                     return false;
                 }
 
-                @Override // com.baidu.tieba.dv2
+                @Override // com.baidu.tieba.vx2
                 public boolean e() {
                     if (QuotaSaver.l.c() && QuotaSaver.l.k()) {
                         return true;
@@ -276,42 +276,42 @@ public final class QuotaSaver implements zn3<k93.a> {
                 return new a();
             }
         });
-        k = LazyKt__LazyJVMKt.lazy(new Function0<d93>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$eventSubscriber$2
+        k = LazyKt__LazyJVMKt.lazy(new Function0<vb3>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$eventSubscriber$2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final d93 invoke() {
-                d93 d93Var = new d93();
-                d93Var.f(QuotaSaver.l, "event_messenger_call");
-                return d93Var;
+            public final vb3 invoke() {
+                vb3 vb3Var = new vb3();
+                vb3Var.f(QuotaSaver.l, "event_messenger_call");
+                return vb3Var;
             }
         });
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zn3
+    @Override // com.baidu.tieba.rq3
     /* renamed from: n */
-    public void a(k93.a aVar) {
+    public void a(cc3.a aVar) {
         if (aVar != null) {
             l.m(aVar);
         }
     }
 
-    public final void o(l93 swanImpl) {
+    public final void o(dc3 swanImpl) {
         Intrinsics.checkNotNullParameter(swanImpl, "swanImpl");
         swanImpl.u(d());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0027, code lost:
-        if (com.baidu.tieba.xm3.E(true) != false) goto L9;
+        if (com.baidu.tieba.pp3.E(true) != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void m(k93.a aVar) {
-        k93.a aVar2;
+    public final void m(cc3.a aVar) {
+        cc3.a aVar2;
         boolean z = true;
-        if (s53.J(aVar.D(), "quota_saver_killing") && !ProcessUtils.isMainProcess()) {
+        if (k83.J(aVar.D(), "quota_saver_killing") && !ProcessUtils.isMainProcess()) {
             SwanAppProcessInfo current = SwanAppProcessInfo.current();
             Intrinsics.checkNotNullExpressionValue(current, "SwanAppProcessInfo.current()");
             if (current.isSwanAppProcess()) {
@@ -325,18 +325,18 @@ public final class QuotaSaver implements zn3<k93.a> {
         }
         if (aVar2 != null) {
             String n = aVar2.n("quota_saver_action");
-            g62.i("QuotaSaver", "handleKillMsgOnSwanProcess: on action=" + n);
+            y82.i("QuotaSaver", "handleKillMsgOnSwanProcess: on action=" + n);
             if (n != null) {
                 int hashCode = n.hashCode();
                 if (hashCode != -1120856297) {
                     if (hashCode == -527012810 && n.equals("quota_saver_action_bye")) {
-                        g62.i("QuotaSaver", "handleKillMsgOnSwanProcess: kill do by bye");
-                        f93.K().G();
+                        y82.i("QuotaSaver", "handleKillMsgOnSwanProcess: kill do by bye");
+                        xb3.K().G();
                     }
                 } else if (n.equals("quota_saver_action_will_done")) {
-                    g62.i("QuotaSaver", "handleKillMsgOnSwanProcess: callback bye by WILL_DONE");
-                    f93.K().n("flag_finish_activity", "flag_remove_task");
-                    s53.Z(aVar.D()).z("quota_saver_action", "quota_saver_action_bye").call();
+                    y82.i("QuotaSaver", "handleKillMsgOnSwanProcess: callback bye by WILL_DONE");
+                    xb3.K().n("flag_finish_activity", "flag_remove_task");
+                    k83.Z(aVar.D()).z("quota_saver_action", "quota_saver_action_bye").call();
                 }
             }
         }

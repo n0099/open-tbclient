@@ -7,13 +7,13 @@ import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.LogObject;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseUploaderStrategy implements UploadInterface {
     public boolean mUploadJavaCrash;
     public UploadListener mUploadListener;
     public boolean mUploadNativeCrash;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface UploadListener {
         void onUploadDone(@Nullable LogObject logObject);
 

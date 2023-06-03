@@ -1,5 +1,16 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface v49 {
-    void v1(boolean z, int i, int i2, int i3, mx8 mx8Var, String str, int i4);
+
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tieba.w49;
+/* loaded from: classes8.dex */
+public interface v49<V extends w49, D extends IBaseDialogData> {
+    int a();
+
+    boolean b();
+
+    boolean c();
+
+    void dismiss();
+
+    void show();
 }

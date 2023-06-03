@@ -1,172 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class oy4 {
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class oy4 implements sl6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048575, "Lcom/baidu/tieba/oy4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948048575, "Lcom/baidu/tieba/oy4;");
-                return;
-            }
+    @Override // com.baidu.tieba.sl6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        rl6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.sl6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            return false;
         }
-        i = new HashSet();
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sl6
+    public /* synthetic */ void onDestroy() {
+        rl6.b(this);
     }
 
     public oy4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public wy9 c(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return i.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(AdvertAppInfo advertAppInfo) {
-        oy4 oy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) && advertAppInfo != null && (oy4Var = advertAppInfo.i) != null && !oy4Var.h && !a(oy4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).w(String.valueOf(oy4Var.b)).p(advertAppInfo.g);
-            e21.b(clogBuilder);
-            ti8.b(ti8.a(advertAppInfo));
-            oy4Var.h = true;
-            i.add(oy4Var.g);
-        }
-    }
-
-    public static void f(rr9 rr9Var) {
-        oy4 oy4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, rr9Var) == null) && rr9Var != null && rr9Var.getAdvertAppInfo() != null && (oy4Var = rr9Var.getAdvertAppInfo().i) != null && !oy4Var.h && !a(oy4Var.g)) {
-            rr9Var.e1 = oy4Var.d;
-            rr9Var.f1 = oy4Var.e;
-            rr9Var.d1 = oy4Var.c;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(rr9Var.j1 + 1)).w(String.valueOf(rr9Var.h1)).v(oy4Var.a).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).p(oy4Var.g);
-            e21.b(clogBuilder);
-            oy4Var.h = true;
-            i.add(oy4Var.g);
-        }
-    }
-
-    public static void c(oy4 oy4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{oy4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && oy4Var != null && !oy4Var.h && !a(oy4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
+            wy9 wy9Var = new wy9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                wy9Var.o(hashMap.get("result"));
             }
-            clogBuilder.y(logType).v(oy4Var.a).q(String.valueOf(i2 + 1)).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).w(String.valueOf(oy4Var.b)).p(oy4Var.g);
-            e21.b(clogBuilder);
-            oy4Var.h = true;
-            i.add(oy4Var.g);
+            return wy9Var;
         }
-    }
-
-    public static void e(oy4 oy4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{oy4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && oy4Var != null && !oy4Var.h && !a(oy4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
-            }
-            clogBuilder.y(logType).v(oy4Var.a).q(String.valueOf(i2 + 1)).w(String.valueOf(oy4Var.b)).p(oy4Var.g);
-            e21.b(clogBuilder);
-            oy4Var.h = true;
-            i.add(oy4Var.g);
-        }
-    }
-
-    public static void g(oy4 oy4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
-        int i3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{oy4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && oy4Var != null && !oy4Var.h && !a(oy4Var.g)) {
-            boolean equals = "PB_BANNER".equals(oy4Var.a);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
-            }
-            ClogBuilder y = clogBuilder.y(logType);
-            int i4 = -1;
-            if (equals) {
-                i3 = -1;
-            } else {
-                i3 = i2 + 1;
-            }
-            ClogBuilder q = y.q(String.valueOf(i3));
-            if (!equals) {
-                i4 = oy4Var.b;
-            }
-            q.w(String.valueOf(i4)).v(oy4Var.a).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).p(oy4Var.g);
-            e21.b(clogBuilder);
-            oy4Var.h = true;
-            i.add(oy4Var.g);
-        }
-    }
-
-    public static void d(fk6 fk6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, fk6Var) == null) && fk6Var != null && fk6Var.c() != null && fk6Var.c().i != null && !fk6Var.c().i.h && !a(fk6Var.c().i.g)) {
-            fk6Var.c().j = fk6Var.c().i.a;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(fk6Var.c().j).q(String.valueOf(fk6Var.c().position + 1)).w(String.valueOf(fk6Var.c().i.b)).p(fk6Var.c().i.g);
-            e21.b(clogBuilder);
-            ti8.b(ti8.a(fk6Var.c()));
-            fk6Var.c().i.h = true;
-            i.add(fk6Var.c().i.g);
-        }
+        return (wy9) invokeLL.objValue;
     }
 }

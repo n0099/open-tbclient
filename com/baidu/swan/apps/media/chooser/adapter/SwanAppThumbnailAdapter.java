@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns2;
+import com.baidu.tieba.fv2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -33,14 +33,14 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
 
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09092e);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090274);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090273);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090941);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090275);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090274);
         }
     }
 
     public SwanAppThumbnailAdapter(Context context) {
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07083c);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07084f);
     }
 
     public MediaModel k(int i) {
@@ -104,7 +104,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            ns2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            fv2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -112,7 +112,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08dd, viewGroup, false));
+        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f6, viewGroup, false));
     }
 
     public int o(MediaModel mediaModel) {

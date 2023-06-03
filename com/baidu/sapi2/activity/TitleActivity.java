@@ -365,11 +365,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
         SapiConfiguration sapiConfiguration = this.configuration;
         if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-            setTheme(R.style.obfuscated_res_0x7f10018d);
+            setTheme(R.style.obfuscated_res_0x7f10018f);
         } else {
             SapiConfiguration sapiConfiguration2 = this.configuration;
             if (sapiConfiguration2 != null && sapiConfiguration2.isNightMode) {
-                setTheme(R.style.obfuscated_res_0x7f10018e);
+                setTheme(R.style.obfuscated_res_0x7f100190);
             }
         }
         SapiConfiguration sapiConfiguration3 = this.configuration;
@@ -537,24 +537,24 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             childAt.setFitsSystemWindows(true);
         }
         if (this.useTitle) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092489);
-            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09247b);
-            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f09247a);
-            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f09247c);
-            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fca);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fc9);
-            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f092481);
-            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f092495);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924bd);
+            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f0924af);
+            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ae);
+            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f0924b0);
+            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ff8);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ff7);
+            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f0924b5);
+            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924c9);
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.showBottomBack) {
                 if (sapiConfiguration.isShowBottomBackText) {
-                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0921d5)) != null) {
+                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092208)) != null) {
                         this.bottomBackView = viewStub2.inflate();
-                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee5);
-                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091fc8);
-                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ee8);
-                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f31);
+                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f13);
+                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff6);
+                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091f16);
+                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f5f);
                         ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
                         ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
                         ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);

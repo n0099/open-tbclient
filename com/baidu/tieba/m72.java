@@ -1,172 +1,151 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.tieba.l72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.internal.http2.Http2Codec;
-import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m72 {
+public class m72 extends o72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public JSONObject j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public JSONArray o;
+    public float p;
+    @Nullable
+    public JSONObject q;
+    public long r;
+    public String s;
 
-    /* loaded from: classes6.dex */
-    public static class a extends l72.b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.l72.b
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-649349788, "Lcom/baidu/tieba/m72$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-649349788, "Lcom/baidu/tieba/m72$a;");
-                    return;
-                }
-            }
-            b = qp1.a;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(l72.a aVar) {
-            super(aVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((l72.a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.l72.b
-        public Map<String, String> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("Upgrade", "websocket");
-                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
-                try {
-                    hashMap.put("Sec-WebSocket-Accept", n72.g(this.a.a.get("sec-websocket-key")));
-                } catch (NoSuchAlgorithmException e) {
-                    if (b) {
-                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
-                    }
-                }
-                return hashMap;
-            }
-            return (Map) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends l72.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String b;
-
-        @Override // com.baidu.tieba.l72.b
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(l72.a aVar) {
-            super(aVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((l72.a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.l72.b
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b == null) {
-                    this.b = new i72().toString();
-                }
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.l72.b
-        public Map<String, String> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("Content-Type", "application/json; charset=UTF-8");
-                hashMap.put(Util.ACCEPT_RANGES, "bytes");
-                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
-                return hashMap;
-            }
-            return (Map) invokeV.objValue;
-        }
-    }
-
-    public static l72.b a(l72.a aVar) {
-        InterceptResult invokeL;
-        Map<String, String> map;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m72(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
-                if (n72.f(aVar.a)) {
-                    aVar.e = true;
-                    return new a(aVar);
-                }
-                aVar.e = false;
-                return new b(aVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (l72.b) invokeL.objValue;
+        this.k = 0;
+        this.m = 0;
+        this.p = -1.0f;
+        this.s = "";
+    }
+
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.j = jSONObject.optJSONObject("style");
+        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+        i();
+        h();
+    }
+
+    @Override // com.baidu.tieba.o72
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            super.g(jSONObject);
+            i();
+            h();
+        }
+    }
+
+    @Override // com.baidu.tieba.o72
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            m72 m72Var = (m72) super.clone();
+            if (this.j != null) {
+                try {
+                    m72Var.j = new JSONObject(this.j.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (this.o != null) {
+                try {
+                    m72Var.o = new JSONArray(this.o.toString());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if (this.q != null) {
+                try {
+                    m72Var.q = new JSONObject(this.q.toString());
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return m72Var;
+        }
+        return invokeV.objValue;
+    }
+
+    public final void h() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
+            try {
+                this.r = Long.parseLong(jSONObject.optString("duration"));
+            } catch (Exception unused) {
+                y82.b("Component-Model-View", "duration occurs exception");
+                this.r = 0L;
+            }
+            this.s = this.q.optString("easing");
+        }
+    }
+
+    public final void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
+            try {
+                this.k = Color.parseColor(jSONObject.optString("bgColor"));
+            } catch (Exception unused) {
+                y82.b("Component-Model-View", "backgroundColor occurs exception");
+                this.k = 0;
+            }
+            this.l = this.j.optInt("borderWidth");
+            try {
+                this.m = Color.parseColor(this.j.optString("borderColor"));
+            } catch (Exception unused2) {
+                y82.b("Component-Model-View", "borderColor occurs exception");
+                this.m = 0;
+            }
+            this.n = pp3.g(this.j.optInt("borderRadius"));
+            this.p = yo3.b(this.j, NativeConstants.OPACITY, -1.0f);
+            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
+        }
     }
 }

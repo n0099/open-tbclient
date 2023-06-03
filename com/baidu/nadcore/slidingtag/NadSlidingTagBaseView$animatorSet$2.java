@@ -11,13 +11,14 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.nadcore.widget.AdImageView;
-import com.baidu.tieba.t41;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
+import com.baidu.tieba.c61;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroid/animation/AnimatorSet;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroid/animation/AnimatorSet;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements Function0<AnimatorSet> {
     public final /* synthetic */ Context $context;
@@ -102,7 +103,7 @@ public final class NadSlidingTagBaseView$animatorSet$2 extends Lambda implements
                     if (NadSlidingTagBaseView$animatorSet$2.this.this$0.getLinear().getChildAt(0) instanceof AdImageView) {
                         a2 = NadSlidingTagBaseView$animatorSet$2.this.this$0.m;
                     } else {
-                        a2 = t41.c.a(NadSlidingTagBaseView$animatorSet$2.this.$context, 8.0f);
+                        a2 = c61.c.a(NadSlidingTagBaseView$animatorSet$2.this.$context, 8.0f);
                     }
                     nadSlidingTagBaseView5.setOriginalY(y + a2);
                     return;

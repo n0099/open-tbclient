@@ -3,12 +3,12 @@ package com.baidu.searchbox.permission;
 import android.util.Log;
 import com.baidu.android.util.UniKV;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionSpUtils extends UniKV {
     public static final String SP_FILE_DANGEROUS_PERMISSION = "dangerous_permission_sp";
     public static final String TAG = "DangerousPermission";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Holder {
         public static final DangerousPermissionSpUtils INSTANCE = new DangerousPermissionSpUtils();
     }

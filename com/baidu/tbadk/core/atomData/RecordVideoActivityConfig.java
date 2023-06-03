@@ -141,10 +141,10 @@ public class RecordVideoActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(FORUM_WRITE_DATA, forumWriteData);
-        getIntent().putExtra(WRITE_IMAGE_INFO, writeImagesInfo);
+        getIntent().putExtra("forum_write_data", forumWriteData);
+        getIntent().putExtra("write_image_info", writeImagesInfo);
         getIntent().putExtra("video_title", str);
-        getIntent().putExtra(ENTRANCE_FLAG, i);
+        getIntent().putExtra("entrance_flag", i);
         getIntent().putExtra("from_type", i2);
         setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);

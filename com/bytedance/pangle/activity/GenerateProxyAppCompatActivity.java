@@ -60,7 +60,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity implements b {
     public Plugin mPlugin;
     public GeneratePluginAppCompatActivity mTargetActivity;

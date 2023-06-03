@@ -9,7 +9,7 @@ import java.util.Map;
 public class TransitionValues {
 
     /* renamed from: view  reason: collision with root package name */
-    public View f1027view;
+    public View f1028view;
     public final Map<String, Object> values = new HashMap();
     public final ArrayList<Transition> mTargetedTransitions = new ArrayList<>();
 
@@ -18,17 +18,17 @@ public class TransitionValues {
     }
 
     public int hashCode() {
-        return (this.f1027view.hashCode() * 31) + this.values.hashCode();
+        return (this.f1028view.hashCode() * 31) + this.values.hashCode();
     }
 
     public TransitionValues(@NonNull View view2) {
-        this.f1027view = view2;
+        this.f1028view = view2;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof TransitionValues) {
             TransitionValues transitionValues = (TransitionValues) obj;
-            if (this.f1027view == transitionValues.f1027view && this.values.equals(transitionValues.values)) {
+            if (this.f1028view == transitionValues.f1028view && this.values.equals(transitionValues.values)) {
                 return true;
             }
             return false;
@@ -37,7 +37,7 @@ public class TransitionValues {
     }
 
     public String toString() {
-        String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1027view + "\n") + "    values:";
+        String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1028view + "\n") + "    values:";
         for (String str2 : this.values.keySet()) {
             str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
         }

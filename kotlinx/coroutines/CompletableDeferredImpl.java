@@ -5,13 +5,11 @@ import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.Metadata;
-import kotlin.ResultKt;
 import kotlin.coroutines.Continuation;
-import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.selects.SelectClause1;
 import kotlinx.coroutines.selects.SelectInstance;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u00032\u00020\u0004B\u0011\u0012\b\u0010\"\u001a\u0004\u0018\u00010!¢\u0006\u0004\b#\u0010$J\u0013\u0010\u0005\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\t\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u000f\u0010\u0010JJ\u0010\u0019\u001a\u00020\u0018\"\u0004\b\u0001\u0010\u00112\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00010\u00122\"\u0010\u0017\u001a\u001e\b\u0001\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u0015\u0012\u0006\u0012\u0004\u0018\u00010\u00160\u0014H\u0016ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001aR\u001c\u0010\u001d\u001a\b\u0012\u0004\u0012\u00028\u00000\u00038V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001b\u0010\u001cR\u0016\u0010 \u001a\u00020\b8P@\u0010X\u0090\u0004¢\u0006\u0006\u001a\u0004\b\u001e\u0010\u001f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006%"}, d2 = {"Lkotlinx/coroutines/CompletableDeferredImpl;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CompletableDeferred;", "Lkotlinx/coroutines/selects/SelectClause1;", "Lkotlinx/coroutines/JobSupport;", "await", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "value", "", TaskProcessData.keyComplete, "(Ljava/lang/Object;)Z", "", "exception", "completeExceptionally", "(Ljava/lang/Throwable;)Z", "getCompleted", "()Ljava/lang/Object;", "R", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlin/Function2;", "Lkotlin/coroutines/Continuation;", "", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "", "registerSelectClause1", "(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V", "getOnAwait", "()Lkotlinx/coroutines/selects/SelectClause1;", "onAwait", "getOnCancelComplete$kotlinx_coroutines_core", "()Z", "onCancelComplete", "Lkotlinx/coroutines/Job;", "parent", "<init>", "(Lkotlinx/coroutines/Job;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\u0003\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\b\u0012\u0004\u0012\u0002H\u00010\u00032\b\u0012\u0004\u0012\u0002H\u00010\u0004B\u000f\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0011\u0010\u000f\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0010J\u0015\u0010\u0011\u001a\u00020\f2\u0006\u0010\u0012\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010\u0013J\u0010\u0010\u0014\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\r\u0010\u0017\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010\u0018JH\u0010\u0019\u001a\u00020\u001a\"\u0004\b\u0001\u0010\u001b2\f\u0010\u001c\u001a\b\u0012\u0004\u0012\u0002H\u001b0\u001d2\"\u0010\u001e\u001a\u001e\b\u0001\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u001b0 \u0012\u0006\u0012\u0004\u0018\u00010!0\u001fH\u0016ø\u0001\u0000¢\u0006\u0002\u0010\"R\u001a\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\u00048VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\t\u0010\nR\u0014\u0010\u000b\u001a\u00020\f8PX\u0090\u0004¢\u0006\u0006\u001a\u0004\b\r\u0010\u000e\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006#"}, d2 = {"Lkotlinx/coroutines/CompletableDeferredImpl;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/JobSupport;", "Lkotlinx/coroutines/CompletableDeferred;", "Lkotlinx/coroutines/selects/SelectClause1;", "parent", "Lkotlinx/coroutines/Job;", "(Lkotlinx/coroutines/Job;)V", "onAwait", "getOnAwait", "()Lkotlinx/coroutines/selects/SelectClause1;", "onCancelComplete", "", "getOnCancelComplete$kotlinx_coroutines_core", "()Z", "await", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", TaskProcessData.keyComplete, "value", "(Ljava/lang/Object;)Z", "completeExceptionally", "exception", "", "getCompleted", "()Ljava/lang/Object;", "registerSelectClause1", "", "R", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlinx/coroutines/selects/SelectInstance;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/Function2;", "Lkotlin/coroutines/Continuation;", "", "(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class CompletableDeferredImpl<T> extends JobSupport implements CompletableDeferred<T>, SelectClause1<T> {
     @Override // kotlinx.coroutines.Deferred
@@ -26,7 +24,12 @@ public final class CompletableDeferredImpl<T> extends JobSupport implements Comp
 
     public CompletableDeferredImpl(Job job) {
         super(true);
-        initParentJobInternal$kotlinx_coroutines_core(job);
+        initParentJob(job);
+    }
+
+    @Override // kotlinx.coroutines.Deferred
+    public Object await(Continuation<? super T> continuation) {
+        return awaitInternal$kotlinx_coroutines_core(continuation);
     }
 
     @Override // kotlinx.coroutines.CompletableDeferred
@@ -37,51 +40,6 @@ public final class CompletableDeferredImpl<T> extends JobSupport implements Comp
     @Override // kotlinx.coroutines.CompletableDeferred
     public boolean completeExceptionally(Throwable th) {
         return makeCompleting$kotlinx_coroutines_core(new CompletedExceptionally(th, false, 2, null));
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0035  */
-    @Override // kotlinx.coroutines.Deferred
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Object await(Continuation<? super T> continuation) {
-        CompletableDeferredImpl$await$1 completableDeferredImpl$await$1;
-        int i;
-        if (continuation instanceof CompletableDeferredImpl$await$1) {
-            completableDeferredImpl$await$1 = (CompletableDeferredImpl$await$1) continuation;
-            int i2 = completableDeferredImpl$await$1.label;
-            if ((i2 & Integer.MIN_VALUE) != 0) {
-                completableDeferredImpl$await$1.label = i2 - Integer.MIN_VALUE;
-                Object obj = completableDeferredImpl$await$1.result;
-                Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                i = completableDeferredImpl$await$1.label;
-                if (i == 0) {
-                    if (i == 1) {
-                        CompletableDeferredImpl completableDeferredImpl = (CompletableDeferredImpl) completableDeferredImpl$await$1.L$0;
-                        ResultKt.throwOnFailure(obj);
-                    } else {
-                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                    }
-                } else {
-                    ResultKt.throwOnFailure(obj);
-                    completableDeferredImpl$await$1.L$0 = this;
-                    completableDeferredImpl$await$1.label = 1;
-                    obj = awaitInternal$kotlinx_coroutines_core(completableDeferredImpl$await$1);
-                    if (obj == coroutine_suspended) {
-                        return coroutine_suspended;
-                    }
-                }
-                return obj;
-            }
-        }
-        completableDeferredImpl$await$1 = new CompletableDeferredImpl$await$1(this, continuation);
-        Object obj2 = completableDeferredImpl$await$1.result;
-        Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i = completableDeferredImpl$await$1.label;
-        if (i == 0) {
-        }
-        return obj2;
     }
 
     @Override // kotlinx.coroutines.Deferred

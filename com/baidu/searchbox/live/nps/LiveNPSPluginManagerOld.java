@@ -15,9 +15,7 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.live.chainlog.NpsLoadChainLog;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
@@ -33,9 +31,9 @@ import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.ee1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
+import com.baidu.tieba.nf1;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.UnsupportedEncodingException;
@@ -124,19 +122,19 @@ public class LiveNPSPluginManagerOld {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new be1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str) {
             }
-        }, new de1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
-            @Override // com.baidu.tieba.de1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
-                if (ee1Var != null) {
-                    ee1Var.onResult(1);
+        }, new mf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
+            @Override // com.baidu.tieba.mf1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, nf1 nf1Var) {
+                if (nf1Var != null) {
+                    nf1Var.onResult(1);
                 }
             }
         }, 1);
@@ -1148,30 +1146,30 @@ public class LiveNPSPluginManagerOld {
                 }
                 if (!z2) {
                     if (z) {
-                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new be1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
-                            @Override // com.baidu.tieba.be1
+                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
+                            @Override // com.baidu.tieba.kf1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.be1
+                            @Override // com.baidu.tieba.kf1
                             public void onResult(int i, String str) {
                             }
-                        }, new de1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
-                            @Override // com.baidu.tieba.de1
-                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
-                                if (ee1Var != null) {
-                                    ee1Var.onResult(1);
+                        }, new mf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
+                            @Override // com.baidu.tieba.mf1
+                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, nf1 nf1Var) {
+                                if (nf1Var != null) {
+                                    nf1Var.onResult(1);
                                 }
                             }
                         }, 1);
                         return;
                     } else {
-                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new be1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
-                            @Override // com.baidu.tieba.be1
+                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new kf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
+                            @Override // com.baidu.tieba.kf1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.be1
+                            @Override // com.baidu.tieba.kf1
                             public void onResult(int i, String str) {
                             }
                         });
@@ -1481,10 +1479,10 @@ public class LiveNPSPluginManagerOld {
         }
         PluginLoadCallback pluginLoadCallback2 = this.mCurrentCallback;
         if (pluginLoadCallback2 != null) {
-            pluginLoadCallback2.onResult(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, "old arch can not install", null, "download");
+            pluginLoadCallback2.onResult(-112, "old arch can not install", null, "download");
             this.mCurrentCallback = null;
         }
-        showNormalToast(R.string.obfuscated_res_0x7f0f0b86, 0);
+        showNormalToast(R.string.obfuscated_res_0x7f0f0bbf, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1498,7 +1496,7 @@ public class LiveNPSPluginManagerOld {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", a.g0);
+                    jSONObject.put("value", "fail");
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);

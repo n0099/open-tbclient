@@ -1,130 +1,120 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class j61 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    @NonNull
-    public List<a> c;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public int[] a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835140, "Lcom/baidu/tieba/j61;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Nullable
-        public static a a(@Nullable JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = b(jSONObject.optString("range"));
-                aVar.b = jSONObject.optString("color");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        @Nullable
-        public static int[] b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                String[] split = str.split("_");
-                if (split.length != 2) {
-                    return null;
-                }
-                try {
-                    int parseInt = Integer.parseInt(split[0]);
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    if (parseInt < 0 || parseInt >= parseInt2) {
-                        return null;
-                    }
-                    return new int[]{parseInt, parseInt2};
-                } catch (NumberFormatException unused) {
-                    return null;
-                }
-            }
-            return (int[]) invokeL.objValue;
-        }
-    }
-
-    public j61() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947835140, "Lcom/baidu/tieba/j61;");
                 return;
             }
         }
-        this.c = new ArrayList();
+        a = TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        b = TimeUnit.MINUTES.toMillis(1L);
+        TimeUnit.SECONDS.toMillis(1L);
+    }
+
+    public static int a(@NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            String b2 = b(str, str2);
+            if (TextUtils.isEmpty(b2)) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(b2);
+            } catch (NumberFormatException unused) {
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            f(str, str2, String.valueOf(i));
+        }
     }
 
     @Nullable
-    public static j61 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String string = k31.a().b(str).getString(str2, null);
+            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
                 return null;
             }
-            j61 j61Var = new j61();
-            try {
-                j61Var.a = jSONObject.optString("text");
-                j61Var.b = jSONObject.optString("color");
-                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        o11.b(j61Var.c, a.a(optJSONArray.getJSONObject(i)));
-                    }
-                }
-            } catch (JSONException unused) {
-            }
-            return j61Var;
+            return string.substring(indexOf + 1);
         }
-        return (j61) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean c(long j, long j2, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            if (j - j2 > i * b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            SharedPreferences.Editor edit = k31.a().b(str).edit();
+            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
+            edit.apply();
+        }
+    }
+
+    public static boolean d(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long j2 = 0;
+            try {
+                j2 = Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+            }
+            long j3 = a;
+            if (j2 / j3 != j / j3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLJ.booleanValue;
     }
 }

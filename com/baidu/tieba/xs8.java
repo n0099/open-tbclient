@@ -1,55 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface xs8 {
-    void a();
+public class xs8 implements FollowStatusService {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
+    public xs8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(int i);
-
-    void d(tz7 tz7Var);
-
-    void destroy();
-
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    tz7 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(tz7 tz7Var);
-
-    void o(long j, long j2, int i);
-
-    sz7 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resetView();
-
-    void resume();
-
-    void s(int i);
-
-    void t(sz7 sz7Var, boolean z, int i);
+    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
+    public void saveFollowStatus(boolean z, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = true;
+            aVar.c = str;
+            aVar.d = z;
+            aVar.e = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
+        }
+    }
 }

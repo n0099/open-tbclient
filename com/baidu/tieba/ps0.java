@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,49 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ps0 extends ts0 {
+public final class ps0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hy0 O;
-    public int P;
-    @Nullable
-    public xx0 Q;
-
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 23;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ss0
-    public void D1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rs0
-    @NonNull
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "CyberSysPlayer" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ss0
-    public boolean s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -70,125 +32,97 @@ public class ps0 extends ts0 {
                 return;
             }
         }
-        qs0.f();
+        b = new a(null);
     }
 
-    public void J1() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ay0 ay0Var = new ay0();
-            this.O = ay0Var;
-            b(ay0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof ps0) && Intrinsics.areEqual(this.a, ((ps0) obj).a);
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.et0, com.baidu.tieba.rs0
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.P();
-        }
-    }
-
-    @Override // com.baidu.tieba.rs0
-    public boolean X() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return V();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.l();
-        }
-    }
-
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
-    public void l0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && W()) {
-            super.l0();
-        }
-    }
-
-    @Override // com.baidu.tieba.ss0
-    public int l1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.P;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ps0(@NonNull kw0 kw0Var, @Nullable Context context) {
-        super(kw0Var, context);
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "TagItem(text=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final ps0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("text");
+                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
+                    return new ps0(optString);
+                }
+                return null;
+            }
+            return (ps0) invokeL.objValue;
+        }
+    }
+
+    public ps0(String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kw0Var, context};
+            Object[] objArr = {text};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((kw0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.P = 0;
-    }
-
-    @Override // com.baidu.tieba.et0, com.baidu.tieba.rs0
-    public void G0(@Nullable Context context) {
-        by0 by0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            b(new py0());
-            if (context instanceof Activity) {
-                by0Var = new by0((Activity) context);
-            } else {
-                by0Var = new by0();
-            }
-            b(by0Var);
-            b(new oy0());
-            J1();
-            b(new jy0());
-            I1("ad_video_tail_frame_layer");
-        }
-    }
-
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
-    public void I0(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            super.I0(context);
-        }
-    }
-
-    public void I1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            cy0 cy0Var = new cy0(str);
-            this.Q = cy0Var;
-            b(cy0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
-    public void f0(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && !W() && !a0()) {
-            super.f0(i);
-        }
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = text;
     }
 }

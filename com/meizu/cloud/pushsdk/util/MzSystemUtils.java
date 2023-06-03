@@ -21,7 +21,7 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MzSystemUtils {
     public static final String PUSH_SERVICE_PROCESS_NAME = "mzservice_v1";
     public static final String TAG = "MzSystemUtils";

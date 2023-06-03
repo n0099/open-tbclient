@@ -6,7 +6,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareAnnotation;
 import org.aspectj.lang.reflect.SignaturePattern;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeclareAnnotationImpl implements DeclareAnnotation {
     public String annText;
     public AjType<?> declaringType;
@@ -16,7 +16,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
     public TypePattern typePattern;
 
     /* renamed from: org.aspectj.internal.lang.reflect.DeclareAnnotationImpl$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind;
 

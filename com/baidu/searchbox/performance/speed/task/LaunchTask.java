@@ -4,7 +4,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class LaunchTask implements Runnable {
     public static final boolean DEBUG;
     public static final String TAG = "LaunchTask";

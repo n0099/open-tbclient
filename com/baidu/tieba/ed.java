@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.lang.reflect.Type;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ed implements kd {
+public class ed implements vc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public SparseArray<?> a;
 
-    public ed(boolean z) {
+    public ed(SparseArray<?> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {sparseArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,51 +32,102 @@ public class ed implements kd {
                 return;
             }
         }
-        this.a = z;
+        this.a = sparseArray;
     }
 
-    @Override // com.baidu.tieba.kd
-    public Object a(ae aeVar) {
+    @Override // com.baidu.tieba.vc
+    public Object a(ee eeVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aeVar)) == null) {
-            Class<?> a = aeVar.a();
-            if (a != Boolean.class && a != Boolean.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        }
-                                        if (a == char[].class) {
-                                            return String.valueOf(this.a).toCharArray();
-                                        }
-                                        if (a == byte[].class) {
-                                            try {
-                                                return ji.e(String.valueOf(this.a), 0);
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                                return null;
-                                            }
-                                        }
-                                        return null;
-                                    }
-                                    return Character.valueOf((char) (!this.a ? 1 : 0));
-                                }
-                                return Double.valueOf(!this.a ? 1 : 0);
-                            }
-                            return Float.valueOf(!this.a ? 1 : 0);
-                        }
-                        return Long.valueOf(!this.a ? 1 : 0);
-                    }
-                    return Integer.valueOf(!this.a ? 1 : 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eeVar)) == null) {
+            Object f = f(eeVar);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
                 }
-                return Short.valueOf((short) (!this.a ? 1 : 0));
+                if (f instanceof JSONArray) {
+                    return f.toString();
+                }
+                return f;
             }
-            return Boolean.valueOf(this.a);
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc
+    public Object b(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eeVar)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc
+    public Object c(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eeVar)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc
+    public Object d(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eeVar)) == null) {
+            Object f = f(eeVar);
+            if (f != null && (f instanceof JSONObject)) {
+                return f.toString();
+            }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc
+    public Object e(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eeVar)) == null) {
+            return d(eeVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vc
+    public Object f(ee eeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eeVar)) == null) {
+            Type[] b = eeVar.b();
+            JSONObject jSONObject = new JSONObject();
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                int keyAt = this.a.keyAt(i);
+                Object obj = this.a.get(keyAt);
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = he.a(obj).f(new ee(b[0]));
+                        if (f != null) {
+                            try {
+                                jSONObject.put(String.valueOf(keyAt), f);
+                            } catch (JSONException unused) {
+                            }
+                        }
+                    } else {
+                        Object f2 = he.a(obj).f(new ee(eeVar.a()));
+                        if (f2 != null) {
+                            jSONObject.put(String.valueOf(keyAt), f2);
+                        }
+                    }
+                }
+            }
+            return jSONObject;
         }
         return invokeL.objValue;
     }

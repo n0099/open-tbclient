@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba7;
-import com.baidu.tieba.ca7;
-import com.baidu.tieba.f25;
-import com.baidu.tieba.k97;
-import com.baidu.tieba.ok7;
-import com.baidu.tieba.qk7;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rk7;
-import com.baidu.tieba.u97;
+import com.baidu.tieba.c55;
+import com.baidu.tieba.ef7;
+import com.baidu.tieba.ff7;
+import com.baidu.tieba.ne7;
+import com.baidu.tieba.rp7;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.up7;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +39,16 @@ import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
+public class HorizontalTabView extends MyHorizontalScrollView implements rp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public final LinearLayout b;
-    public final rk7 c;
-    public List<qk7> d;
-    public List<qk7> e;
+    public final up7 c;
+    public List<tp7> d;
+    public List<tp7> e;
     public TabItemView f;
-    public ok7 g;
+    public rp7 g;
     public final Paint h;
     public final int i;
     public final int j;
@@ -59,20 +59,20 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
     public int o;
     public g p;
     public h q;
-    public rk7.e r;
-    public rk7.d s;
-    public k97 t;
+    public up7.e r;
+    public up7.d s;
+    public ne7 t;
     public View.OnClickListener u;
     public i v;
 
     /* loaded from: classes5.dex */
     public interface g {
-        void a(qk7 qk7Var);
+        void a(tp7 tp7Var);
     }
 
     /* loaded from: classes5.dex */
     public interface h {
-        void a(qk7 qk7Var);
+        void a(tp7 tp7Var);
     }
 
     /* loaded from: classes5.dex */
@@ -95,7 +95,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements rk7.e {
+    public class a implements up7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HorizontalTabView a;
@@ -118,7 +118,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
             this.a = horizontalTabView;
         }
 
-        @Override // com.baidu.tieba.rk7.e
+        @Override // com.baidu.tieba.up7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -133,7 +133,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements rk7.d {
+    public class b implements up7.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HorizontalTabView a;
@@ -156,7 +156,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
             this.a = horizontalTabView;
         }
 
-        @Override // com.baidu.tieba.rk7.d
+        @Override // com.baidu.tieba.up7.d
         public void a(TabItemView tabItemView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, tabItemView) == null) {
@@ -224,18 +224,18 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements f25.c {
+    public class d implements c55.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca7 a;
+        public final /* synthetic */ ff7 a;
         public final /* synthetic */ HorizontalTabView b;
 
-        public d(HorizontalTabView horizontalTabView, ca7 ca7Var) {
+        public d(HorizontalTabView horizontalTabView, ff7 ff7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {horizontalTabView, ca7Var};
+                Object[] objArr = {horizontalTabView, ff7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -246,14 +246,14 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
                 }
             }
             this.b = horizontalTabView;
-            this.a = ca7Var;
+            this.a = ff7Var;
         }
 
-        @Override // com.baidu.tieba.f25.c
-        public void a(f25 f25Var, int i, View view2) {
+        @Override // com.baidu.tieba.c55.c
+        public void a(c55 c55Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, f25Var, i, view2) == null) && this.a.b.size() > i && this.a.b.get(i) != null) {
-                f25Var.e();
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, c55Var, i, view2) == null) && this.a.b.size() > i && this.a.b.get(i) != null) {
+                c55Var.e();
                 HorizontalTabView horizontalTabView = this.b;
                 horizontalTabView.h(horizontalTabView.k(this.a.b.get(i).b));
             }
@@ -324,7 +324,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HorizontalTabView horizontalTabView = this.a;
-                horizontalTabView.scrollBy(horizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369), 0);
+                horizontalTabView.scrollBy(horizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374), 0);
             }
         }
     }
@@ -352,7 +352,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         this.f = null;
         this.g = null;
         this.h = new Paint();
-        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ef);
+        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703fa);
         this.j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
         this.k = 0;
         this.l = true;
@@ -364,12 +364,12 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         this.b = linearLayout;
         linearLayout.setOrientation(0);
         this.b.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07040f));
-        this.c = new rk7(context, this.r, this.s);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041a));
+        this.c = new up7(context, this.r, this.s);
         m(layoutParams);
     }
 
-    @Override // com.baidu.tieba.ok7
+    @Override // com.baidu.tieba.rp7
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -377,24 +377,24 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         }
     }
 
-    @Override // com.baidu.tieba.ok7
+    @Override // com.baidu.tieba.rp7
     public void b(int i2) {
         TabItemView tabItemView;
-        k97 k97Var;
+        ne7 ne7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (tabItemView = this.f) != null && (k97Var = this.t) != null) {
-            k97Var.M(tabItemView.getTabId(), i2, null);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (tabItemView = this.f) != null && (ne7Var = this.t) != null) {
+            ne7Var.M(tabItemView.getTabId(), i2, null);
         }
     }
 
     public final boolean l(int i2) {
         InterceptResult invokeI;
-        ca7 ca7Var;
-        List<ba7> list;
+        ff7 ff7Var;
+        List<ef7> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            qk7 j = j(i2);
-            if (j != null && (ca7Var = j.c) != null && (list = ca7Var.b) != null && list.size() > 0) {
+            tp7 j = j(i2);
+            if (j != null && (ff7Var = j.c) != null && (list = ff7Var.b) != null && list.size() > 0) {
                 return true;
             }
             return false;
@@ -421,17 +421,17 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         }
     }
 
-    public void setDataLoadInterface(k97 k97Var) {
+    public void setDataLoadInterface(ne7 ne7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, k97Var) == null) {
-            this.t = k97Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ne7Var) == null) {
+            this.t = ne7Var;
         }
     }
 
-    public void setFakeTab(ok7 ok7Var) {
+    public void setFakeTab(rp7 rp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ok7Var) == null) {
-            this.g = ok7Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, rp7Var) == null) {
+            this.g = rp7Var;
         }
     }
 
@@ -531,54 +531,54 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
             if (this.n) {
                 this.h.setAntiAlias(true);
                 this.h.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
-                int g2 = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070281);
+                int g2 = vi.g(getContext(), R.dimen.obfuscated_res_0x7f070281);
                 TabItemView tabItemView = this.f;
                 if (tabItemView != null) {
                     g2 = tabItemView.getRight() - this.f.getDrawableWidth();
                 }
-                canvas.drawRoundRect(new RectF(ri.g(getContext(), R.dimen.tbds44), ri.g(getContext(), R.dimen.tbds98), g2, ri.g(getContext(), R.dimen.tbds104)), ri.g(getContext(), R.dimen.tbds6), ri.g(getContext(), R.dimen.tbds6), this.h);
+                canvas.drawRoundRect(new RectF(vi.g(getContext(), R.dimen.tbds44), vi.g(getContext(), R.dimen.tbds98), g2, vi.g(getContext(), R.dimen.tbds104)), vi.g(getContext(), R.dimen.tbds6), vi.g(getContext(), R.dimen.tbds6), this.h);
             }
         }
     }
 
-    public void h(qk7 qk7Var) {
+    public void h(tp7 tp7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, qk7Var) != null) || qk7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, tp7Var) != null) || tp7Var == null) {
             return;
         }
         h hVar = this.q;
         if (hVar != null) {
-            hVar.a(qk7Var);
+            hVar.a(tp7Var);
         }
-        if (qk7Var.b == 49) {
+        if (tp7Var.b == 49) {
             TiebaStatic.log("c11841");
         }
-        if (o(qk7Var.b)) {
-            if (this.t != null && !TextUtils.isEmpty(qk7Var.d)) {
-                u97 u97Var = new u97();
-                String str = qk7Var.d;
-                this.t.M(qk7Var.b, -1, u97Var);
+        if (o(tp7Var.b)) {
+            if (this.t != null && !TextUtils.isEmpty(tp7Var.d)) {
+                xe7 xe7Var = new xe7();
+                String str = tp7Var.d;
+                this.t.M(tp7Var.b, -1, xe7Var);
                 return;
             }
             return;
         }
-        int i2 = qk7Var.b;
-        u97 u97Var2 = null;
+        int i2 = tp7Var.b;
+        xe7 xe7Var2 = null;
         if (i2 == 301) {
-            k97 k97Var = this.t;
-            if (k97Var != null) {
-                k97Var.M(i2, -1, null);
+            ne7 ne7Var = this.t;
+            if (ne7Var != null) {
+                ne7Var.M(i2, -1, null);
                 return;
             }
             return;
         }
         if (i2 == 49 && this.t != null) {
-            u97 u97Var3 = new u97();
-            String str2 = qk7Var.d;
-            String str3 = qk7Var.a;
-            this.t.M(qk7Var.b, 0, u97Var3);
-            if (u97Var3.d) {
+            xe7 xe7Var3 = new xe7();
+            String str2 = tp7Var.d;
+            String str3 = tp7Var.a;
+            this.t.M(tp7Var.b, 0, xe7Var3);
+            if (xe7Var3.d) {
                 return;
             }
             z = false;
@@ -590,60 +590,60 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView = (TabItemView) childAt;
                 if (tabItemView.getTabId() == 1) {
-                    tabItemView.setText(qk7Var.a);
+                    tabItemView.setText(tp7Var.a);
                 }
             }
         }
-        if (!TextUtils.isEmpty(qk7Var.d)) {
-            u97Var2 = new u97();
-            String str4 = qk7Var.d;
-            String str5 = qk7Var.a;
+        if (!TextUtils.isEmpty(tp7Var.d)) {
+            xe7Var2 = new xe7();
+            String str4 = tp7Var.d;
+            String str5 = tp7Var.a;
         }
-        k97 k97Var2 = this.t;
-        if (k97Var2 != null && z) {
-            k97Var2.M(qk7Var.b, 0, u97Var2);
+        ne7 ne7Var2 = this.t;
+        if (ne7Var2 != null && z) {
+            ne7Var2.M(tp7Var.b, 0, xe7Var2);
         }
     }
 
-    public final boolean n(List<qk7> list) {
+    public final boolean n(List<tp7> list) {
         InterceptResult invokeL;
-        ca7 ca7Var;
+        ff7 ff7Var;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
             if (list == null) {
                 return false;
             }
-            qk7 j = j(1);
-            qk7 qk7Var = null;
-            Iterator<qk7> it = list.iterator();
+            tp7 j = j(1);
+            tp7 tp7Var = null;
+            Iterator<tp7> it = list.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                qk7 next = it.next();
+                tp7 next = it.next();
                 if (next != null && next.b == 1) {
-                    qk7Var = next;
+                    tp7Var = next;
                     break;
                 }
             }
-            if (j == null || qk7Var == null || (j.c == null && qk7Var.c == null)) {
+            if (j == null || tp7Var == null || (j.c == null && tp7Var.c == null)) {
                 return false;
             }
-            if ((j.c == null && qk7Var.c != null) || (qk7Var.c == null && j.c != null)) {
+            if ((j.c == null && tp7Var.c != null) || (tp7Var.c == null && j.c != null)) {
                 return true;
             }
-            ca7 ca7Var2 = j.c;
-            if (ca7Var2 == null || (ca7Var = qk7Var.c) == null || (ca7Var2.b == null && ca7Var.b == null)) {
+            ff7 ff7Var2 = j.c;
+            if (ff7Var2 == null || (ff7Var = tp7Var.c) == null || (ff7Var2.b == null && ff7Var.b == null)) {
                 return false;
             }
-            if ((j.c.b == null && qk7Var.c.b != null) || ((qk7Var.c.b == null && j.c.b != null) || (size = j.c.b.size()) != qk7Var.c.b.size())) {
+            if ((j.c.b == null && tp7Var.c.b != null) || ((tp7Var.c.b == null && j.c.b != null) || (size = j.c.b.size()) != tp7Var.c.b.size())) {
                 return true;
             }
             for (int i2 = 0; i2 < size; i2++) {
-                ba7 ba7Var = qk7Var.c.b.get(i2);
-                ba7 ba7Var2 = j.c.b.get(i2);
-                if (ba7Var.b != ba7Var2.b || !ba7Var.a.equals(ba7Var2.a)) {
+                ef7 ef7Var = tp7Var.c.b.get(i2);
+                ef7 ef7Var2 = j.c.b.get(i2);
+                if (ef7Var.b != ef7Var2.b || !ef7Var.a.equals(ef7Var2.a)) {
                     return true;
                 }
             }
@@ -654,8 +654,8 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
 
     public void i(TabItemView tabItemView, boolean z) {
         boolean z2;
-        k97 k97Var;
-        List<ba7> list;
+        ne7 ne7Var;
+        List<ef7> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048581, this, tabItemView, z) != null) || tabItemView == null) {
             return;
@@ -665,18 +665,18 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         }
         if (o(tabItemView.getTabId())) {
             if (this.t != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
-                u97 u97Var = new u97();
+                xe7 xe7Var = new xe7();
                 tabItemView.getUrl();
-                this.t.M(tabItemView.getTabId(), -1, u97Var);
+                this.t.M(tabItemView.getTabId(), -1, xe7Var);
                 return;
             }
             return;
         }
-        u97 u97Var2 = null;
+        xe7 xe7Var2 = null;
         if (tabItemView.getTabId() == 301) {
-            k97 k97Var2 = this.t;
-            if (k97Var2 != null) {
-                k97Var2.M(tabItemView.getTabId(), -1, null);
+            ne7 ne7Var2 = this.t;
+            if (ne7Var2 != null) {
+                ne7Var2.M(tabItemView.getTabId(), -1, null);
                 return;
             }
             return;
@@ -685,8 +685,8 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
         int[] iArr = new int[2];
         tabItemView.getLocationOnScreen(iArr);
         int i2 = 0;
-        int l = ri.l(getContext()) - iArr[0];
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369);
+        int l = vi.l(getContext()) - iArr[0];
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374);
         if (iArr[0] < 0) {
             post(new e(this, dimensionPixelSize));
         } else if (l < dimensionPixelSize) {
@@ -719,65 +719,65 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
                 z2 = false;
             }
             this.f.setState(1);
-            qk7 j = j(this.f.getTabId());
+            tp7 j = j(this.f.getTabId());
             if (j == null) {
                 return;
             }
             if (!TextUtils.isEmpty(j.d)) {
-                u97Var2 = new u97();
+                xe7Var2 = new xe7();
                 String str = j.d;
                 String str2 = j.a;
             }
-            ca7 ca7Var = j.c;
-            if (ca7Var != null && (list = ca7Var.b) != null && list.size() > 0) {
-                for (ba7 ba7Var : j.c.b) {
-                    if (ba7Var != null && ba7Var.c) {
-                        i2 = ba7Var.b;
+            ff7 ff7Var = j.c;
+            if (ff7Var != null && (list = ff7Var.b) != null && list.size() > 0) {
+                for (ef7 ef7Var : j.c.b) {
+                    if (ef7Var != null && ef7Var.c) {
+                        i2 = ef7Var.b;
                     }
                 }
             }
-            if (z2 && (k97Var = this.t) != null) {
-                k97Var.M(this.f.getTabId(), i2, u97Var2);
+            if (z2 && (ne7Var = this.t) != null) {
+                ne7Var.M(this.f.getTabId(), i2, xe7Var2);
             }
         }
         invalidate();
     }
 
-    public final qk7 j(int i2) {
+    public final tp7 j(int i2) {
         InterceptResult invokeI;
-        List<qk7> list;
+        List<tp7> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             if (i2 >= 0 && (list = this.e) != null && list.size() != 0) {
-                for (qk7 qk7Var : this.e) {
-                    if (qk7Var != null && qk7Var.b == i2) {
-                        return qk7Var;
+                for (tp7 tp7Var : this.e) {
+                    if (tp7Var != null && tp7Var.b == i2) {
+                        return tp7Var;
                     }
                 }
             }
             return null;
         }
-        return (qk7) invokeI.objValue;
+        return (tp7) invokeI.objValue;
     }
 
-    public qk7 k(int i2) {
+    public tp7 k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             if (!ListUtils.isEmpty(this.e)) {
-                for (qk7 qk7Var : this.e) {
-                    if (qk7Var != null && qk7Var.b == i2) {
-                        return qk7Var;
+                for (tp7 tp7Var : this.e) {
+                    if (tp7Var != null && tp7Var.b == i2) {
+                        return tp7Var;
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (qk7) invokeI.objValue;
+        return (tp7) invokeI.objValue;
     }
 
-    public final void p(List<qk7> list, int i2, int i3, boolean z) {
+    public final void p(List<tp7> list, int i2, int i3, boolean z) {
         boolean z2;
         LinearLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
@@ -788,10 +788,10 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
                 z2 = false;
             }
             if (z2) {
-                layoutParams = new LinearLayout.LayoutParams(ri.l(getContext()) / this.k, -1);
+                layoutParams = new LinearLayout.LayoutParams(vi.l(getContext()) / this.k, -1);
             } else {
                 layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036e);
                 layoutParams.leftMargin = dimensionPixelSize;
                 layoutParams.rightMargin = dimensionPixelSize;
             }
@@ -801,22 +801,22 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
                     this.d = list;
                     this.b.removeAllViews();
                     for (int i4 = 0; i4 < list.size(); i4++) {
-                        qk7 qk7Var = list.get(i4);
-                        if (qk7Var != null) {
-                            TabItemView tabItemView = new TabItemView(getContext(), qk7Var, i3, this.n);
+                        tp7 tp7Var = list.get(i4);
+                        if (tp7Var != null) {
+                            TabItemView tabItemView = new TabItemView(getContext(), tp7Var, i3, this.n);
                             int i5 = this.o;
                             if (i5 != 0) {
                                 tabItemView.setSelectItemColorResId(i5);
                             }
                             tabItemView.setOnClickListener(this.u);
-                            if (o(qk7Var.b)) {
+                            if (o(tp7Var.b)) {
                                 SkinManager.setViewTextColor(tabItemView, (int) R.color.CAM_X0105);
                             }
                             if (i4 == 0) {
                                 layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds44);
                             }
                             this.b.addView(tabItemView, layoutParams);
-                            if (qk7Var.b == i2) {
+                            if (tp7Var.b == i2) {
                                 this.f = tabItemView;
                                 tabItemView.setState(1);
                             }
@@ -827,11 +827,11 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
                 return;
             }
             this.d = null;
-            qk7 qk7Var2 = new qk7();
-            qk7Var2.b = 1;
-            qk7Var2.a = getContext().getResources().getString(R.string.chosen_pb_title);
+            tp7 tp7Var2 = new tp7();
+            tp7Var2.b = 1;
+            tp7Var2.a = getContext().getResources().getString(R.string.chosen_pb_title);
             this.b.removeAllViews();
-            TabItemView tabItemView2 = new TabItemView(getContext(), qk7Var2, i3, this.n);
+            TabItemView tabItemView2 = new TabItemView(getContext(), tp7Var2, i3, this.n);
             int i6 = this.o;
             if (i6 != 0) {
                 tabItemView2.setSelectItemColorResId(i6);
@@ -845,60 +845,60 @@ public class HorizontalTabView extends MyHorizontalScrollView implements ok7 {
     }
 
     public void q() {
-        ca7 ca7Var;
-        List<ba7> list;
+        ff7 ff7Var;
+        List<ef7> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.m != null) {
             ArrayList arrayList = new ArrayList();
-            List<qk7> list2 = this.d;
-            if (list2 != null && list2.size() > 0 && this.d.get(0) != null && (ca7Var = this.d.get(0).c) != null && (list = ca7Var.b) != null) {
-                for (ba7 ba7Var : list) {
-                    if (ba7Var != null) {
-                        arrayList.add(ba7Var.a);
+            List<tp7> list2 = this.d;
+            if (list2 != null && list2.size() > 0 && this.d.get(0) != null && (ff7Var = this.d.get(0).c) != null && (list = ff7Var.b) != null) {
+                for (ef7 ef7Var : list) {
+                    if (ef7Var != null) {
+                        arrayList.add(ef7Var.a);
                     }
                 }
-                f25 f25Var = new f25(this.m.getPageActivity());
-                f25Var.i(arrayList, new d(this, ca7Var));
-                f25Var.c(this.m);
-                f25Var.m();
+                c55 c55Var = new c55(this.m.getPageActivity());
+                c55Var.i(arrayList, new d(this, ff7Var));
+                c55Var.c(this.m);
+                c55Var.m();
             }
         }
     }
 
-    public void setData(List<qk7> list, int i2, int i3) {
-        qk7 qk7Var;
-        List<ba7> list2;
+    public void setData(List<tp7> list, int i2, int i3) {
+        tp7 tp7Var;
+        List<ef7> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048590, this, list, i2, i3) == null) {
             if (this.n) {
                 ArrayList arrayList = new ArrayList();
                 this.e = arrayList;
                 arrayList.addAll(list);
-                if (list != null && list.size() > 0 && (qk7Var = list.get(0)) != null && qk7Var.b == 1) {
-                    ca7 ca7Var = qk7Var.c;
-                    if (ca7Var != null && (list2 = ca7Var.b) != null) {
+                if (list != null && list.size() > 0 && (tp7Var = list.get(0)) != null && tp7Var.b == 1) {
+                    ff7 ff7Var = tp7Var.c;
+                    if (ff7Var != null && (list2 = ff7Var.b) != null) {
                         list2.clear();
                     } else {
-                        ca7Var = new ca7();
-                        ca7Var.b = new ArrayList();
+                        ff7Var = new ff7();
+                        ff7Var.b = new ArrayList();
                     }
                     if (ListUtils.getCount(list) > 1) {
-                        ba7 ba7Var = new ba7();
-                        ba7Var.b = 1;
-                        ba7Var.a = getContext().getString(R.string.chosen_pb_title);
-                        ca7Var.b.add(ba7Var);
-                        for (qk7 qk7Var2 : list) {
-                            if (qk7Var2 != null && qk7Var2.b != 1) {
-                                ba7 ba7Var2 = new ba7();
-                                ba7Var2.b = qk7Var2.b;
-                                ba7Var2.a = qk7Var2.a;
-                                ca7Var.b.add(ba7Var2);
+                        ef7 ef7Var = new ef7();
+                        ef7Var.b = 1;
+                        ef7Var.a = getContext().getString(R.string.chosen_pb_title);
+                        ff7Var.b.add(ef7Var);
+                        for (tp7 tp7Var2 : list) {
+                            if (tp7Var2 != null && tp7Var2.b != 1) {
+                                ef7 ef7Var2 = new ef7();
+                                ef7Var2.b = tp7Var2.b;
+                                ef7Var2.a = tp7Var2.a;
+                                ff7Var.b.add(ef7Var2);
                             }
                         }
-                        qk7Var.c = ca7Var;
+                        tp7Var.c = ff7Var;
                     }
                     list.clear();
-                    list.add(qk7Var);
+                    list.add(tp7Var);
                 }
             } else {
                 this.e = list;

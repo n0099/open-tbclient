@@ -1,78 +1,360 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public final class bbb<E> extends dab<E> {
+public final class bbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bbb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b(new LinkedQueueNode<>());
-        d(this.producerNode);
-        this.consumerNode.soNext(null);
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                this.producerNode.soNext(linkedQueueNode);
-                this.producerNode = linkedQueueNode;
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            throw new NullPointerException("null elements not allowed");
+            try {
+                return str.substring(0, 6) + str.substring(12, 16) + str.substring(26, 32) + str.substring(48);
+            } catch (Exception e) {
+                kbb.c("CBC", "get encryptword exception : " + e.getMessage());
+                return "";
+            }
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return str2.substring(0, 6) + str.substring(0, 6) + str2.substring(6, 10) + str.substring(6, 16) + str2.substring(10, 16) + str.substring(16) + str2.substring(16);
+                } catch (Exception e) {
+                    kbb.c("CBC", "mix exception: " + e.getMessage());
+                }
             }
-            return null;
+            return "";
         }
-        return (E) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
+    public static byte[] c(String str, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                this.consumerNode = lvNext;
-                return andNullValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bArr, bArr2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "encrypt 5 content is null");
+                return new byte[0];
+            } else if (bArr == null) {
+                kbb.c("CBC", "encrypt 5 key is null");
+                return new byte[0];
+            } else if (bArr.length < 16) {
+                kbb.c("CBC", "encrypt 5 key lengh is not right");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                kbb.c("CBC", "encrypt 5 iv is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                kbb.c("CBC", "encrypt 5 iv lengh is not right");
+                return new byte[0];
+            } else {
+                try {
+                    return m(str.getBytes("UTF-8"), bArr, bArr2);
+                } catch (UnsupportedEncodingException e) {
+                    kbb.c("CBC", " cbc encrypt data error" + e.getMessage());
+                    return new byte[0];
+                }
             }
-            return null;
         }
-        return (E) invokeV.objValue;
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static String h(String str, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, bArr, bArr2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "decrypt 4 content is null");
+                return "";
+            } else if (bArr == null) {
+                kbb.c("CBC", "decrypt 4 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                kbb.c("CBC", "decrypt 4 key lengh is not right");
+                return "";
+            } else if (bArr2 == null) {
+                kbb.c("CBC", "decrypt 4 iv is null");
+                return "";
+            } else if (bArr2.length < 16) {
+                kbb.c("CBC", "decrypt 4 iv lengh is not right");
+                return "";
+            } else {
+                try {
+                    return new String(i(hbb.b(str), bArr, bArr2), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    kbb.c("CBC", " cbc decrypt data error" + e.getMessage());
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = new byte[bArr.length + bArr2.length];
+            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] l(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, bArr2)) == null) {
+            byte[] c = gbb.c(16);
+            return d(c, m(bArr, bArr2, c));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return str.substring(6, 12) + str.substring(16, 26) + str.substring(32, 48);
+            } catch (Exception e) {
+                kbb.c("CBC", "getIv exception : " + e.getMessage());
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "decrypt 1 content is null");
+                return "";
+            } else if (TextUtils.isEmpty(str2)) {
+                kbb.c("CBC", "decrypt 1 key is null");
+                return "";
+            } else {
+                byte[] b = hbb.b(str2);
+                if (b.length < 16) {
+                    kbb.c("CBC", "decrypt 1 key length is not right");
+                    return "";
+                }
+                return g(str, b);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String j(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "encrypt 1 content is null");
+                return "";
+            } else if (TextUtils.isEmpty(str2)) {
+                kbb.c("CBC", "encrypt 1 key is null");
+                return "";
+            } else {
+                byte[] b = hbb.b(str2);
+                if (b.length < 16) {
+                    kbb.c("CBC", "encrypt 1 key length is not right");
+                    return "";
+                }
+                return k(str, b);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String g(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "decrypt 2 content is null");
+                return "";
+            } else if (bArr == null) {
+                kbb.c("CBC", "decrypt 2 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                kbb.c("CBC", "decrypt 2 key lengh is not right");
+                return "";
+            } else {
+                String e = e(str);
+                String a = a(str);
+                if (TextUtils.isEmpty(e)) {
+                    kbb.c("CBC", "decrypt 2 iv is null");
+                    return "";
+                } else if (TextUtils.isEmpty(a)) {
+                    kbb.c("CBC", "decrypt 2 encrypt content is null");
+                    return "";
+                } else {
+                    return h(a, bArr, hbb.b(e));
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String k(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, bArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                kbb.c("CBC", "encrypt 2 content is null");
+                return "";
+            } else if (bArr == null) {
+                kbb.c("CBC", "encrypt 2 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                kbb.c("CBC", "encrypt 2 key lengh is not right");
+                return "";
+            } else {
+                byte[] c = gbb.c(16);
+                byte[] c2 = c(str, bArr, c);
+                if (c2 == null || c2.length == 0) {
+                    return "";
+                }
+                return b(hbb.a(c), hbb.a(c2));
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] i(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                kbb.c("CBC", "decrypt 6 content is null");
+                return new byte[0];
+            } else if (bArr.length == 0) {
+                kbb.c("CBC", "decrypt 6 content length is 0");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                kbb.c("CBC", "decrypt 6 key is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                kbb.c("CBC", "decrypt 6 key length is error");
+                return new byte[0];
+            } else if (bArr3 == null) {
+                kbb.c("CBC", "decrypt 6 iv is null");
+                return new byte[0];
+            } else if (bArr3.length < 16) {
+                kbb.c("CBC", "decrypt 6 iv length is error");
+                return new byte[0];
+            } else {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr);
+                } catch (InvalidAlgorithmParameterException e) {
+                    kbb.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
+                    return new byte[0];
+                } catch (InvalidKeyException e2) {
+                    kbb.c("CBC", "InvalidKeyException: " + e2.getMessage());
+                    return new byte[0];
+                } catch (NoSuchAlgorithmException e3) {
+                    kbb.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
+                    return new byte[0];
+                } catch (BadPaddingException e4) {
+                    kbb.c("CBC", "BadPaddingException: " + e4.getMessage());
+                    kbb.c("CBC", "key is not right");
+                    return new byte[0];
+                } catch (IllegalBlockSizeException e5) {
+                    kbb.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
+                    return new byte[0];
+                } catch (NoSuchPaddingException e6) {
+                    kbb.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
+                    return new byte[0];
+                }
+            }
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] m(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                kbb.c("CBC", "encrypt 6 content is null");
+                return new byte[0];
+            } else if (bArr.length == 0) {
+                kbb.c("CBC", "encrypt 6 content length is 0");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                kbb.c("CBC", "encrypt 6 key is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                kbb.c("CBC", "encrypt 6 key length is error");
+                return new byte[0];
+            } else if (bArr3 == null) {
+                kbb.c("CBC", "encrypt 6 iv is null");
+                return new byte[0];
+            } else if (bArr3.length < 16) {
+                kbb.c("CBC", "encrypt 6 iv length is error");
+                return new byte[0];
+            } else {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr);
+                } catch (InvalidAlgorithmParameterException e) {
+                    kbb.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
+                    return new byte[0];
+                } catch (InvalidKeyException e2) {
+                    kbb.c("CBC", "InvalidKeyException: " + e2.getMessage());
+                    return new byte[0];
+                } catch (NoSuchAlgorithmException e3) {
+                    kbb.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
+                    return new byte[0];
+                } catch (BadPaddingException e4) {
+                    kbb.c("CBC", "BadPaddingException: " + e4.getMessage());
+                    return new byte[0];
+                } catch (IllegalBlockSizeException e5) {
+                    kbb.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
+                    return new byte[0];
+                } catch (NoSuchPaddingException e6) {
+                    kbb.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
+                    return new byte[0];
+                }
+            }
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

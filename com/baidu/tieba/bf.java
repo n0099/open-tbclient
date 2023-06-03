@@ -1,151 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class bf {
+public class bf extends ne<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300521, "Lcom/baidu/tieba/bf;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300521, "Lcom/baidu/tieba/bf;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    public /* synthetic */ bf(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final bf a() {
+    @Override // com.baidu.tieba.ne
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a() : (bf) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final bf a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (bf) invokeV.objValue;
+    @Override // com.baidu.tieba.ne
+    public void k(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final bf b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(247377771, "Lcom/baidu/tieba/bf$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(247377771, "Lcom/baidu/tieba/bf$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new bf(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final bf a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (bf) invokeV.objValue;
-        }
-    }
-
-    public bf() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bf(s9 s9Var, String str) {
+        super(s9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s9Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.h = str;
+    }
+
+    @Override // com.baidu.tieba.ne
+    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
+            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ne
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
+                return true;
+            } catch (Throwable th) {
+                this.a.i(th, "clearData");
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v14, types: [T, java.lang.String] */
+    @Override // com.baidu.tieba.ne
+    public re<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
+            Cursor cursor = null;
+            try {
+                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+                try {
+                    if (rawQuery.moveToNext()) {
+                        re<String> reVar = new re<>();
+                        reVar.a = rawQuery.getString(0);
+                        reVar.c = rawQuery.getString(1);
+                        reVar.d = rawQuery.getLong(2);
+                        reVar.e = rawQuery.getLong(3);
+                        reVar.f = rawQuery.getLong(4);
+                        reVar.b = rawQuery.getString(5);
+                        sg.a(rawQuery);
+                        return reVar;
+                    }
+                    sg.a(rawQuery);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = rawQuery;
+                    sg.a(cursor);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (re) invokeLL.objValue;
         }
     }
 
-    public final void b() {
-        xj1<ze> xj1Var;
-        List<ze> list;
+    @Override // com.baidu.tieba.ne
+    public String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xj1Var = new ef().a) != null && (list = xj1Var.getList()) != null) {
-            for (ze zeVar : list) {
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
+            return this.h;
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ne
+    public ContentValues p(re<String> reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("m_key", reVar.a);
+            contentValues.put("m_ns", reVar.c);
+            contentValues.put("m_value", reVar.b);
+            contentValues.put("saveTime", Long.valueOf(reVar.d));
+            contentValues.put("lastHitTime", Long.valueOf(reVar.e));
+            contentValues.put("timeToExpire", Long.valueOf(reVar.f));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b90;
-import com.baidu.tieba.c90;
+import com.baidu.tieba.ka0;
+import com.baidu.tieba.la0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -167,7 +167,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: o */
-        public b mo29clone() {
+        public b mo43clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -211,7 +211,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (b90) null);
+                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (ka0) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -532,7 +532,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (List) invokeV.objValue;
     }
 
-    public List<? extends c90> getEventListOrBuilderList() {
+    public List<? extends la0> getEventListOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -771,7 +771,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ka0 ka0Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -797,7 +797,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, b90 b90Var) {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, ka0 ka0Var) {
         this(builder);
     }
 
@@ -876,13 +876,13 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (RpcMetaPb$event_timestamp) invokeI.objValue;
     }
 
-    public c90 getEventListOrBuilder(int i) {
+    public la0 getEventListOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             return this.eventList_.get(i);
         }
-        return (c90) invokeI.objValue;
+        return (la0) invokeI.objValue;
     }
 
     public static RpcMetaPb$RpcResponseMeta parseFrom(CodedInputStream codedInputStream) throws IOException {

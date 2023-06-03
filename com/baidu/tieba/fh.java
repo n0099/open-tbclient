@@ -1,79 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(xg xgVar) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, xgVar) == null) && d() && xgVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", xgVar.h());
-                uBCManager.onEvent("3102", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-        }
-    }
-
-    public static void b(xg xgVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, xgVar) == null) && d() && xgVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", xgVar.h());
-                uBCManager.onEvent("3052", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (BdNetTypeUtil.isWifiNet()) {
+                return "WIFI";
             }
-        }
-    }
-
-    public static void c(xg xgVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, xgVar) == null) && d() && xgVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", xgVar.h());
-                uBCManager.onEvent("3103", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (BdNetTypeUtil.isMobileNet()) {
+                int curOperatorType = BdNetTypeUtil.curOperatorType();
+                StringBuilder sb = new StringBuilder();
+                if (curOperatorType != 1) {
+                    if (curOperatorType != 2) {
+                        if (curOperatorType != 3) {
+                            sb.append('N');
+                        } else {
+                            sb.append('T');
+                        }
+                    } else {
+                        sb.append('U');
+                    }
+                } else {
+                    sb.append('M');
+                }
+                if (BdNetTypeUtil.isWap()) {
+                    sb.append("_WAP_");
+                } else {
+                    sb.append("_NET_");
+                }
+                if (BdNetTypeUtil.is3GNet()) {
+                    sb.append("3G");
+                } else if (BdNetTypeUtil.is4GNet()) {
+                    sb.append("4G");
+                } else if (BdNetTypeUtil.is2GNet()) {
+                    sb.append("2G");
+                } else {
+                    sb.append('N');
+                }
+                return sb.toString();
             }
+            return "unknown";
         }
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return zg.isOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(gh ghVar, xg xgVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ghVar, xgVar) == null) {
-            if (ghVar instanceof vh) {
-                c(xgVar);
-            } else if (ghVar instanceof uh) {
-                b(xgVar);
-            } else if (ghVar instanceof th) {
-                a(xgVar);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

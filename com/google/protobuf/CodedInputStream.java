@@ -33,7 +33,7 @@ public final class CodedInputStream {
     public CodedInputStream(InputStream inputStream) {
         this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
-        this.sizeLimit = DEFAULT_SIZE_LIMIT;
+        this.sizeLimit = 67108864;
         this.buffer = new byte[4096];
         this.bufferSize = 0;
         this.bufferPos = 0;
@@ -100,7 +100,7 @@ public final class CodedInputStream {
     public CodedInputStream(byte[] bArr, int i, int i2) {
         this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
-        this.sizeLimit = DEFAULT_SIZE_LIMIT;
+        this.sizeLimit = 67108864;
         this.buffer = bArr;
         this.bufferSize = i2 + i;
         this.bufferPos = i;

@@ -5,9 +5,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -155,7 +153,7 @@ public final class WebKitFactory {
                         fileInputStream.read(bArr);
                     }
                     fileInputStream.close();
-                    str2 = new String(bArr, IMAudioTransRequest.CHARSET);
+                    str2 = new String(bArr, "utf-8");
                 }
                 Statistics.init(str + "error.log", str + "phoenix_ad.log", str2);
             } catch (FileNotFoundException e) {
@@ -219,7 +217,7 @@ public final class WebKitFactory {
                 Log.w(WebKitFactory.TAG, "CloudSettings.restoreLastSentTimeFromCfg");
                 CloudSettings.restoreLastSentTimeFromCfg();
             }
-            if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE))) {
+            if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false"))) {
                 HttpDnsCache.tryToUpdateHttpDnsCache(WebViewFactory.getContext());
             }
             Context context = WebViewFactory.getContext();

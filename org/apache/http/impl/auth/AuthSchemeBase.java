@@ -5,7 +5,7 @@ import org.apache.http.auth.AuthScheme;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AuthSchemeBase implements AuthScheme {
     public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
 

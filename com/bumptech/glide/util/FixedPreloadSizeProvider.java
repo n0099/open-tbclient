@@ -3,7 +3,7 @@ package com.bumptech.glide.util;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.ListPreloader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FixedPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T> {
     public final int[] size;
 

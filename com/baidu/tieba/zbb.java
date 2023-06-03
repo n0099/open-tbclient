@@ -1,105 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class zbb<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class zbb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "h";
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final T b;
 
-    public zbb(long j, T t) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948355599, "Lcom/baidu/tieba/zbb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = t;
-        this.a = j;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948355599, "Lcom/baidu/tieba/zbb;");
+        }
     }
 
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int hashCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.a;
-            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
-            T t = this.b;
-            if (t == null) {
-                hashCode = 0;
-            } else {
-                hashCode = t.hashCode();
-            }
-            return i + hashCode;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Context a2 = vbb.a();
+            if (a2 == null) {
+                return "";
             }
-            if (obj == null || !(obj instanceof zbb)) {
-                return false;
+            try {
+                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                String str2 = a;
+                ybb.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
+                return "";
+            } catch (Exception e2) {
+                String str3 = a;
+                ybb.d(str3, "getVersion: " + e2.getMessage());
+                return "";
+            } catch (Throwable unused) {
+                ybb.d(a, "throwable");
+                return "";
             }
-            zbb zbbVar = (zbb) obj;
-            if (this.a == zbbVar.a) {
-                T t = this.b;
-                T t2 = zbbVar.b;
-                if (t == t2) {
-                    return true;
-                }
-                if (t != null && t.equals(t2)) {
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

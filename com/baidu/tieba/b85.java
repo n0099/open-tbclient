@@ -1,7 +1,34 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface b85 {
-    void a();
 
-    void onLoadingStart();
+import com.baidu.tbadk.util.AppLaunchInfoFetcher;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class b85 implements AppLaunchInfoFetcher.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b85() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
+    public void onFinish(rw5 rw5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, rw5Var) == null) && rw5Var != null) {
+            a85.s(rw5Var.a, rw5Var.b);
+        }
+    }
 }

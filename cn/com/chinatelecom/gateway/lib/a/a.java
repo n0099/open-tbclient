@@ -2,7 +2,6 @@ package cn.com.chinatelecom.gateway.lib.a;
 
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +59,7 @@ public class a {
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
+                byte[] bytes = str.getBytes("utf-8");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return e.a(cipher.doFinal(bytes));
             } catch (Throwable th) {
@@ -76,7 +75,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
+                byte[] bytes = str.getBytes("utf-8");
                 int length = bytes.length;
                 while (length % 16 != 0) {
                     length++;

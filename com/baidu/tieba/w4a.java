@@ -6,20 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.VideoTemplate.DataRes;
-import tbclient.VideoTemplateContent;
+import tbclient.GetThemeList.ThemeCarousel;
 /* loaded from: classes8.dex */
-public class w4a {
+public class w4a implements q75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v4a> a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public String a;
+    public String b;
 
     public w4a() {
         Interceptable interceptable = $ic;
@@ -35,77 +28,32 @@ public class w4a {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
+    @Override // com.baidu.tieba.q75
+    public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public List<v4a> c() {
+    @Override // com.baidu.tieba.q75
+    public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
         return (String) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void a(ThemeCarousel themeCarousel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, themeCarousel) != null) || themeCarousel == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.b = dataRes.topic_id.intValue();
-            this.c = dataRes.topic_name;
-            this.d = dataRes.back_url;
-            this.e = dataRes.video_template_url;
-            this.f = dataRes.activity_url;
-            List<VideoTemplateContent> list = dataRes.video_template_content;
-            if (list != null) {
-                this.a = new ArrayList();
-                for (int i = 0; i < list.size(); i++) {
-                    v4a v4aVar = new v4a();
-                    v4aVar.a(list.get(i));
-                    this.a.add(v4aVar);
-                }
-            }
-        }
+        this.a = themeCarousel.pic_url;
+        this.b = themeCarousel.active_url;
     }
 }

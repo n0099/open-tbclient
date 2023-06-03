@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.core.app.NotificationCompat;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +44,11 @@ public class c {
                 Intent intent = new Intent(str);
                 intent.setData(Uri.parse(str2));
                 intent.setPackage(context.getPackageName());
-                alarmManager.cancel(PendingIntent.getBroadcast(context, i, intent, context.getApplicationInfo().targetSdkVersion >= 31 ? 201326592 : 134217728));
+                int i2 = SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    i2 = 201326592;
+                }
+                alarmManager.cancel(PendingIntent.getBroadcast(context, i, intent, i2));
             } catch (Throwable unused) {
             }
         }
@@ -57,7 +62,11 @@ public class c {
                 Intent intent = new Intent(str);
                 intent.setData(Uri.parse(str2));
                 intent.setPackage(context.getPackageName());
-                PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, context.getApplicationInfo().targetSdkVersion >= 31 ? 201326592 : 134217728);
+                int i2 = SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    i2 = 201326592;
+                }
+                PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, i2);
                 try {
                     alarmManager.cancel(broadcast);
                 } catch (Throwable unused) {

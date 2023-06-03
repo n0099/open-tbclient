@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.na6;
-import com.baidu.tieba.ra6;
+import com.baidu.tieba.re6;
+import com.baidu.tieba.ve6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<na6> b;
+    public ArrayList<re6> b;
     public List<ThreadData> c;
     public String d;
     public BdUniqueId e;
@@ -55,13 +55,13 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         this.e = bdUniqueId;
     }
 
-    public final na6 b() {
+    public final re6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new na6(this.a, this.e);
+            return new re6(this.a, this.e);
         }
-        return (na6) invokeV.objValue;
+        return (re6) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -74,10 +74,10 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void c(List<ThreadData> list, ra6 ra6Var) {
-        na6 na6Var;
+    public void c(List<ThreadData> list, ve6 ve6Var) {
+        re6 re6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ra6Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ve6Var) == null) && list != null && !list.isEmpty()) {
             this.c.clear();
             this.c.addAll(list);
             int size = this.b.size();
@@ -88,25 +88,25 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                     arrayList.add(this.b.get(i));
                 }
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    na6 na6Var2 = (na6) arrayList.get(i2);
-                    if (na6Var2.c() != null && na6Var2.c().getParent() != null) {
-                        ((ViewGroup) na6Var2.c().getParent()).removeView(na6Var2.c());
+                    re6 re6Var2 = (re6) arrayList.get(i2);
+                    if (re6Var2.c() != null && re6Var2.c().getParent() != null) {
+                        ((ViewGroup) re6Var2.c().getParent()).removeView(re6Var2.c());
                     }
-                    this.b.remove(na6Var2);
+                    this.b.remove(re6Var2);
                 }
                 arrayList.clear();
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    na6Var = b();
-                    na6Var.g(this.a.getUniqueId());
-                    na6Var.h(ra6Var);
-                    this.b.add(na6Var);
+                    re6Var = b();
+                    re6Var.g(this.a.getUniqueId());
+                    re6Var.h(ve6Var);
+                    this.b.add(re6Var);
                 } else {
-                    na6Var = this.b.get(i3);
+                    re6Var = this.b.get(i3);
                 }
-                if (this.c.get(i3) != null && na6Var != null) {
-                    na6Var.f(this.c.get(i3), this.d);
+                if (this.c.get(i3) != null && re6Var != null) {
+                    re6Var.f(this.c.get(i3), this.d);
                 }
             }
             notifyDataSetChanged();
@@ -133,20 +133,20 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            ArrayList<na6> arrayList = this.b;
+            ArrayList<re6> arrayList = this.b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            na6 na6Var = (na6) ListUtils.getItem(arrayList, i);
-            if (na6Var == null) {
+            re6 re6Var = (re6) ListUtils.getItem(arrayList, i);
+            if (re6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (na6Var.c().getParent() == null) {
-                viewGroup.addView(na6Var.c(), new ViewGroup.LayoutParams(-2, -2));
+            if (re6Var.c().getParent() == null) {
+                viewGroup.addView(re6Var.c(), new ViewGroup.LayoutParams(-2, -2));
             }
-            na6Var.e();
-            na6Var.c().setTag(Integer.valueOf(i));
-            return na6Var.c();
+            re6Var.e();
+            re6Var.c().setTag(Integer.valueOf(i));
+            return re6Var.c();
         }
         return invokeLI.objValue;
     }

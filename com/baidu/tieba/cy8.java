@@ -1,38 +1,127 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.myCollection.CollectUpdateReceiver;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import tbclient.Error;
-import tbclient.Page;
-import tbclient.PbFloor.DataRes;
-import tbclient.SubPostList;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class cy8 {
     public static /* synthetic */ Interceptable $ic;
+    public static cy8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumData a;
-    public sr9 b;
-    public ArrayList<sr9> c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public AntiData i;
-    public ThreadData j;
-    public boolean k;
-    public Error l;
+    public volatile boolean a;
+
+    /* loaded from: classes5.dex */
+    public class a extends jb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cy8 cy8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cy8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                List<String> list = Collections.EMPTY_LIST;
+                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
+                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
+                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
+                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+                }
+                if (!list.isEmpty()) {
+                    l95.m().B("collect_update_time_key", new JSONArray((Collection) list).toString());
+                    cy8.b().g();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Comparator<Calendar> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(cy8 cy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Calendar calendar, Calendar calendar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
+                if (calendar.before(calendar2)) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     public cy8() {
         Interceptable interceptable = $ic;
@@ -47,340 +136,148 @@ public class cy8 {
                 return;
             }
         }
-        this.f = 20;
-        this.h = -1;
-        this.b = null;
-        this.c = new ArrayList<>();
-        this.d = 1;
+        this.a = false;
+        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
+        mx9.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, mx9.a("c/f/livegroup/getStoreRemindTime", 309117));
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static cy8 r(DataRes dataRes) {
-        InterceptResult invokeL;
-        int intValue;
+    public void g() {
+        Calendar c;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dataRes)) == null) {
-            if (dataRes == null) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+            return;
+        }
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
+        intent.setPackage(context.getPackageName());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(14, 0);
+        if (c.before(calendar)) {
+            c.set(6, calendar.get(6) + 1);
+        }
+        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+    }
+
+    public static cy8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (cy8.class) {
+                    if (b == null) {
+                        b = new cy8();
+                    }
+                }
+            }
+            return b;
+        }
+        return (cy8) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
+            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
+            h();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            l95.m().A("collect_request_time_key", System.currentTimeMillis());
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long o = l95.m().o("collect_request_time_key", -1L);
+            if (o == -1) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - o;
+            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Calendar c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String s = l95.m().s("collect_update_time_key", null);
+            if (TextUtils.isEmpty(s)) {
                 return null;
             }
+            ArrayList arrayList = new ArrayList();
+            Calendar calendar = Calendar.getInstance();
             try {
-                cy8 cy8Var = new cy8();
-                AntiData antiData = new AntiData();
-                antiData.parserProtobuf(dataRes.anti);
-                cy8Var.s(antiData);
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(dataRes.thread);
-                cy8Var.z(threadData);
-                ForumData forumData = new ForumData();
-                forumData.parserProtobuf(dataRes.forum);
-                cy8Var.v(forumData);
-                sr9 sr9Var = new sr9();
-                sr9Var.O0(forumData.isBrandForum);
-                sr9Var.D0(dataRes.post, threadData);
-                cy8Var.x(sr9Var);
-                List<SubPostList> list = dataRes.subpost_list;
-                int size = list.size();
-                ArrayList<sr9> arrayList = new ArrayList<>();
-                int D = sr9Var.D();
-                boolean z = false;
-                for (int i = 0; i < size; i++) {
-                    sr9 sr9Var2 = new sr9();
-                    sr9Var2.O0(forumData.isBrandForum);
-                    sr9Var2.B0(list.get(i), false, threadData, D);
-                    if (sr9Var2.n() != null && sr9Var2.n().baijiahaoData == null && threadData.getBaijiahaoData() != null) {
-                        sr9Var2.n().baijiahaoData = threadData.getBaijiahaoData();
+                JSONArray jSONArray = new JSONArray(s);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        Calendar calendar2 = (Calendar) calendar.clone();
+                        calendar2.setTime(simpleDateFormat.parse(optString));
+                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
+                        arrayList.add(calendar2);
                     }
-                    arrayList.add(sr9Var2);
                 }
-                cy8Var.y(arrayList);
-                AntiData antiData2 = new AntiData();
-                antiData2.parserProtobuf(dataRes.anti);
-                cy8Var.s(antiData2);
-                Page page = dataRes.page;
-                if (page != null) {
-                    int intValue2 = page.total_page.intValue();
-                    if (page.page_size.intValue() == 0) {
-                        intValue = 20;
-                    } else {
-                        intValue = page.page_size.intValue();
-                    }
-                    int intValue3 = page.current_page.intValue();
-                    int intValue4 = page.total_count.intValue();
-                    cy8Var.u(intValue3);
-                    cy8Var.w(intValue);
-                    cy8Var.A(intValue4);
-                    cy8Var.B(intValue2);
-                }
-                if (dataRes.is_black_white.intValue() == 1) {
-                    z = true;
-                }
-                cy8Var.t(z);
-                return cy8Var;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+            } catch (ParseException e) {
+                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return null;
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+            if (arrayList.isEmpty()) {
                 return null;
             }
-        }
-        return (cy8) invokeL.objValue;
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void s(AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, antiData) == null) {
-            this.i = antiData;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void v(ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, forumData) == null) {
-            this.a = forumData;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && i != 0) {
-            this.f = i;
-        }
-    }
-
-    public void x(sr9 sr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, sr9Var) == null) {
-            this.b = sr9Var;
-        }
-    }
-
-    public void y(ArrayList<sr9> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, arrayList) == null) {
-            this.c = arrayList;
-        }
-    }
-
-    public void z(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, threadData) == null) {
-            this.j = threadData;
-        }
-    }
-
-    public AntiData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (AntiData) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public Error c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.l;
-        }
-        return (Error) invokeV.objValue;
-    }
-
-    public ForumData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ForumData) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public sr9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (sr9) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.h == -1) {
-                this.h = this.g;
+            Collections.sort(arrayList, new b(this));
+            Calendar calendar3 = (Calendar) arrayList.get(0);
+            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
+            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
+                for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                    Calendar calendar5 = (Calendar) arrayList.get(i2);
+                    if (!calendar5.before(calendar)) {
+                        return calendar5;
+                    }
+                }
+                return null;
             }
-            return this.h;
+            return calendar3;
         }
-        return invokeV.intValue;
+        return (Calendar) invokeV.objValue;
     }
 
-    public ArrayList<sr9> i() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ThreadData j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.g < this.d) {
-                return true;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.a) {
+                z = false;
             }
-            return false;
+            l95.m().w("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean n() {
-        InterceptResult invokeV;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ThreadData threadData = this.j;
-            if (threadData != null && threadData.isUgcThreadType()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ThreadData threadData = this.j;
-            if (threadData != null && this.b != null && threadData.getAuthor() != null && this.j.getAuthor().getUserId() != null && this.b.p() != null && this.b.p().getUserId() != null) {
-                return this.j.getAuthor().getUserId().equals(this.b.p().getUserId());
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p(cy8 cy8Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048593, this, cy8Var, z) != null) || cy8Var == null) {
-            return;
-        }
-        s(cy8Var.a());
-        v(cy8Var.d());
-        x(cy8Var.g());
-        z(cy8Var.j());
-        t(cy8Var.o());
-        if (cy8Var.i() != null) {
-            u(cy8Var.b());
-            w(cy8Var.f());
-            A(cy8Var.k());
-            B(cy8Var.l());
-        }
-        int size = this.c.size();
-        if (z && size % this.f != 0) {
-            for (int i = 0; i < size % this.f; i++) {
-                ArrayList<sr9> arrayList = this.c;
-                arrayList.remove(arrayList.size() - 1);
-            }
-        }
-        this.c.addAll(cy8Var.i());
-    }
-
-    public void q(cy8 cy8Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048594, this, cy8Var, z) != null) || cy8Var == null) {
-            return;
-        }
-        s(cy8Var.a());
-        this.h = cy8Var.b();
-        v(cy8Var.d());
-        w(cy8Var.f());
-        z(cy8Var.j());
-        A(cy8Var.k());
-        B(cy8Var.l());
-        t(cy8Var.o());
-        this.c.addAll(0, cy8Var.i());
     }
 }

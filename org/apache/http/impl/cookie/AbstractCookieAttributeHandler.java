@@ -5,7 +5,7 @@ import org.apache.http.cookie.CookieAttributeHandler;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractCookieAttributeHandler implements CookieAttributeHandler {
     public AbstractCookieAttributeHandler() {
         throw new RuntimeException("Stub!");

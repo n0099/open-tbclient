@@ -39,11 +39,11 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         if (view2 != null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092791);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092790);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092792);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09278f);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0924ff);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927c9);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0927c8);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927ca);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0927c7);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f092533);
             this.f = view2.findViewById(R.id.bottom_divider_line);
         }
     }

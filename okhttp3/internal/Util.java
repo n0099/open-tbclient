@@ -42,7 +42,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Util {
     public static final byte[] EMPTY_BYTE_ARRAY;
     public static final RequestBody EMPTY_REQUEST;

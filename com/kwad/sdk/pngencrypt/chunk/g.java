@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g extends k {
     public g(com.kwad.sdk.pngencrypt.k kVar) {
         super("IDAT", kVar);

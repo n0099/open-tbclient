@@ -1,52 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.za7;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ab7 {
+public class ab7 extends in<bb7, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public va7 a;
-    public TbPageContext b;
-    public sb5 c;
-    public BdUniqueId d;
-    public CustomMessageListener e;
+    public int a;
+    public View.OnClickListener b;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ab7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ab7 ab7Var, int i) {
-            super(i);
+        public a(ab7 ab7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ab7Var, Integer.valueOf(i)};
+                Object[] objArr = {ab7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,94 +44,95 @@ public class ab7 {
             this.a = ab7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage updateAttentionMessage;
-            UpdateAttentionMessage.a data;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
-                return;
-            }
-            if (!data.a) {
-                this.a.a.k(updateAttentionMessage.getData().b);
-            } else {
-                this.a.a.m(data.d);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.a == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                qx4.v(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f04ac), str, true);
             }
         }
     }
 
-    public ab7(TbPageContext tbPageContext, va7 va7Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab7(k9 k9Var) {
+        super(k9Var.getPageActivity(), bb7.c, k9Var.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, va7Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = BdUniqueId.gen();
-        this.e = new a(this, 2001115);
-        this.b = tbPageContext;
-        this.a = va7Var;
-        this.c = new sb5(tbPageContext);
-        this.e.setSelfListener(true);
-        this.e.setTag(this.d);
-        MessageManager.getInstance().registerListener(this.e);
+        this.b = new a(this);
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: z */
+    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sb5 sb5Var = this.c;
-            if (sb5Var != null) {
-                sb5Var.e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d044e, viewGroup, false));
+        }
+        return (ComplaintBarlordViewHolder) invokeL.objValue;
+    }
+
+    public View A(int i, View view2, ViewGroup viewGroup, bb7 bb7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bb7Var, complaintBarlordViewHolder})) == null) {
+            if (bb7Var != null && complaintBarlordViewHolder != null) {
+                y(complaintBarlordViewHolder);
+                x(complaintBarlordViewHolder, bb7Var);
             }
-            MessageManager.getInstance().unRegisterListener(this.e);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bb7 bb7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        A(i, view2, viewGroup, bb7Var, complaintBarlordViewHolder);
+        return view2;
+    }
+
+    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder, bb7 bb7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, complaintBarlordViewHolder, bb7Var) == null) {
+            complaintBarlordViewHolder.d.setText(bb7Var.a);
+            complaintBarlordViewHolder.b.setTag(bb7Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.b);
         }
     }
 
-    public void c(za7 za7Var) {
+    public final void y(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, za7Var) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.b.showToast(R.string.no_network);
-            } else if (za7Var == null || za7Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
-            } else {
-                sb5 sb5Var = this.c;
-                za7.b bVar = za7Var.m;
-                sb5Var.h(!bVar.e, bVar.d, bVar.a, this.d);
+        if (interceptable == null || interceptable.invokeL(1048580, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.a = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
             }
-        }
-    }
-
-    public void d(za7 za7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, za7Var) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.b.showToast(R.string.no_network);
-            } else if (za7Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
-            } else {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-                httpMessage.addParam("thread_id", za7Var.b);
-                httpMessage.addParam("op_type", Boolean.valueOf(za7Var.h));
-                httpMessage.addParam("obj_type", 3);
-                httpMessage.addParam("agree_type", 2);
-                httpMessage.addParam("forum_id", za7Var.a);
-                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-                if (!StringUtil.isEmpty(za7Var.i)) {
-                    httpMessage.addParam("obj_source", za7Var.i);
-                }
-                httpMessage.addHeader("needSig", "1");
-                MessageManager.getInstance().sendMessage(httpMessage);
-                this.a.l();
-            }
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
         }
     }
 }

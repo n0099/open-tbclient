@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ph5;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.rk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,12 +35,12 @@ public class ChatImageWithTailView extends LinearLayout {
     public boolean h;
 
     /* loaded from: classes6.dex */
-    public class a implements ph5 {
+    public class a implements rk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatImageWithTailView a;
 
-        @Override // com.baidu.tieba.ph5
+        @Override // com.baidu.tieba.rk5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -65,8 +65,8 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a = chatImageWithTailView;
         }
 
-        @Override // com.baidu.tieba.ph5
-        public void onLoadFail() {
+        @Override // com.baidu.tieba.rk5
+        public void c() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.h) {
                 this.a.a.setVisibility(8);
@@ -74,7 +74,7 @@ public class ChatImageWithTailView extends LinearLayout {
             }
         }
 
-        @Override // com.baidu.tieba.ph5
+        @Override // com.baidu.tieba.rk5
         public void onLoadSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -221,7 +221,7 @@ public class ChatImageWithTailView extends LinearLayout {
             this.e = (LinearLayout) findViewById(R.id.chat_img_error_holder);
             this.f = (ImageView) findViewById(R.id.ic_chat_img_error);
             this.g = (TextView) findViewById(R.id.tv_chat_img_error);
-            p45 d = p45.d(this.e);
+            m75 d = m75.d(this.e);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0205);
             WebPManager.setPureDrawable(this.f, R.drawable.icon_pure_im_image_failed, R.color.CAM_X0203, null);

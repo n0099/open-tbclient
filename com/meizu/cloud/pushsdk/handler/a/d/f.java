@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.c.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

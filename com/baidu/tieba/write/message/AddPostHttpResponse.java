@@ -9,8 +9,7 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.n7a;
+import com.baidu.tieba.cea;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +56,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(n7a.a(toast));
+        BdToastHelper.toast(cea.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +74,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                BdToastData a = n7a.a(dataRes.toast);
+                BdToastData a = cea.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addPostHttpResponse.resultJSON.put("toast", json);
                 }
@@ -214,7 +213,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
                     jSONObject13.put("ifpost", addPostResIdl.data.anti_stat.ifpost);
                     jSONObject13.put("ifposta", addPostResIdl.data.anti_stat.ifposta);
                     jSONObject13.put("forbid_flag", addPostResIdl.data.anti_stat.forbid_flag);
-                    jSONObject13.put(HttpRequest.TBS, addPostResIdl.data.anti_stat.tbs);
+                    jSONObject13.put("tbs", addPostResIdl.data.anti_stat.tbs);
                     jSONObject13.put("need_vcode", addPostResIdl.data.anti_stat.need_vcode);
                     jSONObject13.put("vcode_md5", addPostResIdl.data.anti_stat.vcode_md5);
                     jSONObject13.put("vcode_pic_url", addPostResIdl.data.anti_stat.vcode_pic_url);

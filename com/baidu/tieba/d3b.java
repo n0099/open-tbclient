@@ -1,210 +1,156 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.z2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class d3b extends SSLSocketFactory {
+public class d3b extends FunNativeAd2Bridger<p3b, com.fun.module.gdt.t> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public String[] e;
-    public String[] f;
-    public String[] g;
+    public final z2b.c b;
+    public final /* synthetic */ k3b c;
+    public final /* synthetic */ z2b d;
 
-    public void b(X509TrustManager x509TrustManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509TrustManager) == null) {
-        }
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655030, "Lcom/baidu/tieba/d3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947655030, "Lcom/baidu/tieba/d3b;");
-                return;
-            }
-        }
-        h = d3b.class.getSimpleName();
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
-            }
-            return new String[0];
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public d3b(X509TrustManager x509TrustManager) throws NoSuchAlgorithmException, KeyManagementException, IllegalArgumentException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d3b(z2b z2bVar, ReporterPidLoader reporterPidLoader, p3b p3bVar, String str, k3b k3bVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x509TrustManager};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {z2bVar, reporterPidLoader, p3bVar, str, k3bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = b3b.f();
-        b(x509TrustManager);
-        this.a.init(null, new X509TrustManager[]{x509TrustManager}, null);
+        this.d = z2bVar;
+        this.c = k3bVar;
+        this.b = new z2b.c(z2bVar, p3bVar, str);
     }
 
-    public final void a(Socket socket) {
-        boolean z;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, p3b p3bVar, BaseNativeAd2<p3b, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        a(expressInflater, str, p3bVar, funAdInteractionListener);
+    }
+
+    public static void b(com.fun.module.gdt.t tVar, p3b p3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!k3b.a(this.g)) {
-                o3b.e(h, "set protocols");
-                b3b.e((SSLSocket) socket, this.g);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (k3b.a(this.f) && k3b.a(this.e)) {
-                z2 = false;
-            } else {
-                o3b.e(h, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                b3b.d(sSLSocket);
-                if (!k3b.a(this.f)) {
-                    b3b.h(sSLSocket, this.f);
-                } else {
-                    b3b.b(sSLSocket, this.e);
+        if (interceptable == null || interceptable.invokeLL(65537, null, tVar, p3bVar) == null) {
+            tVar.b((NativeUnifiedADData) p3bVar.a);
+        }
+    }
+
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/baidu/tieba/p3b;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/baidu/tieba/p3b;Lcom/fun/module/gdt/t;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void a(ExpressInflater expressInflater, String str, final p3b p3bVar, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, p3bVar, funAdInteractionListener) == null) {
+            final com.fun.module.gdt.t tVar = (com.fun.module.gdt.t) expressInflater.getExpressView();
+            z2b z2bVar = this.d;
+            FunNativeAdListenerHelper<p3b, NativeADEventListener> funNativeAdListenerHelper = z2bVar.e;
+            pid = z2bVar.mPid;
+            funNativeAdListenerHelper.startShow(p3bVar, str, pid, this.b, funAdInteractionListener);
+            this.b.d = new z2b.e() { // from class: com.baidu.tieba.i2b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.z2b.e
+                public final void onADStatusChanged() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        d3b.b(com.fun.module.gdt.t.this, p3bVar);
+                    }
                 }
-            }
-            if (!z) {
-                o3b.e(h, "set default protocols");
-                b3b.d((SSLSocket) socket);
-            }
-            if (!z2) {
-                o3b.e(h, "set default cipher suites");
-                b3b.c((SSLSocket) socket);
-            }
+            };
+            this.d.n(tVar, p3bVar, this.b);
+            expressInflater.inflate();
         }
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.gdt.t] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.gdt.t createExpressView(p3b p3bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            o3b.e(h, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p3bVar)) == null) {
+            return this.d.g(FunAdSdk.getAppContext(), (NativeUnifiedADData) p3bVar.a);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, p3b p3bVar, BaseNativeAd2<p3b, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        NativeAdContainer nativeAdContainer;
+        NativeAdContainer nativeAdContainer2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, p3bVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            p3b p3bVar2 = p3bVar;
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
+            if (gdtADStatusChangeListener != null) {
+                this.b.d = new c3b(this, gdtADStatusChangeListener);
+            } else {
+                this.b.d = null;
             }
-            return createSocket;
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            return createSocket(str, i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            o3b.e(h, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                FunNativeView funNativeView = (FunNativeView) inflate;
+                Iterator<WeakReference<NativeAdContainer>> it = k2b.b.a.iterator();
+                while (it.hasNext()) {
+                    NativeAdContainer nativeAdContainer3 = it.next().get();
+                    if (nativeAdContainer3 == null) {
+                        it.remove();
+                    } else if (nativeAdContainer3 == funNativeView.getRoot()) {
+                        it.remove();
+                        nativeAdContainer2 = nativeAdContainer3;
+                        break;
+                    }
+                }
+                if (funNativeView.getRoot() instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) funNativeView.getRoot();
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
+            } else {
+                if (inflate instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) inflate;
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
             }
-            return createSocket;
+            this.d.q(p3bVar2, str, nativeAdContainer2, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
-        return (Socket) invokeCommon.objValue;
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.zx7;
+import com.baidu.tieba.o38;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,12 +17,12 @@ import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<rn> mDataList;
+    public List<vn> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicThreadMessage() {
@@ -61,15 +61,15 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
             this.mDataList = new ArrayList();
             for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                 if (topicThread != null) {
-                    zx7 zx7Var = new zx7();
-                    zx7Var.d(topicThread);
-                    this.mDataList.add(zx7Var);
+                    o38 o38Var = new o38();
+                    o38Var.d(topicThread);
+                    this.mDataList.add(o38Var);
                 }
             }
         }
     }
 
-    public List<rn> getDataList() {
+    public List<vn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

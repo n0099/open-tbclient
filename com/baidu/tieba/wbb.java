@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,47 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class wbb {
+public class wbb extends AsyncTask<Context, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
-    public static final wbb a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public l7b g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (l7b) invokeV.objValue;
-    }
-
-    public l7b i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (l7b) invokeV.objValue;
-    }
-
-    public l7b j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (l7b) invokeV.objValue;
-    }
-
-    @Deprecated
-    public v7b k(v7b v7bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v7bVar)) == null) ? v7bVar : (v7b) invokeL.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +30,7 @@ public class wbb {
                 return;
             }
         }
-        a = new wbb();
+        a = wbb.class.getSimpleName();
     }
 
     public wbb() {
@@ -81,75 +47,62 @@ public class wbb {
         }
     }
 
-    public static l7b a() {
-        InterceptResult invokeV;
+    @Override // android.os.AsyncTask
+    public void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ybb.b(a, "onPreExecute");
         }
-        return (l7b) invokeV.objValue;
     }
 
-    public static l7b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
-        }
-        return (l7b) invokeV.objValue;
-    }
-
-    public static l7b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
-        }
-        return (l7b) invokeV.objValue;
-    }
-
-    public static wbb h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return a;
-        }
-        return (wbb) invokeV.objValue;
-    }
-
-    public static l7b b(ThreadFactory threadFactory) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Context... contextArr) {
         InterceptResult invokeL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new g9b(threadFactory);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                inputStream = tbb.m(contextArr[0]);
+            } catch (Exception e) {
+                String str = a;
+                ybb.d(str, "doInBackground: exception : " + e.getMessage());
+                inputStream = null;
             }
-            throw new NullPointerException("threadFactory == null");
+            String str2 = a;
+            ybb.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            if (inputStream != null) {
+                xbb.b(inputStream);
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        return (l7b) invokeL.objValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public static l7b d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new f9b(threadFactory);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+            if (bool.booleanValue()) {
+                ybb.e(a, "onPostExecute: upate done");
+            } else {
+                ybb.d(a, "onPostExecute: upate failed");
             }
-            throw new NullPointerException("threadFactory == null");
         }
-        return (l7b) invokeL.objValue;
     }
 
-    public static l7b f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: c */
+    public void onProgressUpdate(Integer... numArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new k9b(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
+            ybb.e(a, "onProgressUpdate");
         }
-        return (l7b) invokeL.objValue;
     }
 }

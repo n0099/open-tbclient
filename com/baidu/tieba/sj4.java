@@ -1,45 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pi4;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes7.dex */
-public class sj4 extends pj4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public sj4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pi4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, pi4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            rj4.b(str, map, map2, jSONObject, new qi4(aVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.pi4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, pi4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            rj4.a(str, map, map2, new qi4(aVar));
-        }
-    }
+public interface sj4 {
+    void a(PMSAppInfo pMSAppInfo);
 }

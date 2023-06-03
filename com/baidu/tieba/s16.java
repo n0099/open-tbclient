@@ -1,52 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.util.UriUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import com.baidu.tieba.view.festivalview.FestivalTipView;
 /* loaded from: classes7.dex */
-public class s16 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s16 {
+    kg<LinearLayout> A();
 
-    public static List<AdvertAppInfo> a(@NonNull String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-                if (optJSONObject2 == null) {
-                    return null;
-                }
-                JSONArray optJSONArray = optJSONObject2.optJSONArray("ad");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray == null) {
-                    return null;
-                }
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
-                        AdvertAppInfo m = AdvertAppInfo.m(optJSONObject);
-                        oy4 oy4Var = new oy4();
-                        m.i = oy4Var;
-                        oy4Var.h = false;
-                        arrayList.add(m);
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (List) invokeL.objValue;
-    }
+    int E();
+
+    kg<TiebaPlusRecommendCard> G1();
+
+    void I(Context context, String str);
+
+    void K(Context context, String str);
+
+    kg<RelativeLayout> S();
+
+    kg<FestivalTipView> U();
+
+    kg<ImageView> W();
+
+    kg<View> X();
+
+    void Y(Context context, String str);
+
+    void Z(Context context, String str, boolean z);
+
+    kg<TextView> Z0();
+
+    void e0(Context context, String str, String str2);
+
+    ListView getListView();
+
+    void i1(Context context, String str);
+
+    void j0(Context context, String str);
+
+    kg<ItemCardView> o0();
+
+    kg<GifView> x();
 }

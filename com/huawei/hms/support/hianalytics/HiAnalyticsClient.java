@@ -87,7 +87,7 @@ public class HiAnalyticsClient extends a {
             mapForBi.put("appid", str3);
             mapForBi.put("transId", str2);
             mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, HiAnalyticsConstant.Direction.RESPONSE);
-            mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(i));
+            mapForBi.put("statusCode", String.valueOf(i));
             mapForBi.put("result", String.valueOf(i2));
             mapForBi.put("version", HiAnalyticsUtil.versionCodeToName(String.valueOf(i3)));
             mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_PHONETYPE, Util.getSystemProperties("ro.logsystem.usertype", ""));

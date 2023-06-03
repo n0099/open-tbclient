@@ -1,13 +1,28 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface o36 {
-    void a(String str);
 
-    void b(k36 k36Var);
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface o36 extends r36<t36> {
+    void a(int i);
 
-    void c();
+    List<Integer> d();
 
-    void d();
+    void e(List<n36> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    void e();
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+
+    void i(List<n36> list, int i);
+
+    void k(List<Object> list);
+
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<n36> list, List<n36> list2, boolean z, int i);
+
+    void p(String str);
 }

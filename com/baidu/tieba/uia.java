@@ -1,91 +1,122 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public final class uia {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class uia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends aja {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
+            String str2 = "";
+            if (hea.b()) {
+                if (TextUtils.isEmpty(writeData.getTitle())) {
+                    str = "";
+                    i = 1;
+                } else {
+                    str = writeData.getTitle();
+                    i = 5;
+                }
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    hea.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
                     return;
                 }
+                hea.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
+                return;
             }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
-        }
-
-        @Override // com.baidu.tieba.aja
-        public final void a() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
-                    }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(xia.e().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    com.baidu.ubs.analytics.a.a aVar = this.b;
-                    if (this.d == null) {
-                        str = "";
-                    } else {
-                        str = this.d;
-                    }
-                    aVar.s(str);
-                    new yha().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        yia.b(e.getMessage());
-                    }
-                }
+            if (writeData.getWriteImagesInfo() != null) {
+                str2 = writeData.getWriteImagesInfo().toJsonString();
             }
+            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
         }
     }
 
-    public static void a(String str, String str2, String str3, Map<String, String> map) {
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
+        String str3;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            zia.c(new a(map, aVar, str2, str3));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
+            String jsonString = writeImagesInfo.toJsonString();
+            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
+                try {
+                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
+                    json.put("chosedFiles", (Object) null);
+                    jsonString = json.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    str3 = null;
+                }
+            }
+            str3 = jsonString;
+            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
+        }
+    }
+
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
+            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
+            albumFloatActivityConfig.getIntent().putExtra("from", str2);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setAlbumThread(0);
+            albumFloatActivityConfig.setCanSelectVideo(z2);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
+            albumFloatActivityConfig.setCanEditImage(false);
+            albumFloatActivityConfig.setFromWrite(3);
+            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
+            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
+            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
+            if (z2) {
+                if (!TextUtils.isEmpty(writeData.getTitle())) {
+                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
+                } else {
+                    albumFloatActivityConfig.setVideoTitle("");
+                }
+                albumFloatActivityConfig.setBarName(writeData.getForumName());
+                albumFloatActivityConfig.setBarID(writeData.getForumId());
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    albumFloatActivityConfig.setCanChangeBarName(false);
+                } else {
+                    albumFloatActivityConfig.setCanChangeBarName(true);
+                }
+                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
+            }
+            AntiData antiData = new AntiData();
+            antiData.voice_message = str3;
+            antiData.setIfVoice(z);
+            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
+            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+    }
+
+    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
+            int a = hea.a();
+            if (hea.c(a)) {
+                hea.e(tbPageContext.getPageActivity(), a, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else {
+                a(tbPageContext, writeData);
+            }
         }
     }
 }

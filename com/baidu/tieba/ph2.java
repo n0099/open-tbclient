@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface ph2 {
-    void a(String str);
+    jh2 a();
+
+    boolean b();
+
+    boolean c(String str, String str2, String str3);
 }

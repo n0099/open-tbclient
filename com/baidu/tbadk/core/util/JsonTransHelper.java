@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
@@ -66,19 +67,63 @@ public class JsonTransHelper {
         return (ActionControl) invokeL.objValue;
     }
 
-    public static JSONObject toActionControlJson(ActionControl actionControl) {
+    public static VideoDesc parseVideoDescFromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, actionControl)) == null) {
-            if (actionControl == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            VideoDesc.Builder builder = new VideoDesc.Builder();
+            builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
+            builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+            builder.video_url = jSONObject.optString("video_url");
+            builder.video_width = jSONObject.optString("video_width");
+            builder.video_height = jSONObject.optString("video_height");
+            return builder.build(false);
+        }
+        return (VideoDesc) invokeL.objValue;
+    }
+
+    public static JSONObject toMcnAdInfoJson(McnAdInfo mcnAdInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, mcnAdInfo)) == null) {
+            if (mcnAdInfo == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", actionControl.url);
-                jSONObject.put("name", actionControl.name);
-                jSONObject.put(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, actionControl.text_color);
-                jSONObject.put("text_color_pressed", actionControl.text_color_pressed);
+                jSONObject.put("ad_start_time", mcnAdInfo.ad_start_time);
+                jSONObject.put("ad_end_time", mcnAdInfo.ad_end_time);
+                jSONObject.put("pic_url", mcnAdInfo.pic_url);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, mcnAdInfo.jump_url);
+                jSONObject.put("card_title", mcnAdInfo.card_title);
+                jSONObject.put("button_title", mcnAdInfo.button_title);
+                jSONObject.put("effect_time", mcnAdInfo.effect_time);
+                jSONObject.put("expire_time", mcnAdInfo.expire_time);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject toVideoDescJson(VideoDesc videoDesc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, videoDesc)) == null) {
+            if (videoDesc == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("video_id", videoDesc.video_id);
+                jSONObject.put(VideoFinishResult.KEY_VIDEO_MD5, videoDesc.video_md5);
+                jSONObject.put("video_url", videoDesc.video_url);
+                jSONObject.put("video_width", videoDesc.video_width);
+                jSONObject.put("video_height", videoDesc.video_height);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -138,6 +183,32 @@ public class JsonTransHelper {
         return (McnAdInfo) invokeL.objValue;
     }
 
+    public static JSONObject toAdCloseInfoJson(AdCloseInfo adCloseInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, adCloseInfo)) == null) {
+            if (adCloseInfo == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("support_close", adCloseInfo.support_close);
+                jSONObject.put("title", adCloseInfo.title);
+                JSONArray jSONArray = new JSONArray();
+                for (String str : adCloseInfo.reasons) {
+                    jSONArray.put(str);
+                }
+                jSONObject.put("reasons", jSONArray);
+                jSONObject.put("confirm_title", adCloseInfo.confirm_title);
+                jSONObject.put("action_control", toActionControlJson(adCloseInfo.action_control));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
     public static App parseAppFromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -174,7 +245,7 @@ public class JsonTransHelper {
             builder.user_id = jSONObject.optString("user_id");
             builder.price = jSONObject.optString("price");
             builder.verify = jSONObject.optString(SmsLoginView.f.j);
-            builder.ext_info = jSONObject.optString("ext_info");
+            builder.ext_info = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
             int length = optJSONArray.length();
@@ -237,6 +308,59 @@ public class JsonTransHelper {
         return (GoodsInfo) invokeL.objValue;
     }
 
+    public static JSONObject toAppJson(App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, app)) == null) {
+            if (app == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", app.type);
+                jSONObject.put("pos", app.pos);
+                jSONObject.put("icon_url", app.icon_url);
+                jSONObject.put("icon_link", app.icon_link);
+                jSONObject.put("app_name", app.app_name);
+                jSONObject.put("app_desc", app.app_desc);
+                jSONObject.put("p_name", app.p_name);
+                jSONObject.put("p_url", app.p_url);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, app.img_url);
+                jSONObject.put("app_time", app.app_time);
+                jSONObject.put("web_url", app.web_url);
+                jSONObject.put(LegoListActivityConfig.AD_ID, app.ad_id);
+                jSONObject.put("id", app.id);
+                jSONObject.put("name", app.name);
+                jSONObject.put("url_type", app.url_type);
+                jSONObject.put("url", app.url);
+                jSONObject.put("ios_url", app.ios_url);
+                jSONObject.put("apk_url", app.apk_url);
+                jSONObject.put("apk_name", app.apk_name);
+                jSONObject.put("pos_name", app.pos_name);
+                jSONObject.put("first_name", app.first_name);
+                jSONObject.put("second_name", app.second_name);
+                jSONObject.put("cpid", app.cpid);
+                jSONObject.put("abtest", app.abtest);
+                jSONObject.put("plan_id", app.plan_id);
+                jSONObject.put("user_id", app.user_id);
+                jSONObject.put("price", app.price);
+                jSONObject.put(SmsLoginView.f.j, app.verify);
+                jSONObject.put(MigrateStatisticUtils.EXT_INFO, app.ext_info);
+                JSONArray jSONArray = new JSONArray();
+                for (GoodsInfo goodsInfo : app.goods_info) {
+                    jSONArray.put(toGoodsInfoJson(goodsInfo));
+                }
+                jSONObject.put("goods_info", jSONArray);
+                jSONObject.put("loc_code", app.loc_code);
+                jSONObject.put("deep_url", app.deep_url);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
     public static ThreadPicList parseThreadPicListFromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -261,97 +385,6 @@ public class JsonTransHelper {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("pic", threadPicList.pic);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static VideoDesc parseVideoDescFromJson(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            VideoDesc.Builder builder = new VideoDesc.Builder();
-            builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
-            builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
-            builder.video_url = jSONObject.optString("video_url");
-            builder.video_width = jSONObject.optString("video_width");
-            builder.video_height = jSONObject.optString("video_height");
-            return builder.build(false);
-        }
-        return (VideoDesc) invokeL.objValue;
-    }
-
-    public static JSONObject toAdCloseInfoJson(AdCloseInfo adCloseInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, adCloseInfo)) == null) {
-            if (adCloseInfo == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("support_close", adCloseInfo.support_close);
-                jSONObject.put("title", adCloseInfo.title);
-                JSONArray jSONArray = new JSONArray();
-                for (String str : adCloseInfo.reasons) {
-                    jSONArray.put(str);
-                }
-                jSONObject.put("reasons", jSONArray);
-                jSONObject.put("confirm_title", adCloseInfo.confirm_title);
-                jSONObject.put("action_control", toActionControlJson(adCloseInfo.action_control));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject toMcnAdInfoJson(McnAdInfo mcnAdInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, mcnAdInfo)) == null) {
-            if (mcnAdInfo == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ad_start_time", mcnAdInfo.ad_start_time);
-                jSONObject.put("ad_end_time", mcnAdInfo.ad_end_time);
-                jSONObject.put("pic_url", mcnAdInfo.pic_url);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, mcnAdInfo.jump_url);
-                jSONObject.put("card_title", mcnAdInfo.card_title);
-                jSONObject.put("button_title", mcnAdInfo.button_title);
-                jSONObject.put("effect_time", mcnAdInfo.effect_time);
-                jSONObject.put("expire_time", mcnAdInfo.expire_time);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject toVideoDescJson(VideoDesc videoDesc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, videoDesc)) == null) {
-            if (videoDesc == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("video_id", videoDesc.video_id);
-                jSONObject.put(VideoFinishResult.KEY_VIDEO_MD5, videoDesc.video_md5);
-                jSONObject.put("video_url", videoDesc.video_url);
-                jSONObject.put("video_width", videoDesc.video_width);
-                jSONObject.put("video_height", videoDesc.video_height);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -399,59 +432,6 @@ public class JsonTransHelper {
             return builder.build(false);
         }
         return (VideoInfo) invokeL.objValue;
-    }
-
-    public static JSONObject toAppJson(App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, app)) == null) {
-            if (app == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", app.type);
-                jSONObject.put("pos", app.pos);
-                jSONObject.put("icon_url", app.icon_url);
-                jSONObject.put("icon_link", app.icon_link);
-                jSONObject.put("app_name", app.app_name);
-                jSONObject.put("app_desc", app.app_desc);
-                jSONObject.put("p_name", app.p_name);
-                jSONObject.put("p_url", app.p_url);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, app.img_url);
-                jSONObject.put("app_time", app.app_time);
-                jSONObject.put("web_url", app.web_url);
-                jSONObject.put(LegoListActivityConfig.AD_ID, app.ad_id);
-                jSONObject.put("id", app.id);
-                jSONObject.put("name", app.name);
-                jSONObject.put("url_type", app.url_type);
-                jSONObject.put("url", app.url);
-                jSONObject.put("ios_url", app.ios_url);
-                jSONObject.put("apk_url", app.apk_url);
-                jSONObject.put("apk_name", app.apk_name);
-                jSONObject.put("pos_name", app.pos_name);
-                jSONObject.put("first_name", app.first_name);
-                jSONObject.put("second_name", app.second_name);
-                jSONObject.put("cpid", app.cpid);
-                jSONObject.put("abtest", app.abtest);
-                jSONObject.put("plan_id", app.plan_id);
-                jSONObject.put("user_id", app.user_id);
-                jSONObject.put("price", app.price);
-                jSONObject.put(SmsLoginView.f.j, app.verify);
-                jSONObject.put("ext_info", app.ext_info);
-                JSONArray jSONArray = new JSONArray();
-                for (GoodsInfo goodsInfo : app.goods_info) {
-                    jSONArray.put(toGoodsInfoJson(goodsInfo));
-                }
-                jSONObject.put("goods_info", jSONArray);
-                jSONObject.put("loc_code", app.loc_code);
-                jSONObject.put("deep_url", app.deep_url);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
     }
 
     public static JSONObject toGoodsInfoJson(GoodsInfo goodsInfo) {
@@ -537,6 +517,27 @@ public class JsonTransHelper {
                 jSONObject.put("mcn_ad_card", toMcnAdInfoJson(videoInfo.mcn_ad_card));
                 jSONObject.put("wth_mid_loc", videoInfo.wth_mid_loc);
                 jSONObject.put("hth_mid_loc", videoInfo.hth_mid_loc);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject toActionControlJson(ActionControl actionControl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, actionControl)) == null) {
+            if (actionControl == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("url", actionControl.url);
+                jSONObject.put("name", actionControl.name);
+                jSONObject.put(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, actionControl.text_color);
+                jSONObject.put("text_color_pressed", actionControl.text_color_pressed);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

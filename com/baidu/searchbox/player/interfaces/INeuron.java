@@ -6,7 +6,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface INeuron {
     public static final int ORDER_FIRST = 1;
     public static final int ORDER_LAST = 2;
@@ -16,12 +16,12 @@ public interface INeuron {
     public static final int TYPE_SPECIFIED = -1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface Order {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface Type {
     }
 

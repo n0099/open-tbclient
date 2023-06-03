@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.fr;
+import com.baidu.tieba.xr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +18,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0019\b\u0086\b\u0018\u0000 ;2\u00020\u0001:\u0001;BE\u0012\b\b\u0002\u0010\u000e\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u000f\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0010\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0011\u001a\u00020\u0007\u0012\b\b\u0002\u0010\u0012\u001a\u00020\u0007\u0012\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u000b¢\u0006\u0004\b9\u0010:J\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0004J\u0010\u0010\b\u001a\u00020\u0007HÆ\u0003¢\u0006\u0004\b\b\u0010\tJ\u0010\u0010\n\u001a\u00020\u0007HÆ\u0003¢\u0006\u0004\b\n\u0010\tJ\u0012\u0010\f\u001a\u0004\u0018\u00010\u000bHÆ\u0003¢\u0006\u0004\b\f\u0010\rJN\u0010\u0014\u001a\u00020\u00002\b\b\u0002\u0010\u000e\u001a\u00020\u00022\b\b\u0002\u0010\u000f\u001a\u00020\u00022\b\b\u0002\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0011\u001a\u00020\u00072\b\b\u0002\u0010\u0012\u001a\u00020\u00072\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u000bHÆ\u0001¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u001a\u0010\u001a\u001a\u00020\u00022\b\u0010\u0019\u001a\u0004\u0018\u00010\u0018HÖ\u0003¢\u0006\u0004\b\u001a\u0010\u001bJ\u0010\u0010\u001d\u001a\u00020\u001cHÖ\u0001¢\u0006\u0004\b\u001d\u0010\u001eJ\u0015\u0010!\u001a\u00020 2\u0006\u0010\u001f\u001a\u00020\u001c¢\u0006\u0004\b!\u0010\"J\u000f\u0010$\u001a\u00020#H\u0016¢\u0006\u0004\b$\u0010%J\u0010\u0010&\u001a\u00020\u0007HÖ\u0001¢\u0006\u0004\b&\u0010\tR$\u0010\u0013\u001a\u0004\u0018\u00010\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010'\u001a\u0004\b(\u0010\r\"\u0004\b)\u0010*R\"\u0010\u0011\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010+\u001a\u0004\b,\u0010\t\"\u0004\b-\u0010.R\"\u0010\u000f\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010/\u001a\u0004\b0\u0010\u0004\"\u0004\b1\u00102R\"\u0010\u0012\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010+\u001a\u0004\b3\u0010\t\"\u0004\b4\u0010.R\"\u0010\u000e\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000e\u0010/\u001a\u0004\b5\u0010\u0004\"\u0004\b6\u00102R\"\u0010\u0010\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010/\u001a\u0004\b7\u0010\u0004\"\u0004\b8\u00102¨\u0006<"}, d2 = {"Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()Z", "component2", "component3", "", "component4", "()Ljava/lang/String;", "component5", "Lcom/baidu/bdtask/framework/redux/Action;", "component6", "()Lcom/baidu/bdtask/framework/redux/Action;", "hasFailed", "duplicated", "responseDataIsCache", "curDuplicateId", "extraUnRegisterMsg", "curAction", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "(ZZZLjava/lang/String;Ljava/lang/String;Lcom/baidu/bdtask/framework/redux/Action;)Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "deepCopy", "()Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "", "other", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "status", "", "onStatusChanged", "(I)V", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "Lcom/baidu/bdtask/framework/redux/Action;", "getCurAction", "setCurAction", "(Lcom/baidu/bdtask/framework/redux/Action;)V", "Ljava/lang/String;", "getCurDuplicateId", "setCurDuplicateId", "(Ljava/lang/String;)V", "Z", "getDuplicated", "setDuplicated", "(Z)V", "getExtraUnRegisterMsg", "setExtraUnRegisterMsg", "getHasFailed", "setHasFailed", "getResponseDataIsCache", "setResponseDataIsCache", "<init>", "(ZZZLjava/lang/String;Ljava/lang/String;Lcom/baidu/bdtask/framework/redux/Action;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class TaskStatusRuntime implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
     public transient /* synthetic */ FieldHolder $fh;
-    public fr curAction;
+    public xr curAction;
     public String curDuplicateId;
     public boolean duplicated;
     public String extraUnRegisterMsg;
@@ -57,7 +57,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (fr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
+                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (xr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,7 +65,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, fr frVar, int i, Object obj) {
+    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, xr xrVar, int i, Object obj) {
         if ((i & 1) != 0) {
             z = taskStatusRuntime.hasFailed;
         }
@@ -86,9 +86,9 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
         String str4 = str2;
         if ((i & 32) != 0) {
-            frVar = taskStatusRuntime.curAction;
+            xrVar = taskStatusRuntime.curAction;
         }
-        return taskStatusRuntime.copy(z, z4, z5, str3, str4, frVar);
+        return taskStatusRuntime.copy(z, z4, z5, str3, str4, xrVar);
     }
 
     public final boolean component1() {
@@ -121,16 +121,16 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extraUnRegisterMsg : (String) invokeV.objValue;
     }
 
-    public final fr component6() {
+    public final xr component6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (fr) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (xr) invokeV.objValue;
     }
 
-    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, fr frVar) {
+    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, xr xrVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, frVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, frVar) : (TaskStatusRuntime) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, xrVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, xrVar) : (TaskStatusRuntime) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -181,8 +181,8 @@ public final class TaskStatusRuntime implements ITaskModelData {
             int hashCode = (i4 + (str != null ? str.hashCode() : 0)) * 31;
             String str2 = this.extraUnRegisterMsg;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            fr frVar = this.curAction;
-            return hashCode2 + (frVar != null ? frVar.hashCode() : 0);
+            xr xrVar = this.curAction;
+            return hashCode2 + (xrVar != null ? xrVar.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -196,7 +196,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,12 +229,12 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, fr frVar) {
+    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, xr xrVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, frVar};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, xrVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -249,15 +249,15 @@ public final class TaskStatusRuntime implements ITaskModelData {
         this.responseDataIsCache = z3;
         this.curDuplicateId = str;
         this.extraUnRegisterMsg = str2;
-        this.curAction = frVar;
+        this.curAction = xrVar;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, fr frVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r12, r1, r0, r2, r3, (i & 32) != 0 ? null : frVar);
+    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, xr xrVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r12, r1, r0, r2, r3, (i & 32) != 0 ? null : xrVar);
         boolean z4;
         boolean z5;
         String str3;
@@ -296,13 +296,13 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (TaskStatusRuntime) invokeV.objValue;
     }
 
-    public final fr getCurAction() {
+    public final xr getCurAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.curAction;
         }
-        return (fr) invokeV.objValue;
+        return (xr) invokeV.objValue;
     }
 
     public final String getCurDuplicateId() {
@@ -377,10 +377,10 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public final void setCurAction(fr frVar) {
+    public final void setCurAction(xr xrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, frVar) == null) {
-            this.curAction = frVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, xrVar) == null) {
+            this.curAction = xrVar;
         }
     }
 

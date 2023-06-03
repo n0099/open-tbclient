@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.k7b;
-import com.baidu.tieba.o7b;
-import com.baidu.tieba.u7b;
+import com.baidu.tieba.kmb;
+import com.baidu.tieba.omb;
+import com.baidu.tieba.umb;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements k7b {
+/* loaded from: classes2.dex */
+public final class SingleDelayedProducer<T> extends AtomicInteger implements kmb {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final o7b<? super T> child;
+    public final omb<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(o7b<? super T> o7bVar) {
-        this.child = o7bVar;
+    public SingleDelayedProducer(omb<? super T> ombVar) {
+        this.child = ombVar;
     }
 
-    @Override // com.baidu.tieba.k7b
+    @Override // com.baidu.tieba.kmb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements k7b
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(o7b<? super T> o7bVar, T t) {
-        if (o7bVar.isUnsubscribed()) {
+    public static <T> void emit(omb<? super T> ombVar, T t) {
+        if (ombVar.isUnsubscribed()) {
             return;
         }
         try {
-            o7bVar.onNext(t);
-            if (o7bVar.isUnsubscribed()) {
+            ombVar.onNext(t);
+            if (ombVar.isUnsubscribed()) {
                 return;
             }
-            o7bVar.onCompleted();
+            ombVar.onCompleted();
         } catch (Throwable th) {
-            u7b.g(th, o7bVar, t);
+            umb.g(th, ombVar, t);
         }
     }
 }

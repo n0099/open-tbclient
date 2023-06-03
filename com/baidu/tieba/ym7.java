@@ -1,154 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
-import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class ym7 extends yi6<r87> {
+public class ym7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HListView t;
-    public jz7 u;
-    public FrsSchoolRecommendItemView v;
-    public List<kz7> w;
-    public View.OnClickListener x;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ym7 a;
-
-        public a(ym7 ym7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ym7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ym7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
-                this.a.e().a(view2, null);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ym7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext);
+    public ym7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.x = new a(this);
-        HListView hListView = new HListView(getContext());
-        this.t = hListView;
-        hListView.setHeaderDividersEnabled(false);
-        this.t.setFooterDividersEnabled(false);
-        this.t.setSelector(R.drawable.list_selector_transparent);
-        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) null), tbPageContext, bdUniqueId);
-        jz7 jz7Var = new jz7(getContext(), R.layout.obfuscated_res_0x7f0d0382, this.v);
-        this.u = jz7Var;
-        jz7Var.d(this.x);
-        this.t.setAdapter((ListAdapter) this.u);
-        this.q.addView(this.t);
-        this.p.setVisibility(8);
-        this.j.setTextSize(0, ri.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    @Override // com.baidu.tieba.yi6, com.baidu.tieba.xi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            super.j(tbPageContext, i);
-            if (this.t != null && this.u != null) {
-                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-                this.u.b(i);
-            }
-        }
-    }
-
-    public final boolean u(List<kz7> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.I3() && TbSingleton.getInstance().getFrsResponseData() != null) {
                 return true;
-            }
-            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
-                kz7 kz7Var = (kz7) ListUtils.getItem(this.w, i);
-                kz7 kz7Var2 = (kz7) ListUtils.getItem(list, i);
-                if ((kz7Var instanceof x97) && (kz7Var2 instanceof x97) && !((x97) kz7Var).a.getUserId().equals(((x97) kz7Var2).a.getUserId())) {
-                    return true;
-                }
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yi6
-    /* renamed from: x */
-    public void t(r87 r87Var) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r87Var) == null) {
-            super.i(r87Var);
-            if (r87Var != null && !ListUtils.isEmpty(r87Var.getDataList())) {
-                if (StringUtils.isNull(r87Var.mGroupTitle)) {
-                    this.j.setText(getContext().getResources().getString(R.string.school_recommend));
-                } else {
-                    this.j.setText(r87Var.mGroupTitle);
-                }
-                if (u(r87Var.getDataList())) {
-                    List<kz7> dataList = r87Var.getDataList();
-                    this.w = dataList;
-                    this.u.c(dataList);
-                    this.u.notifyDataSetChanged();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t();
         }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (x55.j()) {
+                return false;
+            }
+            tw9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            uf7 uf7Var = new uf7(this.n.getPageContext());
+            this.m.M4(uf7Var);
+            boolean j = uf7Var.j(frsResponseData);
+            this.m.K4(j);
+            this.m.P4(j);
+            return j;
+        }
+        return invokeV.booleanValue;
     }
 }

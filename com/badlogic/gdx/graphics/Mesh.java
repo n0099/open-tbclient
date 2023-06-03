@@ -7,17 +7,17 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g3;
-import com.baidu.tieba.g5;
-import com.baidu.tieba.h3;
-import com.baidu.tieba.h5;
-import com.baidu.tieba.i5;
+import com.baidu.tieba.k3;
+import com.baidu.tieba.k5;
+import com.baidu.tieba.l3;
+import com.baidu.tieba.l5;
 import com.baidu.tieba.m5;
-import com.baidu.tieba.n5;
-import com.baidu.tieba.o5;
-import com.baidu.tieba.o6;
-import com.baidu.tieba.s0;
-import com.baidu.tieba.v6;
+import com.baidu.tieba.q5;
+import com.baidu.tieba.r5;
+import com.baidu.tieba.s5;
+import com.baidu.tieba.s6;
+import com.baidu.tieba.w0;
+import com.baidu.tieba.z6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,13 +31,13 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.UShort;
 /* loaded from: classes.dex */
-public class Mesh implements v6 {
+public class Mesh implements z6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, o6<Mesh>> e;
+    public static final Map<Application, s6<Mesh>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o5 a;
-    public final h5 b;
-    public i5 c;
+    public final s5 a;
+    public final l5 b;
+    public m5 c;
     public final Vector3 d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -162,12 +162,12 @@ public class Mesh implements v6 {
         return (FloatBuffer) invokeV.objValue;
     }
 
-    public Mesh(boolean z, int i, int i2, h3 h3Var) {
+    public Mesh(boolean z, int i, int i2, l3 l3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), h3Var};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), l3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -178,20 +178,20 @@ public class Mesh implements v6 {
             }
         }
         this.d = new Vector3();
-        this.a = o(z, i, h3Var);
-        this.b = new g5(z, i2);
-        a(s0.a, this);
+        this.a = o(z, i, l3Var);
+        this.b = new k5(z, i2);
+        a(w0.a, this);
     }
 
     public static void a(Application application, Mesh mesh) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, mesh) == null) {
-            o6<Mesh> o6Var = e.get(application);
-            if (o6Var == null) {
-                o6Var = new o6<>();
+            s6<Mesh> s6Var = e.get(application);
+            if (s6Var == null) {
+                s6Var = new s6<>();
             }
-            o6Var.a(mesh);
-            e.put(application, o6Var);
+            s6Var.a(mesh);
+            e.put(application, s6Var);
         }
     }
 
@@ -202,11 +202,11 @@ public class Mesh implements v6 {
         }
     }
 
-    public g3 l(int i) {
+    public k3 l(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            h3 b = this.a.b();
+            l3 b = this.a.b();
             int size = b.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (b.c(i2).a == i) {
@@ -215,7 +215,7 @@ public class Mesh implements v6 {
             }
             return null;
         }
-        return (g3) invokeI.objValue;
+        return (k3) invokeI.objValue;
     }
 
     public static String k() {
@@ -235,28 +235,28 @@ public class Mesh implements v6 {
     }
 
     public static void n(Application application) {
-        o6<Mesh> o6Var;
+        s6<Mesh> s6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (o6Var = e.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (s6Var = e.get(application)) == null) {
             return;
         }
-        for (int i = 0; i < o6Var.b; i++) {
-            o6Var.get(i).a.invalidate();
-            o6Var.get(i).b.invalidate();
+        for (int i = 0; i < s6Var.b; i++) {
+            s6Var.get(i).a.invalidate();
+            s6Var.get(i).b.invalidate();
         }
     }
 
-    @Override // com.baidu.tieba.v6
+    @Override // com.baidu.tieba.z6
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (e.get(s0.a) != null) {
-                e.get(s0.a).i(this, true);
+            if (e.get(w0.a) != null) {
+                e.get(w0.a).i(this, true);
             }
             this.a.dispose();
-            i5 i5Var = this.c;
-            if (i5Var != null) {
-                i5Var.dispose();
+            m5 m5Var = this.c;
+            if (m5Var != null) {
+                m5Var.dispose();
             }
             this.b.dispose();
         }
@@ -296,7 +296,7 @@ public class Mesh implements v6 {
             if (i >= 0 && i2 >= 1 && (i3 = i + i2) <= c) {
                 FloatBuffer buffer = this.a.getBuffer();
                 ShortBuffer buffer2 = this.b.getBuffer();
-                g3 l = l(1);
+                k3 l = l(1);
                 int i4 = l.e / 4;
                 int i5 = this.a.b().b / 4;
                 int i6 = l.b;
@@ -372,15 +372,15 @@ public class Mesh implements v6 {
         return (BoundingBox) invokeCommon.objValue;
     }
 
-    public final o5 o(boolean z, int i, h3 h3Var) {
+    public final s5 o(boolean z, int i, l3 l3Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), h3Var})) == null) {
-            if (s0.g != null) {
-                return new n5(z, i, h3Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), l3Var})) == null) {
+            if (w0.g != null) {
+                return new r5(z, i, l3Var);
             }
-            return new m5(z, i, h3Var);
+            return new q5(z, i, l3Var);
         }
-        return (o5) invokeCommon.objValue;
+        return (s5) invokeCommon.objValue;
     }
 }

@@ -2,7 +2,7 @@ package okio;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ForwardingTimeout extends Timeout {
     public Timeout delegate;
 

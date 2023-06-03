@@ -1,24 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistoryHttpResponsedMessage;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistoryRequestMessage;
+import com.baidu.tieba.personExtra.SmartAppBrowseHistorySocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ve9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ve9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, we9> c;
+    public boolean a;
+    public b b;
+    public jb c;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z, pe9 pe9Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends jb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ve9 ve9Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ve9Var;
+        }
+
+        @Override // com.baidu.tieba.jb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage != null && responsedMessage.getError() == 0) {
+                    if (!(responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage)) {
+                        if (!(responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage)) {
+                            return;
+                        }
+                        this.a.d(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
+                        return;
+                    }
+                    this.a.d(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
+                    return;
+                }
+                this.a.d(false, null);
+            }
+        }
+    }
 
     public ve9() {
         Interceptable interceptable = $ic;
@@ -33,155 +87,55 @@ public class ve9 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
+        f();
+        e();
     }
 
-    public static ve9 a() {
-        InterceptResult invokeV;
+    public final void d(boolean z, pe9 pe9Var) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (ve9.class) {
-                    if (d == null) {
-                        d = new ve9();
-                    }
-                }
-            }
-            return d;
-        }
-        return (ve9) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, we9> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public we9 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
-        }
-        return (we9) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        ConcurrentHashMap<String, we9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                we9 we9Var = this.c.get(it.next());
-                if (we9Var != null && str.equals(we9Var.b)) {
-                    it.remove();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, pe9Var) == null) && (bVar = this.b) != null) {
+            bVar.a(z, pe9Var);
         }
     }
 
-    public void g(boolean z) {
-        ConcurrentHashMap<String, we9> concurrentHashMap;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            mx9.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
+            mx9.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a) {
             return;
         }
-        for (String str : concurrentHashMap.keySet()) {
-            we9 we9Var = this.c.get(str);
-            if (we9Var != null) {
-                we9Var.e = z;
-            }
-        }
+        this.a = true;
+        MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
     }
 
-    public we9 d(String str) {
-        InterceptResult invokeL;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, we9> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (we9) invokeL.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void i(HashMap<String, we9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, we9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                we9 we9Var = this.c.get(str2);
-                if (we9Var != null && str.equals(we9Var.b)) {
-                    we9Var.e = z;
-                }
-            }
-        }
-    }
-
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void l(String str, HashMap<String, we9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
-            }
-            f(str);
-            this.c.putAll(hashMap);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

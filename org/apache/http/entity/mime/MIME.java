@@ -1,7 +1,7 @@
 package org.apache.http.entity.mime;
 
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MIME {
     public static final String CONTENT_DISPOSITION = "Content-Disposition";
     public static final String CONTENT_TRANSFER_ENC = "Content-Transfer-Encoding";

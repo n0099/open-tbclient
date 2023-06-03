@@ -5,10 +5,10 @@ import android.webkit.WebResourceResponse;
 import androidx.core.util.Pair;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.ng6;
-import com.baidu.tieba.vf6;
-import com.baidu.tieba.vg6;
+import com.baidu.tieba.ck6;
+import com.baidu.tieba.cl6;
+import com.baidu.tieba.mm6;
+import com.baidu.tieba.uk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final vf6 a;
+    public static final ck6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new vf6();
+        a = new ck6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -47,7 +47,7 @@ public class ImageLoader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, map, pair)) == null) {
-            String b = ei6.b(str);
+            String b = mm6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            vg6 e = ng6.d().e(str);
+            cl6 e = uk6.d().e(str);
             if (e == null) {
-                e = ng6.d().e(ei6.c(str2));
+                e = uk6.d().e(mm6.c(str2));
             }
             if (e == null) {
                 return null;
             }
-            String c = ei6.c(str2);
+            String c = mm6.c(str2);
             String str3 = "";
             for (String str4 : e.f) {
                 if (c.endsWith(str4)) {

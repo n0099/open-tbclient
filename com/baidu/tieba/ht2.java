@@ -1,35 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes5.dex */
-public interface ht2 {
-    boolean a(Context context, wv2 wv2Var, pv2 pv2Var, g93 g93Var);
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes6.dex */
+public class ht2 extends sp2<ju2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, rv2 rv2Var, pv2 pv2Var, g93 g93Var);
+    @Override // com.baidu.tieba.sp2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getDuration" : (String) invokeV.objValue;
+    }
 
-    boolean c(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
+    public ht2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void d(mv1 mv1Var);
-
-    boolean e(Context context, qv2 qv2Var, pv2 pv2Var, g93 g93Var);
-
-    void f(mv1 mv1Var);
-
-    boolean g(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean h(Context context, uv2 uv2Var, pv2 pv2Var, g93 g93Var);
-
-    void i(mv1 mv1Var);
-
-    boolean j(Context context, vv2 vv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean k(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean l(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean m(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean n(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
-
-    boolean update(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) == null) {
+            command.ret = ju2Var.getDuration();
+            String str = command.what;
+            d(ju2Var, str, "Duration: " + command.ret, false);
+        }
+    }
 }

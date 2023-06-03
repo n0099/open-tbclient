@@ -1,80 +1,75 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
+import java.io.Writer;
 /* loaded from: classes6.dex */
-public class iq4 implements bu1 {
+public class iq4 extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public StringBuilder b;
 
-    public iq4() {
+    public iq4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new StringBuilder(128);
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.bu1
-    public rp2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) {
-            return new kq4();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.length() > 0) {
+            Log.d(this.a, this.b.toString());
+            StringBuilder sb = this.b;
+            sb.delete(0, sb.length());
         }
-        return (rp2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bu1
-    public rr2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) {
-            return new nq4(invoker, str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
         }
-        return (rr2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bu1
-    public rr2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    @Override // java.io.Writer, java.io.Flushable
+    public void flush() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) {
-            return new mq4(invoker, str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
         }
-        return (rr2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bu1
-    public qp2 d(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    @Override // java.io.Writer
+    public void write(char[] cArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) {
-            return new jq4();
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                char c = cArr[i + i3];
+                if (c == '\n') {
+                    a();
+                } else {
+                    this.b.append(c);
+                }
+            }
         }
-        return (qp2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bu1
-    public on2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) {
-            return new xq4(invoker, str);
-        }
-        return (on2) invokeLL.objValue;
     }
 }

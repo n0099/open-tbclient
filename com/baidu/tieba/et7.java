@@ -1,118 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class et7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<en> b;
-    public xn c;
-    public dt7 d;
-    public it7 e;
-    public ct7 f;
-    public gt7 g;
-    public ft7 h;
-    public ht7 i;
-    public jt7 j;
 
-    public et7(TbPageContext tbPageContext, xn xnVar) {
+    public static boolean a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xnVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
+            if ("personalize".equals(str) && m56.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
+                return true;
             }
+            if ("frs_new_tab".equals(str2) && m56.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                return true;
+            }
+            if ("frs_hot_tab".equals(str2) && m56.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
+                return true;
+            }
+            if ("pb".equals(str) && m56.k().r(i, AbsDataRecorder.Scene.PB)) {
+                return true;
+            }
+            return false;
         }
-        this.a = tbPageContext;
-        this.c = xnVar;
-        a();
+        return invokeLLI.booleanValue;
     }
 
-    public final void a() {
+    public static void b(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+        ViewGroup c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            dt7 dt7Var = new dt7(this.a);
-            this.d = dt7Var;
-            dt7Var.x(this.c);
-            this.b.add(this.d);
-            it7 it7Var = new it7(this.a);
-            this.e = it7Var;
-            it7Var.x(this.c);
-            this.b.add(this.e);
-            ct7 ct7Var = new ct7(this.a);
-            this.f = ct7Var;
-            ct7Var.x(this.c);
-            this.b.add(this.f);
-            gt7 gt7Var = new gt7(this.a);
-            this.g = gt7Var;
-            gt7Var.x(this.c);
-            this.b.add(this.g);
-            ft7 ft7Var = new ft7(this.a);
-            this.h = ft7Var;
-            ft7Var.x(this.c);
-            this.b.add(this.h);
-            ht7 ht7Var = new ht7(this.a);
-            this.i = ht7Var;
-            ht7Var.x(this.c);
-            this.b.add(this.i);
-            jt7 jt7Var = new jt7(this.a);
-            this.j = jt7Var;
-            jt7Var.x(this.c);
-            this.b.add(this.j);
-            this.c.addAdapters(this.b);
-        }
-    }
-
-    public void b() {
-        xn xnVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xnVar = this.c) != null) {
-            xnVar.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<rn> list) {
-        xn xnVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (xnVar = this.c) != null) {
-            xnVar.setData(list);
-            b();
-        }
-    }
-
-    public void d(zw4 zw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zw4Var) == null) {
-            for (en enVar : this.b) {
-                if (enVar instanceof bt7) {
-                    ((bt7) enVar).u(zw4Var);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i)}) == null) {
+            if (!"personalize".equals(str) && !"frs_new_tab".equals(str2) && !"frs_hot_tab".equals(str2)) {
+                if ("pb".equals(str)) {
+                    if (m56.k().m() && i == 1) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(false);
+                        if (funAdNativeViewHolder != null && funAdNativeViewHolder.d() != null && (c = funAdNativeViewHolder.d().c(null)) != null) {
+                            c.setPadding(c.getPaddingLeft(), c.getPaddingTop(), c.getPaddingRight(), 0);
+                        }
+                    } else if (vipAdFreeGuideLayout != null) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(true);
+                    }
                 }
+            } else if (vipAdFreeGuideLayout != null) {
+                vipAdFreeGuideLayout.setBottomCornerRound(true);
             }
         }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            for (en enVar : this.b) {
-                enVar.setPageId(bdUniqueId);
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, vipAdFreeGuideLayout, str, str2, str3) == null) {
+            if ("personalize".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            } else if ("frs_new_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+            } else if ("frs_hot_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+            } else if ("pb".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            }
+        }
+    }
+
+    public static void d(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, Integer.valueOf(i)}) != null) || vipAdFreeGuideLayout == null) {
+            return;
+        }
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(funAdNativeViewHolder, vipAdFreeGuideLayout, str2, str3, i);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, str3);
+    }
+
+    public static void e(cy9 cy9Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
+        int f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{cy9Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
+            if (cy9Var != null && vipAdFreeGuideLayout != null) {
+                if ("personalize".equals(str2)) {
+                    f = m56.k().j(cy9Var.g());
+                } else {
+                    f = cy9Var.f();
+                }
+                if (f == 1) {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                } else if (f == 2) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                } else if (a(str2, str3, i)) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                    m56.k().c();
+                    if ("personalize".equals(str2)) {
+                        m56.k().p(cy9Var.g(), 2);
+                    } else {
+                        cy9Var.q(2);
+                    }
+                } else {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                    if ("personalize".equals(str2)) {
+                        m56.k().p(cy9Var.g(), 1);
+                    } else {
+                        cy9Var.q(1);
+                    }
+                }
             }
         }
     }

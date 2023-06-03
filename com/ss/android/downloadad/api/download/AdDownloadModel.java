@@ -3,6 +3,7 @@ package com.ss.android.downloadad.api.download;
 import android.text.TextUtils;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import com.ss.android.download.api.c.b;
 import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.download.api.download.DownloadModel;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdDownloadModel implements DownloadModel {
     public String mAppIcon;
     public String mAppName;
@@ -64,7 +65,7 @@ public class AdDownloadModel implements DownloadModel {
         return true;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public AdDownloadModel model = new AdDownloadModel();
 
@@ -564,7 +565,7 @@ public class AdDownloadModel implements DownloadModel {
             } else {
                 z5 = false;
             }
-            Builder notificationJumpUrl = expectFileLength.setNeedIndependentProcess(z5).setVersionCode(jSONObject.optInt("version_code")).setVersionName(jSONObject.optString("version_name")).setFilePath(jSONObject.optString(PackageTable.FILE_PATH)).setFileName(jSONObject.optString("file_name")).setNotificationJumpUrl(jSONObject.optString("notification_jump_url"));
+            Builder notificationJumpUrl = expectFileLength.setNeedIndependentProcess(z5).setVersionCode(jSONObject.optInt("version_code")).setVersionName(jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME)).setFilePath(jSONObject.optString(PackageTable.FILE_PATH)).setFileName(jSONObject.optString("file_name")).setNotificationJumpUrl(jSONObject.optString("notification_jump_url"));
             if (jSONObject.optInt("auto_install_without_notify") == 1) {
                 z6 = true;
             } else {
@@ -810,7 +811,7 @@ public class AdDownloadModel implements DownloadModel {
             }
             jSONObject.put("independent_process", i5);
             jSONObject.put("version_code", this.mVersionCode);
-            jSONObject.putOpt("version_name", this.mVersionName);
+            jSONObject.putOpt(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, this.mVersionName);
             jSONObject.putOpt(PackageTable.FILE_PATH, this.mFilePath);
             jSONObject.putOpt("file_name", this.mFileName);
             jSONObject.putOpt("notification_jump_url", this.mNotificationJumpUrl);

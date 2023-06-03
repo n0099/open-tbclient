@@ -1,37 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
-import tbclient.Loop.FestivalInfo;
-import tbclient.ThemeColorInfo;
-/* loaded from: classes6.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("main_fname")
-    public String a;
-    @SerializedName("main_fid")
-    public long b;
-    @Nullable
-    @SerializedName("bless")
-    public String c;
-    @Nullable
-    @SerializedName("write_select_tips")
-    public String d;
-    @Nullable
-    @SerializedName("comment_tips")
+    public boolean a;
+    public boolean b;
+    public int c;
+    public int d;
     public String e;
-    @Nullable
-    @SerializedName("tips_color")
-    public ThemeColorInfo f;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
 
     public od5() {
         Interceptable interceptable = $ic;
@@ -47,44 +34,29 @@ public class od5 {
         }
     }
 
-    public void a(FestivalInfo festivalInfo) {
+    public void a(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = festivalInfo.main_fname;
-        this.b = festivalInfo.main_fid.longValue();
-        this.c = festivalInfo.bless;
-        this.d = festivalInfo.write_select_tips;
-        this.e = festivalInfo.comment_tips;
-        this.f = festivalInfo.tips_color;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || od5.class != obj.getClass()) {
-                return false;
-            }
-            od5 od5Var = (od5) obj;
-            if (Objects.equals(this.a, od5Var.a) && this.b == od5Var.b && Objects.equals(this.c, od5Var.c) && Objects.equals(this.d, od5Var.d) && Objects.equals(this.e, od5Var.e)) {
-                return true;
-            }
-            return false;
+        boolean z2 = true;
+        if (jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
+        this.a = z;
+        if (jSONObject.optInt("isActivateNaniApp", 1) != 1) {
+            z2 = false;
         }
-        return invokeV.intValue;
+        this.b = z2;
+        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f = jSONObject.optString("downloadNaniTxt", null);
+        this.g = jSONObject.optString("showNaniTailTxt", null);
+        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

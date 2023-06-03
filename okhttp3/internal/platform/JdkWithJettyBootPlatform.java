@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JdkWithJettyBootPlatform extends Platform {
     public final Class<?> clientProviderClass;
     public final Method getMethod;
@@ -20,7 +20,7 @@ public class JdkWithJettyBootPlatform extends Platform {
     public final Method removeMethod;
     public final Class<?> serverProviderClass;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class JettyNegoProvider implements InvocationHandler {
         public final List<String> protocols;
         public String selected;

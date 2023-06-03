@@ -11,8 +11,8 @@ public class SchemeResult extends SapiResult {
     public static final String ERROR_MSG_SYSTEM_ERROR = "系统错误，请稍后再试";
 
     public SchemeResult() {
-        this.msgMap.put(ERROR_CODE_SYSTEM_ERROR, ERROR_MSG_SYSTEM_ERROR);
-        this.msgMap.put(ERROR_CODE_SC_PACKAGE_SIGN_ERROR, ERROR_MSG_SC_PACKAGE_SIGN_ERROR);
+        this.msgMap.put(-603, ERROR_MSG_SYSTEM_ERROR);
+        this.msgMap.put(-604, ERROR_MSG_SC_PACKAGE_SIGN_ERROR);
     }
 
     public String toJson() {

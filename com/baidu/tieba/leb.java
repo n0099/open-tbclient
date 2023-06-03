@@ -1,65 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class leb implements fhb {
+public class leb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public AbsViewEventHandler b;
-    public mdb c;
-    public ugb d;
+    public volatile int a;
+    public volatile int b;
+    public volatile int c;
 
-    @Override // com.baidu.tieba.fhb
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public leb(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, mdb mdbVar, ugb ugbVar) {
+    public leb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, mdbVar, ugbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = mdbVar;
-        this.d = ugbVar;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
-    @Override // com.baidu.tieba.fhb
-    public void a(CancelType cancelType) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.a != 2) {
+                    this.b++;
+                    if (this.b >= this.c) {
+                        this.a = 2;
+                        notify();
+                    }
+                }
             }
-            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
-            this.c.g(cancelType, this.b);
         }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = i;
+        }
+    }
+
+    public synchronized boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.a != 0) {
+                    return true;
+                }
+                try {
+                    this.a = 1;
+                    wait(i);
+                    return true;
+                } catch (Exception unused) {
+                    this.a = 2;
+                    return false;
+                }
+            }
+        }
+        return invokeI.booleanValue;
     }
 }

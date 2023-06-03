@@ -75,7 +75,7 @@ public final class IndicatorViewController {
         Context context = textInputLayout.getContext();
         this.context = context;
         this.textInputView = textInputLayout;
-        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c5);
+        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d0);
     }
 
     private ObjectAnimator createCaptionTranslationYAnimator(TextView textView) {
@@ -459,7 +459,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923b5);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923e9);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -491,7 +491,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923b6);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923ea);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

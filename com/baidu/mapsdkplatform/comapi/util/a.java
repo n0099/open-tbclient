@@ -3,6 +3,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import android.content.pm.Signature;
 import android.os.Build;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0116a {
+    public static class C0121a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,10 +61,10 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
-                    if (context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.hasMultipleSigners()) {
-                        signatureArr = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getApkContentsSigners();
+                    if (context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.hasMultipleSigners()) {
+                        signatureArr = context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getApkContentsSigners();
                     } else {
-                        signatureArr = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getSigningCertificateHistory();
+                        signatureArr = context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getSigningCertificateHistory();
                     }
                 } else {
                     signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;
@@ -90,7 +91,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C0116a.a(a(x509Certificate.getEncoded()));
+                return C0121a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.o86;
-import com.baidu.tieba.p86;
+import com.baidu.tieba.sc6;
+import com.baidu.tieba.tc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public p86 mSpecialActivityListData;
+    public tc6 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new p86();
+        this.mSpecialActivityListData = new tc6();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -72,17 +72,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                p86 p86Var = this.mSpecialActivityListData;
-                if (p86Var != null && p86Var.a == null) {
-                    p86Var.a = new ArrayList();
+                tc6 tc6Var = this.mSpecialActivityListData;
+                if (tc6Var != null && tc6Var.a == null) {
+                    tc6Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            o86 o86Var = new o86();
-                            o86Var.c(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(o86Var);
+                            sc6 sc6Var = new sc6();
+                            sc6Var.c(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(sc6Var);
                         }
                     }
                 }

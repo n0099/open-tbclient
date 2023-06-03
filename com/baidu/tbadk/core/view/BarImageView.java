@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sk;
+import com.baidu.tieba.wk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -202,8 +202,8 @@ public class BarImageView extends TbClipImageView {
         float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            sk skVar = this.e;
-            if (skVar != null && skVar.c != null) {
+            wk wkVar = this.e;
+            if (wkVar != null && wkVar.c != null) {
                 if (!this.G0) {
                     super.onDraw(canvas);
                     return;

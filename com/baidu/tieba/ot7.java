@@ -1,132 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.WebPManager;
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
+import com.baidu.tieba.gameassist.permission.PermissionFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class ot7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class ot7 implements PermissionService {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<Integer, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Drawable[] a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043863, "Lcom/baidu/tieba/ot7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Drawable[] drawableArr = new Drawable[2];
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043863, "Lcom/baidu/tieba/ot7;");
+                return;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081125, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081156, WebPManager.ResourceStateType.NORMAL);
-                        } else {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081124, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081155, WebPManager.ResourceStateType.NORMAL);
-                        }
-                    } else {
-                        drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081126, WebPManager.ResourceStateType.NORMAL);
-                        drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081157, WebPManager.ResourceStateType.NORMAL);
-                    }
-                } else {
-                    drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081128, WebPManager.ResourceStateType.NORMAL);
-                    drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081159, WebPManager.ResourceStateType.NORMAL);
-                }
-            } else {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081127, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081158, WebPManager.ResourceStateType.NORMAL);
-            }
-            return drawableArr;
         }
-        return (Drawable[]) invokeL.objValue;
+        a = new HashMap();
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        char c;
+    public ot7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b30);
-                        }
-                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2f);
-                    }
-                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b31);
-                }
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b33);
-            }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b32);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
+    public void requestFloatWindowPermission(@NonNull Activity activity, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, iGrantCallback) == null) && iGrantCallback != null) {
+            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
+            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
+            intent.putExtra("request", "requestFloatPermission");
+            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
+            activity.startActivity(intent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
+    public void requestPermission(@NonNull Activity activity, @NonNull String[] strArr, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, iGrantCallback) == null) && iGrantCallback != null) {
+            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
+            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
+            intent.putExtra("request", "requestPermissions");
+            intent.putExtra("permissions", strArr);
+            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
+            activity.startActivity(intent);
+        }
     }
 }

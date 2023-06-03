@@ -1,119 +1,122 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class a42 extends m22 {
+public class a42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
 
-    public a42() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            int indexOf = str.indexOf("_dev");
+            if (indexOf > 0) {
+                return str.substring(0, indexOf);
+            }
+            int indexOf2 = str.indexOf("_trial");
+            if (indexOf2 > 0) {
+                return str.substring(0, indexOf2);
+            }
+            return str;
         }
-        this.d = -1.0f;
-        this.e = 0.0f;
-        this.f = 1.0f;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.m22
-    public void a(n22 n22Var, Canvas canvas) {
-        float f;
+    public static int b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
-            TextPaint textPaint = n22Var.e;
-            int i = n22Var.k;
-            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top;
-            int i2 = this.c;
-            float f3 = i2 + f2;
-            float f4 = fontMetrics.ascent + i2;
-            float f5 = fontMetrics.bottom;
-            float f6 = i2 + f5;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        f = i2;
-                    } else {
-                        f = i2 - (f4 - f3);
-                    }
-                } else {
-                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
-                }
-            } else {
-                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            if (this.e == 0.0d) {
-                Rect rect = new Rect();
-                String str = this.a;
-                textPaint.getTextBounds(str, 0, str.length(), rect);
-                if (this.d != -1.0f) {
-                    float f7 = this.d;
-                    if (rect.width() > f7) {
-                        this.e = f7 / rect.width();
-                    }
-                }
-                this.e = 1.0f;
+            if (str.contains("_dev")) {
+                return 1;
             }
-            canvas.save();
-            int alpha = textPaint.getAlpha();
-            int color = textPaint.getColor();
-            textPaint.setStyle(Paint.Style.STROKE);
-            textPaint.setStrokeWidth(this.f);
-            textPaint.setColor(n22Var.m);
-            n22Var.c(textPaint);
-            canvas.scale(this.e, 1.0f);
-            canvas.drawText(this.a, this.b, f, textPaint);
-            textPaint.setStyle(Paint.Style.FILL);
-            textPaint.setAlpha(alpha);
-            textPaint.setColor(color);
-            canvas.restore();
+            if (str.endsWith("_trial")) {
+                return 3;
+            }
+            if (!str.contains("_trial")) {
+                return 0;
+            }
+            return 2;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.m22
-    public void b(JSONArray jSONArray) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = xm3.g((float) jSONArray.optDouble(1));
-                    this.c = xm3.g((float) jSONArray.optDouble(2));
-                    if (jSONArray.length() > 3) {
-                        this.d = xm3.g((float) jSONArray.optDouble(3));
-                    }
-                    this.f = xm3.g(1.0f);
-                }
-            } catch (Exception e) {
-                if (qp1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
+            int lastIndexOf = str.lastIndexOf("_dev");
+            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
+                return str.substring(lastIndexOf);
+            }
+            int lastIndexOf2 = str.lastIndexOf("_trial");
+            if (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) {
+                return "";
+            }
+            return str.substring(lastIndexOf2);
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(vw2 vw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vw2Var)) == null) {
+            if (vw2Var != null && vw2Var.getType() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(vw2 vw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vw2Var)) == null) {
+            if (vw2Var == null || vw2Var.getType() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.contains("_")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(vw2 vw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, vw2Var)) == null) {
+            if (vw2Var != null && vw2Var.getType() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -7,11 +7,10 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.tieba.R;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0016\u0018\u00002\u00020\u00012\u00020\u0002B\u0007¢\u0006\u0004\b\u0016\u0010\u000bJ\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\r\u001a\u00020\t2\b\u0010\f\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0014\u001a\u00020\u00138\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015¨\u0006\u0017"}, d2 = {"Lcom/baidu/searchbox/player/element/BackButtonElement;", "android/view/View$OnClickListener", "Lcom/baidu/searchbox/player/element/AbsElement;", "", "attachToRootAtOnce", "()Z", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "", "initElement", "()V", "v", "onClick", "(Landroid/view/View;)V", "", RemoteMessageConst.Notification.VISIBILITY, "onParentVisibleChanged", "(I)V", "Landroid/widget/ImageView;", "backButton", "Landroid/widget/ImageView;", "<init>", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\b\u0016\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u0006\u001a\u00020\u0007H\u0016J\b\u0010\b\u001a\u00020\tH\u0016J\b\u0010\n\u001a\u00020\u000bH\u0016J\u0012\u0010\f\u001a\u00020\u000b2\b\u0010\r\u001a\u0004\u0018\u00010\tH\u0016J\u0010\u0010\u000e\u001a\u00020\u000b2\u0006\u0010\u000f\u001a\u00020\u0010H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/player/element/BackButtonElement;", "Lcom/baidu/searchbox/player/element/AbsElement;", "Landroid/view/View$OnClickListener;", "()V", "backButton", "Landroid/widget/ImageView;", "attachToRootAtOnce", "", "getContentView", "Landroid/view/View;", "initElement", "", "onClick", "v", "onParentVisibleChanged", "visibility", "", "framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes4.dex */
 public class BackButtonElement extends AbsElement implements View.OnClickListener {
     public ImageView backButton;
 
@@ -25,6 +24,7 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
         ImageView imageView = this.backButton;
         if (imageView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("backButton");
+            return null;
         }
         return imageView;
     }
@@ -35,23 +35,26 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
         this.backButton = imageView;
         if (imageView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("backButton");
+            imageView = null;
         }
         int dp2px = BdPlayerUtils.dp2px(imageView, 26.0f);
         imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
         int dp2px2 = BdPlayerUtils.dp2px(imageView, 10.0f);
         imageView.setPadding(dp2px2, dp2px2, dp2px2, dp2px2);
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080261);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080264);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         imageView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
+        UniversalPlayer universalPlayer;
         BDVideoPlayer videoPlayer = getVideoPlayer();
-        if (!(videoPlayer instanceof UniversalPlayer)) {
-            videoPlayer = null;
+        if (videoPlayer instanceof UniversalPlayer) {
+            universalPlayer = (UniversalPlayer) videoPlayer;
+        } else {
+            universalPlayer = null;
         }
-        UniversalPlayer universalPlayer = (UniversalPlayer) videoPlayer;
         if (universalPlayer != null) {
             universalPlayer.switchToHalf(2);
         }
@@ -59,25 +62,33 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void onParentVisibleChanged(int i) {
+        UniversalPlayer universalPlayer;
+        ImageView imageView = null;
         if (i == 0) {
             BDVideoPlayer videoPlayer = getVideoPlayer();
-            if (!(videoPlayer instanceof UniversalPlayer)) {
-                videoPlayer = null;
+            if (videoPlayer instanceof UniversalPlayer) {
+                universalPlayer = (UniversalPlayer) videoPlayer;
+            } else {
+                universalPlayer = null;
             }
-            UniversalPlayer universalPlayer = (UniversalPlayer) videoPlayer;
-            if (universalPlayer != null && universalPlayer.isFullMode()) {
-                ImageView imageView = this.backButton;
-                if (imageView == null) {
+            boolean z = true;
+            if ((universalPlayer == null || !universalPlayer.isFullMode()) ? false : false) {
+                ImageView imageView2 = this.backButton;
+                if (imageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("backButton");
+                } else {
+                    imageView = imageView2;
                 }
                 imageView.setVisibility(0);
                 return;
             }
         }
-        ImageView imageView2 = this.backButton;
-        if (imageView2 == null) {
+        ImageView imageView3 = this.backButton;
+        if (imageView3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("backButton");
+        } else {
+            imageView = imageView3;
         }
-        imageView2.setVisibility(8);
+        imageView.setVisibility(8);
     }
 }

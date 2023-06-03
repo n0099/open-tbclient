@@ -1,221 +1,237 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
+import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import com.baidu.ala.gift.IFrameCallback;
+import com.baidu.ala.gift.IImageFramePlayerViewController;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class tg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public RelativeLayout b;
+    public IImageFramePlayerViewController c;
+    public AlaEffectPreviewView d;
+    public AlaEnterEffectData e;
+    public int f;
+    public IFrameCallback g;
+    public c h;
 
-    public static qg6 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            File k = mg6.l().k();
-            File file = new File(k, str + "/" + str2);
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            Map<String, vg6> b = b(file);
-            if (!f(file, b)) {
-                return null;
-            }
-            return new qg6(file, str2, b);
-        }
-        return (qg6) invokeLL.objValue;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
     }
 
-    public static Map<String, vg6> b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            File file2 = new File(file, "router.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(bi6.d(file2));
-                Map<String, vg6> d = d(jSONObject.optJSONObject("config"));
-                Map<String, vg6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
-                if (!zh6.b(d2)) {
-                    d.putAll(d2);
-                }
-                return d;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+    /* loaded from: classes7.dex */
+    public class a implements IFrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tg6 a;
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
-        return (Map) invokeL.objValue;
-    }
 
-    public static Set<String> c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
-            if (!zh6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
+        }
+
+        public a(tg6 tg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return hashSet;
+            this.a = tg6Var;
         }
-        return (Set) invokeL.objValue;
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameEnd() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tg6.b(this.a);
+                if (this.a.f <= 0 && this.a.e != null) {
+                    tg6 tg6Var = this.a;
+                    tg6Var.g(tg6Var.e);
+                }
+            }
+        }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r10v1 */
-    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
-    public static Map<String, vg6> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        boolean z;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            HashMap hashMap = new HashMap();
-            if (jSONObject == null) {
-                return hashMap;
+    /* loaded from: classes7.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tg6 a;
+
+        public b(tg6 tg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
-                    try {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                        String optString = jSONObject2.optString("module", "");
-                        String optString2 = jSONObject2.optString("path", "");
-                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
-                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
-                            optInt = gi6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
-                        }
-                        vg6 vg6Var = new vg6();
-                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        vg6Var.i = z;
-                        if (optInt == 1) {
-                            vg6Var.h = true;
-                            vg6Var.a = eh6.a(jSONObject2);
-                        } else {
-                            vg6Var.h = false;
-                            vg6Var.b = c(jSONObject2);
-                        }
-                        vg6Var.c = optString;
-                        vg6Var.d = optString2;
-                        vg6Var.f = e(next, jSONObject2);
-                        hashMap.put(next, vg6Var);
-                        ve9.a().j(next, next);
-                        ve9.a().k(next, optString2);
-                    } catch (JSONException unused) {
+            this.a = tg6Var;
+        }
+
+        @Override // com.baidu.tieba.tg6.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tg6.b(this.a);
+                if (this.a.e != null) {
+                    if (this.a.e.type == 1 && this.a.f <= 0) {
+                        tg6 tg6Var = this.a;
+                        tg6Var.g(tg6Var.e);
+                    } else if (this.a.e.type == 0) {
+                        tg6 tg6Var2 = this.a;
+                        tg6Var2.g(tg6Var2.e);
                     }
                 }
             }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
     }
 
-    public static Set<String> e(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public tg6(Context context, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            HashSet<String> hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, relativeLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("source");
-            if (!zh6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            String optString = jSONObject.optString("staticPrePath", "");
-            for (String str2 : hashSet) {
-                if (!TextUtils.isEmpty(str2)) {
-                    ve9 a = ve9.a();
-                    a.j(optString + "/" + str2, str);
-                    ve9 a2 = ve9.a();
-                    a2.k(optString + "/" + str2, str2);
-                }
-            }
-            return hashSet;
         }
-        return (Set) invokeLL.objValue;
+        this.f = 2;
+        this.g = new a(this);
+        this.h = new b(this);
+        this.a = context;
+        this.b = relativeLayout;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean f(File file, Map<String, vg6> map) {
-        InterceptResult invokeLL;
-        String d;
-        JSONObject optJSONObject;
+    public static /* synthetic */ int b(tg6 tg6Var) {
+        int i = tg6Var.f;
+        tg6Var.f = i - 1;
+        return i;
+    }
+
+    public void g(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
-            File file2 = new File(file, "staticSources.json");
-            if (zh6.b(map) || !file2.exists() || !file2.isFile()) {
-                return false;
-            }
-            try {
-                d = bi6.d(file2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, vg6> entry : map.entrySet()) {
-                vg6 value = entry.getValue();
-                HashSet<String> hashSet = new HashSet(value.f);
-                hashSet.add(value.d);
-                Log.e("newHybrid", "-------------------------：" + entry.getKey());
-                for (String str : hashSet) {
-                    String str2 = (String) hashMap.get(str);
-                    if (str2 == null) {
-                        str2 = ai6.b(new File(file, str));
-                        hashMap.put(str, str2);
-                    }
-                    String optString = optJSONObject.optString(str, "");
-                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
-                        Log.e("newHybrid", str + "," + optString + "_" + str2);
-                        return false;
-                    }
-                    while (r5.hasNext()) {
-                    }
-                }
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        this.e = alaEnterEffectData;
+        int i = alaEnterEffectData.type;
+        if (i == 1) {
+            this.f = 2;
+            e(alaEnterEffectData);
+            f(alaEnterEffectData);
+        } else if (i == 0) {
+            f(alaEnterEffectData);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
+            if (iImageFramePlayerViewController != null) {
+                iImageFramePlayerViewController.onDestroy();
+            }
+            AlaEffectPreviewView alaEffectPreviewView = this.d;
+            if (alaEffectPreviewView != null) {
+                alaEffectPreviewView.f();
+            }
+        }
+    }
+
+    public final void e(AlaEnterEffectData alaEnterEffectData) {
+        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
+                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
+                this.c = iImageFramePlayerViewController;
+                iImageFramePlayerViewController.setFrameCallback(this.g);
+            }
+            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
+            if (iImageFramePlayerViewController2 != null) {
+                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
+                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, vi.j(this.a)));
+                }
+                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
+                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
+                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
+                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
+                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
+                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
+                }
+                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
+                this.c.setData(alaDynamicGiftAndNativeData);
+                this.c.startAnim();
+            }
+        }
+    }
+
+    public final void f(AlaEnterEffectData alaEnterEffectData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
+            if (this.d == null) {
+                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
+                this.d = alaEffectPreviewView;
+                alaEffectPreviewView.setAnimCompleteCallback(this.h);
+            }
+            if (this.d.getParent() == null) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f09097e);
+                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e9);
+                this.b.addView(this.d, layoutParams);
+            }
+            this.d.setData(alaEnterEffectData);
+            this.d.g();
+        }
     }
 }

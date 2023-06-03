@@ -1,7 +1,5 @@
 package com.yy.hiidostatis.defs.obj;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.qq.e.comm.constants.Constants;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -33,9 +31,9 @@ public class ActionResult implements IJsonSerialize {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("scode", this.scode);
-            jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
+            jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
             jSONObject.put("reqtime", this.reqTime);
-            jSONObject.put(Constants.KEYS.RET, URLEncoder.encode(this.ret, IMAudioTransRequest.CHARSET));
+            jSONObject.put("ret", URLEncoder.encode(this.ret, "utf-8"));
             jSONObject.put("rtime", this.rtime);
             if (this.moreinfo != null && !this.moreinfo.isEmpty()) {
                 JSONObject jSONObject2 = new JSONObject();

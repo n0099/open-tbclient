@@ -1,6 +1,5 @@
 package com.win.opensdk;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +51,7 @@ public class K1 {
             }
         }
         try {
-            this.a = new IvParameterSpec(str2.getBytes(IMAudioTransRequest.CHARSET));
+            this.a = new IvParameterSpec(str2.getBytes("utf-8"));
             this.b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
         } catch (Exception e) {
             throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e);

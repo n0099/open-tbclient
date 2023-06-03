@@ -1,36 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class yk3 extends db3 {
+public final class yk3 extends zk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ yk3 b;
+
+        public a(yk3 yk3Var, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yk3Var, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yk3Var;
+            this.a = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yk3(da3 da3Var) {
-        super(da3Var, "/swanAPI/updateTextarea");
+    public yk3(uk3 uk3Var) {
+        super(uk3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {uk3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((uk3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,40 +71,109 @@ public class yk3 extends db3 {
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.zk3
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            g62.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
-            String optString = optParamsAsJo.optString("slaveId");
-            String optString2 = optParamsAsJo.optString("componentId");
-            r52 r52Var = (r52) t52.b(optString, optString2);
-            if (r52Var == null) {
-                String str = "can't find textarea component:#" + optString2;
-                g62.c("UpdateTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
-                return false;
-            }
-            s52 s52Var = (s52) r52Var.l();
-            s52Var.g(optParamsAsJo);
-            x42 update = r52Var.update((r52) s52Var);
-            if (!update.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            r52Var.U0(optString2);
-            return true;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        long j = 0;
+        if (zk3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.g(new a(this, this.b.n()));
+        if (zk3.f) {
+            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
+        }
+        long j = 0;
+        if (zk3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.b();
+        this.g = true;
+        if (zk3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public void l() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (zk3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.h();
+            if (zk3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+            }
+        }
+    }
+
+    public ArrayList<tk3> k(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (zk3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            ArrayList<tk3> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                y82.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (zk3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void m(ArrayList<tk3> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            if (zk3.f) {
+                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+            }
+            Iterator<tk3> it = arrayList.iterator();
+            while (it.hasNext()) {
+                tk3 next = it.next();
+                if (next != null) {
+                    if (zk3.f) {
+                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+                    }
+                    int i = next.i;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                this.a.d(next.a, next.b, next.c);
+                                this.a.a(next);
+                                this.b.y(next);
+                            }
+                        } else {
+                            this.a.d(next.a, next.b, next.c);
+                            this.b.g(next);
+                        }
+                    } else {
+                        this.a.a(next);
+                        this.b.y(next);
+                    }
+                }
+            }
+        }
     }
 }

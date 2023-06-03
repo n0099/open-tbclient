@@ -33,11 +33,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c9;
-import com.baidu.tieba.d06;
-import com.baidu.tieba.lr4;
-import com.baidu.tieba.mr4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.du4;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.eu4;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> f;
     public VideoVerticalPageFragment g;
     public ImageView h;
-    public d06 i;
+    public e46 i;
     public boolean j;
     public CustomMessageListener k;
 
@@ -71,7 +71,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? "712" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,7 +215,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    public final boolean B1() {
+    public final boolean A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -251,7 +251,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         return invokeV.booleanValue;
     }
 
-    public final boolean G1() {
+    public final boolean F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -345,9 +345,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            d06 d06Var = this.i;
-            if (d06Var != null) {
-                d06Var.h();
+            e46 e46Var = this.i;
+            if (e46Var != null) {
+                e46Var.h();
             }
         }
     }
@@ -362,7 +362,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.g.setUserVisibleHint(false);
             }
-            mr4.w().E();
+            eu4.w().E();
         }
     }
 
@@ -375,7 +375,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.g.setUserVisibleHint(true);
-                mr4.w().Q(lr4.c0, this.g.l());
+                eu4.w().Q(du4.c0, this.g.m());
             }
         }
     }
@@ -396,7 +396,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             return;
         }
         this.j = true;
-        if (K1() || M1() || J1() || B1() || z1() || L1() || G1() || D1() || N1() || I1() || H1() || C1() || E1()) {
+        if (K1() || M1() || J1() || A1() || z1() || L1() || F1() || D1() || N1() || I1() || H1() || C1() || E1()) {
             OnActivityFinishListener.g(getPageContext(), null);
         }
         if (this.d || this.e) {
@@ -418,7 +418,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (J1()) {
                 return 9;
             }
-            if (B1()) {
+            if (A1()) {
                 return 10;
             }
             if (z1()) {
@@ -427,7 +427,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (L1()) {
                 return 12;
             }
-            if (G1()) {
+            if (F1()) {
                 return 13;
             }
             if (D1()) {
@@ -460,7 +460,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             super.onActivityResult(i, i2, intent);
             VideoVerticalPageFragment videoVerticalPageFragment = this.g;
             if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.o(i, i2, intent);
+                videoVerticalPageFragment.p(i, i2, intent);
             }
         }
     }
@@ -470,7 +470,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             x1();
-            if (!c9.f().h("MainTabActivity")) {
+            if (!g9.f().h("MainTabActivity")) {
                 if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                     this.d = true;
                 } else if (this.c == 7) {
@@ -481,11 +481,11 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0991);
-            this.i = new d06(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d09aa);
+            this.i = new e46(getPageContext(), "client_videomiddle");
             y1();
             addNoAdjustSoftInputHeightListener();
-            if (!K1() && !M1() && !J1() && !B1() && !z1() && !L1() && !G1() && !D1() && !N1() && !I1() && !H1() && !C1() && !E1() && getWindow() != null) {
+            if (!K1() && !M1() && !J1() && !A1() && !z1() && !L1() && !F1() && !D1() && !N1() && !I1() && !H1() && !C1() && !E1() && getWindow() != null) {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.CAM_X0611)));
             }
             u1();
@@ -502,10 +502,10 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (i == 4) {
                 VideoVerticalPageFragment videoVerticalPageFragment = this.g;
                 if (videoVerticalPageFragment != null) {
-                    if (videoVerticalPageFragment.q()) {
+                    if (videoVerticalPageFragment.r()) {
                         return false;
                     }
-                    this.g.K0();
+                    this.g.L0();
                 }
                 finish();
                 return false;
@@ -541,13 +541,13 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 }
                 statisticItem.param("tid", str);
             }
-            if (B1()) {
+            if (A1()) {
                 statisticItem.param("obj_source", 6);
             } else if (z1()) {
                 statisticItem.param("obj_source", 7);
             } else if (L1()) {
                 statisticItem.param("obj_source", 8);
-            } else if (G1()) {
+            } else if (F1()) {
                 statisticItem.param("obj_source", 9);
             } else if (D1()) {
                 statisticItem.param("obj_source", 10);
@@ -575,7 +575,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.f)) {
-                ri.P(this, R.string.obfuscated_res_0x7f0f0db3);
+                vi.P(this, R.string.obfuscated_res_0x7f0f0dec);
                 finish();
                 return;
             }
@@ -583,7 +583,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.g = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092820, this.g);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092859, this.g);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());

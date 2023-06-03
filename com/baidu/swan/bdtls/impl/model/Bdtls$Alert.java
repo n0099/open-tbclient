@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.ks3;
+import com.baidu.tieba.cv3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -78,7 +78,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$Alert buildPartial() {
-            Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (ks3) null);
+            Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (cv3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -106,7 +106,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: o */
-        public b mo29clone() {
+        public b mo43clone() {
             b p = p();
             p.t(buildPartial());
             return p;
@@ -373,7 +373,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cv3 cv3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -408,7 +408,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
+    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, cv3 cv3Var) {
         this(builder);
     }
 

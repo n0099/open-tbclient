@@ -1,242 +1,85 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.io.File;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kxa implements PidLoader {
+public class kxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PidLoader a;
-    public final long b;
-    public long c;
 
-    public kxa(PidLoader pidLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pidLoader};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = pidLoader;
-        this.b = pidLoader.getPid().tmout * 60 * 1000;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void addListener(lra lraVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lraVar) == null) {
-            this.a.addListener(new a(this, lraVar));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.destroy(z);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public int getAdCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getAdCount() : invokeV.intValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunAdType getAdType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getAdType() : (FunAdType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public double getBiddingOrBasePrices() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getBiddingOrBasePrices() : invokeV.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunNativeAd2 getNativeAd2(Context context, String str) {
+    public static JSONObject a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) ? this.a.getNativeAd2(context, str) : (FunNativeAd2) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public Ssp.Pid getPid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getPid() : (Ssp.Pid) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.c < this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, context, funAdSlot, sidSessionMeta)) == null) ? this.a.load(context, funAdSlot, sidSessionMeta) : invokeLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void removeListener(lra lraVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lraVar) == null) {
-            this.a.removeListener(lraVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
+            try {
+                jSONObject.put("bosMessage", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void setBiddingResult(double d, double d2, int i) {
+    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Integer.valueOf(i)}) == null) {
-            this.a.setBiddingResult(d, d2, i);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean show(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.show(activity, viewGroup, str, sidSessionMeta) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.showSplash(activity, viewGroup, str, sidSessionMeta) : (FunSplashAd) invokeLLLL.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements lra {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final lra a;
-        public final /* synthetic */ kxa b;
-
-        public a(kxa kxaVar, lra lraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kxaVar, lraVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", str2);
+                jSONObject.put("errmsg", str3);
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
+                }
+                jSONObject.put(FileMetaUtil.IS_FILE, str4);
+                if (file != null && file.exists() && file.isFile()) {
+                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
+                    jSONObject.put("size", String.valueOf(file.length()));
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
+                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
+                }
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
                 }
             }
-            this.b = kxaVar;
-            this.a = lraVar;
+            return jSONObject;
         }
+        return (JSONObject) invokeCommon.objValue;
+    }
 
-        @Override // com.baidu.tieba.lra
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
+    public static JSONObject c(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (list != null) {
+                try {
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : list) {
+                            sb.append(str);
+                            sb.append("&");
+                        }
+                        jSONObject.put("space", sb.toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
         }
-
-        @Override // com.baidu.tieba.lra
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.a(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void a(boolean z, int i, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), strArr}) == null) {
-                this.a.a(z, i, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void b(RippedAd rippedAd, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, rippedAd, strArr) == null) {
-                this.a.b(rippedAd, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void c(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-                this.a.c(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void d(RippedAd rippedAd, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, rippedAd, strArr) == null) {
-                this.a.d(rippedAd, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.lra
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b.c = System.currentTimeMillis();
-                this.a.b();
-            }
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

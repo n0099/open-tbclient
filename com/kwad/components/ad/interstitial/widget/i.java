@@ -20,7 +20,7 @@ public interface i {
     void dn();
 
     /* renamed from: do */
-    void mo112do();
+    void mo167do();
 
     void dp();
 

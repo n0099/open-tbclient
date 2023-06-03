@@ -24,7 +24,7 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedListener, EngineResource.ResourceListener {
     public static final int JOB_POOL_SIZE = 150;
     public static final String TAG = "Engine";
@@ -39,7 +39,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     public final ResourceRecycler resourceRecycler;
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DecodeJobFactory {
         public int creationOrder;
         public final DecodeJob.DiskCacheProvider diskCacheProvider;
@@ -66,7 +66,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     }
 
     @VisibleForTesting
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class EngineJobFactory {
         public final GlideExecutor animationExecutor;
         public final GlideExecutor diskCacheExecutor;
@@ -106,7 +106,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         public volatile DiskCache diskCache;
         public final DiskCache.Factory factory;
@@ -139,7 +139,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class LoadStatus {
         public final ResourceCallback cb;
         public final EngineJob<?> engineJob;

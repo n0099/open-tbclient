@@ -1,64 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes8.dex */
-public class x03 implements Interceptor {
+public class x03 extends a13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
 
-    public x03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246510, "Lcom/baidu/tieba/x03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246510, "Lcom/baidu/tieba/x03;");
                 return;
             }
         }
-        this.a = new HashMap<>();
+        boolean z = is1.a;
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x03(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap != null && hashMap.size() >= 1) {
-                this.a = hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a13
+    public boolean a(q03 q03Var, s03 s03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                    newBuilder.addHeader(entry.getKey(), entry.getValue());
-                }
-                return chain.proceed(newBuilder.build());
-            }
-            return chain.proceed(chain.request());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{q03Var, s03Var, context, unitedSchemeEntity, callbackHandler, yb3Var})) == null) {
+            y82.i("video", "play, video id:" + s03Var.j + " slave id: " + s03Var.c);
+            d(q03Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (Response) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(q03 q03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q03Var, unitedSchemeEntity, callbackHandler) == null) {
+            q03Var.s();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

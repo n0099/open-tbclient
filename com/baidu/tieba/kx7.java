@@ -1,36 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class kx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rn> a;
-    public int b;
-    public boolean c;
-    public int d;
-    public xy4 e;
-    public wz4 f;
 
-    public kx7() {
+    public static boolean a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j, str)) == null) {
+            if (StringUtils.isNull(str) || j == l95.m().o(str, 0L)) {
+                return false;
             }
+            return true;
         }
-        this.b = 0;
-        this.c = true;
-        this.d = 1;
+        return invokeJL.booleanValue;
+    }
+
+    public static void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
+            l95.m().A(l95.q(str), j);
+        }
+    }
+
+    public static boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (System.currentTimeMillis() - l95.m().o(l95.q("key_new_hot_tip_dismiss_time"), 0L) >= j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

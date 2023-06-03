@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.write.work;
 
 import android.content.Context;
-import com.baidu.tieba.hi9;
-import com.baidu.tieba.s7a;
+import com.baidu.tieba.hea;
+import com.baidu.tieba.oo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class WorkPublishDispatcher implements hi9 {
+public class WorkPublishDispatcher implements oo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,21 +27,21 @@ public class WorkPublishDispatcher implements hi9 {
         }
     }
 
-    @Override // com.baidu.tieba.hi9
+    @Override // com.baidu.tieba.oo9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             String optString = jSONObject.optString("videoTopic");
             String optString2 = jSONObject.optString("topicId");
             String optString3 = jSONObject.optString("isVideo");
-            int a = s7a.a();
-            if (s7a.c(a)) {
-                s7a.e(context, a, 0);
+            int a = hea.a();
+            if (hea.c(a)) {
+                hea.e(context, a, 0);
             }
-            if (s7a.b()) {
-                s7a.h(null, null, null, null, 0, Boolean.TRUE, optString, optString2, optString3);
+            if (hea.b()) {
+                hea.h(null, null, null, null, 0, Boolean.TRUE, optString, optString2, optString3);
             } else {
-                s7a.k(false, false, null, null, null, null, 0, Boolean.TRUE, optString, optString2, optString3);
+                hea.k(false, false, null, null, null, null, 0, Boolean.TRUE, optString, optString2, optString3);
             }
         }
     }

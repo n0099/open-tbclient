@@ -12,6 +12,7 @@ public class FunRuntimeAdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<PersonalRecommendObserver> a;
+    public final Set<MediaExtDataObserver> b;
     public volatile boolean personalRecommendStatus;
 
     public FunRuntimeAdConfig() {
@@ -29,20 +30,41 @@ public class FunRuntimeAdConfig {
         }
         this.personalRecommendStatus = true;
         this.a = new HashSet();
+        this.b = new HashSet();
+    }
+
+    public void registerMediaExtDataObserver(MediaExtDataObserver mediaExtDataObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaExtDataObserver) == null) {
+            synchronized (this.b) {
+                this.b.add(mediaExtDataObserver);
+            }
+        }
     }
 
     public void registerPersonalRecommendObserver(PersonalRecommendObserver personalRecommendObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, personalRecommendObserver) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, personalRecommendObserver) == null) {
             synchronized (this.a) {
                 this.a.add(personalRecommendObserver);
             }
         }
     }
 
+    public void setRcUserId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            synchronized (this.b) {
+                for (MediaExtDataObserver mediaExtDataObserver : this.b) {
+                    mediaExtDataObserver.updateRcUserId(str);
+                }
+            }
+        }
+    }
+
     public void updatePersonalRecommendStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.personalRecommendStatus = z;
             synchronized (this.a) {
                 for (PersonalRecommendObserver personalRecommendObserver : this.a) {

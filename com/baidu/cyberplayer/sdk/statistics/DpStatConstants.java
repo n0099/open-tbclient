@@ -11,6 +11,7 @@ public class DpStatConstants {
     public static final String FILECACHE_CLOSE_TYPE_IS_BLACKURL = "1001";
     public static final String FILECACHE_CLOSE_TYPE_OPT_DISABLE = "1004";
     public static final String FILECACHE_CLOSE_TYPE_OPT_IS_LIVE = "1003";
+    public static final String KEY_ABI = "abi";
     public static final String KEY_ABTEST_SID = "abtest_sid";
     public static final String KEY_APP_NAME = "app_name";
     public static final String KEY_APP_VERSION_NAME = "app_version";
@@ -27,7 +28,9 @@ public class DpStatConstants {
     public static final String KEY_FIRST_DISPLAY = "first_display";
     public static final String KEY_HEIGHT = "height";
     public static final String KEY_INIT_RTC_SDK = "init_sdk";
+    public static final String KEY_IS_AUDIO_MUTED = "last_muted";
     public static final String KEY_IS_FEED_VIDEO = "is_feed_video";
+    public static final String KEY_IS_LOOP_PLAYED = "is_loop_played";
     public static final String KEY_IS_USER_STARTED = "is_user_started";
     public static final String KEY_ITEMS = "items";
     public static final String KEY_KERNEL_SESSION_ID = "k_id";
@@ -38,6 +41,7 @@ public class DpStatConstants {
     public static final String KEY_NETWORK = "network";
     public static final String KEY_NETWORK_STATUS = "network_status";
     public static final String KEY_NET_LEVEL = "net_level";
+    public static final String KEY_NEW_ERROR_CODE = "normative_error_code";
     public static final String KEY_PREPARED = "prepared";
     public static final String KEY_PROTO = "proto";
     public static final String KEY_P_ID = "p_id";
@@ -45,6 +49,7 @@ public class DpStatConstants {
     public static final String KEY_ROOM_NAME = "room_name";
     public static final String KEY_SDK_VERSION = "cyber_sdk_ver";
     public static final String KEY_SERVER_TYPE = "server_type";
+    public static final String KEY_STATE_TRACE = "state_trace";
     public static final String KEY_SUB_CODE = "sub_code";
     public static final String KEY_TIME = "time";
     public static final String KEY_TIMESTAMP = "timestamp";
@@ -58,6 +63,7 @@ public class DpStatConstants {
     public static final String PCDN_CLOSE_TYPE_LIBPATH_NULL = "1002";
     public static final String SERVER_TYPE_DUPLAYER_INIT = "dp_init";
     public static final String SERVER_TYPE_DUPLAYER_MONITOR = "duplayer_monitor";
+    public static final String SERVER_TYPE_DUPLAYER_OTHER_DATA = "duplayer_other_data";
     public static final String SERVER_TYPE_DUPLAYER_RTC = "duplayer_rtc";
     public static final int SESSION_TYPE_DP_INIT_COMMON = 24323;
     public static final int SESSION_TYPE_ERROR = 20481;
@@ -66,6 +72,7 @@ public class DpStatConstants {
     public static final int SESSION_TYPE_LIVE_STREAM_INFO = 20487;
     public static final int SESSION_TYPE_MEDIA_DATA_UTILIZATION_RATE = 20517;
     public static final int SESSION_TYPE_MEDIA_FORMAT_INFO = 20514;
+    public static final int SESSION_TYPE_NORMAL_PLAY_INFO = 20488;
     public static final int SESSION_TYPE_PLAY_COMMON = 24322;
     public static final int SESSION_TYPE_RTC_COMMON = 20488;
     public static final int SESSION_TYPE_STAGE_INFO = 20484;

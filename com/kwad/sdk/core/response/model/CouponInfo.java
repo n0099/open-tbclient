@@ -6,7 +6,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
     public static final float COUPON_DISCOUNT_THRESHOLD = 20.0f;
     public static final String JINNIIU_DISCOUNT = "2";

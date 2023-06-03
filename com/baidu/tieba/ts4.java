@@ -1,108 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.http.HttpClientWrap;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class ts4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public final Map<String, String> f;
-    public final List<ys4> g;
 
-    public ts4(String str, String str2, String str3) {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new LinkedHashMap();
-        this.g = new ArrayList();
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            a();
-            b();
-            c();
-            return;
-        }
-        this.d = false;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.add(new et4());
-            this.g.add(new ct4());
-            this.g.add(new at4());
-            this.g.add(new ft4());
-            this.g.add(new dt4());
-            this.g.add(new gt4());
-            this.g.add(new bt4());
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
-            return;
-        }
-        String valueOf = String.valueOf(this.b.charAt(0));
-        String[] split = this.b.split("@");
-        for (ys4 ys4Var : this.g) {
-            if (valueOf.equals(ys4Var.b())) {
-                String a = ys4Var.a(split, this.f);
-                this.e = a;
-                if (!StringUtils.isNull(a)) {
-                    this.d = true;
-                    return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-                return;
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    public final void b() {
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-            this.f.put("@rid", HttpClientWrap.f);
-            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
-            this.f.put("@c", TiebaStatic.Params.QD);
-            this.f.put("@p", "obj_source");
-            this.f.put("@eq", TiebaStatic.Params.EQID);
-            this.f.put("@1p", "obj_param1");
-            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
-            this.f.put("@m", "obj_name");
-            this.f.put("@re", TiebaStatic.Params.REFER);
-            this.f.put("@lo", "obj_locate");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
+            }
+            return a(bArr, "", z);
         }
+        return (String) invokeLZ.objValue;
     }
 }

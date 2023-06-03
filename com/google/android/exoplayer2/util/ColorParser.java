@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
@@ -141,7 +142,7 @@ public final class ColorParser {
         COLOR_MAP.put("powderblue", -5185306);
         COLOR_MAP.put("purple", -8388480);
         COLOR_MAP.put("rebeccapurple", -10079335);
-        COLOR_MAP.put("red", -65536);
+        COLOR_MAP.put(DownloadStatisticConstants.UBC_VALUE_RED, -65536);
         COLOR_MAP.put("rosybrown", -4419697);
         COLOR_MAP.put("royalblue", -12490271);
         COLOR_MAP.put("saddlebrown", -7650029);

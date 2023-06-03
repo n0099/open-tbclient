@@ -15,9 +15,9 @@ import com.baidu.searchbox.retrieve.upload.FetchResult;
 import com.baidu.searchbox.retrieve.upload.FetchTaskObj;
 import com.baidu.searchbox.retrieve.upload.FetchUploadManager;
 import com.baidu.searchbox.retrieve.upload.IUploadListener;
-import com.baidu.tieba.upa;
-import com.baidu.tieba.vpa;
-import com.baidu.tieba.xpa;
+import com.baidu.tieba.hxa;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.kxa;
 import java.util.List;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
@@ -109,29 +109,29 @@ public class FetchFileJob extends IFetchJob {
         List<String> list = fetchBean.mPathList;
         if (list != null && list.size() != 0) {
             statFetchData(StatConstants.VALUE_TYPE_CHECK_PARAM, true, fetchBean, "", "", null);
-            vpa vpaVar = (vpa) ServiceManager.getService(vpa.a);
-            if (vpaVar == null) {
+            ixa ixaVar = (ixa) ServiceManager.getService(ixa.a);
+            if (ixaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
                 }
                 return;
             }
-            vpaVar.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new upa() { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
-                @Override // com.baidu.tieba.upa
+            ixaVar.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new hxa() { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
+                @Override // com.baidu.tieba.hxa
                 public void onFailure(String str, JSONObject jSONObject) {
                     FetchFileJob.this.statFetchFileData(false, fetchBean, str, "", jSONObject);
                     if (!TextUtils.equals("dir not found", str)) {
                         FetchFileJob fetchFileJob = FetchFileJob.this;
                         FetchFileData.FetchBean fetchBean2 = fetchBean;
-                        xpa.a(jSONObject, str);
+                        kxa.a(jSONObject, str);
                         fetchFileJob.reportTaskDone(fetchBean2, "", "2", jSONObject);
                         return;
                     }
                     FetchFileJob.this.reportTaskDone(fetchBean, "", "1", jSONObject);
                 }
 
-                @Override // com.baidu.tieba.upa
+                @Override // com.baidu.tieba.hxa
                 public void onSuccess(String str, JSONObject jSONObject) {
                     FetchFileJob.this.statFetchFileData(true, fetchBean, "", str, jSONObject);
                     FetchFileJob.this.reportTaskDone(fetchBean, str, "0", jSONObject);
@@ -146,17 +146,17 @@ public class FetchFileJob extends IFetchJob {
     public void statFetchFileData(boolean z, FetchFileData.FetchBean fetchBean, String str, String str2, JSONObject jSONObject) {
         if (z) {
             statFetchData("query", true, fetchBean, "", "", jSONObject);
-            statFetchData(StatConstants.VALUE_TYPE_ZIP, true, fetchBean, "", "", jSONObject);
-            statFetchData(StatConstants.VALUE_TYPE_UPLOAD, true, fetchBean, "", str2, jSONObject);
+            statFetchData("zip", true, fetchBean, "", "", jSONObject);
+            statFetchData("upload", true, fetchBean, "", str2, jSONObject);
         } else if (TextUtils.equals("dir not found", str)) {
             statFetchData("query", false, fetchBean, str, "", jSONObject);
         } else if (TextUtils.equals("zip failed", str)) {
             statFetchData("query", true, fetchBean, "", "", jSONObject);
-            statFetchData(StatConstants.VALUE_TYPE_ZIP, false, fetchBean, str, "", jSONObject);
+            statFetchData("zip", false, fetchBean, str, "", jSONObject);
         } else {
             statFetchData("query", true, fetchBean, "", "", jSONObject);
-            statFetchData(StatConstants.VALUE_TYPE_ZIP, true, fetchBean, "", "", jSONObject);
-            statFetchData(StatConstants.VALUE_TYPE_UPLOAD, false, fetchBean, str, "", jSONObject);
+            statFetchData("zip", true, fetchBean, "", "", jSONObject);
+            statFetchData("upload", false, fetchBean, str, "", jSONObject);
         }
     }
 }

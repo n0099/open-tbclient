@@ -87,7 +87,7 @@ public class BOSUploader {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0131 A[Catch: Exception -> 0x015a, JSONException -> 0x015c, BceClientException -> 0x015e, BceServiceException -> 0x0160, TryCatch #6 {BceServiceException -> 0x0160, BceClientException -> 0x015e, JSONException -> 0x015c, Exception -> 0x015a, blocks: (B:19:0x0046, B:21:0x0052, B:23:0x0060, B:25:0x0078, B:26:0x007a, B:65:0x0156, B:66:0x0159, B:59:0x011d, B:60:0x0120, B:62:0x0131, B:63:0x014b, B:51:0x010f), top: B:105:0x0046 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0130 A[Catch: Exception -> 0x0159, JSONException -> 0x015b, BceClientException -> 0x015d, BceServiceException -> 0x015f, TryCatch #7 {BceServiceException -> 0x015f, BceClientException -> 0x015d, JSONException -> 0x015b, Exception -> 0x0159, blocks: (B:19:0x0046, B:21:0x0052, B:23:0x0060, B:25:0x0078, B:26:0x007a, B:65:0x0155, B:66:0x0158, B:59:0x011c, B:60:0x011f, B:62:0x0130, B:63:0x014a, B:51:0x010e), top: B:104:0x0046 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -1,23 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.pi4;
+import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class su3 implements qj4 {
+public class su3 implements vv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rs1 a;
+
+        public a(su3 su3Var, rs1 rs1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {su3Var, rs1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rs1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                Bundle bundle = delegateResult.mResult;
+                if (bundle == null) {
+                    this.a.a(0);
+                    return;
+                }
+                String string = bundle.getString("invoiceInfo");
+                if (TextUtils.isEmpty(string)) {
+                    this.a.a(0);
+                } else {
+                    this.a.b(yo3.d(string));
+                }
+            }
+        }
+    }
 
     public su3() {
         Interceptable interceptable = $ic;
@@ -33,37 +79,11 @@ public class su3 implements qj4 {
         }
     }
 
-    @Override // com.baidu.tieba.pi4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, pi4.a aVar) {
+    @Override // com.baidu.tieba.vv2
+    public void a(Context context, String str, String str2, rs1 rs1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(rg4.b())) {
-                ji4.b(str, map, map2, jSONObject, new js3(aVar));
-            } else {
-                ji4.b(str, map, map2, jSONObject, new qi4(aVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public cj4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return aj4.a(str, i);
-        }
-        return (cj4) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pi4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, pi4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(rg4.b())) {
-                ji4.a(str, map, map2, new js3(aVar));
-            } else {
-                ji4.a(str, map, map2, new qi4(aVar));
-            }
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, rs1Var) == null) && context != null && rs1Var != null) {
+            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, ru3.class, new a(this, rs1Var));
         }
     }
 }

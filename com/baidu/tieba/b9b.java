@@ -5,19 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
-/* loaded from: classes4.dex */
-public final class b9b<T> extends n7b<T> {
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+/* loaded from: classes5.dex */
+public abstract class b9b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o7b<? super T> b;
+    public final String a;
+    public final IMessageEntity b;
+    public final l8b c;
+    public RequestHeader d;
+    public j9b<TResult> e;
 
-    public b9b(o7b<? super T> o7bVar) {
+    public abstract void a(ApiException apiException, Object obj);
+
+    public b9b(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVar};
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +35,20 @@ public final class b9b<T> extends n7b<T> {
                 return;
             }
         }
-        this.b = o7bVar;
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = l8b.b(str);
     }
 
-    @Override // com.baidu.tieba.n7b
-    public void b(Throwable th) {
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.n7b
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
+            }
+            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

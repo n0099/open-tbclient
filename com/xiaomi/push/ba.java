@@ -111,7 +111,7 @@ public class ba implements at {
         }
         synchronized (this.f137a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m120a("oppo's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m175a("oppo's " + str + " wait...");
                 this.f137a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -151,7 +151,7 @@ public class ba implements at {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m226b() {
+    public void m281b() {
         ServiceConnection serviceConnection = this.f135a;
         if (serviceConnection != null) {
             try {
@@ -163,7 +163,7 @@ public class ba implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo205a() {
+    public String mo260a() {
         a("getOAID");
         if (this.f136a == null) {
             return null;
@@ -173,7 +173,7 @@ public class ba implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo206a() {
+    public boolean mo261a() {
         return a;
     }
 }

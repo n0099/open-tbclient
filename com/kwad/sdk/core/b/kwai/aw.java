@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.kwad.components.ad.reward.l;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -26,8 +27,8 @@ public final class aw implements com.kwad.sdk.core.d<l.c> {
         if (jSONObject.opt("unWatchedVideoTime") == JSONObject.NULL) {
             cVar.no = "";
         }
-        cVar.kY = jSONObject.optString("iconUrl");
-        if (jSONObject.opt("iconUrl") == JSONObject.NULL) {
+        cVar.kY = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
+        if (jSONObject.opt(GameAssistConstKt.KEY_ICONURL) == JSONObject.NULL) {
             cVar.kY = "";
         }
         cVar.np = jSONObject.optString("desc");
@@ -67,7 +68,7 @@ public final class aw implements com.kwad.sdk.core.d<l.c> {
         }
         String str5 = cVar.kY;
         if (str5 != null && !str5.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "iconUrl", cVar.kY);
+            com.kwad.sdk.utils.r.putValue(jSONObject, GameAssistConstKt.KEY_ICONURL, cVar.kY);
         }
         String str6 = cVar.np;
         if (str6 != null && !str6.equals("")) {

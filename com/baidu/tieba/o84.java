@@ -1,1181 +1,610 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.v8engine.FontParser;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.swan.apps.env.SwanAppDeleteInfo;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.uu2;
+import com.baidu.tieba.xu2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class o84 extends m84 {
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+/* loaded from: classes7.dex */
+public class o84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static ExecutorService b;
     public transient /* synthetic */ FieldHolder $fh;
-    public qg2 b;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    /* loaded from: classes7.dex */
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u84 a;
-        public final /* synthetic */ n12 b;
-        public final /* synthetic */ o84 c;
 
-        /* renamed from: com.baidu.tieba.o84$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0398a implements Runnable {
+        /* loaded from: classes7.dex */
+        public static class a implements FileFilter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject a;
-            public final /* synthetic */ a b;
 
-            public RunnableC0398a(a aVar, JSONObject jSONObject) {
+            public a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
-                        return;
                     }
                 }
-                this.b = aVar;
-                this.a = jSONObject;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            @Override // java.io.FileFilter
+            public boolean accept(File file) {
+                InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sb4.call(this.b.b, true, this.a);
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                    if (file.isDirectory() && TextUtils.isDigitsOnly(file.getName())) {
+                        return true;
+                    }
+                    return false;
                 }
+                return invokeL.booleanValue;
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+        @SuppressLint({"BDThrowableCheck"})
+        public static long a(String str, String str2) throws IllegalArgumentException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    if (TextUtils.isDigitsOnly(str) && TextUtils.isDigitsOnly(str2)) {
+                        return Long.parseLong(str) - Long.parseLong(str2);
+                    }
+                    throw new IllegalArgumentException("version is not digits only");
+                }
+                throw new IllegalArgumentException("version null");
+            }
+            return invokeLL.longValue;
+        }
 
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+        public static File h(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+                return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder" + File.separator + str, str2);
+            }
+            return (File) invokeLL.objValue;
+        }
+
+        public static File b(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file;
+            }
+            return (File) invokeL.objValue;
+        }
+
+        public static void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File[] listFiles = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder", str).listFiles(new a());
+                if (listFiles != null && listFiles.length > 0) {
+                    for (File file : listFiles) {
+                        if (i(str2, file.getName())) {
+                            if (o84.a) {
+                                Log.i("SwanGameBundleHelper", "删除低版本文件夹：" + file.getAbsolutePath());
+                            }
+                            vj4.i().d(str, file.getName());
+                            cs4.j(file);
+                        }
                     }
                 }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.a;
-                    sb4.call(aVar.b, false, aVar.a);
-                }
             }
         }
 
-        public a(o84 o84Var, u84 u84Var, n12 n12Var) {
+        public static void d(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, u84Var, n12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o84Var;
-            this.a = u84Var;
-            this.b = n12Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (m84.a) {
-                    Log.e("OpenDataApi", "on fail");
-                    exc.printStackTrace();
-                }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    u84 u84Var = this.a;
-                    u84Var.errNo = "100";
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "getUserInfo", exc.getMessage());
-                }
-                this.c.b.post(new b(this));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on success");
-                }
-                this.c.b.post(new RunnableC0398a(this, jSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
-                }
-                String string = body.string();
-                if (m84.a) {
-                    Log.d("OpenDataApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (m84.a) {
-                        Log.d("OpenDataApi", "errno = " + optString);
-                    }
-                    u84 u84Var = this.a;
-                    u84Var.errNo = optString;
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "getUserInfo", jSONObject.optString("errmsg"));
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("errNo", "0");
-                jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, sb4.b("getUserInfo", DnsModel.MSG_OK));
-                jSONObject2.put("data", jSONObject.optJSONArray("data"));
-                return jSONObject2;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ResponseCallback<u84> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u84 a;
-        public final /* synthetic */ n12 b;
-        public final /* synthetic */ o84 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ u84 a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, u84 u84Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, u84Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = u84Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sb4.call(this.b.b, true, this.a);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.o84$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0399b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0399b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    sb4.call(bVar.b, false, bVar.a);
-                }
-            }
-        }
-
-        public b(o84 o84Var, u84 u84Var, n12 n12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, u84Var, n12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o84Var;
-            this.a = u84Var;
-            this.b = n12Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(u84 u84Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, u84Var, i) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on success ");
-                }
-                this.c.b.post(new a(this, u84Var));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public u84 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
-                }
-                String string = body.string();
-                if (m84.a) {
-                    Log.d("OpenDataApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (m84.a) {
-                        Log.d("OpenDataApi", "errno = " + optString);
-                    }
-                    u84 u84Var = this.a;
-                    u84Var.errNo = optString;
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", jSONObject.optString("errmsg"));
-                    return null;
-                }
-                u84 u84Var2 = this.a;
-                u84Var2.errNo = "0";
-                u84Var2.errMsg = sb4.b("removeUserCloudStorage", DnsModel.MSG_OK);
-                return this.a;
-            }
-            return (u84) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on fail");
-                    exc.printStackTrace();
-                }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    u84 u84Var = this.a;
-                    u84Var.errNo = "100";
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
-                }
-                this.c.b.post(new RunnableC0399b(this));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u84 a;
-        public final /* synthetic */ n12 b;
-        public final /* synthetic */ o84 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject a;
-            public final /* synthetic */ c b;
-
-            public a(c cVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = cVar;
-                this.a = jSONObject;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sb4.call(this.b.b, true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public b(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.a;
-                    sb4.call(cVar.b, false, cVar.a);
-                }
-            }
-        }
-
-        public c(o84 o84Var, u84 u84Var, n12 n12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, u84Var, n12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o84Var;
-            this.a = u84Var;
-            this.b = n12Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (m84.a) {
-                    Log.e("OpenDataApi", "on fail");
-                }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    u84 u84Var = this.a;
-                    u84Var.errNo = "100";
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", exc.getMessage());
-                }
-                this.c.b.post(new b(this));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on success");
-                }
-                this.c.b.post(new a(this, jSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
-                }
-                String string = body.string();
-                if (m84.a) {
-                    Log.d("OpenDataApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (m84.a) {
-                        Log.d("OpenDataApi", "errno = " + optString);
-                    }
-                    u84 u84Var = this.a;
-                    u84Var.errNo = optString;
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", jSONObject.optString("errmsg"));
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("errNo", "0");
-                jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, sb4.b("getUserCloudStorage", DnsModel.MSG_OK));
-                jSONObject2.put("KVDataList", jSONObject.optJSONArray("data"));
-                return jSONObject2;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends ResponseCallback<u84> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u84 a;
-        public final /* synthetic */ n12 b;
-        public final /* synthetic */ o84 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ u84 a;
-            public final /* synthetic */ d b;
-
-            public a(d dVar, u84 u84Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, u84Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = dVar;
-                this.a = u84Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sb4.call(this.b.b, true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.a;
-                    sb4.call(dVar.b, false, dVar.a);
-                }
-            }
-        }
-
-        public d(o84 o84Var, u84 u84Var, n12 n12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, u84Var, n12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o84Var;
-            this.a = u84Var;
-            this.b = n12Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(u84 u84Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, u84Var, i) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on success");
-                }
-                this.c.b.post(new a(this, u84Var));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public u84 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
-                }
-                String string = body.string();
-                if (m84.a) {
-                    Log.d("OpenDataApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (m84.a) {
-                        Log.d("OpenDataApi", "errno = " + optString);
-                    }
-                    u84 u84Var = this.a;
-                    u84Var.errNo = optString;
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", jSONObject.optString("errmsg"));
-                    return null;
-                }
-                u84 u84Var2 = this.a;
-                u84Var2.errNo = "0";
-                u84Var2.errMsg = sb4.b("setUserCloudStorage", DnsModel.MSG_OK);
-                return this.a;
-            }
-            return (u84) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (m84.a) {
-                    Log.e("OpenDataApi", "on fail");
-                }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    u84 u84Var = this.a;
-                    u84Var.errNo = "100";
-                    u84Var.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", exc.getMessage());
-                }
-                this.c.b.post(new b(this));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u84 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ n12 c;
-        public final /* synthetic */ o84 d;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject a;
-            public final /* synthetic */ e b;
-
-            public a(e eVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = eVar;
-                this.a = jSONObject;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sb4.call(this.b.c, true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public b(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e eVar = this.a;
-                    sb4.call(eVar.c, false, eVar.a);
-                }
-            }
-        }
-
-        public e(o84 o84Var, u84 u84Var, String str, n12 n12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, u84Var, str, n12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = o84Var;
-            this.a = u84Var;
-            this.b = str;
-            this.c = n12Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (m84.a) {
-                    Log.e("OpenDataApi", "on fail");
-                    exc.printStackTrace();
-                }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    u84 u84Var = this.a;
-                    u84Var.errNo = "100";
-                    u84Var.errMsg = String.format("%s: fail Error: %s", this.b, exc.getMessage());
-                }
-                this.d.b.post(new b(this));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (m84.a) {
-                    Log.d("OpenDataApi", "on success");
-                }
-                this.d.b.post(new a(this, jSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
-                }
-                String string = body.string();
-                if (m84.a) {
-                    Log.d("OpenDataApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (m84.a) {
-                        Log.d("OpenDataApi", "errno = " + optString);
-                    }
-                    u84 u84Var = this.a;
-                    u84Var.errNo = optString;
-                    u84Var.errMsg = String.format("%s: fail Error: %s", this.b, jSONObject.optString("errmsg"));
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("errNo", "0");
-                jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, sb4.b(this.b, DnsModel.MSG_OK));
-                jSONObject2.put("data", jSONObject.optJSONArray("data"));
-                return jSONObject2;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    public o84(@NonNull qg2 qg2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qg2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
                 return;
             }
-        }
-        this.b = qg2Var;
-    }
-
-    @JavascriptInterface
-    public void getFriendCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            d(jsObject, 5);
-        }
-    }
-
-    public final void h(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) && jsObject != null) {
-            jsObject.release();
-        }
-    }
-
-    public final void i(JsObject[] jsObjectArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, jsObjectArr) == null) && jsObjectArr != null) {
-            for (JsObject jsObject : jsObjectArr) {
-                h(jsObject);
+            File e = e(str, false);
+            if (e != null) {
+                cs4.L(e);
             }
+            cs4.L(new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder" + File.separator + str));
         }
-    }
 
-    public final t84[] c(n12 n12Var, JsObject[] jsObjectArr, u84 u84Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, n12Var, jsObjectArr, u84Var)) == null) {
-            int length = jsObjectArr.length;
-            if (length < 1) {
-                u84Var.errMsg = sb4.b("setUserCloudStorage", "fail KVDataList.length must greater than 0");
-                sb4.call(n12Var, false, u84Var);
-                return null;
-            } else if (length > 128) {
-                u84Var.errMsg = sb4.b("setUserCloudStorage", "fail user has stored too much keys. delete some keys and try again");
-                sb4.call(n12Var, false, u84Var);
-                return null;
-            } else {
-                t84[] t84VarArr = new t84[length];
-                for (int i = 0; i < length; i++) {
-                    n12 F = n12.F(jsObjectArr[i]);
-                    if (F != null && F.k() == 2 && !TextUtils.isEmpty(F.B("key")) && !TextUtils.isEmpty(F.B("value"))) {
-                        t84VarArr[i] = new t84();
-                        t84VarArr[i].key = F.B("key");
-                        t84VarArr[i].value = F.B("value");
-                        if (!t84VarArr[i].a()) {
-                            u84Var.errMsg = sb4.b("setUserCloudStorage", "fail some keys in list meet length exceed");
-                            sb4.call(n12Var, false, u84Var);
-                            return null;
-                        } else if (!t84VarArr[i].b()) {
-                            u84Var.errMsg = sb4.b("setUserCloudStorage", "fail some key-value in list meet length exceed");
-                            sb4.call(n12Var, false, u84Var);
-                            return null;
+        @Nullable
+        public static File e(String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return f(str, z, null);
+            }
+            return (File) invokeLZ.objValue;
+        }
+
+        public static File f(String str, boolean z, eq3 eq3Var) {
+            InterceptResult invokeCommon;
+            File g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, Boolean.valueOf(z), eq3Var})) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                File[] listFiles = g().listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    for (File file : listFiles) {
+                        if (TextUtils.equals(file.getName(), str + ".aigames")) {
+                            return file;
                         }
-                    } else {
-                        u84Var.errMsg = sb4.b("setUserCloudStorage", "fail invalid KVData item");
-                        sb4.call(n12Var, false, u84Var);
+                    }
+                    if (o84.a && z) {
+                        qb3.g(AppRuntime.getAppContext(), g.getPath() + " 没有小游戏包!").G();
+                    }
+                    rn3 rn3Var = new rn3();
+                    rn3Var.k(5L);
+                    rn3Var.i(4L);
+                    rn3Var.f("没有小游戏包! for release, no such bundle file");
+                    vn3.a().f(rn3Var);
+                    if (eq3Var != null) {
+                        eq3Var.a = rn3Var;
+                    }
+                    return null;
+                }
+                if (o84.a && z) {
+                    qb3.g(AppRuntime.getAppContext(), g.getPath() + " 没有小游戏包!").G();
+                }
+                rn3 rn3Var2 = new rn3();
+                rn3Var2.k(5L);
+                rn3Var2.i(4L);
+                rn3Var2.f("没有小游戏包! for release, bundle files are empty");
+                vn3.a().f(rn3Var2);
+                if (eq3Var != null) {
+                    eq3Var.a = rn3Var2;
+                }
+                return null;
+            }
+            return (File) invokeCommon.objValue;
+        }
+
+        public static File g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                File file = new File(AppRuntime.getAppContext().getFilesDir(), "aigames_zip");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file;
+            }
+            return (File) invokeV.objValue;
+        }
+
+        public static boolean i(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+                if (o84.a) {
+                    Log.i("SwanGameBundleHelper", "curVersion:" + str + ",targetVersion:" + str2);
+                }
+                try {
+                    if (a(str, str2) <= 0) {
+                        return false;
+                    }
+                    return true;
+                } catch (IllegalArgumentException e) {
+                    if (o84.a) {
+                        Log.e("SwanGameBundleHelper", "比较版本号Exception：" + e.getMessage());
+                    }
+                    return false;
+                }
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public static c j(vw2 vw2Var, eq3 eq3Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, vw2Var, eq3Var)) == null) {
+                if (vw2Var == null) {
+                    return null;
+                }
+                File h = h(vw2Var.H(), vw2Var.v1());
+                if (!h.exists()) {
+                    File f = f(vw2Var.H(), true, eq3Var);
+                    if (f == null) {
+                        t83.Q().a0(8, new SwanAppDeleteInfo(vw2Var.H(), 1).setPurgerScenes(5));
+                        return null;
+                    }
+                    b(h);
+                    if (!o84.i(f, h, vw2Var, eq3Var)) {
+                        qb3.g(AppRuntime.getAppContext(), "小游戏bundle解压失败!").G();
+                        rn3 rn3Var = new rn3();
+                        rn3Var.k(5L);
+                        rn3Var.i(7L);
+                        rn3Var.f("小游戏bundle解压失败! for release");
+                        vn3.a().f(rn3Var);
+                        if (eq3Var != null && eq3Var.a == null) {
+                            eq3Var.a = rn3Var;
+                        }
                         return null;
                     }
                 }
-                return t84VarArr;
-            }
-        }
-        return (t84[]) invokeLLL.objValue;
-    }
-
-    public final void d(JsObject jsObject, int i) {
-        n12 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject, i) != null) || (F = n12.F(jsObject)) == null) {
-            return;
-        }
-        if (i == 5) {
-            u84 u84Var = new u84();
-            if (!g()) {
-                u84Var.errNo = FontParser.sFontWeightDefault;
-                u84Var.errMsg = sb4.b("getFriendCloudStorage", "fail must login before calling");
-                sb4.call(F, false, u84Var);
-                h(jsObject);
-                return;
-            }
-            try {
-                String[] h = F.h("keyList");
-                h(jsObject);
-                j(i, h, new e(this, u84Var, "getFriendCloudStorage", F));
-                return;
-            } catch (JSTypeMismatchException e2) {
-                if (m84.a) {
-                    e2.printStackTrace();
+                c(vw2Var.H(), vw2Var.v1());
+                c cVar = new c();
+                File file = new File(h, "game.json");
+                sb4 a2 = sb4.a(cs4.E(file));
+                if (a2 == null) {
+                    return null;
                 }
-                u84Var.errNo = FontParser.sFontWeightDefault;
-                u84Var.errMsg = sb4.b("getFriendCloudStorage", "fail invalid keyList");
-                sb4.call(F, false, u84Var);
-                h(jsObject);
-                return;
-            }
-        }
-        h(jsObject);
-    }
-
-    public final JSONObject e(t84[] t84VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t84VarArr)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", g93.g0());
-                JSONArray jSONArray = new JSONArray();
-                for (t84 t84Var : t84VarArr) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("key", t84Var.key);
-                    jSONObject2.put("value", t84Var.value);
-                    jSONArray.put(jSONObject2);
-                }
-                jSONObject.put("data", jSONArray);
-            } catch (JSONException e2) {
-                if (m84.a) {
-                    e2.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String f(int i) {
-        InterceptResult invokeI;
-        String r;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                r = "";
-                            } else {
-                                r = x54.b().k();
-                            }
-                        } else {
-                            r = x54.b().o();
-                        }
-                    } else {
-                        r = x54.b().s();
-                    }
+                cVar.a = h.getPath() + File.separator;
+                cVar.c = a2;
+                if (!TextUtils.isEmpty(a2.e)) {
+                    cVar.b = cVar.a + File.separator + a2.e + File.separator;
+                    jb4.a().d(true);
+                    jb4.a().e(cVar.b);
+                    jb4.a().f(a2.e);
                 } else {
-                    r = x54.b().m();
+                    jb4.a().d(false);
                 }
-            } else {
-                r = x54.b().r();
+                if (o84.a) {
+                    Log.d("SwanGameBundleHelper", "configFile path: " + file.getPath());
+                    Log.d("SwanGameBundleHelper", "configFile exist: " + file.exists());
+                    Log.d("SwanGameBundleHelper", "info.appBundlePath path: " + cVar.a);
+                    Log.d("SwanGameBundleHelper", "info.mAppOpenDataBundle path: " + cVar.b);
+                }
+                return cVar;
             }
-            if (TextUtils.isEmpty(r) && m84.a) {
-                Log.e("OpenDataApi", "getUrlByType（）meet empty url !");
-            }
-            return r;
+            return (c) invokeLL.objValue;
         }
-        return (String) invokeI.objValue;
     }
 
-    @JavascriptInterface
-    public void getUserCloudStorage(JsObject jsObject) {
-        n12 F;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vw2 a;
+        public final /* synthetic */ su2 b;
+
+        public a(vw2 vw2Var, su2 su2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vw2Var, su2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vw2Var;
+            this.b = su2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            c j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                eq3 eq3Var = new eq3();
+                if (this.a.n0() && (x73.x() || o84.a)) {
+                    j = b.a(this.a, eq3Var);
+                } else {
+                    j = d.j(this.a, eq3Var);
+                }
+                this.b.a(0, j);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static c a(vw2 vw2Var, eq3 eq3Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, vw2Var, eq3Var)) == null) {
+                File b = b(eq3Var);
+                if (b == null) {
+                    return null;
+                }
+                yb3 M = yb3.M();
+                String b2 = es4.b(b, false);
+                File d = d(b2);
+                if (M != null) {
+                    if (!TextUtils.equals(M.e0().q("installed_debug_game_bundle_md5", ""), b2)) {
+                        if (!o84.i(b, d, vw2Var, eq3Var)) {
+                            qb3.g(AppRuntime.getAppContext(), "小游戏bundle解压失败!").G();
+                            rn3 rn3Var = new rn3();
+                            rn3Var.k(5L);
+                            rn3Var.i(7L);
+                            rn3Var.f("小游戏bundle解压失败! for debug");
+                            vn3.a().f(rn3Var);
+                            if (eq3Var != null && eq3Var.a == null) {
+                                eq3Var.a = rn3Var;
+                            }
+                            return null;
+                        }
+                        M.e0().B("installed_debug_game_bundle_md5", b2);
+                    }
+                } else if (!o84.i(b, d, vw2Var, eq3Var)) {
+                    qb3.g(AppRuntime.getAppContext(), "小游戏bundle解压失败!").G();
+                    rn3 rn3Var2 = new rn3();
+                    rn3Var2.k(5L);
+                    rn3Var2.i(7L);
+                    rn3Var2.f("小游戏bundle解压失败! for debug");
+                    vn3.a().f(rn3Var2);
+                    if (eq3Var != null && eq3Var.a == null) {
+                        eq3Var.a = rn3Var2;
+                    }
+                    return null;
+                }
+                c cVar = new c();
+                File file = new File(d, "game.json");
+                sb4 a = sb4.a(cs4.E(file));
+                if (a == null) {
+                    return null;
+                }
+                cVar.a = d.getPath() + File.separator;
+                cVar.c = a;
+                if (!TextUtils.isEmpty(a.e)) {
+                    cVar.b = cVar.a + a.e + File.separator;
+                    jb4.a().d(true);
+                    jb4.a().e(cVar.b);
+                    jb4.a().f(a.e);
+                } else {
+                    jb4.a().d(false);
+                }
+                if (o84.a) {
+                    Log.d("SwanGameBundleHelper", "configFile path: " + file.getPath());
+                    Log.d("SwanGameBundleHelper", "configFile exist: " + file.exists());
+                    Log.d("SwanGameBundleHelper", "info.appBundlePath path: " + cVar.a);
+                    Log.d("SwanGameBundleHelper", "info.mAppOpenDataBundle path: " + cVar.b);
+                }
+                return cVar;
+            }
+            return (c) invokeLL.objValue;
+        }
+
+        public static File b(eq3 eq3Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eq3Var)) == null) {
+                File c = c();
+                File[] listFiles = c.listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    return e(listFiles);
+                }
+                Context appContext = AppRuntime.getAppContext();
+                qb3.g(appContext, c.getPath() + " 没有测试程序包!").G();
+                rn3 rn3Var = new rn3();
+                rn3Var.k(5L);
+                rn3Var.i(4L);
+                rn3Var.f("没有小游戏包! for debug, bundle files are empty");
+                vn3.a().f(rn3Var);
+                if (eq3Var != null) {
+                    eq3Var.a = rn3Var;
+                    return null;
+                }
+                return null;
+            }
+            return (File) invokeL.objValue;
+        }
+
+        public static File c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                File e = o84.e("aigames_debug");
+                if (!e.exists()) {
+                    e.mkdirs();
+                }
+                return e;
+            }
+            return (File) invokeV.objValue;
+        }
+
+        public static File d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                File file = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "debug_aigames_bundle", str);
+                file.mkdirs();
+                return file;
+            }
+            return (File) invokeL.objValue;
+        }
+
+        public static File e(File[] fileArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fileArr)) == null) {
+                File file = null;
+                for (File file2 : fileArr) {
+                    if (file == null || file2.lastModified() > file.lastModified()) {
+                        file = file2;
+                    }
+                }
+                return file;
+            }
+            return (File) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends ru2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public sb4 c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986110, "Lcom/baidu/tieba/o84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986110, "Lcom/baidu/tieba/o84;");
+                return;
+            }
+        }
+        a = is1.a;
+        b = Executors.newSingleThreadExecutor();
+    }
+
+    public static void c(vw2 vw2Var, su2 su2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jsObject) != null) || (F = n12.F(jsObject)) == null) {
-            return;
-        }
-        u84 u84Var = new u84();
-        if (!g()) {
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("getUserCloudStorage", "fail must login before calling");
-            sb4.call(F, false, u84Var);
-            h(jsObject);
-            return;
-        }
-        try {
-            String[] h = F.h("keyList");
-            h(jsObject);
-            j(3, h, new c(this, u84Var, F));
-        } catch (JSTypeMismatchException e2) {
-            if (m84.a) {
-                e2.printStackTrace();
-            }
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("getUserCloudStorage", "fail invalid keyList");
-            sb4.call(F, false, u84Var);
-            h(jsObject);
+        if (interceptable == null || interceptable.invokeLL(65539, null, vw2Var, su2Var) == null) {
+            b.execute(new a(vw2Var, su2Var));
         }
     }
 
-    @JavascriptInterface
-    public void removeUserCloudStorage(JsObject jsObject) {
-        n12 F;
+    public static void f(String str, uu2.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, jsObject) != null) || (F = n12.F(jsObject)) == null) {
-            return;
-        }
-        u84 u84Var = new u84();
-        if (!g()) {
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("removeUserCloudStorage", "fail must login before calling");
-            sb4.call(F, false, u84Var);
-            h(jsObject);
-            return;
-        }
-        try {
-            String[] h = F.h("keyList");
-            h(jsObject);
-            j(2, h, new b(this, u84Var, F));
-        } catch (JSTypeMismatchException e2) {
-            if (m84.a) {
-                e2.printStackTrace();
-            }
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("removeUserCloudStorage", "fail invalid keyList");
-            sb4.call(F, false, u84Var);
-            h(jsObject);
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, cVar) == null) {
+            uu2.d dVar = new uu2.d();
+            dVar.a = str;
+            n74.a();
+            new fj2().e(dVar, n74.c().getPath(), cVar);
         }
     }
 
-    public final boolean g() {
+    public static void g(String str, uu2.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, cVar) == null) {
+            uu2.d dVar = new uu2.d();
+            dVar.a = str;
+            c84.a();
+            new fj2().e(dVar, c84.c().getPath(), cVar);
+        }
+    }
+
+    public static File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            g93 M = g93.M();
-            if (M == null) {
-                return false;
-            }
-            return M.N().e(AppRuntime.getAppContext());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder");
         }
-        return invokeV.booleanValue;
+        return (File) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public void getUserInfo(JsObject jsObject) {
-        n12 F;
+    public static File e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jsObject) != null) || (F = n12.F(jsObject)) == null) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        try {
-            String[] h = F.h("swanIdList");
-            if (h != null && h.length > 0) {
-                for (String str : h) {
-                    jSONArray.put(str);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            File file = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "swangame/debug");
+            if (TextUtils.isEmpty(str)) {
+                return file;
             }
-        } catch (JSTypeMismatchException e2) {
-            if (m84.a) {
-                e2.printStackTrace();
-            }
+            return new File(file, str);
         }
-        h(jsObject);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("ma_id", g93.g0());
-            jSONObject.put("swanid_list", jSONArray);
-        } catch (JSONException e3) {
-            if (m84.a) {
-                e3.printStackTrace();
-            }
-        }
-        a(f(1), jSONObject.toString(), new a(this, new u84(), F));
+        return (File) invokeL.objValue;
     }
 
-    @JavascriptInterface
-    public void setUserCloudStorage(JsObject jsObject) {
-        n12 F;
+    public static void h(uu2.d dVar, uu2.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, jsObject) != null) || (F = n12.F(jsObject)) == null) {
-            return;
-        }
-        u84 u84Var = new u84();
-        if (!g()) {
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("setUserCloudStorage", "fail must login before calling");
-            sb4.call(F, false, u84Var);
-            i(F.z("KVDataList"));
-            h(jsObject);
-            return;
-        }
-        try {
-            JsObject[] e2 = F.e("KVDataList");
-            h(jsObject);
-            t84[] c2 = c(F, e2, u84Var);
-            i(e2);
-            if (c2 == null) {
-                return;
-            }
-            a(f(4), e(c2).toString(), new d(this, u84Var, F));
-        } catch (JSTypeMismatchException e3) {
-            if (m84.a) {
-                e3.printStackTrace();
-            }
-            u84Var.errNo = FontParser.sFontWeightDefault;
-            u84Var.errMsg = sb4.b("setUserCloudStorage", "fail KVDataList must be an Array");
-            sb4.call(F, false, u84Var);
-            h(jsObject);
+        if (interceptable == null || interceptable.invokeLL(65544, null, dVar, cVar) == null) {
+            File c2 = b.c();
+            new fj2().e(dVar, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
         }
     }
 
-    public final <T> void j(int i, @NonNull String[] strArr, ResponseCallback<T> responseCallback) {
+    public static boolean i(File file, File file2, vw2 vw2Var, eq3 eq3Var) {
+        InterceptResult invokeLLLL;
+        boolean U;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048586, this, i, strArr, responseCallback) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            if (strArr.length > 0) {
-                for (String str : strArr) {
-                    jSONArray.put(str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, file, file2, vw2Var, eq3Var)) == null) {
+            int i = 0;
+            if (file != null && file2 != null) {
+                if (file.exists() && file.length() != 0) {
+                    d53.o().F(new UbcFlowEvent("package_start_unzip"));
+                    long currentTimeMillis = System.currentTimeMillis();
+                    xu2.c j = xu2.j(file);
+                    int i2 = j.b;
+                    if (i2 != -1) {
+                        U = xu2.d(j.a, file2, i2).a;
+                        i = j.b;
+                    } else {
+                        U = cs4.U(file.getPath(), file2.getPath());
+                    }
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    if (a) {
+                        xu2.h((int) (currentTimeMillis2 - currentTimeMillis));
+                    }
+                    if (!U) {
+                        rn3 rn3Var = new rn3();
+                        rn3Var.k(5L);
+                        rn3Var.i(7L);
+                        rn3Var.f("小游戏bundle解压失败! PkgType=" + i);
+                        if (eq3Var != null) {
+                            eq3Var.a = rn3Var;
+                        }
+                    }
+                    HybridUbcFlow o = d53.o();
+                    o.F(new UbcFlowEvent("package_end_unzip"));
+                    o.D("app_package_version", String.valueOf(i));
+                    return U;
+                }
+                rn3 rn3Var2 = new rn3();
+                rn3Var2.k(5L);
+                rn3Var2.i(4L);
+                rn3Var2.f("小游戏bundle文件不存在或者空文件! ");
+                if (eq3Var != null) {
+                    eq3Var.a = rn3Var2;
                 }
             }
-            try {
-                jSONObject.put("ma_id", g93.g0());
-                jSONObject.put("key_list", jSONArray);
-            } catch (JSONException e2) {
-                if (m84.a) {
-                    e2.printStackTrace();
-                }
-            }
-            a(f(i), jSONObject.toString(), responseCallback);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

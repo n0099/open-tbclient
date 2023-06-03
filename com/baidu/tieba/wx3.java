@@ -1,20 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import org.json.JSONObject;
+import android.app.Application;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface wx3 {
-    void a(String str, JSONObject jSONObject);
+public class wx3 implements yx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    @Override // com.baidu.tieba.yx3
+    public void a(Application application, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        }
+    }
 
-    boolean c(View view2);
-
-    boolean d(View view2, qw3 qw3Var);
-
-    void e();
-
-    boolean f(View view2, qw3 qw3Var);
-
-    boolean removeView(View view2);
+    public wx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

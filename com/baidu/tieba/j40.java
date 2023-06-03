@@ -1,82 +1,191 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h40;
+import com.baidu.tieba.j30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-import javax.crypto.BadPaddingException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class j40 {
+public class j40 implements m40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BigInteger bigInteger) {
+    public j40() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.m40
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? k30.b().a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m40
+    public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bigInteger)) == null) ? (bigInteger.bitLength() + 7) >> 3 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? j30.f(context.getApplicationContext()).c() : (String) invokeL.objValue;
     }
 
-    public static BigInteger b(byte[] bArr, BigInteger bigInteger) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.m40
+    public JSONArray b(Context context) {
+        InterceptResult invokeL;
+        T t;
+        j30.f fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bigInteger)) == null) {
-            BigInteger bigInteger2 = new BigInteger(1, bArr);
-            if (bigInteger2.compareTo(bigInteger) < 0) {
-                return bigInteger2;
-            }
-            throw new BadPaddingException("Message is larger than modulus");
-        }
-        return (BigInteger) invokeLL.objValue;
-    }
-
-    public static byte[] c(BigInteger bigInteger, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bigInteger, i)) == null) {
-            byte[] byteArray = bigInteger.toByteArray();
-            int length = byteArray.length;
-            if (length == i) {
-                return byteArray;
-            }
-            if (length == i + 1 && byteArray[0] == 0) {
-                byte[] bArr = new byte[i];
-                System.arraycopy(byteArray, 1, bArr, 0, i);
-                return bArr;
-            } else if (length >= i) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            h40 h40Var = new h40();
+            j30.f(context).q(h40Var);
+            boolean b = h40Var.b(10000);
+            JSONArray jSONArray = new JSONArray();
+            if (b) {
+                h40.b a = h40Var.a();
+                if (a != null && (t = a.a) != 0 && (fVar = (j30.f) t) != null && fVar.b() != null) {
+                    for (j30.g gVar : fVar.b()) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("aid", gVar.b);
+                            jSONObject.put("pkg", gVar.a);
+                            jSONObject.put("priority", gVar.c);
+                            jSONArray.put(jSONObject);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
             } else {
-                byte[] bArr2 = new byte[i];
-                System.arraycopy(byteArray, 0, bArr2, i - length, length);
-                return bArr2;
+                h40Var.c();
             }
+            return jSONArray;
         }
-        return (byte[]) invokeLI.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    @Override // com.baidu.tieba.m40
+    public String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
-            if (i == 0 && i2 == bArr.length) {
-                return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            h40 h40Var = new h40();
+            j30.f(context).o(h40Var);
+            if (!h40Var.b(10000)) {
+                h40Var.c();
+                return null;
             }
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
-            return bArr2;
+            h40.b a = h40Var.a();
+            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
+                return null;
+            }
+            return (String) a.a;
         }
-        return (byte[]) invokeLII.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, r40 r40Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.m40
+    public String d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, r40Var)) == null) ? f(bArr, r40Var.b(), r40Var.a()) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            h40 h40Var = new h40();
+            j30.f(context).m(h40Var);
+            if (!h40Var.b(10000)) {
+                h40Var.c();
+                return null;
+            }
+            h40.b a = h40Var.a();
+            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
+                return null;
+            }
+            return (String) a.a;
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] f(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.m40
+    public String e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bigInteger, bigInteger2)) == null) ? c(b(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger)) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? j30.f(context.getApplicationContext()).e() : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m40
+    public JSONArray f(Context context) {
+        InterceptResult invokeL;
+        T t;
+        List<c60> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            h40 h40Var = new h40();
+            k30.b().e(context, h40Var);
+            boolean b = h40Var.b(10000);
+            JSONArray jSONArray = new JSONArray();
+            if (b) {
+                h40.b a = h40Var.a();
+                if (a != null && (t = a.a) != 0 && (list = (List) t) != null && list.size() > 0) {
+                    for (c60 c60Var : list) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("pkg", c60Var.a);
+                            jSONObject.put("sigs", Arrays.toString(c60Var.b));
+                            jSONObject.put("vc", c60Var.c);
+                            jSONObject.put("va", c60Var.d);
+                            jSONObject.put("installts", c60Var.e);
+                            jSONObject.put("lstupdatets", c60Var.f);
+                            jSONArray.put(jSONObject);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else {
+                h40Var.c();
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m40
+    public JSONObject g(Context context) {
+        InterceptResult invokeL;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            h40 h40Var = new h40();
+            k30.b().c(context, h40Var);
+            boolean b = h40Var.b(10000);
+            JSONObject jSONObject = new JSONObject();
+            if (b) {
+                h40.b a = h40Var.a();
+                if (a != null && (t = a.a) != 0) {
+                    b60 b60Var = (b60) t;
+                }
+            } else {
+                h40Var.c();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,33 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class una {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes8.dex */
+public interface una {
+    public static final ServiceReference a = new ServiceReference("ubc", "yalog");
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b();
-        }
-        return invokeV.booleanValue;
-    }
+    void a(String str, String str2);
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (aoa.a(str)) {
-                return false;
-            }
-            return str.equalsIgnoreCase("OPPO R9sk");
-        }
-        return invokeV.booleanValue;
-    }
+    void b(String str, String str2);
 }

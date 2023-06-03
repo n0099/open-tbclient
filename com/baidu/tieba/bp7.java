@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ix9;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bp7 implements ix9.a {
+public class bp7 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,49 +32,76 @@ public class bp7 implements ix9.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String version = TbConfig.getVersion();
-        if (!TextUtils.isEmpty(version)) {
-            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
-        }
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        if (!TextUtils.isEmpty(lastCachedOid)) {
-            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
-        }
     }
 
-    @Override // com.baidu.tieba.ix9.a
-    public void a(Application application) {
+    @Override // com.baidu.tieba.v65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            StatService.enableAppList(application, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsForumManage");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ix9.a
-    public void b(Context context) {
+    @Override // com.baidu.tieba.v65
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
-            StatService.autoTrace(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z4 = false;
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧务管理弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
+            }
+            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
+            if (v1 != null && !v1.i4() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                wq8 yunDialogLog = YunDialogLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("吧务管理弹窗策略校验失败：FrsFragment为空->");
+                if (v1 == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                sb.append(z2);
+                sb.append("|");
+                sb.append("Frs是否展示过弹窗->");
+                if (v1 != null && v1.i4()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                sb.append(z3);
+                sb.append("|");
+                sb.append("是否存在FRS数据->");
+                if (TbSingleton.getInstance().getFrsResponseData() != null) {
+                    z4 = true;
+                }
+                sb.append(z4);
+                yunDialogLog.b("YunDialogManager", sb.toString());
+            }
+            return z;
         }
-    }
-
-    @Override // com.baidu.tieba.ix9.a
-    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
-            StatService.trackWebView(context, webView, webChromeClient);
-        }
-    }
-
-    @Override // com.baidu.tieba.ix9.a
-    public void d(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
-            StatService.setAppChannel(context, str, z);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -18,15 +18,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i51;
-import com.baidu.tieba.mg0;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.og0;
-import com.baidu.tieba.qj0;
-import com.baidu.tieba.rb1;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.tb1;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.ad1;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.cd1;
+import com.baidu.tieba.g51;
+import com.baidu.tieba.r61;
+import com.baidu.tieba.vh0;
+import com.baidu.tieba.wo0;
+import com.baidu.tieba.xh0;
+import com.baidu.tieba.zk0;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -56,11 +56,19 @@ public class BaseActivity extends FragmentActivity {
 
     /* loaded from: classes3.dex */
     public interface d {
-        void a(Object obj);
+        void execute(Object obj);
     }
 
     @CallSuper
-    public void D1(Bundle bundle) {
+    public void A1(Bundle bundle) {
+    }
+
+    @CallSuper
+    public void C1() {
+    }
+
+    @CallSuper
+    public void D1(Intent intent) {
     }
 
     @CallSuper
@@ -68,7 +76,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @CallSuper
-    public void G1(Intent intent) {
+    public void F1(Bundle bundle) {
     }
 
     @CallSuper
@@ -76,7 +84,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @CallSuper
-    public void I1(Bundle bundle) {
+    public void I1() {
     }
 
     @CallSuper
@@ -88,21 +96,13 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @CallSuper
-    public void L1() {
-    }
-
-    @CallSuper
-    public void M1() {
-    }
-
-    @CallSuper
-    public boolean N1(Bundle bundle) {
+    public boolean L1(Bundle bundle) {
         return true;
     }
 
     /* loaded from: classes3.dex */
-    public class a implements rb1 {
-        @Override // com.baidu.tieba.rb1
+    public class a implements ad1 {
+        @Override // com.baidu.tieba.ad1
         public void onTranslucent(boolean z) {
         }
 
@@ -129,9 +129,9 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
                 this.a = false;
-                tb1.c(BaseActivity.this, null);
+                cd1.c(BaseActivity.this, null);
             }
-            BaseActivity.this.V1(0.0f);
+            BaseActivity.this.setPreDecorPosition(0.0f);
         }
 
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
@@ -142,7 +142,7 @@ public class BaseActivity extends FragmentActivity {
             if (BaseActivity.this.l != null) {
                 BaseActivity.this.l.onPanelOpened(view2);
             }
-            BaseActivity.this.V1(0.0f);
+            BaseActivity.this.setPreDecorPosition(0.0f);
             BaseActivity.this.k.setShadowDrawable(null);
             BaseActivity.this.finish();
             BaseActivity.this.overridePendingTransition(0, 0);
@@ -166,10 +166,10 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
                 this.a = true;
-                tb1.d(BaseActivity.this, null);
+                cd1.d(BaseActivity.this, null);
             }
             float f3 = this.b >> 2;
-            BaseActivity.this.V1((f * f3) - f3);
+            BaseActivity.this.setPreDecorPosition((f * f3) - f3);
         }
     }
 
@@ -181,42 +181,14 @@ public class BaseActivity extends FragmentActivity {
         @Override // java.lang.Runnable
         public void run() {
             BaseActivity baseActivity = BaseActivity.this;
-            baseActivity.P1(baseActivity.getWindow().getDecorView());
-        }
-    }
-
-    public void O1() {
-        if (o != 0 || p != 0) {
-            this.a = o;
-            this.b = p;
-        }
-        if (q != 0 || r != 0) {
-            this.c = q;
-            this.d = r;
-        }
-        S1(0, 0, 0, 0);
-    }
-
-    public final void X1() {
-        if (this.a != 0 || this.b != 0) {
-            overridePendingTransition(this.a, this.b);
-            this.a = 0;
-            this.b = 0;
-        }
-    }
-
-    public final void Y1() {
-        if (this.c != 0 || this.d != 0) {
-            overridePendingTransition(this.c, this.d);
-            this.c = 0;
-            this.d = 0;
+            baseActivity.setDrawDuringWindowsAnimating(baseActivity.getWindow().getDecorView());
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        Y1();
+        startExitActivityAnim();
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -227,8 +199,8 @@ public class BaseActivity extends FragmentActivity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        X1();
-        C1();
+        startEnterActivityAnim();
+        handleDrawDuringWindowsAnimating();
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
@@ -239,7 +211,7 @@ public class BaseActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onDestroy() {
         super.onDestroy();
-        E1();
+        C1();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -250,48 +222,72 @@ public class BaseActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onPause() {
         super.onPause();
-        H1();
+        E1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onPostResume() {
         super.onPostResume();
-        J1();
+        H1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onResume() {
         super.onResume();
-        K1();
+        I1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onStart() {
         super.onStart();
-        L1();
+        J1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onStop() {
         super.onStop();
-        M1();
+        K1();
+    }
+
+    public void resetActivityAnim() {
+        if (o != 0 || p != 0) {
+            this.a = o;
+            this.b = p;
+        }
+        if (q != 0 || r != 0) {
+            this.c = q;
+            this.d = r;
+        }
+        setNextPendingTransition(0, 0, 0, 0);
     }
 
     public void setCurrentActivityNoTransparent() {
-        tb1.c(this, new a());
+        cd1.c(this, new a());
     }
 
-    public static void R1(boolean z) {
+    public final void startEnterActivityAnim() {
+        if (this.a != 0 || this.b != 0) {
+            overridePendingTransition(this.a, this.b);
+            this.a = 0;
+            this.b = 0;
+        }
+    }
+
+    public final void startExitActivityAnim() {
+        if (this.c != 0 || this.d != 0) {
+            overridePendingTransition(this.c, this.d);
+            this.c = 0;
+            this.d = 0;
+        }
+    }
+
+    public static void setHasMultiWindowShow(boolean z) {
         s = z;
-    }
-
-    public void W1(boolean z) {
-        this.g = z;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        if (t41.b.d()) {
+        if (c61.b.d()) {
             return super.checkSelfPermission(str);
         }
         return 0;
@@ -325,18 +321,18 @@ public class BaseActivity extends FragmentActivity {
     public void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
         if (z && !s) {
-            x31.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
-            R1(true);
-        } else if (!z && !t41.c()) {
-            R1(false);
+            g51.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            setHasMultiWindowShow(true);
+        } else if (!z && !c61.c()) {
+            setHasMultiWindowShow(false);
         }
     }
 
     @Override // android.app.Activity
     public final void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        B1();
-        I1(bundle);
+        applySliding();
+        F1(bundle);
     }
 
     @Override // android.app.Activity
@@ -358,38 +354,35 @@ public class BaseActivity extends FragmentActivity {
         this.f = z;
     }
 
+    public void setSlideCancelActivityTransparent(boolean z) {
+        this.g = z;
+    }
+
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        if (t41.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+        if (c61.b.d() && super.shouldShowRequestPermissionRationale(str)) {
             return true;
         }
         return false;
     }
 
-    public static void S1(int i, int i2, int i3, int i4) {
+    public static void setNextPendingTransition(int i, int i2, int i3, int i4) {
         o = i;
         p = i2;
         q = i3;
         r = i4;
     }
 
-    public void T1(int i, int i2, int i3, int i4) {
+    public void setPendingTransition(int i, int i2, int i3, int i4) {
         this.a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
     }
 
-    public void Q1(boolean z, SlideInterceptor slideInterceptor) {
+    public void M1(boolean z, SlideInterceptor slideInterceptor) {
         this.f = z;
         this.j = slideInterceptor;
-    }
-
-    public final void U1(Activity activity, float f) {
-        View decorView;
-        if (activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            decorView.setX(f);
-        }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -400,7 +393,14 @@ public class BaseActivity extends FragmentActivity {
         return super.onKeyDown(i, keyEvent);
     }
 
-    public final void B1() {
+    public final void setPreActivityPosition(Activity activity, float f) {
+        View decorView;
+        if (activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
+            decorView.setX(f);
+        }
+    }
+
+    public final void applySliding() {
         if (this.f) {
             boolean z = true;
             boolean z2 = false;
@@ -410,7 +410,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = t41.c.e(this);
+            int e = c61.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -422,19 +422,86 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    public final void C1() {
+    public final void handleDrawDuringWindowsAnimating() {
         String str;
-        if (getIntent() != null && getIntent().hasExtra("winAccelerate")) {
-            str = getIntent().getStringExtra("winAccelerate");
+        if (getIntent() != null && getIntent().hasExtra(com.baidu.searchbox.appframework.BaseActivity.KEY_WINDOWS_ANIMATING_NEED_DRAW)) {
+            str = getIntent().getStringExtra(com.baidu.searchbox.appframework.BaseActivity.KEY_WINDOWS_ANIMATING_NEED_DRAW);
         } else {
             str = "0";
         }
         if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-            qj0.b(new c());
+            zk0.b(new c());
         }
     }
 
-    public final void P1(View view2) {
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public final void onCreate(Bundle bundle) {
+        if (xh0.a(this)) {
+            return;
+        }
+        try {
+            if (!L1(bundle)) {
+                if (!vh0.a) {
+                    finish();
+                    return;
+                }
+                throw new RuntimeException("Class " + getClass() + " failed at preCreate");
+            }
+            int d2 = r61.d(this);
+            super.onCreate(bundle);
+            r61.a(this, d2);
+            resetActivityAnim();
+            try {
+                A1(bundle);
+            } catch (Throwable th) {
+                if (!vh0.a) {
+                    finish();
+                    return;
+                }
+                throw new RuntimeException(th);
+            }
+        } catch (Throwable unused) {
+            if (!vh0.a) {
+                finish();
+                return;
+            }
+            throw new RuntimeException("Class " + getClass() + " failed at preCreate");
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public final void onNewIntent(Intent intent) {
+        ArrayList arrayList;
+        super.onNewIntent(intent);
+        resetActivityAnim();
+        startEnterActivityAnim();
+        ArrayList<d> arrayList2 = t;
+        if (arrayList2 != null) {
+            synchronized (arrayList2) {
+                arrayList = new ArrayList(t);
+            }
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((d) it.next()).execute(intent);
+            }
+        }
+        try {
+            D1(intent);
+        } catch (Throwable th) {
+            if (!vh0.a) {
+                finish();
+                return;
+            }
+            throw new RuntimeException(th);
+        }
+    }
+
+    public final void setDrawDuringWindowsAnimating(View view2) {
         if (Build.VERSION.SDK_INT > 23) {
             return;
         }
@@ -448,89 +515,22 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public final void onNewIntent(Intent intent) {
-        ArrayList arrayList;
-        super.onNewIntent(intent);
-        O1();
-        X1();
-        ArrayList<d> arrayList2 = t;
-        if (arrayList2 != null) {
-            synchronized (arrayList2) {
-                arrayList = new ArrayList(t);
-            }
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                ((d) it.next()).a(intent);
-            }
-        }
-        try {
-            G1(intent);
-        } catch (Throwable th) {
-            if (!mg0.a) {
-                finish();
-                return;
-            }
-            throw new RuntimeException(th);
-        }
-    }
-
-    public final void V1(float f) {
+    public final void setPreDecorPosition(float f) {
         try {
             if (this.m == null || this.m.get() == null) {
-                this.m = new WeakReference<>(nn0.d());
+                this.m = new WeakReference<>(wo0.d());
             }
             if (this.m.get() != null) {
-                Activity e = nn0.e();
+                Activity e = wo0.e();
                 Activity activity = this.m.get();
                 if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
-                    U1(activity, 0.0f);
+                    setPreActivityPosition(activity, 0.0f);
                 } else {
-                    U1(activity, f);
+                    setPreActivityPosition(activity, f);
                 }
             }
         } catch (Throwable th) {
             th.printStackTrace();
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public final void onCreate(Bundle bundle) {
-        if (og0.a(this)) {
-            return;
-        }
-        try {
-            if (!N1(bundle)) {
-                if (!mg0.a) {
-                    finish();
-                    return;
-                }
-                throw new RuntimeException("Class " + getClass() + " failed at preCreate");
-            }
-            int d2 = i51.d(this);
-            super.onCreate(bundle);
-            i51.a(this, d2);
-            O1();
-            try {
-                D1(bundle);
-            } catch (Throwable th) {
-                if (!mg0.a) {
-                    finish();
-                    return;
-                }
-                throw new RuntimeException(th);
-            }
-        } catch (Throwable unused) {
-            if (!mg0.a) {
-                finish();
-                return;
-            }
-            throw new RuntimeException("Class " + getClass() + " failed at preCreate");
         }
     }
 }

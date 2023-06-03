@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.renderer;
 
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.util.StringHelper;
 import java.lang.reflect.Field;
 import java.util.Set;
 import kotlin._Assertions;
@@ -61,7 +60,7 @@ public final class DescriptorRendererOptionsImpl implements DescriptorRendererOp
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function1
         public final String invoke(ValueParameterDescriptor valueParameterDescriptor) {
-            return StringHelper.STRING_MORE;
+            return "...";
         }
     });
     public final ReadWriteProperty secondaryConstructorsAsPrimary$delegate = property(Boolean.TRUE);

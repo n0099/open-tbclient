@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
+import android.os.Bundle;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-/* loaded from: classes4.dex */
-public class af2 extends bf2 {
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class af2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,71 +33,121 @@ public class af2 extends bf2 {
                 return;
             }
         }
-        b = qp1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        a = is1.a;
     }
 
-    public af2() {
+    public static void a(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return rl3.b(ns2.c(), c);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public boolean e(cf2 cf2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cf2Var)) == null) {
-            if (cf2Var == null) {
-                return false;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cf2Var.g + File.separator + cf2Var.q;
-            try {
-                File j = j(cf2Var.h, cf2Var.g, cf2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
+        if ((interceptable == null || interceptable.invokeL(65537, null, message) == null) && message != null) {
+            Object obj = message.obj;
+            if (obj instanceof Bundle) {
+                Bundle bundle = (Bundle) obj;
+                String string = bundle.getString("eventType");
+                HashMap hashMap = new HashMap();
+                hashMap.put("eventType", string);
+                JSONObject jSONObject = new JSONObject();
+                if (TextUtils.equals(string, "checkForUpdate")) {
+                    try {
+                        jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
                     }
-                    return false;
                 }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
+                hashMap.put("data", jSONObject.toString());
+                zl2 zl2Var = new zl2("updateStatusChange", hashMap);
+                SwanAppActivity activity = lx2.T().getActivity();
+                if (activity != null && activity.S() == 1) {
+                    gv2.i().v(string, bundle.getBoolean("hasUpdate"));
+                } else {
+                    lx2.T().u(zl2Var);
                 }
-                return false;
             }
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bf2
-    public String f(String str) {
-        InterceptResult invokeL;
+    public static void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = ns2.c();
-            return rl3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            y82.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("hasUpdate", z);
+            d("checkForUpdate", str, bundle);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            y82.k("SwanAppPkgUpdateManager", "send update failed msg");
+            d("updateFailed", str, null);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
+            }
+            d("updateReady", str, null);
+        }
+    }
+
+    public static void d(String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                if (bundle == null) {
+                    bundle = new Bundle();
+                }
+                bundle.putString("eventType", str);
+                o83 e = o83.e();
+                q83 q83Var = new q83(107, bundle);
+                q83Var.c(str2);
+                e.h(q83Var);
+                return;
+            }
+            y82.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
+        }
+    }
+
+    public static void f(String str, String str2, boolean z) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("checkForUpdate")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        b(str2, z);
+                        return;
+                    }
+                    return;
+                }
+                c(str2);
+                return;
+            }
+            e(str2);
+        }
     }
 }

@@ -26,7 +26,7 @@ import com.cmic.sso.sdk.e.q;
 import com.cmic.sso.sdk.e.r;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AuthnHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "quick_login_android_9.5.5";
@@ -55,7 +55,7 @@ public class AuthnHelper {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

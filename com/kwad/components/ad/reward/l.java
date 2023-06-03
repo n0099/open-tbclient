@@ -30,7 +30,6 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -258,10 +257,10 @@ public final class l extends com.kwad.components.core.i.e {
     }
 
     public static View a(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, final a aVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04d3, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913bd)).setText(cVar.getTitle());
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09123d);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091240);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04df, viewGroup, false);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d5)).setText(cVar.getTitle());
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091255);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091258);
         textView.setText(cVar.fK());
         textView2.setText(cVar.fL());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.3
@@ -293,15 +292,15 @@ public final class l extends com.kwad.components.core.i.e {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x005a: INVOKE  (r6v1 int A[REMOVE]) = (r6v0 com.kwad.components.ad.reward.i.a) type: VIRTUAL call: com.kwad.components.ad.reward.i.a.is():int)] */
     public static View a(com.kwad.components.ad.reward.i.a aVar, final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, final a aVar2) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04bd, viewGroup, false);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c9, viewGroup, false);
         if (aVar instanceof com.kwad.components.ad.reward.i.a.a) {
             com.kwad.components.ad.reward.i.a.a.a((com.kwad.components.ad.reward.i.a.a) aVar, inflate.getContext(), adTemplate);
         }
-        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f091379)).a(aVar.ir(), cVar.no);
-        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091378), cVar.eL(), adTemplate, 12);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091376);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091377);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09137a);
+        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f091391)).a(aVar.ir(), cVar.no);
+        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091390), cVar.eL(), adTemplate, 12);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09138e);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09138f);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091392);
         StringBuilder sb = new StringBuilder();
         sb.append(aVar.is());
         String sb2 = sb.toString();
@@ -313,7 +312,7 @@ public final class l extends com.kwad.components.core.i.e {
             textView3.setText(format);
         } else {
             int i = equals ? indexOf + 1 : str.length() > 1 ? indexOf + 3 : indexOf + 2;
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06078d));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079e));
             SpannableString spannableString = new SpannableString(format);
             spannableString.setSpan(foregroundColorSpan, indexOf, i, 17);
             textView3.setText(spannableString);
@@ -342,10 +341,10 @@ public final class l extends com.kwad.components.core.i.e {
     }
 
     private View a(final l lVar, LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, c cVar, final a aVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04d4, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09131a)).setText(g(inflate.getContext(), cVar.nq));
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091318);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091317);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04e0, viewGroup, false);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091332)).setText(g(inflate.getContext(), cVar.nq));
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091330);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132f);
         textView.setText(cVar.fK());
         textView2.setText(cVar.fL());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.5
@@ -387,7 +386,7 @@ public final class l extends com.kwad.components.core.i.e {
             if (Q > B) {
                 Q = B;
             }
-            if (aVar.getPlayDuration() < (Q * 1000) + ErrorCode.CLIENT_CANCEL_REQUEST && (playDuration = (int) (Q - ((((float) aVar.getPlayDuration()) / 1000.0f) + 0.5f))) >= 0) {
+            if (aVar.getPlayDuration() < (Q * 1000) - 800 && (playDuration = (int) (Q - ((((float) aVar.getPlayDuration()) / 1000.0f) + 0.5f))) >= 0) {
                 i2 = playDuration;
             }
         }
@@ -414,10 +413,10 @@ public final class l extends com.kwad.components.core.i.e {
     }
 
     public static View c(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, final a aVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04b8, viewGroup, false);
-        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091358), cVar.kY, adTemplate);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091357)).setText(cVar.getTitle());
-        inflate.findViewById(R.id.obfuscated_res_0x7f091354).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.9
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c4, viewGroup, false);
+        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091370), cVar.kY, adTemplate);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09136f)).setText(cVar.getTitle());
+        inflate.findViewById(R.id.obfuscated_res_0x7f09136c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.9
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -427,7 +426,7 @@ public final class l extends com.kwad.components.core.i.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091356).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.10
+        inflate.findViewById(R.id.obfuscated_res_0x7f09136e).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.10
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a aVar2 = a.this;
@@ -436,7 +435,7 @@ public final class l extends com.kwad.components.core.i.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091355).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f09136d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.l.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -451,8 +450,8 @@ public final class l extends com.kwad.components.core.i.e {
 
     public static SpannableString g(Context context, String str) {
         SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06078d));
-        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06078d));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06079e));
+        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06079e));
         StyleSpan styleSpan = new StyleSpan(1);
         int length = spannableString.length();
         spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);

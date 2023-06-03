@@ -1,73 +1,86 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class eg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
-    public static int a(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    public eg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
-            long b = b(inputStream, outputStream);
-            if (b > 2147483647L) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return (int) b;
         }
-        return invokeLL.intValue;
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    public void a() {
+        JSONObject b;
+        UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream == null) {
-                return -1L;
-            }
-            byte[] bArr = new byte[4096];
-            long j = 0;
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (-1 != read) {
-                    outputStream.write(bArr, 0, read);
-                    j += read;
-                } else {
-                    return j;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+            return;
+        }
+        uBCManager.onEvent("94", b.toString());
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("url", this.a);
+                    jSONObject.put("resultCode", this.b);
+                    jSONObject.put(GameAssistConstKt.RESULT_MODIFY_PWD_MSG, this.c);
+                    int i2 = 1;
+                    if (this.d) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    jSONObject.put("isHttps", i);
+                    if (!this.e) {
+                        i2 = 0;
+                    }
+                    jSONObject.put("isIpv6", i2);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
                 }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
             }
-        } else {
-            return invokeLL.longValue;
+            return jSONObject;
         }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.contains("vnd.wap.wml")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] d(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(inputStream, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
-        }
-        return (byte[]) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

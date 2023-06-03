@@ -5,7 +5,7 @@ import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static String a = "c";
     public static volatile c b;

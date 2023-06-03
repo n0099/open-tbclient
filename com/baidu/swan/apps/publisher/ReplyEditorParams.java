@@ -5,11 +5,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j63;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.qp1;
+import com.baidu.tieba.b93;
+import com.baidu.tieba.fv2;
+import com.baidu.tieba.is1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -112,31 +111,31 @@ public class ReplyEditorParams implements Parcelable {
                 }
             }
         }
-        String c = j63.c(jSONObject, "sendText", "发表");
+        String c = b93.c(jSONObject, "sendText", "发表");
         if (c.length() > 2) {
             c = c.substring(0, 2);
         }
         String str = c;
         try {
-            i = SwanAppConfigData.t(j63.c(jSONObject, "sendTextColor", "#FFFFFF"));
+            i = SwanAppConfigData.t(b93.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e) {
-            if (qp1.a) {
+            if (is1.a) {
                 e.printStackTrace();
             }
             i = -1;
         }
-        Application c2 = ns2.c();
-        String c3 = j63.c(jSONObject, "sendBackgroundColor", "#3388FF");
-        int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060ae4);
+        Application c2 = fv2.c();
+        String c3 = b93.c(jSONObject, "sendBackgroundColor", "#3388FF");
+        int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060afb);
         try {
             i2 = SwanAppConfigData.t(c3);
         } catch (Exception e2) {
-            if (qp1.a) {
+            if (is1.a) {
                 e2.printStackTrace();
             }
             i2 = color;
         }
-        String d = j63.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f14c5)), 20, StringHelper.STRING_MORE);
+        String d = b93.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f1517)), 20, "...");
         String optString2 = jSONObject.optString("emojiPath");
         if (TextUtils.isEmpty(optString2)) {
             arrayList.remove("emoji");

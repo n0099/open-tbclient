@@ -49,15 +49,15 @@ public final class BottomFloatButtonTouchStateListener implements View.OnTouchLi
                 if (view2 != null) {
                     view2.setAlpha(f);
                 }
-                Result.m789constructorimpl(Unit.INSTANCE);
+                Result.m844constructorimpl(Unit.INSTANCE);
                 return false;
             }
             view2.setAlpha(1.0f);
-            Result.m789constructorimpl(Unit.INSTANCE);
+            Result.m844constructorimpl(Unit.INSTANCE);
             return false;
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            Result.m789constructorimpl(ResultKt.createFailure(th));
+            Result.m844constructorimpl(ResultKt.createFailure(th));
             return false;
         }
     }

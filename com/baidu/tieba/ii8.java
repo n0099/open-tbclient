@@ -1,58 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ii8 implements ot4 {
+public class ii8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ot4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854577, "Lcom/baidu/tieba/ii8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947854577, "Lcom/baidu/tieba/ii8;");
+                return;
+            }
+        }
+        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
     }
 
-    public ii8() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str, null);
         }
     }
 
-    @Override // com.baidu.tieba.ot4
-    public void b(HashMap<String, String> hashMap, pt4 pt4Var) {
+    public static void b(String str, BdSwitchView.SwitchState switchState) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, pt4Var) == null) && pt4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            String str = hashMap.get("fid");
-            if (TextUtils.isEmpty(str)) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
+            StatisticItem param = new StatisticItem(str).param("uid", a);
+            if (switchState != null) {
+                if (switchState == BdSwitchView.SwitchState.OFF) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                param.param("obj_type", i);
             }
-            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(pg.g(str, 0L))));
-            TbadkCoreApplication.getInst().addLikeForum(str2);
+            TiebaStatic.log(param);
         }
     }
 }

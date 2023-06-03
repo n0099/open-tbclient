@@ -27,6 +27,7 @@ import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.kuaishou.weapon.p0.h;
@@ -1010,7 +1011,7 @@ public class ArdUtil {
             return str;
         }
         try {
-            windowManager = (WindowManager) context.getSystemService("window");
+            windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         } catch (Throwable th) {
             L.debug("ArdUtil", "exception on getScreenResolution info: %s", th);
         }

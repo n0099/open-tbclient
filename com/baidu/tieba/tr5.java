@@ -1,86 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.ViewTreeObserver;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
-import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class tr5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static Field e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BadgeDrawable a;
-    @Nullable
-    public String b;
-    public boolean c;
-    @Nullable
-    public b d;
+    public boolean a;
+    public List<String> b;
+    public String c;
+    public long d;
+    public long e;
+    public String f;
+    public long g;
+    public long h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public int u;
+    public int v;
+    public kr5 w;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ tr5 b;
-
-        public a(tr5 tr5Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr5Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tr5Var;
-            this.a = view2;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BadgeUtils.attachBadgeDrawable(this.b.a, this.a, null);
-                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            }
-        }
-    }
-
-    public tr5(@NonNull Context context) {
+    public tr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,180 +50,259 @@ public class tr5 {
                 return;
             }
         }
-        this.c = true;
-        this.a = BadgeDrawable.create(context);
+        this.a = false;
+        this.u = 0;
     }
 
-    @NonNull
-    public tr5 i(@DimenRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e == null) {
-                try {
-                    Field declaredField = BadgeDrawable.class.getDeclaredField("badgeRadius");
-                    e = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            try {
-                if (e != null) {
-                    e.set(this.a, Integer.valueOf(UtilHelper.getDimenPixelSize(i)));
-                }
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-            }
-            return this;
-        }
-        return (tr5) invokeI.objValue;
-    }
-
-    @NonNull
-    public static tr5 c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return new tr5(context);
-        }
-        return (tr5) invokeL.objValue;
-    }
-
-    @NonNull
-    public tr5 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (tr5) invokeZ.objValue;
-    }
-
-    @NonNull
-    public tr5 g(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.setBackgroundColor(i);
-            return this;
-        }
-        return (tr5) invokeI.objValue;
-    }
-
-    @NonNull
-    public tr5 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.setBadgeGravity(i);
-            return this;
-        }
-        return (tr5) invokeI.objValue;
-    }
-
-    @NonNull
-    public tr5 k(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (tr5) invokeL.objValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.setVisible(z);
-            if (!z && this.b != null) {
-                o65.m().w(this.b, true);
-            }
-        }
-    }
-
-    @NonNull
-    public tr5 b(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            b bVar = this.d;
-            if (bVar != null && !bVar.a()) {
-                return this;
-            }
-            if (this.b != null && o65.m().i(this.b, false)) {
-                return this;
-            }
-            ViewParent parent = view2.getParent();
-            if (parent instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) parent;
-                viewGroup.setClipChildren(this.c);
-                viewGroup.setClipToPadding(this.c);
-            }
-            view2.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, view2));
-            return this;
-        }
-        return (tr5) invokeL.objValue;
-    }
-
-    public boolean d() {
+    public String a() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.d;
-            boolean z2 = true;
-            if (bVar != null) {
-                z = bVar.a();
-            } else {
-                z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.u;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return invokeV.longValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public kr5 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.w;
+        }
+        return (kr5) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.v;
+        }
+        return invokeV.intValue;
+    }
+
+    public long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.o;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (StringUtils.isNull(this.c)) {
+                return true;
             }
-            if (this.b != null) {
-                return (!z || o65.m().i(this.b, false)) ? false : false;
-            }
-            return z;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void A(kr5 kr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.isVisible();
+        if (interceptable == null || interceptable.invokeL(1048576, this, kr5Var) == null) {
+            this.w = kr5Var;
         }
-        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public tr5 j(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setHorizontalOffset(dimenPixelSize);
-            return this;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.v = i;
         }
-        return (tr5) invokeCommon.objValue;
     }
 
-    @NonNull
-    public tr5 l(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
+    public void C(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setVerticalOffset(dimenPixelSize);
-            return this;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.e = j;
         }
-        return (tr5) invokeCommon.objValue;
+    }
+
+    public void D(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.o = str;
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.p = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.q = str;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void t(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public void x(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void y(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
+            this.h = j;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.m = str;
+        }
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.fo7;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.jo7;
-import com.baidu.tieba.uz4;
-import com.baidu.tieba.vz4;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rt7;
+import com.baidu.tieba.s25;
+import com.baidu.tieba.vt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fo7> a;
-    public ArrayList<uz4> b;
-    public ArrayList<jo7> c;
+    public ArrayList<rt7> a;
+    public ArrayList<r25> b;
+    public ArrayList<vt7> c;
     public String d;
     public int e;
     public b f;
-    public fb g;
+    public jb g;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, vz4 vz4Var, ArrayList<fo7> arrayList, ArrayList<uz4> arrayList2, ArrayList<jo7> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, s25 s25Var, ArrayList<rt7> arrayList, ArrayList<r25> arrayList2, ArrayList<vt7> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -56,7 +56,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultGiftListModel a;
@@ -85,15 +85,15 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
         /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            vz4 vz4Var;
+            s25 s25Var;
             int i;
             int i2;
-            vz4 vz4Var2;
+            s25 s25Var2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -110,7 +110,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                vz4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                s25Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
                 this.a.a = defaultGiftListSocketResponseMessage.getCategoryList();
@@ -119,36 +119,36 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                vz4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                s25Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             } else {
-                vz4Var = null;
+                s25Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, vz4Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, s25Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
             }
             i = i2;
-            vz4Var = vz4Var2;
+            s25Var = s25Var2;
             if (this.a.f == null) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultGiftListModel(g9<GiftTabActivity> g9Var) {
-        super(g9Var);
+    public DefaultGiftListModel(k9<GiftTabActivity> k9Var) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var};
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ar9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            ar9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            mx9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            mx9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

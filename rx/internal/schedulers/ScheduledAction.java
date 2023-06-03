@@ -1,37 +1,37 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.fcb;
-import com.baidu.tieba.p7b;
-import com.baidu.tieba.sbb;
-import com.baidu.tieba.v7b;
-import com.baidu.tieba.w9b;
+import com.baidu.tieba.frb;
+import com.baidu.tieba.pmb;
+import com.baidu.tieba.sqb;
+import com.baidu.tieba.vmb;
+import com.baidu.tieba.wob;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes10.dex */
-public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, p7b {
+/* loaded from: classes2.dex */
+public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, pmb {
     public static final long serialVersionUID = -3962399486978279857L;
-    public final v7b action;
-    public final w9b cancel;
+    public final vmb action;
+    public final wob cancel;
 
-    /* loaded from: classes10.dex */
-    public static final class Remover extends AtomicBoolean implements p7b {
+    /* loaded from: classes2.dex */
+    public static final class Remover extends AtomicBoolean implements pmb {
         public static final long serialVersionUID = 247232374289553518L;
-        public final fcb parent;
+        public final frb parent;
         public final ScheduledAction s;
 
-        public Remover(ScheduledAction scheduledAction, fcb fcbVar) {
+        public Remover(ScheduledAction scheduledAction, frb frbVar) {
             this.s = scheduledAction;
-            this.parent = fcbVar;
+            this.parent = frbVar;
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public boolean isUnsubscribed() {
             return this.s.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
                 this.parent.b(this.s);
@@ -39,23 +39,23 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static final class Remover2 extends AtomicBoolean implements p7b {
+    /* loaded from: classes2.dex */
+    public static final class Remover2 extends AtomicBoolean implements pmb {
         public static final long serialVersionUID = 247232374289553518L;
-        public final w9b parent;
+        public final wob parent;
         public final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, w9b w9bVar) {
+        public Remover2(ScheduledAction scheduledAction, wob wobVar) {
             this.s = scheduledAction;
-            this.parent = w9bVar;
+            this.parent = wobVar;
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public boolean isUnsubscribed() {
             return this.s.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
                 this.parent.b(this.s);
@@ -63,20 +63,20 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes10.dex */
-    public final class a implements p7b {
+    /* loaded from: classes2.dex */
+    public final class a implements pmb {
         public final Future<?> a;
 
         public a(Future<?> future) {
             this.a = future;
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public boolean isUnsubscribed() {
             return this.a.isCancelled();
         }
 
-        @Override // com.baidu.tieba.p7b
+        @Override // com.baidu.tieba.pmb
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
                 this.a.cancel(true);
@@ -86,44 +86,44 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public ScheduledAction(v7b v7bVar) {
-        this.action = v7bVar;
-        this.cancel = new w9b();
+    public ScheduledAction(vmb vmbVar) {
+        this.action = vmbVar;
+        this.cancel = new wob();
     }
 
-    public void add(p7b p7bVar) {
-        this.cancel.a(p7bVar);
+    public void add(pmb pmbVar) {
+        this.cancel.a(pmbVar);
     }
 
-    public void addParent(fcb fcbVar) {
-        this.cancel.a(new Remover(this, fcbVar));
+    public void addParent(frb frbVar) {
+        this.cancel.a(new Remover(this, frbVar));
     }
 
     public void signalError(Throwable th) {
-        sbb.j(th);
+        sqb.j(th);
         Thread currentThread = Thread.currentThread();
         currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
     }
 
-    public ScheduledAction(v7b v7bVar, fcb fcbVar) {
-        this.action = v7bVar;
-        this.cancel = new w9b(new Remover(this, fcbVar));
+    public ScheduledAction(vmb vmbVar, frb frbVar) {
+        this.action = vmbVar;
+        this.cancel = new wob(new Remover(this, frbVar));
     }
 
-    public ScheduledAction(v7b v7bVar, w9b w9bVar) {
-        this.action = v7bVar;
-        this.cancel = new w9b(new Remover2(this, w9bVar));
+    public ScheduledAction(vmb vmbVar, wob wobVar) {
+        this.action = vmbVar;
+        this.cancel = new wob(new Remover2(this, wobVar));
     }
 
     public void add(Future<?> future) {
         this.cancel.a(new a(future));
     }
 
-    public void addParent(w9b w9bVar) {
-        this.cancel.a(new Remover2(this, w9bVar));
+    public void addParent(wob wobVar) {
+        this.cancel.a(new Remover2(this, wobVar));
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public boolean isUnsubscribed() {
         return this.cancel.isUnsubscribed();
     }
@@ -145,7 +145,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public void unsubscribe() {
         if (!this.cancel.isUnsubscribed()) {
             this.cancel.unsubscribe();

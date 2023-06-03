@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -441,7 +440,7 @@ public class AntiData implements Serializable {
             this.ifpost = jSONObject.optInt("ifpost", 0);
             this.ifposta = jSONObject.optInt("ifposta", 0);
             this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
-            this.tbs = jSONObject.optString(HttpRequest.TBS);
+            this.tbs = jSONObject.optString("tbs");
             if (TbadkCoreApplication.getInst() != null && this.tbs != null && this.tbs.length() > 0) {
                 TbadkCoreApplication.getInst().setTbs(this.tbs);
             }
@@ -558,7 +557,7 @@ public class AntiData implements Serializable {
                 jSONObject.put("ifpost", this.ifpost);
                 jSONObject.put("ifposta", this.ifposta);
                 jSONObject.put("forbid_flag", this.forbid_flag);
-                jSONObject.put(HttpRequest.TBS, this.tbs);
+                jSONObject.put("tbs", this.tbs);
                 jSONObject.put("need_vcode", this.need_vcode);
                 jSONObject.put("vcode_md5", this.vcode_md5);
                 jSONObject.put("vcode_pic_url", this.vcode_pic_url);

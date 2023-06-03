@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
     @Override // com.bumptech.glide.load.engine.Resource
     public void recycle() {

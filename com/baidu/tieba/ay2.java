@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,54 +15,77 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ay2 extends w42 {
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes5.dex */
+public class ay2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean X;
+    public static final boolean c;
+    public static final ay2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public boolean B;
-    public boolean C;
-    public boolean D;
-    public boolean E;
-    public int F;
-    public boolean G;
-    public boolean H;
-    public boolean I;
-    public boolean J;
-    public String K;
-    public boolean L;
-    public boolean M;
-    public boolean N;
-    public boolean O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
-    public String T;
-    public boolean U;
-    public String V;
-    public String W;
-    public String j;
-    public boolean k;
-    public String l;
-    public int m;
-    public int n;
-    public boolean o;
-    public boolean p;
-    public String q;
-    public int r;
-    public boolean s;
-    public String t;
-    public String u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public String y;
-    public String z;
+    public final AtomicBoolean a;
+    public final List<xx2> b;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends gx2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ ay2 b;
+
+        public b(ay2 ay2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ay2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ay2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.gx2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gx2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(ay2 ay2Var, a aVar) {
+            this(ay2Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,85 +100,33 @@ public class ay2 extends w42 {
                 return;
             }
         }
-        X = qp1.a;
+        c = is1.a;
+        d = new ay2();
     }
 
-    public boolean i() {
+    public static ay2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
         }
-        return invokeV.booleanValue;
+        return (ay2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public boolean isValid() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.j);
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TextUtils.equals("auto", this.T);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.C;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.w;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.B;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.A;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return !this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay2() {
-        super("video", "componentId");
+        List<xx2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,141 +134,64 @@ public class ay2 extends w42 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = 0;
-        this.n = 0;
-        this.o = false;
-        this.p = false;
-        this.q = "";
-        this.r = 0;
-        this.t = "";
-        this.u = "";
-        this.v = false;
-        this.w = false;
-        this.x = true;
-        this.y = "";
-        this.z = "";
-        this.D = false;
-        this.E = true;
-        this.F = -1;
-        this.G = true;
-        this.H = true;
-        this.I = true;
-        this.J = true;
-        this.K = "";
-        this.L = true;
-        this.M = true;
-        this.N = false;
-        this.O = false;
-        this.P = true;
-        this.Q = false;
-        this.R = true;
-        this.S = false;
-        this.T = "";
-        this.U = true;
-        this.V = "";
-        this.W = "";
-    }
-
-    public static ay2 h(JSONObject jSONObject, @NonNull ay2 ay2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, ay2Var)) == null) {
-            ay2 ay2Var2 = new ay2();
-            if (jSONObject != null) {
-                ay2Var2.e(jSONObject, ay2Var);
-                ay2Var2.j = jSONObject.optString("componentId", ay2Var.j);
-                ay2Var2.o = jSONObject.optBoolean("autoplay", ay2Var.o);
-                ay2Var2.k = jSONObject.optBoolean("muted", ay2Var.k);
-                ay2Var2.q = jSONObject.optString("objectFit", ay2Var.q);
-                ay2Var2.m = jSONObject.optInt("initialTime", ay2Var.m);
-                ay2Var2.l = jSONObject.optString(NativeConstants.POSTER, ay2Var.l);
-                ay2Var2.r = jSONObject.optInt(CriusAttrConstants.POSITION, ay2Var.r);
-                ay2Var2.s = jSONObject.optBoolean("fullScreen", ay2Var.s);
-                ay2Var2.t = p(jSONObject);
-                ay2Var2.u = jSONObject.optString("danmuList", ay2Var.u);
-                ay2Var2.v = jSONObject.optBoolean("enableDanmu", ay2Var.v);
-                ay2Var2.w = jSONObject.optBoolean("danmuBtn", ay2Var.w);
-                ay2Var2.p = jSONObject.optBoolean("loop", ay2Var.p);
-                ay2Var2.x = jSONObject.optBoolean("controls", ay2Var.x);
-                ay2Var2.y = q(jSONObject.optString("src", ay2Var.y));
-                ay2Var2.I = !og3.E(jSONObject.optString("src", ay2Var.y));
-                ay2Var2.A = jSONObject.optBoolean("showPlayBtn", ay2Var.A);
-                ay2Var2.B = jSONObject.optBoolean("showMuteBtn", ay2Var.B);
-                ay2Var2.C = jSONObject.optBoolean("showCenterPlayBtn", ay2Var.C);
-                ay2Var2.D = jSONObject.optBoolean("pageGesture", ay2Var.D);
-                ay2Var2.E = jSONObject.optBoolean("showProgress", ay2Var.E);
-                ay2Var2.F = jSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, ay2Var.F);
-                ay2Var2.G = jSONObject.optBoolean("showFullscreenBtn", ay2Var.G);
-                ay2Var2.H = jSONObject.optBoolean("enableProgressGesture", ay2Var.H);
-                ay2Var2.z = jSONObject.optString("componentId", ay2Var.z);
-                ay2Var2.J = jSONObject.optBoolean("showNoWifiTip", ay2Var.J);
-                ay2Var2.K = jSONObject.optString("title", ay2Var.K);
-                ay2Var2.L = jSONObject.optBoolean("enablePlayGesture", ay2Var.L);
-                ay2Var2.M = jSONObject.optBoolean("vslideGestureInFullscreen", ay2Var.M);
-                ay2Var2.N = jSONObject.optBoolean("customEnterExitFullScreen", ay2Var.N);
-                ay2Var2.P = jSONObject.optBoolean("showRateBtn", ay2Var.P);
-                ay2Var2.Q = jSONObject.optBoolean("isFullscreen", ay2Var.Q);
-                ay2Var2.O = jSONObject.optBoolean("isAlwaysOnlyShowTopView", ay2Var.O);
-                ay2Var2.R = jSONObject.optBoolean("showVslideBtnInFullscreen", ay2Var.R);
-                ay2Var2.S = jSONObject.optBoolean("silentPlay", ay2Var.S);
-                ay2Var2.T = jSONObject.optString("preload", ay2Var.T);
-                ay2Var2.U = jSONObject.optBoolean("showSilentPlayMutedIcon", ay2Var.U);
-                ay2Var2.V = jSONObject.optString("silentPlayTips", ay2Var.V);
-                ay2Var2.W = jSONObject.optString("rate", ay2Var.W);
-            }
-            return ay2Var2;
+        this.a = new AtomicBoolean(false);
+        gl1<xx2> gl1Var = new zx2().a;
+        if (gl1Var == null) {
+            list = null;
+        } else {
+            list = gl1Var.getList();
         }
-        return (ay2) invokeLL.objValue;
+        this.b = list;
     }
 
-    public static String p(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("text", jSONObject.optString("text"));
-                jSONObject2.putOpt("color", jSONObject.optString("color"));
-                jSONObject2.putOpt("componentId", jSONObject.optString("componentId"));
-            } catch (JSONException e) {
-                if (X) {
-                    e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
+            }
+        }
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xx2 xx2Var : this.b) {
+                    if (current == xx2Var.b()) {
+                        xx2Var.a(true, activity);
+                    }
                 }
             }
-            return jSONObject2.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String q(String str) {
-        InterceptResult invokeL;
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (og3.E(str) && g93.M() != null) {
-                return og3.H(str, g93.M());
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
             }
-            return str;
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xx2 xx2Var : this.b) {
+                    if (current == xx2Var.b()) {
+                        xx2Var.a(false, activity);
+                    }
+                }
+            }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.w42
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", duration=" + this.n + ", mAutoPlay=" + this.o + ", mLoop=" + this.p + ", mObjectFit='" + this.q + "', mPos=" + this.r + ", mFullScreen=" + this.s + ", mDanmu='" + this.t + "', mDanmuList='" + this.u + "', mEnableDanmu=" + this.v + ", mShowDanmuBtn=" + this.w + ", mShowControlPanel=" + this.x + ", mSrc='" + this.y + "', mSanId='" + this.z + "', mShowPlayBtn=" + this.A + ", mShowMuteBtn=" + this.B + ", mShowCenterPlayBtn=" + this.C + ", mPageGesture=" + this.D + ", mShowProgress=" + this.E + ", mDirection=" + this.F + ", mShowFullscreenBtn=" + this.G + ", mEnableProgressGesture=" + this.H + ", mIsRemoteFile=" + this.I + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

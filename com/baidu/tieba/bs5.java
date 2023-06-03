@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,86 +20,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bs5 {
     public static /* synthetic */ Interceptable $ic;
-    public static bs5 c;
+    public static bs5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public b b;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bs5 a;
-
-        public c(bs5 bs5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bs5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bs5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                return Boolean.valueOf(this.a.d());
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
-                this.a.b.onResult(bool.booleanValue());
-            }
-        }
-
-        public /* synthetic */ c(bs5 bs5Var, a aVar) {
-            this(bs5Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655557, "Lcom/baidu/tieba/bs5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947655557, "Lcom/baidu/tieba/bs5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947655557, "Lcom/baidu/tieba/bs5;")) == null) {
+            return;
         }
-        c = new bs5();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947655557, "Lcom/baidu/tieba/bs5;");
+        }
     }
 
     public bs5() {
@@ -113,56 +52,61 @@ public class bs5 {
         }
     }
 
-    public static bs5 e() {
+    public static synchronized bs5 c() {
         InterceptResult invokeV;
+        bs5 bs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (bs5.class) {
+                if (a == null) {
+                    a = new bs5();
+                }
+                bs5Var = a;
+            }
+            return bs5Var;
         }
         return (bs5) invokeV.objValue;
     }
 
-    public void c(b bVar) {
+    public void a(PayConfig payConfig, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.cancel();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
+            if (payConfig != null && context != null) {
+                if (!d()) {
+                    e(R.string.plugin_pay_wallet_not_found);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+                return;
             }
-            c cVar2 = new c(this, null);
-            this.a = cVar2;
-            cVar2.setPriority(4);
-            this.a.execute(new String[0]);
+            e(R.string.plugin_pay_error);
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        String str;
-        String[] split;
-        int e;
+    public void b(String str, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
-            if (GetFileData != null) {
-                str = new String(GetFileData);
-            } else {
-                str = null;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) != null) || tbPageContext == null) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(2001351) || !TbadkCoreApplication.getInst().isWalletShouldOpen() || Build.VERSION.SDK_INT < 8) {
+                return false;
             }
-            long j = StringUtils.getyyyyMMddHHTimeForNow();
-            long j2 = 0;
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
-                e = 0;
-            } else {
-                e = pg.e(split[0], 0);
-                j2 = pg.g(split[1], j);
-            }
-            if (j2 == j && e > 1) {
-                return true;
-            }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            vi.P(TbadkCoreApplication.getInst().getContext(), i);
+        }
     }
 }

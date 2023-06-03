@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.nps.interfa.ISharePrefsWrapper;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @Autowired
 /* loaded from: classes5.dex */
-public final class ff1 {
+public class ff1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static pf1 a() {
+    @Inject(force = false)
+    public static ISharePrefsWrapper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return of1.a();
+            return new ze1();
         }
-        return (pf1) invokeV.objValue;
+        return (ISharePrefsWrapper) invokeV.objValue;
     }
 }

@@ -1,167 +1,144 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class vx4 {
+public class vx4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public k9 a;
+    public ty9 b;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends GetTplStokenCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public a(vx4 vx4Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vx4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetTplStokenResult getTplStokenResult) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) && (bVar = this.a) != null) {
-                bVar.onFailed();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
-                if (getTplStokenResult == null) {
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.onFailed();
-                        return;
-                    }
-                    return;
-                }
-                Map<String, String> map = getTplStokenResult.tplStokenMap;
-                if (map != null && map.size() > 0) {
-                    String str = map.get(TbConfig.PassConfig.TPL);
-                    if (StringUtils.isNULL(str)) {
-                        b bVar2 = this.a;
-                        if (bVar2 != null) {
-                            bVar2.onFailed();
-                            return;
-                        }
-                        return;
-                    }
-                    b bVar3 = this.a;
-                    if (bVar3 != null) {
-                        bVar3.onSuccess(str);
-                        return;
-                    }
-                    return;
-                }
-                b bVar4 = this.a;
-                if (bVar4 != null) {
-                    bVar4.onFailed();
-                }
-            }
-        }
-    }
-
-    public vx4() {
+    public vx4(k9 k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(AccountData accountData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
-            if (accountData == null || !b()) {
-                return null;
-            }
-            return accountData.getStoken();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && !StringUtils.isNull(str)) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(TbConfig.PassConfig.TPL);
-            if (SapiAccountManager.getInstance().getAccountService() == null) {
                 return;
             }
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
         }
+        this.a = k9Var;
+    }
+
+    public void b(ty9 ty9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty9Var) == null) {
+            this.b = ty9Var;
+        }
+    }
+
+    public final void a(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !ui.isEmpty(str) && !ui.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+                return;
+            }
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            k9 k9Var = this.a;
+            if (k9Var != null && yg.f(k9Var)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            k9 k9Var = this.a;
+            if (k9Var != null && yg.f(k9Var)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, webView, str, str2, jsResult)) == null) {
+            k9 k9Var = this.a;
+            if (k9Var != null && yg.f(k9Var)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        ty9 ty9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!jd5.a(str) && str2.startsWith("tiebaapp")) {
+                wy9 wy9Var = new wy9();
+                wy9Var.w(az9.b(str2));
+                wy9Var.y(301);
+                a(webView, wy9Var.c(), wy9Var.d());
+            }
+            if (jd5.a(str) && (ty9Var = this.b) != null && ty9Var.onJsPrompt(str2, jsPromptResult)) {
+                return true;
+            }
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

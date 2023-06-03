@@ -1,10 +1,10 @@
 package com.ss.android.downloadlib.addownload.compliance;
 
 import com.ss.android.socialbase.downloader.i.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static c a = new c();
     }

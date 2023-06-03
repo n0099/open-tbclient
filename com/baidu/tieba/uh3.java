@@ -1,76 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public final class uh3 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class uh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, oh3> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210953, "Lcom/baidu/tieba/uh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948210953, "Lcom/baidu/tieba/uh3;");
+    public static void a(JSONObject jSONObject, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
+            xh3.l(true, str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
+            if (optJSONObject == null) {
                 return;
             }
-        }
-        boolean z = qp1.a;
-        a = new HashMap();
-    }
-
-    public uh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            y82.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
+            xh3.n(str, optJSONObject.optInt("_SwanStartupStability_"));
+            xh3.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
+            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
+            if (optInt > 0) {
+                xh3.i(str, true);
+                xh3.j(str, optInt);
             }
         }
     }
 
-    public static oh3 a() {
-        InterceptResult invokeV;
+    public static void b(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            xh3.m(true, str);
         }
-        return (oh3) invokeV.objValue;
     }
 
-    public static oh3 b(String str) {
-        InterceptResult invokeL;
+    public static void c(JSONObject jSONObject, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            oh3 oh3Var = a.get(str);
-            if (oh3Var == null) {
-                synchronized (uh3.class) {
-                    oh3Var = a.get(str);
-                    if (oh3Var == null) {
-                        oh3Var = new oh3(str);
-                        a.put(str, oh3Var);
-                    }
-                }
-            }
-            return oh3Var;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, str) != null) || jSONObject == null) {
+            return;
         }
-        return (oh3) invokeL.objValue;
+        String optString = jSONObject.optString("performance_type");
+        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
+            a(jSONObject, str);
+        } else if (TextUtils.equals(optString, "stabilityProfile")) {
+            b(str);
+        }
     }
 }

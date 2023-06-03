@@ -1,5 +1,5 @@
 package org.aspectj.lang.reflect;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface Pointcut {
     AjType getDeclaringType();
 

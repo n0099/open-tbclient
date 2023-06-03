@@ -22,23 +22,23 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d71;
-import com.baidu.tieba.e71;
-import com.baidu.tieba.f71;
-import com.baidu.tieba.gm0;
-import com.baidu.tieba.h71;
-import com.baidu.tieba.j71;
-import com.baidu.tieba.jb1;
-import com.baidu.tieba.p71;
-import com.baidu.tieba.q71;
-import com.baidu.tieba.t41;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.m81;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.o81;
+import com.baidu.tieba.pn0;
+import com.baidu.tieba.q81;
+import com.baidu.tieba.s81;
+import com.baidu.tieba.sc1;
+import com.baidu.tieba.y81;
+import com.baidu.tieba.z81;
 /* loaded from: classes3.dex */
 public class PanelScrollView extends FrameLayout implements View.OnTouchListener, View.OnLayoutChangeListener {
-    public static final int A = t41.c.a(jb1.a(), 18.0f);
+    public static final int A = c61.c.a(sc1.a(), 18.0f);
     public int a;
     public int b;
     public int c;
-    public j71 d;
+    public s81 d;
     public int e;
     public int f;
     public int g;
@@ -47,9 +47,9 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     public ObjectAnimator j;
     public int k;
     public int l;
-    public d71 m;
-    public f71 n;
-    public h71 o;
+    public m81 m;
+    public o81 n;
+    public q81 o;
     public GestureDetector p;
     public d q;
     public c r;
@@ -265,13 +265,13 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.q = dVar;
     }
 
-    public void setPanelData(j71 j71Var) {
-        this.d = j71Var;
-        String g = j71Var.g();
+    public void setPanelData(s81 s81Var) {
+        this.d = s81Var;
+        String g = s81Var.g();
         if (!TextUtils.isEmpty(g)) {
             this.m.g(g);
         }
-        this.m.k(j71Var.u());
+        this.m.k(s81Var.u());
     }
 
     public final void w(int i) {
@@ -319,12 +319,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         l();
     }
 
-    public void k(@NonNull f71 f71Var, h71 h71Var) {
-        this.n = f71Var;
-        this.o = h71Var;
-        f71Var.o(this);
+    public void k(@NonNull o81 o81Var, q81 q81Var) {
+        this.n = o81Var;
+        this.o = q81Var;
+        o81Var.o(this);
         this.n.p(this.m);
-        this.n.u(h71Var);
+        this.n.u(q81Var);
     }
 
     public final void u(int i, int i2) {
@@ -357,7 +357,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     }
 
     public final void l() {
-        this.m = new d71();
+        this.m = new m81();
         setClipChildren(false);
         setLayerType(2, null);
         setOnTouchListener(this);
@@ -374,16 +374,16 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.n.t(i, z);
         if (!z) {
             if (i == 1) {
-                gm0.a().a(new e71(4, this.d.a()));
-                j71 j71Var = this.d;
-                if (j71Var != null) {
-                    p71.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", j71Var.c());
+                pn0.a().a(new n81(4, this.d.a()));
+                s81 s81Var = this.d;
+                if (s81Var != null) {
+                    y81.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", s81Var.c());
                 }
             } else if (i == 2) {
-                gm0.a().a(new e71(3, this.d.a()));
-                j71 j71Var2 = this.d;
-                if (j71Var2 != null) {
-                    p71.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, j71Var2.c());
+                pn0.a().a(new n81(3, this.d.a()));
+                s81 s81Var2 = this.d;
+                if (s81Var2 != null) {
+                    y81.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, s81Var2.c());
                 }
             }
         }
@@ -397,14 +397,14 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         FrameLayout.LayoutParams webViewLayoutParams = getWebViewLayoutParams();
         if (webViewLayoutParams != null) {
             if (webViewLayoutParams.topMargin == 0) {
-                q71.d(activity.getWindow(), 17170443);
+                z81.d(activity.getWindow(), 17170443);
                 if (Build.VERSION.SDK_INT >= 23) {
                     activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() | 8192);
                     return;
                 }
                 return;
             }
-            q71.d(activity.getWindow(), this.h);
+            z81.d(activity.getWindow(), this.h);
             if (Build.VERSION.SDK_INT >= 23) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
             }
@@ -486,12 +486,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                     if (System.currentTimeMillis() - this.x < ViewConfiguration.getLongPressTimeout()) {
                         if (this.m.d()) {
                             this.n.a();
-                            p71.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.c());
+                            y81.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.c());
                             return true;
                         }
-                        h71 h71Var = this.o;
-                        if (h71Var != null) {
-                            h71Var.a(0);
+                        q81 q81Var = this.o;
+                        if (q81Var != null) {
+                            q81Var.a(0);
                         }
                     }
                     return true;
@@ -505,8 +505,8 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                                 return false;
                             }
                         } else if (this.y && this.z.getYVelocity() < -800.0f && !this.m.c()) {
-                            j71 j71Var = this.d;
-                            if (j71Var != null && j71Var.n()) {
+                            s81 s81Var = this.d;
+                            if (s81Var != null && s81Var.n()) {
                                 this.y = false;
                                 return false;
                             }
@@ -536,7 +536,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i6 / 2 && i5 < i6) {
                             this.i = false;
                             u(160, i6 - i5);
-                            setExpandIconView(this.g - t41.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - c61.c.a(getContext(), 17.0f));
                         }
                         int i7 = this.g;
                         if (i5 > i7 + ((this.e - i7) / 4)) {
@@ -546,7 +546,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i8 && i5 < ((this.e - i8) / 4) + i8) {
                             this.i = true;
                             u(160, i5 - i8);
-                            setExpandIconView(this.g - t41.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - c61.c.a(getContext(), 17.0f));
                         }
                     }
                 }
@@ -566,20 +566,20 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         return false;
     }
 
-    public void s() {
+    public void r() {
         this.n.c(this);
         if (!(getContext() instanceof Activity)) {
             return;
         }
         Activity activity = (Activity) getContext();
-        q71.d(activity.getWindow(), this.h);
+        z81.d(activity.getWindow(), this.h);
         if (Build.VERSION.SDK_INT >= 23) {
             activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
         }
     }
 
     public final void t() {
-        this.f = t41.c.a(jb1.a(), 100.0f);
+        this.f = c61.c.a(sc1.a(), 100.0f);
         if (this.d.d() == 0) {
             if (this.d.e() < 0.0d || this.d.e() > 1.0d) {
                 this.d.z(0.7d);
@@ -589,7 +589,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             if (this.d.e() <= 0.0d) {
                 this.d.z(1.95d);
             }
-            this.g = (int) (t41.c.e(jb1.a()) / this.d.e());
+            this.g = (int) (c61.c.e(sc1.a()) / this.d.e());
         }
         this.n.k((this.e - this.g) + A);
         this.n.g(this.g);
@@ -601,16 +601,16 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             this.s = expandIconView;
             expandIconView.setFraction(0.0f, false);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.height = t41.c.a(getContext(), 24.0f);
-            layoutParams.width = t41.c.a(getContext(), 24.0f);
+            layoutParams.height = c61.c.a(getContext(), 24.0f);
+            layoutParams.width = c61.c.a(getContext(), 24.0f);
             layoutParams.gravity = 1;
-            layoutParams.topMargin = this.g - t41.c.a(getContext(), 17.0f);
+            layoutParams.topMargin = this.g - c61.c.a(getContext(), 17.0f);
             addView(this.s, layoutParams);
         }
     }
 
     public final boolean v(boolean z, int i) {
-        j71 j71Var;
+        s81 s81Var;
         if (this.m.a()) {
             return false;
         }
@@ -623,7 +623,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         if (webViewLayoutParams == null) {
             return false;
         }
-        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (j71Var = this.d) != null && j71Var.n()) {
+        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (s81Var = this.d) != null && s81Var.n()) {
             return false;
         }
         if (this.c == 0 && this.b == 2 && this.a == 2) {

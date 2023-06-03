@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PluginUser extends Message {
     public static final String DEFAULT_USERNAMESHOW = "";
     public static final String DEFAULT_USERPHOTO = "";
@@ -20,7 +20,7 @@ public final class PluginUser extends Message {
     public static final Integer DEFAULT_USERTYPE = 0;
     public static final Integer DEFAULT_ISDOWNLOADCARDWHITEUSER = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PluginUser> {
         public Integer isDownloadCardWhiteuser;
         public Long userId;

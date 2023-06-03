@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeConstructorDeclaration;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class InterTypeConstructorDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeConstructorDeclaration {
     public Method baseMethod;
 

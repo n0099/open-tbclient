@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FrescoFrameCache implements BitmapFrameCache {
     public static final Class<?> TAG = FrescoFrameCache.class;
     public final AnimatedFrameCache mAnimatedFrameCache;

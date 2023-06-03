@@ -1,34 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wb8 extends xb8 {
+public class wb8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile wb8 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public ArrayList<String> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wb8(Context context, RecyclerView recyclerView, ac8 ac8Var, bc8 bc8Var, int i, int i2) {
-        super(context, recyclerView, ac8Var, bc8Var, i, i2);
+    public wb8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, ac8Var, bc8Var, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (RecyclerView) objArr2[1], (ac8) objArr2[2], (bc8) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
+        }
+    }
+
+    public static wb8 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (wb8.class) {
+                    if (c == null) {
+                        c = new wb8();
+                    }
+                }
+            }
+            return c;
+        }
+        return (wb8) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Map<String, String> map = this.a;
+            if (map != null) {
+                map.clear();
+                this.a = null;
+            }
+            ArrayList<String> arrayList = this.b;
+            if (arrayList != null) {
+                arrayList.clear();
+                this.b = null;
+            }
+        }
+    }
+
+    public Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            this.a = map;
+        }
+    }
+
+    public void f(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 }

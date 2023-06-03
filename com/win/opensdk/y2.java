@@ -253,17 +253,13 @@ public class y2 extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, str)) == null) {
-            if (!this.a.a(str)) {
-                B2 b2 = this.a.c;
-                if (b2 != null) {
-                    b2.b(str);
-                }
-                return true;
+            if (this.a.a(str)) {
+                WebViewClient webViewClient = this.a.j;
+                return webViewClient != null && webViewClient.shouldOverrideUrlLoading(webView, str);
             }
-            WebViewClient webViewClient = this.a.j;
-            if (webViewClient == null || !webViewClient.shouldOverrideUrlLoading(webView, str)) {
-                webView.loadUrl(str);
-                return true;
+            B2 b2 = this.a.c;
+            if (b2 != null) {
+                b2.b(str);
             }
             return true;
         }

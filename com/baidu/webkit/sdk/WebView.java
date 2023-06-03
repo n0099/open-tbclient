@@ -44,6 +44,7 @@ import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.spswitch.emotion.Emoticons;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -1216,7 +1217,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                             if (i2 == 0) {
                                 break;
                             }
-                        } else if (stackTrace[i].getClassName().equalsIgnoreCase("java.lang.reflect.Method") && methodName2.equalsIgnoreCase("invoke")) {
+                        } else if (stackTrace[i].getClassName().equalsIgnoreCase("java.lang.reflect.Method") && methodName2.equalsIgnoreCase(DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST)) {
                             i2 = 1;
                         }
                     } catch (Throwable unused) {

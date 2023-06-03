@@ -7,7 +7,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import java.util.List;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ZeusPluginStateListener {
     public static final int EVENT_DOWNLOAD_FAILED = 4;
     public static final int EVENT_DOWNLOAD_PROGRESS = 2;

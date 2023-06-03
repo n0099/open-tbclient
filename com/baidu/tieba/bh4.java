@@ -1,224 +1,120 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ak4;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.UiSettings;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.zg4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bh4 implements yg4 {
+public class bh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xg4<gi4> A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements zg4.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gg4 a;
 
-    public Map<String, String> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        public a(gg4 gg4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gg4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gg4Var;
         }
-        return (Map) invokeV.objValue;
-    }
 
-    public void C(ai4 ai4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ai4Var) == null) {
+        @Override // com.baidu.tieba.zg4.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y82.i("map", "location permission fail");
+            }
         }
-    }
 
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void G(om4 om4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, om4Var) == null) {
-        }
-    }
-
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-        }
-    }
-
-    public void I(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yg4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yg4
-    public void n(@Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-        }
-    }
-
-    public ah4 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
-        }
-        return (ah4) invokeV.objValue;
-    }
-
-    public xg4<hi4> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public xg4<bi4> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public xg4<di4> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public Map<String, String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public xg4<fi4> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public tg4<ak4.a> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return null;
-        }
-        return (tg4) invokeV.objValue;
-    }
-
-    public am4 w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            return null;
-        }
-        return (am4) invokeL.objValue;
-    }
-
-    public xg4<hi4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public Map<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public xg4<ii4> z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return null;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    public bh4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.zg4.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.p(true);
+                y82.i("map", "location permission success");
             }
         }
     }
 
-    @Override // com.baidu.tieba.zg4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    public static void a(Context context, ih4 ih4Var, ky2 ky2Var, gg4 gg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
-            }
-            return bundle2;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, ih4Var, ky2Var, gg4Var) == null) {
+            b(context, ih4Var, ky2Var, gg4Var, false);
         }
-        return (Bundle) invokeLL.objValue;
+    }
+
+    public static void b(Context context, ih4 ih4Var, ky2 ky2Var, gg4 gg4Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, ih4Var, ky2Var, gg4Var, Boolean.valueOf(z)}) == null) {
+            if (ih4Var != null && ky2Var != null && ky2Var.isValid()) {
+                BaiduMap map = ih4Var.l.getMap();
+                eh4 eh4Var = new eh4(ih4Var);
+                map.setOnMapClickListener(eh4Var);
+                map.setOnMarkerClickListener(eh4Var);
+                map.setOnMapLoadedCallback(eh4Var);
+                map.setOnMapRenderCallbadk(eh4Var);
+                map.setOnMapStatusChangeListener(eh4Var);
+                map.setOnMyLocationClickListener(eh4Var);
+                UiSettings uiSettings = map.getUiSettings();
+                uiSettings.setScrollGesturesEnabled(ky2Var.t);
+                uiSettings.setRotateGesturesEnabled(ky2Var.u);
+                uiSettings.setZoomGesturesEnabled(ky2Var.s);
+                ih4Var.l.showZoomControls(false);
+                ih4Var.l.showScaleControl(false);
+                map.setBuildingsEnabled(ky2Var.x);
+                uiSettings.setOverlookingGesturesEnabled(ky2Var.w);
+                ry2 ry2Var = ky2Var.j;
+                if (ry2Var != null && ry2Var.isValid()) {
+                    y82.i("map", "initMapView coordinate is " + ky2Var.j);
+                    ry2 ry2Var2 = ky2Var.j;
+                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(ry2Var2.a, ry2Var2.b)));
+                }
+                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) ky2Var.k));
+                y82.i("map", "initMapView scale is " + ky2Var.k);
+                boolean z2 = ky2Var.r;
+                ih4Var.k = z2;
+                if (z2) {
+                    c(context, gg4Var);
+                } else {
+                    gg4Var.p(false);
+                    map.setMyLocationEnabled(false);
+                }
+                uiSettings.setCompassEnabled(ky2Var.v);
+                ch4.e(AppRuntime.getAppContext(), ky2Var, ih4Var);
+                ch4.d(ky2Var, ih4Var, eh4Var);
+                return;
+            }
+            y82.c("map", "initMapView model is invalid");
+        }
+    }
+
+    public static void c(Context context, gg4 gg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, gg4Var) == null) {
+            zg4.b(context, new a(gg4Var));
+        }
     }
 }

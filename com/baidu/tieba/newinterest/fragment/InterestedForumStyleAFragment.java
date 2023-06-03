@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv8;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.ka5;
 import com.baidu.tieba.m75;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public cv8 n;
+    public z09 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         }
     }
 
-    public static InterestedForumStyleAFragment L1(int i, boolean z, String[] strArr) {
+    public static InterestedForumStyleAFragment M1(int i, boolean z, String[] strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), strArr})) == null) {
@@ -107,15 +107,15 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 this.b = getArguments().getBoolean(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM);
                 this.c = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            this.e = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0314, viewGroup, false);
-            N1();
+            this.e = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031c, viewGroup, false);
+            O1();
             initData();
             return this.e;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public static InterestedForumStyleAFragment M1(int i, String[] strArr) {
+    public static InterestedForumStyleAFragment N1(int i, String[] strArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, strArr)) == null) {
@@ -129,7 +129,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         return (InterestedForumStyleAFragment) invokeIL.objValue;
     }
 
-    public final int K1(int i) {
+    public final int L1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -137,7 +137,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }
-            return ri.g(context, i);
+            return vi.g(context, i);
         }
         return invokeI.intValue;
     }
@@ -150,44 +150,44 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         }
     }
 
-    public final void N1() {
+    public final void O1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09110f);
-            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09111d);
+            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091122);
+            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091130);
             this.h = textView;
             String[] strArr = this.c;
             if (strArr != null && strArr.length == 3) {
                 textView.setText(strArr[0]);
                 this.i.setText(this.c[2]);
             }
-            m75 m75Var = new m75();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f0910fc);
+            ia5 ia5Var = new ia5();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f09110f);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.j.setConfig(m75Var);
-            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0a84));
+            this.j.setConfig(ia5Var);
+            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0abc));
             this.j.setEnabled(false);
-            o75 o75Var = new o75();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f092059);
+            ka5 ka5Var = new ka5();
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f092087);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            o75Var.s(R.color.CAM_X0105);
-            this.g.setConfig(o75Var);
-            this.g.setText(getString(R.string.obfuscated_res_0x7f0f0a8c));
-            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f0910fd);
-            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0910fe);
-            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f0910ff);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091114);
+            ka5Var.s(R.color.CAM_X0105);
+            this.g.setConfig(ka5Var);
+            this.g.setText(getString(R.string.obfuscated_res_0x7f0f0ac4));
+            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f091110);
+            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091111);
+            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f091112);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091127);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.getRecycledViewPool().setMaxRecycledViews(1, 12);
             ((DefaultItemAnimator) this.f.getItemAnimator()).setSupportsChangeAnimations(false);
             BdTypeRecyclerView bdTypeRecyclerView2 = this.f;
             bdTypeRecyclerView2.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView2.getContext()));
             View view2 = new View(this.f.getContext());
-            view2.setLayoutParams(new LinearLayout.LayoutParams(-2, K1(R.dimen.tbds78)));
+            view2.setLayoutParams(new LinearLayout.LayoutParams(-2, L1(R.dimen.tbds78)));
             this.f.addHeaderView(view2);
-            this.n = new cv8(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new z09(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 
@@ -196,22 +196,22 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            p45 d = p45.d(this.h);
+            m75 d = m75.d(this.h);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X03);
             d.C(R.string.F_X02);
-            p45 d2 = p45.d(this.i);
+            m75 d2 = m75.d(this.i);
             d2.w(R.color.CAM_X0108);
             d2.B(R.dimen.T_X07);
             d2.C(R.string.F_X01);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            p45.d(this.l).f(R.color.CAM_X0201);
-            p45.d(this.k).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            p45.d(this.m).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            m75.d(this.l).f(R.color.CAM_X0201);
+            m75.d(this.k).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            m75.d(this.m).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            cv8 cv8Var = this.n;
-            if (cv8Var != null) {
-                cv8Var.k(i);
+            z09 z09Var = this.n;
+            if (z09Var != null) {
+                z09Var.k(i);
             }
         }
     }

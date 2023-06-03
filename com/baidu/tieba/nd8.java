@@ -1,109 +1,186 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nd8 extends en<md8, CardViewHolder<rd8>> {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class nd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public wj6 b;
-    public String c;
+    public od8 a;
+    public pd8 b;
+    public md8 c;
+    public boolean d;
+    public long e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nd8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ md8 a;
+        public final /* synthetic */ nd8 b;
+
+        public a(nd8 nd8Var, md8 md8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nd8Var, md8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nd8Var;
+            this.a = md8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TbadkCoreApplication.isLogin()) {
+                    nd8 nd8Var = this.b;
+                    if (nd8Var.a.b.a == CollapseState.Icon.FORUM) {
+                        nd8Var.d = true;
+                        ud8.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.w(), this.a.v(), String.valueOf(this.b.a.b.d), 14, null);
+                        GroupChatActivity.u1(view2.getContext(), this.b.a.b.d, -1, "");
+                        return;
+                    }
+                }
+                this.a.onClick(view2);
+            }
+        }
+    }
+
+    public nd8(@NonNull ChatFloatEntranceFragment.t tVar, @NonNull md8 md8Var) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tVar, md8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = md8Var;
+        pd8 pd8Var = new pd8(tVar, md8Var);
+        this.b = pd8Var;
+        this.a = new od8(this, pd8Var);
+        tVar.l.setOnClickListener(new a(this, md8Var));
+        long w = md8Var.w();
+        String v = md8Var.v();
+        String valueOf = String.valueOf(this.a.b.d);
+        if (d()) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        ud8.d("c15207", w, v, valueOf, 1, str);
+        e(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.en
-    public bo getOnAdapterItemClickListener() {
+    public void update(CollapseState collapseState, CollapseState collapseState2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, collapseState, collapseState2) == null) {
+            this.b.update(collapseState, collapseState2);
+        }
+    }
+
+    public void b() {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (System.currentTimeMillis() - this.e > 5000) {
+                this.c.B1();
+                this.e = System.currentTimeMillis();
+            }
+            this.a.b(false);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (this.a.b.a == CollapseState.Icon.DEFAULT) {
+                i = 3;
+            } else {
+                i = 2;
+            }
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            ud8.d("c15207", w, v, valueOf, i, str);
+        }
+    }
+
+    public void c() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.b(true);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            ud8.d("c15207", w, v, valueOf, 1, str);
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            l95 m = l95.m();
+            return m.i(ChatFloatEntranceFragment.f1127T + this.c.w(), true);
         }
-        return (bo) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public CardViewHolder<rd8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            rd8 rd8Var = new rd8(this.a, viewGroup);
-            wj6 wj6Var = this.b;
-            if (wj6Var != null) {
-                rd8Var.n(wj6Var);
-            }
-            return new CardViewHolder<>(rd8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.b(i);
         }
     }
 
-    public void x(wj6 wj6Var) {
+    public void g(List<Long> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, wj6Var) == null) {
-            this.b = wj6Var;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && this.d) {
+            this.a.c(list);
+            this.d = false;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, md8 md8Var, CardViewHolder<rd8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public void f(List<Long> list, long j, List list2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, md8Var, cardViewHolder})) == null) {
-            if (md8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                rd8 a = cardViewHolder.a();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                a.A(z);
-                cardViewHolder.a().i(md8Var);
-                return cardViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) {
+            this.a.a(list, j, list2, i);
         }
-        return (View) invokeCommon.objValue;
     }
 }

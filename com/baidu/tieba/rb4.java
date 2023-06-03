@@ -1,27 +1,45 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qb4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public boolean cancel;
+    @V8JavascriptField
+    public boolean confirm;
 
-    public static synchronized qb4 a() {
-        InterceptResult invokeV;
-        qb4 qb4Var;
+    public rb4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (rb4.class) {
-                if (a == null) {
-                    a = new qb4();
-                }
-                qb4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return qb4Var;
         }
-        return (qb4) invokeV.objValue;
+        this.confirm = z;
+        this.cancel = !z;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

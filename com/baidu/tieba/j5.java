@@ -1,458 +1,387 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.TextureData;
-import com.badlogic.gdx.graphics.glutils.ETC1;
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.g3;
+import com.baidu.tieba.s6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
-import java.util.zip.GZIPInputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class j5 implements TextureData, z2 {
+public abstract class j5<T extends g3> implements z6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<Application, s6<j5>> i;
+    public static int j;
+    public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public x2 a;
+    public s6<T> a;
     public int b;
     public int c;
     public int d;
     public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public ByteBuffer l;
-    public boolean m;
+    public boolean f;
+    public boolean g;
+    public c<? extends j5<T>> h;
 
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
     }
 
-    public j5(x2 x2Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x2Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static abstract class c<U extends j5<? extends g3>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public s6<b> c;
+        public a d;
+        public a e;
+        public a f;
+        public boolean g;
+        public boolean h;
+        public boolean i;
+    }
+
+    public abstract void f(T t);
+
+    public abstract T j(b bVar);
+
+    public abstract void k(T t);
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public boolean c;
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.b && !this.c) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306690, "Lcom/baidu/tieba/j5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448306690, "Lcom/baidu/tieba/j5;");
                 return;
             }
         }
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
-        this.a = x2Var;
-        this.m = z;
+        i = new HashMap();
+        k = false;
     }
 
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public void b(int i) {
+    public j5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new s6<>();
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            m(sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void a(Application application, j5 j5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, application, j5Var) == null) {
+            s6<j5> s6Var = i.get(application);
+            if (s6Var == null) {
+                s6Var = new s6<>();
+            }
+            s6Var.a(j5Var);
+            i.put(application, s6Var);
+        }
+    }
+
+    public static void i(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
+            i.remove(application);
+        }
+    }
+
+    public static StringBuilder m(StringBuilder sb) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sb)) == null) {
+            sb.append("Managed buffers/app: { ");
+            for (Application application : i.keySet()) {
+                sb.append(i.get(application).b);
+                sb.append(" ");
+            }
+            sb.append("}");
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
+    }
+
+    public static void n(Application application) {
+        s6<j5> s6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, application) != null) || w0.f == null || (s6Var = i.get(application)) == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < s6Var.b; i2++) {
+            s6Var.get(i2).g();
+        }
+    }
+
+    @Override // com.baidu.tieba.z6
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e3 e3Var = w0.f;
+            s6.b<T> it = this.a.iterator();
+            while (it.hasNext()) {
+                k(it.next());
+            }
+            if (this.f) {
+                e3Var.p(this.e);
+            } else {
+                if (this.h.h) {
+                    e3Var.p(this.c);
+                }
+                if (this.h.g) {
+                    e3Var.p(this.d);
+                }
+            }
+            e3Var.r(this.b);
+            if (i.get(w0.a) != null) {
+                i.get(w0.a).i(this, true);
+            }
+        }
+    }
+
+    public void g() {
         boolean z;
         int i2;
-        int i3;
-        int i4;
-        int i5;
-        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.l != null) {
-                IntBuffer d = BufferUtils.d(16);
-                int i6 = 1;
-                if (this.b != 0 && this.c != 0) {
-                    z = false;
-                } else if (this.b + this.c == 0) {
-                    z = true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e3 e3Var = w0.f;
+            h();
+            if (!k) {
+                k = true;
+                if (w0.a.getType() == Application.ApplicationType.iOS) {
+                    IntBuffer asIntBuffer = ByteBuffer.allocateDirect(64).order(ByteOrder.nativeOrder()).asIntBuffer();
+                    e3Var.C(36006, asIntBuffer);
+                    j = asIntBuffer.get(0);
                 } else {
-                    throw new GdxRuntimeException("either both or none of glType, glFormat must be zero");
+                    j = 0;
                 }
-                if (this.f > 0) {
-                    i2 = 2;
-                    i3 = 3553;
+            }
+            int Q = e3Var.Q();
+            this.b = Q;
+            e3Var.f(36160, Q);
+            c<? extends j5<T>> cVar = this.h;
+            int i3 = cVar.a;
+            int i4 = cVar.b;
+            if (cVar.h) {
+                int P = e3Var.P();
+                this.c = P;
+                e3Var.m(36161, P);
+                e3Var.e(36161, this.h.e.a, i3, i4);
+            }
+            if (this.h.g) {
+                int P2 = e3Var.P();
+                this.d = P2;
+                e3Var.m(36161, P2);
+                e3Var.e(36161, this.h.d.a, i3, i4);
+            }
+            if (this.h.i) {
+                int P3 = e3Var.P();
+                this.e = P3;
+                e3Var.m(36161, P3);
+                e3Var.e(36161, this.h.f.a, i3, i4);
+            }
+            if (this.h.c.b > 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.g = z;
+            if (z) {
+                s6.b<b> it = this.h.c.iterator();
+                int i5 = 0;
+                while (it.hasNext()) {
+                    b next = it.next();
+                    T j2 = j(next);
+                    this.a.a(j2);
+                    if (next.a()) {
+                        e3Var.B(36160, i5 + 36064, 3553, j2.i(), 0);
+                        i5++;
+                    } else if (next.b) {
+                        e3Var.B(36160, 36096, 3553, j2.i(), 0);
+                    } else if (next.c) {
+                        e3Var.B(36160, 36128, 3553, j2.i(), 0);
+                    }
+                }
+                i2 = i5;
+            } else {
+                T j3 = j(this.h.c.first());
+                this.a.a(j3);
+                e3Var.N(j3.a, j3.i());
+                i2 = 0;
+            }
+            if (this.g) {
+                IntBuffer d = BufferUtils.d(i2);
+                for (int i6 = 0; i6 < i2; i6++) {
+                    d.put(i6 + 36064);
+                }
+                d.position(0);
+                w0.g.c(i2, d);
+            } else {
+                f(this.a.first());
+            }
+            if (this.h.h) {
+                e3Var.k(36160, 36096, 36161, this.c);
+            }
+            if (this.h.g) {
+                e3Var.k(36160, 36128, 36161, this.d);
+            }
+            if (this.h.i) {
+                e3Var.k(36160, 33306, 36161, this.e);
+            }
+            e3Var.m(36161, 0);
+            s6.b<T> it2 = this.a.iterator();
+            while (it2.hasNext()) {
+                e3Var.N(it2.next().a, 0);
+            }
+            int t = e3Var.t(36160);
+            if (t == 36061) {
+                c<? extends j5<T>> cVar2 = this.h;
+                if (cVar2.h && cVar2.g && (w0.b.a("GL_OES_packed_depth_stencil") || w0.b.a("GL_EXT_packed_depth_stencil"))) {
+                    if (this.h.h) {
+                        e3Var.p(this.c);
+                        this.c = 0;
+                    }
+                    if (this.h.g) {
+                        e3Var.p(this.d);
+                        this.d = 0;
+                    }
+                    if (this.h.i) {
+                        e3Var.p(this.e);
+                        this.e = 0;
+                    }
+                    int P4 = e3Var.P();
+                    this.e = P4;
+                    this.f = true;
+                    e3Var.m(36161, P4);
+                    e3Var.e(36161, 35056, i3, i4);
+                    e3Var.m(36161, 0);
+                    e3Var.k(36160, 36096, 36161, this.e);
+                    e3Var.k(36160, 36128, 36161, this.e);
+                    t = e3Var.t(36160);
+                }
+            }
+            e3Var.f(36160, j);
+            if (t != 36053) {
+                s6.b<T> it3 = this.a.iterator();
+                while (it3.hasNext()) {
+                    k(it3.next());
+                }
+                if (this.f) {
+                    e3Var.b(this.e);
                 } else {
-                    i2 = 1;
-                    i3 = 4660;
-                }
-                if (this.g > 0) {
-                    i2 = 3;
-                    i3 = 4660;
-                }
-                int i7 = this.i;
-                if (i7 == 6) {
-                    if (i2 == 2) {
-                        i3 = 34067;
-                    } else {
-                        throw new GdxRuntimeException("cube map needs 2D faces");
+                    if (this.h.h) {
+                        e3Var.p(this.c);
                     }
-                } else if (i7 != 1) {
-                    throw new GdxRuntimeException("numberOfFaces must be either 1 or 6");
-                }
-                if (this.h > 0) {
-                    if (i3 == 4660 || i3 == 3553) {
-                        i2++;
-                        i3 = 4660;
-                    } else {
-                        throw new GdxRuntimeException("No API for 3D and cube arrays yet");
+                    if (this.h.g) {
+                        e3Var.p(this.d);
                     }
                 }
-                if (i3 != 4660) {
-                    int i8 = 34069;
-                    if (this.i == 6 && i != 34067) {
-                        if (34069 <= i && i <= 34074) {
-                            i4 = i - 34069;
-                        } else {
-                            throw new GdxRuntimeException("You must specify either GL_TEXTURE_CUBE_MAP to bind all 6 faces of the cube or the requested face GL_TEXTURE_CUBE_MAP_POSITIVE_X and followings.");
-                        }
-                    } else {
-                        if (this.i != 6 || i != 34067) {
-                            if (i != i3 && (34069 > i || i > 34074 || i != 3553)) {
-                                throw new GdxRuntimeException("Invalid target requested : 0x" + Integer.toHexString(i) + ", expecting : 0x" + Integer.toHexString(i3));
+                e3Var.r(this.b);
+                if (t != 36054) {
+                    if (t != 36057) {
+                        if (t != 36055) {
+                            if (t == 36061) {
+                                throw new IllegalStateException("Frame buffer couldn't be constructed: unsupported combination of formats");
                             }
-                            i8 = i;
+                            throw new IllegalStateException("Frame buffer couldn't be constructed: unknown error " + t);
                         }
-                        i4 = -1;
+                        throw new IllegalStateException("Frame buffer couldn't be constructed: missing attachment");
                     }
-                    s0.e.C(3317, d);
-                    int i9 = d.get(0);
-                    int i10 = 4;
-                    if (i9 != 4) {
-                        s0.e.g(3317, 4);
-                    }
-                    int i11 = this.d;
-                    int i12 = this.c;
-                    int i13 = this.k;
-                    int i14 = 0;
-                    while (i14 < this.j) {
-                        int max = Math.max(i6, this.e >> i14);
-                        int max2 = Math.max(i6, this.f >> i14);
-                        Math.max(i6, this.g >> i14);
-                        this.l.position(i13);
-                        int i15 = this.l.getInt();
-                        int i16 = (i15 + 3) & (-4);
-                        i13 += i10;
-                        int i17 = 0;
-                        while (i17 < this.i) {
-                            this.l.position(i13);
-                            i13 += i16;
-                            if (i4 != -1 && i4 != i17) {
-                                i5 = i4;
-                            } else {
-                                ByteBuffer slice = this.l.slice();
-                                slice.limit(i16);
-                                i5 = i4;
-                                if (i2 != 1) {
-                                    if (i2 == 2) {
-                                        int i18 = this.h;
-                                        if (i18 > 0) {
-                                            max2 = i18;
-                                        }
-                                        if (z) {
-                                            if (i11 == ETC1.b) {
-                                                z2 = z;
-                                                if (!s0.b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
-                                                    Pixmap a = ETC1.a(new ETC1.a(max, max2, slice, 0), Pixmap.Format.RGB888);
-                                                    s0.e.q(i8 + i17, i14, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
-                                                    a.dispose();
-                                                } else {
-                                                    s0.e.h(i8 + i17, i14, i11, max, max2, 0, i15, slice);
-                                                }
-                                            } else {
-                                                z2 = z;
-                                                s0.e.h(i8 + i17, i14, i11, max, max2, 0, i15, slice);
-                                            }
-                                        } else {
-                                            z2 = z;
-                                            s0.e.q(i8 + i17, i14, i11, max, max2, 0, i12, this.b, slice);
-                                        }
-                                    } else {
-                                        z2 = z;
-                                        if (i2 == 3) {
-                                            int i19 = this.h;
-                                        }
-                                    }
-                                    i17++;
-                                    i4 = i5;
-                                    z = z2;
+                    throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete dimensions");
+                }
+                throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete attachment");
+            }
+            a(w0.a, this);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !w0.b.b()) {
+            c<? extends j5<T>> cVar = this.h;
+            if (!cVar.i) {
+                s6<b> s6Var = cVar.c;
+                if (s6Var.b <= 1) {
+                    s6.b<b> it = s6Var.iterator();
+                    while (it.hasNext()) {
+                        b next = it.next();
+                        if (!next.b) {
+                            if (!next.c) {
+                                if (next.a && !w0.b.a("OES_texture_float")) {
+                                    throw new GdxRuntimeException("Float texture FrameBuffer Attachment not available on GLES 2.0");
                                 }
+                            } else {
+                                throw new GdxRuntimeException("Stencil texture FrameBuffer Attachment not available on GLES 2.0");
                             }
-                            z2 = z;
-                            i17++;
-                            i4 = i5;
-                            z = z2;
+                        } else {
+                            throw new GdxRuntimeException("Depth texture FrameBuffer Attachment not available on GLES 2.0");
                         }
-                        i14++;
-                        i4 = i4;
-                        z = z;
-                        i6 = 1;
-                        i10 = 4;
                     }
-                    if (i9 != 4) {
-                        s0.e.g(3317, i9);
-                    }
-                    if (f()) {
-                        s0.e.F(i8);
-                    }
-                    h();
                     return;
                 }
-                throw new GdxRuntimeException("Unsupported texture format (only 2D texture are supported in LibGdx for the time being)");
+                throw new GdxRuntimeException("Multiple render targets not available on GLES 2.0");
             }
-            throw new GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
-        }
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
-        }
-        return (Pixmap) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap.Format d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new GdxRuntimeException("This TextureData implementation directly handles texture formats.");
-        }
-        return (Pixmap.Format) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z2
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b(34067);
-        }
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public TextureData.TextureDataType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return TextureData.TextureDataType.Custom;
-        }
-        return (TextureData.TextureDataType) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ByteBuffer byteBuffer = this.l;
-            if (byteBuffer != null) {
-                BufferUtils.b(byteBuffer);
-            }
-            this.l = null;
-        }
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean isPrepared() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.l != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public void prepare() {
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.l == null) {
-                x2 x2Var = this.a;
-                if (x2Var != null) {
-                    if (x2Var.g().endsWith(".zktx")) {
-                        byte[] bArr = new byte[10240];
-                        DataInputStream dataInputStream2 = null;
-                        try {
-                            try {
-                                dataInputStream = new DataInputStream(new BufferedInputStream(new GZIPInputStream(this.a.m())));
-                            } catch (Throwable th) {
-                                th = th;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                        }
-                        try {
-                            this.l = BufferUtils.e(dataInputStream.readInt());
-                            while (true) {
-                                int read = dataInputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                this.l.put(bArr, 0, read);
-                            }
-                            this.l.position(0);
-                            this.l.limit(this.l.capacity());
-                            w7.a(dataInputStream);
-                        } catch (Exception e2) {
-                            e = e2;
-                            throw new GdxRuntimeException("Couldn't load zktx file '" + this.a + "'", e);
-                        } catch (Throwable th2) {
-                            th = th2;
-                            dataInputStream2 = dataInputStream;
-                            w7.a(dataInputStream2);
-                            throw th;
-                        }
-                    } else {
-                        this.l = ByteBuffer.wrap(this.a.n());
-                    }
-                    if (this.l.get() == -85) {
-                        if (this.l.get() == 75) {
-                            if (this.l.get() == 84) {
-                                if (this.l.get() == 88) {
-                                    if (this.l.get() == 32) {
-                                        if (this.l.get() == 49) {
-                                            if (this.l.get() == 49) {
-                                                if (this.l.get() == -69) {
-                                                    if (this.l.get() == 13) {
-                                                        if (this.l.get() == 10) {
-                                                            if (this.l.get() == 26) {
-                                                                if (this.l.get() == 10) {
-                                                                    int i = this.l.getInt();
-                                                                    if (i != 67305985 && i != 16909060) {
-                                                                        throw new GdxRuntimeException("Invalid KTX Header");
-                                                                    }
-                                                                    if (i != 67305985) {
-                                                                        ByteBuffer byteBuffer = this.l;
-                                                                        ByteOrder order = byteBuffer.order();
-                                                                        ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
-                                                                        if (order == byteOrder) {
-                                                                            byteOrder = ByteOrder.LITTLE_ENDIAN;
-                                                                        }
-                                                                        byteBuffer.order(byteOrder);
-                                                                    }
-                                                                    this.b = this.l.getInt();
-                                                                    this.l.getInt();
-                                                                    this.c = this.l.getInt();
-                                                                    this.d = this.l.getInt();
-                                                                    this.l.getInt();
-                                                                    this.e = this.l.getInt();
-                                                                    this.f = this.l.getInt();
-                                                                    this.g = this.l.getInt();
-                                                                    this.h = this.l.getInt();
-                                                                    this.i = this.l.getInt();
-                                                                    int i2 = this.l.getInt();
-                                                                    this.j = i2;
-                                                                    if (i2 == 0) {
-                                                                        this.j = 1;
-                                                                        this.m = true;
-                                                                    }
-                                                                    this.k = this.l.position() + this.l.getInt();
-                                                                    if (!this.l.isDirect()) {
-                                                                        int i3 = this.k;
-                                                                        for (int i4 = 0; i4 < this.j; i4++) {
-                                                                            i3 += (((this.l.getInt(i3) + 3) & (-4)) * this.i) + 4;
-                                                                        }
-                                                                        this.l.limit(i3);
-                                                                        this.l.position(0);
-                                                                        ByteBuffer e3 = BufferUtils.e(i3);
-                                                                        e3.order(this.l.order());
-                                                                        e3.put(this.l);
-                                                                        this.l = e3;
-                                                                        return;
-                                                                    }
-                                                                    return;
-                                                                }
-                                                                throw new GdxRuntimeException("Invalid KTX Header");
-                                                            }
-                                                            throw new GdxRuntimeException("Invalid KTX Header");
-                                                        }
-                                                        throw new GdxRuntimeException("Invalid KTX Header");
-                                                    }
-                                                    throw new GdxRuntimeException("Invalid KTX Header");
-                                                }
-                                                throw new GdxRuntimeException("Invalid KTX Header");
-                                            }
-                                            throw new GdxRuntimeException("Invalid KTX Header");
-                                        }
-                                        throw new GdxRuntimeException("Invalid KTX Header");
-                                    }
-                                    throw new GdxRuntimeException("Invalid KTX Header");
-                                }
-                                throw new GdxRuntimeException("Invalid KTX Header");
-                            }
-                            throw new GdxRuntimeException("Invalid KTX Header");
-                        }
-                        throw new GdxRuntimeException("Invalid KTX Header");
-                    }
-                    throw new GdxRuntimeException("Invalid KTX Header");
-                }
-                throw new GdxRuntimeException("Need a file to load from");
-            }
-            throw new GdxRuntimeException("Already prepared");
+            throw new GdxRuntimeException("Packed Stencil/Render render buffers are not available on GLES 2.0");
         }
     }
 }

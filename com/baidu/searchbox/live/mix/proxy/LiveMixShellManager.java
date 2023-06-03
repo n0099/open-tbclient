@@ -34,11 +34,12 @@ import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.live.util.LiveActivityUtil;
 import com.baidu.searchbox.live.util.MiniPluginInfoHelper;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.google.protobuf.CodedInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -580,7 +581,7 @@ public final class LiveMixShellManager {
     /* JADX WARN: Removed duplicated region for block: B:82:0x01a1  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x01b2  */
     /* JADX WARN: Removed duplicated region for block: B:88:0x01c0  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x01c8  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x01c7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -706,10 +707,10 @@ public final class LiveMixShellManager {
                 cls = MixLiveTranslucentActivity.class;
             }
             intent = new Intent(context, cls);
-            intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            intent.setFlags(67108864);
             intent.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
             if (PluginContextUtil.INSTANCE.getActivity(context) instanceof Activity) {
-                intent.addFlags(134217728);
+                intent.addFlags(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
             intent.putExtra("roomId", str);
             if (!TextUtils.isEmpty(str2)) {
@@ -727,7 +728,7 @@ public final class LiveMixShellManager {
                             path.appendQueryParameter(str7, uri.getQueryParameter(str7));
                         }
                     }
-                    uri2 = path.appendQueryParameter(MiniPluginManager.PLAY_AB_SWITCH, "true").build();
+                    uri2 = path.appendQueryParameter(MiniPluginManager.PLAY_AB_SWITCH, YYOption.IsLive.VALUE_TRUE).build();
                     Intrinsics.checkExpressionValueIsNotNull(uri2, "builder.appendQueryParam…B_SWITCH, \"true\").build()");
                 } else {
                     uri2 = uri;
@@ -774,7 +775,7 @@ public final class LiveMixShellManager {
         }
         cls = MixLiveTranslucentActivity.class;
         intent = new Intent(context, cls);
-        intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        intent.setFlags(67108864);
         intent.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
         if (PluginContextUtil.INSTANCE.getActivity(context) instanceof Activity) {
         }

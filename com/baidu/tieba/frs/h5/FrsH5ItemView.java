@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class FrsH5ItemView extends FrameLayout {
                 if (!this.a.a) {
                     this.a.j();
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                    layoutParams.height = (ri.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070411);
+                    layoutParams.height = (vi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c);
                     this.a.setLayoutParams(layoutParams);
                 }
                 this.a.i = false;
@@ -174,7 +174,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.d = new b(this);
         this.e = new c(this);
         this.i = false;
-        setLayoutParams(new ViewGroup.LayoutParams(-1, (ri.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070411)));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, (vi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c)));
         BaseWebView baseWebView = new BaseWebView(TbadkCoreApplication.getInst());
         this.f = baseWebView;
         baseWebView.setOnPageStartedListener(this.c);
@@ -186,9 +186,9 @@ public class FrsH5ItemView extends FrameLayout {
         inflate.setVisibility(8);
         addView(this.h);
         this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.custom_loading_toast, null);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070389), -2);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070394), -2);
         layoutParams.gravity = 1;
-        layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035e);
+        layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369);
         addView(this.g, layoutParams);
     }
 
@@ -222,7 +222,7 @@ public class FrsH5ItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (ri.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070411);
+            layoutParams.height = (vi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c);
             setLayoutParams(layoutParams);
             this.f.setVisibility(8);
             this.g.setVisibility(8);

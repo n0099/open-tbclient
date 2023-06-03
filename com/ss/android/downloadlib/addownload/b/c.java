@@ -1,7 +1,7 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a = 0;
     public static int b = 1;

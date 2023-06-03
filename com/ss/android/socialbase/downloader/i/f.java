@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.huawei.hms.common.internal.TransactionIdCreater;
@@ -542,7 +541,7 @@ public class f {
             }
         }
         try {
-            return new String(bArr, IMAudioTransRequest.CHARSET);
+            return new String(bArr, "utf-8");
         } catch (Exception e3) {
             e3.printStackTrace();
             return str;

@@ -1,25 +1,38 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class iu2<ValueT> {
+public class iu2 implements hu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueT a;
 
-    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
+    @Override // com.baidu.tieba.hu2
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+        }
+    }
 
-    public abstract void e(Bundle bundle, String str, ValueT valuet);
+    @Override // com.baidu.tieba.hu2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
+        }
+    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Override // com.baidu.tieba.hu2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     public iu2() {
-        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,54 +40,9 @@ public abstract class iu2<ValueT> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-    }
-
-    public iu2(ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {valuet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = valuet;
-    }
-
-    public ValueT a(ju2 ju2Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ju2Var, str)) == null) {
-            return b(ju2Var, str, this.a);
-        }
-        return (ValueT) invokeLL.objValue;
-    }
-
-    public ValueT b(ju2 ju2Var, String str, ValueT valuet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ju2Var, str, valuet)) == null) {
-            return c(ju2Var.C(), str, valuet);
-        }
-        return (ValueT) invokeLLL.objValue;
-    }
-
-    public void d(ju2 ju2Var, String str, ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, ju2Var, str, valuet) == null) {
-            e(ju2Var.C(), str, valuet);
         }
     }
 }

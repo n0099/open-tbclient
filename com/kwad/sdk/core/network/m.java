@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.ae;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
     public static final String TAG = "Networking";
     @Nullable

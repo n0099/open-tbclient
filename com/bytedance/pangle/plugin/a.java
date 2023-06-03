@@ -4,7 +4,7 @@ import com.bytedance.pangle.ZeusPluginStateListener;
 import com.bytedance.pangle.e.a.e;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements Runnable {
     public final File a;
     public final String b;

@@ -12,14 +12,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SystemUtil {
     public static long aov;
     public static long aow;
     public static int aox;
     public static LEVEL aoy;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -39,7 +39,7 @@ public final class SystemUtil {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public long aoA;
         public long aoB;

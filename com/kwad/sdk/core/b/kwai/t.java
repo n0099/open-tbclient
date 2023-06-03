@@ -1,11 +1,10 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class t implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
@@ -13,7 +12,7 @@ public final class t implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
             return;
         }
         adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
-        adMaterialInfo.videoVoice = jSONObject.optBoolean("videoVoice", new Boolean(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE).booleanValue());
+        adMaterialInfo.videoVoice = jSONObject.optBoolean("videoVoice", new Boolean("false").booleanValue());
         adMaterialInfo.materialFeatureList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
         if (optJSONArray != null) {

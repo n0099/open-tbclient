@@ -1,146 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.cs2;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class h44 extends db3 {
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class h44 implements tx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements cs2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h44 a;
-
-        @Override // com.baidu.tieba.cs2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(h44 h44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h44Var;
-        }
-
-        @Override // com.baidu.tieba.cs2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.l(R.string.obfuscated_res_0x7f0f0191);
-            }
-        }
-
-        @Override // com.baidu.tieba.cs2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File c = i44.c();
-                File b = i44.b();
-                if (!c.exists() || !kp4.U(c.getPath(), b.getPath())) {
-                    this.a.l(R.string.obfuscated_res_0x7f0f0191);
-                } else {
-                    this.a.l(R.string.obfuscated_res_0x7f0f0192);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h44(da3 da3Var) {
-        super(da3Var, "/swanAPI/debug/dashboardConnect");
+    public h44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.tx1
+    @Nullable
+    public y32 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull cp2 cp2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (!db3.b) {
-                return false;
-            }
-            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                l(R.string.obfuscated_res_0x7f0f015d);
-                return false;
-            }
-            String optString = a2.optString("meterUrl");
-            if (TextUtils.isEmpty(optString)) {
-                l(R.string.obfuscated_res_0x7f0f015e);
-                return false;
-            }
-            i44.a();
-            cs2.d dVar = new cs2.d();
-            dVar.a = k(context, optString);
-            new ng2().e(dVar, i44.c().getPath(), new a(this));
-            return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, cp2Var)) == null) {
+            return g44.b().a(str, jSONObject, cp2Var);
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final String k(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            String i = ns2.h0().i(context);
-            String str2 = new String(x54.g().a("BASE64", (i + "\u0000\u0000").getBytes()));
-            String str3 = "?";
-            if (str.contains("?")) {
-                str3 = "&";
-            }
-            return str + str3 + "cuid=" + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Toast.makeText(ns2.c(), i, 1).show();
-        }
+        return (y32) invokeLLL.objValue;
     }
 }

@@ -1,69 +1,228 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.fx4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class ex4 {
     public static /* synthetic */ Interceptable $ic;
+    public static fx4 a;
+    public static ex4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xi5> a;
-    public Context b;
 
-    public ex4(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749704, "Lcom/baidu/tieba/ex4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749704, "Lcom/baidu/tieba/ex4;");
+                return;
+            }
+        }
+        new ArrayList(5);
+    }
+
+    public ex4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
     }
 
-    public void a(xi5 xi5Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, xi5Var) == null) && xi5Var != null && xi5Var.b() != null) {
-            Iterator<xi5> it = this.a.iterator();
-            while (it.hasNext()) {
-                xi5 next = it.next();
-                if (next != null && next.b() != null && next.b().e == xi5Var.b().e) {
-                    return;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.d();
+                c = false;
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.c();
+                c = false;
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.m();
+                c = true;
+            }
+        }
+    }
+
+    public static ex4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        fx4 fx4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            if (b == null) {
+                synchronized (ex4.class) {
+                    if (b == null) {
+                        b = new ex4();
+                        a = fx4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                fx4 fx4Var2 = a;
+                if (fx4Var2 != null) {
+                    fx4Var2.j(baseFragmentActivity.getPageContext());
                 }
             }
-            this.a.add(xi5Var);
+            if (c && (fx4Var = a) != null) {
+                fx4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
+        }
+        return (ex4) invokeL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 
-    public ArrayList<xi5> b() {
-        InterceptResult invokeV;
+    public void e(boolean z, boolean z2, boolean z3, fx4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public void f(fx4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                if (fx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
         }
-        return (Context) invokeV.objValue;
+    }
+
+    public void k(fx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                fx4Var.l(z);
+            }
+        }
+    }
+
+    public void g(int i, fx4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            fx4 fx4Var = a;
+            if (fx4Var != null) {
+                if (fx4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
     }
 }

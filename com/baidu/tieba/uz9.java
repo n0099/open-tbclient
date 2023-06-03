@@ -1,45 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Process;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class uz9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes8.dex */
+public class uz9 extends sz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uz9(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String packageName = g0a.d().getPackageName();
-            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
-            return packageName;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public static final void b(boolean z) {
+    @Override // com.baidu.tieba.sz9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            Intent launchIntentForPackage = g0a.d().getPackageManager().getLaunchIntentForPackage(g0a.d().getPackageName());
-            if (launchIntentForPackage != null) {
-                launchIntentForPackage.addFlags(335577088);
-            }
-            if (launchIntentForPackage != null) {
-                int h = g0a.h();
-                g0a.d().startActivity(launchIntentForPackage);
-                if (z && h > 0) {
-                    Process.killProcess(h);
-                    System.exit(0);
-                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = true;
         }
+    }
+
+    @Override // com.baidu.tieba.sz9
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sz9
+    public vz9 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            vz9 vz9Var = new vz9();
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                int i2 = 0;
+                int size = arrayList.size();
+                Iterator<Integer> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    int i3 = i2 + 1;
+                    vz9 h = h(randomAccessFile, it.next().intValue(), i, str);
+                    if (h == null) {
+                        return null;
+                    }
+                    d((int) (((i3 * 50.0f) / size) + 30.0f));
+                    if (!StringUtils.isNull(h.a)) {
+                        return h;
+                    }
+                    if (h.b != 0) {
+                        return h;
+                    }
+                    i2 = i3;
+                    vz9Var = h;
+                }
+            } catch (FileNotFoundException unused) {
+            }
+            return vz9Var;
+        }
+        return (vz9) invokeLLI.objValue;
     }
 }

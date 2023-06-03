@@ -1,64 +1,90 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.zip.ZipException;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
-/* loaded from: classes5.dex */
-public final class h17 {
+/* loaded from: classes6.dex */
+public final class h17 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final a c;
 
-    public static final c07 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new c07(type.intValue(), baseTextColor.day, baseTextColor.night);
-        }
-        return (c07) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z);
     }
 
-    public static final c07 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
+    @JvmOverloads
+    public h17(String dataPath, String desPath, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new c07(type.intValue(), feedContentColor.day, feedContentColor.night);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataPath, desPath, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (c07) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(dataPath, "dataPath");
+        Intrinsics.checkNotNullParameter(desPath, "desPath");
+        this.a = dataPath;
+        this.b = desPath;
+        this.c = aVar;
     }
 
-    public static final a17 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        c07 c07Var;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.onPostExecute(Boolean.valueOf(z));
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.a(z);
             }
-            FeedContentColor feedContentColor = feedContentText.color;
-            c07 c07Var2 = null;
-            if (feedContentColor != null) {
-                c07Var = b(feedContentColor);
-            } else {
-                c07Var = null;
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                c07Var2 = b(feedContentColor2);
-            }
-            return new a17(str, c07Var, c07Var2);
         }
-        return (a17) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public /* bridge */ /* synthetic */ void onPostExecute(Boolean bool) {
+        b(bool.booleanValue());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean doInBackground(Void... params) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params)) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            t85.c(new File(this.a), this.b);
+            boolean z = false;
+            try {
+                t85.c(new File(this.a), this.b);
+                z = true;
+            } catch (ZipException e) {
+                BdLog.e(e);
+            } catch (IOException e2) {
+                BdLog.e(e2);
+            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeL.objValue;
     }
 }

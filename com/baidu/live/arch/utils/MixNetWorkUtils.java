@@ -8,6 +8,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -154,7 +155,7 @@ public class MixNetWorkUtils {
         _3G("3g"),
         _4G("4g"),
         _5G("5g"),
-        UNKOWN("unknow");
+        UNKOWN(DownloadStatisticConstants.UBC_VALUE_UNKNOW);
         
         public final String type;
 
@@ -242,7 +243,7 @@ public class MixNetWorkUtils {
                 c = 65535;
             }
         } else {
-            if (networkClass.equals("unknow")) {
+            if (networkClass.equals(DownloadStatisticConstants.UBC_VALUE_UNKNOW)) {
                 c = 6;
             }
             c = 65535;

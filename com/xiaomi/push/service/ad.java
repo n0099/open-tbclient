@@ -24,16 +24,16 @@ public final class ad extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo695a() {
+    public String mo750a() {
         return "send app absent ack message for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo412a() {
+    public void mo467a() {
         try {
             id a = y.a((Context) this.f881a, this.a);
-            a.m564a().a("absent_target_package", this.f882a);
+            a.m619a().a("absent_target_package", this.f882a);
             ah.a(this.f881a, a);
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

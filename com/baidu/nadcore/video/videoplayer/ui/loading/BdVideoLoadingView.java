@@ -3,12 +3,12 @@ package com.baidu.nadcore.video.videoplayer.ui.loading;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.e61;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.h61;
+import com.baidu.tieba.n71;
+import com.baidu.tieba.p71;
+import com.baidu.tieba.q71;
 /* loaded from: classes3.dex */
 public class BdVideoLoadingView extends ImageView {
-    public e61 a;
+    public n71 a;
     public a b;
 
     /* loaded from: classes3.dex */
@@ -24,17 +24,17 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public final void a(Context context) {
-        setLoadingRenderer(new h61(context));
+        setLoadingRenderer(new q71(context));
     }
 
     public void setLoadingAnimListener(a aVar) {
         this.b = aVar;
     }
 
-    public void setLoadingRenderer(g61 g61Var) {
-        e61 e61Var = new e61(g61Var);
-        this.a = e61Var;
-        setImageDrawable(e61Var);
+    public void setLoadingRenderer(p71 p71Var) {
+        n71 n71Var = new n71(p71Var);
+        this.a = n71Var;
+        setImageDrawable(n71Var);
     }
 
     public BdVideoLoadingView(Context context, AttributeSet attributeSet) {
@@ -47,9 +47,9 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void c() {
-        e61 e61Var = this.a;
-        if (e61Var != null) {
-            e61Var.start();
+        n71 n71Var = this.a;
+        if (n71Var != null) {
+            n71Var.start();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.a();
@@ -58,9 +58,9 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void d() {
-        e61 e61Var = this.a;
-        if (e61Var != null) {
-            e61Var.stop();
+        n71 n71Var = this.a;
+        if (n71Var != null) {
+            n71Var.stop();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.b();

@@ -1,123 +1,87 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class v2b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "BaseKeyUtil";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class v2b extends BaseAdRipper {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948190307, "Lcom/baidu/tieba/v2b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v2b(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948190307, "Lcom/baidu/tieba/v2b;");
-        }
-    }
-
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
-            if (i2 < i) {
-                i = i2;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i3 < i ? i3 : i;
         }
-        return invokeIII.intValue;
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
-    }
-
-    public static boolean c(int i, byte[] bArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-            return b(i) & d(bArr);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean d(byte[] bArr) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr.length >= 16) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, x2b.b(str4), i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return f(str, str2, str3, bArr, 10000, i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            byte[] b = x2b.b(str);
-            byte[] b2 = x2b.b(str2);
-            byte[] b3 = x2b.b(str3);
-            int a2 = a(b.length, b2.length, b3.length);
-            if (c(a2, bArr)) {
-                char[] cArr = new char[a2];
-                for (int i3 = 0; i3 < a2; i3++) {
-                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
-                }
-                if (!z) {
-                    a3b.d(a, "exportRootKey: sha1");
-                    return s2b.b(cArr, bArr, i, i2 * 8);
-                }
-                a3b.d(a, "exportRootKey: sha256");
-                return s2b.c(cArr, bArr, i, i2 * 8);
+            try {
+                Object obj3 = ((l3b) obj).a;
+                Field declaredField = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                obj2 = declaredField.get(obj3);
+            } catch (Exception e) {
+                LogPrinter.e(e);
             }
-            throw new IllegalArgumentException("key length must be more than 128bit.");
+            if (obj2 == null) {
+                return null;
+            }
+            Field declaredField2 = obj2.getClass().getDeclaredField("c");
+            declaredField2.setAccessible(true);
+            Object obj4 = declaredField2.get(obj2);
+            if (obj4 == null) {
+                return null;
+            }
+            Field declaredField3 = obj4.getClass().getDeclaredField("c");
+            declaredField3.setAccessible(true);
+            Object obj5 = declaredField3.get(obj4);
+            if (obj5 == null) {
+                return null;
+            }
+            Field declaredField4 = obj5.getClass().getDeclaredField("v");
+            declaredField4.setAccessible(true);
+            Object obj6 = declaredField4.get(obj5);
+            if (obj6 == null) {
+                return null;
+            }
+            Field declaredField5 = obj6.getClass().getSuperclass().getDeclaredField("M");
+            declaredField5.setAccessible(true);
+            JSONObject jSONObject = (JSONObject) declaredField5.get(obj6);
+            if (jSONObject != null) {
+                return u2b.a(jSONObject);
+            }
+            return null;
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, bArr, 16, z);
-        }
-        return (byte[]) invokeCommon.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

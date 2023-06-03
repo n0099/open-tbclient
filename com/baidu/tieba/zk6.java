@@ -1,136 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import androidx.core.util.Pair;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.DownloadErrorLogger;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class zk6 {
+public class zk6 extends BdAsyncTask<Void, Void, xk6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
 
-    @Nullable
-    public static Intent a(Context context, String str, String str2, boolean z, yk6 yk6Var) {
-        InterceptResult invokeCommon;
+    public zk6(String str, fl9 fl9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), yk6Var})) == null) {
-            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            int i = 0;
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            while (true) {
-                if (i >= queryIntentActivities.size()) {
-                    break;
-                }
-                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
-                if (TextUtils.equals(str3, str2)) {
-                    intent.setPackage(str3);
-                    break;
-                }
-                i++;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, fl9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
-                if (yk6Var != null) {
-                    yk6Var.onFailed(-104);
+        }
+        this.a = str;
+        this.c = fl9Var.c();
+        this.b = fl9Var.a();
+        this.d = fl9Var.b();
+    }
+
+    public static void c(String str, fl9 fl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, fl9Var) == null) {
+            zk6 zk6Var = new zk6(str, fl9Var);
+            zk6Var.setPriority(4);
+            zk6Var.execute(new Void[0]);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public xk6 doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        boolean z;
+        xk6 xk6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            File file = new File(tk6.m().n(), this.a);
+            if (!jm6.a(file)) {
+                fm6.b("newHybrid", "离线包下载失败：" + this.a + "->目录创建失败");
+            }
+            File file2 = new File(file, this.c + ".zip");
+            if (!file2.exists()) {
+                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
+            } else {
+                z = true;
+            }
+            if (!z) {
+                jm6.c(file2);
+                fm6.b("newHybrid", "离线包下载失败:网络下载异常：" + this.a);
+                tk6.u("download bundle", DownloadErrorLogger.LOGGER_SPACE, this.a, this.c, km6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
+                return null;
+            } else if (!im6.d(file2, this.d)) {
+                jm6.c(file2);
+                fm6.b("newHybrid", "离线包目md5验证失败：" + this.a);
+                tk6.u("download bundle", "md5_error", this.a, this.c, km6.a(Pair.create("detail", this.d + "_" + im6.b(file2))));
+                return null;
+            } else {
+                File file3 = new File(tk6.m().l(), this.a);
+                if (!e(file2, file3, this.c)) {
+                    tk6.u("download bundle", "unzip_error", this.a, this.c, "");
                     return null;
                 }
+                File file4 = new File(file3, this.c);
+                Map<String, cl6> b = al6.b(file4);
+                if (al6.f(file4, b)) {
+                    xk6Var = new xk6(file4, this.c, b);
+                } else {
+                    xk6Var = null;
+                }
+                if (xk6Var != null && xk6Var.c()) {
+                    tk6.i(tk6.m().l(), this.c, this.a);
+                    tk6.i(tk6.m().n(), this.c + ".zip", this.a);
+                    return xk6Var;
+                }
+                jm6.b(file4);
+                fm6.b("newHybrid", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
                 return null;
             }
-            return intent;
         }
-        return (Intent) invokeCommon.objValue;
+        return (xk6) invokeL.objValue;
     }
 
-    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable yk6 yk6Var) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onPostExecute(xk6 xk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), yk6Var})) == null) {
-            if (!d(str) && !e(str)) {
-                return a(context, str, str2, z, yk6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xk6Var) == null) {
+            super.onPostExecute(xk6Var);
+            if (xk6Var != null) {
+                tk6.m().w(this.a, xk6Var.b());
+                tk6.m().t();
+                uk6.d().j(this.a, xk6Var.a());
+                uk6.d().c(this.a);
+                tk6.u("download bundle", "success", this.a, xk6Var.b(), "");
+            } else {
+                tk6.m().h(this.a);
+                tk6.m().t();
+                uk6.d().h(this.a);
             }
-            return c(context, str, str2, yk6Var);
+            sk6.b(xk6Var, this.a);
         }
-        return (Intent) invokeCommon.objValue;
     }
 
-    @Nullable
-    public static Intent c(Context context, String str, String str2, yk6 yk6Var) {
-        InterceptResult invokeLLLL;
-        List<ResolveInfo> queryIntentActivities;
+    public final boolean e(File file, File file2, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, yk6Var)) == null) {
-            Intent intent = null;
-            try {
-                Intent parseUri = Intent.parseUri(str, 1);
-                if (parseUri == null) {
-                    if (yk6Var != null) {
-                        yk6Var.onFailed(-103);
-                    }
-                    return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
+            File file3 = new File(file2, str);
+            if (!file3.exists()) {
+                try {
+                    nm6.c(file, file3);
+                    return true;
+                } catch (UnzipErrorException e) {
+                    jm6.b(file2);
+                    fm6.b("newHybrid", "离线包资源解压缩失败：" + e);
+                    return false;
                 }
-                String str3 = parseUri.getPackage();
-                if (str3 != null && !TextUtils.isEmpty(str3)) {
-                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    Set<String> categories = parseUri.getCategories();
-                    if (categories == null || categories.isEmpty()) {
-                        parseUri.addCategory("android.intent.category.LAUNCHER");
-                    }
-                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
-                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
-                    }
-                    return parseUri;
-                }
-                return context.getPackageManager().getLaunchIntentForPackage(str2);
-            } catch (URISyntaxException unused) {
-                if (!TextUtils.isEmpty(str2)) {
-                    intent = context.getPackageManager().getLaunchIntentForPackage(str2);
-                }
-                if (intent == null && yk6Var != null) {
-                    yk6Var.onFailed(-102);
-                }
-                return intent;
-            }
-        }
-        return (Intent) invokeLLLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("android-app:");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
-                return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

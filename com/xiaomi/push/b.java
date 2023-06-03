@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import com.google.protobuf.CodedInputStream;
 import java.io.InputStream;
 import java.util.Vector;
 import kotlin.jvm.internal.ByteCompanionObject;
@@ -25,7 +24,7 @@ public final class b {
     public b(InputStream inputStream) {
         this.f = Integer.MAX_VALUE;
         this.h = 64;
-        this.i = CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.i = 67108864;
         this.f132a = new byte[4096];
         this.a = 0;
         this.c = 0;
@@ -35,7 +34,7 @@ public final class b {
     public b(byte[] bArr, int i, int i2) {
         this.f = Integer.MAX_VALUE;
         this.h = 64;
-        this.i = CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.i = 67108864;
         this.f132a = bArr;
         this.a = i2 + i;
         this.c = i;
@@ -111,8 +110,8 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m208a() {
-        if (m219b()) {
+    public int m263a() {
+        if (m274b()) {
             this.d = 0;
             return 0;
         }
@@ -139,17 +138,17 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m209a() {
-        return m220c();
+    public long m264a() {
+        return m275c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m210a() {
+    public a m265a() {
         int d = d();
         int i = this.a;
         int i2 = this.c;
         if (d > i - i2 || d <= 0) {
-            return a.a(m216a(d));
+            return a.a(m271a(d));
         }
         a a = a.a(this.f132a, i2, d);
         this.c += d;
@@ -157,10 +156,10 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m211a() {
+    public String m266a() {
         int d = d();
         if (d > this.a - this.c || d <= 0) {
-            return new String(m216a(d), "UTF-8");
+            return new String(m271a(d), "UTF-8");
         }
         String str = new String(this.f132a, this.c, d, "UTF-8");
         this.c += d;
@@ -168,18 +167,18 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m212a() {
-        int m208a;
+    public void m267a() {
+        int m263a;
         do {
-            m208a = m208a();
-            if (m208a == 0) {
+            m263a = m263a();
+            if (m263a == 0) {
                 return;
             }
-        } while (m215a(m208a));
+        } while (m270a(m263a));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m213a(int i) {
+    public void m268a(int i) {
         if (this.d != i) {
             throw d.e();
         }
@@ -193,31 +192,31 @@ public final class b {
         int a = a(d);
         this.g++;
         eVar.a(this);
-        m213a(0);
+        m268a(0);
         this.g--;
         b(a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m214a() {
+    public boolean m269a() {
         return d() != 0;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m215a(int i) {
+    public boolean m270a(int i) {
         int a = f.a(i);
         if (a == 0) {
-            m217b();
+            m272b();
             return true;
         } else if (a == 1) {
-            m221d();
+            m276d();
             return true;
         } else if (a == 2) {
             c(d());
             return true;
         } else if (a == 3) {
-            m212a();
-            m213a(f.a(f.b(i), 4));
+            m267a();
+            m268a(f.a(f.b(i), 4));
             return true;
         } else if (a != 4) {
             if (a == 5) {
@@ -231,7 +230,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m216a(int i) {
+    public byte[] m271a(int i) {
         if (i < 0) {
             throw d.b();
         }
@@ -303,13 +302,13 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m217b() {
+    public int m272b() {
         return d();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m218b() {
-        return m220c();
+    public long m273b() {
+        return m275c();
     }
 
     public void b(int i) {
@@ -318,7 +317,7 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m219b() {
+    public boolean m274b() {
         return this.c == this.a && !a(false);
     }
 
@@ -327,7 +326,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m220c() {
+    public long m275c() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte a = a();
@@ -410,7 +409,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m221d() {
+    public long m276d() {
         byte a = a();
         byte a2 = a();
         return ((a2 & 255) << 8) | (a & 255) | ((a() & 255) << 16) | ((a() & 255) << 24) | ((a() & 255) << 32) | ((a() & 255) << 40) | ((a() & 255) << 48) | ((a() & 255) << 56);

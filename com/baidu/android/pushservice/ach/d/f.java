@@ -9,6 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.protect.sdk.Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -105,7 +106,7 @@ public class f {
         }
         this.b = false;
         this.e = new Handler(Looper.getMainLooper());
-        this.f = new Runnable() { // from class: com.baidu.tieba.oo
+        this.f = new Runnable() { // from class: com.baidu.tieba.gp
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,7 +220,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), eVar, Long.valueOf(j), bVar}) == null) {
             if (context != null && eVar != null && c(eVar.d)) {
-                this.e.post(new Runnable() { // from class: com.baidu.tieba.no
+                this.e.post(new Runnable() { // from class: com.baidu.tieba.fp
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -261,7 +262,7 @@ public class f {
             }
             this.d = new WeakReference<>(bVar);
             if (this.a == null) {
-                this.a = (WindowManager) context.getSystemService("window");
+                this.a = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             }
             if (this.a == null) {
                 a();
@@ -285,7 +286,7 @@ public class f {
             }
             b3.type = a2;
             this.c.a(eVar);
-            this.c.a().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mo
+            this.c.a().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ep
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

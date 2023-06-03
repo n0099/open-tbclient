@@ -1,153 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.q80;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class g90 extends d90 {
+public class g90 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<Integer, ResponsedMessage<?>> a;
+    public static final ConcurrentHashMap<Integer, b> b;
+    public static final ConcurrentHashMap<Integer, Integer> c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public q80.d b;
 
-    @Override // com.baidu.tieba.f90.b
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(ResponsedMessage<?> responsedMessage);
+
+        void b();
     }
 
-    @Override // com.baidu.tieba.f90.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public static class a extends HttpClient.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ HttpMessage f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask, int i, HttpMessage httpMessage2) {
+            super(httpMessage, httpMessageTask);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {httpMessage, httpMessageTask, Integer.valueOf(i), httpMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = i;
+            this.f = httpMessage2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
+                synchronized (g90.class) {
+                    g90.c.remove(Integer.valueOf(this.e));
+                    if (responsedMessageArr != null && responsedMessageArr.length > 0) {
+                        b bVar = (b) g90.b.remove(Integer.valueOf(this.e));
+                        if (bVar != null) {
+                            bVar.a(responsedMessageArr[0]);
+                        } else {
+                            g90.a.put(Integer.valueOf(this.f.getCmd()), responsedMessageArr[0]);
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.d90, com.baidu.tieba.f90.b
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947748619, "Lcom/baidu/tieba/g90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947748619, "Lcom/baidu/tieba/g90;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap<>();
+        b = new ConcurrentHashMap<>();
+        c = new ConcurrentHashMap<>();
+        d = BdUniqueId.gen();
     }
 
-    public g90(Context context) {
+    public g90() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = null;
-        this.a = context;
     }
 
-    public void a(q80.d dVar) {
+    public static synchronized void d(int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.b = dVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.f90.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Host", DnsTransmitter.IDC_HOST);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f90.b
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ("type=ipv4,ipv6&dn=" + u80.V(this.a).C).getBytes();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f90.d
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            k90.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
-            q80.f(true);
-            q80.c(this.a).b(u80.V(this.a).C, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.f90.d
-    public void onSuccess(byte[] bArr) {
-        int length;
-        int length2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
-            String str = new String(bArr);
-            k90.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + u80.V(this.a).C + " is " + str);
-            try {
-                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(u80.V(this.a).C);
-                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
-                if (optJSONArray2 == null) {
-                    length = 0;
-                } else {
-                    length = optJSONArray2.length();
-                }
-                if (optJSONArray == null) {
-                    length2 = 0;
-                } else {
-                    length2 = optJSONArray.length();
-                }
-                if (length2 + length > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    if (optJSONArray != null && length2 > 0) {
-                        arrayList.add(optJSONArray.getString(0));
-                    }
-                    if (optJSONArray2 != null && length > 0) {
-                        arrayList.add(optJSONArray2.getString(0));
-                    }
-                    q80.j(arrayList);
-                    if (this.b != null && q80.c.size() > 0) {
-                        this.b.a(0, DnsModel.MSG_OK, q80.c.get(0));
-                        if (q80.c.size() > 1) {
-                            q80.d++;
-                            return;
-                        }
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bVar) == null) {
+            synchronized (g90.class) {
+                if (c.containsKey(Integer.valueOf(i))) {
+                    b.put(Integer.valueOf(i), bVar);
                     return;
                 }
-                k90.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
-                q80.f(true);
-                q80.c(this.a).b(u80.V(this.a).C, this.b);
-            } catch (Exception e) {
-                k90.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
-                q80.f(true);
-                q80.c(this.a).b(u80.V(this.a).C, this.b);
+                if (a.containsKey(Integer.valueOf(i))) {
+                    bVar.a(a.remove(Integer.valueOf(i)));
+                } else {
+                    bVar.b();
+                }
+            }
+        }
+    }
+
+    public static synchronized void e(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpMessage, httpMessageTask) == null) {
+            synchronized (g90.class) {
+                if (httpMessage != null && httpMessageTask != null) {
+                    int cmd = httpMessage.getCmd();
+                    c.put(Integer.valueOf(cmd), 0);
+                    new a(httpMessage, httpMessageTask, cmd, httpMessage).execute(new HttpMessage[0]);
+                }
             }
         }
     }

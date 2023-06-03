@@ -1,79 +1,152 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.utils.ValidationLog;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class apa {
+import java.io.IOException;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPOutputStream;
+/* loaded from: classes5.dex */
+public class apa extends GZIPOutputStream {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<String> b;
+    public MessageDigest a;
+    public int b;
+    public int c;
+    public StringBuilder d;
 
-    public apa() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624247, "Lcom/baidu/tieba/apa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624247, "Lcom/baidu/tieba/apa;");
                 return;
             }
         }
-        this.b = new ArrayList();
+        e = aoa.m();
     }
 
-    public static apa a(String str) {
-        InterceptResult invokeL;
+    public byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageDigest messageDigest = this.a;
+            if (messageDigest != null && this.b == 2) {
+                return messageDigest.digest();
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                apa apaVar = new apa();
-                JSONObject optJSONObject = jSONObject.optJSONObject("action");
-                if (optJSONObject != null) {
-                    apaVar.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            apaVar.b.add(optJSONArray.optString(i));
-                        }
-                    }
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = this.d;
+            if (sb != null) {
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                try {
+                    this.a = MessageDigest.getInstance("MD5");
+                } catch (NoSuchAlgorithmException e2) {
+                    e2.printStackTrace();
                 }
-                return apaVar;
-            } catch (JSONException e) {
-                ValidationLog.e(e);
-                return null;
+            }
+            MessageDigest messageDigest = this.a;
+            if (messageDigest != null) {
+                messageDigest.reset();
             }
         }
-        return (apa) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = 1;
+            this.c = 0;
+            if (e) {
+                this.d = new StringBuilder();
+            }
+        }
     }
 
-    public List<String> c() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = 2;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public apa(OutputStream outputStream) throws IOException {
+        super(outputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((OutputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+    }
+
+    @Override // java.util.zip.GZIPOutputStream, java.util.zip.DeflaterOutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            synchronized (this) {
+                super.write(bArr, i, i2);
+                this.c += i2;
+                if (this.b == 1) {
+                    if (bArr[i] == 58 && this.a == null) {
+                        i++;
+                        i2--;
+                    }
+                    if (this.a == null) {
+                        e();
+                    }
+                    if (this.a == null) {
+                        return;
+                    }
+                    this.a.update(bArr, i, i2);
+                    if (e) {
+                        this.d.append(new String(bArr, i, i2));
+                    }
+                }
+            }
+        }
     }
 }

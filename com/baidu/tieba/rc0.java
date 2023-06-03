@@ -1,126 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class rc0 extends nc0 {
+public class rc0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
-    public static rc0 c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rc0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-465628691, "Lcom/baidu/tieba/rc0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-465628691, "Lcom/baidu/tieba/rc0$a;");
-                    return;
-                }
-            }
-            a = new rc0();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116682, "Lcom/baidu/tieba/rc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948116682, "Lcom/baidu/tieba/rc0;");
-                return;
-            }
-        }
-        b = new HashMap<>();
-    }
-
-    public static rc0 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                c = a.a;
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
-        return (rc0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onGlobalOrientationLock(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onNetworkSpeedUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onPlayerKernelPreEmpted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onUpdateProgress(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048586, this, i, i2, i3) == null) {
+        }
     }
 
     public rc0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b.put("color_1F1F1F", new String[]{"#FFFFFF"});
-        b.put("color_white1", new String[]{"#161823"});
-        b.put("color_white2", new String[]{"#1F2337"});
-        b.put("color_white3", new String[]{"#FFFFFF"});
-        b.put("color_F5F5F51", new String[]{"#161823"});
-        b.put("color_F5F5F52", new String[]{"#161823"});
-        b.put("color_F5F5F53", new String[]{"#1AFFFFFF"});
-        b.put("color_FF33551", new String[]{"#FF3355"});
-        b.put("color_FF33552", new String[]{"#26FF3355"});
-        b.put("color_858585", new String[]{"#858585"});
-        b.put("color_525252", new String[]{"#858585"});
-        b.put("color_FF3333", new String[]{"#FF3333"});
-        b.put("color_768CAE", new String[]{"#768CAE"});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2"});
-        b.put("color_8585852", new String[]{"#858585"});
-        b.put("color_5252522", new String[]{"#99FFFFFF"});
-        b.put("color_btn_stroke", new String[]{"#99FFFFFF"});
-        b.put("color_btn_fill", new String[]{"#66666666"});
-        b.put("color_sub_tab_normal", new String[]{"#858585"});
-        b.put("color_main_bg", new String[]{"#161823"});
-        b.put("color_white4", new String[]{"#FFFFFF"});
-        b.put("color_E0E0E0", new String[]{"#33ffffff"});
-        b.put("color_EEEEEE", new String[]{"#121212"});
     }
 
-    @Override // com.baidu.tieba.nc0
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
+    public Object onInfo(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!b.containsKey(str2)) {
-                return -1;
-            }
-            try {
-                return Color.parseColor(b.get(str2)[0]);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
+            return Boolean.FALSE;
         }
-        return invokeLLL.intValue;
+        return invokeIIL.objValue;
     }
 }

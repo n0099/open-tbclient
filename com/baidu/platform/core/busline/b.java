@@ -1,6 +1,5 @@
 package com.baidu.platform.core.busline;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.busline.BusLineSearchOption;
 import com.baidu.platform.base.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ public class b extends e {
         if (interceptable == null || interceptable.invokeL(65537, this, busLineSearchOption) == null) {
             this.a.a("qt", "bsl");
             this.a.a("rt_info", "1");
-            this.a.a("ie", IMAudioTransRequest.CHARSET);
+            this.a.a("ie", "utf-8");
             this.a.a("oue", "0");
             this.a.a("c", busLineSearchOption.mCity);
             this.a.a("uid", busLineSearchOption.mUid);

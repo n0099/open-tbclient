@@ -1,157 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.person.holder.PersonInfoAddUserPicViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc9 {
+public class fc9 extends in<mc9, PersonInfoAddUserPicViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public MediaController.MediaPlayerControl c;
-    public b d;
-    public d e;
-    public c f;
-    public Handler g;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fc9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fc9 fc9Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fc9Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fc9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
-                int currentPosition = this.a.c.getCurrentPosition();
-                int duration = this.a.c.getDuration();
-                if (currentPosition < this.a.b) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
-                    }
-                } else if (currentPosition == this.a.b && this.a.e != null) {
-                    this.a.e.a();
-                }
-                if (this.a.f != null) {
-                    this.a.f.a(duration, currentPosition);
-                }
-                this.a.b = currentPosition;
-                this.a.h();
-            }
-        }
-    }
-
-    public fc9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fc9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1000;
-        this.b = 0;
-        this.g = new a(this, Looper.getMainLooper());
+        this.a = tbPageContext;
     }
 
-    public void i(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: s */
+    public PersonInfoAddUserPicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0989, (ViewGroup) null));
+        }
+        return (PersonInfoAddUserPicViewHolder) invokeL.objValue;
+    }
+
+    public void u(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b = onClickListener;
         }
     }
 
-    public void j(c cVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mc9 mc9Var, PersonInfoAddUserPicViewHolder personInfoAddUserPicViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mc9Var, personInfoAddUserPicViewHolder})) == null) {
+            if (personInfoAddUserPicViewHolder != null && mc9Var != null) {
+                personInfoAddUserPicViewHolder.d(this.b);
+                personInfoAddUserPicViewHolder.a(mc9Var);
+                return personInfoAddUserPicViewHolder.getView();
+            }
+            return null;
         }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.e = dVar;
-        }
-    }
-
-    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.c = mediaPlayerControl;
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.removeMessages(1);
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            h();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.removeMessages(1);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

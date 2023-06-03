@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-@Service
 /* loaded from: classes6.dex */
-public class j64 implements nq1 {
+public class j64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public long c;
 
     public j64() {
         Interceptable interceptable = $ic;
@@ -26,43 +24,5 @@ public class j64 implements nq1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.nq1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c34.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nq1
-    public boolean b() {
-        InterceptResult invokeV;
-        m82 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g93.M() != null && g93.M().w0()) {
-                p82 V = tu2.U().V();
-                if (V == null || (m = V.m()) == null || !(m instanceof d54)) {
-                    return true;
-                }
-                return ((d54) m).G3();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nq1
-    public String c(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return c34.d(str);
-        }
-        return (String) invokeL.objValue;
     }
 }

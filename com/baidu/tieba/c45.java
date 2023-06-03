@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +10,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.GeneralResource;
 /* loaded from: classes5.dex */
-public final class c45 implements y35 {
+public class c45 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947624805, "Lcom/baidu/tieba/c45;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624805, "Lcom/baidu/tieba/c45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624805, "Lcom/baidu/tieba/c45;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947624805, "Lcom/baidu/tieba/c45;");
-        }
+        d = BdUniqueId.gen();
     }
 
     public c45() {
@@ -49,60 +50,22 @@ public final class c45 implements y35 {
         }
     }
 
-    @Override // com.baidu.tieba.y35
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialog_url", dialogData.getDialogUrl());
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d;
         }
-        return (Map) invokeLLL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y35
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
+    public void c(GeneralResource generalResource) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Object obj = map.get("dialog_url");
-            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
-                Object obj2 = map.get("check_preheat");
-                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !ju5.b().e((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "H5弹窗未预热完成");
-                    return false;
-                }
-                try {
-                    Object obj3 = map.get("init_offline_module");
-                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
-                        zk8 yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.c("HybridCheckStrategy", "主动初始化离线包:" + obj3);
-                        HashSet hashSet = new HashSet();
-                        hashSet.add(obj3);
-                        ow4.d(hashSet);
-                        zk8 yunDialogLog2 = YunDialogLog.getInstance();
-                        yunDialogLog2.c("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
-                    }
-                } catch (Exception e) {
-                    zk8 yunDialogLog3 = YunDialogLog.getInstance();
-                    yunDialogLog3.b("HybridCheckStrategy", "离线包手动初始化异常:" + e);
-                }
-                Object obj4 = map.get("check_offline");
-                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !ow4.c((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "离线包不可用");
-                    return false;
-                }
-                return true;
-            }
-            YunDialogLog.getInstance().b("HybridCheckStrategy", "未下发待检测的H5弹窗url");
-            return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) && generalResource != null) {
+            this.a = generalResource.res_image;
+            this.b = generalResource.res_link;
+            this.c = generalResource.res_floor.intValue();
         }
-        return invokeL.booleanValue;
     }
 }

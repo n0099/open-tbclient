@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,29 +10,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class nc2<T extends kc2> extends ug4<gi4> {
+/* loaded from: classes7.dex */
+public final class nc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
+    public final jc2 a;
+    public boolean b;
+    public boolean c;
+    public ad2 d;
 
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @CallSuper
-    public void p(@NonNull gi4 gi4Var, @Nullable zk3 zk3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, gi4Var, zk3Var) == null) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final nc2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-580085682, "Lcom/baidu/tieba/nc2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-580085682, "Lcom/baidu/tieba/nc2$b;");
+                    return;
+                }
+            }
+            a = new nc2(null);
         }
     }
 
@@ -55,25 +62,47 @@ public class nc2<T extends kc2> extends ug4<gi4> {
                 return;
             }
         }
-        b = qp1.a;
+        e = is1.a;
     }
 
-    @Override // com.baidu.tieba.ug4
-    public int g() {
+    public static nc2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (nc2) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.g();
+            return this.c;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public nc2(@NonNull T t) {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public nc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,107 +112,71 @@ public class nc2<T extends kc2> extends ug4<gi4> {
                 return;
             }
         }
-        this.a = t;
+        kc2 kc2Var = new kc2();
+        this.a = kc2Var;
+        kc2Var.a(new mc2(this.a.getLooper()));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
-    /* renamed from: s */
-    public void c(gi4 gi4Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gi4Var) == null) {
-            super.c(gi4Var);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + gi4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                y82.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
+            }
+            ad2 ad2Var = this.d;
+            if (ad2Var != null) {
+                ad2Var.a();
+                this.d = null;
             }
         }
     }
 
-    @Override // com.baidu.tieba.zg4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                this.a.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
-            }
-            return bundle2;
-        }
-        return (Bundle) invokeLL.objValue;
+    public /* synthetic */ nc2(a aVar) {
+        this();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xg4
-    /* renamed from: o */
-    public String d(gi4 gi4Var) {
-        InterceptResult invokeL;
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, gi4Var)) == null) {
-            if (TextUtils.isEmpty(gi4Var.o)) {
-                gi4Var.o = l();
-            }
-            int i = gi4Var.h;
-            if (i == 0) {
-                return zc2.b(gi4Var.o, String.valueOf(gi4Var.i));
-            }
-            if (i == 1) {
-                return zc2.d(gi4Var.o, String.valueOf(gi4Var.i));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
-    /* renamed from: r */
-    public final void i(gi4 gi4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, gi4Var) == null) {
-            super.i(gi4Var);
-            p(gi4Var, t(gi4Var));
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + gi4Var);
-            }
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i(j);
+            j(false);
         }
     }
 
-    @CallSuper
-    public void q(gi4 gi4Var, ai4 ai4Var) {
+    public void g(ad2 ad2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gi4Var, ai4Var) == null) {
-            super.e(gi4Var, ai4Var);
-            g62.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + gi4Var.a);
-            kp4.M(gi4Var.a);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + gi4Var + ", error=" + ai4Var);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, ad2Var) == null) {
+            this.d = ad2Var;
         }
     }
 
-    public final zk3 t(gi4 gi4Var) {
-        InterceptResult invokeL;
+    public void h(ic2 ic2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, gi4Var)) == null) {
-            if (!tm3.a(new File(gi4Var.a), gi4Var.m)) {
-                zk3 zk3Var = new zk3();
-                zk3Var.k(12L);
-                zk3Var.b(2300L);
-                zk3Var.d("分包签名校验失败");
-                return zk3Var;
-            } else if (!zc2.g(gi4Var)) {
-                zk3 zk3Var2 = new zk3();
-                zk3Var2.k(12L);
-                zk3Var2.b(2320L);
-                zk3Var2.d("分包解压失败");
-                return zk3Var2;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ic2Var) == null) {
+            this.a.b(ic2Var);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (e) {
+                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
+            }
+            if (j < 3000 && j > 0) {
+                z = true;
             } else {
-                return null;
+                z = false;
             }
+            this.b = z;
         }
-        return (zk3) invokeL.objValue;
     }
 }

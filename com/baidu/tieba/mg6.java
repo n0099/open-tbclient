@@ -1,190 +1,205 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.utils.AlaStringHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mg6 {
+public class mg6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public boolean b;
-    public final CustomMessageListener c;
-    public final fb d;
+    public TbPageContext<?> a;
+    public List<ng6> b;
+    public d c;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public interface d {
+        void a(og6 og6Var);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mg6 a;
+        public final /* synthetic */ ng6 a;
+        public final /* synthetic */ mg6 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mg6 mg6Var, int i) {
-            super(i);
+        public a(mg6 mg6Var, ng6 ng6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mg6Var, Integer.valueOf(i)};
+                Object[] objArr = {mg6Var, ng6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mg6Var;
+            this.b = mg6Var;
+            this.a = ng6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.b || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.c != null) {
+                this.b.c.a(this.a.b(0));
             }
-            this.a.b = true;
-            Pair[] pairArr = new Pair[1];
-            if (QuickWebViewSwitch.getInOn()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            pairArr[0] = Pair.create("offline_switch", str);
-            mg6.t("sync return", "", ci6.a(pairArr), "", "");
-            if (!QuickWebViewSwitch.getInOn()) {
-                return;
-            }
-            if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
-                ug6.c();
-                return;
-            }
-            rg6 rg6Var = new rg6();
-            rg6Var.setPriority(4);
-            rg6Var.execute(new Void[0]);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends fb {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mg6 a;
+        public final /* synthetic */ ng6 a;
+        public final /* synthetic */ mg6 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(mg6 mg6Var, int i, int i2) {
-            super(i, i2);
+        public b(mg6 mg6Var, ng6 ng6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mg6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {mg6Var, ng6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mg6Var;
+            this.b = mg6Var;
+            this.a = ng6Var;
         }
 
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage != null && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof WebViewCacheResHttpMsg) {
-                        WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
-                        this.a.u(webViewCacheResHttpMsg);
-                        this.a.e(webViewCacheResHttpMsg.getModuleInfos());
-                        return;
-                    } else if (!(responsedMessage instanceof WebViewCacheResSocketMsg)) {
-                        return;
-                    } else {
-                        this.a.e(((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos());
-                        return;
-                    }
-                }
-                if (QuickWebViewSwitch.getInOn()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                mg6.t("request webCacheInfo", "error", ci6.a(Pair.create("offline_switch", str)), "", "");
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.c != null) {
+                this.b.c.a(this.a.b(1));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class c {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final mg6 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng6 a;
+        public final /* synthetic */ mg6 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-604901554, "Lcom/baidu/tieba/mg6$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-604901554, "Lcom/baidu/tieba/mg6$c;");
+        public c(mg6 mg6Var, ng6 ng6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mg6Var, ng6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new mg6(null);
+            this.b = mg6Var;
+            this.a = ng6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.c != null) {
+                this.b.c.a(this.a.b(2));
+            }
         }
     }
 
-    public mg6() {
+    /* loaded from: classes6.dex */
+    public class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TbImageView b;
+        public TextView c;
+        public RelativeLayout d;
+        public TextView e;
+        public TextView f;
+        public TbImageView g;
+        public TextView h;
+        public RelativeLayout i;
+        public TextView j;
+        public TextView k;
+        public TbImageView l;
+        public TextView m;
+        public RelativeLayout n;
+        public TextView o;
+        public View p;
+        public TextView q;
+
+        public e(mg6 mg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ e(mg6 mg6Var, a aVar) {
+            this(mg6Var);
+        }
+    }
+
+    public mg6(TbPageContext<?> tbPageContext, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -194,265 +209,303 @@ public class mg6 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.b = false;
-        this.c = new a(this, 2001371);
-        this.d = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        this.a = null;
+        this.a = tbPageContext;
+        this.c = dVar;
     }
 
-    public /* synthetic */ mg6(a aVar) {
-        this();
-    }
-
-    public void h(String str) {
+    public void d(List<pg6> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.a.remove(str);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
         }
+        List<ng6> list2 = this.b;
+        if (list2 != null && list2.size() > 0) {
+            this.b.clear();
+        }
+        this.b = b(list);
+        notifyDataSetChanged();
     }
 
-    public String n(String str) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List<ng6> list = this.b;
+            if (list != null && i < list.size()) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    public final List<ng6> b(List<pg6> list) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (list == null) {
                 return null;
             }
-            return this.a.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void v(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
-            this.a.put(str, str2);
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            l().g(str);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && !TextUtils.equals("0.0.0.0", str3)) {
-                str4 = "success";
-            } else {
-                str4 = "error";
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                List<og6> a2 = list.get(i2).a();
+                int size = a2.size();
+                if (size % 3 == 0) {
+                    i = size / 3;
+                } else {
+                    i = (size / 3) + 1;
+                }
+                og6[][] og6VarArr = (og6[][]) Array.newInstance(og6.class, i, 3);
+                for (int i3 = 0; i3 < size; i3++) {
+                    int i4 = i3 / 3;
+                    int i5 = i3 % 3;
+                    og6VarArr[i4][i5] = a2.get(i3);
+                    og6VarArr[i4][i5].o(list.get(i2).b());
+                }
+                arrayList2.add(og6VarArr);
             }
-            t("delete bundle", str4, ci6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", str3)), str, str2);
-        }
-    }
-
-    public static void i(File file, String str, String str2) {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, file, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            File file2 = new File(file, str2);
-            if (file2.exists() && file2.isDirectory() && (list = file2.list()) != null && list.length != 0) {
-                for (String str3 : list) {
-                    if (!StringUtils.isNull(str3) && !str3.equals(str)) {
-                        FileHelper.deleteFileOrDir(new File(file2, str3));
+            for (int i6 = 0; i6 < arrayList2.size(); i6++) {
+                for (int i7 = 0; i7 < ((og6[][]) arrayList2.get(i6)).length; i7++) {
+                    ng6 ng6Var = new ng6();
+                    if (((og6[][]) arrayList2.get(i6)).length == 1) {
+                        ng6Var.e(1);
+                    } else if (((og6[][]) arrayList2.get(i6)).length > 1 && i7 == 0) {
+                        ng6Var.e(2);
+                    } else if (((og6[][]) arrayList2.get(i6)).length > 1 && i7 == ((og6[][]) arrayList2.get(i6)).length - 1) {
+                        ng6Var.e(3);
+                    } else {
+                        ng6Var.e(4);
                     }
+                    if (i6 == arrayList2.size() - 1) {
+                        if (ng6Var.getType() == 1) {
+                            ng6Var.e(2);
+                        } else if (ng6Var.getType() == 3) {
+                            ng6Var.e(4);
+                        }
+                    }
+                    for (int i8 = 0; i8 < 3; i8++) {
+                        if (((og6[][]) arrayList2.get(i6))[i7][i8] != null) {
+                            ng6Var.a(((og6[][]) arrayList2.get(i6))[i7][i8]);
+                        }
+                    }
+                    if (((og6[][]) arrayList2.get(i6))[0][0] != null) {
+                        ng6Var.d(((og6[][]) arrayList2.get(i6))[0][0].h());
+                    }
+                    arrayList.add(ng6Var);
                 }
             }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void c(e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) != null) || eVar == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(eVar.q, R.color.CAM_X0105, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.a, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.f, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.k, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.e, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
+        eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081197);
+        eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f081197);
+        eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f081197);
+        SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
+    }
+
+    public final void e(TbImageView tbImageView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, tbImageView, i) != null) || tbImageView == null) {
+            return;
+        }
+        if (i == 0) {
+            tbImageView.setAlpha(0.5f);
+        } else if (i == 3) {
+            tbImageView.setAlpha(0.2f);
+        } else {
+            tbImageView.setAlpha(1);
         }
     }
 
-    public static void j(String str, ye9 ye9Var) {
+    public final void f(TextView textView, boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, ye9Var) == null) {
-            String n = l().n(str);
-            String c2 = ye9Var.c();
-            boolean d = ye9Var.d();
-            if (StringUtils.isNull(n)) {
-                n = "0.0.0.0";
-            }
-            if (d && c2.equals(n)) {
-                ng6.d().c(str);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{textView, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (z) {
+                textView.setVisibility(0);
+                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+                int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
+                textView.setCompoundDrawablePadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+                textView.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
+                textView.setText(AlaStringHelper.formatLowercasekDou((float) j));
                 return;
             }
-            if (d) {
-                t("download bundle", "start", ci6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", n)), str, c2);
-            }
-            if (d) {
-                sg6.c(str, ye9Var);
-            } else {
-                f(str, c2, n);
-            }
+            textView.setVisibility(8);
         }
     }
 
-    public static mg6 l() {
-        InterceptResult invokeV;
+    public final void g(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c.a;
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, textView, i) != null) || textView == null) {
+            return;
         }
-        return (mg6) invokeV.objValue;
+        if (i == 0) {
+            textView.setText(R.string.obfuscated_res_0x7f0f021e);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_gray);
+        } else if (i == 1) {
+            textView.setText(R.string.obfuscated_res_0x7f0f021f);
+            SkinManager.setViewTextColor(textView, (int) R.color.obfuscated_res_0x7f0607b6);
+            SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_green);
+        } else if (i == 2) {
+            textView.setText(R.string.obfuscated_res_0x7f0f021d);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_blue);
+        } else if (i == 3) {
+            textView.setText(R.string.obfuscated_res_0x7f0f021c);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_gray);
+        } else {
+            textView.setVisibility(4);
+        }
     }
 
-    public File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbNWCache");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public File m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbWCacheTemp");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @NonNull
-    public Set<String> o() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.keySet();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public void s() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!zh6.b(this.a)) {
-                str = new JSONObject(this.a).toString();
-            } else {
-                str = "";
+            List<ng6> list = this.b;
+            if (list != null) {
+                return list.size();
             }
-            o65.m().B("pref_key_quick_webview_versions", str);
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public static void t(String str, String str2, String str3, String str4, String str5) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        e eVar;
+        String e2;
+        String e3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65546, null, str, str2, str3, str4, str5) == null) {
-            pf6 a2 = pf6.a(HybridStatisticKey.KEY_UPDATE_OFFLINE_PACK);
-            a2.c("obj_type", str);
-            a2.c("obj_name", str4);
-            a2.c("obj_param1", str5);
-            a2.c("obj_locate", str2);
-            a2.c(TiebaStatic.Params.OBJ_PARAM2, str3);
-            a2.d();
-        }
-    }
-
-    public final void e(Map<String, ye9> map) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!zh6.b(map)) {
-                for (Map.Entry<String, ye9> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    ye9 value = entry.getValue();
-                    if (value != null && !StringUtils.isNull(value.c()) && !StringUtils.isNull(value.b()) && !StringUtils.isNull(value.a())) {
-                        j(key, value);
-                        str = value.c();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            ng6 ng6Var = this.b.get(i);
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e8, viewGroup, false);
+                eVar = new e(this, null);
+                eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c6);
+                eVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901c1);
+                eVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c9);
+                eVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901cc);
+                eVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901cf);
+                eVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c7);
+                eVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901c2);
+                eVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ca);
+                eVar.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901cd);
+                eVar.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901d0);
+                eVar.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c8);
+                eVar.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901c3);
+                eVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901cb);
+                eVar.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901ce);
+                eVar.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901d1);
+                eVar.p = view2.findViewById(R.id.obfuscated_res_0x7f0901c4);
+                eVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c5);
+            } else {
+                eVar = (e) view2.getTag();
+            }
+            c(eVar);
+            if (ng6Var != null) {
+                String str = "";
+                if (ng6Var.b(0) != null) {
+                    og6 b2 = ng6Var.b(0);
+                    eVar.d.setVisibility(0);
+                    TextView textView = eVar.a;
+                    if (b2.e() == null) {
+                        e3 = "";
                     } else {
-                        ng6.d().c(key);
-                        str = "";
+                        e3 = b2.e();
                     }
-                    try {
-                        jSONObject.put(key, str);
-                    } catch (JSONException unused) {
+                    textView.setText(e3);
+                    if (b2.f() != null) {
+                        eVar.b.setDefaultBgResource(R.color.transparent);
+                        eVar.b.N(b2.f(), 10, false);
                     }
+                    g(eVar.c, b2.j());
+                    e(eVar.b, b2.j());
+                    f(eVar.e, b2.m(), b2.n);
+                    eVar.d.setOnClickListener(new a(this, ng6Var));
+                } else {
+                    eVar.d.setVisibility(4);
+                    eVar.d.setOnClickListener(null);
                 }
-            } else {
-                ng6.d().b();
-            }
-            t("request webCacheInfo", "success", jSONObject.toString(), "", "");
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        h(str);
-        s();
-        File file = new File(k(), str);
-        if (file.exists() && file.isDirectory()) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public final void u(WebViewCacheResHttpMsg webViewCacheResHttpMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, webViewCacheResHttpMsg) == null) {
-            try {
-                List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
-                if (!zh6.a(header)) {
-                    for (String str : header) {
-                        if (!TextUtils.isEmpty(str) && str.contains("BAIDUID=")) {
-                            yu4.n(str);
-                            return;
-                        }
+                if (ng6Var.b(1) != null) {
+                    og6 b3 = ng6Var.b(1);
+                    eVar.i.setVisibility(0);
+                    TextView textView2 = eVar.f;
+                    if (b3.e() == null) {
+                        e2 = "";
+                    } else {
+                        e2 = b3.e();
                     }
+                    textView2.setText(e2);
+                    if (b3.f() != null) {
+                        eVar.g.setDefaultBgResource(R.color.transparent);
+                        eVar.g.N(b3.f(), 10, false);
+                    }
+                    g(eVar.h, b3.j());
+                    e(eVar.g, b3.j());
+                    f(eVar.j, b3.m(), b3.n);
+                    eVar.i.setOnClickListener(new b(this, ng6Var));
+                } else {
+                    eVar.i.setVisibility(4);
+                    eVar.i.setOnClickListener(null);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            r();
-            MessageManager.getInstance().registerListener(this.d);
-            MessageManager.getInstance().registerListener(this.c);
-            String s = o65.m().s("pref_key_quick_webview_versions", "");
-            xh6.b("newHybrid", "version:" + s);
-            q(s);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ar9.h(309485, WebViewCacheResSocketMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, ar9.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
-            tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
-            if (TbSingleton.getInstance().isDebugToolMode()) {
-                if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {
-                    MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                    return;
+                if (ng6Var.b(2) != null) {
+                    og6 b4 = ng6Var.b(2);
+                    eVar.n.setVisibility(0);
+                    TextView textView3 = eVar.k;
+                    if (b4.e() != null) {
+                        str = b4.e();
+                    }
+                    textView3.setText(str);
+                    if (b4.f() != null) {
+                        eVar.l.setDefaultBgResource(R.color.transparent);
+                        eVar.l.N(b4.f(), 10, false);
+                    }
+                    g(eVar.m, b4.j());
+                    e(eVar.l, b4.j());
+                    f(eVar.o, b4.m(), b4.n);
+                    eVar.n.setOnClickListener(new c(this, ng6Var));
+                } else {
+                    eVar.n.setVisibility(4);
+                    eVar.n.setOnClickListener(null);
                 }
-                return;
-            }
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.clear();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                    this.a.put(next, optString);
+                if (ng6Var.getType() != 3 && ng6Var.getType() != 1) {
+                    eVar.p.setVisibility(8);
+                } else {
+                    eVar.p.setVisibility(0);
+                }
+                if ((ng6Var.getType() == 1 || ng6Var.getType() == 2) && ng6Var.c() != null) {
+                    eVar.q.setVisibility(0);
+                    eVar.q.setText(ng6Var.c());
+                } else {
+                    eVar.q.setVisibility(8);
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            view2.setTag(eVar);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

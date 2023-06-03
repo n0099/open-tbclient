@@ -19,7 +19,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

@@ -1,32 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RewardCard;
+import org.json.JSONObject;
+import tbclient.ActInfo;
 /* loaded from: classes5.dex */
 public class g15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
     public String e;
-    public String f;
-    public String g;
-    public String h;
-    public List<h15> i;
-    public String j;
-    public List<String> k;
-    public String l;
-    public String m;
+    public int f;
+    public boolean g;
+    public int h;
+    public int i;
+    public f45 j;
 
     public g15() {
         Interceptable interceptable = $ic;
@@ -38,155 +36,179 @@ public class g15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = 1;
+        this.i = 1;
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public List<String> e() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String f() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
+            return this.e;
         }
         return (String) invokeV.objValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<h15> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static g15 n(RewardCard rewardCard) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardCard)) == null) {
-            if (rewardCard == null) {
-                return null;
+        try {
+            this.a = jSONObject.optInt("activity_type");
+            this.b = jSONObject.optInt("status");
+            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+            this.d = jSONObject.optInt("end_time");
+            this.e = jSONObject.optString("url");
+            this.f = jSONObject.optInt("total_num");
+            jSONObject.optInt("activity_id");
+            jSONObject.optInt("award_act_id");
+            jSONObject.optInt("component_id");
+            this.g = jSONObject.optBoolean("is_senior");
+            jSONObject.optString("banner_img");
+            jSONObject.optInt("show_total_num");
+            String optString = jSONObject.optString("banner_img_size");
+            if (!ui.isEmpty(optString)) {
+                String[] split = optString.split(",");
+                this.h = tg.e(split[0], 1);
+                this.i = tg.e(split[1], 1);
             }
-            g15 g15Var = new g15();
-            g15Var.a = rewardCard.icon;
-            g15Var.b = rewardCard.title;
-            g15Var.c = rewardCard.start_text;
-            g15Var.d = rewardCard.end_text;
-            g15Var.e = rewardCard.end_time;
-            g15Var.f = rewardCard.button_text;
-            g15Var.g = rewardCard.jump_url;
-            g15Var.h = rewardCard.join_num;
-            g15Var.i = new ArrayList();
-            for (int i = 0; i < rewardCard.reward_material.size(); i++) {
-                g15Var.i.add(h15.e(rewardCard.reward_material.get(i)));
+            if (this.h <= 0) {
+                this.h = 1;
             }
-            g15Var.j = rewardCard.total_num;
-            ArrayList arrayList = new ArrayList();
-            g15Var.k = arrayList;
-            arrayList.addAll(rewardCard.head_imgs);
-            g15Var.l = rewardCard.join_succ_text;
-            g15Var.m = rewardCard.banner_jump_url;
-            return g15Var;
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        return (g15) invokeL.objValue;
+    }
+
+    public void i(ActInfo actInfo) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
+            return;
+        }
+        Integer num = actInfo.activity_type;
+        int i5 = -1;
+        if (num != null) {
+            i = num.intValue();
+        } else {
+            i = -1;
+        }
+        this.a = i;
+        Integer num2 = actInfo.status;
+        if (num2 != null) {
+            i2 = num2.intValue();
+        } else {
+            i2 = -1;
+        }
+        this.b = i2;
+        Integer num3 = actInfo.begin_time;
+        if (num3 != null) {
+            i3 = num3.intValue();
+        } else {
+            i3 = -1;
+        }
+        this.c = i3;
+        Integer num4 = actInfo.end_time;
+        if (num4 != null) {
+            i4 = num4.intValue();
+        } else {
+            i4 = -1;
+        }
+        this.d = i4;
+        this.e = actInfo.url;
+        Integer num5 = actInfo.total_num;
+        if (num5 != null) {
+            i5 = num5.intValue();
+        }
+        this.f = i5;
+        actInfo.activity_id.intValue();
+        actInfo.award_act_id.intValue();
+        actInfo.component_id.intValue();
+        this.g = actInfo.is_senior.booleanValue();
+        String str = actInfo.banner_img;
+        actInfo.show_total_num.intValue();
+        String str2 = actInfo.banner_img_size;
+        if (!ui.isEmpty(str2)) {
+            try {
+                String[] split = str2.split(",");
+                this.h = tg.e(split[0], 1);
+                this.i = tg.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.h <= 0) {
+            this.h = 1;
+        }
+        if (this.i <= 0) {
+            this.i = 1;
+        }
+        f45 f45Var = new f45();
+        this.j = f45Var;
+        f45Var.a(actInfo.lottery_senior);
     }
 }

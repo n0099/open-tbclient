@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
+import org.chromium.net.NetError;
 /* loaded from: classes7.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
@@ -146,20 +147,25 @@ public class ClearTempService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteCache(File file, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, file, z) == null) {
             try {
                 File[] listFiles = file.listFiles();
                 long time = new Date().getTime();
-                int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
+                if (listFiles.length > 500) {
+                    i = listFiles.length + NetError.ERR_INVALID_URL;
+                } else {
+                    i = 0;
+                }
                 if (listFiles != null) {
-                    for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
-                        File file2 = listFiles[i];
+                    for (int i2 = 0; i2 < listFiles.length && !this.interrupted; i2++) {
+                        File file2 = listFiles[i2];
                         if (file2.isDirectory()) {
                             deleteCache(file2, false);
-                        } else if (length > 0 && i < length) {
+                        } else if (i > 0 && i2 < i) {
                             file2.delete();
-                        } else if (time - listFiles[i].lastModified() > 259200000) {
+                        } else if (time - listFiles[i2].lastModified() > 259200000) {
                             file2.delete();
                         }
                     }

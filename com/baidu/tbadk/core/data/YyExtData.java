@@ -139,26 +139,6 @@ public class YyExtData implements Serializable, Parcelable {
         this.streamInfo = parcel.readString();
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.mSid = jSONObject.optString("sid");
-        this.mSsid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID);
-        this.mTemplateId = jSONObject.optString("template_id");
-        this.mYyUid = jSONObject.optString("yy_uid");
-        boolean z = true;
-        if (jSONObject.optInt("is_yy_game") != 1) {
-            z = false;
-        }
-        this.isYyGame = z;
-        this.mRankShow = jSONObject.optString("rank_show");
-        this.mIconUrl = jSONObject.optString("icon_url");
-        this.streamInfo = jSONObject.optString("stream_info");
-        this.feedId = jSONObject.optString("feed_id");
-    }
-
     public void parseProtoBuf(YyExt yyExt) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExt) != null) || yyExt == null) {
@@ -177,6 +157,26 @@ public class YyExtData implements Serializable, Parcelable {
         this.mIconUrl = yyExt.icon_url;
         this.streamInfo = yyExt.stream_info;
         this.feedId = yyExt.feed_id;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.mSid = jSONObject.optString("sid");
+        this.mSsid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID);
+        this.mTemplateId = jSONObject.optString("template_id");
+        this.mYyUid = jSONObject.optString("yy_uid");
+        boolean z = true;
+        if (jSONObject.optInt("is_yy_game") != 1) {
+            z = false;
+        }
+        this.isYyGame = z;
+        this.mRankShow = jSONObject.optString("rank_show");
+        this.mIconUrl = jSONObject.optString("icon_url");
+        this.streamInfo = jSONObject.optString("stream_info");
+        this.feedId = jSONObject.optString("feed_id");
     }
 
     @Override // android.os.Parcelable

@@ -179,7 +179,7 @@ public final class Tornado {
             }
             ITrdVpnInterface iTrdVpnInterface = vpnBinder;
             Intrinsics.checkNotNull(iTrdVpnInterface);
-            boolean areEqual = Intrinsics.areEqual(iTrdVpnInterface.getRuntimeInfo(12L), TornadoLiteRuntime.STATE_RUNNING);
+            boolean areEqual = Intrinsics.areEqual(iTrdVpnInterface.getRuntimeInfo(12L), "RUNNING");
             if (Build.VERSION.SDK_INT > 23) {
                 isVPNProcessRunning = isVPNServiceRunning();
             } else {
@@ -540,7 +540,7 @@ public final class Tornado {
                 } else if (runtimeInfo.equals(TornadoLiteRuntime.STATE_INIT)) {
                     TornadoRuntime.INSTANCE.setState(TornadoState.STATE_INIT);
                 }
-            } else if (runtimeInfo.equals(TornadoLiteRuntime.STATE_RUNNING)) {
+            } else if (runtimeInfo.equals("RUNNING")) {
                 TornadoRuntime.INSTANCE.setState(TornadoState.STATE_RUNNING);
             }
             TornadoRuntime tornadoRuntime = TornadoRuntime.INSTANCE;

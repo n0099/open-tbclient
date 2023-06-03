@@ -97,7 +97,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         return appOnCreateDuration;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c1: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:59:0x00c1 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c0: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:59:0x00c0 */
     private long getStartTimeFromStats() {
         BufferedReader bufferedReader;
         NumberFormatException e;

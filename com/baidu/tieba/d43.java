@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d43 implements zn3<HybridUbcFlow> {
+public class d43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public long b;
+    public long c;
 
     static {
         InterceptResult invokeClinit;
@@ -34,76 +35,82 @@ public class d43 implements zn3<HybridUbcFlow> {
                 return;
             }
         }
-        a = new ArrayList(5);
+        d = is1.a;
     }
 
-    public d43() {
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return d().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public d43(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = str;
+        if (d) {
+            Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zn3
-    /* renamed from: b */
-    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            a43.g().d(false);
-            String h = hybridUbcFlow.h("launchid");
-            if (!TextUtils.isEmpty(h)) {
-                synchronized (a) {
-                    if (!a.contains(h)) {
-                        a.add(h);
-                        d(h, hybridUbcFlow);
-                    }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("scope_id", this.a);
+                jSONObject.put("begin_ts", this.b);
+                jSONObject.put("end_ts", this.c);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
                 }
             }
-            String str = (String) hybridUbcFlow.k("routeId");
-            if (!TextUtils.isEmpty(str)) {
-                synchronized (a) {
-                    if (!a.contains(str)) {
-                        a.add(str);
-                        c(str, hybridUbcFlow);
-                    }
-                }
+            if (d) {
+                Log.d(ExifInterface.TAG_MODEL, jSONObject.toString());
             }
+            return jSONObject;
         }
-    }
-
-    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
-            HybridUbcFlow e = l23.e("route", str);
-            if (e != null && g != null) {
-                e.F(g);
-                e.B();
-            }
-        }
-    }
-
-    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-        }
-    }
-
-    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, hybridUbcFlow) != null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
-            return;
-        }
-        ag2.U().U0(new nj2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
+        return (JSONObject) invokeV.objValue;
     }
 }

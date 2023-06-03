@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaFieldsInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qt6 {
+public final class qt6 extends nt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public MetaData c;
-    public long d;
-    public String e;
-    public TiebaFieldsInfo f;
+    public boolean b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qt6() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,9 +22,35 @@ public class qt6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.nt6
+    public boolean b(ws6 item, zu6 timer, qs6 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            xs6 e = item.e();
+            if (e.i() == 0) {
+                return false;
+            }
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

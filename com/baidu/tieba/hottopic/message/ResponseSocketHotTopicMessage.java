@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tz7;
+import com.baidu.tieba.i58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Hottopic.HottopicResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tz7 topicData;
+    public i58 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotTopicMessage() {
@@ -63,10 +63,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
                 if (extra instanceof Integer) {
                     num = (Integer) extra;
                 }
-                tz7 tz7Var = new tz7();
-                this.topicData = tz7Var;
+                i58 i58Var = new i58();
+                this.topicData = i58Var;
                 if (num != null) {
-                    tz7Var.p = num.intValue();
+                    i58Var.p = num.intValue();
                 }
                 this.topicData.h(hottopicResIdl.data);
             }
@@ -75,12 +75,12 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public tz7 getHotTopicData() {
+    public i58 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.topicData;
         }
-        return (tz7) invokeV.objValue;
+        return (i58) invokeV.objValue;
     }
 }

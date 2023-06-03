@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.h7b;
-import com.baidu.tieba.p7b;
-import com.baidu.tieba.sbb;
-import com.baidu.tieba.y7b;
+import com.baidu.tieba.hmb;
+import com.baidu.tieba.pmb;
+import com.baidu.tieba.sqb;
+import com.baidu.tieba.ymb;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes10.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements p7b {
+/* loaded from: classes2.dex */
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements pmb {
     public static final long serialVersionUID = 5539301318568668881L;
-    public final h7b actual;
+    public final hmb actual;
     public final SequentialSubscription resource = new SequentialSubscription();
 
-    public CompletableFromEmitter$FromEmitter(h7b h7bVar) {
-        this.actual = h7bVar;
+    public CompletableFromEmitter$FromEmitter(hmb hmbVar) {
+        this.actual = hmbVar;
     }
 
     public void onError(Throwable th) {
@@ -26,18 +26,18 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 this.resource.unsubscribe();
             }
         }
-        sbb.j(th);
+        sqb.j(th);
     }
 
-    public void setCancellation(y7b y7bVar) {
-        setSubscription(new CancellableSubscription(y7bVar));
+    public void setCancellation(ymb ymbVar) {
+        setSubscription(new CancellableSubscription(ymbVar));
     }
 
-    public void setSubscription(p7b p7bVar) {
-        this.resource.update(p7bVar);
+    public void setSubscription(pmb pmbVar) {
+        this.resource.update(pmbVar);
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public boolean isUnsubscribed() {
         return get();
     }
@@ -52,7 +52,7 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
         }
     }
 
-    @Override // com.baidu.tieba.p7b
+    @Override // com.baidu.tieba.pmb
     public void unsubscribe() {
         if (compareAndSet(false, true)) {
             this.resource.unsubscribe();

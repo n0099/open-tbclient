@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,35 +9,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class cg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static final List<a> c;
+    public static final Map<String, Boolean> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements rq3<yg3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final gg3 a;
-        public JSONObject b;
-        public final long c;
-        public final String d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ rq3 b;
 
-        public a(@NonNull gg3 gg3Var, @NonNull String str) {
+        public a(String str, rq3 rq3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gg3Var, str};
+                Object[] objArr = {str, rq3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,13 +40,20 @@ public class cg3 {
                     return;
                 }
             }
-            this.a = gg3Var;
-            this.d = str;
-            this.c = gg3Var.l();
-            synchronized (cg3.c) {
-                if (cg3.b) {
-                    cg3.c.add(this);
-                }
+            this.a = str;
+            this.b = rq3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(yg3 yg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
+                boolean z = true;
+                z = (yg3Var == null || yg3Var.d || yg3Var.j != 1) ? false : false;
+                cg3.a.put(this.a, Boolean.valueOf(z));
+                this.b.a(Boolean.valueOf(z));
             }
         }
     }
@@ -74,64 +71,48 @@ public class cg3 {
                 return;
             }
         }
-        a = qp1.a;
-        b = false;
-        c = new ArrayList();
+        a = new ConcurrentHashMap();
+        b = new ConcurrentHashMap();
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Boolean bool = b.get(xb3.K().getAppId());
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (c) {
-                b = true;
-                c.clear();
+            b.clear();
+            a.clear();
+        }
+    }
+
+    public static void b(rq3<Boolean> rq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, rq3Var) == null) {
+            String appId = xb3.K().getAppId();
+            Boolean bool = a.get(appId);
+            if (bool != null) {
+                rq3Var.a(bool);
+            } else {
+                xb3.K().q().e0().e("mapp_custom_screenshot_image", new a(appId, rq3Var));
             }
         }
     }
 
-    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
+    public static void e(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
-            return;
-        }
-        hybridUbcFlow.D("networkStatus", String.valueOf(t03.c()));
-        if (e33.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
-        }
-        long g2 = g.g();
-        synchronized (c) {
-            if (a) {
-                Log.d("SwanReqStatisticManager", "size=" + c.size());
-            }
-            b = false;
-            JSONArray jSONArray = new JSONArray();
-            for (a aVar : c) {
-                if (aVar.c <= g2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", aVar.d);
-                        if (aVar.a != null) {
-                            aVar.a.p(jSONObject);
-                        }
-                        if (aVar.b != null) {
-                            Iterator<String> keys = aVar.b.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                jSONObject.put(next, aVar.b.get(next));
-                            }
-                        }
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        if (a) {
-                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
-                        }
-                    }
-                }
-            }
-            if (jSONArray.length() > 0) {
-                hybridUbcFlow.D("requests", jSONArray.toString());
-            }
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            b.put(xb3.K().getAppId(), Boolean.valueOf(z));
         }
     }
 }

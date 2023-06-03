@@ -21,7 +21,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     @CallSuper
-    public void n(LifecycleOwner owner, Lifecycle.Event event) {
+    public void m(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
@@ -165,7 +165,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
             Intrinsics.checkNotNullParameter(owner, "owner");
             Intrinsics.checkNotNullParameter(event, "event");
             t(owner, event);
-            n(owner, event);
+            m(owner, event);
             q(owner, event);
         }
     }

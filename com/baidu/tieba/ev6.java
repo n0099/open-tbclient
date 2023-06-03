@@ -1,187 +1,68 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ev6 implements AbsListView.OnScrollListener {
+public final class ev6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public int b;
-    public c c;
+    public final int a;
+    public final int b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(AbsListView absListView, int i, int i2);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<d> a;
-
-        public b(ev6 ev6Var, AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ev6Var, absListView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            int childCount = absListView.getChildCount();
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = absListView.getChildAt(i4);
-                if (childAt != null) {
-                    this.a.add(new d(ev6Var, childAt, i + i4, null));
-                }
-            }
-        }
-
-        public /* synthetic */ b(ev6 ev6Var, AbsListView absListView, int i, a aVar) {
-            this(ev6Var, absListView, i);
-        }
-
-        public final int b(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                if (bVar == null) {
-                    return 0;
-                }
-                for (d dVar : this.a) {
-                    for (d dVar2 : bVar.a) {
-                        if (dVar.a == dVar2.a) {
-                            return dVar.b - dVar2.b;
-                        }
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public d(ev6 ev6Var, View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ev6Var, view2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = view2.getTop();
-        }
-
-        public /* synthetic */ d(ev6 ev6Var, View view2, int i, a aVar) {
-            this(ev6Var, view2, i);
-        }
-    }
-
-    public ev6() {
+    public ev6(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
+        this.a = i;
+        this.b = i2;
     }
 
-    public void a(c cVar) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        View childAt;
-        c cVar;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-            int i4 = this.b;
-            if (i4 != 0 && (cVar = this.c) != null) {
-                cVar.a(absListView, 0, -i4);
-            }
-            this.b = 0;
-            this.a = null;
-            return;
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.ev6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.ev6.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.ev6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.ev6.b int), (']' char)] */
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            sb.append(this.a);
+            sb.append('x');
+            sb.append(this.b);
+            sb.append(']');
+            return sb.toString();
         }
-        b bVar = new b(this, absListView, i, null);
-        b bVar2 = this.a;
-        if (bVar2 != null) {
-            int b2 = bVar2.b(bVar);
-            this.a = bVar;
-            int i5 = this.b + b2;
-            this.b = i5;
-            c cVar2 = this.c;
-            if (cVar2 != null) {
-                cVar2.a(absListView, i5, b2);
-                return;
-            }
-            return;
-        }
-        this.a = bVar;
-        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
-        this.b = paddingTop;
-        c cVar3 = this.c;
-        if (cVar3 != null) {
-            cVar3.a(absListView, paddingTop, 0);
-        }
+        return (String) invokeV.objValue;
     }
 }

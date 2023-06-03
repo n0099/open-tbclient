@@ -36,44 +36,53 @@ public class JsInvokeJavaScope {
         }
     }
 
-    public static void onPlayProgress(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
+    public static void onCustomEvent(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, webView, jSONObject, jsCallback) == null) {
+            String optString = jSONObject.optString("message");
+            int optInt = jSONObject.optInt("event");
+            M1.a("onCustomEvent", "" + optInt, optString);
+        }
+    }
+
+    public static void onPlayProgress(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, webView, jSONObject, jsCallback) == null) {
             M1.a("onPlayProgress", "onPlayProgress", Integer.valueOf(jSONObject.optInt("message", 0)));
         }
     }
 
     public static void onRewardedAdFinish(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView, jSONObject, jsCallback) == null) {
             M1.a("onRewardedAdFinish", "onRewardedAdFinish", Integer.valueOf(jSONObject.optInt("message", 0)));
         }
     }
 
     public static void onRewardedAdStart(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, webView, jSONObject, jsCallback) == null) {
             M1.a("onRewardedAdStart", "onRewardedAdStart", null);
         }
     }
 
     public static void onRewardedShowFail(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, webView, jSONObject, jsCallback) == null) {
             M1.a("onRewardedShowFail", "onRewardedShowFail", jSONObject.optString("message"));
         }
     }
 
     public static void onT(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65543, null, webView, jSONObject, jsCallback) == null) {
             M1.a("onT", "onT", jSONObject.optString("message"));
         }
     }
 
     public static void showToast(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65544, null, webView, jSONObject, jsCallback) == null) {
             Toast.makeText(webView.getContext(), jSONObject.toString(), 0).show();
             JsCallback.invokeJsCallback(jsCallback, true, null, null);
         }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,47 +10,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Collection;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class ev2 implements dv2 {
+public class ev2 extends DataOutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final ev2 b;
+    public static final cv2<byte[], String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ dv2 a;
 
-    @Override // com.baidu.tieba.dv2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public static class a implements cv2<byte[], String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cv2
+        @Nullable
+        public byte[] call(@Nullable String str) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str == null) {
+                    return null;
+                }
+                return str.getBytes();
+            }
+            return (byte[]) invokeL.objValue;
+        }
     }
 
-    @Override // com.baidu.tieba.dv2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
-    }
+    /* loaded from: classes5.dex */
+    public class b implements cv2<byte[], Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ev2 a;
 
-    @Override // com.baidu.tieba.dv2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
+        public b(ev2 ev2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ev2Var;
+        }
 
-    @Override // com.baidu.tieba.dv2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dv2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cv2
+        @Nullable
+        public byte[] call(@Nullable Boolean bool) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
+                if (bool != null && bool.booleanValue()) {
+                    return new byte[0];
+                }
+                return null;
+            }
+            return (byte[]) invokeL.objValue;
+        }
     }
 
     static {
@@ -65,30 +109,114 @@ public final class ev2 implements dv2 {
                 return;
             }
         }
-        b = new ev2();
+        a = new a();
     }
 
-    public ev2() {
-        dv2 cv2Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ev2(OutputStream outputStream) throws IOException {
+        super(outputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((OutputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (QuotaSaver.l.c()) {
-            cv2Var = QuotaSaver.l.e();
-        } else {
-            cv2Var = new cv2();
+    }
+
+    public void a(Map<String, Boolean> map) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            e(map, new b(this));
         }
-        g62.i("OptSwitcher", "by " + cv2Var);
-        Unit unit = Unit.INSTANCE;
-        this.a = cv2Var;
+    }
+
+    public void b(byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            if (bArr == null) {
+                writeInt(-1);
+                return;
+            }
+            writeInt(bArr.length);
+            if (bArr.length > 0) {
+                write(bArr);
+            }
+        }
+    }
+
+    public void f(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            try {
+                b(a.call(str));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void g(Collection<String> collection) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
+            d(collection, a);
+        }
+    }
+
+    public void h(Map<String, String> map) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            e(map, a);
+        }
+    }
+
+    public <T> void c(@Nullable T t, @NonNull cv2<byte[], T> cv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, cv2Var) == null) {
+            try {
+                b(cv2Var.call(t));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public <T> void e(Map<String, T> map, cv2<byte[], T> cv2Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, map, cv2Var) == null) {
+            if (map == null) {
+                writeInt(-1);
+                return;
+            }
+            writeInt(map.size());
+            g(map.keySet());
+            d(map.values(), cv2Var);
+        }
+    }
+
+    public <T> void d(@Nullable Collection<T> collection, cv2<byte[], T> cv2Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, collection, cv2Var) == null) {
+            if (collection == null) {
+                writeInt(-1);
+                return;
+            }
+            writeInt(collection.size());
+            for (T t : collection) {
+                try {
+                    b(cv2Var.call(t));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

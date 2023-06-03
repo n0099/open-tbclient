@@ -3,7 +3,7 @@ package rx.internal.util;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum ExceptionsUtils {
     ;
     

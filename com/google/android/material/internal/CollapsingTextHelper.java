@@ -84,7 +84,7 @@ public final class CollapsingTextHelper {
     public boolean useTexture;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1074view;
+    public final View f1210view;
     public int expandedTextGravity = 16;
     public int collapsedTextGravity = 16;
     public float expandedTextSize = 15.0f;
@@ -135,7 +135,7 @@ public final class CollapsingTextHelper {
     }
 
     private boolean isDefaultIsRtl() {
-        if (ViewCompat.getLayoutDirection(this.f1074view) == 1) {
+        if (ViewCompat.getLayoutDirection(this.f1210view) == 1) {
             return true;
         }
         return false;
@@ -246,14 +246,14 @@ public final class CollapsingTextHelper {
     }
 
     public void recalculate() {
-        if (this.f1074view.getHeight() > 0 && this.f1074view.getWidth() > 0) {
+        if (this.f1210view.getHeight() > 0 && this.f1210view.getWidth() > 0) {
             calculateBaseOffsets();
             calculateCurrentOffsets();
         }
     }
 
     public CollapsingTextHelper(View view2) {
-        this.f1074view = view2;
+        this.f1210view = view2;
     }
 
     public static int blendColors(int i, int i2, float f) {
@@ -381,7 +381,7 @@ public final class CollapsingTextHelper {
 
     private void setCollapsedTextBlend(float f) {
         this.collapsedTextBlend = f;
-        ViewCompat.postInvalidateOnAnimation(this.f1074view);
+        ViewCompat.postInvalidateOnAnimation(this.f1210view);
     }
 
     private boolean setCollapsedTypefaceInternal(Typeface typeface) {
@@ -398,7 +398,7 @@ public final class CollapsingTextHelper {
 
     private void setExpandedTextBlend(float f) {
         this.expandedTextBlend = f;
-        ViewCompat.postInvalidateOnAnimation(this.f1074view);
+        ViewCompat.postInvalidateOnAnimation(this.f1210view);
     }
 
     private boolean setExpandedTypefaceInternal(Typeface typeface) {
@@ -425,7 +425,7 @@ public final class CollapsingTextHelper {
         if (z) {
             ensureExpandedTexture();
         }
-        ViewCompat.postInvalidateOnAnimation(this.f1074view);
+        ViewCompat.postInvalidateOnAnimation(this.f1210view);
     }
 
     public void setCollapsedBounds(@NonNull Rect rect) {
@@ -555,7 +555,7 @@ public final class CollapsingTextHelper {
             this.textPaint.setColor(getCurrentCollapsedTextColor());
         }
         this.textPaint.setShadowLayer(lerp(this.expandedShadowRadius, this.collapsedShadowRadius, f, null), lerp(this.expandedShadowDx, this.collapsedShadowDx, f, null), lerp(this.expandedShadowDy, this.collapsedShadowDy, f, null), blendColors(getCurrentColor(this.expandedShadowColor), getCurrentColor(this.collapsedShadowColor), f));
-        ViewCompat.postInvalidateOnAnimation(this.f1074view);
+        ViewCompat.postInvalidateOnAnimation(this.f1210view);
     }
 
     private void calculateUsingTextSize(float f) {
@@ -747,7 +747,7 @@ public final class CollapsingTextHelper {
     }
 
     public void setCollapsedTextAppearance(int i) {
-        TextAppearance textAppearance = new TextAppearance(this.f1074view.getContext(), i);
+        TextAppearance textAppearance = new TextAppearance(this.f1210view.getContext(), i);
         ColorStateList colorStateList = textAppearance.textColor;
         if (colorStateList != null) {
             this.collapsedTextColor = colorStateList;
@@ -773,12 +773,12 @@ public final class CollapsingTextHelper {
                 CollapsingTextHelper.this.setCollapsedTypeface(typeface);
             }
         }, textAppearance.getFallbackFont());
-        textAppearance.getFontAsync(this.f1074view.getContext(), this.collapsedFontCallback);
+        textAppearance.getFontAsync(this.f1210view.getContext(), this.collapsedFontCallback);
         recalculate();
     }
 
     public void setExpandedTextAppearance(int i) {
-        TextAppearance textAppearance = new TextAppearance(this.f1074view.getContext(), i);
+        TextAppearance textAppearance = new TextAppearance(this.f1210view.getContext(), i);
         ColorStateList colorStateList = textAppearance.textColor;
         if (colorStateList != null) {
             this.expandedTextColor = colorStateList;
@@ -804,7 +804,7 @@ public final class CollapsingTextHelper {
                 CollapsingTextHelper.this.setExpandedTypeface(typeface);
             }
         }, textAppearance.getFallbackFont());
-        textAppearance.getFontAsync(this.f1074view.getContext(), this.expandedFontCallback);
+        textAppearance.getFontAsync(this.f1210view.getContext(), this.expandedFontCallback);
         recalculate();
     }
 

@@ -2,177 +2,318 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a94;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ta4 {
+public class ta4 extends ea4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile ta4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a94 a;
+    public long h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948174466, "Lcom/baidu/tieba/ta4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fa4 b;
+        public final /* synthetic */ ta4 c;
+
+        public a(ta4 ta4Var, String str, fa4 fa4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ta4Var, str, fa4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948174466, "Lcom/baidu/tieba/ta4;");
-                return;
+            this.c = ta4Var;
+            this.a = str;
+            this.b = fa4Var;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                this.b.cancelTag(this.c.c);
+                this.c.W(this.a, 0, iOException.getMessage());
             }
         }
-        b = qp1.a;
+
+        /* JADX WARN: Removed duplicated region for block: B:21:0x007c  */
+        @Override // okhttp3.Callback
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onResponse(Call call, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    try {
+                        JSEvent jSEvent = new JSEvent("headersReceived");
+                        jSEvent.data = new ra4(this.c.I(response.headers()));
+                        this.c.dispatchEvent(jSEvent);
+                    } catch (JSONException e) {
+                        try {
+                            if (ea4.e) {
+                                e.printStackTrace();
+                            }
+                        } catch (JSONException e2) {
+                            e = e2;
+                            if (ea4.e) {
+                                Log.d("UploadFileTask", Log.getStackTraceString(e));
+                            }
+                            this.c.C(this.a, -1, e.getMessage());
+                        }
+                    }
+                    sa4 sa4Var = new sa4();
+                    sa4Var.statusCode = response.code();
+                    sa4Var.header = this.c.I(response.headers());
+                    sa4Var.data = this.c.X(response.body());
+                    if (ea4.e) {
+                        Log.d("UploadFileTask", "onResponse = " + sa4Var.data);
+                    }
+                    this.c.D(sa4Var);
+                } catch (IOException e3) {
+                    e = e3;
+                    if (ea4.e) {
+                    }
+                    this.c.C(this.a, -1, e.getMessage());
+                }
+            }
+        }
     }
 
-    public ta4() {
+    /* loaded from: classes7.dex */
+    public class b implements s33 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ta4 c;
+
+        public b(ta4 ta4Var, long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ta4Var, Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ta4Var;
+            this.a = j;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.s33
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeJ(1048576, this, j) != null) {
+                return;
+            }
+            this.c.V(this.a, j, this.b);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ta4(ij2 ij2Var, f42 f42Var) {
+        super(ij2Var, f42Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ij2Var, f42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ij2) objArr2[0], (f42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = 0L;
+        this.a = 3;
     }
 
-    public static ta4 b() {
-        InterceptResult invokeV;
+    public final Object X(ResponseBody responseBody) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ta4.class) {
-                    if (c == null) {
-                        c = new ta4();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responseBody)) == null) {
+            if (responseBody == null) {
+                return null;
+            }
+            String string = responseBody.string();
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                return new JSONObject(string);
+            } catch (JSONException unused) {
+                return string;
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public static void Y(MultipartBody.Builder builder, f42 f42Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, builder, f42Var) == null) && builder != null && f42Var != null && f42Var.k() >= 1) {
+            for (String str : f42Var.j()) {
+                if (!TextUtils.isEmpty(str)) {
+                    String H = f42Var.H(str);
+                    if (!TextUtils.isEmpty(H)) {
+                        builder.addFormDataPart(str, H);
                     }
                 }
             }
-            return c;
         }
-        return (ta4) invokeV.objValue;
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        a94 a94Var;
-        a94.c cVar;
-        HashMap<String, String> hashMap;
+    @Override // com.baidu.tieba.ea4
+    public void C(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (a94Var = this.a) == null || (cVar = a94Var.d) == null || (hashMap = cVar.a) == null) {
-                return null;
-            }
-            return hashMap.get(c2);
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            super.C(str, i, str2);
+            sc4.k(str, i, str2, SwanAppNetworkUtils.i(null));
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(String str, int i) {
-        InterceptResult invokeLI;
-        a94 a94Var;
-        a94.b bVar;
-        List<a94.a> list;
+    public final Request T() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str) && (a94Var = this.a) != null && (bVar = a94Var.c) != null && (list = bVar.a) != null) {
-                for (a94.a aVar : list) {
-                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
-                        if (i != 0) {
-                            if (i != 1) {
-                                if (i != 2) {
-                                    if (i != 3) {
-                                        return aVar.b;
-                                    }
-                                    return aVar.d;
-                                }
-                                return aVar.c;
-                            }
-                            return aVar.b;
-                        }
-                        return aVar.a;
-                    }
-                    while (r0.hasNext()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String z = z();
+            if (!TextUtils.isEmpty(z)) {
+                String B = this.b.B("filePath");
+                if (TextUtils.isEmpty(B)) {
+                    C(z, -1, "uploadFile:filePath is empty or invalid");
+                    return null;
+                } else if (cs4.x(B)) {
+                    C(z, -1, "uploadFile:filePath is empty or invalid");
+                    return null;
+                } else if (this.b.b("header") && this.b.getType("header") != 9) {
+                    C(z, -1, "uploadFile:header is invalid");
+                    return null;
+                } else {
+                    File U = U(z, B);
+                    if (U != null) {
+                        f42 w = this.b.w("formData");
+                        Request.Builder builder = new Request.Builder();
+                        c33 c33Var = new c33(U, IMAudioTransRequest.CONTENT_TYPE, new b(this, U.length(), z));
+                        MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
+                        Y(type, w);
+                        type.addFormDataPart(this.b.B("name"), U.getName(), c33Var);
+                        MultipartBody build = type.build();
+                        G(builder, this.b.w("header"), new HashMap(), false);
+                        return builder.url(z).tag(this.c).post(build).build();
                     }
                 }
             }
             return null;
         }
-        return (String) invokeLI.objValue;
+        return (Request) invokeV.objValue;
     }
 
-    public void f(String str, boolean z) {
-        a94 a94Var;
-        a94.b bVar;
+    public final File U(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (a94Var = this.a) != null && (bVar = a94Var.c) != null && bVar.b != null) {
-            if (b) {
-                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
-            }
-            this.a.c.b.put(str, Boolean.valueOf(z));
-        }
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        a94.b bVar;
-        HashMap<String, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2)) {
-                return false;
-            }
-            a94 a94Var = this.a;
-            if (a94Var != null && (bVar = a94Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
-                if (b) {
-                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            String a2 = lx2.T().G().a(str2);
+            if (!TextUtils.isEmpty(a2) && !TextUtils.equals(str2, a2)) {
+                File file = new File(a2);
+                if (file.exists() && file.isFile()) {
+                    if (file.length() > 26214400) {
+                        C(str, -1, "request:file size > 25 MB");
+                        return null;
+                    } else if (TextUtils.isEmpty(this.b.B("name"))) {
+                        C(str, -1, "uploadFile:name is invalid");
+                        return null;
+                    } else if (this.b.b("formData") && this.b.getType("formData") != 9) {
+                        C(str, -1, "uploadFile:formData is invalid");
+                        return null;
+                    } else {
+                        return file;
+                    }
                 }
-                return this.a.c.b.get(c2).booleanValue();
+                C(str, -1, "request:file not exists or not file");
+                return null;
             }
-            if (b) {
-                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
-            }
-            String g0 = g93.g0();
-            if (g93.M() == null) {
-                return false;
-            }
-            String k0 = g93.M().k0();
-            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
-                return false;
-            }
-            boolean n = dh4.i().n(g0, k0, c2);
-            if (n) {
-                f(c2, true);
-            }
-            return n;
+            C(str, -1, "uploadFile:filePath is empty or invalid");
+            return null;
         }
-        return invokeL.booleanValue;
+        return (File) invokeLL.objValue;
     }
 
-    public void e(a94 a94Var) {
+    public final void V(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, a94Var) == null) {
-            this.a = a94Var;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) && j > 0 && j2 <= j && j2 != 0) {
+            int floor = (int) Math.floor((100 * j2) / j);
+            if (System.currentTimeMillis() - this.h > 500 || floor == 100) {
+                if (floor <= 100) {
+                    dispatchEvent(new JSEvent("progressUpdate", new ua4(floor, j, j2)));
+                }
+                this.h = System.currentTimeMillis();
+            }
         }
+    }
+
+    public final void W(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            if (ea4.e) {
+                Log.d("UploadFileTask", "onFailure: " + str2);
+            }
+            C(str, i, ("Socket is closed".equalsIgnoreCase(str2) || "Canceled".equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
+        }
+    }
+
+    public void start() {
+        Request T2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b == null || (T2 = T()) == null) {
+            return;
+        }
+        if (yb3.M() == null) {
+            C("", -1, "request:swanApp is null");
+            return;
+        }
+        String httpUrl = T2.url().toString();
+        fa4 fa4Var = (fa4) yb3.M().i0();
+        fa4Var.call(T2, new a(this, httpUrl, fa4Var));
     }
 }

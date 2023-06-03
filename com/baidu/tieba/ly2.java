@@ -1,75 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Color;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ly2 extends iy2 {
+public class ly2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947959140, "Lcom/baidu/tieba/ly2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947959140, "Lcom/baidu/tieba/ly2;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ly2(String str) {
-        super(str);
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                y82.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
+            }
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                y82.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.iy2
-    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+    public static float b(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
-            g62.i("video", "sendDanmu, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
-            d(yx2Var, ay2Var.t, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            return (float) (d * pp3.l(AppRuntime.getAppContext()));
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(yx2 yx2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yx2Var, str, unitedSchemeEntity, callbackHandler) == null) {
-            yx2Var.r(str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
+        return invokeCommon.floatValue;
     }
 }

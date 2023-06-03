@@ -1,84 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes6.dex */
-public class ij2 extends hj2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
+public interface ij2 extends JSRuntime, wa2, TypedCallbackHandler {
+    JsSerializeValue A(byte[] bArr, boolean z);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ij2(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = contentValues;
-    }
+    byte[] K(JsSerializeValue jsSerializeValue, boolean z);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ij2(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
+    void Y(String str, String str2);
 
-    @Override // com.baidu.tieba.hj2, com.baidu.tieba.gj2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", ns2.h0().i(ns2.c()));
-            map.put("mtjCuid", ns2.h0().i(ns2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
-                }
-                return;
-            }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
-            }
-        }
-    }
+    vj2 b0();
+
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    String getInitBasePath();
+
+    int getInvokeSourceType();
+
+    EventTarget m();
+
+    boolean post(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget v();
+
+    rj2 w();
 }

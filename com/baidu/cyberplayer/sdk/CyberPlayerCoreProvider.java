@@ -26,9 +26,15 @@ public abstract class CyberPlayerCoreProvider {
         SUCCESS_LOADED_VERSION
     }
 
+    public abstract void addPrefetchListener(CyberPlayerManager.OnPrefetchListener onPrefetchListener);
+
     public abstract long caculateFolderSize();
 
+    public abstract long calculateFolderSizeCanBeCleared();
+
     public abstract void cancelDownload(String str);
+
+    public abstract void cleanFileCacheWithThreshold(long j);
 
     public abstract void cleanFilecacheWithTimeExpired(long j);
 
@@ -56,7 +62,13 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract void enableRTCCaptureDebug(boolean z);
 
+    public abstract void filecacheConfigSave();
+
+    public abstract int filecacheRemoveReserveUrl(String str, boolean z);
+
     public abstract String getCoreVersion();
+
+    public abstract int getDeviceHDRSupported(int i, int i2, int i3);
 
     public abstract int getDevicePlayQualityScore(String str, int i, int i2, int i3, Map<String, String> map);
 
@@ -84,9 +96,13 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract void resumeDownload(String str);
 
+    public abstract void sendGlobalCommond(String str, int i, long j, String str2, PrefetchOptions prefetchOptions);
+
     public abstract void setDownloadListener(CyberVideoDownloader.DownloadListener downloadListener);
 
     public abstract void setInstallListener(CyberPlayerManager.InstallListener2 installListener2);
+
+    public abstract void setOption(String str, String str2);
 
     public abstract void setRTCVerbose(boolean z);
 

@@ -7,7 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.TTDislikeController;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TTDislikeListView extends ListView {
     public TTDislikeController mDislikeController;
     public AdapterView.OnItemClickListener mOnItemClickListener;

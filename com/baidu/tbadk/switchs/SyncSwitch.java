@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.bf;
-import com.baidu.tieba.di;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ff;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -87,7 +87,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(di.class);
+            SwitchManager.getInstance().registerSwitch(hi.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -108,7 +108,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(zg.class);
+            SwitchManager.getInstance().registerSwitch(dh.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -158,7 +158,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(SpriteInterceptHomeTipSwitch.class);
             SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
             SwitchManager.getInstance().registerSwitch(DuTokenNewSwitch.class);
-            bf.a().b();
+            SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
+            ff.a().b();
         }
     }
 }

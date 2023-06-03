@@ -11,14 +11,13 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qp1;
-import com.baidu.tieba.xm3;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.pp3;
 /* loaded from: classes4.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = qp1.a;
+    public static final boolean n = is1.a;
     public View a;
     public int b;
     public int c;
@@ -35,9 +34,9 @@ public class FullScreenFloatView extends FrameLayout {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a();
-
         void onClick();
+
+        void onDrag();
     }
 
     /* loaded from: classes4.dex */
@@ -49,7 +48,7 @@ public class FullScreenFloatView extends FrameLayout {
         public void run() {
             FullScreenFloatView.this.g = false;
             if (FullScreenFloatView.n) {
-                Log.e("FullScreenFloatView", "CheckClick=====checkTap====");
+                Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "CheckClick=====checkTap====");
             }
         }
     }
@@ -59,7 +58,7 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     public void setStatusBarHeight() {
-        int identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+        int identifier = getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
         if (identifier > 0) {
             this.f = getResources().getDimensionPixelSize(identifier);
         }
@@ -95,7 +94,7 @@ public class FullScreenFloatView extends FrameLayout {
         this.b = view2.getWidth();
         this.c = view2.getHeight();
         if (n) {
-            Log.e("FullScreenFloatView", "dragInit-> mScreenWidth = " + this.d + ", mScreenHeight = " + this.e + ",mFloatViewWidth = " + this.b + ", mFloatViewHeight = " + this.c);
+            Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "dragInit-> mScreenWidth = " + this.d + ", mScreenHeight = " + this.e + ",mFloatViewWidth = " + this.b + ", mFloatViewHeight = " + this.c);
         }
     }
 
@@ -105,7 +104,7 @@ public class FullScreenFloatView extends FrameLayout {
         this.d = getHeight() + this.f;
         this.e = getWidth() - this.f;
         if (n) {
-            Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.d + ", mScreenHeight = " + this.e);
+            Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.d + ", mScreenHeight = " + this.e);
         }
         e();
     }
@@ -114,7 +113,7 @@ public class FullScreenFloatView extends FrameLayout {
         boolean z;
         boolean z2;
         if (n) {
-            Log.e("FullScreenFloatView", "minDIstance---> x = " + f + ", y = " + f2);
+            Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "minDIstance---> x = " + f + ", y = " + f2);
         }
         if (f <= this.d - f) {
             z = true;
@@ -156,7 +155,7 @@ public class FullScreenFloatView extends FrameLayout {
             return;
         }
         if (n) {
-            Log.e("FullScreenFloatView", "move--> x = " + f + ", y = " + f2);
+            Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "move--> x = " + f + ", y = " + f2);
         }
         int i = (int) (f - (this.b / 2));
         int i2 = (int) (f2 - (this.c / 2));
@@ -179,7 +178,7 @@ public class FullScreenFloatView extends FrameLayout {
         int i7 = (this.d - i) - this.b;
         int i8 = (this.e - i2) - this.c;
         if (n) {
-            Log.e("FullScreenFloatView", "move--> left = " + i + ", top = " + i2 + ", right = " + i7 + ",bottom = " + i8 + ", mStatusBarHeight = " + this.f);
+            Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "move--> left = " + i + ", top = " + i2 + ", right = " + i7 + ",bottom = " + i8 + ", mStatusBarHeight = " + this.f);
         }
         this.a.setX(i);
         this.a.setY(i2);
@@ -188,9 +187,9 @@ public class FullScreenFloatView extends FrameLayout {
 
     public void e() {
         if (this.a != null) {
-            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707bd);
-            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707be);
-            this.a.animate().x((xm3.o(getContext()) - dimensionPixelOffset) - this.b).y((xm3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d0);
+            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707d1);
+            this.a.animate().x((pp3.o(getContext()) - dimensionPixelOffset) - this.b).y((pp3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 
@@ -201,7 +200,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
+                View findViewById = findViewById(R.id.float_imgview);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -259,10 +258,10 @@ public class FullScreenFloatView extends FrameLayout {
                     }
                     removeCallbacks(this.l);
                 } else if (this.h && (cVar = this.m) != null) {
-                    cVar.a();
+                    cVar.onDrag();
                 }
                 if (n) {
-                    Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
+                    Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
                 }
                 if (this.i && !this.g) {
                     int i = this.b;
@@ -271,7 +270,7 @@ public class FullScreenFloatView extends FrameLayout {
                         if (y > i2 / 2 && y < this.e - (i2 / 2)) {
                             int c2 = c(x, y);
                             if (n) {
-                                Log.e("FullScreenFloatView", "mScreenHeight = " + this.e + ", mintype = " + c2);
+                                Log.e(com.baidu.searchbox.ui.FullScreenFloatView.TAG, "mScreenHeight = " + this.e + ", mintype = " + c2);
                             }
                             if (c2 != 1) {
                                 if (c2 != 2) {
@@ -326,14 +325,14 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     public void setFloatButtonText(String str) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
+        View findViewById = findViewById(R.id.float_imgview);
         if (findViewById instanceof Button) {
             ((Button) findViewById).setText(str);
         }
     }
 
     public void setFloatImageBackground(int i) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
+        View findViewById = findViewById(R.id.float_imgview);
         if (findViewById != null) {
             findViewById.setBackgroundResource(i);
         }

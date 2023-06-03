@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,21 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class dr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final dr0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    public String c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,134 +29,50 @@ public final class dr0 {
                 return;
             }
         }
-        e = new a(null);
+        a = new dr0();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof dr0) {
-                    dr0 dr0Var = (dr0) obj;
-                    return Intrinsics.areEqual(this.a, dr0Var.a) && Intrinsics.areEqual(this.b, dr0Var.b) && Intrinsics.areEqual(this.c, dr0Var.c) && Intrinsics.areEqual(this.d, dr0Var.d);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.d;
-            return hashCode3 + (str4 != null ? str4.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "RewardFestivalData(guideLottieUrl=" + this.a + ", guideBubbleLottieUrl=" + this.b + ", lottieCmd=" + this.c + ", requestUrl=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final dr0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("guide_lottie_url");
-                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"guide_lottie_url\")");
-                    String optString2 = jSONObject.optString("guide_bubble_lottie_url");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"guide_bubble_lottie_url\")");
-                    String optString3 = jSONObject.optString("lottie_cmd");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"lottie_cmd\")");
-                    String optString4 = jSONObject.optString("request_url");
-                    Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"request_url\")");
-                    return new dr0(optString, optString2, optString3, optString4);
-                }
-                return null;
-            }
-            return (dr0) invokeL.objValue;
-        }
-    }
-
-    public dr0(String guideLottieUrl, String guideBubbleLottieUrl, String lottieCmd, String requestUrl) {
+    public dr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {guideLottieUrl, guideBubbleLottieUrl, lottieCmd, requestUrl};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(guideLottieUrl, "guideLottieUrl");
-        Intrinsics.checkNotNullParameter(guideBubbleLottieUrl, "guideBubbleLottieUrl");
-        Intrinsics.checkNotNullParameter(lottieCmd, "lottieCmd");
-        Intrinsics.checkNotNullParameter(requestUrl, "requestUrl");
-        this.a = guideLottieUrl;
-        this.b = guideBubbleLottieUrl;
-        this.c = lottieCmd;
-        this.d = requestUrl;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final boolean a(er0 er0Var, Context context, Intent intent) {
+        InterceptResult invokeLLL;
+        int i;
+        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, er0Var, context, intent)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (er0Var != null) {
+                i = er0Var.b();
+            } else {
+                i = -1;
+            }
+            if (i == 1) {
+                int b2 = h91.b(context.getApplicationContext(), null);
+                if (b2 == 0) {
+                    return false;
+                }
+                if ((2 == b2 || 1 == b2 || 4 == b2) && intent != null) {
+                    intent.putExtra("downgrade_to_native", "1");
+                }
+                return true;
+            } else if (i != 0 || 4 == (b = kb1.b(context.getApplicationContext(), null)) || b == 0 || 2 == b || 1 == b) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

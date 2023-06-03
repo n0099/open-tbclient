@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.cache;
 
 import com.facebook.common.internal.Supplier;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultEncodedMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static final int MAX_CACHE_ENTRIES = Integer.MAX_VALUE;
     public static final int MAX_EVICTION_QUEUE_ENTRIES = Integer.MAX_VALUE;

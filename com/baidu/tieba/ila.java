@@ -1,376 +1,249 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bla;
-import com.baidu.tieba.cla;
-import com.baidu.tieba.dla;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
+import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.log.TbLogManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
 import java.util.List;
-import java.util.concurrent.Executor;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ila implements cla, dla.a, bla.a {
+public final class ila implements TbLogManager.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vka a;
-    public yka b;
-    public Executor c;
-    public String d;
-    public tka e;
-    public cla.a f;
-    public int g;
-    public ela h;
-    public dla i;
-    public List<bla> j;
 
-    public ila(vka vkaVar, yka ykaVar, Executor executor, String str, tka tkaVar, cla.a aVar) {
+    /* loaded from: classes6.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-713519602, "Lcom/baidu/tieba/ila$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-713519602, "Lcom/baidu/tieba/ila$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[TbLogManager.Level.values().length];
+            iArr[TbLogManager.Level.VERBOSE.ordinal()] = 1;
+            iArr[TbLogManager.Level.DEBUG.ordinal()] = 2;
+            iArr[TbLogManager.Level.INFO.ordinal()] = 3;
+            iArr[TbLogManager.Level.WARN.ordinal()] = 4;
+            iArr[TbLogManager.Level.ERROR.ordinal()] = 5;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements IActiveUploadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbLogManager.b a;
+
+        public b(TbLogManager.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
+        public void onFailure(String errMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
+                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
+                TbLogManager.b bVar = this.a;
+                if (bVar != null) {
+                    bVar.onFailure(errMsg);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
+        public void onSuccess() {
+            TbLogManager.b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
+                bVar.onSuccess();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements IActiveUploadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbLogManager.b a;
+
+        public c(TbLogManager.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
+        public void onFailure(String errMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
+                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
+                TbLogManager.b bVar = this.a;
+                if (bVar != null) {
+                    bVar.onFailure(errMsg);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
+        public void onSuccess() {
+            TbLogManager.b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
+                bVar.onSuccess();
+            }
+        }
+    }
+
+    public ila() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vkaVar, ykaVar, executor, str, tkaVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LoggerManager.requestCleanOverQuotaLog();
+        }
+    }
+
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LoggerManager.reinitialize();
+        }
+    }
+
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void b(String space, TbLogManager.Level level, String logId, String tag, String msg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, space, level, logId, tag, msg) == null) {
+            Intrinsics.checkNotNullParameter(space, "space");
+            Intrinsics.checkNotNullParameter(level, "level");
+            Intrinsics.checkNotNullParameter(logId, "logId");
+            Intrinsics.checkNotNullParameter(tag, "tag");
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            Logger logger = LoggerManager.getLogger(space);
+            if (logger == null) {
                 return;
             }
-        }
-        this.a = vkaVar;
-        this.b = ykaVar;
-        this.c = executor;
-        this.d = str;
-        this.e = tkaVar;
-        this.f = aVar;
-        g();
-    }
-
-    @Override // com.baidu.tieba.bla.a
-    public void a(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
-            this.g = 108;
-            this.b.a(downloadException);
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.bla.a
-    public void onDownloadCompleted(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
-            this.g = 105;
-            this.b.onDownloadCompleted(str);
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.dla.a
-    public void b(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-            } else if (this.i.isPaused()) {
-                onDownloadPaused();
-            } else {
-                this.g = 108;
-                this.b.b(downloadException);
-                m();
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            File file = new File(this.h.a(), this.h.d());
-            if (file.exists() && file.isFile()) {
-                file.delete();
-            }
-        }
-    }
-
-    public final mla f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new mla(0, this.d, this.a.c(), 0L);
-        }
-        return (mla) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            for (bla blaVar : this.j) {
-                if (blaVar.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.cla
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = this.g;
-            if (i != 101 && i != 102 && i != 103 && i != 104) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            for (bla blaVar : this.j) {
-                if (!blaVar.isComplete()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            for (bla blaVar : this.j) {
-                if (blaVar.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            for (bla blaVar : this.j) {
-                if (blaVar.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f.a(this.d, this);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            jla jlaVar = new jla(this.a.c(), this);
-            this.i = jlaVar;
-            this.c.execute(jlaVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.dla.a
-    public void onConnectCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c();
-            this.g = 107;
-            this.b.onConnectCanceled();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.dla.a
-    public void onConnectPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            onDownloadPaused();
-        }
-    }
-
-    @Override // com.baidu.tieba.dla.a
-    public void onConnecting() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.g = 102;
-            this.b.onConnecting();
-        }
-    }
-
-    @Override // com.baidu.tieba.bla.a
-    public void onDownloadCanceled() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
-            c();
-            this.g = 107;
-            this.b.onDownloadCanceled();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.bla.a
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
-            this.g = 106;
-            this.b.onDownloadPaused();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.g = 101;
-            this.b.onStarted();
-            n();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            dla dlaVar = this.i;
-            if (dlaVar != null) {
-                dlaVar.cancel();
-            }
-            for (bla blaVar : this.j) {
-                blaVar.cancel();
-            }
-            if (this.g != 104) {
-                onDownloadCanceled();
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = new ela(this.a.b().toString(), this.a.c(), this.a.a());
-            this.j = new LinkedList();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            dla dlaVar = this.i;
-            if (dlaVar != null) {
-                dlaVar.pause();
-            }
-            for (bla blaVar : this.j) {
-                blaVar.pause();
-            }
-            if (this.g != 104) {
-                onDownloadPaused();
-            }
-        }
-    }
-
-    public final void d(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.g = 104;
-            h(j, z);
-            for (bla blaVar : this.j) {
-                this.c.execute(blaVar);
-            }
-        }
-    }
-
-    public final List<mla> e(long j) {
-        InterceptResult invokeJ;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int b = this.e.b();
-            for (int i = 0; i < b; i++) {
-                long j3 = j / b;
-                long j4 = j3 * i;
-                if (i == b - 1) {
-                    j2 = j;
+            int i = a.$EnumSwitchMapping$0[level.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                logger.e(logId, tag, msg);
+                            }
+                        } else {
+                            logger.w(logId, tag, msg);
+                        }
+                    } else {
+                        logger.i(logId, tag, msg);
+                    }
                 } else {
-                    j2 = (j3 + j4) - 1;
+                    logger.d(logId, tag, msg);
                 }
-                arrayList.add(new mla(i, this.d, this.a.c(), j4, j2, 0L));
+            } else {
+                logger.v(logId, tag, msg);
             }
-            return arrayList;
+            if (TbadkCoreApplication.getInst().isDebugMode() || f05.h()) {
+                System.out.println((Object) ("TbUbcLog space:" + space + " tag:" + tag + " msg:" + msg));
+            }
         }
-        return (List) invokeJ.objValue;
     }
 
-    public final void h(long j, boolean z) {
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void c(String type, String dataId, List<String> spaces, long j, long j2, long j3, TbLogManager.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.j.clear();
-            if (z) {
-                List<mla> e = e(j);
-                int i = 0;
-                for (mla mlaVar : e) {
-                    i = (int) (i + mlaVar.b());
-                }
-                this.h.f(i);
-                for (mla mlaVar2 : e) {
-                    this.j.add(new kla(this.h, mlaVar2, this));
-                }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{type, dataId, spaces, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bVar}) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(dataId, "dataId");
+            Intrinsics.checkNotNullParameter(spaces, "spaces");
+            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, j, j2, j3, new c(bVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void d(String space, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, space, z) == null) {
+            Intrinsics.checkNotNullParameter(space, "space");
+            Logger logger = LoggerManager.getLogger(space);
+            if (logger == null) {
                 return;
             }
-            this.j.add(new lla(this.h, f(), this));
+            logger.flush(z);
         }
     }
 
-    @Override // com.baidu.tieba.dla.a
-    public void onConnected(long j, long j2, boolean z) {
+    @Override // com.baidu.tieba.log.TbLogManager.a
+    public void e(String type, String dataId, List<String> spaces, TbLogManager.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-                return;
-            }
-            this.g = 103;
-            this.b.onConnected(j, j2, z);
-            this.h.e(z);
-            this.h.g(j2);
-            d(j2, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.bla.a
-    public void onDownloadProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, type, dataId, spaces, bVar) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(dataId, "dataId");
+            Intrinsics.checkNotNullParameter(spaces, "spaces");
+            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, new b(bVar));
         }
     }
 }

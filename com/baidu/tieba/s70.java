@@ -1,92 +1,382 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.support.dns.Dns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.util.ArrayList;
+import java.util.List;
+import javax.net.SocketFactory;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes7.dex */
-public class s70 {
+public class s70 implements Cloneable, Call.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final m70 b;
+    @Nullable
+    public final Proxy c;
+    public final List<n70> d;
+    public final List<n70> e;
+    public final ProxySelector f;
+    public final SSLSocketFactory g;
+    public final HostnameVerifier h;
+    public final Dns i;
+    public final int j;
+    public final int k;
+    public final int l;
+    public y70 m;
+    public boolean n;
+    public boolean o;
+    public String p;
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.densityDpi;
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public m70 b;
+        @Nullable
+        public Proxy c;
+        public final List<n70> d;
+        public final List<n70> e;
+        public ProxySelector f;
+        @Nullable
+        public SSLSocketFactory g;
+        public HostnameVerifier h;
+        public boolean i;
+        public boolean j;
+        public Dns k;
+        public int l;
+        public int m;
+        public int n;
+        public y70 o;
+        public String p;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return 0;
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = new m70();
+            ProxySelector proxySelector = ProxySelector.getDefault();
+            this.f = proxySelector;
+            if (proxySelector == null) {
+                this.f = new q70();
+            }
+            SocketFactory.getDefault();
+            this.h = null;
+            this.k = Dns.SYSTEM;
+            this.l = 10000;
+            this.m = 10000;
+            this.n = 10000;
+            this.o = new w70();
         }
-        return invokeL.intValue;
+
+        public a(s70 s70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s70Var};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = s70Var.b;
+            this.c = s70Var.c;
+            this.d.addAll(s70Var.d);
+            this.e.addAll(s70Var.e);
+            this.f = s70Var.f;
+            this.k = s70Var.i;
+            this.l = s70Var.j;
+            this.m = s70Var.k;
+            this.n = s70Var.l;
+            this.o = s70Var.m;
+            this.i = s70Var.n;
+            this.j = s70Var.o;
+            this.p = s70Var.p;
+            this.h = s70Var.h;
+            this.g = s70Var.g;
+        }
+
+        public a a(n70 n70Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n70Var)) == null) {
+                if (n70Var != null) {
+                    this.d.add(n70Var);
+                    return this;
+                }
+                throw new IllegalArgumentException("interceptor == null");
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(m70 m70Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m70Var)) == null) {
+                if (m70Var != null) {
+                    this.b = m70Var;
+                    return this;
+                }
+                throw new IllegalArgumentException("dispatcher == null");
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(y70 y70Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, y70Var)) == null) {
+                this.o = y70Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public s70 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new s70(this);
+            }
+            return (s70) invokeV.objValue;
+        }
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.heightPixels;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104189, "Lcom/baidu/tieba/s70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static DisplayMetrics c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return context.getResources().getDisplayMetrics();
-        }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.widthPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "unknown";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948104189, "Lcom/baidu/tieba/s70;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        new ArrayList(2);
     }
 
-    public static String e(Context context) {
+    public SSLSocketFactory B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (SSLSocketFactory) invokeV.objValue;
+    }
+
+    public String C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public m70 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (m70) invokeV.objValue;
+    }
+
+    public Dns q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (Dns) invokeV.objValue;
+    }
+
+    public HostnameVerifier r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (HostnameVerifier) invokeV.objValue;
+    }
+
+    public y70 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.m;
+        }
+        return (y70) invokeV.objValue;
+    }
+
+    public List<n70> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<n70> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public a x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new a(this);
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public ProxySelector y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.f;
+        }
+        return (ProxySelector) invokeV.objValue;
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public s70(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.n = false;
+        this.o = false;
+        this.p = null;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = Util.immutableList(aVar.d);
+        this.e = Util.immutableList(aVar.e);
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
+        this.i = aVar.k;
+        this.j = aVar.l;
+        this.k = aVar.m;
+        this.l = aVar.n;
+        if (!this.d.contains(null)) {
+            if (!this.e.contains(null)) {
+                this.m = aVar.o;
+                this.n = aVar.i;
+                this.o = aVar.j;
+                this.p = aVar.p;
+                return;
+            }
+            throw new IllegalStateException("Null network interceptor: " + this.e);
+        }
+        throw new IllegalStateException("Null interceptor: " + this.d);
+    }
+
+    public void A(y70 y70Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, y70Var) != null) || y70Var == null) {
+            return;
+        }
+        this.m = y70Var;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
+    public Call newCall(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int d = d(context);
-            int b = b(context);
-            int a = a(context);
-            String f = f(context);
-            return d + "_" + b + "_android_" + f + "_" + a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, request)) == null) {
+            return r70.c(request, this, false);
         }
-        return (String) invokeL.objValue;
+        return (Call) invokeL.objValue;
     }
 }

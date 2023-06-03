@@ -22,7 +22,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04065a);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040664);
     }
 
     public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

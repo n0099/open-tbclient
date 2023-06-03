@@ -1,45 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class c68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = qi.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
-            }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            z88.n();
+            n98.m();
+            LocalViewSize.getInstance().initial(TbadkCoreApplication.getInst().getContext());
+            g98.n().o(TbadkCoreApplication.getInst().getContext());
+            o98.b().c();
+            j98.i();
+            r98.k();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            String urlDecode = qi.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

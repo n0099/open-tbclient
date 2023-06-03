@@ -3,7 +3,6 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.schemeauthenticate.dispatcher.UnitedSchemePublicDispatcher;
 import com.google.gson.internal.bind.TypeAdapters;
-import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Collections;
 import java.util.HashMap;
@@ -402,7 +401,7 @@ public class Visibilities {
                     objArr[0] = TypeAdapters.AnonymousClass27.SECOND;
                     break;
                 case 14:
-                    objArr[0] = RemoteMessageConst.Notification.VISIBILITY;
+                    objArr[0] = "visibility";
                     break;
                 default:
                     objArr[0] = "what";

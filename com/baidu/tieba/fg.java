@@ -1,252 +1,251 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.searchbox.network.outback.statistics.RecordObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fg<K, V> {
+public final class fg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<K, V> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
+    public volatile boolean a;
+    public final e b;
+    public final c c;
+    public final d d;
 
-    public void b(boolean z, K k, V v, V v2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fg a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(251101646, "Lcom/baidu/tieba/fg$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(251101646, "Lcom/baidu/tieba/fg$b;");
+                    return;
+                }
+            }
+            a = new fg(null);
         }
     }
 
-    public int m(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) {
-            return 1;
+    /* loaded from: classes5.dex */
+    public static class c implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeLL.intValue;
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = gg.a(networkStatRecord.url);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ext", networkStatRecord.toUBCJson());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("1625", jSONObject);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
     }
 
-    public fg(int i) {
+    /* loaded from: classes5.dex */
+    public static class d implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, networkStatRecord, i) == null) && networkStatRecord != null && i == DoRecordManager.FAILED_MSG && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = gg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("850", uBCJson.toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord, i);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
+
+        public final boolean b(NetworkStatRecord networkStatRecord) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord)) == null) {
+                if (networkStatRecord.from == 3 || networkStatRecord.subFrom != 8927 || new Random().nextInt(100) >= 20) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && b(networkStatRecord)) {
+                networkStatRecord.from = gg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("94", uBCJson.toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
+    }
+
+    public fg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = i;
-        this.a = new LinkedHashMap<>(0, 0.75f, true);
+        this.a = false;
+        this.b = new e(null);
+        this.c = new c(null);
+        this.d = new d(null);
     }
 
-    public final synchronized void a() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                c();
-                this.d = 0;
-                this.e = 0;
-                this.f = 0;
-                this.g = 0;
+                if (!this.a) {
+                    this.a = true;
+                    DoRecordManager.getInstance().attach(this.b);
+                    DoRecordManager.getInstance().attach(this.c);
+                    DoRecordManager.getInstance().attach(this.d);
+                }
             }
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n(-1);
-        }
+    public /* synthetic */ fg(a aVar) {
+        this();
     }
 
-    public final synchronized int d() {
+    public static fg a() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                i = this.e;
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.intValue;
-    }
-
-    public final synchronized int g() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                i = this.c;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final synchronized int l() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                i = this.b;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            synchronized (this) {
-                if (this.b + i > this.c * 0.8d) {
-                    n(this.b - i);
-                }
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final V f(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
-            if (k == null) {
-                return null;
-            }
-            synchronized (this) {
-                V v = this.a.get(k);
-                if (v != null) {
-                    this.f++;
-                    return v;
-                }
-                this.g++;
-                return null;
-            }
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public final V i(K k) {
-        InterceptResult invokeL;
-        V remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) {
-            if (k == null) {
-                return null;
-            }
-            synchronized (this) {
-                remove = this.a.remove(k);
-                if (remove != null) {
-                    this.b -= j(k, remove);
-                }
-            }
-            if (remove != null) {
-                b(false, k, remove, null);
-            }
-            return remove;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            synchronized (this) {
-                this.c = i;
-                n(i);
-            }
-        }
-    }
-
-    public final V h(K k, V v) {
-        InterceptResult invokeLL;
-        V put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k, v)) == null) {
-            if (k != null && v != null) {
-                synchronized (this) {
-                    this.d++;
-                    this.b += j(k, v);
-                    put = this.a.put(k, v);
-                    if (put != null) {
-                        this.b -= j(k, put);
-                    }
-                }
-                if (put != null) {
-                    b(false, k, put, v);
-                }
-                n(this.c);
-                return put;
-            }
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public final int j(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
-            int m = m(k, v);
-            if (m >= 0) {
-                return m;
-            }
-            throw new IllegalStateException("Negative size: " + k + "=" + v);
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void n(int i) {
-        K key;
-        V value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            while (true) {
-                synchronized (this) {
-                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
-                        if (this.b <= i || this.a.isEmpty()) {
-                            break;
-                        }
-                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
-                        key = next.getKey();
-                        value = next.getValue();
-                        this.a.remove(key);
-                        this.b -= j(key, value);
-                        this.e++;
-                    } else {
-                        break;
-                    }
-                }
-                b(true, key, value, null);
-            }
-        }
+        return (fg) invokeV.objValue;
     }
 }

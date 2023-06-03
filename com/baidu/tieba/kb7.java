@@ -1,89 +1,190 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.forumMember.member.ManagerApplyViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kb7 implements wc7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public wm7 a;
+public class kb7 extends gd7<lb7, ManagerApplyViewHolder> {
+    public static /* synthetic */ Interceptable $ic = null;
 
-    public kb7() {
+    /* renamed from: n */
+    public static final int obfuscated = 2131296983;
+    public transient /* synthetic */ FieldHolder $fh;
+    public yf5 l;
+    public View.OnClickListener m;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947907401, "Lcom/baidu/tieba/kb7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947907401, "Lcom/baidu/tieba/kb7;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kb7 a;
+
+        public a(kb7 kb7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kb7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kb7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag(kb7.obfuscated);
+                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.mContext), new String[]{tag.toString()});
+                } else {
+                    this.a.M(TbadkCoreApplication.getCurrentAccountInfo());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kb7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.m = new a(this);
     }
 
-    @Override // com.baidu.tieba.wc7
-    public xc7 c() {
-        InterceptResult invokeV;
+    public void onDestroy() {
+        yf5 yf5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new mb7();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (yf5Var = this.l) != null) {
+            yf5Var.s();
         }
-        return (xc7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wc7
-    public gm7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: J */
+    public ManagerApplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
-            if (!frsFragment.h4()) {
-                return new gm7(frsFragment, noPressedRelativeLayout);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ManagerApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0378, (ViewGroup) null));
+        }
+        return (ManagerApplyViewHolder) invokeL.objValue;
+    }
+
+    public View K(int i, View view2, ViewGroup viewGroup, lb7 lb7Var, ManagerApplyViewHolder managerApplyViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lb7Var, managerApplyViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) lb7Var, (lb7) managerApplyViewHolder);
+            if (lb7Var != null && !lb7Var.c() && managerApplyViewHolder != null) {
+                if (lb7Var.c()) {
+                    managerApplyViewHolder.d.setVisibility(8);
+                    return view2;
+                }
+                if (managerApplyViewHolder.e != this.f) {
+                    SkinManager.setViewTextColor(managerApplyViewHolder.b, R.color.CAM_X0109, 1);
+                    SkinManager.setViewTextColor(managerApplyViewHolder.a, R.color.CAM_X0105, 1);
+                    SkinManager.setBackgroundResource(managerApplyViewHolder.c, R.drawable.frs_member_manito_bg);
+                }
+                int b = lb7Var.b();
+                if (b > 0) {
+                    managerApplyViewHolder.b.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(b)));
+                    managerApplyViewHolder.c.setTag(obfuscated, lb7Var.a());
+                    managerApplyViewHolder.c.setOnClickListener(this.m);
+                    managerApplyViewHolder.c.setEnabled(true);
+                    managerApplyViewHolder.c.setClickable(true);
+                } else {
+                    managerApplyViewHolder.b.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    managerApplyViewHolder.c.setEnabled(false);
+                    managerApplyViewHolder.c.setClickable(false);
+                }
+                managerApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                managerApplyViewHolder.e = this.f;
             }
-            return null;
+            return view2;
         }
-        return (gm7) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.wc7
-    public yc7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
+    public final void M(AccountData accountData) {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) {
-            return new em7(frsFragment, noPressedRelativeLayout);
-        }
-        return (yc7) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc7
-    public uc7 b(FrsFragment frsFragment, xn xnVar, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, xnVar, z)) == null) {
-            return new gc7(frsFragment, xnVar, z);
-        }
-        return (uc7) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc7
-    public wm7 e(String str, FrsFragment frsFragment, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
-            if (frsFragment == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            k9<?> a2 = q9.a(this.mContext);
+            if (a2 instanceof TbPageContext) {
+                activity = ((TbPageContext) a2).getPageActivity();
+            } else {
+                activity = null;
             }
-            lb7 lb7Var = new lb7(frsFragment, null, null, i);
-            this.a = lb7Var;
-            lb7Var.S(frsFragment.D3());
-            return this.a;
+            if (this.l == null) {
+                this.l = new yf5(activity);
+            }
+            this.l.p();
+            this.l.u(accountData);
+            this.l.z(1);
         }
-        return (wm7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.gd7, com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        K(i, view2, viewGroup, (lb7) obj, (ManagerApplyViewHolder) viewHolder);
+        return view2;
     }
 }

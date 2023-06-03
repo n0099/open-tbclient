@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +85,7 @@ public class s {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, bundle, str2)) == null) {
             try {
                 context.getApplicationContext().getContentResolver();
-                return a(context, str, bundle, Uri.parse("content://" + context.getPackageName() + "." + str2 + ".ac.provider"));
+                return a(context, str, bundle, Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + context.getPackageName() + "." + str2 + ".ac.provider"));
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return null;

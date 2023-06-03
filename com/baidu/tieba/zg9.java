@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zg9 {
+public class zg9 extends kg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public long d;
 
-    public zg9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zg9(boolean z) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static zg9 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kg9
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.q.clear();
+            sg9 sg9Var = this.o;
+            if (sg9Var != null) {
+                this.q.add(sg9Var);
             }
-            zg9 zg9Var = new zg9();
-            zg9Var.a = jSONObject.optInt("agree_num", -1);
-            zg9Var.b = jSONObject.optInt("share_num", -1);
-            zg9Var.c = jSONObject.optInt("reply_num", -1);
-            zg9Var.d = jSONObject.optLong("time", System.currentTimeMillis());
-            return zg9Var;
+            if (!ListUtils.isEmpty(this.p)) {
+                this.q.addAll(this.p);
+            }
         }
-        return (zg9) invokeL.objValue;
     }
 }

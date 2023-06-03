@@ -1,10 +1,10 @@
 package com.baidu.cyberplayer.sdk.statistics;
 
 import android.content.Context;
-import android.os.Build;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberVersion;
-import com.baidu.cyberplayer.sdk.o;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.cyberplayer.sdk.q;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,14 +17,12 @@ public class b {
     public c b;
 
     public b(Context context) {
-        String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
+        String networkStatisticsNoOperator = DpNetworkUtils.getNetworkStatisticsNoOperator(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
         this.b = cVar;
         cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", q.g()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsNoOperator));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -41,16 +39,70 @@ public class b {
     }
 
     public static void a(Context context, int i, HashMap<String, String> hashMap) {
-        if (hashMap == null || hashMap.size() <= 0) {
-            return;
+        if (hashMap != null && hashMap.size() > 0) {
+            b bVar = new b(context);
+            bVar.a(i, hashMap);
+            bVar.a();
+            if (!hashMap.containsKey("errorCode") && hashMap.get("loadcode").equals("0")) {
+                CyberLog.y(DpStatConstants.SERVER_TYPE_DUPLAYER_INIT, "Install Success");
+            } else {
+                CyberLog.y(DpStatConstants.SERVER_TYPE_DUPLAYER_INIT, bVar.c());
+            }
         }
-        b bVar = new b(context);
-        bVar.a(i, hashMap);
-        bVar.a();
     }
 
     public void a() {
-        DpSessionDatasUploader.getInstance().upload(b(), "sailor_monitor");
+        DpSessionDatasUploader.getInstance().uploadLibInitSession(b(), "sailor_monitor");
+        if (CyberCfgManager.getInstance().getCfgBoolValue("init_session_ubc", true)) {
+            UbcSessionUploader.getInstance().upload(c(), "ubc", -1010);
+        }
+        if (CyberCfgManager.getInstance().getCfgBoolValue("cyber_down_init_session_ubcid", true) && CyberVersion.isLaterDownCyber()) {
+            UbcSessionUploader.getInstance().upload(c(), "ubc", -1012);
+        }
+    }
+
+    public String b() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            a.a().a(jSONObject);
+            jSONObject.put(DpStatConstants.KEY_CORE_VERSION, CyberVersion.getCoreVersionInternal());
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject2 = new JSONObject();
+            a(jSONObject2);
+            jSONArray.put(jSONObject2);
+            jSONObject.put("items", jSONArray);
+            String jSONObject3 = jSONObject.toString();
+            jSONObject.remove("cuid");
+            CyberLog.i("DpLibsInitSession", "session=" + jSONObject.toString());
+            return jSONObject3;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String c() {
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        JSONObject jSONObject3 = new JSONObject();
+        try {
+            a.a().a(jSONObject);
+            jSONObject.remove("abtest_sid");
+            jSONObject.remove("app_name");
+            jSONObject.remove("app_version");
+            jSONObject.remove("cuid");
+            jSONObject.remove("network");
+            jSONObject.put(DpStatConstants.KEY_CORE_VERSION, CyberVersion.getCoreVersionInternal());
+            a(jSONObject);
+            jSONObject2.put("items", jSONObject);
+            jSONObject3.put("ext", jSONObject2);
+            jSONObject3.put("from", "cyber");
+            jSONObject3.put("page", "vod");
+            return jSONObject3.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void a(int i, String str, String str2) {
@@ -73,31 +125,10 @@ public class b {
     }
 
     public void a(int i, HashMap<String, String> hashMap) {
-        if (hashMap == null || hashMap.size() <= 0) {
-            return;
-        }
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            a(i, entry.getKey(), entry.getValue());
-        }
-    }
-
-    public String b() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            a.a().a(jSONObject);
-            jSONObject.put(DpStatConstants.KEY_CORE_VERSION, CyberVersion.getCoreVersionInternal());
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject2 = new JSONObject();
-            a(jSONObject2);
-            jSONArray.put(jSONObject2);
-            jSONObject.put("items", jSONArray);
-            String jSONObject3 = jSONObject.toString();
-            jSONObject.remove("cuid");
-            CyberLog.i("DpLibsInitSession", "session=" + jSONObject.toString());
-            return jSONObject3;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
+        if (hashMap != null && hashMap.size() > 0) {
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                a(i, entry.getKey(), entry.getValue());
+            }
         }
     }
 }

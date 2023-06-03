@@ -1,218 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.os.Message;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes8.dex */
-public class w3b {
+public class w3b extends FunNativeAd2Bridger<PBNative, JYNativeAdView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public Context b;
-    public c c;
-    public ServiceConnection d;
+    public final /* synthetic */ z3b b;
+    public final /* synthetic */ v3b c;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(int i, Exception exc);
-
-        void b(String str, boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w3b a;
-
-        @Override // android.content.ServiceConnection
-        public void onBindingDied(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onNullBinding(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            }
-        }
-
-        public a(w3b w3bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w3bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w3bVar;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.a.a.removeMessages(2);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w3b a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(w3b w3bVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w3bVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w3bVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            this.a.c.a(-2, null);
-                            return;
-                        }
-                        return;
-                    }
-                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
-                    try {
-                        try {
-                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                                return;
-                            } catch (Exception e) {
-                                this.a.c.a(-4, e);
-                                return;
-                            }
-                        } catch (RemoteException e2) {
-                            this.a.c.a(-3, e2);
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                                return;
-                            } catch (Exception unused) {
-                                return;
-                            }
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            this.a.b.unbindService(this.a.d);
-                        } catch (Exception e3) {
-                            this.a.c.a(-4, e3);
-                        }
-                        throw th;
-                    }
-                }
-                this.a.c.a(-1, null);
-            }
-        }
-    }
-
-    public w3b(Context context, c cVar, Handler handler) {
-        Looper looper;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w3b(v3b v3bVar, ReporterPidLoader reporterPidLoader, z3b z3bVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cVar, handler};
+            Object[] objArr = {v3bVar, reporterPidLoader, z3bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this);
-        this.b = context;
-        this.c = cVar;
-        if (handler == null) {
-            looper = Looper.getMainLooper();
-        } else {
-            looper = handler.getLooper();
-        }
-        this.a = new b(this, looper);
+        this.c = v3bVar;
+        this.b = z3bVar;
     }
 
-    public static void d(Context context, c cVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.ad.sdk.channel.model.jy.JYNativeAdView, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public JYNativeAdView createExpressView(PBNative pBNative) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
-            e(context, cVar, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBNative)) == null) {
+            return this.c.e(pBNative);
         }
+        return (View) invokeL.objValue;
     }
 
-    public static void e(Context context, c cVar, Handler handler) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
-            new w3b(context.getApplicationContext(), cVar, handler).f();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            if (this.b.bindService(intent, this.d, 1)) {
-                Handler handler = this.a;
-                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
+            PBNative pBNative2 = pBNative;
+            v3b v3bVar = this.c;
+            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = v3bVar.e;
+            pid = v3bVar.mPid;
+            funNativeAdListenerHelper.startShow(pBNative2, str, pid, null, funAdInteractionListener);
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                inflate = ((FunNativeView) inflate).getRoot();
             }
-            this.a.sendEmptyMessage(0);
+            pBNative2.registerViewForInteraction(inflate, (PBMediaView) this.b.getVideoView(), customInflater.getClickViews());
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
+            v3b v3bVar = this.c;
+            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = v3bVar.e;
+            pid = v3bVar.mPid;
+            funNativeAdListenerHelper.startShow(pBNative, str, pid, null, funAdInteractionListener);
+            expressInflater.inflate();
         }
     }
 }

@@ -4,8 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
@@ -172,7 +172,7 @@ public class a {
                         h.a(this.b, str6, Long.parseLong(jSONObject2.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     }
                     if (aVar.c("logintype") == 3) {
-                        bVar.a(str, "true", aVar, c.a(str5));
+                        bVar.a(str, YYOption.IsLive.VALUE_TRUE, aVar, c.a(str5));
                         return;
                     } else if (aVar.b("isRisk", false)) {
                         aVar.a("isRisk", false);
@@ -187,7 +187,7 @@ public class a {
                 com.cmic.sso.sdk.e.c.a("AuthnBusiness", "返回103000，但是数据解析出错");
                 bVar.a(String.valueOf(102223), "数据解析异常", aVar, c.a(String.valueOf(102223), "数据解析异常"));
             } else if (aVar.c("logintype") == 3) {
-                bVar.a(str, "true", aVar, c.b(str, str2));
+                bVar.a(str, YYOption.IsLive.VALUE_TRUE, aVar, c.b(str, str2));
             } else {
                 bVar.a(str, str2, aVar, jSONObject);
             }
@@ -204,7 +204,7 @@ public class a {
             } else {
                 com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
                 try {
-                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes(IMAudioTransRequest.CHARSET);
+                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes("utf-8");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -283,7 +283,7 @@ public class a {
             if (aVar.b("isCacheScrip", false)) {
                 String b = aVar.b("securityphone", "");
                 if (c2 == 3) {
-                    bVar.a("103000", "true", aVar, c.a(b));
+                    bVar.a("103000", YYOption.IsLive.VALUE_TRUE, aVar, c.a(b));
                     return;
                 } else {
                     b(aVar, bVar);

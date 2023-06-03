@@ -3,7 +3,6 @@ package com.ss.android.socialbase.downloader.d;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
@@ -98,7 +97,7 @@ public class a {
                     jSONObject2.put("save_path", downloadInfo.getSavePath());
                     jSONObject2.put("download_time", downloadInfo.getDownloadTime());
                     jSONObject2.put("cur_bytes", downloadInfo.getCurBytes());
-                    jSONObject2.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
+                    jSONObject2.put("total_bytes", downloadInfo.getTotalBytes());
                     jSONObject2.put("network_quality", downloadInfo.getNetworkQuality());
                     int i15 = 1;
                     if (downloadInfo.isOnlyWifi()) {
@@ -339,7 +338,7 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("segments", com.ss.android.socialbase.downloader.f.i.a(list));
             jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-            jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
+            jSONObject.put("total_bytes", downloadInfo.getTotalBytes());
             c P = com.ss.android.socialbase.downloader.downloader.c.P();
             if (P != null) {
                 P.a(downloadInfo.getId(), "segments_error", jSONObject);

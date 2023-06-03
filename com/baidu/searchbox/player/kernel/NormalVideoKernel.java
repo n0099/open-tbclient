@@ -8,19 +8,29 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.CyberRuntimeInfo;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
+import com.baidu.searchbox.player.interfaces.OnMediaRuntimeInfoListener;
 import com.baidu.searchbox.player.interfaces.OnSnapShotFrameListener;
 import com.baidu.searchbox.player.kernel.BaseDumediaVideoKernel;
+import com.baidu.searchbox.player.model.KernelMediaInfo;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.player.utils.MediaInfoConvert;
 import com.baidu.searchbox.player.view.RoundOutlineProvider;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NormalVideoKernel extends BaseDumediaVideoKernel {
     public final BVideoView mVideoView = new BVideoView(BDPlayerConfig.getAppContext());
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    @NonNull
+    public String getKernelType() {
+        return AbsVideoKernel.NORMAL_PLAYER;
+    }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     @NonNull
@@ -46,6 +56,22 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getDurationMs() {
         return this.mVideoView.getDuration();
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    @Nullable
+    public Map<String, String> getKernelInfo() {
+        return super.getKernelInfo();
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    @Nullable
+    public KernelMediaInfo getKernelMediaInfo() {
+        BVideoView bVideoView = this.mVideoView;
+        if (bVideoView != null) {
+            return MediaInfoConvert.transform(bVideoView.getMediaInfo());
+        }
+        return null;
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -129,7 +155,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setDataSourceAndPrepare() {
-        this.mVideoView.setVideoURI(getVideoUri(), this.mHeader);
+        this.mVideoView.setVideoURI(getVideoUri(), this.mHeader, getVideoUrlModel().getOptions());
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -151,6 +177,22 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     public void stopPlayback() {
         super.stopPlayback();
         this.mVideoView.stopPlayback();
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void getMediaRuntimeInfo(@Nullable final OnMediaRuntimeInfoListener onMediaRuntimeInfoListener) {
+        BVideoView bVideoView = this.mVideoView;
+        if (bVideoView != null) {
+            bVideoView.getMediaRuntimeInfo(new CyberRuntimeInfo.OnMediaRuntimeInfoDefault() { // from class: com.baidu.searchbox.player.kernel.NormalVideoKernel.2
+                @Override // com.baidu.cyberplayer.sdk.CyberRuntimeInfo.OnMediaRuntimeInfoDefault
+                public void onInfo(CyberRuntimeInfo cyberRuntimeInfo) {
+                    OnMediaRuntimeInfoListener onMediaRuntimeInfoListener2 = onMediaRuntimeInfoListener;
+                    if (onMediaRuntimeInfoListener2 != null) {
+                        onMediaRuntimeInfoListener2.onInfo(MediaInfoConvert.transform(cyberRuntimeInfo));
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -188,19 +230,14 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setPlayConf(@Nullable String str) {
-        this.mVideoView.setPlayJson(str);
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setProxy(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mVideoView.setOption(CyberPlayerManager.OPT_HTTP_PROXY, str);
-            this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "true");
+            this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, YYOption.IsLive.VALUE_TRUE);
             return;
         }
         this.mVideoView.setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
-        this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
+        this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -269,6 +306,11 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void setDynamicOption(String str, String str2) {
+        this.mVideoView.setOption(str, str2);
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setExternalInfo(String str, Object obj) {
         this.mVideoView.setExternalInfo(str, obj);
     }
@@ -286,13 +328,22 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public boolean takeSnapshotAsync(final OnSnapShotFrameListener onSnapShotFrameListener, float f) {
+    public void switchMediaSource(int i, int i2) {
+        if (i2 == 1) {
+            this.mVideoView.switchMediaSource(i, CyberPlayerManager.MediaSourceSwitchMode.MEDIASOURCE_SWITCH_FORCE_MODE);
+        } else {
+            this.mVideoView.switchMediaSource(i, CyberPlayerManager.MediaSourceSwitchMode.MEDIASOURCE_SWITCH_ABR_MODE);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public boolean takeSnapshotAsync(@Nullable final OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         if (onSnapShotFrameListener == null) {
             return false;
         }
         return this.mVideoView.takeSnapshotAsync(new ICyberVideoView.OnSnapShotCompleteListener() { // from class: com.baidu.searchbox.player.kernel.NormalVideoKernel.1
             @Override // com.baidu.cyberplayer.sdk.ICyberVideoView.OnSnapShotCompleteListener
-            public void onSnapShotComplete(Bitmap bitmap) {
+            public void onSnapShotComplete(@Nullable Bitmap bitmap) {
                 onSnapShotFrameListener.onSnapShotComplete(bitmap);
             }
         }, f, 0, 0);

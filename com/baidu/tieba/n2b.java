@@ -1,94 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class n2b<TResult> implements d2b<TResult> {
+public class n2b extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f2b a;
-    public Executor b;
-    public final Object c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h2b a;
-        public final /* synthetic */ n2b b;
-
-        public a(n2b n2bVar, h2b h2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n2bVar, h2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n2bVar;
-            this.a = h2bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
-            }
-        }
-    }
-
-    public n2b(Executor executor, f2b f2bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n2b(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, f2bVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = f2bVar;
-        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.d2b
-    public final void cancel() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Object field = ReflectionUtils.getField(((l3b) obj).a, "d", "a", "k");
+                Field declaredField = field.getClass().getDeclaredField("M");
+                declaredField.setAccessible(true);
+                return u2b.a((JSONObject) declaredField.get(field));
+            } catch (Exception unused) {
+                LogPrinter.e();
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.d2b
-    public final void onComplete(h2b<TResult> h2bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h2bVar) == null) || h2bVar.h() || h2bVar.f()) {
-            return;
-        }
-        this.b.execute(new a(this, h2bVar));
+        return (RippedAd) invokeL.objValue;
     }
 }

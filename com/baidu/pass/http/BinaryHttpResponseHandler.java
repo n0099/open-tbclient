@@ -12,7 +12,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
 
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
-        this.a = new String[]{WordCommandManager.IMAGE_PNG, WordCommandManager.IMAGE_JPEG, "image/jpg", "image/gif"};
+        this.a = new String[]{WordCommandManager.IMAGE_PNG, "image/jpeg", "image/jpg", "image/gif"};
     }
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr) {
@@ -21,7 +21,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr, boolean z) {
         super(looper);
-        this.a = new String[]{WordCommandManager.IMAGE_PNG, WordCommandManager.IMAGE_JPEG, "image/jpg", "image/gif"};
+        this.a = new String[]{WordCommandManager.IMAGE_PNG, "image/jpeg", "image/jpg", "image/gif"};
         this.a = strArr;
         this.executCallbackInChildThread = z;
     }

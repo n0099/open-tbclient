@@ -13,6 +13,7 @@ import com.airbnb.lottie.ImageAssetDelegate;
 import com.airbnb.lottie.LottieImageAsset;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
+import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
@@ -88,7 +89,7 @@ public class ImageAssetManager {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = true;
         options.inDensity = 160;
-        if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf("base64,") > 0) {
+        if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
             try {
                 byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
                 return putBitmap(str, BitmapFactory.decodeByteArray(decode, 0, decode.length, options));

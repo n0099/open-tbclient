@@ -1,134 +1,138 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import android.text.Editable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ib5 {
+public class ib5 extends db5<ib5> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String i;
 
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
+    public ib5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (i == 1) {
-                str2 = "index";
-            } else if (i == 2) {
-                str2 = "pb_live";
-            } else if (i == 3) {
-                int i2 = a;
-                if (i2 == 1) {
-                    str2 = "video_bar_live";
-                } else {
-                    if (i2 == 2) {
-                        str2 = "video_immer_live";
-                    }
-                    str2 = "";
-                }
-            } else {
-                if (i == 4) {
-                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
-                }
-                str2 = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return str + "?source=" + str2;
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
-        InterceptResult invokeL;
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
-            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
-                b = liveRemindRecommendData.getShowPage();
-                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
-                if (liveRemindRecommendData.getShowPage() == 3) {
-                    String c = c();
-                    if (liveIconScheme.contains("closeLink")) {
-                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
-                    }
-                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
-                }
-                return liveIconScheme;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            q(true);
+            x();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c() {
+    public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int i = a;
-            if (i == 1) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
-            }
-            if (i == 2) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
-            }
-            int i2 = b;
-            if (i2 == 1) {
-                return "index_gz";
-            }
-            if (i2 == 2) {
-                return AddFriendActivityConfig.TYPE_PB_HEAD;
-            }
-            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "#[视频]" + this.i + "#";
         }
         return (String) invokeV.objValue;
     }
 
-    public static void e() {
+    public String v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void f() {
+    public ib5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
-        }
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String queryParameter = parse.getQueryParameter("source");
-            if (StringUtils.isNull(queryParameter)) {
-                return "";
-            }
-            return queryParameter;
         }
-        return (String) invokeL.objValue;
+        this.i = str;
     }
 
-    public static void g(int i) {
+    @Override // com.baidu.tieba.db5
+    public void r(Editable editable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            a = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
+        }
+    }
+
+    public static ib5 w(@NonNull ib5 ib5Var, @NonNull Editable editable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ib5Var, editable)) == null) {
+            ib5 ib5Var2 = new ib5();
+            ib5Var2.b(ib5Var);
+            ib5Var2.p(editable);
+            return ib5Var2;
+        }
+        return (ib5) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.db5
+    public void s(Editable editable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
+        }
+    }
+
+    @Override // com.baidu.tieba.db5
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            k(u());
+            if (!jw5.g(this.c, f())) {
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                eMRichTextAnyIconSpan.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
+                n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
+            }
         }
     }
 }

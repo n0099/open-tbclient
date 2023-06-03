@@ -3,6 +3,7 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +19,7 @@ public final class x {
             try {
                 return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception e) {
-                u.a("NetUtils", e);
+                u.a(NetUtils.TAG, e);
                 return null;
             }
         }

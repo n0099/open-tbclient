@@ -9,7 +9,7 @@ import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.utils.am;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static a WD;
     public com.kwad.sdk.core.diskcache.kwai.a WE;

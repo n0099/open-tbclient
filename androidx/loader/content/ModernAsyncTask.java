@@ -64,7 +64,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             try {
                 ModernAsyncTask.this.postResultIfNotInvoked(get());
             } catch (InterruptedException e) {
-                Log.w(ModernAsyncTask.LOG_TAG, e);
+                Log.w("AsyncTask", e);
             } catch (CancellationException unused) {
                 ModernAsyncTask.this.postResultIfNotInvoked(null);
             } catch (ExecutionException e2) {

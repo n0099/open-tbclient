@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ei9 {
+public class ei9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile di9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    public static synchronized di9 a() {
-        InterceptResult invokeV;
-        di9 di9Var;
+    public ei9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ei9.class) {
-                if (a == null) {
-                    a = new di9();
-                }
-                di9Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return di9Var;
         }
-        return (di9) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.a) != null && (view2.getTag() instanceof ii9)) {
+            ((ii9) this.a.getTag()).startPlay();
+        }
     }
 }

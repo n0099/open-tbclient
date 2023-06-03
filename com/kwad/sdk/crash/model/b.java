@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public String ahv;
     public int ahw;

@@ -1,219 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class of4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
-    public Drawable e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public int i;
-    public long j;
-    public lf4 k;
-    public sf4 l;
 
-    public of4(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1;
-        this.c = -1;
-        this.f = true;
-        this.g = true;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0L;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.g = z;
-    }
-
-    public static of4 k(of4 of4Var) {
+    @NonNull
+    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, of4Var)) == null) {
-            if (of4Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            RecommendItemModel recommendItemModel = new RecommendItemModel();
+            recommendItemModel.appName = jSONObject.optString("app_name");
+            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
+            recommendItemModel.scheme = jSONObject.optString("scheme");
+            recommendItemModel.desc = jSONObject.optString("desc");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+            if (optJSONObject != null) {
+                recommendItemModel.buttonText = optJSONObject.optString("text");
             }
-            return new of4(of4Var.a, of4Var.b, of4Var.c, of4Var.g);
+            return recommendItemModel;
         }
-        return (of4) invokeL.objValue;
+        return (RecommendItemModel) invokeL.objValue;
     }
 
-    public Drawable a(Context context) {
+    @NonNull
+    public static nf4 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Drawable drawable = this.e;
-            if (drawable != null) {
-                return drawable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            nf4 nf4Var = new nf4();
+            if (jSONObject == null) {
+                return nf4Var;
             }
-            if (this.c <= 0) {
-                return null;
+            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
+            if (optJSONObject != null) {
+                nf4Var.a = a(optJSONObject);
             }
-            return context.getResources().getDrawable(this.c);
+            nf4Var.b = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    nf4Var.b.add(a(optJSONArray.optJSONObject(i)));
+                }
+            }
+            return nf4Var;
         }
-        return (Drawable) invokeL.objValue;
+        return (nf4) invokeL.objValue;
     }
 
-    public String h(Context context) {
+    @NonNull
+    public static pf4 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            String str = this.d;
-            if (str != null) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            pf4 pf4Var = new pf4();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                pf4Var.a = jSONObject.getInt("errno");
+                pf4Var.b = jSONObject.optString("errmsg");
+                pf4Var.c = jSONObject.optJSONObject("data");
+                return pf4Var;
+            } catch (JSONException e) {
+                pf4Var.a = -1;
+                pf4Var.b = "network error: response parse failed.";
+                if (is1.a) {
+                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
+                }
+                return pf4Var;
             }
-            if (this.b <= 0) {
-                return null;
-            }
-            return context.getResources().getString(this.b);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.j = j;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void p(lf4 lf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, lf4Var) == null) {
-            this.k = lf4Var;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public static of4 l(of4 of4Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, of4Var, z)) == null) {
-            if (of4Var == null) {
-                return null;
-            }
-            return new of4(of4Var.a, of4Var.b, of4Var.c, z);
-        }
-        return (of4) invokeLZ.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public sf4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.l;
-        }
-        return (sf4) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public lf4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k;
-        }
-        return (lf4) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
+        return (pf4) invokeL.objValue;
     }
 }

@@ -1,79 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class br6 implements rn {
+public final class br6 implements k87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardTopic a;
+    public final HashMap<String, String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654627, "Lcom/baidu/tieba/br6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947654627, "Lcom/baidu/tieba/br6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
+    @Override // com.baidu.tieba.k87
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
     }
 
     public br6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public FeatureCardTopic a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k87
+    public Map<String, String> a(w47 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            Map<String, String> a = businessInfo.a();
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("has_customstate");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_source", str);
+            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
+                HashMap<String, String> hashMap2 = this.a;
+                String str3 = a.get("customstate_name");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                hashMap2.put("obj_name", str3);
+            }
+            HashMap<String, String> hashMap3 = this.a;
+            String str4 = a.get("user_id");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
             return this.a;
         }
-        return (FeatureCardTopic) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final br6 b(String locate) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (br6) invokeL.objValue;
     }
 
-    public void b(FeatureCardTopic featureCardTopic) {
+    public final br6 c(String type) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) != null) || featureCardTopic == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            this.a.put("obj_type", type);
+            return this;
         }
-        this.a = featureCardTopic;
-        String str = featureCardTopic.title;
-        Integer num = featureCardTopic.floor;
-        Integer num2 = featureCardTopic.type;
+        return (br6) invokeL.objValue;
     }
 }

@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.df1;
+import com.baidu.tieba.mg1;
 /* loaded from: classes3.dex */
 public class CircleImageView extends ImageView {
     public static final ImageView.ScaleType p = ImageView.ScaleType.CENTER_CROP;
@@ -135,7 +135,7 @@ public class CircleImageView extends ImageView {
         this.e = new Paint();
         this.f = -16777216;
         this.g = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, df1.sapi_sdk_circle_image_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mg1.sapi_sdk_circle_image_view, i, 0);
         this.g = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.f = obtainStyledAttributes.getColor(0, -16777216);
         obtainStyledAttributes.recycle();

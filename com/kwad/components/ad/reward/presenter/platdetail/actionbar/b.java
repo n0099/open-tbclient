@@ -56,7 +56,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     };
 
     /* renamed from: rx  reason: collision with root package name */
-    public com.kwad.components.ad.reward.d.e f1084rx = new com.kwad.components.ad.reward.d.e() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
+    public com.kwad.components.ad.reward.d.e f1221rx = new com.kwad.components.ad.reward.d.e() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
         @Override // com.kwad.components.ad.reward.d.e
         public final void bA() {
             b.this.rs = false;
@@ -136,11 +136,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09134d);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091365);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
-                    b(this.ru, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f0704ba) + resources.getDimension(R.dimen.obfuscated_res_0x7f0704bd)));
+                    b(this.ru, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f0704c8) + resources.getDimension(R.dimen.obfuscated_res_0x7f0704cb)));
                     viewGroup = this.ru;
                     showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_LIVE_SUBSCRIBE;
                 }
@@ -213,7 +213,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         this.mAdInfo = bQ;
         if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091339);
+            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091351);
         }
         this.pM.T(this.mAdTemplate);
         k kVar = this.nM;
@@ -221,7 +221,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         RewardActionBarControl rewardActionBarControl = kVar.ml;
         this.ml = rewardActionBarControl;
         rewardActionBarControl.a(this.rw);
-        this.nM.a(this.f1084rx);
+        this.nM.a(this.f1221rx);
     }
 
     @Deprecated
@@ -341,11 +341,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09120a);
-        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0913dc);
-        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0913dd);
-        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0913de);
-        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0913df);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091222);
+        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0913f4);
+        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0913f5);
+        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0913f6);
+        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0913f7);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -356,7 +356,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             rewardActionBarControl.a((RewardActionBarControl.b) null);
         }
         com.kwad.components.core.webview.b.c.a.pR().b(this);
-        this.nM.b(this.f1084rx);
+        this.nM.b(this.f1221rx);
         aL();
     }
 

@@ -12,14 +12,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AudioAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class AudioAnimationView extends View {
     public int m;
     public final Runnable n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -130,7 +130,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -179,9 +179,9 @@ public class AudioAnimationView extends View {
             if (this.f) {
                 invalidate();
             }
-            sg.a().removeCallbacks(this.n);
+            wg.a().removeCallbacks(this.n);
             if (!this.g) {
-                sg.a().postDelayed(this.n, 250L);
+                wg.a().postDelayed(this.n, 250L);
             }
         }
     }
@@ -221,7 +221,7 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            sg.a().removeCallbacks(this.n);
+            wg.a().removeCallbacks(this.n);
         }
     }
 

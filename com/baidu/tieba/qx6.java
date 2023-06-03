@@ -1,11 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface qx6 {
-    void E0(EmotionCenterData emotionCenterData);
+public class qx6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void Q0(EmotionCenterData emotionCenterData);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (l95.m().i("like_forum_sort_level", false)) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
 
-    void g1(EmotionCenterData emotionCenterData);
+    public static void b(TbPageContext<?> tbPageContext, String str) {
+        ForumSquareActivityConfig forumSquareActivityConfig;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, tbPageContext, str) != null) || tbPageContext == null) {
+            return;
+        }
+        if (!StringUtils.isNull(str)) {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
+        } else {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+        }
+        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+    }
 }

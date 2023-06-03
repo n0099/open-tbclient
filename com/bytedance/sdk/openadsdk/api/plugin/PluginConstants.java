@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.plugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginConstants {
     public static final int ERROR_PLUGIN_DOWNLOAD = 1004;
     public static final int ERROR_PLUGIN_FETCH = 1007;

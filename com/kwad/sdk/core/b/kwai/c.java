@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -10,7 +11,7 @@ public final class c implements com.kwad.sdk.core.d<AdMatrixInfo.ActionBarInfoNe
             return;
         }
         actionBarInfoNew.maxTimeOut = jSONObject.optLong("maxTimeOut");
-        actionBarInfoNew.cardType = jSONObject.optInt("cardType");
+        actionBarInfoNew.cardType = jSONObject.optInt(DownloadCenterFunConstants.CARD_TYPE);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -24,7 +25,7 @@ public final class c implements com.kwad.sdk.core.d<AdMatrixInfo.ActionBarInfoNe
         }
         int i = actionBarInfoNew.cardType;
         if (i != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "cardType", i);
+            com.kwad.sdk.utils.r.putValue(jSONObject, DownloadCenterFunConstants.CARD_TYPE, i);
         }
         return jSONObject;
     }

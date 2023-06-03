@@ -25,7 +25,7 @@ public class s {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m662a() {
+    public static Context m717a() {
         return a;
     }
 
@@ -43,13 +43,13 @@ public class s {
         try {
             return Class.forName(str);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m120a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+            com.xiaomi.channel.commonutils.logger.b.m175a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
             throw new ClassNotFoundException("loadClass fail ", th);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m663a() {
+    public static synchronized String m718a() {
         synchronized (s.class) {
             if (f831a != null) {
                 return f831a;
@@ -78,12 +78,12 @@ public class s {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m664a() {
+    public static boolean m719a() {
         return TextUtils.equals((String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m665a(Context context) {
+    public static boolean m720a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class s {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m666b() {
+    public static boolean m721b() {
         try {
             return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(Boolean.FALSE);
         } catch (ClassNotFoundException unused) {

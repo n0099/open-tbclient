@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,298 +8,108 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes6.dex */
-public abstract class n6b implements Framedata {
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+/* loaded from: classes7.dex */
+public class n6b extends f6b {
     public static /* synthetic */ Interceptable $ic;
+    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Framedata.Opcode b;
-    public ByteBuffer c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
+    public int d;
+    public Thread e;
 
-    public abstract void h() throws InvalidDataException;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-620214190, "Lcom/baidu/tieba/n6b$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-620214190, "Lcom/baidu/tieba/n6b$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955823, "Lcom/baidu/tieba/n6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[Framedata.Opcode.values().length];
-            a = iArr;
-            try {
-                iArr[Framedata.Opcode.PING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Framedata.Opcode.PONG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Framedata.Opcode.TEXT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Framedata.Opcode.BINARY.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[Framedata.Opcode.CLOSING.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947955823, "Lcom/baidu/tieba/n6b;");
+                return;
             }
         }
+        f = new LinkedHashMap<>();
     }
 
-    public n6b(Framedata.Opcode opcode) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n6b(Thread thread, int i, long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = opcode;
-        this.c = d7b.a();
-        this.a = true;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
+        this.d = 100;
+        this.e = thread;
+        this.d = i;
     }
 
-    public static n6b g(Framedata.Opcode opcode) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public n6b(Thread thread, long j) {
+        this(thread, 100, j);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, opcode)) == null) {
-            if (opcode != null) {
-                switch (a.a[opcode.ordinal()]) {
-                    case 1:
-                        return new o6b();
-                    case 2:
-                        return new p6b();
-                    case 3:
-                        return new q6b();
-                    case 4:
-                        return new i6b();
-                    case 5:
-                        return new j6b();
-                    case 6:
-                        return new k6b();
-                    default:
-                        throw new IllegalArgumentException("Supplied opcode is invalid");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thread, Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.f6b
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
+                sb.append(stackTraceElement.toString());
+                sb.append("\r\n");
+            }
+            synchronized (f) {
+                if (f.size() == this.d && this.d > 0) {
+                    f.remove(f.keySet().iterator().next());
+                }
+                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            }
+        }
+    }
+
+    public ArrayList<String> e(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            synchronized (f) {
+                for (Long l : f.keySet()) {
+                    if (j < l.longValue() && l.longValue() < j2) {
+                        arrayList.add(o6b.x.format(l) + "\r\n\r\n" + f.get(l));
+                    }
                 }
             }
-            throw new IllegalArgumentException("Supplied opcode cannot be null");
+            return arrayList;
         }
-        return (n6b) invokeL.objValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (Framedata.Opcode) invokeV.objValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-            n6b n6bVar = (n6b) obj;
-            if (this.a != n6bVar.a || this.d != n6bVar.d || this.e != n6bVar.e || this.f != n6bVar.f || this.g != n6bVar.g || this.b != n6bVar.b) {
-                return false;
-            }
-            ByteBuffer byteBuffer = this.c;
-            ByteBuffer byteBuffer2 = n6bVar.c;
-            if (byteBuffer != null) {
-                return byteBuffer.equals(byteBuffer2);
-            }
-            if (byteBuffer2 == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = (((this.a ? 1 : 0) * 31) + this.b.hashCode()) * 31;
-            ByteBuffer byteBuffer = this.c;
-            if (byteBuffer != null) {
-                i = byteBuffer.hashCode();
-            } else {
-                i = 0;
-            }
-            return ((((((((hashCode + i) * 31) + (this.d ? 1 : 0)) * 31) + (this.e ? 1 : 0)) * 31) + (this.f ? 1 : 0)) * 31) + (this.g ? 1 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void j(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
-            this.c = byteBuffer;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Framedata{ optcode:");
-            sb.append(d());
-            sb.append(", fin:");
-            sb.append(f());
-            sb.append(", rsv1:");
-            sb.append(b());
-            sb.append(", rsv2:");
-            sb.append(c());
-            sb.append(", rsv3:");
-            sb.append(e());
-            sb.append(", payloadlength:[pos:");
-            sb.append(this.c.position());
-            sb.append(", len:");
-            sb.append(this.c.remaining());
-            sb.append("], payload:");
-            if (this.c.remaining() > 1000) {
-                str = "(too big to display)";
-            } else {
-                str = new String(this.c.array());
-            }
-            sb.append(str);
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeCommon.objValue;
     }
 }

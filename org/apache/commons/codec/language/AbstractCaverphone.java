@@ -2,7 +2,7 @@ package org.apache.commons.codec.language;
 
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractCaverphone implements StringEncoder {
     @Override // org.apache.commons.codec.Encoder
     public Object encode(Object obj) throws EncoderException {

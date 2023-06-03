@@ -1,55 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
+import com.baidu.tieba.kt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jt {
+public abstract class jt<D extends BuoyViewData, VM extends kt<D>> implements lt, pt<D, VM> {
     public static /* synthetic */ Interceptable $ic;
-    public static final DisplayMetrics a;
-    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308643, "Lcom/baidu/tieba/jt;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448308643, "Lcom/baidu/tieba/jt;");
-                return;
-            }
-        }
-        DisplayMetrics displayMetrics = jr.c.h().getAppContext().getResources().getDisplayMetrics();
-        a = displayMetrics;
-        b = displayMetrics.density;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public jt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = jr.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = jr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (i == 0) {
-                return (int) (b * 25.0f);
-            }
-            return i;
         }
-        return invokeV.intValue;
     }
 }

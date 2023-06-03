@@ -2,7 +2,7 @@ package com.facebook.common.internal;
 
 import com.facebook.infer.annotation.Nullsafe;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AndroidPredicates {
     public static <T> Predicate<T> False() {
         return new Predicate<T>() { // from class: com.facebook.common.internal.AndroidPredicates.2

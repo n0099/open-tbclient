@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,49 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uk2 extends tk2 {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class uk2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.sk2
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.sk2
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.sk2
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sk2
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.sk2
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +32,8 @@ public class uk2 extends tk2 {
                 return;
             }
         }
-        d = qp1.a;
+        fv2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
     }
 
     public uk2() {
@@ -85,47 +50,41 @@ public class uk2 extends tk2 {
         }
     }
 
-    @Override // com.baidu.tieba.sk2
-    @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
+    public static void c(el2 el2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = "0";
-            extensionCore.extensionCorePath = "";
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
+        if ((interceptable != null && interceptable.invokeL(65538, null, el2Var) != null) || !a || el2Var == null) {
+            return;
         }
-        return (ExtensionCore) invokeV.objValue;
+        if (ProcessUtils.isMainProcess()) {
+            vk2.a(el2Var).b();
+            dl2.b().a(el2Var.a);
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", el2Var.a);
+        bundle.putStringArrayList("recovery_app_list", el2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), uk2.class, bundle);
     }
 
-    @Override // com.baidu.tieba.tk2, com.baidu.tieba.sk2
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sk2
-    public <T extends mk2> Exception g(@NonNull T t) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
                 return null;
             }
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            el2 el2Var = new el2();
+            el2Var.a = i;
+            if (stringArrayList != null) {
+                el2Var.b = stringArrayList;
+            }
+            vk2.a(el2Var).b();
+            dl2.b().a(el2Var.a);
             return null;
         }
-        return (Exception) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

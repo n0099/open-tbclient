@@ -1,106 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.fk5;
-import com.baidu.tieba.newdetail.HotTopicDetailModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class gz5 implements kk1<fk5> {
+/* loaded from: classes6.dex */
+public class gz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements fk5, HotTopicDetailModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailModel b;
-        @Nullable
-        public fk5.a c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.fk5
-        public void c(@Nullable fk5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.c = aVar;
-            }
-        }
-
-        @Override // com.baidu.tieba.fk5
-        public fk5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
-                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
-                this.b = hotTopicDetailModel;
-                hotTopicDetailModel.j0(j, str);
-                this.b.i0(this);
-                return this;
-            }
-            return (fk5) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.fk5
-        public void b(int i, l05 l05Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), l05Var, Long.valueOf(j)}) == null) {
-                this.b.W(i, l05Var, j);
-            }
-        }
-
-        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void p(int i, @Nullable sz7 sz7Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, sz7Var) == null) && this.c != null) {
-                if (sz7Var != null) {
-                    ArrayList arrayList = new ArrayList();
-                    for (dk6 dk6Var : sz7Var.a) {
-                        if (dk6Var instanceof dk6) {
-                            ThreadData threadData = dk6Var.getThreadData();
-                            if (!TextUtils.equals(threadData.getTid(), "0")) {
-                                arrayList.add(threadData);
-                            }
-                        }
-                    }
-                    this.c.b(arrayList, sz7Var.e());
-                }
-                this.c.a();
-            }
-        }
-    }
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
 
     public gz5() {
         Interceptable interceptable = $ic;
@@ -112,19 +27,117 @@ public class gz5 implements kk1<fk5> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 7000;
+        this.b = 19;
+        this.c = true;
+        this.d = true;
+        this.e = true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kk1
-    /* renamed from: a */
-    public fk5 getService() {
+    public static gz5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new gz5();
+        }
+        return (gz5) invokeV.objValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+            return this.a;
         }
-        return (fk5) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public gz5 g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a = i;
+            return this;
+        }
+        return (gz5) invokeI.objValue;
+    }
+
+    public gz5 h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            this.c = z;
+            return this;
+        }
+        return (gz5) invokeZ.objValue;
+    }
+
+    public gz5 i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            this.d = z;
+            return this;
+        }
+        return (gz5) invokeZ.objValue;
+    }
+
+    public gz5 j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            this.e = z;
+            return this;
+        }
+        return (gz5) invokeZ.objValue;
+    }
+
+    public gz5 k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            this.b = i;
+            return this;
+        }
+        return (gz5) invokeI.objValue;
     }
 }

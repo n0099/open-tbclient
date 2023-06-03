@@ -1,47 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import com.baidu.tieba.o60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class n60 implements Runnable {
+public class n60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public abstract void a();
-
-    public n60(String str, Object... objArr) {
+    public static void a(Context context, o60.a aVar) {
+        Bundle call;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr2 = {str, objArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
                 return;
             }
-        }
-        this.a = Util.format(str, objArr);
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String name = Thread.currentThread().getName();
-            Thread.currentThread().setName(this.a);
             try {
-                a();
-            } finally {
-                Thread.currentThread().setName(name);
+                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
+                if (Build.VERSION.SDK_INT > 17) {
+                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
+                    if (acquireContentProviderClient != null) {
+                        call = acquireContentProviderClient.call("getOAID", null, null);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            acquireContentProviderClient.close();
+                        } else {
+                            acquireContentProviderClient.release();
+                        }
+                    } else {
+                        call = null;
+                    }
+                } else {
+                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                }
+                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
+            } catch (Throwable unused) {
+                aVar.a(false, null);
             }
         }
     }

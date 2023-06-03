@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.GameData;
-/* loaded from: classes5.dex */
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.widget.falling.FallingEventType;
+/* loaded from: classes6.dex */
 public interface hz5 {
-    GameData j1();
+    void a(FallingEventType fallingEventType, @Nullable Object obj);
 }

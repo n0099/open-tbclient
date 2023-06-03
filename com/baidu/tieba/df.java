@@ -1,227 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tieba.gf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public class df {
+public abstract class df {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String d = "_crashtime";
-    public static String e = "_crashtype";
+    public static final int DEF_CRASHTIME_LIMIT = 10;
+    public static final int OFF_TYPE = 0;
+    public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public cf c;
+    public int mDefaultType;
+    public String[] mKey;
+    public int mMaxCrashTimes;
+    public String mName;
+    public int mOffType;
+    public gf.a mSwitchListener;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302443, "Lcom/baidu/tieba/df;")) == null) {
-            return;
+    public abstract void changeSettingByType(int i);
+
+    /* renamed from: getCrashKeys */
+    public abstract String[] mo129getCrashKeys();
+
+    public abstract int getDefaultType();
+
+    public abstract int getMaxCrashTimes();
+
+    public abstract String getName();
+
+    public abstract int getOffType();
+
+    public String[] getSwitchLibs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return (String[]) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements gf.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ df a;
+
+        public a(df dfVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dfVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dfVar;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448302443, "Lcom/baidu/tieba/df;");
+
+        @Override // com.baidu.tieba.gf.a
+        public void a(String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.a.changeSettingByType(i);
+            }
         }
     }
 
-    public df(cf cfVar) {
+    public df() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cfVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        if (cfVar != null) {
-            this.c = cfVar;
-            if (cfVar.d() > 0 && this.c.c() != null) {
-                int e2 = e();
-                this.a = e2;
-                if (e2 == -1) {
-                    g();
-                }
-            }
-            if (!cfVar.h()) {
-                this.b = f();
-            }
-            this.c.a(this.b, true);
-            return;
-        }
-        throw new InvalidParameterException("SwitchHolder data is null");
+        this.mDefaultType = 0;
+        this.mOffType = 1;
+        this.mMaxCrashTimes = 10;
+        this.mSwitchListener = new a(this);
+        initData();
+        addToManager();
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        String[] g;
-        String[] c;
+    public void addToManager() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && this.c.d() > 0) {
-                if (this.c.c() != null) {
-                    for (String str2 : this.c.c()) {
-                        if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                            int i = this.a + 1;
-                            this.a = i;
-                            j(i);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                cf cfVar = this.c;
-                                cfVar.a(cfVar.f(), false);
-                            }
-                            return true;
-                        }
-                    }
-                }
-                if (this.c.g() != null) {
-                    for (String str3 : this.c.g()) {
-                        if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                            int i2 = this.a + 1;
-                            this.a = i2;
-                            j(i2);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                cf cfVar2 = this.c;
-                                cfVar2.a(cfVar2.f(), false);
-                            }
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public cf b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (cf) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.b();
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gf gfVar = new gf(this.mName, this.mDefaultType, this.mSwitchListener);
+            gfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            gfVar.j(getSwitchLibs());
+            SwitchManager.getInstance().addSwitchData(gfVar);
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + d, -1);
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.c.e() + e, this.c.b());
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public boolean i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.c.d() >= 0 && this.a >= this.c.d() + 2) {
-                i = this.c.f();
-            }
-            if (i == this.b) {
-                return false;
-            }
-            this.b = i;
-            this.c.a(i, false);
-            k(i);
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + d, i);
-            edit.commit();
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.c.e() + e, i);
-            edit.commit();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mName = getName();
+            this.mKey = mo129getCrashKeys();
+            this.mDefaultType = getDefaultType();
+            this.mOffType = getOffType();
+            this.mMaxCrashTimes = getMaxCrashTimes();
         }
     }
 }

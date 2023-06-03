@@ -4,8 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.nt5;
+import com.baidu.tieba.e35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +46,6 @@ public class FeedTabCardStatisticHelper {
 
     public static StatisticItem clickThreadBigPictureStatisticLog(ThreadData threadData, String str) {
         InterceptResult invokeLL;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, str)) == null) {
             if (threadData == null) {
@@ -63,12 +61,7 @@ public class FeedTabCardStatisticHelper {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
             }
             baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, threadData.isShowFullThread() ? 1 : 0);
-            if (nt5.c()) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_TO, i);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_TO, 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
@@ -203,15 +196,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(h05 h05Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(e35 e35Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, h05Var, str)) == null) {
-            if (h05Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, e35Var, str)) == null) {
+            if (e35Var == null) {
                 return null;
             }
-            int i = h05Var.o;
+            int i = e35Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -220,8 +213,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", h05Var.f());
-            statisticItem.param("fid", h05Var.c());
+            statisticItem.param("tid", e35Var.f());
+            statisticItem.param("fid", e35Var.c());
             statisticItem.param("resource_id", str);
             return statisticItem;
         }

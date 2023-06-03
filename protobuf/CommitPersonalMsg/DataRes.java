@@ -3,7 +3,7 @@ package protobuf.CommitPersonalMsg;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.BlockInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 6)
     public final BlockInfo blockInfo;
@@ -23,7 +23,7 @@ public final class DataRes extends Message {
     public static final Long DEFAULT_TOUID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public BlockInfo blockInfo;
         public Long groupId;

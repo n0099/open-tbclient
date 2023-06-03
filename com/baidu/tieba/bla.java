@@ -1,27 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import java.util.List;
+import tbclient.GetRecommendTopic.TopicList;
 /* loaded from: classes5.dex */
-public interface bla extends Runnable {
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(DownloadException downloadException);
-
-        void onDownloadCanceled();
-
-        void onDownloadCompleted(String str);
-
-        void onDownloadPaused();
-
-        void onDownloadProgress(long j, long j2);
-    }
-
-    void cancel();
-
-    boolean isComplete();
-
-    boolean isDownloading();
-
-    void pause();
+public interface bla {
+    List<TopicList> getTopicList();
 }

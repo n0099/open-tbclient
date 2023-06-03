@@ -1,43 +1,71 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
-import com.baidu.tieba.z0a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class m1a implements u0a, z0a.c, vm6 {
+public class m1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public m0a b;
-    public y0a c;
-    public SelectMusicModel d;
-    public String e;
+    public MainTabActivity a;
+    public PollingModel b;
+    public List<Map<String, Long>> c;
+    public final Runnable d;
 
-    @Override // com.baidu.tieba.u0a
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m1a a;
+
+        public a(m1a m1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m1aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.D0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), this.a.c());
+                wg.a().postDelayed(this.a.d, x85.a().c());
+            }
         }
     }
 
-    public m1a(m0a m0aVar) {
+    public m1a(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m0aVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,139 +75,49 @@ public class m1a implements u0a, z0a.c, vm6 {
                 return;
             }
         }
-        this.b = m0aVar;
-        this.a = m0aVar.a;
+        this.c = null;
+        this.d = new a(this);
+        this.a = mainTabActivity;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    public final void a(String str) {
-        m0a m0aVar;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (m0aVar = this.b) == null) {
-            return;
-        }
-        if (m0aVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        m0a m0aVar2 = this.b;
-        if (m0aVar2 != null) {
-            m0aVar2.f(videoInfo);
-        }
-    }
-
-    public void b() {
-        m0a m0aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (m0aVar = this.b) == null) {
-            return;
-        }
-        if (m0aVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            m0a m0aVar2 = this.b;
-            if (!m0aVar2.e) {
-                o1(m0aVar2.b, -4399, "");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
             }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        m0a m0aVar3 = this.b;
-        selectMusicModel.X(m0aVar3.b, m0aVar3.d, n0a.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !m0aVar3.e);
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m0a m0aVar = this.b;
-            if (m0aVar != null) {
-                m0aVar.i(true);
+            this.c.clear();
+            List<GroupChatRoomPojo> h = c88.f().h(TbadkCoreApplication.getCurrentAccount());
+            if (ListUtils.isEmpty(h)) {
+                return "";
             }
-            y0a y0aVar = this.c;
-            if (y0aVar != null && y0aVar.f()) {
-                this.c.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u0a
-    public void o1(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
-            m0a m0aVar = this.b;
-            if (m0aVar != null && m0aVar.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3f);
-                m0a m0aVar2 = this.b;
-                if (m0aVar2 != null) {
-                    m0aVar2.g(i, str2);
+            for (GroupChatRoomPojo groupChatRoomPojo : h) {
+                if (groupChatRoomPojo.V() == 0) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                    hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                    this.c.add(hashMap);
                 }
-            } else {
-                m0a m0aVar3 = this.b;
-                if (m0aVar3 != null) {
-                    m0aVar3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        y0a y0aVar = new y0a(this.a.getActivity());
-                        this.c = y0aVar;
-                        y0aVar.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                m0a m0aVar4 = this.b;
-                if (m0aVar4 != null) {
-                    m0aVar4.e();
-                }
-                a(str);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.z0a.c
-    public void onGenFilterVideoFail(int i, String str) {
-        m0a m0aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (m0aVar = this.b) != null) {
-            m0aVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.z0a.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        m0a m0aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (m0aVar = this.b) != null) {
-            m0aVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.z0a.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            m0a m0aVar = this.b;
-            if (m0aVar != null) {
-                m0aVar.e();
+            if (ListUtils.isEmpty(this.c)) {
+                return "";
             }
-            a(str);
+            String json = DataExt.toJson(this.c);
+            if (TextUtils.isEmpty(json)) {
+                return "";
+            }
+            return json;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            wg.a().removeCallbacks(this.d);
+            this.a = null;
         }
     }
 }

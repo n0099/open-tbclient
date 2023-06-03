@@ -6,37 +6,38 @@ import android.util.Pair;
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am3;
-import com.baidu.tieba.an3;
-import com.baidu.tieba.eg2;
-import com.baidu.tieba.g12;
-import com.baidu.tieba.g62;
-import com.baidu.tieba.g93;
-import com.baidu.tieba.hx1;
-import com.baidu.tieba.ig3;
-import com.baidu.tieba.jx1;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.oh3;
-import com.baidu.tieba.tx1;
-import com.baidu.tieba.uh3;
-import com.baidu.tieba.zf3;
+import com.baidu.tieba.aj3;
+import com.baidu.tieba.b02;
+import com.baidu.tieba.fv2;
+import com.baidu.tieba.gk3;
+import com.baidu.tieba.l02;
+import com.baidu.tieba.mk3;
+import com.baidu.tieba.ri3;
+import com.baidu.tieba.so3;
+import com.baidu.tieba.sp3;
+import com.baidu.tieba.wi2;
+import com.baidu.tieba.y32;
+import com.baidu.tieba.y82;
+import com.baidu.tieba.yb3;
+import com.baidu.tieba.zz1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
+public class ShowFavoriteGuideApi extends b02 implements l02.j {
     public String f;
     public long g;
     public long h;
     public long i;
 
-    @Override // com.baidu.tieba.jx1
+    @Override // com.baidu.tieba.b02
     public String h() {
         return "Favorite";
     }
 
-    @Override // com.baidu.tieba.jx1
+    @Override // com.baidu.tieba.b02
     public String j() {
         return "ShowFavoriteGuideApi";
     }
@@ -45,57 +46,57 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
     public class a implements Runnable {
         public final /* synthetic */ String a;
         public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ g93 c;
+        public final /* synthetic */ yb3 c;
         public final /* synthetic */ Activity d;
 
         /* renamed from: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0193a implements Runnable {
+        public class RunnableC0207a implements Runnable {
             public final /* synthetic */ GuideType a;
             public final /* synthetic */ String b;
 
-            public RunnableC0193a(GuideType guideType, String str) {
+            public RunnableC0207a(GuideType guideType, String str) {
                 this.a = guideType;
                 this.b = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                tx1 l = tx1.l();
+                l02 l = l02.l();
                 a aVar = a.this;
                 ShowFavoriteGuideApi showFavoriteGuideApi = ShowFavoriteGuideApi.this;
                 Activity activity = aVar.d;
-                g93 g93Var = aVar.c;
-                l.p(showFavoriteGuideApi, activity, g93Var, this.a, this.b, g93Var.W().Q(), ShowFavoriteGuideApi.this.g);
+                yb3 yb3Var = aVar.c;
+                l.p(showFavoriteGuideApi, activity, yb3Var, this.a, this.b, yb3Var.W().Q(), ShowFavoriteGuideApi.this.g);
             }
         }
 
-        public a(String str, JSONObject jSONObject, g93 g93Var, Activity activity) {
+        public a(String str, JSONObject jSONObject, yb3 yb3Var, Activity activity) {
             this.a = str;
             this.b = jSONObject;
-            this.c = g93Var;
+            this.c = yb3Var;
             this.d = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ns2.y0().d()) {
+            if (fv2.y0().d()) {
                 return;
             }
-            oh3 a = uh3.a();
+            gk3 a = mk3.a();
             GuideType parse = GuideType.parse(this.a);
             String string = ShowFavoriteGuideApi.this.getContext().getString(parse.defaultText);
             ShowFavoriteGuideApi.this.f = this.b.optString("cb");
             String str = this.c.b;
             String str2 = "favorite_guide_count_" + str;
-            if (eg2.n(str)) {
-                g62.i("ShowFavoriteGuideApi", "favorite already");
-                uh3.a().putString(str2, "-1");
+            if (wi2.n(str)) {
+                y82.i("ShowFavoriteGuideApi", "favorite already");
+                mk3.a().putString(str2, "-1");
                 return;
             }
-            String string2 = uh3.a().getString(str2, "");
+            String string2 = mk3.a().getString(str2, "");
             if (TextUtils.equals("-1", string2)) {
-                g62.i("ShowFavoriteGuideApi", "favorite at one time");
+                y82.i("ShowFavoriteGuideApi", "favorite at one time");
                 return;
             }
             String[] split = string2.split("#");
@@ -110,13 +111,13 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
             ShowFavoriteGuideApi.this.g = a.getLong("swan_favorite_guide_duration", 3L);
             ShowFavoriteGuideApi.this.h = a.getLong("swan_favorite_guide_intervalDays", 3L);
             ShowFavoriteGuideApi.this.i = a.getLong("swan_favorite_guide_maxTimes", 3L);
-            g62.i("ShowFavoriteGuideApi", "duration=" + ShowFavoriteGuideApi.this.g + ", mIntervalDays=" + ShowFavoriteGuideApi.this.h + ", mMaxTimes=" + ShowFavoriteGuideApi.this.i + " ,storageValue=" + string2);
+            y82.i("ShowFavoriteGuideApi", "duration=" + ShowFavoriteGuideApi.this.g + ", mIntervalDays=" + ShowFavoriteGuideApi.this.h + ", mMaxTimes=" + ShowFavoriteGuideApi.this.i + " ,storageValue=" + string2);
             if (i2 < ShowFavoriteGuideApi.this.i && currentTimeMillis - j > ShowFavoriteGuideApi.this.h * 86400000) {
-                uh3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                an3.e0(new RunnableC0193a(parse, string));
+                mk3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                sp3.e0(new RunnableC0207a(parse, string));
                 return;
             }
-            g62.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
+            y82.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
         }
     }
 
@@ -138,11 +139,11 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
         }
     }
 
-    public ShowFavoriteGuideApi(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    public ShowFavoriteGuideApi(@NonNull zz1 zz1Var) {
+        super(zz1Var);
     }
 
-    @Override // com.baidu.tieba.tx1.j
+    @Override // com.baidu.tieba.l02.j
     @AnyThread
     public void e(boolean z) {
         int i;
@@ -158,7 +159,7 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            d(this.f, new g12(0, "success", jSONObject));
+            d(this.f, new y32(0, "success", jSONObject));
         }
     }
 
@@ -196,10 +197,10 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
 
     public static void F(GuideType guideType, String str, String str2) {
         String str3;
-        String g0 = g93.g0();
-        ig3 ig3Var = new ig3();
+        String g0 = yb3.g0();
+        aj3 aj3Var = new aj3();
         if (guideType == null) {
-            str3 = "window";
+            str3 = ApkCheckUBCManagerKt.VALUE_WINDOW;
         } else {
             int i = b.a[guideType.ordinal()];
             if (i != 1) {
@@ -212,39 +213,39 @@ public class ShowFavoriteGuideApi extends jx1 implements tx1.j {
                 str3 = "TIPS";
             }
         }
-        ig3Var.b = str3;
-        ig3Var.c = str;
-        ig3Var.e = str2;
-        ig3Var.a("appkey", g0);
-        zf3.x("923", ig3Var);
+        aj3Var.b = str3;
+        aj3Var.c = str;
+        aj3Var.e = str2;
+        aj3Var.a("appkey", g0);
+        ri3.x("923", aj3Var);
     }
 
-    public g12 G(String str) {
+    public y32 G(String str) {
         q("#showFavoriteGuide", false);
-        g93 b0 = g93.b0();
+        yb3 b0 = yb3.b0();
         if (b0 == null) {
-            return new g12(1001, "SwanApp is null");
+            return new y32(1001, "SwanApp is null");
         }
         SwanAppActivity w = b0.w();
         if (w == null) {
-            g62.c("ShowFavoriteGuideApi", "null activity");
-            return new g12(1001, "null activity");
-        } else if (!an3.G()) {
-            g62.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
-            return new g12(1001, "not support outside baiduboxapp");
+            y82.c("ShowFavoriteGuideApi", "null activity");
+            return new y32(1001, "null activity");
+        } else if (!sp3.G()) {
+            y82.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
+            return new y32(1001, "not support outside baiduboxapp");
         } else {
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
+            Pair<y32, JSONObject> s = s(str);
+            y32 y32Var = (y32) s.first;
+            if (!y32Var.isSuccess()) {
+                return y32Var;
             }
             JSONObject jSONObject = (JSONObject) s.second;
             String optString = jSONObject.optString("type");
-            if (tx1.l().n(optString)) {
-                return new g12(202);
+            if (l02.l().n(optString)) {
+                return new y32(202);
             }
-            am3.g().execute(new a(optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
-            return g12.f();
+            so3.g().execute(new a(optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
+            return y32.f();
         }
     }
 }

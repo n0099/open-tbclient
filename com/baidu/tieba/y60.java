@@ -1,322 +1,439 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.helios.trusts.zone.TrustSubject;
+import com.baidu.tieba.a60;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.util.List;
-import java.util.Map;
+import java.security.cert.X509Certificate;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y60 implements t60 {
+public class y60 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpURLConnection a;
-    public int b;
+    public String a;
+    public Context b;
+    public a60.a c;
+    public ZipFile d;
+    public PackageManager e;
 
     /* loaded from: classes8.dex */
-    public class a extends InputStream {
+    public class a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public InputStream a;
-        public final /* synthetic */ y60 b;
 
-        public a(y60 y60Var, InputStream inputStream) {
+        public a(y60 y60Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y60Var, inputStream};
+                Object[] objArr = {y60Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y60Var;
-            this.a = inputStream;
-        }
-
-        public final IOException a(IOException iOException) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
-                this.b.disconnect();
-                if (TextUtils.isEmpty(iOException.getMessage())) {
-                    return new IOException(iOException.getClass().getName(), iOException);
-                }
-                return iOException;
-            }
-            return (IOException) invokeL.objValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void mark(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                synchronized (this) {
-                    this.a.mark(i);
                 }
             }
         }
 
-        @Override // java.io.InputStream
-        public int read(byte[] bArr) throws IOException {
-            InterceptResult invokeL;
+        @Override // java.io.FilenameFilter
+        public boolean accept(File file, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-                try {
-                    return read(bArr, 0, bArr.length);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public long skip(long j) throws IOException {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-                try {
-                    return this.a.skip(j);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeJ.longValue;
-        }
-
-        @Override // java.io.InputStream
-        public int available() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                try {
-                    return this.a.available();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    if (read() >= 0) {
-                        this.a.close();
-                        this.b.disconnect();
-                        return;
-                    }
-                    this.a.close();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public boolean markSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.markSupported();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // java.io.InputStream
-        public int read() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                try {
-                    return this.a.read();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void reset() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                synchronized (this) {
-                    try {
-                        this.a.reset();
-                    } catch (IOException e) {
-                        throw a(e);
-                    }
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) throws IOException {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
-                try {
-                    return this.a.read(bArr, i, i2);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeLII.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.endsWith(".cfgtmp") : invokeLL.booleanValue;
         }
     }
 
-    public y60(HttpURLConnection httpURLConnection) {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b a(y60 y60Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, y60Var)) == null) {
+                try {
+                    String b = y60Var.b("info");
+                    if (TextUtils.isEmpty(b)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(b);
+                    b bVar = new b();
+                    bVar.a = jSONObject.getLong("version");
+                    return bVar;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281974, "Lcom/baidu/tieba/y60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281974, "Lcom/baidu/tieba/y60;");
+                return;
+            }
+        }
+        f = new String[]{"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    }
+
+    public y60() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpURLConnection};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 4;
-        this.a = httpURLConnection;
-    }
-
-    @Override // com.baidu.tieba.t60
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (httpURLConnection = this.a) != null) {
-            httpURLConnection.disconnect();
-        }
-    }
-
-    @Override // com.baidu.tieba.t60
-    public void disconnect() {
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (httpURLConnection = this.a) != null) {
-            try {
-                httpURLConnection.disconnect();
-            } catch (NullPointerException e) {
-                e.printStackTrace();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.t60
-    public int getCode() throws IOException {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return this.a.getResponseCode();
-            } catch (IOException e) {
-                disconnect();
-                throw e;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t60
-    public Map<String, List<String>> getHeaders() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getHeaderFields();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t60
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                InputStream inputStream = this.a.getInputStream();
-                if (inputStream == null) {
-                    disconnect();
-                    return inputStream;
+                Bundle bundle = this.e.getPackageInfo(this.a, 128).applicationInfo.metaData;
+                if (bundle != null) {
+                    String string = bundle.getString("com.baidu.helios.tc.qver");
+                    if (TextUtils.isEmpty(string) || !string.startsWith("v")) {
+                        return -1L;
+                    }
+                    return Long.valueOf(string.substring(1)).longValue();
                 }
-                return new BufferedInputStream(new a(this, inputStream));
-            } catch (IOException e) {
-                disconnect();
-                throw e;
+                return -1L;
+            } catch (Throwable unused) {
+                return -1L;
             }
         }
-        return (InputStream) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.t60
-    public String getMessage() throws IOException {
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            InputStream inputStream = null;
+            try {
+                try {
+                    inputStream = e(str);
+                    return w50.b(inputStream, "UTF-8");
+                } catch (IOException e) {
+                    throw new TrustSubject.ConfigNotFoundException(e);
+                }
+            } finally {
+                v50.b(inputStream);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void c(String str, Context context, a60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, aVar) == null) {
+            this.a = str;
+            this.b = context;
+            this.c = aVar;
+            this.e = context.getPackageManager();
+        }
+    }
+
+    public int d() {
+        File file;
+        FileOutputStream fileOutputStream;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return this.a.getResponseMessage();
-            } catch (IOException e) {
-                disconnect();
-                throw e;
-            }
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+            return invokeV.intValue;
         }
-        return (String) invokeV.objValue;
+        try {
+            AssetManager assets = this.b.createPackageContext(this.a, 0).getAssets();
+            this.c.a();
+            File k = k();
+            InputStream inputStream = null;
+            try {
+                k.delete();
+                file = File.createTempFile("cfg", ".cfgtmp", k.getParentFile());
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    try {
+                        try {
+                            inputStream = assets.open("com.baidu.helios/c.dat");
+                            w50.a(inputStream, fileOutputStream, 16384);
+                            try {
+                                X509Certificate[][] s = com.baidu.helios.trusts.zone.verifier.b.s(file);
+                                if (s.length == 0) {
+                                    v50.b(inputStream);
+                                    v50.b(fileOutputStream);
+                                    if (file != null) {
+                                        try {
+                                            file.delete();
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    return 3;
+                                }
+                                HashSet hashSet = new HashSet();
+                                for (X509Certificate[] x509CertificateArr : s) {
+                                    if (x509CertificateArr != null) {
+                                        for (X509Certificate x509Certificate : x509CertificateArr) {
+                                            if (x509Certificate != null) {
+                                                hashSet.add(y50.c(x509Certificate.getSignature()));
+                                            }
+                                        }
+                                    }
+                                }
+                                HashSet hashSet2 = new HashSet();
+                                Collections.addAll(hashSet2, f);
+                                if (!hashSet2.equals(hashSet)) {
+                                    v50.b(inputStream);
+                                    v50.b(fileOutputStream);
+                                    if (file != null) {
+                                        try {
+                                            file.delete();
+                                        } catch (Exception unused2) {
+                                        }
+                                    }
+                                    return 3;
+                                }
+                                file.renameTo(k);
+                                v50.b(inputStream);
+                                v50.b(fileOutputStream);
+                                if (file != null) {
+                                    try {
+                                        file.delete();
+                                    } catch (Exception unused3) {
+                                    }
+                                }
+                                return 0;
+                            } catch (Exception unused4) {
+                                v50.b(inputStream);
+                                v50.b(fileOutputStream);
+                                if (file != null) {
+                                    try {
+                                        file.delete();
+                                    } catch (Exception unused5) {
+                                    }
+                                }
+                                return 3;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            v50.b(inputStream);
+                            v50.b(fileOutputStream);
+                            if (file != null) {
+                                try {
+                                    file.delete();
+                                } catch (Exception unused6) {
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (FileNotFoundException unused7) {
+                        v50.b(inputStream);
+                        v50.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused8) {
+                            }
+                        }
+                        return 5;
+                    } catch (IOException unused9) {
+                        v50.b(inputStream);
+                        v50.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused10) {
+                            }
+                        }
+                        return 2;
+                    } catch (Exception unused11) {
+                        v50.b(inputStream);
+                        v50.b(fileOutputStream);
+                        if (file != null) {
+                            try {
+                                file.delete();
+                            } catch (Exception unused12) {
+                            }
+                        }
+                        return 4;
+                    }
+                } catch (FileNotFoundException unused13) {
+                    fileOutputStream = null;
+                } catch (IOException unused14) {
+                    fileOutputStream = null;
+                } catch (Exception unused15) {
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                }
+            } catch (FileNotFoundException unused16) {
+                file = null;
+                fileOutputStream = null;
+            } catch (IOException unused17) {
+                file = null;
+                fileOutputStream = null;
+            } catch (Exception unused18) {
+                file = null;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                file = null;
+                fileOutputStream = null;
+            }
+        } catch (Exception unused19) {
+            return 1;
+        }
     }
 
-    @Override // com.baidu.tieba.t60
-    public InputStream q() throws IOException {
+    public final InputStream e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return this.d.getInputStream(new ZipEntry(str));
+            } catch (Exception e) {
+                throw new TrustSubject.ConfigNotFoundException(e);
+            }
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
-        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k().delete() : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (getCode() >= 400) {
-                inputStream = this.a.getErrorStream();
-            } else {
-                inputStream = null;
+            File[] listFiles = this.c.b().listFiles(new a(this));
+            int i = 0;
+            if (listFiles != null) {
+                int length = listFiles.length;
+                boolean z = false;
+                while (i < length) {
+                    listFiles[i].delete();
+                    i++;
+                    z = true;
+                }
+                return z;
             }
-            if (inputStream != null) {
-                return new a(this, inputStream);
-            }
-            return inputStream;
+            return false;
         }
-        return (InputStream) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t60
-    public int u() {
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.d != null) {
+                return true;
+            }
+            File k = k();
+            if (k.exists()) {
+                try {
+                    this.d = new ZipFile(k);
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
+            ZipFile zipFile = this.d;
+            if (zipFile != null) {
+                v50.d(zipFile);
+                this.d = null;
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            b a2 = b.a(this);
+            if (a2 != null) {
+                return a2.a;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c.d("c.dat") : (File) invokeV.objValue;
     }
 }

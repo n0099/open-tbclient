@@ -4,7 +4,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class dl implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFeature> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {

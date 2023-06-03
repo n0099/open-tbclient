@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.i16;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.j56;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -301,14 +301,14 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(i16.e().h(), i16.e().g());
+            setGuideContent(j56.e().h(), j56.e().g());
         }
     }
 
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.VipAdFreeGuideLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m0a.VipAdFreeGuideLayout);
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();
@@ -415,7 +415,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 }
                 blRadius.brRadius(f2).into(this);
             }
-            p45 d = p45.d(this.e);
+            m75 d = m75.d(this.e);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0311);
             if (this.g) {

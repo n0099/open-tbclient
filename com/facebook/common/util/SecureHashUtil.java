@@ -1,14 +1,13 @@
 package com.facebook.common.util;
 
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SecureHashUtil {
     public static final int BUFFER_SIZE = 4096;
     public static final byte[] HEX_CHAR_TABLE = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
@@ -29,7 +28,7 @@ public class SecureHashUtil {
 
     public static String makeSHA1Hash(String str) {
         try {
-            return makeSHA1Hash(str.getBytes(IMAudioTransRequest.CHARSET));
+            return makeSHA1Hash(str.getBytes("utf-8"));
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
@@ -82,7 +81,7 @@ public class SecureHashUtil {
 
     public static String makeMD5Hash(String str) {
         try {
-            return makeMD5Hash(str.getBytes(IMAudioTransRequest.CHARSET));
+            return makeMD5Hash(str.getBytes("utf-8"));
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

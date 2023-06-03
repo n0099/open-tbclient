@@ -164,7 +164,7 @@ public final class DownPrefUtils {
         return invokeCommon.longValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d7 -> B:51:0x00da). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d5 -> B:51:0x00d8). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
@@ -183,44 +183,44 @@ public final class DownPrefUtils {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                } catch (Exception unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    properties.load(fileInputStream);
-                    if (properties.getProperty("onSpeedOffsetMin") != null) {
-                        mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
+                    try {
+                        properties.load(fileInputStream);
+                        if (properties.getProperty("onSpeedOffsetMin") != null) {
+                            mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
+                        }
+                        if (properties.getProperty("onSpeedOffsetMax") != null) {
+                            mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
+                        }
+                        if (properties.getProperty("cdnUrlTimeout") != null) {
+                            mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
+                        }
+                        if (properties.getProperty("testSpeedDuration") != null) {
+                            mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
+                        }
+                        if (properties.getProperty("testSpeedDataSize") != null) {
+                            mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
+                        }
+                        fileInputStream.close();
+                    } catch (Exception unused) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            fileInputStream2.close();
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
-                    if (properties.getProperty("onSpeedOffsetMax") != null) {
-                        mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
-                    }
-                    if (properties.getProperty("cdnUrlTimeout") != null) {
-                        mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
-                    }
-                    if (properties.getProperty("testSpeedDuration") != null) {
-                        mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
-                    }
-                    if (properties.getProperty("testSpeedDataSize") != null) {
-                        mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
-                    }
-                    fileInputStream.close();
                 } catch (Exception unused2) {
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        fileInputStream2.close();
-                    }
                 } catch (Throwable th2) {
                     th = th2;
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    throw th;
                 }
             }
         }

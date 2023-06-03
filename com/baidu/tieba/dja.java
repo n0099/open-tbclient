@@ -1,177 +1,105 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class dja {
+public class dja extends eja {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public static File b;
-    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947707854, "Lcom/baidu/tieba/dja;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947707854, "Lcom/baidu/tieba/dja;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dja(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull lha lhaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, lhaVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (lha) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void M(@NonNull List<mha<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            if (file.exists()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(pia.i(this.a));
+            super.M(list);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            if (file.delete()) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            super.O(editorTools);
+            ei5 p = editorTools.p(15);
+            if (p instanceof wea) {
+                ((wea) p).n(false);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eja, com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void P(@NonNull NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (Build.VERSION.SDK_INT >= 23) {
-                if (xha.h().getContext().checkCallingOrSelfPermission(a[0]) != 0 || !externalStorageState.equals("mounted")) {
-                    return false;
-                }
-                return true;
-            }
-            return externalStorageState.equals("mounted");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f10df));
         }
-        return invokeV.booleanValue;
     }
 
-    public static synchronized boolean d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            synchronized (dja.class) {
-                if (!c() || !f(str2, str3)) {
-                    return false;
-                }
-                try {
-                    b = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
-                    c = randomAccessFile;
-                    randomAccessFile.seek(b.length());
-                    c.write((str + "\r\n").getBytes("UTF-8"));
-                    c.close();
-                    return true;
-                } catch (Exception e) {
-                    gja.e(e);
-                    return false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.K.q(true);
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static synchronized String e(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            synchronized (dja.class) {
-                if (c()) {
-                    if (a(str + str2)) {
-                        try {
-                            b = new File(str + str2);
-                            c = new RandomAccessFile(b, "r");
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                String readLine = c.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), IMAudioTransRequest.CHARSET));
-                                stringBuffer.append(",");
-                            }
-                            String stringBuffer2 = stringBuffer.toString();
-                            try {
-                                c.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            return stringBuffer2;
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            try {
-                                c.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    }
-                    return "";
-                }
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            hx9.m(this);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja
+    public void c0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            try {
-                b = new File(str);
-                if (!a(str)) {
-                    b.mkdirs();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                File file = new File(str + str2);
-                b = file;
-                if (file.exists()) {
-                    return true;
-                }
-                return b.createNewFile();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.c0();
+            hx9.w(this.p);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zia, com.baidu.tieba.aja, com.baidu.tieba.oha
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.j();
+            hx9.w(null);
+        }
     }
 }

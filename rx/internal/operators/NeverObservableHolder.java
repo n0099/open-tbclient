@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.o7b;
-/* loaded from: classes10.dex */
-public enum NeverObservableHolder implements i7b.a<Object> {
+import com.baidu.tieba.imb;
+import com.baidu.tieba.omb;
+/* loaded from: classes2.dex */
+public enum NeverObservableHolder implements imb.a<Object> {
     INSTANCE;
     
-    public static final i7b<Object> NEVER = i7b.a(INSTANCE);
+    public static final imb<Object> NEVER = imb.a(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
-    public void call(o7b<? super Object> o7bVar) {
+    @Override // com.baidu.tieba.imb.a, com.baidu.tieba.wmb
+    public void call(omb<? super Object> ombVar) {
     }
 
-    public static <T> i7b<T> instance() {
-        return (i7b<T>) NEVER;
+    public static <T> imb<T> instance() {
+        return (imb<T>) NEVER;
     }
 }

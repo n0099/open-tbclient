@@ -1,6 +1,5 @@
 package kotlin.text;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
@@ -11,7 +10,7 @@ public /* synthetic */ class Regex$findAll$2 extends FunctionReferenceImpl imple
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();
 
     public Regex$findAll$2() {
-        super(1, MatchResult.class, UnitedSchemeConstants.UNITED_SCHEME_NEXT, "next()Lkotlin/text/MatchResult;", 0);
+        super(1, MatchResult.class, "next", "next()Lkotlin/text/MatchResult;", 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

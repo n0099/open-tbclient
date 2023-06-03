@@ -10,11 +10,12 @@ import com.airbnb.lottie.model.content.GradientFill;
 import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import java.io.IOException;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class GradientFillParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "r", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "r", ClarityUrlList.ClarityUrl.KEY_HD);
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
 
     public static GradientFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

@@ -58,7 +58,7 @@ public class fk {
         try {
             i = Integer.parseInt(gmVar.k());
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("Blob parse chid err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m175a("Blob parse chid err " + e.getMessage());
             i = 1;
         }
         fkVar.a(i);
@@ -67,7 +67,7 @@ public class fk {
         fkVar.b(gmVar.n());
         fkVar.a("XMLMSG", (String) null);
         try {
-            fkVar.a(gmVar.mo469a().getBytes("utf8"), str);
+            fkVar.a(gmVar.mo524a().getBytes("utf8"), str);
             if (TextUtils.isEmpty(str)) {
                 fkVar.a((short) 3);
             } else {
@@ -75,7 +75,7 @@ public class fk {
                 fkVar.a("SECMSG", (String) null);
             }
         } catch (UnsupportedEncodingException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("Blob setPayload err： " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m175a("Blob setPayload err： " + e2.getMessage());
         }
         return fkVar;
     }
@@ -93,7 +93,7 @@ public class fk {
             slice.get(bArr, 0, i);
             return new fk(aVar, s, bArr);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("read Blob err :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m175a("read Blob err :" + e.getMessage());
             throw new IOException("Malformed Input");
         }
     }
@@ -116,12 +116,12 @@ public class fk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m422a() {
-        return this.f374a.m321c();
+    public String m477a() {
+        return this.f374a.m376c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo423a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo478a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             byteBuffer = ByteBuffer.allocate(c());
         }
@@ -129,14 +129,14 @@ public class fk {
         byteBuffer.putShort((short) this.f374a.a());
         byteBuffer.putInt(this.f378b.length);
         int position = byteBuffer.position();
-        this.f374a.m385a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f374a.a());
+        this.f374a.m440a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f374a.a());
         byteBuffer.position(position + this.f374a.a());
         byteBuffer.put(this.f378b);
         return byteBuffer;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m424a() {
+    public short m479a() {
         return this.f377a;
     }
 
@@ -166,7 +166,7 @@ public class fk {
             throw new IllegalArgumentException("command should not be empty");
         }
         this.f374a.c(str);
-        this.f374a.m316a();
+        this.f374a.m371a();
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -188,24 +188,24 @@ public class fk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m425a() {
+    public boolean m480a() {
         return this.f374a.j();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m426a() {
+    public byte[] m481a() {
         return fl.a(this, this.f378b);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m427a(String str) {
+    public byte[] m482a(String str) {
         if (this.f374a.e() == 1) {
             return fl.a(this, com.xiaomi.push.service.bp.a(com.xiaomi.push.service.bp.a(str, e()), this.f378b));
         }
         if (this.f374a.e() == 0) {
             return fl.a(this, this.f378b);
         }
-        com.xiaomi.channel.commonutils.logger.b.m120a("unknow cipher = " + this.f374a.e());
+        com.xiaomi.channel.commonutils.logger.b.m175a("unknow cipher = " + this.f374a.e());
         return fl.a(this, this.f378b);
     }
 
@@ -214,8 +214,8 @@ public class fk {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m428b() {
-        return this.f374a.m323d();
+    public String m483b() {
+        return this.f374a.m378d();
     }
 
     public void b(int i) {
@@ -233,8 +233,8 @@ public class fk {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m429c() {
-        return this.f374a.m327f();
+    public String m484c() {
+        return this.f374a.m382f();
     }
 
     public void c(String str) {
@@ -251,17 +251,17 @@ public class fk {
             this.f374a.a(substring);
             this.f374a.b(substring2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("Blob parse user err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m175a("Blob parse user err " + e.getMessage());
         }
     }
 
     public String e() {
-        String m325e = this.f374a.m325e();
-        if ("ID_NOT_AVAILABLE".equals(m325e)) {
+        String m380e = this.f374a.m380e();
+        if ("ID_NOT_AVAILABLE".equals(m380e)) {
             return null;
         }
         if (this.f374a.g()) {
-            return m325e;
+            return m380e;
         }
         String d = d();
         this.f374a.e(d);
@@ -273,13 +273,13 @@ public class fk {
     }
 
     public String g() {
-        if (this.f374a.m320b()) {
-            return Long.toString(this.f374a.m315a()) + "@" + this.f374a.m317a() + "/" + this.f374a.m319b();
+        if (this.f374a.m375b()) {
+            return Long.toString(this.f374a.m370a()) + "@" + this.f374a.m372a() + "/" + this.f374a.m374b();
         }
         return null;
     }
 
     public String toString() {
-        return "Blob [chid=" + a() + "; Id=" + com.xiaomi.push.service.bd.a(e()) + "; cmd=" + m422a() + "; type=" + ((int) m424a()) + "; from=" + g() + " ]";
+        return "Blob [chid=" + a() + "; Id=" + com.xiaomi.push.service.bd.a(e()) + "; cmd=" + m477a() + "; type=" + ((int) m479a()) + "; from=" + g() + " ]";
     }
 }

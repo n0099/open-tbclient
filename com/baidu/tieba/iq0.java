@@ -1,35 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.ParseError;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.max.event.PopEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iq0 extends pq0 {
+public final class iq0 implements ik0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final PopEventTypeEnum a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iq0(@NonNull hq0 hq0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(hq0Var, jSONObject);
+    public iq0(PopEventTypeEnum type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hq0Var, jSONObject};
+            Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hq0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+    }
+
+    @Override // com.baidu.tieba.ik0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String simpleName = iq0.class.getSimpleName();
+            Intrinsics.checkNotNullExpressionValue(simpleName, "PopOverViewEvent::class.java.simpleName");
+            return simpleName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final PopEventTypeEnum getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (PopEventTypeEnum) invokeV.objValue;
     }
 }

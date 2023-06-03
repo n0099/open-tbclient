@@ -4,12 +4,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +22,7 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("resultCode", "103000");
-                jSONObject.put("desc", "true");
+                jSONObject.put("desc", YYOption.IsLive.VALUE_TRUE);
                 jSONObject.put("securityphone", str);
             } catch (JSONException e) {
                 e.printStackTrace();

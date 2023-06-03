@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.view.itemcard.download;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -114,7 +115,7 @@ public class ItemFetchUrlHttpResponsedMsg extends TbHttpResponsedMessage {
                     this.isBussiness = z;
                     this.rcvUrl = optJSONObject.optString("app_rcv");
                     this.source = optJSONObject.optString("source");
-                    this.appname = optJSONObject.optString("sname");
+                    this.appname = optJSONObject.optString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME);
                 }
             }
         }

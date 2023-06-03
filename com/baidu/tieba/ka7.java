@@ -1,53 +1,53 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class ka7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TbPageContext b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TBSpecificationBtn f;
-    public TBSpecificationBtn g;
-    public View h;
-    public ja7 i;
-    public View.OnClickListener j;
-    public View.OnClickListener k;
+    public i35 a;
+    public ArrayList<ja7> b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(int i, String str, ArrayList<ja7> arrayList);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ka7 a;
 
-        public a(ka7 ka7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ka7 ka7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ka7Var};
+                Object[] objArr = {ka7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,31 +56,36 @@ public class ka7 {
             this.a = ka7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == this.a.f.getId()) {
-                    if (this.a.b.getPageActivity() != null) {
-                        this.a.b.getPageActivity().finish();
-                    }
-                    this.a.f(2);
-                } else if (view2.getId() == this.a.g.getId()) {
-                    if (this.a.j != null) {
-                        this.a.j.onClick(view2);
-                    }
-                    this.a.f(1);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                return;
+            }
+            GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+            this.a.a = getForbiddenFansResponse.getPageData();
+            if (this.a.b == null) {
+                this.a.b = new ArrayList();
+            }
+            if (this.a.a != null) {
+                if (this.a.a.a() == 1) {
+                    this.a.b.clear();
                 }
+                if (getForbiddenFansResponse.getFansList() != null) {
+                    this.a.b.addAll(getForbiddenFansResponse.getFansList());
+                }
+            }
+            if (this.a.c != null) {
+                this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
             }
         }
     }
 
-    public ka7(TbPageContext tbPageContext, View view2) {
+    public ka7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,97 +95,69 @@ public class ka7 {
                 return;
             }
         }
-        this.k = new a(this);
-        this.b = tbPageContext;
-        this.a = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924cb);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907a2);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092082);
-        this.f = (TBSpecificationBtn) view2.findViewById(R.id.btn_known);
-        o75 o75Var = new o75();
-        o75Var.q(R.color.CAM_X0618);
-        this.f.setConfig(o75Var);
-        this.f.setTextSize(R.dimen.tbds42);
-        this.f.setText(tbPageContext.getString(R.string.guide_popup_window_known));
-        this.f.setOnClickListener(this.k);
-        this.g = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0904dc);
-        n75 n75Var = new n75();
-        n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.g.setConfig(n75Var);
-        this.g.setTextSize(R.dimen.tbds42);
-        this.g.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f08b7));
-        this.g.setOnClickListener(this.k);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f09045d);
-        int i3 = 2;
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{tbPageContext.getResources().getColor(R.color.black_alpha100), tbPageContext.getResources().getColor(R.color.black_alpha0)});
-        gradientDrawable.setGradientType(0);
-        gradientDrawable.setShape(0);
-        this.h.setBackground(gradientDrawable);
-        ja7 ja7Var = new ja7(tbPageContext);
-        this.i = ja7Var;
-        ja7Var.k();
-        i();
-        String str = this.i.m;
-        if (str != null && str.equals("bazhu")) {
-            i3 = 1;
-        }
-        TiebaStatic.log(new StatisticItem("c13893").param("obj_source", i3).param("fid", this.i.e).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public void g(int i) {
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void h(boolean z) {
-        int i;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            View view2 = this.a;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i35 i35Var = this.a;
+            if (i35Var != null && i35Var.b() == 1) {
+                return true;
             }
-            view2.setVisibility(i);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void j(View.OnClickListener onClickListener) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.j = onClickListener;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public final void f(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            String str = this.i.m;
-            if (str != null && str.equals("bazhu")) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            TiebaStatic.log(new StatisticItem("c13892").param("obj_type", i).param("obj_source", i2).param("fid", this.i.e).param("uid", TbadkCoreApplication.getCurrentAccount()));
-        }
-    }
-
-    public final void i() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TextView textView = this.c;
-            textView.setText(this.i.d + ":");
-            this.d.setText(this.i.j());
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-            Date date = new Date(System.currentTimeMillis());
-            TextView textView2 = this.e;
-            textView2.setText("百度贴吧\n" + simpleDateFormat.format(date));
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            i35 i35Var = this.a;
+            int i = 1;
+            if (i35Var != null && i35Var.b() != 1) {
+                return;
+            }
+            i35 i35Var2 = this.a;
+            if (i35Var2 != null) {
+                i = 1 + i35Var2.a();
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.fluency.BdTracesManager;
 import com.baidu.searchbox.fluency.listener.FrameRateListener;
 import com.baidu.searchbox.fluency.tracer.DropLevel;
@@ -279,11 +280,11 @@ public final class FpsDecorator extends FrameRateListener {
         this.displayMetrics = new DisplayMetrics();
         this.isEnable = true;
         this.mainHandler = FpsHandlerThread.INSTANCE.getDefaultMainHandler();
-        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607a4);
-        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607a8);
-        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607a7);
-        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607a6);
-        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607a5);
+        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607b0);
+        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607b4);
+        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607b3);
+        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607b2);
+        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f0607b1);
         this.belongColor = this.bestColor;
         this.dropLevel = new int[DropLevel.values().length];
         this.lastTopPage = "default";
@@ -377,7 +378,7 @@ public final class FpsDecorator extends FrameRateListener {
     }
 
     private final void initLayoutParams(Context context) {
-        Object systemService = context.getApplicationContext().getSystemService("window");
+        Object systemService = context.getApplicationContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         if (systemService != null) {
             this.windowManager = (WindowManager) systemService;
             try {

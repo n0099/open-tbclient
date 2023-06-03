@@ -1,7 +1,6 @@
 package com.baidu.webkit.internal.monitor;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.RC4;
@@ -47,7 +46,7 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                 bdNetTask.setContent(bArr);
                 hashMap.put(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 hashMap.put(Headers.CACHE_CONTROL, "no-cache");
-                if (WebSettingsGlobalBlink.isSessionDataEnable() && ((GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support")) == null || !GetCloudSettingsValue.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE))) {
+                if (WebSettingsGlobalBlink.isSessionDataEnable() && ((GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support")) == null || !GetCloudSettingsValue.equals("false"))) {
                     hashMap.put("Content-Type", "application/x-gzip");
                 }
                 if (WebKitFactory.getCurEngine() != 1) {
@@ -143,7 +142,7 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                 if (WebSettingsGlobalBlink.isSessionDataEnable()) {
                     Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + str2);
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
-                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                         try {
                             if (!WebSettingsGlobalBlink.getLogsdkEnabled() && !WebSettingsGlobalBlink.getDoubleLogEnabled()) {
                                 SessionMonitorNetWorker.this.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(str2.getBytes())), str3, z);
@@ -195,7 +194,7 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                         return;
                     }
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
-                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+                    if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                         SessionMonitorNetWorker.this.sendStatisticsDataToServer(bArr, str2, true);
                     }
                 }

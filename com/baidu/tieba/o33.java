@@ -1,15 +1,80 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class o33 implements zn3<HybridUbcFlow> {
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
+/* loaded from: classes7.dex */
+public class o33 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    @SuppressLint({"BDThrowableCheck"})
+    public final e33 b;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(long j);
+
+        void b(int i, long j, long j2);
+
+        void c(long j, long j2);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements e33 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o33 a;
+
+        public a(o33 o33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o33Var;
+        }
+
+        @Override // com.baidu.tieba.e33
+        public void a(long j, long j2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                if (this.a.a == null) {
+                    if (!is1.a) {
+                        return;
+                    }
+                    throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
+                } else if (j2 == -1 && j != 0) {
+                    this.a.a.b(0, j, j2);
+                } else if (j2 > 52428800) {
+                    this.a.a.a(j2);
+                } else if (j2 > 0 && j <= j2 && j != 0) {
+                    int floor = (int) Math.floor((100 * j) / j2);
+                    if (floor <= 100) {
+                        this.a.a.b(floor, j, j2);
+                    }
+                } else {
+                    this.a.a.c(j, j2);
+                }
+            }
+        }
+    }
 
     public o33() {
         Interceptable interceptable = $ic;
@@ -21,19 +86,27 @@ public class o33 implements zn3<HybridUbcFlow> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new a(this);
+    }
+
+    public void b(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zn3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("1641");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.VIDEO_NA);
-            hybridUbcFlow.E("from", "swan");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            Response proceed = chain.proceed(chain.request());
+            return proceed.newBuilder().body(new h33(proceed.body(), this.b)).build();
         }
+        return (Response) invokeL.objValue;
     }
 }

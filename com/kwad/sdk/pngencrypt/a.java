@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public int ajp;

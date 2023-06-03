@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,7 +26,7 @@ public final class bn {
             fileInputStream = context.openFileInput(str);
             byte[] a2 = a(fileInputStream);
             if (a2 != null) {
-                String str2 = new String(a2, IMAudioTransRequest.CHARSET);
+                String str2 = new String(a2, "utf-8");
                 bt.a(fileInputStream);
                 return str2;
             }
@@ -116,7 +115,7 @@ public final class bn {
         }
         try {
             fileOutputStream = context.openFileOutput(str, i);
-            bt.a(new ByteArrayInputStream(str2.getBytes(IMAudioTransRequest.CHARSET)), fileOutputStream);
+            bt.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream);
         } catch (Exception unused) {
             bt.a(fileOutputStream);
         } catch (Throwable th) {

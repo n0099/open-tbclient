@@ -1,5 +1,5 @@
 package org.aspectj.lang.reflect;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class NoSuchAdviceException extends Exception {
     public static final long serialVersionUID = 3256444698657634352L;
     public String name;

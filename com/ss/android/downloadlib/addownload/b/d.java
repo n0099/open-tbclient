@@ -4,18 +4,19 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static volatile d a;
-    public static final String[] c = {"com", "android", "ss"};
+    public static final String[] c = {FkApkInfoSearchRequestKt.PARAMS_KEY_COM, "android", "ss"};
     public static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
     public final LinkedList<a> b = new LinkedList<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public final String a;
         public final int b;

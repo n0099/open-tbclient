@@ -8,6 +8,7 @@ import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceFrame;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class e extends a {
@@ -51,7 +52,7 @@ public class e extends a {
     @Override // com.baidu.ar.face.detector.a
     public void dG() {
         super.dG();
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "create", SystemClock.elapsedRealtime() - this.of, 1);
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost(UgcTranscoderConstant.URL_GET_FACE, "create", SystemClock.elapsedRealtime() - this.of, 1);
         k kVar = this.od;
         if (kVar != null) {
             kVar.b(this.og);

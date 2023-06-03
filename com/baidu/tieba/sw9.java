@@ -1,104 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sw9 extends CustomMessageListener {
+public class sw9 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final uu9 b;
-    public final ju9 c;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sw9(MainTabActivity mainTabActivity, ju9 ju9Var) {
-        super(2001371);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ju9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165972, "Lcom/baidu/tieba/sw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165972, "Lcom/baidu/tieba/sw9;");
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        this.c = ju9Var;
+        e = BdUniqueId.gen();
     }
 
-    public static void a() {
+    public sw9() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            tl0.l().p();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.d = false;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.Y) {
-            if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
-                a();
-            }
-            vt5.a(1);
-            mc5.u(HotEventData.getInstance());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        uu9 uu9Var;
+    public static sw9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (uu9Var = this.b) != null && uu9Var.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
-                    }
-                }
-                uu9 uu9Var2 = this.b;
-                if (uu9Var2 != null && uu9Var2.h() != null) {
-                    this.b.h().a();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (!MainTabActivity.Y && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
-                new pr5(this.a).o();
-            }
-            xw9 g0 = this.a.g0();
-            if (g0 != null) {
-                g0.c();
-            }
-            if (o65.m().i(o65.q("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
-            }
-            MainTabActivity.Y = true;
-            this.c.O();
-            DownloadFloatBallManager.k().r(false, true);
+            sw9 sw9Var = new sw9();
+            jSONObject.optString("forum_id");
+            sw9Var.b = jSONObject.optString("forum_name");
+            sw9Var.a = jSONObject.optString("avatar");
+            sw9Var.c = jSONObject.optString("slogan");
+            return sw9Var;
         }
+        return (sw9) invokeL.objValue;
     }
 }

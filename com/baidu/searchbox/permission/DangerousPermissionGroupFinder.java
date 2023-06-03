@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DangerousPermissionGroupFinder {
     public HashMap<String, String> mPermissionMap;
 

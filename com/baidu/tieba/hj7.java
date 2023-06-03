@@ -1,42 +1,70 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.GameForumGuideTab.GameForumSubTab;
+import tbclient.ThreadInfo;
+/* loaded from: classes6.dex */
 public class hj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
 
-    public hj7() {
+    public static List<oj7> a(List<GameForumSubTab> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (GameForumSubTab gameForumSubTab : list) {
+                oj7 oj7Var = new oj7();
+                if (gameForumSubTab != null) {
+                    oj7Var.a = gameForumSubTab.id.intValue();
+                    oj7Var.b = gameForumSubTab.sub_tab_name;
+                    LabelDataList labelDataList = new LabelDataList();
+                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
+                    oj7Var.c = labelDataList;
+                    arrayList.add(oj7Var);
+                }
+            }
+            return arrayList;
         }
-        this.a = false;
-        this.b = 0;
-        this.c = null;
-        this.d = null;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
-        this.h = -1;
+        return (List) invokeL.objValue;
+    }
+
+    public static List<vn> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                fj7 fj7Var = new fj7();
+                ThreadData threadData = new ThreadData();
+                fj7Var.c(threadData);
+                threadData.parserProtobuf(list.get(i));
+                threadData.parser_title();
+                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                    x25 x25Var = new x25();
+                    x25Var.e(threadData.getLegoCard());
+                    linkedList.add(x25Var);
+                } else {
+                    linkedList.add(fj7Var);
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MultiProcessFlag {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;

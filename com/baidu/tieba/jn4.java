@@ -1,64 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Process;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jn4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jn4 {
+    void a(JSONArray jSONArray, tj4 tj4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3);
 
-    public static int a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (str != null) {
-                return context.checkPermission(str, Process.myPid(), Process.myUid());
-            }
-            throw new IllegalArgumentException("permission is null");
-        }
-        return invokeLL.intValue;
-    }
-
-    public static final int b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ln4.a(context, i);
-            }
-            return context.getResources().getColor(i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public static final ColorStateList c(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ln4.b(context, i);
-            }
-            return context.getResources().getColorStateList(i);
-        }
-        return (ColorStateList) invokeLI.objValue;
-    }
-
-    public static final Drawable d(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return kn4.a(context, i);
-            }
-            return context.getResources().getDrawable(i);
-        }
-        return (Drawable) invokeLI.objValue;
-    }
+    void b(JSONObject jSONObject, tj4 tj4Var, @Nullable tj4 tj4Var2, @Nullable tj4 tj4Var3);
 }

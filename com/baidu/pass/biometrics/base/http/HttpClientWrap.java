@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.http.utils.HttpUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
@@ -124,7 +123,7 @@ public class HttpClientWrap {
 
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
-        hashMap.put(c, IMAudioTransRequest.CHARSET);
+        hashMap.put(c, "utf-8");
         hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);

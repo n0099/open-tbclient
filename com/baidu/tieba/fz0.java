@@ -1,35 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public final class fz0 {
+public class fz0 extends yy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
 
     public fz0() {
         Interceptable interceptable = $ic;
@@ -41,32 +21,27 @@ public final class fz0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.yy0, com.baidu.tieba.bz0
+    @NonNull
+    public uy0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.a;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
+                c = 0;
             } else {
-                z = true;
+                c = 65535;
             }
-            return !z;
+            if (c != 0) {
+                return super.create(str);
+            }
+            return new dz0();
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
-        }
+        return (uy0) invokeL.objValue;
     }
 }

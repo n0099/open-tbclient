@@ -1,227 +1,194 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
-public class adb {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public final class adb {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
-    public static Method b;
-    public static Field c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    public static int j(int i) {
-        InterceptResult invokeI;
+    public adb() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (((((i & 16711680) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7 : invokeI.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612746, "Lcom/baidu/tieba/adb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612746, "Lcom/baidu/tieba/adb;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException unused) {
+        this.c = 1.0f;
+        this.d = 1.0f;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        try {
-            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException unused2) {
+        return invokeV.booleanValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        try {
-            c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException unused3) {
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        try {
-            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException | NoSuchFieldException unused4) {
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
         }
     }
 
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        int i;
-        InterceptResult invokeLLZ;
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, layoutParams, str, z)) == null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField(str);
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(layoutParams);
-                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-                declaredField2.setAccessible(true);
-                int i3 = declaredField2.getInt(layoutParams);
-                if (z) {
-                    i = i2 | i3;
-                } else {
-                    i = (~i2) & i3;
-                }
-                if (i3 != i) {
-                    declaredField2.setInt(layoutParams, i);
-                    return true;
-                }
-                return false;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
-                return false;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static void f(Activity activity, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = b;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Boolean.valueOf(z));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (z2) {
-                i(activity.getWindow(), z);
-            }
-        }
-    }
-
-    public static boolean b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (j(i) < i2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static void c(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, window, i) == null) {
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = c;
-            if (field != null) {
-                try {
-                    if (field.getInt(attributes) != i) {
-                        c.set(attributes, Integer.valueOf(i));
-                        window.setAttributes(attributes);
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (zcb.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
                     }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void e(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) {
-            f(activity, z, true);
-        }
-    }
-
-    public static void g(View view2, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65543, null, view2, z) == null) {
-            int systemUiVisibility = view2.getSystemUiVisibility();
-            if (z) {
-                i = d | systemUiVisibility;
-            } else {
-                i = (~d) & systemUiVisibility;
-            }
-            if (i != systemUiVisibility) {
-                view2.setSystemUiVisibility(i);
-            }
-        }
-    }
-
-    public static void h(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, window, i) == null) {
-            try {
-                c(window, i);
-                if (Build.VERSION.SDK_INT > 22) {
-                    g(window.getDecorView(), true);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void i(Window window, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, window, z) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-                return;
-            }
-            View decorView = window.getDecorView();
-            if (decorView != null) {
-                g(decorView, z);
-                c(window, 0);
-            }
-        }
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Integer.valueOf(i));
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
                     return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
                     return;
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
                     return;
-                }
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
             }
-            boolean b2 = b(i, 50);
-            if (c != null) {
-                f(activity, b2, b2);
-                h(activity.getWindow(), i);
-                return;
-            }
-            e(activity, b2);
         }
     }
 }

@@ -1,10 +1,9 @@
 package com.ss.android.downloadad.api.download;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdDownloadEventConfig implements DownloadEventConfig {
     public String mClickButtonTag;
     public String mClickContinueLabel;
@@ -26,7 +25,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     public void setQuickAppEventTag(String str) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public AdDownloadEventConfig eventConfig = new AdDownloadEventConfig();
 
@@ -302,7 +301,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             builder.setClickPauseLabel(jSONObject.optString("click_pause_label"));
             builder.setClickInstallLabel(jSONObject.optString("click_install_label"));
             builder.setStorageDenyLabel(jSONObject.optString("storage_deny_label"));
-            builder.setRefer(jSONObject.optString(TiebaStatic.Params.REFER));
+            builder.setRefer(jSONObject.optString("refer"));
             builder.setDownloadScene(jSONObject.optInt("download_scene"));
             boolean z2 = false;
             if (jSONObject.optInt("enable_click_event") == 1) {
@@ -365,7 +364,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             jSONObject.putOpt("click_pause_label", this.mClickPauseLabel);
             jSONObject.putOpt("click_install_label", this.mClickInstallLabel);
             jSONObject.putOpt("storage_deny_label", this.mStorageDenyLabel);
-            jSONObject.putOpt(TiebaStatic.Params.REFER, this.mRefer);
+            jSONObject.putOpt("refer", this.mRefer);
             jSONObject.putOpt("download_scene", Integer.valueOf(this.mDownloadScene));
             int i2 = 1;
             if (this.mIsEnableClickEvent) {

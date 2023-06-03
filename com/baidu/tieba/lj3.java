@@ -1,42 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lj3 {
+public class lj3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj3 a;
 
-    public lj3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lj3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/file/getInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(int i) {
-        kj3 kj3Var;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (kj3Var = this.a) != null) {
-            kj3Var.a(i);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (context != null && callbackHandler != null && yb3Var != null && yb3Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y82.c("fileInfo", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("filePath");
+                if (gj3.s(optString) == PathType.BD_FILE) {
+                    str = gj3.M(optString, yb3.g0());
+                } else if (gj3.s(optString) == PathType.RELATIVE) {
+                    str = gj3.L(optString, yb3Var, yb3Var.k0());
+                } else {
+                    str = "";
+                }
+                if (vd3.b) {
+                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
+                    Log.d("GetFileInfoAction", "——> handle: filePath " + str);
+                }
+                if (TextUtils.isEmpty(str)) {
+                    y82.c("fileInfo", "absolute filePath is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                File file = new File(str);
+                if (TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5)) {
+                    str2 = "MD5";
+                } else {
+                    str2 = "SHA-1";
+                }
+                String b = qo3.b(str2, file, false);
+                if (TextUtils.isEmpty(b)) {
+                    y82.c("fileInfo", "hash is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, sc3.a(2001)));
+                    if (vd3.b) {
+                        Log.d("GetFileInfoAction", "——> handle: file not exist");
+                    }
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("digest", b);
+                    jSONObject.put("size", file.length());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, sc3.a(2003)));
+                    if (vd3.b) {
+                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
+                    }
+                    return false;
+                }
+            }
+            y82.c("fileInfo", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-    }
-
-    public void b(kj3 kj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kj3Var) == null) {
-            this.a = kj3Var;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,59 +1,44 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.cpu.booster.utils.CpuType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qt3 {
+public class qt3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qt3 d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<rt3> a;
-    public boolean b;
-    public Timer c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948103321, "Lcom/baidu/tieba/qt3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948103321, "Lcom/baidu/tieba/qt3;");
-        }
-    }
 
     /* loaded from: classes7.dex */
-    public class a extends TimerTask {
+    public class a implements rq3<bh3<dh3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qt3 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ qt3 e;
 
-        public a(qt3 qt3Var) {
+        public a(qt3 qt3Var, Context context, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qt3Var};
+                Object[] objArr = {qt3Var, context, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,258 +48,146 @@ public class qt3 {
                     return;
                 }
             }
-            this.a = qt3Var;
+            this.e = qt3Var;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
+            this.d = str2;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(bh3<dh3.e> bh3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var) == null) {
+                this.e.l(bh3Var, this.a, this.b, this.c, this.d);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class b {
+    public class b implements rq3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-478468581, "Lcom/baidu/tieba/qt3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-478468581, "Lcom/baidu/tieba/qt3$b;");
+        public b(qt3 qt3Var, String str, CallbackHandler callbackHandler, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt3Var, str, callbackHandler, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[CpuType.values().length];
-            a = iArr;
-            try {
-                iArr[CpuType.Mtk.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[CpuType.QualComm.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[CpuType.Unknown.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.a = str;
+            this.b = callbackHandler;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rq3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            JSONObject wrapCallbackParams;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.a))) {
+                    String string = bundle.getString(this.a);
+                    y82.i("GetStokenAction", "stoken=" + string);
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("stoken", string);
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                    } catch (JSONException e) {
+                        if (vd3.b) {
+                            Log.d("SwanAppAction", e.getMessage());
+                        }
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+                    }
+                    this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
+                    return;
+                }
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
             }
         }
     }
 
-    public qt3(Context context) {
-        long j;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qt3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/getStoken");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (e) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        a(context.getApplicationContext());
-        if (e) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("CPU-Booster", "collect booster cost - " + (currentTimeMillis - j) + "ms");
-        }
     }
 
-    public static void b(boolean z) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            e = z;
-        }
-    }
-
-    public static qt3 d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                synchronized (qt3.class) {
-                    if (d == null) {
-                        d = new qt3(context);
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
             }
-            return d;
-        }
-        return (qt3) invokeL.objValue;
-    }
-
-    public static void e(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (e) {
-                Log.d("CPU-Booster", "cpu-booster preInit");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-            d(context);
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                return 200;
+            String optString = optParamsAsJo.optString("tpl");
+            if (TextUtils.isEmpty(optString)) {
+                y82.c("GetStokenAction", "empty tpl");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty tpl");
+                return false;
             }
-            return Math.min(i, 5000);
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (fu3.a()) {
-                this.a.add(new st3(context));
-                this.a.add(new ut3(context));
-            } else if (fu3.b()) {
-                this.a.add(new au3(context));
-            }
-            int i = b.a[eu3.h().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    this.a.add(new cu3(context));
-                    return;
-                }
-                return;
-            }
-            this.a.add(new yt3(context));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !e) {
-            return;
-        }
-        int e2 = eu3.e();
-        StringBuilder sb = new StringBuilder(" \n\n");
-        sb.append("CPU Support Freq Info:\n");
-        for (int i = 0; i < e2; i++) {
-            wt3 a2 = eu3.a(i);
-            sb.append("CPU");
-            sb.append(a2.a);
-            sb.append(":");
-            sb.append("min-");
-            sb.append(a2.b / 1000);
-            sb.append("mHz, max-");
-            sb.append(a2.c / 1000);
-            sb.append("mHz\n");
-        }
-        sb.append("\n\n");
-        sb.append("CPU Current Freq:\n");
-        for (int i2 = 0; i2 < e2; i2++) {
-            sb.append("CPU");
-            sb.append(i2);
-            sb.append(":");
-            sb.append(eu3.j(i2) / 1000);
-            sb.append("mHz");
-            sb.append("\n");
-        }
-        if (e) {
-            Log.d("CPU-Booster", sb.toString());
-        }
-    }
-
-    public synchronized void i() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "stopBooster");
-                }
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (rt3 rt3Var : this.a) {
-                    rt3Var.a();
-                }
-                this.b = false;
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "stop booster cost - " + (currentTimeMillis - j) + "ms");
-                }
+            String optString2 = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                return false;
+            } else {
+                yb3Var.e0().g(context, "mapp_i_get_stoken", new a(this, context, callbackHandler, optString2, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public synchronized void g() {
+    public final void l(bh3<dh3.e> bh3Var, Context context, CallbackHandler callbackHandler, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                h(3000);
-            }
-        }
-    }
-
-    public synchronized void h(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    if (e) {
-                        Log.d("CPU-Booster", "start fail -> isEnabled - true, already start - " + this.b);
-                    }
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "startBooster");
-                }
-                this.b = true;
-                int c = c(i);
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (rt3 rt3Var : this.a) {
-                    rt3Var.b(c);
-                }
-                if (this.c == null) {
-                    Timer timer = new Timer();
-                    this.c = timer;
-                    timer.schedule(new a(this), c);
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "start booster cost - " + (currentTimeMillis - j) + "ms");
-                    f();
-                }
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh3Var, context, callbackHandler, str, str2) == null) {
+            if (!wg3.h(bh3Var)) {
+                wg3.q(bh3Var, callbackHandler, str);
+            } else if (TextUtils.isEmpty(zr3.i(context))) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
+            } else {
+                zr3.t(context, new b(this, str2, callbackHandler, str), str2);
             }
         }
     }

@@ -15,6 +15,7 @@ import android.os.UserManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.player.model.YYOption;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.HideFirstParty;
 import com.google.android.gms.common.internal.Preconditions;
@@ -153,7 +154,7 @@ public class GooglePlayServicesUtilLight {
             Object systemService = context.getSystemService("user");
             Preconditions.checkNotNull(systemService);
             Bundle applicationRestrictions = ((UserManager) systemService).getApplicationRestrictions(context.getPackageName());
-            if (applicationRestrictions != null && "true".equals(applicationRestrictions.getString("restricted_profile"))) {
+            if (applicationRestrictions != null && YYOption.IsLive.VALUE_TRUE.equals(applicationRestrictions.getString("restricted_profile"))) {
                 return true;
             }
             return false;
@@ -231,7 +232,7 @@ public class GooglePlayServicesUtilLight {
         boolean z2;
         PackageInfo packageInfo;
         try {
-            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f048e);
+            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0496);
         } catch (Throwable unused) {
             Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
         }

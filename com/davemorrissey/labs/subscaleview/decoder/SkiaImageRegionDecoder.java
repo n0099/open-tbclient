@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PREFIX = "file:///android_asset/";

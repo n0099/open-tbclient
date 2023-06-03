@@ -28,7 +28,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AuthWebViewClient extends BaseWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AuthWebViewClient";

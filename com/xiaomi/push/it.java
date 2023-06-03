@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import com.baidu.tbadk.core.util.StringHelper;
 import java.nio.ByteBuffer;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -158,7 +157,7 @@ public final class it {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m630a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m631a(byteBuffer));
+        return m685a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m686a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -173,18 +172,18 @@ public final class it {
             sb.append(a(array[i2]));
         }
         if (limit != i) {
-            sb.append(StringHelper.STRING_MORE);
+            sb.append("...");
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m630a(ByteBuffer byteBuffer) {
+    public static boolean m685a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m631a(ByteBuffer byteBuffer) {
-        if (m630a(byteBuffer)) {
+    public static byte[] m686a(ByteBuffer byteBuffer) {
+        if (m685a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

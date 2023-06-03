@@ -7,12 +7,12 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,21 +52,21 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091ea3);
-        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09108e);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260e);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092610);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f091444);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911bd);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092609);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260f);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260a);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260d);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091443);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911bc);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260c);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260b);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092608);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910a1);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092645);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092647);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09145c);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911d5);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092640);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092646);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092641);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092644);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09145b);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911d4);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092643);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092642);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09263f);
         a();
     }
 
@@ -76,31 +76,31 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             this.c.setConrers(15);
             this.c.setIsRound(true);
             this.c.setPlaceHolder(3);
-            p45 d = p45.d(this.d);
+            m75 d = m75.d(this.d);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X06);
-            p45 d2 = p45.d(this.g);
+            m75 d2 = m75.d(this.g);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X10);
-            p45 d3 = p45.d(this.h);
+            m75 d3 = m75.d(this.h);
             d3.C(R.string.F_X01);
             d3.B(R.dimen.T_X10);
-            p45 d4 = p45.d(this.i);
+            m75 d4 = m75.d(this.i);
             d4.C(R.string.F_X01);
             d4.B(R.dimen.T_X10);
-            p45 d5 = p45.d(this.o);
+            m75 d5 = m75.d(this.o);
             d5.C(R.string.F_X01);
             d5.B(R.dimen.T_X10);
-            p45 d6 = p45.d(this.p);
+            m75 d6 = m75.d(this.p);
             d6.B(R.string.F_X01);
             d6.B(R.dimen.T_X10);
-            p45 d7 = p45.d(this.m);
+            m75 d7 = m75.d(this.m);
             d7.C(R.string.F_X01);
             d7.B(R.dimen.T_X08);
-            p45 d8 = p45.d(this.j);
+            m75 d8 = m75.d(this.j);
             d8.C(R.string.F_X01);
             d8.B(R.dimen.T_X10);
-            p45 d9 = p45.d(this.n);
+            m75 d9 = m75.d(this.n);
             d9.C(R.string.F_X01);
             d9.B(R.dimen.T_X08);
         }

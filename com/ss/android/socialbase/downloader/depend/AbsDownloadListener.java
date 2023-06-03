@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.depend;
 
+import com.baidu.searchbox.player.model.ClarityUrlList;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes10.dex */
@@ -79,7 +80,7 @@ public abstract class AbsDownloadListener implements IDownloadListener {
             if (baseException != null) {
                 str = baseException.getErrorMessage();
             } else {
-                str = "unkown";
+                str = ClarityUrlList.UNKNOWN_CLARITY_KEY;
             }
             objArr[1] = str;
             com.ss.android.socialbase.downloader.c.a.b(str2, String.format("onFailed on %s because of : %s", objArr));
@@ -96,7 +97,7 @@ public abstract class AbsDownloadListener implements IDownloadListener {
             if (baseException != null) {
                 str = baseException.getErrorMessage();
             } else {
-                str = "unkown";
+                str = ClarityUrlList.UNKNOWN_CLARITY_KEY;
             }
             objArr[1] = str;
             com.ss.android.socialbase.downloader.c.a.b(str2, String.format("onRetry on %s because of : %s", objArr));
@@ -113,7 +114,7 @@ public abstract class AbsDownloadListener implements IDownloadListener {
             if (baseException != null) {
                 str = baseException.getErrorMessage();
             } else {
-                str = "unkown";
+                str = ClarityUrlList.UNKNOWN_CLARITY_KEY;
             }
             objArr[1] = str;
             com.ss.android.socialbase.downloader.c.a.b(str2, String.format("onRetryDelay on %s because of : %s", objArr));

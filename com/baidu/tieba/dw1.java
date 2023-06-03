@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface dw1 {
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    InputStream a(InputStream inputStream) throws IOException;
 }

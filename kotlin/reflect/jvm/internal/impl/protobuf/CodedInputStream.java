@@ -39,7 +39,7 @@ public final class CodedInputStream {
         this.enableAliasing = false;
         this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
-        this.sizeLimit = com.google.protobuf.CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.sizeLimit = 67108864;
         this.refillCallback = null;
         this.buffer = new byte[4096];
         this.bufferSize = 0;
@@ -116,7 +116,7 @@ public final class CodedInputStream {
         this.enableAliasing = false;
         this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
-        this.sizeLimit = com.google.protobuf.CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.sizeLimit = 67108864;
         this.refillCallback = null;
         this.buffer = literalByteString.bytes;
         int offsetIntoBytes = literalByteString.getOffsetIntoBytes();

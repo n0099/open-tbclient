@@ -1,78 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes7.dex */
-public class td4 extends sd4<sv2> {
+public final class td4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zd4 a;
+    public volatile boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177349, "Lcom/baidu/tieba/td4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948177349, "Lcom/baidu/tieba/td4;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
+    @SuppressLint({"MobilebdThread"})
     public td4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static td4 e() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new td4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (td4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sd4
-    public boolean b(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, sv2Var, pv2Var, g93Var, jSONObject)) == null) {
-            return d(context, sv2Var, pv2Var, g93Var);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean d(Context context, sv2 sv2Var, pv2 pv2Var, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public final void c(zd4 zd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sv2Var, pv2Var, g93Var)) == null) {
-            g62.i("map", "MapCreateAction start");
-            boolean a = pd4.b().a(context, sv2Var);
-            g62.i("map", "MapCreateAction end");
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zd4Var) == null) {
+            this.a = zd4Var;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket C;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    zd4 zd4Var = this.a;
+                    if (zd4Var != null && (C = zd4Var.C()) != null) {
+                        C.receive(datagramPacket);
+                    }
+                    zd4 zd4Var2 = this.a;
+                    if (zd4Var2 != null) {
+                        zd4Var2.z(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    zd4 zd4Var3 = this.a;
+                    if (zd4Var3 != null) {
+                        zd4Var3.D(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
+        }
     }
 }

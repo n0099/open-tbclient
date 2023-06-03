@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.network;
 
 import com.baidu.searchbox.account.result.NickNameGuideErrorCode;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static f XY = new f(-1, "请求超时事件");
     public static f XZ = new f(-2, "请求异常");

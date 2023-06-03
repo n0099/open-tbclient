@@ -1,157 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.d51;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.tieba.c61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class id1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public Runnable f;
-    public final Handler g;
-    public final boolean h;
-    public final int i;
-    public boolean j;
-    public boolean k;
-    public d51.b l;
-    public boolean m;
-    public String n;
-    public String o;
+    public boolean a;
+    public float b;
+    public float c;
+    public boolean d;
+    public BubblePosition e;
+    public boolean f;
 
     /* loaded from: classes6.dex */
-    public class a implements d51.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final /* synthetic */ TelephonyManager c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ id1 e;
 
-        public a(id1 id1Var, TelephonyManager telephonyManager, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {id1Var, telephonyManager, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-722337738, "Lcom/baidu/tieba/id1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-722337738, "Lcom/baidu/tieba/id1$a;");
                     return;
                 }
             }
-            this.e = id1Var;
-            this.c = telephonyManager;
-            this.d = context;
-            this.a = 0;
-            this.b = 0;
-        }
-
-        @Override // com.baidu.tieba.d51.a
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            bk0.a("NadPSLogger", "监听到通话状态：OFFHOOK");
-                            b(i);
-                            if (this.a == 0) {
-                                this.e.b = System.currentTimeMillis();
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    bk0.a("NadPSLogger", "监听到通话状态：RINGING");
-                    b(i);
-                    this.e.k = true;
-                    return;
-                }
-                bk0.a("NadPSLogger", "监听到通话状态：IDLE");
-                b(i);
-                if (this.a == 2) {
-                    this.e.c = System.currentTimeMillis();
-                    id1 id1Var = this.e;
-                    id1Var.k(this.c, id1Var.l, this.d);
-                }
+            int[] iArr = new int[BubblePosition.values().length];
+            a = iArr;
+            try {
+                iArr[BubblePosition.UP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a = this.b;
-                this.b = i;
+            try {
+                a[BubblePosition.DOWN.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ TelephonyManager b;
-        public final /* synthetic */ d51.b c;
-        public final /* synthetic */ id1 d;
-
-        public b(id1 id1Var, Context context, TelephonyManager telephonyManager, d51.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {id1Var, context, telephonyManager, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            try {
+                a[BubblePosition.LEFT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            this.d = id1Var;
-            this.a = context;
-            this.b = telephonyManager;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d51.a(this.a)) {
-                if (this.b.getCallState() == 0) {
-                    if (this.d.m) {
-                        this.d.m = !d51.c(this.a, this.b, this.c);
-                    }
-                    this.d.e = System.currentTimeMillis();
-                    this.d.o();
-                    return;
-                }
-                this.d.l(this.a, this.b, this.c);
+            try {
+                a[BubblePosition.RIGHT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
     }
@@ -169,162 +76,322 @@ public class id1 {
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.g = new Handler(Looper.getMainLooper());
-        this.h = vm0.b().a().a("psl_switch", 1) == 1;
-        this.i = vm0.b().a().a("psl_time", 20);
-        this.j = false;
-        this.k = false;
-        this.m = false;
+        this.a = false;
+        this.b = 0.0f;
+        this.d = true;
+        this.e = BubblePosition.INVALID;
+        this.f = true;
     }
 
-    public final int m(long j) {
-        InterceptResult invokeJ;
+    public int[] a(qd1 qd1Var, int[] iArr, BubblePosition bubblePosition) {
+        InterceptResult invokeLLL;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j <= 0) {
-                return 0;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, qd1Var, iArr, bubblePosition)) == null) {
+            if (qd1Var == null) {
+                return new int[]{0, 0};
             }
-            return (int) TimeUnit.MILLISECONDS.toSeconds(j);
-        }
-        return invokeJ.intValue;
-    }
-
-    public final void k(@NonNull TelephonyManager telephonyManager, @NonNull d51.b bVar, @NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, telephonyManager, bVar, context) == null) {
-            long j = this.b;
-            if (j != 0) {
-                long j2 = this.c;
-                if (j2 != 0 && j2 > j) {
-                    this.g.removeCallbacks(this.f);
-                    if (this.m) {
-                        this.m = !d51.c(context, telephonyManager, bVar);
-                    }
-                    this.e = System.currentTimeMillis();
-                    o();
-                    return;
-                }
+            if (bubblePosition == BubblePosition.INVALID) {
+                return iArr;
             }
-            l(context, telephonyManager, bVar);
-        }
-    }
-
-    public final void l(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull d51.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, telephonyManager, bVar) == null) {
-            Runnable runnable = this.f;
-            if (runnable != null) {
-                this.g.removeCallbacks(runnable);
+            Context context = qd1Var.a.getContext();
+            int i = iArr[0];
+            int i2 = iArr[1];
+            int[] iArr2 = new int[2];
+            int measuredWidth = qd1Var.b.getMeasuredWidth();
+            int measuredHeight = qd1Var.b.getMeasuredHeight();
+            int measuredWidth2 = qd1Var.a.getMeasuredWidth();
+            int measuredHeight2 = qd1Var.a.getMeasuredHeight();
+            if (this.f) {
+                f = 0.0f;
             } else {
-                this.f = new b(this, context, telephonyManager, bVar);
+                f = 15.0f;
             }
-            if (!this.m) {
-                this.m = d51.b(context, telephonyManager, bVar);
+            if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
+                if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
+                    int i3 = measuredHeight / 2;
+                    if (i3 >= i2) {
+                        iArr2[1] = c61.c.a(context, f);
+                    } else if (i3 >= measuredHeight2 - i2) {
+                        iArr2[1] = (measuredHeight2 - measuredHeight) - c61.c.a(context, f);
+                    } else {
+                        iArr2[1] = iArr[1] - (qd1Var.b.getMeasuredHeight() / 2);
+                    }
+                    if (bubblePosition == BubblePosition.LEFT) {
+                        iArr2[0] = iArr[0] - qd1Var.b.getMeasuredWidth();
+                    } else {
+                        iArr2[0] = iArr[0];
+                    }
+                }
+            } else {
+                int i4 = measuredWidth / 2;
+                if (i4 >= i) {
+                    iArr2[0] = c61.c.a(context, f);
+                } else if (i4 >= measuredWidth2 - i) {
+                    iArr2[0] = (measuredWidth2 - measuredWidth) - c61.c.a(context, f);
+                } else {
+                    iArr2[0] = iArr[0] - (qd1Var.b.getMeasuredWidth() / 2);
+                }
+                if (bubblePosition == BubblePosition.UP) {
+                    iArr2[1] = iArr[1] - qd1Var.b.getMeasuredHeight();
+                } else {
+                    iArr2[1] = iArr[1];
+                }
             }
-            this.g.postDelayed(this.f, TimeUnit.SECONDS.toMillis(this.i));
+            return iArr2;
         }
+        return (int[]) invokeLLL.objValue;
     }
 
-    public final boolean n() {
-        InterceptResult invokeV;
+    public BubblePosition b(qd1 qd1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.c;
-            if (j != 0) {
-                long j2 = this.b;
-                if (j2 != 0 && j > j2) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qd1Var)) == null) {
+            if (!qd1Var.i()) {
+                return BubblePosition.INVALID;
+            }
+            if (this.d) {
+                if (n(qd1Var)) {
+                    return BubblePosition.UP;
                 }
+                if (j(qd1Var)) {
+                    return BubblePosition.DOWN;
+                }
+                if (k(qd1Var)) {
+                    return BubblePosition.LEFT;
+                }
+                if (m(qd1Var)) {
+                    return BubblePosition.RIGHT;
+                }
+                return BubblePosition.INVALID;
+            } else if (l(qd1Var, this.e)) {
+                return this.e;
+            } else {
+                return BubblePosition.INVALID;
+            }
+        }
+        return (BubblePosition) invokeL.objValue;
+    }
+
+    public final boolean o(qd1 qd1Var) {
+        InterceptResult invokeL;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, qd1Var)) == null) {
+            if (this.f) {
+                f = 0.0f;
+            } else {
+                f = 15.0f;
+            }
+            Context context = qd1Var.c.getContext();
+            int a2 = c61.c.a(context, f) + context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_horizontal_arrow_view_height) / 2);
+            if (a2 <= f(qd1Var) && a2 <= c(qd1Var)) {
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void o() {
-        String str;
-        String str2;
+    public final boolean p(qd1 qd1Var) {
+        InterceptResult invokeL;
+        float f;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
-            return;
-        }
-        this.j = true;
-        if (TextUtils.isEmpty(this.n)) {
-            return;
-        }
-        String str3 = "1";
-        if (n()) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        String str4 = "-1";
-        if (!n()) {
-            str2 = "-1";
-        } else {
-            str2 = "" + m(this.c - this.b);
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(PreferencesUtil.LEFT_MOUNT);
-        sb.append(this.i);
-        sb.append(",");
-        sb.append(m(this.e - this.d));
-        sb.append(",");
-        if (n()) {
-            str4 = "" + m(this.b - this.a);
-        }
-        sb.append(str4);
-        sb.append(",");
-        if (!this.k) {
-            str3 = "0";
-        }
-        sb.append(str3);
-        sb.append(PreferencesUtil.RIGHT_MOUNT);
-        String sb2 = sb.toString();
-        ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.PHONE_STATE_LISTEN).p(this.n).k(str).l(str2).m(sb2);
-        if (!TextUtils.isEmpty(this.o)) {
-            m.n(this.o);
-        } else {
-            m.n("");
-        }
-        e21.b(m);
-        bk0.a("NadPSLogger", "==========结束监听并打点==========");
-        bk0.a("NadPSLogger", "log_type：" + ClogBuilder.LogType.PHONE_STATE_LISTEN.type);
-        bk0.a("NadPSLogger", "da_ext1 是否监听到主动呼出：" + str);
-        bk0.a("NadPSLogger", "da_ext2 主动呼出时长：" + str2);
-        bk0.a("NadPSLogger", "da_ext3 云控监听时长，实际监听时长，拨号前停留时长，期间有无呼入：" + sb2);
-    }
-
-    @Deprecated
-    public void p(@NonNull Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (!this.h || !d51.a(applicationContext)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, qd1Var)) == null) {
+            if (this.f) {
+                f = 0.0f;
+            } else {
+                f = 15.0f;
             }
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.a = 0L;
-            this.a = System.currentTimeMillis();
-            this.j = false;
-            this.k = false;
-            this.n = str;
-            this.o = str2;
-            TelephonyManager telephonyManager = (TelephonyManager) applicationContext.getSystemService("phone");
-            d51.b bVar = new d51.b();
-            this.l = bVar;
-            bVar.b(new a(this, telephonyManager, applicationContext));
-            l(applicationContext, telephonyManager, this.l);
-            this.d = System.currentTimeMillis();
-            bk0.a("NadPSLogger", "==========开始监听==========");
+            Context context = qd1Var.c.getContext();
+            int a2 = c61.c.a(context, f) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_vertical_arrow_view_width) / 2);
+            if (a2 <= d(qd1Var) && a2 <= e(qd1Var)) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public final int c(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd1Var)) == null) {
+            return (qd1Var.a.getMeasuredHeight() - g(qd1Var)[1]) - (qd1Var.c.getMeasuredHeight() / 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public final int d(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, qd1Var)) == null) {
+            return g(qd1Var)[0] + (qd1Var.c.getMeasuredWidth() / 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public int e(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, qd1Var)) == null) {
+            return (qd1Var.a.getMeasuredWidth() - g(qd1Var)[0]) - (qd1Var.c.getMeasuredWidth() / 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public final int f(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qd1Var)) == null) {
+            return g(qd1Var)[1] + (qd1Var.c.getMeasuredHeight() / 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public final int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            if (this.f) {
+                return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius_d20);
+            }
+            return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius);
+        }
+        return invokeL.intValue;
+    }
+
+    public void q(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.b = f;
+        }
+    }
+
+    public final int[] g(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, qd1Var)) == null) {
+            int[] iArr = new int[2];
+            qd1Var.c.getLocationOnScreen(iArr);
+            int[] iArr2 = new int[2];
+            qd1Var.a.getLocationOnScreen(iArr2);
+            return new int[]{iArr[0] - iArr2[0], iArr[1] - iArr2[1]};
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public final boolean j(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, qd1Var)) == null) {
+            if (qd1Var.b.getMeasuredHeight() + c61.c.a(qd1Var.c.getContext(), this.b) <= (qd1Var.a.getMeasuredHeight() - qd1Var.c.getMeasuredHeight()) - g(qd1Var)[1] && p(qd1Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean k(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, qd1Var)) == null) {
+            if (qd1Var.b.getMeasuredWidth() + c61.c.a(qd1Var.c.getContext(), this.b) > g(qd1Var)[0] || !o(qd1Var)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean m(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, qd1Var)) == null) {
+            if (qd1Var.b.getMeasuredWidth() + c61.c.a(qd1Var.c.getContext(), this.b) > (qd1Var.a.getMeasuredWidth() - qd1Var.c.getMeasuredWidth()) - g(qd1Var)[0] || !o(qd1Var)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean n(qd1 qd1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, qd1Var)) == null) {
+            if (qd1Var.b.getMeasuredHeight() + c61.c.a(qd1Var.c.getContext(), this.b) <= g(qd1Var)[1] && p(qd1Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int[] i(BubblePosition bubblePosition, qd1 qd1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bubblePosition, qd1Var)) == null) {
+            if (bubblePosition != null && qd1Var != null) {
+                int[] iArr = new int[2];
+                qd1Var.c.getLocationOnScreen(iArr);
+                int[] iArr2 = new int[2];
+                qd1Var.a.getLocationOnScreen(iArr2);
+                int[] iArr3 = new int[2];
+                if (bubblePosition == BubblePosition.UP) {
+                    iArr3[0] = iArr[0] - iArr2[0];
+                    if (!this.a) {
+                        iArr3[0] = iArr3[0] + (qd1Var.c.getMeasuredWidth() / 2);
+                    }
+                    iArr3[1] = (iArr[1] - iArr2[1]) - c61.c.a(qd1Var.c.getContext(), this.b);
+                } else if (bubblePosition == BubblePosition.DOWN) {
+                    iArr3[0] = iArr[0] - iArr2[0];
+                    if (!this.a) {
+                        iArr3[0] = iArr3[0] + (qd1Var.c.getMeasuredWidth() / 2);
+                    }
+                    iArr3[1] = (iArr[1] - iArr2[1]) + qd1Var.c.getMeasuredHeight() + c61.c.a(qd1Var.c.getContext(), this.b);
+                } else if (bubblePosition == BubblePosition.LEFT) {
+                    iArr3[0] = ((iArr[0] - iArr2[0]) - (qd1Var.i.getMeasuredWidth() / 2)) - c61.c.a(qd1Var.c.getContext(), this.b);
+                    iArr3[1] = (iArr[1] - iArr2[1]) + (qd1Var.c.getMeasuredHeight() / 2);
+                } else if (bubblePosition == BubblePosition.RIGHT) {
+                    iArr3[0] = (iArr[0] - iArr2[0]) + qd1Var.c.getMeasuredWidth() + c61.c.a(qd1Var.c.getContext(), this.b);
+                    iArr3[1] = (iArr[1] - iArr2[1]) + (qd1Var.c.getMeasuredHeight() / 2);
+                }
+                int[] a2 = a(qd1Var, iArr3, bubblePosition);
+                if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
+                    if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
+                        qd1Var.g.setY(((iArr3[1] - a2[1]) - Math.max(qd1Var.j.getMeasuredHeight() / 2, qd1Var.k.getMeasuredHeight() / 2)) + this.c);
+                    }
+                } else {
+                    qd1Var.g.setX(((iArr3[0] - a2[0]) - Math.max(qd1Var.i.getMeasuredWidth() / 2, qd1Var.h.getMeasuredWidth() / 2)) + this.c);
+                }
+                return a2;
+            }
+            return new int[]{0, 0};
+        }
+        return (int[]) invokeLL.objValue;
+    }
+
+    public final boolean l(qd1 qd1Var, BubblePosition bubblePosition) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, qd1Var, bubblePosition)) == null) {
+            int i = a.a[bubblePosition.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return false;
+                        }
+                        return m(qd1Var);
+                    }
+                    return k(qd1Var);
+                }
+                return j(qd1Var);
+            }
+            return n(qd1Var);
+        }
+        return invokeLL.booleanValue;
     }
 }

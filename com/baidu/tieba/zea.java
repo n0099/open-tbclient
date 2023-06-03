@@ -1,82 +1,142 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Process;
-import androidx.multidex.MultiDex;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.share.CheckRequest;
+import com.baidu.tieba.write.share.CheckResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.base.BuildConfig;
-import java.lang.reflect.InvocationTargetException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public yea b;
+    public HttpMessageListener c;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zea a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zea zeaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zeaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return null;
-            } catch (SecurityException unused) {
-                return null;
+            }
+            this.a = zeaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
+                return;
+            }
+            afa checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
+            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f136f));
+            }
+            if (this.a.b != null) {
+                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void b(Context context) {
+    public zea(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
-            xea.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
-            return;
-        }
-        MultiDex.install(context);
-        xea.h("base_multidex", "Completed multidex installation.", new Object[0]);
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.a = bdUniqueId;
+        b();
     }
 
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
+    public void e(yea yeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
-                if (invoke != null && (invoke instanceof Boolean)) {
-                    if (((Boolean) invoke).booleanValue()) {
-                        return false;
-                    }
-                }
-            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
-            }
-            String a = a(context);
-            if (a == null) {
-                return true;
-            }
-            try {
-                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-                if (applicationInfo != null && applicationInfo.metaData != null) {
-                    Bundle bundle = applicationInfo.metaData;
-                    return !bundle.getBoolean(a + ".ignore_multidex", false);
-                }
-            } catch (PackageManager.NameNotFoundException unused2) {
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yeaVar) == null) {
+            this.b = yeaVar;
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.registerTask(c());
+            this.c.setTag(this.a);
+            messageManager.registerListener(this.c);
+        }
+    }
+
+    public final HttpMessageTask c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setRetry(3);
+            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
+            return tbHttpMessageTask;
+        }
+        return (HttpMessageTask) invokeV.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            if (StringUtils.isNull(str)) {
+                yea yeaVar = this.b;
+                if (yeaVar != null) {
+                    yeaVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042b));
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().removeHttpMessage(this.a);
+            CheckRequest checkRequest = new CheckRequest();
+            checkRequest.setTag(this.a);
+            checkRequest.setAppkey(str);
+            checkRequest.setAppletsKey(str2);
+            MessageManager.getInstance().sendMessage(checkRequest);
+        }
     }
 }

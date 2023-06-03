@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Pendant extends Message {
     public static final String DEFAULT_IMGURL = "";
     public static final Long DEFAULT_PROPSID = 0L;
@@ -11,7 +11,7 @@ public final class Pendant extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.UINT64)
     public final Long propsId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<Pendant> {
         public String imgUrl;
         public Long propsId;

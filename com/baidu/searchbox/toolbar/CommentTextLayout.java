@@ -24,7 +24,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
 
     public CommentTextLayout(Context context) {
         super(context);
-        this.mItemSize = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070250);
+        this.mItemSize = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025d);
         initLayout();
     }
 
@@ -55,7 +55,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         ImageView imageView = new ImageView(getContext());
         this.mCommentIcon = imageView;
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f08050d);
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080522);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(FontSizeHelper.getScaledSize(0, this.mItemSize, 2), FontSizeHelper.getScaledSize(0, this.mItemSize, 2));
         layoutParams.addRule(9);
         layoutParams.addRule(10);
@@ -63,14 +63,14 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         addView(this.mCommentIcon);
         TextView textView = new TextView(getContext());
         this.mCommentText = textView;
-        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0493));
+        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f049c));
         this.mCommentText.setGravity(16);
         this.mCommentText.setTextSize(1, FontSizeHelper.getScaledSize(0, 14.0f, 2));
-        this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601bf));
-        this.mCommentText.setPadding(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070244));
+        this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601c3));
+        this.mCommentText.setPadding(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07024f));
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, this.mItemSize);
-        layoutParams2.leftMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070245);
-        layoutParams2.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070246);
+        layoutParams2.leftMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070250);
+        layoutParams2.rightMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070251);
         layoutParams2.addRule(10);
         layoutParams2.addRule(9);
         this.mCommentText.setLayoutParams(layoutParams2);
@@ -87,16 +87,16 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         if (!isResponseFontSize()) {
             return;
         }
-        FontSizeViewExtKt.setScaledSizeRes(this.mCommentIcon, 0, R.dimen.obfuscated_res_0x7f070250, R.dimen.obfuscated_res_0x7f070250);
-        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f08050d);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentText, 0, R.dimen.dimen_ui_14);
-        FontSizeViewExtKt.setScaledHeightRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070250);
-        FontSizeViewExtKt.setScaledLeftMarginRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070245);
+        FontSizeViewExtKt.setScaledSizeRes(this.mCommentIcon, 0, R.dimen.obfuscated_res_0x7f07025d, R.dimen.obfuscated_res_0x7f07025d);
+        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f080522);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f0702df);
+        FontSizeViewExtKt.setScaledHeightRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f07025d);
+        FontSizeViewExtKt.setScaledLeftMarginRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070250);
     }
 
     public void updateColor() {
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f08050d);
-        this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601bf));
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080522);
+        this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601c3));
         onFontSizeChange();
     }
 }

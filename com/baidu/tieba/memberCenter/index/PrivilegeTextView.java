@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +90,7 @@ public class PrivilegeTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
             return ((((((((int) ((displayMetrics.widthPixels / displayMetrics.density) + 0.5f)) - 6) - 100) - 8) - 20) - 28) - getPaddingLeft()) - getPaddingRight();
         }
         return invokeV.intValue;

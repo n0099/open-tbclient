@@ -10,19 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wwa;
+import com.baidu.tieba.k5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
-import com.fun.module.ks.x;
+import com.fun.module.ks.y;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class KSNativeAdGroupImgAppDownloadView extends x {
+public class KSNativeAdGroupImgAppDownloadView extends y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView b;
@@ -133,7 +133,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
         }
     }
 
-    @Override // com.fun.module.ks.x
+    @Override // com.fun.module.ks.y
     public void a(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
@@ -172,7 +172,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new wwa(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new k5b(ksNativeAd.getActionDescription(), this.k));
         }
     }
 }

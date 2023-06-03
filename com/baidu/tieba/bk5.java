@@ -1,74 +1,258 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public interface bk5 {
-    public static final a a = a.a;
-
-    void a(TbPageContext<?> tbPageContext, long j, Map<String, String> map);
-
-    void b(TbPageContext<?> tbPageContext, long j);
-
-    void c(Context context, Frs$From frs$From, Long l, String str);
-
-    void d(TbPageContext<?> tbPageContext, String str);
+public class bk5 extends uh5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public boolean c;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements th5 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ak5 a;
+        public final /* synthetic */ EditorTools b;
+        public final /* synthetic */ bk5 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-916157984, "Lcom/baidu/tieba/bk5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-916157984, "Lcom/baidu/tieba/bk5$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("Frs", "FrsService");
-        }
-
-        public a() {
+        public a(bk5 bk5Var, ak5 ak5Var, EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bk5Var, ak5Var, editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = bk5Var;
+            this.a = ak5Var;
+            this.b = editorTools;
         }
 
-        public final ServiceReference a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.th5
+        public void C(sh5 sh5Var) {
+            ei5 p;
+            fi5 fi5Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, sh5Var) != null) || sh5Var == null) {
+                return;
             }
-            return (ServiceReference) invokeV.objValue;
+            int i = sh5Var.a;
+            if (i != 4) {
+                if (i != 16) {
+                    if (i != 7) {
+                        if (i != 8) {
+                            if (i != 10) {
+                                if (i == 11) {
+                                    this.a.e0(null);
+                                    EditorTools editorTools = this.b;
+                                    if (editorTools != null && (p = editorTools.p(6)) != null && (fi5Var = p.m) != null) {
+                                        fi5Var.C(new sh5(52, 0, null));
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                            Object obj = sh5Var.c;
+                            if (obj instanceof VoiceData.VoiceModel) {
+                                this.a.e0((VoiceData.VoiceModel) obj);
+                                this.a.w(null);
+                                return;
+                            }
+                            return;
+                        } else if (!this.c.h(this.a.getContext(), 11001)) {
+                            return;
+                        } else {
+                            this.a.G();
+                            TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
+                            return;
+                        }
+                    }
+                    this.a.getContext().showToast((int) R.string.over_limit_tip);
+                    this.c.a = true;
+                    return;
+                }
+                if (this.c.a) {
+                    this.a.getContext().showToast((int) R.string.over_limit_tip);
+                }
+                if (!this.c.h(this.a.getContext(), 11025)) {
+                    return;
+                }
+                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12005, true);
+                if (this.a.v() != null) {
+                    atListActivityConfig.setSelectedAtList(this.a.v().w());
+                }
+                EditorTools editorTools2 = this.b;
+                if (editorTools2 != null) {
+                    atListActivityConfig.setFromTid(editorTools2.getTid());
+                    atListActivityConfig.setFromFid(String.valueOf(this.b.getFid()));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                EditorTools editorTools3 = this.b;
+                if (editorTools3 != null) {
+                    statisticItem.addParam("tid", editorTools3.getTid());
+                    statisticItem.addParam("fid", this.b.getFid());
+                }
+                TiebaStatic.log(statisticItem);
+                return;
+            }
+            Object obj2 = sh5Var.c;
+            if (obj2 instanceof ck5) {
+                this.a.a0((ck5) obj2);
+                this.a.Z(((ck5) sh5Var.c).c);
+            } else if (obj2 instanceof String) {
+                this.a.T((String) obj2);
+            } else if (obj2 instanceof SpanGroupManager) {
+                this.a.T(obj2.toString());
+                this.a.Z((SpanGroupManager) sh5Var.c);
+            }
+            this.c.a = false;
         }
+    }
+
+    public bk5(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.c = false;
+        this.c = z;
+    }
+
+    @Override // com.baidu.tieba.uh5
+    public wh5 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(true);
+            int i = 5;
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBackgroundColorId(0);
+            if (!this.c) {
+                i = 2;
+            }
+            editorTools.setBarLauncherType(i);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.F(false);
+            ak5 ak5Var = new ak5(editorTools);
+            ak5Var.s = this.c;
+            return ak5Var;
+        }
+        return (wh5) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uh5
+    public void c(wh5 wh5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wh5Var) != null) || wh5Var == null) {
+            return;
+        }
+        EditorTools b = wh5Var.b();
+        a aVar = new a(this, (ak5) wh5Var, b);
+        b.setActionListener(4, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(16, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(10, aVar);
+        b.setActionListener(11, aVar);
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.uh5
+    public void d(wh5 wh5Var) {
+        CustomResponsedMessage runTask;
+        ei5 ei5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wh5Var) == null) {
+            EditorTools b = wh5Var.b();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            ei5 p = b.p(5);
+            if (p != null) {
+                p.e(false);
+                p.f(false);
+                p.l = 1;
+            }
+            if (!this.c) {
+                if (yz9.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), ei5.class)) != null && (ei5Var = (ei5) runTask.getData()) != null) {
+                    ei5Var.l = 2;
+                    b.d(ei5Var);
+                }
+                b.d(new gi5(b.getContext(), 4));
+            }
+            xj5 xj5Var = new xj5(b.getContext(), this.c, false, 12005);
+            if (!ui.isEmpty(this.b)) {
+                xj5Var.m(this.b);
+            }
+            b.d(xj5Var);
+            b.f();
+            b.C(new sh5(35, 5, Boolean.FALSE));
+            b.s();
+        }
+    }
+
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

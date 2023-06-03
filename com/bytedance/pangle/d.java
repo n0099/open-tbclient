@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.bytedance.pangle.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d extends IInterface {
     ComponentName a(Intent intent, String str);
 
@@ -17,7 +17,7 @@ public interface d extends IInterface {
 
     boolean b(Intent intent, String str);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements d {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -25,12 +25,12 @@ public interface d extends IInterface {
         }
 
         /* renamed from: com.bytedance.pangle.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0531a implements d {
+        /* loaded from: classes9.dex */
+        public static class C0551a implements d {
             public static d a;
             public IBinder b;
 
-            public C0531a(IBinder iBinder) {
+            public C0551a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -163,7 +163,7 @@ public interface d extends IInterface {
         }
 
         public static d a() {
-            return C0531a.a;
+            return C0551a.a;
         }
 
         public static d a(IBinder iBinder) {
@@ -174,7 +174,7 @@ public interface d extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                 return (d) queryLocalInterface;
             }
-            return new C0531a(iBinder);
+            return new C0551a(iBinder);
         }
 
         @Override // android.os.Binder

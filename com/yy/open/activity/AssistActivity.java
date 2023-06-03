@@ -24,9 +24,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.searchbox.IntentConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l5b;
+import com.baidu.tieba.vdb;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -125,7 +124,7 @@ public final class AssistActivity extends Activity {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (str.startsWith(l5b.g(false))) {
+            if (str.startsWith(vdb.g(false))) {
                 try {
                     Intent intent = new Intent();
                     String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -168,7 +167,7 @@ public final class AssistActivity extends Activity {
                     e.printStackTrace();
                     return true;
                 }
-            } else if (!str.startsWith(l5b.g(true))) {
+            } else if (!str.startsWith(vdb.g(true))) {
                 return false;
             } else {
                 try {
@@ -178,7 +177,7 @@ public final class AssistActivity extends Activity {
                     String queryParameter10 = Uri.parse(str).getQueryParameter("appType");
                     if ("1".equals(queryParameter10)) {
                         String queryParameter11 = Uri.parse(str).getQueryParameter("token");
-                        String queryParameter12 = Uri.parse(str).getQueryParameter(TiebaStatic.YYParams.YYUID);
+                        String queryParameter12 = Uri.parse(str).getQueryParameter("yyuid");
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("appType", queryParameter10);
                         jSONObject3.put("credit", queryParameter11);

@@ -1,44 +1,100 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.os.Build;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x61 {
+public abstract class x61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return false;
+    public abstract void b(CharSequence charSequence);
+
+    @TargetApi(11)
+    /* loaded from: classes8.dex */
+    public static class a extends x61 {
+        public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager a;
+        public static ClipData b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-335382439, "Lcom/baidu/tieba/x61$a;")) == null) {
+                return;
             }
-            return c51.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-335382439, "Lcom/baidu/tieba/x61$a;");
+            }
         }
-        return invokeL.booleanValue;
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            a = (ClipboardManager) kk0.b().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.x61
+        public void b(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                b = newPlainText;
+                try {
+                    a.setPrimaryClip(newPlainText);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean b(Context context) {
+    public x61() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static x61 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
-            }
-            boolean a = c51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (Build.VERSION.SDK_INT >= 16) {
-                return (a || c51.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
-            }
-            return a;
+            return new a();
         }
-        return invokeL.booleanValue;
+        return (x61) invokeL.objValue;
     }
 }

@@ -3,11 +3,12 @@ package com.baidu.tieba.write.write.dispatcher;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi9;
+import com.baidu.tieba.oo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class WritePostDispatcher implements hi9 {
+public class WritePostDispatcher implements oo9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEEK_HELP = "seek_help";
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,21 +59,21 @@ public class WritePostDispatcher implements hi9 {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hi9
+    @Override // com.baidu.tieba.oo9
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             if ("game_rank".equals(jSONObject.optString("h5_from"))) {
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(context);
-                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f1139));
+                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f118b));
                 StringBuilder sb = new StringBuilder();
                 sb.append("#");
                 sb.append(jSONObject.optString("topic_name"));
                 sb.append("#");
                 String optString = jSONObject.optString("rank_name");
                 String optString2 = jSONObject.optString("game_name");
-                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f113a), optString, optString2, jSONObject.optString("reward_name")));
+                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f118c), optString, optString2, jSONObject.optString("reward_name")));
                 newInstance.setContent(sb.toString());
                 newInstance.setXiuxiuOriginalContent(sb.toString());
                 newInstance.setGameRankImgUrl(jSONObject.optString(BigdayActivityConfig.IMG_URL));
@@ -91,6 +92,10 @@ public class WritePostDispatcher implements hi9 {
             String optString3 = jSONObject.optString("title");
             if (!TextUtils.isEmpty(optString3)) {
                 newInstance2.setTitle(optString3);
+            }
+            String optString4 = jSONObject.optString("topic_name");
+            if (StringUtils.isNotNull(optString4)) {
+                newInstance2.setContent("#" + optString4 + "#");
             }
             if (1 == jSONObject.optInt("notification_h5")) {
                 z = true;
@@ -113,23 +118,23 @@ public class WritePostDispatcher implements hi9 {
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            String optString4 = jSONObject.optString("forum_id");
-            if (!TextUtils.isEmpty(optString4)) {
-                newInstance2.setForumId(optString4);
+            String optString5 = jSONObject.optString("forum_id");
+            if (!TextUtils.isEmpty(optString5)) {
+                newInstance2.setForumId(optString5);
             } else {
                 newInstance2.setForumId("0");
             }
-            String optString5 = jSONObject.optString("forum_name");
-            if (!TextUtils.isEmpty(optString5)) {
-                newInstance2.setForumName(optString5);
-            }
-            String optString6 = jSONObject.optString("active");
+            String optString6 = jSONObject.optString("forum_name");
             if (!TextUtils.isEmpty(optString6)) {
-                newInstance2.setActiveName(optString6);
+                newInstance2.setForumName(optString6);
             }
-            String optString7 = jSONObject.optString("taskname");
+            String optString7 = jSONObject.optString("active");
             if (!TextUtils.isEmpty(optString7)) {
-                newInstance2.setTaskName(optString7);
+                newInstance2.setActiveName(optString7);
+            }
+            String optString8 = jSONObject.optString("taskname");
+            if (!TextUtils.isEmpty(optString8)) {
+                newInstance2.setTaskName(optString8);
             }
             if (1 == jSONObject.optInt("not_save_draft")) {
                 newInstance2.setIsSaveDraft(false);
@@ -139,9 +144,9 @@ public class WritePostDispatcher implements hi9 {
             } else {
                 newInstance2.setType(9);
             }
-            String optString8 = jSONObject.optString(WriteActivityConfig.SHOW_NOT_SAVE_POPUP);
-            if (!TextUtils.isEmpty(optString8)) {
-                newInstance2.setShowNotSavePopup(optString8);
+            String optString9 = jSONObject.optString(WriteActivityConfig.SHOW_NOT_SAVE_POPUP);
+            if (!TextUtils.isEmpty(optString9)) {
+                newInstance2.setShowNotSavePopup(optString9);
             }
             if (1 == jSONObject.optInt(WriteActivityConfig.KEY_PUT_STORAGE_TID)) {
                 newInstance2.setPutStorageTid(true);
@@ -149,9 +154,9 @@ public class WritePostDispatcher implements hi9 {
             if (1 == jSONObject.optInt(WriteActivityConfig.KEY_NOT_USE_DRAFT)) {
                 newInstance2.setNotUseDraft(true);
             }
-            String optString9 = jSONObject.optString(WriteActivityConfig.NO_SUCCESS_TOAST);
-            if (!TextUtils.isEmpty(optString9)) {
-                newInstance2.setNoSuccessToast(optString9);
+            String optString10 = jSONObject.optString(WriteActivityConfig.NO_SUCCESS_TOAST);
+            if (!TextUtils.isEmpty(optString10)) {
+                newInstance2.setNoSuccessToast(optString10);
             }
             newInstance2.send();
         }

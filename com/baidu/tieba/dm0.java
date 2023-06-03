@@ -1,45 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lm0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dm0 implements jm0, Runnable {
+public class dm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<lm0.b<?>> a;
-    public final AtomicBoolean b;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final dm0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-857201595, "Lcom/baidu/tieba/dm0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-857201595, "Lcom/baidu/tieba/dm0$a;");
-                    return;
-                }
-            }
-            a = new dm0();
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public bm0 k;
 
     public dm0() {
         Interceptable interceptable = $ic;
@@ -51,52 +35,52 @@ public class dm0 implements jm0, Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
-    }
-
-    public static jm0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (jm0) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        while (true) {
-            lm0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.jm0
-    public <T extends hm0> void a(mm0 mm0Var, km0<T> km0Var, T t) {
+    @NonNull
+    public static dm0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, mm0Var, km0Var, t) == null) {
-            if (qj0.a()) {
-                this.a.offer(new lm0.b<>(mm0Var, km0Var, t));
-                if (this.b.compareAndSet(false, true)) {
-                    f31.c(this, "BackgroundDeliver", 3);
-                    return;
-                }
-                return;
-            }
-            km0Var.onEvent(t);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject c = y21.c(str);
+            dm0 dm0Var = new dm0();
+            dm0Var.a = c.optString("als_ext");
+            dm0Var.b = c.optString("cmd");
+            dm0Var.c = c.optString("defer_cmd");
+            dm0Var.d = c.optString("init_text");
+            dm0Var.e = c.optString("opt_icon");
+            dm0Var.f = c.optString("opt_text");
+            dm0Var.g = c.optString("app_icon_url");
+            dm0Var.h = c.optString("app_name");
+            dm0Var.i = c.optString("version_code");
+            dm0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            return dm0Var;
         }
+        return (dm0) invokeL.objValue;
+    }
+
+    public static String b(@NonNull dm0 dm0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dm0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("als_ext", dm0Var.a);
+                jSONObject.put("cmd", dm0Var.b);
+                jSONObject.put("defer_cmd", dm0Var.c);
+                jSONObject.put("init_text", dm0Var.d);
+                jSONObject.put("opt_icon", dm0Var.e);
+                jSONObject.put("opt_text", dm0Var.f);
+                jSONObject.put("app_icon_url", dm0Var.g);
+                jSONObject.put("app_name", dm0Var.h);
+                jSONObject.put("version_code", dm0Var.i);
+                jSONObject.put(LegoListActivityConfig.AD_ID, dm0Var.j);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.tieba.f72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e72 extends db3 {
+public abstract class e72<V extends SwanEditText, M extends f72> extends j72<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c72 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e72(da3 da3Var) {
-        super(da3Var, "/swanAPI/perfCat");
+    public e72(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (k72) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,94 +42,182 @@ public class e72 extends db3 {
         }
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeLLLL;
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (n72.h) {
+                Log.d("Component-EditText", "renderSelection");
             }
-            return false;
+            Editable text = v.getText();
+            int i2 = 0;
+            if (text != null) {
+                i2 = text.length();
+            }
+            int i3 = m.H;
+            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
+                v.setSelection(i, i3);
+            }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.db3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, g93 g93Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l72
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, g93Var)) == null) {
-            if (db3.b) {
-                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (n72.h) {
+                Log.d("Component-EditText", "renderBackground");
             }
-            if (!db3.b) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
-                return false;
+            v.setBackgroundColor(0);
+        }
+    }
+
+    public void d0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (n72.h) {
+                Log.d("Component-EditText", "renderCursor");
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            Editable text = v.getText();
+            int i = 0;
+            if (text != null) {
+                i = text.length();
+            }
+            int i2 = m.F;
+            if (i2 <= i && i2 >= 0) {
+                v.setSelection(i2);
+            }
+        }
+    }
+
+    public final void e0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (n72.h) {
+                Log.d("Component-EditText", "renderMaxLength");
+            }
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.n72
+    @NonNull
+    /* renamed from: Z */
+    public q82 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            q82 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
+                k.b(6);
+            }
+            if (m.D != m2.D) {
+                k.b(10);
+            }
+            if (m.F != m2.F) {
+                k.b(11);
+            }
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
+            }
+            return k;
+        }
+        return (q82) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j72
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull q82 q82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, q82Var) == null) {
+            super.O(v, m, q82Var);
+            if (q82Var.a(11)) {
+                d0(v, m);
+            }
+            if (q82Var.a(12)) {
+                f0(v, m);
+            }
+            if (q82Var.a(10)) {
+                e0(v, m);
+            }
+            if (q82Var.a(13)) {
+                c0(v, m);
+            }
+        }
+    }
+
+    public boolean c0(@NonNull V v, @NonNull M m) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (n72.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
+            }
+            String str = m.I;
             char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -322942229) {
-                if (hashCode != 227833272) {
-                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
-                        c = 0;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
                     }
-                } else if (str.equals("/swanAPI/perfCat/off")) {
-                    c = 1;
-                }
-            } else if (str.equals("/swanAPI/perfCat/duration")) {
-                c = 2;
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals("go")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals("next")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals("send")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
             if (c != 0) {
                 if (c != 1) {
                     if (c != 2) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
-                        return false;
-                    }
-                    if (optParamsAsJo == null) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
+                        if (c != 3) {
+                            if (c != 4) {
+                                return false;
+                            }
+                            v.setImeOptions(6);
+                        } else {
+                            v.setImeOptions(2);
+                        }
                     } else {
-                        if (this.c != null) {
-                            this.c.g(optParamsAsJo.optInt("duration"));
-                        }
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        v.setImeOptions(5);
                     }
-                    return true;
-                }
-                JSONObject jSONObject = new JSONObject();
-                c72 c72Var = this.c;
-                if (c72Var == null) {
-                    g62.c("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String i = c72Var.i();
-                    this.c = null;
-                    tu2.U().C();
-                    try {
-                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, tu2.U().C());
-                        jSONObject.put("path", i);
-                    } catch (JSONException e) {
-                        if (db3.b) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (db3.b) {
-                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
-                    }
-                    g62.i("SwanAppPropertyLogAction", "Stop property log");
+                    v.setImeOptions(3);
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
+            } else {
+                v.setImeOptions(4);
             }
-            if (this.c == null) {
-                this.c = new c72();
-            }
-            this.c.h();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            g62.i("SwanAppPropertyLogAction", " Start property log：");
             return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

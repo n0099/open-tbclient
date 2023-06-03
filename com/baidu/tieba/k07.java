@@ -1,70 +1,81 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class k07 {
+public class k07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
+    public TbPageContext<?> a;
+    public View b;
+    public TextView c;
+    public ImageView d;
+    public boolean e;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k07 a;
+
+        public a(k07 k07Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k07Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof k07) {
-                k07 k07Var = (k07) obj;
-                return Intrinsics.areEqual(this.a, k07Var.a) && Intrinsics.areEqual(this.b, k07Var.b) && Intrinsics.areEqual(this.c, k07Var.c) && Intrinsics.areEqual(this.d, k07Var.d) && Intrinsics.areEqual(this.e, k07Var.e);
+            this.a = k07Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                qx6.b(this.a.a, null);
+                StatisticItem statisticItem = new StatisticItem("c13645");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                int i = 1;
+                statisticItem.param("obj_locate", 1);
+                if (this.a.e) {
+                    i = 5;
+                }
+                statisticItem.param("obj_type", i);
+                statisticItem.param("obj_source", 2);
+                TiebaStatic.log(statisticItem);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            String str = this.b;
-            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.d;
-            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
-            Object obj = this.e;
-            return hashCode4 + (obj != null ? obj.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public k07(String type, String str, String str2, String str3, Object obj) {
+    public k07(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, str, str2, str3, obj};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,47 +85,40 @@ public final class k07 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = obj;
+        this.a = tbPageContext;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d081f, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d8);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fc8);
+        this.d = imageView;
+        imageView.setOnClickListener(new a(this));
     }
 
-    public final Object a() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
         }
-        return invokeV.objValue;
     }
 
-    public final String b() {
+    public void c(x35 x35Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, x35Var) == null) {
+            String title = x35Var.getTitle();
+            if (!TextUtils.isEmpty(title)) {
+                this.c.setText(title);
+            }
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 }

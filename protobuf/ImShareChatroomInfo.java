@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ImShareChatroomInfo extends Message {
     public static final String DEFAULT_FORUMNAME = "";
     public static final String DEFAULT_ICON = "";
@@ -23,7 +23,7 @@ public final class ImShareChatroomInfo extends Message {
     public static final Long DEFAULT_FORUMID = 0L;
     public static final Long DEFAULT_CHATCOUNT = 0L;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<ImShareChatroomInfo> {
         public Long chatCount;
         public Long forumId;

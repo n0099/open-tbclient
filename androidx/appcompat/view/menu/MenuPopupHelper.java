@@ -17,6 +17,7 @@ import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
@@ -36,7 +37,7 @@ public class MenuPopupHelper implements MenuHelper {
     public MenuPresenter.Callback mPresenterCallback;
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040597, 0);
+        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040599, 0);
     }
 
     public void show(int i, int i2) {
@@ -58,7 +59,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
-        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040597, 0);
+        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040599, 0);
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
@@ -85,7 +86,7 @@ public class MenuPopupHelper implements MenuHelper {
     private MenuPopup createPopup() {
         boolean z;
         MenuPopup standardMenuPopup;
-        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 17) {
             defaultDisplay.getRealSize(point);

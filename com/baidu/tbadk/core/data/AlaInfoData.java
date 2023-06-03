@@ -6,11 +6,12 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.t15;
+import com.baidu.tieba.m15;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,10 +36,12 @@ public class AlaInfoData implements Serializable, Parcelable {
     public String appId;
     public int audience_count;
     public String cover;
+    public int cutType;
     public String description;
     public transient SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
+    public String flv_url;
     public String forumUserLiveMsg;
     public String friendRoomName;
     public int friendRoomStatus;
@@ -47,7 +50,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient qy4 label;
+    public transient m15 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -76,8 +79,9 @@ public class AlaInfoData implements Serializable, Parcelable {
     public String thirdLiveType;
     public String thirdRoomId;
     public long thread_id;
-    public t15 userLabelInfo;
+    public q45 userLabelInfo;
     public transient AlaUserInfoData user_info;
+    public String user_label_text;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -168,7 +172,7 @@ public class AlaInfoData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            if (yyExtData != null && !qi.isEmpty(yyExtData.mSid) && !qi.isEmpty(this.mYyExtData.mSsid)) {
+            if (yyExtData != null && !ui.isEmpty(yyExtData.mSid) && !ui.isEmpty(this.mYyExtData.mSsid)) {
                 return true;
             }
             return false;
@@ -230,6 +234,8 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.session_id = jSONObject.optString("session_id");
             this.rtmp_url = jSONObject.optString("rtmp_url");
             this.hls_url = jSONObject.optString("hls_url");
+            this.flv_url = jSONObject.optString("flv_url");
+            this.user_label_text = jSONObject.optString("user_label_text");
             this.group_id = jSONObject.optLong("group_id");
             this.media_url = jSONObject.optString("media_url");
             this.media_pic = jSONObject.optString("media_pic");
@@ -238,7 +244,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.description = jSONObject.optString("description");
             AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
             this.user_info = alaUserInfoData;
-            alaUserInfoData.parserJson(jSONObject.optJSONObject("user_info"));
+            alaUserInfoData.parserJson(jSONObject.optJSONObject(SourceConstant.SOURCE_USER_INFO));
             AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
             this.share_info = alaShareInfoData;
             alaShareInfoData.parserJson(jSONObject.optJSONObject("share_info"));
@@ -253,9 +259,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                qy4 qy4Var = new qy4();
-                this.label = qy4Var;
-                qy4Var.a(optJSONObject);
+                m15 m15Var = new m15();
+                this.label = m15Var;
+                m15Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             boolean z = false;
@@ -306,8 +312,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("user_label");
             if (this.label != null) {
-                this.userLabelInfo = t15.g(optJSONObject4);
+                this.userLabelInfo = q45.g(optJSONObject4);
             }
+            this.cutType = jSONObject.optInt("cut_type");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -393,7 +400,7 @@ public class AlaInfoData implements Serializable, Parcelable {
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
             }
             if (alaLiveInfo.user_label != null) {
-                this.userLabelInfo = t15.h(alaLiveInfo.user_label);
+                this.userLabelInfo = q45.h(alaLiveInfo.user_label);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

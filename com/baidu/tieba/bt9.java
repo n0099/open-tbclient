@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bt9 {
+public final class bt9 extends xr6<uv9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bt9() {
+        super(uv9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,32 +22,38 @@ public class bt9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xr6
+    public void onEvent(uv9 event) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    this.a = new ArrayList<>();
-                    for (int i = 0; i < length; i++) {
-                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            int type = event.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    return;
                 }
-                this.b = optJSONObject.optString("upload_id");
-                this.c = optJSONObject.optString("video_url");
+                HomeSpriteEdgeFloatManager.j.c().I();
+                return;
             }
-        } catch (JSONException unused) {
+            vv9 a = event.a();
+            if (a != null) {
+                HomeSpriteEdgeFloatManager.j.c().N(a);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
+            }
+            if (unit == null) {
+            }
         }
     }
 }

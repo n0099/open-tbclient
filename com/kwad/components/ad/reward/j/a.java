@@ -30,13 +30,13 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     public String uf;
     public boolean ug;
     public boolean uh;
-    public List<InterfaceC0588a> ui;
+    public List<InterfaceC0608a> ui;
     public final List<h.a> uj;
     public h.a uk;
 
     /* renamed from: com.kwad.components.ad.reward.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0588a {
+    public interface InterfaceC0608a {
         boolean handledOnResume();
     }
 
@@ -120,8 +120,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         this.hx = true;
     }
 
-    public final void a(InterfaceC0588a interfaceC0588a) {
-        this.ui.add(interfaceC0588a);
+    public final void a(InterfaceC0608a interfaceC0608a) {
+        this.ui.add(interfaceC0608a);
     }
 
     @MainThread
@@ -136,8 +136,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         this.uj.add(aVar);
     }
 
-    public final void b(InterfaceC0588a interfaceC0588a) {
-        this.ui.remove(interfaceC0588a);
+    public final void b(InterfaceC0608a interfaceC0608a) {
+        this.ui.remove(interfaceC0608a);
     }
 
     @MainThread
@@ -188,8 +188,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     public final void iL() {
         boolean z;
         loop0: while (true) {
-            for (InterfaceC0588a interfaceC0588a : this.ui) {
-                z = z || interfaceC0588a.handledOnResume();
+            for (InterfaceC0608a interfaceC0608a : this.ui) {
+                z = z || interfaceC0608a.handledOnResume();
             }
         }
         if (!z && !this.hx) {

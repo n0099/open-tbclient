@@ -7,12 +7,12 @@ import java.net.Proxy;
 import java.util.List;
 import javax.annotation.Nullable;
 import okhttp3.internal.WrappedEventListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class EventListener {
     public static final EventListener NONE = new EventListener() { // from class: okhttp3.EventListener.1
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Factory {
         EventListener create(Call call);
     }

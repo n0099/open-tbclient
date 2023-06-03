@@ -1,37 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class el3 implements zn3<HybridUbcFlow> {
+public class el3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public el3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947738141, "Lcom/baidu/tieba/el3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947738141, "Lcom/baidu/tieba/el3;");
+                return;
+            }
+        }
+        a = is1.a;
+    }
+
+    public static JSONObject b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("abTestSwitch", a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (el3.class) {
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
+                }
+                b = null;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zn3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public static synchronized JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            ns2.x0().a(hybridUbcFlow);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (el3.class) {
+                if (b != null) {
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
+                    }
+                    return b;
+                }
+                JSONObject rawSwitch = fv2.g0().getRawSwitch();
+                if (rawSwitch == null) {
+                    b = new JSONObject();
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
+                    }
+                    return b;
+                }
+                Iterator<String> keys = rawSwitch.keys();
+                while (keys.hasNext()) {
+                    if (!keys.next().startsWith("swanswitch")) {
+                        keys.remove();
+                    }
+                }
+                b = rawSwitch;
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
+                }
+                return b;
+            }
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

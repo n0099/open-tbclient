@@ -2,10 +2,9 @@ package com.baidu.searchbox.player.plugin;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PluginManager {
     public final BDVideoPlayer mPlayer;
     public final ArrayList<AbsPlugin> mPlugins = new ArrayList<>();
@@ -14,14 +13,12 @@ public class PluginManager {
         this.mPlayer = bDVideoPlayer;
     }
 
-    @PublicMethod
     public void addPlugin(AbsPlugin absPlugin) {
         absPlugin.attachMessenger(getPlayer().getMessenger());
         absPlugin.attachManager(this);
         this.mPlugins.add(absPlugin);
     }
 
-    @PublicMethod
     public void removePlugin(AbsPlugin absPlugin) {
         absPlugin.detachMessenger();
         absPlugin.detachManager();
@@ -29,12 +26,10 @@ public class PluginManager {
     }
 
     @NonNull
-    @PublicMethod
     public BDVideoPlayer getPlayer() {
         return this.mPlayer;
     }
 
-    @PublicMethod
     public void release() {
         Iterator<AbsPlugin> it = this.mPlugins.iterator();
         while (it.hasNext()) {

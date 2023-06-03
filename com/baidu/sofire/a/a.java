@@ -12,9 +12,10 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
@@ -55,11 +56,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0168a extends Callback {
+    public static class C0182a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0168a() {
+        public C0182a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +134,7 @@ public class a {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append("/");
-            sb.append("100");
+            sb.append(YYOption.UrlProtocol.USER);
             sb.append("/");
             sb.append(str3);
             sb.append("/");
@@ -142,7 +143,7 @@ public class a {
             sb.append(a);
             if (!TextUtils.isEmpty(encodeToString)) {
                 sb.append("?skey=");
-                sb.append(URLEncoder.encode(encodeToString, IMAudioTransRequest.CHARSET));
+                sb.append(URLEncoder.encode(encodeToString, "utf-8"));
             }
             try {
                 str5 = a(context, false, sb, bytes);
@@ -316,7 +317,7 @@ public class a {
                 if (com.baidu.sofire.k.b.h(context)) {
                     service = PendingIntent.getService(context, 1001, intent, 201326592);
                 } else {
-                    service = PendingIntent.getService(context, 1001, intent, 134217728);
+                    service = PendingIntent.getService(context, 1001, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 }
                 if (i != 0) {
                     if (i != 1) {
@@ -371,7 +372,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0168a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0182a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }
@@ -529,7 +530,7 @@ public class a {
                 if (com.baidu.sofire.k.b.h(context)) {
                     service = PendingIntent.getService(context, 1000, intent, 201326592);
                 } else {
-                    service = PendingIntent.getService(context, 1000, intent, 134217728);
+                    service = PendingIntent.getService(context, 1000, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 }
                 try {
                     if (z) {

@@ -1,8 +1,8 @@
 package com.baidu.validation.js;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.apa;
-import com.baidu.tieba.yoa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.nwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yoa mInterpreterCallback;
+    public lwa mInterpreterCallback;
     public String mName;
 
     public BaseInterpreter() {
@@ -29,10 +29,10 @@ public abstract class BaseInterpreter {
         }
     }
 
-    public yoa getInterpreterCallback() {
+    public lwa getInterpreterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (yoa) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (lwa) invokeV.objValue;
     }
 
     public String getName() {
@@ -41,12 +41,12 @@ public abstract class BaseInterpreter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public abstract String interpret(apa apaVar);
+    public abstract String interpret(nwa nwaVar);
 
-    public void setInterpreterCallback(yoa yoaVar) {
+    public void setInterpreterCallback(lwa lwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yoaVar) == null) {
-            this.mInterpreterCallback = yoaVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lwaVar) == null) {
+            this.mInterpreterCallback = lwaVar;
         }
     }
 

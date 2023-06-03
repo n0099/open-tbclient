@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e78;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q78;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.fd8;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.tc8;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView d;
     public View e;
-    public q78 f;
+    public fd8 f;
     public String g;
     public String h;
 
@@ -89,7 +89,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        i = ri.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+        i = vi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,18 +110,18 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e47);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090e49);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090e5b);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull tc8 tc8Var, @NonNull TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, e78Var, tbPageContext, i2) == null) {
-            if (e78Var instanceof q78) {
-                q78 q78Var = (q78) e78Var;
-                this.f = q78Var;
-                this.g = q78Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, tc8Var, tbPageContext, i2) == null) {
+            if (tc8Var instanceof fd8) {
+                fd8 fd8Var = (fd8) tc8Var;
+                this.f = fd8Var;
+                this.g = fd8Var.b();
                 this.h = this.f.c();
                 this.d.setOnClickListener(new a(this, tbPageContext));
             }
@@ -136,7 +136,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.f(i2);
             if (TextUtils.isEmpty(this.g) && (tbImageView = this.d) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0806e8, i2);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080708, i2);
             }
             if (!TextUtils.isEmpty(this.g) && this.d != null) {
                 o(i2);
@@ -152,8 +152,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
             this.e.setVisibility(0);
-            p45.d(this.e).f(R.color.CAM_X0503);
-            p45.d(this.e).o(R.string.J_X06);
+            m75.d(this.e).f(R.color.CAM_X0503);
+            m75.d(this.e).o(R.string.J_X06);
         }
     }
 
@@ -200,7 +200,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 o(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0806e8, skinType);
+            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080708, skinType);
         }
     }
 }

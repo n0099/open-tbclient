@@ -1,100 +1,256 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j7a {
+public class j7a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public i7a c;
+    public k9 a;
+    public List<MusicData> b;
+    public int c;
+    public String d;
 
-    public j7a() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public View b;
+        public TextView c;
+
+        public a(j7a j7aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public j7a(k9 k9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = k9Var;
     }
 
-    public static j7a c(Fragment fragment) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            j7a j7aVar = new j7a();
-            j7aVar.a = fragment;
-            return j7aVar;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+            notifyDataSetChanged();
         }
-        return (j7a) invokeL.objValue;
     }
 
-    public void a(int i, int i2, Intent intent) {
+    public void f(List<MusicData> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
             return;
         }
-        if (i2 == -1) {
-            i7a i7aVar = this.c;
-            if (i7aVar != null) {
-                i7aVar.a();
-                return;
+        this.b = list;
+        e(this.d);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return null;
             }
+            return list.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public void a(TextView textView, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, textView, i, str) != null) || i <= 0) {
             return;
         }
-        i7a i7aVar2 = this.c;
-        if (i7aVar2 != null) {
-            i7aVar2.b();
+        float g = vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
+        TextPaint textPaint = new TextPaint();
+        textPaint.setTextSize(g);
+        while (textPaint.measureText(str) > i) {
+            g -= 1.0f;
+            textPaint.setTextSize(g);
+        }
+        textView.setTextSize(0, g);
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<MusicData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+            if (!TextUtils.isEmpty(str) && this.b != null) {
+                int i = -1;
+                for (int i2 = 0; i2 < this.b.size(); i2++) {
+                    if (str.equals(this.b.get(i2).id)) {
+                        i = i2;
+                    }
+                }
+                if (i == -1) {
+                    i = 1;
+                }
+                this.c = i;
+            }
         }
     }
 
-    public void b(i7a i7aVar) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i7aVar) == null) {
-            this.c = i7aVar;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                i7a i7aVar2 = this.c;
-                if (i7aVar2 != null) {
-                    i7aVar2.a();
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            boolean z = true;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0522, (ViewGroup) null);
+                aVar = new a(this);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917aa);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ae);
+                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0917ab);
+                aVar.a.setDrawerType(1);
+                aVar.a.setIsRound(true);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08036a);
+                aVar.a.setBorderWidth(vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.a.setConrers(15);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
             }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
+            MusicData musicData = this.b.get(i);
+            if (musicData != null) {
+                int i2 = musicData.editMusicType;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        aVar.a.N(musicData.img, 10, false);
+                    } else {
+                        aVar.a.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f080cfc), 24, false);
+                    }
+                } else {
+                    aVar.a.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f080d12), 24, false);
                 }
-                i7a i7aVar3 = this.c;
-                if (i7aVar3 != null) {
-                    i7aVar3.a();
-                    return;
+                aVar.b.setVisibility(4);
+                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                aVar.c.setText(musicData.name);
+                a(aVar.c, vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07035e), musicData.name);
+                if (i == this.c) {
+                    aVar.a.setDrawBorder(true);
+                } else {
+                    aVar.a.setDrawBorder(false);
                 }
-                return;
+                if (i == 0) {
+                    view2.setPadding(vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), 0, 0);
+                } else if (i == this.b.size() - 1) {
+                    view2.setPadding(vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                } else {
+                    view2.setPadding(vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), vi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), 0, 0);
+                }
+                if (this.a.getPageActivity() instanceof BaseActivity) {
+                    d05 layoutMode = ((BaseActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
+                        z = false;
+                    }
+                    layoutMode.l(z);
+                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
+                    d05 layoutMode2 = ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
+                        z = false;
+                    }
+                    layoutMode2.l(z);
+                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                }
             }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package protobuf.QueryLiveGroupLikeList;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LikeUserInfo extends Message {
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_USERNAME = "";
@@ -17,7 +17,7 @@ public final class LikeUserInfo extends Message {
     public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_TIME = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<LikeUserInfo> {
         public String portrait;
         public Integer time;

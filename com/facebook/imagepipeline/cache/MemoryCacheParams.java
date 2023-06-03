@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.cache;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MemoryCacheParams {
     public final int maxCacheEntries;
     public final int maxCacheEntrySize;

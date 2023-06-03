@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ek3 {
+public class ek3 extends yj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
+
+    @Override // com.baidu.tieba.ck3
+    public long getMaxSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
+    }
 
     public ek3() {
         Interceptable interceptable = $ic;
@@ -31,22 +35,18 @@ public class ek3 {
         }
     }
 
+    @Override // com.baidu.tieba.yj3
     @NonNull
-    public static ek3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            ek3 ek3Var = new ek3();
-            if (jSONObject == null) {
-                return ek3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String z = gj3.z(xb3.K().getAppId());
+            if (TextUtils.isEmpty(z)) {
+                return "";
             }
-            ek3Var.a = jSONObject.optString("SSID");
-            ek3Var.b = jSONObject.optString("BSSID");
-            ek3Var.e = jSONObject.optBoolean("maunal");
-            ek3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
-            ek3Var.c = jSONObject.optString("identity");
-            return ek3Var;
+            return z;
         }
-        return (ek3) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

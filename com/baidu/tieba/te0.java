@@ -1,274 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.EGLContext;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.DefaultParams;
-import com.baidu.ar.bean.DuMixARConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class te0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static ue0 b = null;
-    public static af0 c = null;
-    public static Context d = null;
-    public static byte[] e = null;
-    public static JSONObject f = null;
-    public static JSONObject g = null;
-    public static boolean h = true;
-    public static String i = "live";
+public class te0 implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public MirrorType c;
+    public int d;
+    public ScaleType e;
+    public float f;
+    public int g;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onProgress(int i, int i2);
-
-        void onResult(boolean z, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948178186, "Lcom/baidu/tieba/te0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public te0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948178186, "Lcom/baidu/tieba/te0;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            Log.e("DuAr_DuController", "ar->" + str);
-        }
-    }
-
-    public static void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            k(context, "10000", "2288883fb087c4a37fbaf12bce65916e", "");
-        }
-    }
-
-    public static void p(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, aVar) == null) {
-            hf0.e().k(aVar);
-        }
-    }
-
-    public static void q(af0 af0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, af0Var) == null) {
-            c = af0Var;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void s(ue0 ue0Var) {
-        File f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, ue0Var) == null) {
-            b = ue0Var;
-            if (ue0Var == null && (f2 = hf0.e().f()) != null) {
-                b = new ue0(f2.getAbsolutePath());
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = MirrorType.NO_MIRROR;
+        this.d = 0;
+        this.e = ScaleType.FIT_XY;
+        this.f = 1.0f;
+        this.g = -90;
     }
 
-    public static void t(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65557, null, file) != null) || file == null) {
-            return;
-        }
-        ue0 ue0Var = b;
-        if (ue0Var == null) {
-            ue0Var = new ue0(file.getAbsolutePath());
-        }
-        s(ue0Var);
-    }
-
-    public static void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
-            h = z;
-            t(hf0.e().f());
-        }
-    }
-
-    public static byte[] b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public te0 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static af0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return (af0) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static synchronized ye0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            synchronized (te0.class) {
-                if (g != null && g.length() > 0) {
-                    return ye0.b(g);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (te0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return null;
             }
         }
-        return (ye0) invokeV.objValue;
+        return (te0) invokeV.objValue;
     }
 
-    public static ue0 g() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b;
-        }
-        return (ue0) invokeV.objValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return se0.a0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
         return invokeV.intValue;
     }
 
-    public static String i() {
+    public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return se0.b0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    public static boolean m() {
+    public MirrorType d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (MirrorType) invokeV.objValue;
     }
 
-    public static boolean n() {
+    public ScaleType e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return hf0.e().h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return (ScaleType) invokeV.objValue;
     }
 
-    public static boolean o() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static DefaultParams d(EGLContext eGLContext) {
-        InterceptResult invokeL;
+    public float g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eGLContext)) == null) {
-            String g2 = ue0.g();
-            if (m()) {
-                a("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + g2);
-            }
-            DefaultParams defaultParams = new DefaultParams();
-            defaultParams.setFaceAlgoModelPath(g2);
-            JSONObject jSONObject = f;
-            if (jSONObject != null && jSONObject.length() > 0) {
-                defaultParams.setGradingConfig(f);
-            }
-            if (eGLContext != null) {
-                defaultParams.setUseTextureIO(true);
-                defaultParams.setShareContext(eGLContext);
-            }
-            JSONObject jSONObject2 = f;
-            if (jSONObject2 != null && jSONObject2.length() > 0) {
-                defaultParams.setGradingConfig(f);
-                if (m()) {
-                    a("getDuMixDefaultParams  " + f.toString());
-                }
-            }
-            return defaultParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
-        return (DefaultParams) invokeL.objValue;
+        return invokeV.floatValue;
     }
 
-    public static void k(Context context, String str, String str2, String str3) {
+    public float h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, str, str2, str3) == null) {
-            l(context, str, str2, str3, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.d = i;
         }
     }
 
-    @Deprecated
-    public static void l(Context context, String str, String str2, String str3, ue0 ue0Var) {
+    public void j(MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65549, null, context, str, str2, str3, ue0Var) == null) {
-            if (m()) {
-                a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
-            }
-            d = context.getApplicationContext();
-            DuMixARConfig.setAppId(str);
-            DuMixARConfig.setAPIKey(str2);
-            DuMixARConfig.setSecretKey(str3);
-            ef0.d().i(d);
-            s(ue0Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
+            this.c = mirrorType;
         }
     }
 }

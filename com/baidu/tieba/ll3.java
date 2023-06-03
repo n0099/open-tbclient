@@ -1,83 +1,156 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.View;
-import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.f22;
+import com.baidu.tieba.kl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ll3 {
+public class ll3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946678, "Lcom/baidu/tieba/ll3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements kl3.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ q22 c;
+        public final /* synthetic */ ll3 d;
+
+        public a(ll3 ll3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q22 q22Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ll3Var, unitedSchemeEntity, callbackHandler, q22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947946678, "Lcom/baidu/tieba/ll3;");
+            this.d = ll3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = q22Var;
+        }
+
+        @Override // com.baidu.tieba.kl3.a
+        public void a(double[] dArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                if (dArr != null && dArr.length == 3) {
+                    y82.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
+                    this.d.k(this.a, this.b, this.c, dArr);
+                    return;
+                }
+                y82.c("accelerometer", "illegal accelerometers");
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ll3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/startAccelerometer");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
     }
 
-    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
-        AbsoluteLayout webView;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = jn4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081377);
-            Drawable d2 = jn4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081376);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                webView = bdSailorWebView.getCurrentWebView();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                y82.c("accelerometer", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                y82.c("accelerometer", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (vd3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
+                }
+                return false;
             } else {
-                webView = bdSailorWebView.getCurrentWebView().getWebView();
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (vd3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
+                    }
+                    y82.c("accelerometer", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (vd3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
+                    }
+                    y82.c("accelerometer", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                y82.i("accelerometer", " init ");
+                q22 q22Var = new q22("accelerometerChange", optParamsAsJo, optString);
+                kl3 a2 = kl3.a();
+                a2.b(context, f22.b.a(optParamsAsJo.optString("interval")));
+                a2.e(new a(this, unitedSchemeEntity, callbackHandler, q22Var));
+                a2.f();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                q22Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
-            if (Build.VERSION.SDK_INT >= 29) {
-                webView.setVerticalScrollbarThumbDrawable(d);
-                webView.setHorizontalScrollbarThumbDrawable(d2);
-                return;
-            }
-            b(webView, d, d2);
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q22 q22Var, double[] dArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mScrollCache");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(view2);
-            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
-            declaredField2.setAccessible(true);
-            Object obj2 = declaredField2.get(obj);
-            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj2, drawable);
-            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(obj2, drawable2);
-        } catch (Throwable th) {
-            if (a) {
-                th.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, q22Var, dArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("x", dArr[0]);
+                jSONObject.put("y", dArr[1]);
+                jSONObject.put("z", dArr[2]);
+                q22Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                y82.c("accelerometer", "handle compass,json error，" + e.toString());
+                q22Var.e(unitedSchemeEntity, callbackHandler, "Json error");
             }
         }
     }

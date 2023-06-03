@@ -10,7 +10,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 import org.apache.commons.codec.binary.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
     public static final byte ESCAPE_CHAR = 37;
     public static final int RADIX = 16;

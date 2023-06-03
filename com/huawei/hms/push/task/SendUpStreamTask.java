@@ -3,7 +3,7 @@ package com.huawei.hms.push.task;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i2b;
+import com.baidu.tieba.sab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,19 +84,19 @@ public class SendUpStreamTask extends TaskApiCall<PushClient, BaseVoidTask> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, i2b<BaseVoidTask> i2bVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, sab<BaseVoidTask> sabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, i2bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, sabVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("SendUpStreamTask", "send up stream task,Operate succeed");
-                i2bVar.setResult(null);
+                sabVar.setResult(null);
             } else {
                 HMSLog.e("SendUpStreamTask", "send up stream task,Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    i2bVar.c(fromCode.toApiException());
+                    sabVar.c(fromCode.toApiException());
                 } else {
-                    i2bVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    sabVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             a(pushClient, responseErrorCode);

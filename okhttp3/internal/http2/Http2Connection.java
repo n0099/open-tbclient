@@ -28,7 +28,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Http2Connection implements Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final int AWAIT_PING = 3;
@@ -63,7 +63,7 @@ public final class Http2Connection implements Closeable {
     public final Settings peerSettings = new Settings();
     public final Set<Integer> currentPushRequests = new LinkedHashSet();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener
@@ -82,7 +82,7 @@ public final class Http2Connection implements Closeable {
         return i != 0 && (i & 1) == 0;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public boolean client;
         public String hostname;
@@ -129,7 +129,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class IntervalPingRunnable extends NamedRunnable {
         public IntervalPingRunnable() {
             super("OkHttp %s ping", Http2Connection.this.hostname);
@@ -154,7 +154,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final class PingRunnable extends NamedRunnable {
         public final int payload1;
         public final int payload2;
@@ -173,7 +173,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         public final Http2Reader reader;
 

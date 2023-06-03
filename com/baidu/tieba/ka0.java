@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ka0 {
-    void a(View view2);
+public /* synthetic */ class ka0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

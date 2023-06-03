@@ -11,12 +11,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,8 +108,8 @@ public class ShadowLinearLayout extends LinearLayout {
             this.i.setAntiAlias(true);
             this.i.setStyle(Paint.Style.FILL);
             this.i.setDither(true);
-            this.g = ri.g(context, R.dimen.obfuscated_res_0x7f0701d5);
-            float g = ri.g(context, R.dimen.obfuscated_res_0x7f070394);
+            this.g = vi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+            float g = vi.g(context, R.dimen.obfuscated_res_0x7f07039f);
             this.h = g;
             this.c = g;
             this.d = g;

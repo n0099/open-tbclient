@@ -1,217 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.s42;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class r42<V extends TextView, M extends s42> extends t42<V, M> {
+public class r42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r42(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public static int b(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (u42) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements Camera.AutoFocusCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // android.hardware.Camera.AutoFocusCallback
+        public void onAutoFocus(boolean z, Camera camera) {
+            Camera.Parameters parameters;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, camera) != null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
+            parameters.setFocusMode(this.a);
+            camera.setParameters(parameters);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t42
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull y52 y52Var) {
+    public static Rect a(float f, float f2, float f3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, y52Var) == null) {
-            super.C(v, m, y52Var);
-            if (y52Var.a(6)) {
-                U(v, m);
-            }
-            if (y52Var.a(4)) {
-                V(v, m);
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
+            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
+            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
+            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
+            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
         }
+        return (Rect) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t42, com.baidu.tieba.v42
-    @NonNull
-    /* renamed from: S */
-    public y52 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    public static String c(Camera.Parameters parameters) {
+        InterceptResult invokeL;
+        List<String> supportedFocusModes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            y52 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
+            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
+                if (supportedFocusModes.contains("macro")) {
+                    return "macro";
+                }
+                if (supportedFocusModes.contains("continuous-picture")) {
+                    return "continuous-picture";
+                }
             }
-            return k;
+            return "auto";
         }
-        return (y52) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void X(@NonNull V v, @NonNull M m) {
+    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void U(@NonNull V v, @NonNull M m) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (v42.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            if (!TextUtils.isEmpty(m.t) && m.x >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new q42(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (v42.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                v.setSingleLine(true);
-            }
-        } else {
-            v.setSingleLine(false);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (v42.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                g62.o("Component-TextView", "invalid font weight : " + m.A);
-                v.setTypeface(Typeface.SANS_SERIF, 0);
+        if ((interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) && motionEvent != null && camera != null) {
+            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+            camera.cancelAutoFocus();
+            Camera.Parameters parameters = camera.getParameters();
+            if (parameters == null) {
                 return;
             }
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-            return;
-        }
-        v.setTypeface(Typeface.SANS_SERIF, 0);
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048585, this, v, m, i) != null) || m.j == null) {
-            return;
-        }
-        if (v42.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
-                }
-            } else if (str.equals("left")) {
-                c = 0;
+            if (parameters.getMaxNumFocusAreas() > 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new Camera.Area(a2, 800));
+                parameters.setFocusAreas(arrayList);
             }
-        } else if (str.equals("center")) {
-            c = 2;
+            String focusMode = parameters.getFocusMode();
+            parameters.setFocusMode(c(parameters));
+            camera.setParameters(parameters);
+            camera.autoFocus(new a(focusMode));
         }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
-                    g62.o("Component-TextView", "invalid text align: " + m.z);
-                } else {
-                    i2 = i | 1;
-                }
-            } else {
-                i2 = 8388613 | i;
-            }
-            v.setGravity(i2);
-        }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
     }
 }

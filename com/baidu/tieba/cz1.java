@@ -1,69 +1,37 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cz1 extends xy1 {
+public class cz1 extends az1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "RestartApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(cz1 cz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                om3.a(tu2.U().getActivity());
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cz1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    public cz1(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/cloudGetUrl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,22 +39,44 @@ public class cz1 extends xy1 {
         }
     }
 
-    public g12 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.az1, com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#restart params=" + str, false);
-            Pair<g12, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((g12) s.first).isSuccess() && jSONObject != null) {
-                if (!jSONObject.optString("invokeFrom").equals("swanWeb")) {
-                    return new g12(201, "error invoke from value.");
-                }
-                an3.a0(new a(this));
-                return g12.f();
-            }
-            return new g12(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            return super.d(context, unitedSchemeEntity, callbackHandler, yb3Var);
         }
-        return (g12) invokeL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.az1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                try {
+                    JSONObject m = yy1.m(response);
+                    if (m == null) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response body is null").toString());
+                        return;
+                    } else if (!TextUtils.isEmpty(m.optString("DownloadUrl"))) {
+                        m(callbackHandler, str, m);
+                        return;
+                    } else {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "downloadUrl is empty").toString());
+                        return;
+                    }
+                } catch (Exception e) {
+                    k(callbackHandler, str, 1001, e.getMessage());
+                    if (az1.c) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
+            }
+            k(callbackHandler, str, 1001, "content type error.");
+        }
     }
 }

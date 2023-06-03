@@ -1,7 +1,7 @@
 package com.baidu.cyberplayer.sdk.config;
 
-import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.DeviceInfoUtils;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
@@ -18,6 +18,26 @@ public class a {
         SUCCESS
     }
 
+    public static Boolean a(String str, String str2) {
+        b bVar = new b();
+        boolean z = false;
+        bVar.a(0);
+        bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
+        EnumC0091a b2 = bVar.b(str2);
+        return Boolean.valueOf((b2 == EnumC0091a.SUCCESS || b2 == EnumC0091a.AND_NEED_CHECK_NEXT) ? true : true);
+    }
+
+    public static boolean b(String str, ArrayList<String> arrayList) {
+        if (!TextUtils.isEmpty(str) && arrayList != null) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (str.equalsIgnoreCase(arrayList.get(i))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /* loaded from: classes3.dex */
     public static class b {
         public int e;
@@ -28,27 +48,29 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, String str2, String str3) {
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
-                this.d = true;
-                this.c = false;
-            } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
-                this.c = true;
-                this.d = false;
-            } else if (!str.contains(str2)) {
-                this.a = a(str, str3);
-            } else {
-                if (str2.endsWith("|")) {
-                    str2 = WebChromeClient.PARAM_SEPARATOR;
-                }
-                String[] split = str.split(str2);
-                if (split.length == 2) {
+            if (!TextUtils.isEmpty(str)) {
+                if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
+                    this.d = true;
+                    this.c = false;
+                } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
+                    this.c = true;
+                    this.d = false;
+                } else if (str.contains(str2)) {
+                    if (str2.endsWith("|")) {
+                        str2 = WebChromeClient.PARAM_SEPARATOR;
+                    }
+                    String[] split = str.split(str2);
+                    if (split.length != 2) {
+                        if (split.length == 1) {
+                            this.a = a(split[0], str3);
+                            return;
+                        }
+                        return;
+                    }
                     this.a = a(split[0], str3);
                     this.b = c(split[1]);
-                } else if (split.length == 1) {
-                    this.a = a(split[0], str3);
+                } else {
+                    this.a = a(str, str3);
                 }
             }
         }
@@ -57,28 +79,48 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (!str.contains(str2)) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
+            if (str.contains(str2)) {
+                String[] split = str.split(str2);
+                int length = split.length;
+                for (int i = 0; i < length; i++) {
+                    if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
+                        split[i] = null;
+                    }
                 }
+                return split;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
+            } else {
                 return new String[]{str};
             }
-            String[] split = str.split(str2);
-            int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
-                    split[i] = null;
-                }
-            }
-            return split;
         }
 
         private boolean c(String str) {
-            return TextUtils.isEmpty(str) || !str.toLowerCase().equals("or");
+            if (!TextUtils.isEmpty(str) && str.toLowerCase().equals("or")) {
+                return false;
+            }
+            return true;
         }
 
         public void a(int i) {
             this.e = i;
+        }
+
+        public EnumC0091a b(String str) {
+            if (this.d) {
+                return EnumC0091a.FAILED;
+            }
+            boolean a = a(str);
+            if (this.b) {
+                if (a) {
+                    return EnumC0091a.AND_NEED_CHECK_NEXT;
+                }
+                return EnumC0091a.FAILED;
+            } else if (a) {
+                return EnumC0091a.SUCCESS;
+            } else {
+                return EnumC0091a.OR_NEED_CHECK_NEXT;
+            }
         }
 
         public boolean a(String str) {
@@ -109,33 +151,16 @@ public class a {
             }
             int length = split.length;
             for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i]) || TextUtils.isEmpty(split2[i])) {
-                    if (!TextUtils.isEmpty(split2[i]) || !TextUtils.isEmpty(split[i])) {
+                if (!TextUtils.isEmpty(split[i]) && !TextUtils.isEmpty(split2[i])) {
+                    if (!split2[i].equals(str4) && !split2[i].equals(split[i])) {
                         return false;
                     }
-                } else if (!split2[i].equals(str4) && !split2[i].equals(split[i])) {
+                } else if (!TextUtils.isEmpty(split2[i]) || !TextUtils.isEmpty(split[i])) {
                     return false;
                 }
             }
             return true;
         }
-
-        public EnumC0091a b(String str) {
-            if (this.d) {
-                return EnumC0091a.FAILED;
-            }
-            boolean a = a(str);
-            return this.b ? a ? EnumC0091a.AND_NEED_CHECK_NEXT : EnumC0091a.FAILED : a ? EnumC0091a.SUCCESS : EnumC0091a.OR_NEED_CHECK_NEXT;
-        }
-    }
-
-    public static Boolean a(String str, String str2) {
-        b bVar = new b();
-        boolean z = false;
-        bVar.a(0);
-        bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
-        EnumC0091a b2 = bVar.b(str2);
-        return Boolean.valueOf((b2 == EnumC0091a.SUCCESS || b2 == EnumC0091a.AND_NEED_CHECK_NEXT) ? true : true);
     }
 
     public static boolean a(String str, ArrayList<String> arrayList) {
@@ -151,16 +176,8 @@ public class a {
     }
 
     public static boolean a(ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        return b(Build.DEVICE, arrayList) || b(Build.MODEL, arrayList2);
-    }
-
-    public static boolean b(String str, ArrayList<String> arrayList) {
-        if (!TextUtils.isEmpty(str) && arrayList != null) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (str.equalsIgnoreCase(arrayList.get(i))) {
-                    return true;
-                }
-            }
+        if (b(DeviceInfoUtils.getDeviceDevice(), arrayList) || b(DeviceInfoUtils.getDeviceModel(), arrayList2)) {
+            return true;
         }
         return false;
     }

@@ -3,6 +3,7 @@ package com.baidu.browser.sailor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -414,7 +415,7 @@ public class BdSailorWebSettings implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
                 this.this$0.mWebSettings.setNightModeEnabled(z);
-                if (WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD).equals("true")) {
+                if (WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD).equals(YYOption.IsLive.VALUE_TRUE)) {
                     return;
                 }
                 Log.i("zwsettings.setNightMode", z + " " + BdSailorWebSettings.lastNightModeEnabled);

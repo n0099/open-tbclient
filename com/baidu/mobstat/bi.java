@@ -1040,7 +1040,7 @@ public class bi {
         return hashMap;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x0089 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x0088 */
     public static JSONArray a(Activity activity, View view2) {
         JSONArray jSONArray = new JSONArray();
         if (activity != null && view2 != null) {

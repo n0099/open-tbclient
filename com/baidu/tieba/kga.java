@@ -1,302 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jga;
-import com.baidu.tieba.uga;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class kga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lga a;
 
-    public kga(Context context) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeI(65536, null, i) != null) || i == -1) {
+            return;
+        }
+        new StatisticItem("c14823").addParam("obj_source", i).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", 14).addParam("obj_type", i).eventStat();
+        }
+    }
+
+    public static void c(WriteData writeData) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
+            int i2 = 1;
+            if (writeData.getXiuxiuOriginalContent() != null && !writeData.getXiuxiuOriginalContent().equals(writeData.getContent())) {
+                i = 1;
+            } else {
+                i = 0;
             }
-        }
-        this.a = lga.Q(context);
-    }
-
-    public void A(List<zfa> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a.Z(list);
+            new StatisticItem("c15065").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, (writeData.getXiuxiuOriginalFname() == null || writeData.getXiuxiuOriginalFname().equals(writeData.getForumName())) ? 0 : 0).eventStat();
         }
     }
 
-    public void B(bga bgaVar) {
+    public static void d(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bgaVar) == null) {
-            this.a.a0(bgaVar);
-        }
-    }
-
-    public boolean D(List<vfa> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            return this.a.c0(list);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void F(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.e0(str);
-        }
-    }
-
-    public void a(xga xgaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xgaVar) == null) {
-            this.a.a(xgaVar);
-        }
-    }
-
-    public void b(xga xgaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xgaVar) == null) {
-            this.a.b(xgaVar);
-        }
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            return this.a.x(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.a.z(str);
-        }
-    }
-
-    public HashMap<String, String> o(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
-            return this.a.H(arrayList);
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public vfa p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            return this.a.I(str);
-        }
-        return (vfa) invokeL.objValue;
-    }
-
-    public int u(xga xgaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, xgaVar)) == null) {
-            return this.a.S(xgaVar);
-        }
-        return invokeL.intValue;
-    }
-
-    public Map<String, jga.a> v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-            return this.a.T(i);
-        }
-        return (Map) invokeI.objValue;
-    }
-
-    public aga w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            return this.a.U(str);
-        }
-        return (aga) invokeL.objValue;
-    }
-
-    public void x(SparseArray<ArrayList> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
-            this.a.V(sparseArray);
-        }
-    }
-
-    public void y(rfa rfaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, rfaVar) == null) {
-            this.a.W(rfaVar);
-        }
-    }
-
-    public void z(zfa zfaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, zfaVar) == null) {
-            this.a.Y(zfaVar);
-        }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.b0();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.m();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.n();
-        }
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.a.v();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.a.w();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a.y();
-        }
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.a.J();
-        }
-        return invokeV.intValue;
-    }
-
-    public uga.d s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.R();
-        }
-        return (uga.d) invokeV.objValue;
-    }
-
-    public void E(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-            this.a.d0(str, i, str2);
-        }
-    }
-
-    public int r(ArrayList<String> arrayList, boolean z, xga xgaVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), xgaVar})) == null) {
-            xgaVar.M(10485760);
-            return this.a.K(arrayList, z, xgaVar);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public int t(ArrayList<String> arrayList, boolean z, xga xgaVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), xgaVar})) == null) {
-            return this.a.K(arrayList, z, xgaVar);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void G(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            this.a.f0(str, str2);
-        }
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
-            this.a.h(str, z);
-        }
-    }
-
-    public void d(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
-            this.a.k(str, i);
-        }
-    }
-
-    public boolean g(xga xgaVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, xgaVar, str)) == null) {
-            return this.a.o(xgaVar, str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int n(xga xgaVar, xga xgaVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, xgaVar, xgaVar2)) == null) {
-            return this.a.E(xgaVar, xgaVar2);
-        }
-        return invokeLL.intValue;
-    }
-
-    public void m(String str, int i, long j, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
-            this.a.B(str, i, j, jSONArray);
+        if ((interceptable == null || interceptable.invokeL(65539, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
+            int i = 6;
+            String rewardsType = writeData.getRewardsType();
+            if (!TextUtils.isEmpty(rewardsType)) {
+                if (rewardsType.equals("gift")) {
+                    i = 1;
+                } else if (rewardsType.equals("coupon")) {
+                    i = 2;
+                } else if (rewardsType.equals("imprint")) {
+                    i = 3;
+                } else if (rewardsType.equals("memberCard")) {
+                    i = 4;
+                } else if (rewardsType.equals("experience")) {
+                    i = 5;
+                }
+            }
+            new StatisticItem("c15064").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).eventStat();
         }
     }
 }

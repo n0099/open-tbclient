@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Option<T> {
     public static final CacheKeyUpdater<Object> EMPTY_UPDATER = new CacheKeyUpdater<Object>() { // from class: com.bumptech.glide.load.Option.1
         @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
@@ -16,7 +16,7 @@ public final class Option<T> {
     public final String key;
     public volatile byte[] keyBytes;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CacheKeyUpdater<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }

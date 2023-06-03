@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes6.dex */
-public class lr1 implements pt1 {
+public class lr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pt1
-    public float a() {
-        InterceptResult invokeV;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                return PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + ZeusCrashHandler.NAME_SEPERATOR + Thread.currentThread().getId() + "] " + str2;
+            } catch (Throwable th) {
+                c(th);
+                return "";
+            }
         }
-        return invokeV.floatValue;
+        return (String) invokeLL.objValue;
     }
 
-    public lr1() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                Log.d("SSOSDK", a("", str));
+            } catch (Throwable th) {
+                c(th);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pt1
-    public String processUrl(String str) {
-        InterceptResult invokeL;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c62.w(str, true);
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+            hr1.d(th);
         }
-        return (String) invokeL.objValue;
     }
 }

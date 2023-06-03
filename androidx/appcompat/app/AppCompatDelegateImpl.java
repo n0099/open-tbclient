@@ -93,6 +93,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.PopupWindowCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tieba.R;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.Thread;
@@ -728,12 +729,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (i != 0) {
                 newTheme.applyStyle(i, true);
             }
-            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04055b, typedValue, true);
+            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04055c, typedValue, true);
             int i2 = typedValue.resourceId;
             if (i2 != 0) {
                 newTheme.applyStyle(i2, true);
             } else {
-                newTheme.applyStyle(R.style.obfuscated_res_0x7f10022d, true);
+                newTheme.applyStyle(R.style.obfuscated_res_0x7f10022f, true);
             }
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
             contextThemeWrapper.getTheme().setTo(newTheme);
@@ -1615,7 +1616,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090846);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090851);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1655,7 +1656,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09246f);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924a3);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                 ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09006d);
@@ -1821,7 +1822,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 closePanel(panelFeatureState, true);
                 return;
             }
-            WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
+            WindowManager windowManager = (WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (windowManager == null || !preparePanel(panelFeatureState, keyEvent)) {
                 return;
             }
@@ -2149,9 +2150,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             z = false;
         }
         if (z) {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603b7);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603bb);
         } else {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603b6);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0603ba);
         }
         view2.setBackgroundColor(color);
     }
@@ -2449,7 +2450,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 configuration = generateConfigDelta(configuration2, configuration3);
             }
             Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration);
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100239);
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10023b);
             contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
             boolean z2 = false;
             try {
@@ -2580,7 +2581,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             checkCloseActionMenu(panelFeatureState.menu);
             return;
         }
-        WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
+        WindowManager windowManager = (WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         if (windowManager != null && panelFeatureState.isOpen && (viewGroup = panelFeatureState.decorView) != null) {
             windowManager.removeView(viewGroup);
             if (z) {

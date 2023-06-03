@@ -23,11 +23,62 @@ public final class JsonObject extends JsonElement {
         return this.members.size();
     }
 
-    private JsonElement createJsonElement(Object obj) {
-        if (obj == null) {
-            return JsonNull.INSTANCE;
+    public void add(String str, JsonElement jsonElement) {
+        LinkedTreeMap<String, JsonElement> linkedTreeMap = this.members;
+        if (jsonElement == null) {
+            jsonElement = JsonNull.INSTANCE;
         }
-        return new JsonPrimitive(obj);
+        linkedTreeMap.put(str, jsonElement);
+    }
+
+    public void addProperty(String str, Boolean bool) {
+        JsonElement jsonPrimitive;
+        if (bool == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(bool);
+        }
+        add(str, jsonPrimitive);
+    }
+
+    public void addProperty(String str, Character ch) {
+        JsonElement jsonPrimitive;
+        if (ch == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(ch);
+        }
+        add(str, jsonPrimitive);
+    }
+
+    public void addProperty(String str, Number number) {
+        JsonElement jsonPrimitive;
+        if (number == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(number);
+        }
+        add(str, jsonPrimitive);
+    }
+
+    public void addProperty(String str, String str2) {
+        JsonElement jsonPrimitive;
+        if (str2 == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(str2);
+        }
+        add(str, jsonPrimitive);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.JsonElement
+    public JsonObject deepCopy() {
+        JsonObject jsonObject = new JsonObject();
+        for (Map.Entry<String, JsonElement> entry : this.members.entrySet()) {
+            jsonObject.add(entry.getKey(), entry.getValue().deepCopy());
+        }
+        return jsonObject;
     }
 
     public boolean equals(Object obj) {
@@ -59,38 +110,5 @@ public final class JsonObject extends JsonElement {
 
     public JsonElement remove(String str) {
         return this.members.remove(str);
-    }
-
-    public void add(String str, JsonElement jsonElement) {
-        if (jsonElement == null) {
-            jsonElement = JsonNull.INSTANCE;
-        }
-        this.members.put(str, jsonElement);
-    }
-
-    public void addProperty(String str, Boolean bool) {
-        add(str, createJsonElement(bool));
-    }
-
-    public void addProperty(String str, Character ch) {
-        add(str, createJsonElement(ch));
-    }
-
-    public void addProperty(String str, Number number) {
-        add(str, createJsonElement(number));
-    }
-
-    public void addProperty(String str, String str2) {
-        add(str, createJsonElement(str2));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.JsonElement
-    public JsonObject deepCopy() {
-        JsonObject jsonObject = new JsonObject();
-        for (Map.Entry<String, JsonElement> entry : this.members.entrySet()) {
-            jsonObject.add(entry.getKey(), entry.getValue().deepCopy());
-        }
-        return jsonObject;
     }
 }

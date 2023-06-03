@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.d.a;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     Map a();
 

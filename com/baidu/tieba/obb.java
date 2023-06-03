@@ -1,80 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class obb<T> extends o7b<T> {
-    public static /* synthetic */ Interceptable $ic;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+/* loaded from: classes7.dex */
+public class obb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "SecureX509SingleInstance";
+    public static volatile pbb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j7b<T> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public obb(o7b<? super T> o7bVar) {
-        this(o7bVar, true);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948027898, "Lcom/baidu/tieba/obb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((o7b) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948027898, "Lcom/baidu/tieba/obb;");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public obb(o7b<? super T> o7bVar, boolean z) {
-        super(o7bVar, z);
+    public obb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((o7b) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.e = new nbb(o7bVar);
     }
 
-    @Override // com.baidu.tieba.j7b
-    public void onCompleted() {
+    @SuppressLint({"NewApi"})
+    public static pbb a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (context != null) {
+                vbb.b(context);
+                if (b == null) {
+                    synchronized (obb.class) {
+                        if (b == null) {
+                            InputStream n = tbb.n(context);
+                            if (n == null) {
+                                ybb.e(a, "get assets bks");
+                                n = context.getAssets().open("hmsrootcas.bks");
+                            } else {
+                                ybb.e(a, "get files bks");
+                            }
+                            b = new pbb(n, "");
+                            new wbb().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
+                        }
+                    }
+                }
+                String str = a;
+                ybb.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b;
+            }
+            throw new NullPointerException("context is null");
         }
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.j7b
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
+        return (pbb) invokeL.objValue;
     }
 }

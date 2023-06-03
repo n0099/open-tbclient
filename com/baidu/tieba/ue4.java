@@ -1,173 +1,147 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.constraintlayout.motion.widget.Key;
+import android.graphics.Color;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+/* loaded from: classes8.dex */
 public class ue4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
+    public a a;
+    @V8JavascriptField
+    public String backgroundColor;
+    @V8JavascriptField
+    public String borderColor;
+    @V8JavascriptField
+    public double borderRadius;
+    @V8JavascriptField
+    public int borderWidth;
+    @V8JavascriptField
+    public String color;
+    @V8JavascriptField
+    public double fontSize;
+    @V8JavascriptField
+    public String fontWeight;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public boolean hidden;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int lineHeight;
+    @V8JavascriptField
+    public double opacity;
+    @V8JavascriptField
+    public String textAlign;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void r();
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ue4 c;
-
-        public a(ue4 ue4Var, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ue4Var, Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ue4Var;
-            this.a = z;
-            this.b = i;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
-                }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948208101, "Lcom/baidu/tieba/ue4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948208101, "Lcom/baidu/tieba/ue4;");
-                return;
-            }
-        }
-        f = xm3.g(58.0f);
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ue4(View view2, FrameLayout frameLayout, View view3) {
+    public ue4(@NonNull f42 f42Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {f42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
+        this.fontSize = 16.0d;
+        this.opacity = 1.0d;
+        a(f42Var);
     }
 
-    public final void c(int i) {
+    public static int c(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = (16711680 & i) >> 16;
+            int i3 = (65280 & i) >> 8;
+            int i4 = i & 255;
+            float f = (((-16777216) & i) >>> 24) / 255.0f;
+            if (f > 0.0f) {
+                return Color.argb(255, (int) ((i2 * f) + 0.5d), (int) ((i3 * f) + 0.5d), (int) ((i4 * f) + 0.5d));
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void a(@NonNull f42 f42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, f42Var) == null) {
+            this.left = f42Var.r("left", this.left);
+            this.top = f42Var.r("top", this.top);
+            this.width = f42Var.r("width", this.width);
+            this.height = f42Var.r("height", this.height);
+            this.backgroundColor = f42Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
+            this.borderColor = f42Var.C("borderColor", this.borderColor);
+            this.borderRadius = f42Var.n("borderRadius", this.borderRadius);
+            this.borderWidth = f42Var.r("borderWidth", this.borderWidth);
+            this.fontSize = f42Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
+            this.lineHeight = f42Var.r("lineHeight", this.lineHeight);
+            this.textAlign = f42Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
+            this.fontWeight = f42Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
+            this.hidden = f42Var.m("hidden", this.hidden);
+            this.opacity = f42Var.n(NativeConstants.OPACITY, this.opacity);
+            this.color = f42Var.C("color", this.color);
+            if (is1.a) {
+                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
+            }
         }
     }
 
-    public void e(boolean z) {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (is1.a) {
+                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
             }
-            this.d = z;
-            int i = f;
-            if (z) {
-                i = -i;
-            }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
-            } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.r();
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        }
+        return (String) invokeV.objValue;
     }
 }

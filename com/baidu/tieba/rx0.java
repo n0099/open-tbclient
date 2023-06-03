@@ -1,38 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes7.dex */
-public class rx0 implements sx0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rx0 {
+    void b();
 
-    public rx0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(int i, int i2);
 
-    @Override // com.baidu.tieba.sx0
-    @NonNull
-    public lx0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new qx0();
-        }
-        return (lx0) invokeL.objValue;
-    }
+    void f(float f);
+
+    int getCurrentPosition();
+
+    void i(float f);
+
+    void l(int i, float f);
+
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
+
+    Activity o();
+
+    boolean p();
 }

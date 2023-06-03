@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.adapter.AvailableAdapter;
 import com.huawei.hms.adapter.BinderAdapter;
 import com.huawei.hms.adapter.InnerBinderAdapter;
@@ -389,7 +388,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
                                 return;
                             }
                             HMSLog.i(BaseHmsClient.TAG, "onBinderFailed: return pendingIntent to kit and cp");
-                            this.this$0.notifyFailed(new ConnectionResult(10, PendingIntent.getActivity(this.this$0.mContext, 11, intent, CodedInputStream.DEFAULT_SIZE_LIMIT)));
+                            this.this$0.notifyFailed(new ConnectionResult(10, PendingIntent.getActivity(this.this$0.mContext, 11, intent, 67108864)));
                             this.this$0.mService = null;
                             return;
                         }

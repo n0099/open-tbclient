@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseMemoryCache implements MemoryCache {
     public final Map<String, Reference<DecodedResult>> softMap = Collections.synchronizedMap(new HashMap());
 

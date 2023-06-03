@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.qz5;
-/* loaded from: classes7.dex */
-public interface tz5<T extends qz5> {
-    T a();
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface tz5 {
+    void a(View view2);
+
+    void b(View view2);
+
+    View getView();
 }

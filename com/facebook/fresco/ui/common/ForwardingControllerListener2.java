@@ -5,7 +5,7 @@ import com.facebook.fresco.ui.common.ControllerListener2;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForwardingControllerListener2<I> extends BaseControllerListener2<I> {
     public static final String TAG = "FwdControllerListener2";
     public final List<ControllerListener2<I>> mListeners = new ArrayList(2);

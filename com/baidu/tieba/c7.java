@@ -1,695 +1,290 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.JsonWriter$OutputType;
-import com.badlogic.gdx.utils.SerializationException;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.k7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.AccessControlException;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
+import java.util.List;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class c7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Locale d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public d g;
-    public final k7<Class, m7<String, a>> h;
-    public final k7<String, Class> i;
-    public final k7<Class, String> j;
-    public final k7<Class, d> k;
-    public final Object[] l;
-    public final Object[] m;
+    public c7 a;
+    public Locale b;
+    public o7<String, String> c;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(c7 c7Var, JsonValue jsonValue);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d<T> {
-        T a(c7 c7Var, JsonValue jsonValue, Class cls);
-    }
-
-    public boolean g(Class cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, cls, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final j8 a;
-        public Class b;
-        public boolean c;
-
-        public a(j8 j8Var) {
-            int i;
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300025, "Lcom/baidu/tieba/c7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = j8Var;
-            if (!h8.f(k7.class, j8Var.getType()) && !h8.f(Map.class, j8Var.getType())) {
-                i = 0;
-            } else {
-                i = 1;
-            }
-            this.b = j8Var.c(i);
-            this.c = j8Var.f(Deprecated.class);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class b<T> implements d<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448300025, "Lcom/baidu/tieba/c7;");
+                return;
             }
         }
+        d = new Locale("", "", "");
+        e = false;
     }
 
     public c7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = "class";
-        this.e = true;
-        this.h = new k7<>();
-        this.i = new k7<>();
-        this.j = new k7<>();
-        this.k = new k7<>();
-        new k7();
-        this.l = new Object[]{null};
-        this.m = new Object[]{null};
-        JsonWriter$OutputType jsonWriter$OutputType = JsonWriter$OutputType.minimal;
     }
 
-    public void a(String str, Class cls) {
+    public Locale g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cls) == null) {
-            this.i.i(str, cls);
-            this.j.i(cls, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Locale) invokeV.objValue;
+    }
+
+    public static boolean a(b3 b3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, b3Var)) == null) {
+            try {
+                b3Var.m().close();
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static Locale f(Locale locale) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) {
+            Locale locale2 = Locale.getDefault();
+            if (locale.equals(locale2)) {
+                return null;
+            }
+            return locale2;
+        }
+        return (Locale) invokeL.objValue;
+    }
+
+    public void h(Reader reader) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
+            o7<String, String> o7Var = new o7<>();
+            this.c = o7Var;
+            t7.a(o7Var, reader);
         }
     }
 
-    public <T> T j(Class<T> cls, JsonValue jsonValue) {
+    public final void k(Locale locale) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locale) == null) {
+            this.b = locale;
+            new c8(locale, !e);
+        }
+    }
+
+    public static c7 b(b3 b3Var, Locale locale) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, cls, jsonValue)) == null) {
-            return (T) k(cls, null, jsonValue);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, b3Var, locale)) == null) {
+            return d(b3Var, locale, "UTF-8");
         }
-        return (T) invokeLL.objValue;
+        return (c7) invokeLL.objValue;
     }
 
-    public <T> void o(Class<T> cls, d<T> dVar) {
+    public static c7 c(b3 b3Var, Locale locale, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, cls, dVar) == null) {
-            this.k.i(cls, dVar);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, b3Var, locale, str)) == null) {
+            return d(b3Var, locale, str);
         }
+        return (c7) invokeLLL.objValue;
     }
 
-    public final String b(Enum r5) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) {
-            if (this.e) {
-                return r5.name();
-            }
-            return r5.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Class e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.i.c(str);
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void c(Object obj, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2) == null) {
-            m7<String, a> f = f(obj2.getClass());
-            k7.a<String, a> it = f(obj.getClass()).iterator();
-            while (it.hasNext()) {
-                k7.b next = it.next();
-                a c2 = f.c(next.a);
-                j8 j8Var = ((a) next.b).a;
-                if (c2 != null) {
-                    try {
-                        c2.a.j(obj2, j8Var.a(obj));
-                    } catch (ReflectionException e) {
-                        throw new SerializationException("Error copying field: " + j8Var.d(), e);
-                    }
-                } else {
-                    throw new SerializationException("To object is missing field: " + ((String) next.a));
-                }
-            }
-        }
-    }
-
-    public <T> T d(Class<T> cls, x2 x2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, x2Var)) == null) {
-            try {
-                return (T) k(cls, null, new d7().a(x2Var));
-            } catch (Exception e) {
-                throw new SerializationException("Error reading file: " + x2Var, e);
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public final m7<String, a> f(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            m7<String, a> c2 = this.h.c(cls);
-            if (c2 != null) {
-                return c2;
-            }
-            o6 o6Var = new o6();
-            for (Class cls2 = cls; cls2 != Object.class; cls2 = cls2.getSuperclass()) {
-                o6Var.a(cls2);
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = o6Var.b - 1; i >= 0; i--) {
-                Collections.addAll(arrayList, h8.d((Class) o6Var.get(i)));
-            }
-            m7<String, a> m7Var = new m7<>(arrayList.size());
-            int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                j8 j8Var = (j8) arrayList.get(i2);
-                if (!j8Var.i() && !j8Var.g() && !j8Var.h()) {
-                    if (!j8Var.e()) {
-                        try {
-                            j8Var.k(true);
-                        } catch (AccessControlException unused) {
-                        }
-                    }
-                    m7Var.i(j8Var.d(), new a(j8Var));
-                }
-            }
-            if (this.f) {
-                m7Var.o.l();
-            }
-            this.h.i(cls, m7Var);
-            return m7Var;
-        }
-        return (m7) invokeL.objValue;
-    }
-
-    public Object h(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
-            try {
-                return h8.i(cls);
-            } catch (Exception e) {
-                e = e;
-                try {
-                    i8 c2 = h8.c(cls, new Class[0]);
-                    c2.c(true);
-                    return c2.b(new Object[0]);
-                } catch (ReflectionException unused) {
-                    if (h8.f(Enum.class, cls)) {
-                        if (cls.getEnumConstants() == null) {
-                            cls = cls.getSuperclass();
-                        }
-                        return cls.getEnumConstants()[0];
-                    } else if (!cls.isArray()) {
-                        if (h8.g(cls) && !h8.h(cls)) {
-                            throw new SerializationException("Class cannot be created (non-static member class): " + cls.getName(), e);
-                        }
-                        throw new SerializationException("Class cannot be created (missing no-arg constructor): " + cls.getName(), e);
-                    } else {
-                        throw new SerializationException("Encountered JSON object when expected array of type: " + cls.getName(), e);
-                    }
-                } catch (SecurityException unused2) {
-                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
-                } catch (Exception e2) {
-                    e = e2;
-                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
-                }
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public void i(Object obj, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
-            Class<?> cls = obj.getClass();
-            m7<String, a> f = f(cls);
-            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                a c2 = f.c(jsonValue2.G().replace(" ", "_"));
-                if (c2 == null) {
-                    if (!jsonValue2.e.equals(this.a) && !this.b && !g(cls, jsonValue2.e)) {
-                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.e + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        serializationException.addTrace(jsonValue2.Q());
-                        throw serializationException;
-                    }
-                } else if (!this.c || this.d || !c2.c) {
-                    j8 j8Var = c2.a;
-                    try {
-                        j8Var.j(obj, k(j8Var.getType(), c2.b, jsonValue2));
-                    } catch (SerializationException e) {
-                        e.addTrace(j8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        throw e;
-                    } catch (ReflectionException e2) {
-                        throw new SerializationException("Error accessing field: " + j8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX, e2);
-                    } catch (RuntimeException e3) {
-                        SerializationException serializationException2 = new SerializationException(e3);
-                        serializationException2.addTrace(jsonValue2.Q());
-                        serializationException2.addTrace(j8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        throw serializationException2;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Type inference failed for r13v3. Raw type applied. Possible types: java.lang.Class<com.baidu.tieba.o6> */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x020a, code lost:
-        if (r13 == java.lang.Object.class) goto L89;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0049, code lost:
+        if (r0 == null) goto L24;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:225:0x0356, code lost:
-        if (r13 == r0) goto L138;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0085, code lost:
+        throw new java.util.MissingResourceException("Can't find bundle for base file handle " + r9.j() + ", locale " + r10, r9 + "_" + r10, "");
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x037a  */
-    /* JADX WARN: Removed duplicated region for block: B:302:0x0433 A[RETURN] */
-    /* JADX WARN: Type inference failed for: r0v68, types: [com.baidu.tieba.c7$c] */
-    /* JADX WARN: Type inference failed for: r0v71, types: [com.baidu.tieba.c7$d] */
-    /* JADX WARN: Type inference failed for: r12v14, types: [com.baidu.tieba.c7$d] */
-    /* JADX WARN: Type inference failed for: r12v3, types: [T, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r21v0, types: [java.lang.Object, com.baidu.tieba.c7] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.badlogic.gdx.utils.JsonValue, T] */
-    /* JADX WARN: Type inference failed for: r2v45, types: [com.badlogic.gdx.utils.JsonValue, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r3v24, types: [T, java.util.Map] */
-    /* JADX WARN: Type inference failed for: r3v25, types: [T, com.baidu.tieba.p6] */
-    /* JADX WARN: Type inference failed for: r3v26, types: [T, com.baidu.tieba.b7] */
-    /* JADX WARN: Type inference failed for: r3v27, types: [T, com.baidu.tieba.g7] */
-    /* JADX WARN: Type inference failed for: r3v28, types: [T, com.baidu.tieba.a7] */
-    /* JADX WARN: Type inference failed for: r3v29, types: [com.baidu.tieba.l7, T] */
-    /* JADX WARN: Type inference failed for: r3v30, types: [T, com.baidu.tieba.i7] */
-    /* JADX WARN: Type inference failed for: r3v31, types: [com.baidu.tieba.j7, T] */
-    /* JADX WARN: Type inference failed for: r3v32, types: [com.baidu.tieba.k7, T] */
-    /* JADX WARN: Type inference failed for: r3v33, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r3v41, types: [com.baidu.tieba.q7] */
-    /* JADX WARN: Type inference failed for: r3v45, types: [com.baidu.tieba.o6] */
-    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Enum, T] */
+    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+        return r0;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <T> T k(Class<T> cls, Class cls2, JsonValue jsonValue) {
+    public static c7 d(b3 b3Var, Locale locale, String str) {
         InterceptResult invokeLLL;
-        Class cls3;
-        JsonValue jsonValue2;
-        Class cls4;
-        JsonValue jsonValue3;
-        T t;
-        T t2;
-        T t3;
-        String r;
-        Class cls5;
+        c7 j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, cls, cls2, jsonValue)) == null) {
-            Class cls6 = cls2;
-            ?? r2 = (T) jsonValue;
-            if (r2 == 0) {
-                return null;
-            }
-            if (jsonValue.C()) {
-                String str = this.a;
-                if (str == null) {
-                    r = null;
-                } else {
-                    r = r2.r(str, null);
-                }
-                if (r != null) {
-                    Class e = e(r);
-                    if (e == null) {
-                        try {
-                            cls5 = h8.a(r);
-                        } catch (ReflectionException e2) {
-                            throw new SerializationException(e2);
-                        }
-                    } else {
-                        cls5 = e;
-                    }
-                } else {
-                    cls5 = cls;
-                }
-                if (cls5 == null) {
-                    ?? r0 = this.g;
-                    if (r0 != 0) {
-                        return (T) r0.a(this, r2, cls5);
-                    }
-                    return r2;
-                } else if (this.a != null && h8.f(Collection.class, cls5)) {
-                    ?? r22 = (T) r2.l("items");
-                    jsonValue2 = r22;
-                    cls3 = cls5;
-                    if (r22 == 0) {
-                        throw new SerializationException("Unable to convert object to collection: " + r22 + " (" + cls5.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                } else {
-                    d c2 = this.k.c(cls5);
-                    if (c2 != 0) {
-                        return (T) c2.a(this, r2, cls5);
-                    }
-                    if (cls5 != String.class && cls5 != Integer.class && cls5 != Boolean.class && cls5 != Float.class && cls5 != Long.class && cls5 != Double.class && cls5 != Short.class && cls5 != Byte.class && cls5 != Character.class && !h8.f(Enum.class, cls5)) {
-                        T t4 = (T) h(cls5);
-                        if (t4 instanceof c) {
-                            ((c) t4).a(this, r2);
-                            return t4;
-                        } else if (t4 instanceof k7) {
-                            ?? r3 = (T) ((k7) t4);
-                            for (JsonValue jsonValue4 = r2.f; jsonValue4 != null; jsonValue4 = jsonValue4.h) {
-                                r3.i(jsonValue4.e, k(cls6, null, jsonValue4));
-                            }
-                            return r3;
-                        } else if (t4 instanceof j7) {
-                            ?? r32 = (T) ((j7) t4);
-                            for (JsonValue jsonValue5 = r2.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
-                                r32.h(jsonValue5.e, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
-                            }
-                            return r32;
-                        } else if (t4 instanceof i7) {
-                            ?? r33 = (T) ((i7) t4);
-                            for (JsonValue jsonValue6 = r2.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
-                                r33.g(jsonValue6.e, ((Float) k(Float.class, null, jsonValue6)).floatValue());
-                            }
-                            return r33;
-                        } else if (t4 instanceof l7) {
-                            ?? r34 = (T) ((l7) t4);
-                            for (JsonValue m = r2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
-                                r34.add(k(cls6, null, m));
-                            }
-                            return r34;
-                        } else if (t4 instanceof a7) {
-                            ?? r35 = (T) ((a7) t4);
-                            for (JsonValue jsonValue7 = r2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                r35.e(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
-                            }
-                            return r35;
-                        } else if (t4 instanceof g7) {
-                            ?? r36 = (T) ((g7) t4);
-                            for (JsonValue jsonValue8 = r2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
-                                r36.f(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
-                            }
-                            return r36;
-                        } else if (t4 instanceof b7) {
-                            ?? r37 = (T) ((b7) t4);
-                            for (JsonValue m2 = r2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
-                                r37.a(m2.f());
-                            }
-                            return r37;
-                        } else if (t4 instanceof p6) {
-                            ?? r38 = (T) ((p6) t4);
-                            for (JsonValue jsonValue9 = r2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
-                                r38.e(jsonValue9.e, k(cls6, null, jsonValue9));
-                            }
-                            return r38;
-                        } else if (t4 instanceof Map) {
-                            ?? r39 = (T) ((Map) t4);
-                            for (JsonValue jsonValue10 = r2.f; jsonValue10 != null; jsonValue10 = jsonValue10.h) {
-                                if (!jsonValue10.e.equals(this.a)) {
-                                    r39.put(jsonValue10.e, k(cls6, null, jsonValue10));
-                                }
-                            }
-                            return r39;
-                        } else {
-                            i(t4, r2);
-                            return t4;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, b3Var, locale, str)) == null) {
+            c7 c7Var = null;
+            if (b3Var != null && locale != null && str != null) {
+                Locale locale2 = locale;
+                do {
+                    List<Locale> e2 = e(locale2);
+                    j = j(b3Var, str, e2, 0, c7Var);
+                    if (j != null) {
+                        Locale g = j.g();
+                        boolean equals = g.equals(d);
+                        if (!equals || g.equals(locale) || (e2.size() == 1 && g.equals(e2.get(0)))) {
+                            break;
+                        } else if (equals && c7Var == null) {
+                            c7Var = j;
                         }
                     }
-                    return (T) l("value", cls5, r2);
-                }
-            } else {
-                cls3 = cls;
-                jsonValue2 = r2;
+                    locale2 = f(locale2);
+                } while (locale2 != null);
+                return j;
             }
-            if (cls3 != null) {
-                d c3 = this.k.c(cls3);
-                if (c3 != null) {
-                    return (T) c3.a(this, jsonValue2, cls3);
-                }
-                if (h8.f(c.class, cls3)) {
-                    T t5 = (T) h(cls3);
-                    ((c) t5).a(this, jsonValue2);
-                    return t5;
-                }
+            throw null;
+        }
+        return (c7) invokeLLL.objValue;
+    }
+
+    public static List<Locale> e(Locale locale) {
+        InterceptResult invokeL;
+        Locale locale2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) {
+            String language = locale.getLanguage();
+            String country = locale.getCountry();
+            String variant = locale.getVariant();
+            ArrayList arrayList = new ArrayList(4);
+            if (variant.length() > 0) {
+                arrayList.add(locale);
             }
-            int i = 0;
-            if (jsonValue2.u()) {
-                Class cls7 = cls3 != null ? cls3 : o6.class;
-                if (h8.f(o6.class, cls7)) {
-                    if (cls7 == o6.class) {
-                        t3 = (T) new o6();
-                    } else {
-                        t3 = (T) ((o6) h(cls7));
-                    }
-                    for (JsonValue jsonValue11 = jsonValue2.f; jsonValue11 != null; jsonValue11 = jsonValue11.h) {
-                        ((o6) t3).a(k(cls6, null, jsonValue11));
-                    }
-                    return t3;
-                } else if (h8.f(q7.class, cls7)) {
-                    if (cls7 == q7.class) {
-                        t2 = (T) new q7();
-                    } else {
-                        t2 = (T) ((q7) h(cls7));
-                    }
-                    for (JsonValue jsonValue12 = jsonValue2.f; jsonValue12 != null; jsonValue12 = jsonValue12.h) {
-                        ((q7) t2).addLast(k(cls6, null, jsonValue12));
-                    }
-                    return t2;
-                } else if (h8.f(Collection.class, cls7)) {
-                    if (cls7.isInterface()) {
-                        t = (T) new ArrayList();
-                    } else {
-                        t = (T) ((Collection) h(cls7));
-                    }
-                    for (JsonValue jsonValue13 = jsonValue2.f; jsonValue13 != null; jsonValue13 = jsonValue13.h) {
-                        ((Collection) t).add(k(cls6, null, jsonValue13));
-                    }
-                    return t;
-                } else if (cls7.isArray()) {
-                    Class<?> componentType = cls7.getComponentType();
-                    Class<?> cls8 = cls6;
-                    if (cls6 == null) {
-                        cls8 = componentType;
-                    }
-                    T t6 = (T) g8.a(componentType, jsonValue2.j);
-                    JsonValue jsonValue14 = jsonValue2.f;
-                    while (jsonValue14 != null) {
-                        g8.b(t6, i, k(cls8, null, jsonValue14));
-                        jsonValue14 = jsonValue14.h;
-                        i++;
-                    }
-                    return t6;
+            if (country.length() > 0) {
+                if (arrayList.isEmpty()) {
+                    locale2 = locale;
                 } else {
-                    throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls7.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    locale2 = new Locale(language, country);
                 }
+                arrayList.add(locale2);
             }
-            boolean A = jsonValue2.A();
-            JsonValue jsonValue15 = jsonValue2;
-            if (A) {
-                if (cls3 != null) {
-                    if (cls3 != Float.TYPE && cls3 != Float.class) {
-                        if (cls3 != Integer.TYPE && cls3 != Integer.class) {
-                            if (cls3 != Long.TYPE && cls3 != Long.class) {
-                                if (cls3 != Double.TYPE && cls3 != Double.class) {
-                                    if (cls3 == String.class) {
-                                        return (T) jsonValue2.j();
-                                    }
-                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
-                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return (T) Byte.valueOf(jsonValue2.b());
-                                        }
-                                        jsonValue15 = new JsonValue(jsonValue2.j());
-                                    }
-                                    return (T) Short.valueOf(jsonValue2.h());
-                                }
-                                return (T) Double.valueOf(jsonValue2.c());
-                            }
-                            return (T) Long.valueOf(jsonValue2.g());
-                        }
-                        return (T) Integer.valueOf(jsonValue2.f());
-                    }
+            if (language.length() > 0) {
+                if (!arrayList.isEmpty()) {
+                    locale = new Locale(language);
                 }
-                return (T) Float.valueOf(jsonValue2.d());
+                arrayList.add(locale);
             }
-            if (!jsonValue15.v()) {
-                cls4 = Boolean.class;
-                jsonValue3 = jsonValue15;
-            } else {
-                if (cls3 != null) {
-                    try {
-                        if (cls3 != Boolean.TYPE) {
-                            cls4 = Boolean.class;
-                        }
-                    } catch (NumberFormatException unused) {
-                        cls4 = Boolean.class;
-                    }
-                }
-                cls4 = Boolean.class;
+            arrayList.add(d);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static c7 i(b3 b3Var, String str, Locale locale) {
+        InterceptResult invokeLLL;
+        c7 c7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, b3Var, str, locale)) == null) {
+            Reader reader = null;
+            try {
                 try {
-                    return (T) Boolean.valueOf(jsonValue15.a());
-                } catch (NumberFormatException unused2) {
-                    jsonValue3 = new JsonValue(jsonValue15.j());
-                    if (!jsonValue3.D()) {
+                    b3 l = l(b3Var, locale);
+                    if (a(l)) {
+                        c7Var = new c7();
+                        reader = l.r(str);
+                        c7Var.h(reader);
+                    } else {
+                        c7Var = null;
+                    }
+                    if (c7Var != null) {
+                        c7Var.k(locale);
+                    }
+                    return c7Var;
+                } catch (IOException e2) {
+                    throw new GdxRuntimeException(e2);
+                }
+            } finally {
+                a8.a(reader);
+            }
+        }
+        return (c7) invokeLLL.objValue;
+    }
+
+    public static c7 j(b3 b3Var, String str, List<Locale> list, int i, c7 c7Var) {
+        InterceptResult invokeCommon;
+        c7 c7Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{b3Var, str, list, Integer.valueOf(i), c7Var})) == null) {
+            Locale locale = list.get(i);
+            if (i != list.size() - 1) {
+                c7Var2 = j(b3Var, str, list, i + 1, c7Var);
+            } else if (c7Var != null && locale.equals(d)) {
+                return c7Var;
+            } else {
+                c7Var2 = null;
+            }
+            c7 i2 = i(b3Var, str, locale);
+            if (i2 != null) {
+                i2.a = c7Var2;
+                return i2;
+            }
+            return c7Var2;
+        }
+        return (c7) invokeCommon.objValue;
+    }
+
+    public static b3 l(b3 b3Var, Locale locale) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, b3Var, locale)) == null) {
+            b8 b8Var = new b8(b3Var.g());
+            if (!locale.equals(d)) {
+                String language = locale.getLanguage();
+                String country = locale.getCountry();
+                String variant = locale.getVariant();
+                boolean equals = "".equals(language);
+                boolean equals2 = "".equals(country);
+                boolean equals3 = "".equals(variant);
+                if (!equals || !equals2 || !equals3) {
+                    b8Var.a('_');
+                    if (!equals3) {
+                        b8Var.n(language);
+                        b8Var.a('_');
+                        b8Var.n(country);
+                        b8Var.a('_');
+                        b8Var.n(variant);
+                    } else if (!equals2) {
+                        b8Var.n(language);
+                        b8Var.a('_');
+                        b8Var.n(country);
+                    } else {
+                        b8Var.n(language);
                     }
                 }
             }
-            if (!jsonValue3.D()) {
-                ?? r12 = (T) jsonValue3.j();
-                if (cls3 != null && cls3 != String.class) {
-                    if (cls3 != Integer.TYPE && cls3 != Integer.class) {
-                        if (cls3 != Float.TYPE && cls3 != Float.class) {
-                            if (cls3 != Long.TYPE && cls3 != Long.class) {
-                                if (cls3 != Double.TYPE && cls3 != Double.class) {
-                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
-                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return (T) Byte.valueOf((String) r12);
-                                        }
-                                        if (cls3 != Boolean.TYPE && cls3 != cls4) {
-                                            if (cls3 != Character.TYPE && cls3 != Character.class) {
-                                                if (h8.f(Enum.class, cls3)) {
-                                                    Enum[] enumArr = (Enum[]) cls3.getEnumConstants();
-                                                    int length = enumArr.length;
-                                                    while (i < length) {
-                                                        ?? r5 = (T) enumArr[i];
-                                                        if (r12.equals(b(r5))) {
-                                                            return r5;
-                                                        }
-                                                        i++;
-                                                    }
-                                                }
-                                                if (cls3 == CharSequence.class) {
-                                                    return r12;
-                                                }
-                                                throw new SerializationException("Unable to convert value to required type: " + jsonValue3 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                                            }
-                                            return (T) Character.valueOf(r12.charAt(0));
-                                        }
-                                        return (T) Boolean.valueOf((String) r12);
-                                    }
-                                    return (T) Short.valueOf((String) r12);
-                                }
-                                return (T) Double.valueOf((String) r12);
-                            }
-                            return (T) Long.valueOf((String) r12);
-                        }
-                        return (T) Float.valueOf((String) r12);
-                    }
-                    return (T) Integer.valueOf((String) r12);
-                }
-                return r12;
-            }
-            return null;
+            b8Var.n(".properties");
+            return b3Var.s(b8Var.toString());
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    public <T> T l(String str, Class<T> cls, JsonValue jsonValue) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) {
-            return (T) k(cls, null, jsonValue.l(str));
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public <T> T m(String str, Class<T> cls, Class cls2, JsonValue jsonValue) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) {
-            return (T) k(cls, cls2, jsonValue.l(str));
-        }
-        return (T) invokeLLLL.objValue;
-    }
-
-    public <T> T n(String str, Class<T> cls, T t, JsonValue jsonValue) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, t, jsonValue)) == null) {
-            JsonValue l = jsonValue.l(str);
-            if (l == null) {
-                return t;
-            }
-            return (T) k(cls, null, l);
-        }
-        return (T) invokeLLLL.objValue;
+        return (b3) invokeLL.objValue;
     }
 }

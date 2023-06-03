@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static String TAG;
     public static final int adA;
@@ -22,19 +22,19 @@ public final class b {
     public static final int ady;
     public static final int adz;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         @NonNull
         ExecutorService vu();
     }
 
     /* renamed from: com.kwad.sdk.core.threads.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0650b implements a {
-        public C0650b() {
+    /* loaded from: classes10.dex */
+    public static class C0670b implements a {
+        public C0670b() {
         }
 
-        public /* synthetic */ C0650b(byte b) {
+        public /* synthetic */ C0670b(byte b) {
             this();
         }
 
@@ -45,7 +45,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c implements ThreadFactory {
         public static final AtomicInteger poolNumber = new AtomicInteger(1);
         public final String namePrefix;
@@ -70,7 +70,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d implements a {
         public d() {
         }
@@ -86,7 +86,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e implements a {
         public e() {
         }
@@ -102,7 +102,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class f implements a {
         public f() {
         }
@@ -118,7 +118,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class g implements a {
         public g() {
         }
@@ -202,7 +202,7 @@ public final class b {
 
     public static ExecutorService vn() {
         com.kwad.sdk.core.e.b.d(TAG, "forBaseNetwork");
-        return a("httpIO", new C0650b((byte) 0));
+        return a("httpIO", new C0670b((byte) 0));
     }
 
     public static ExecutorService vo() {

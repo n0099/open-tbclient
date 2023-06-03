@@ -1,147 +1,210 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.tieba.i3;
-import com.baidu.tieba.p3;
-import com.baidu.tieba.q1;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.GenericDeclaration;
 /* loaded from: classes5.dex */
-public class d1 extends c1<i3, a> {
+public class d1 implements i8<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i3.a b;
+    public e1 a;
+    public final a1 b;
+    public final f1 c;
+    public final g8 d;
+    public final long e;
+    public volatile boolean f;
+    public volatile boolean g;
+    public volatile s6<a1> h;
+    public volatile h8<Void> i;
+    public volatile h8<Void> j;
+    public volatile Object k;
+    public volatile boolean l;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c1
-    /* renamed from: g */
-    public void c(a1 a1Var, String str, x2 x2Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, a1Var, str, x2Var, aVar) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends y0<i3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean b;
-        public boolean c;
-        public Texture.TextureFilter d;
-        public Texture.TextureFilter e;
-        public i3.a f;
-        public String g;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-            this.c = false;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.d = textureFilter;
-            this.e = textureFilter;
-            this.f = null;
-            this.g = null;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d1(f1 f1Var) {
-        super(f1Var);
+    public d1(e1 e1Var, a1 a1Var, f1 f1Var, g8 g8Var) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f1Var};
+            Object[] objArr = {e1Var, a1Var, f1Var, g8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = e1Var;
+        this.b = a1Var;
+        this.c = f1Var;
+        this.d = g8Var;
+        if (e1Var.m.d() == 3) {
+            j = e8.b();
+        } else {
+            j = 0;
+        }
+        this.e = j;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b1
-    /* renamed from: f */
-    public o6<w0> a(String str, x2 x2Var, a aVar) {
-        InterceptResult invokeLLL;
-        boolean z;
-        String str2;
-        i3.a aVar2;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, x2Var, aVar)) == null) {
-            o6<w0> o6Var = new o6<>();
-            if (aVar != null && (aVar2 = aVar.f) != null) {
-                this.b = aVar2;
-                return o6Var;
-            }
-            if (aVar != null && aVar.b) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.b = new i3.a(x2Var, z);
-            if (aVar != null && (str2 = aVar.g) != null) {
-                o6Var.a(new w0(str2, p3.class));
-            } else {
-                for (int i = 0; i < this.b.d().length; i++) {
-                    x2 b = b(this.b.c(i));
-                    q1.b bVar = new q1.b();
-                    if (aVar != null) {
-                        bVar.c = aVar.c;
-                        bVar.f = aVar.d;
-                        bVar.g = aVar.e;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g1 g1Var = (g1) this.c;
+            if (!this.g) {
+                if (this.i == null) {
+                    this.i = this.d.a(this);
+                } else if (this.i.b()) {
+                    try {
+                        this.i.a();
+                        this.g = true;
+                        if (this.f) {
+                            e1 e1Var = this.a;
+                            a1 a1Var = this.b;
+                            this.k = g1Var.d(e1Var, a1Var.a, d(this.c, a1Var), this.b.c);
+                        }
+                    } catch (Exception e) {
+                        throw new GdxRuntimeException("Couldn't load dependencies of asset: " + this.b.a, e);
                     }
-                    o6Var.a(new w0(b, Texture.class, bVar));
+                }
+            } else if (this.j == null && !this.f) {
+                this.j = this.d.a(this);
+            } else if (this.f) {
+                e1 e1Var2 = this.a;
+                a1 a1Var2 = this.b;
+                this.k = g1Var.d(e1Var2, a1Var2.a, d(this.c, a1Var2), this.b.c);
+            } else if (this.j.b()) {
+                try {
+                    this.j.a();
+                    e1 e1Var3 = this.a;
+                    a1 a1Var3 = this.b;
+                    this.k = g1Var.d(e1Var3, a1Var3.a, d(this.c, a1Var3), this.b.c);
+                } catch (Exception e2) {
+                    throw new GdxRuntimeException("Couldn't load asset: " + this.b.a, e2);
                 }
             }
-            return o6Var;
         }
-        return (o6) invokeLLL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            s1 s1Var = (s1) this.c;
+            if (!this.g) {
+                this.g = true;
+                a1 a1Var = this.b;
+                this.h = s1Var.a(a1Var.a, d(this.c, a1Var), this.b.c);
+                if (this.h == null) {
+                    e1 e1Var = this.a;
+                    a1 a1Var2 = this.b;
+                    this.k = s1Var.c(e1Var, a1Var2.a, d(this.c, a1Var2), this.b.c);
+                    return;
+                }
+                c(this.h);
+                this.a.t(this.b.a, this.h);
+                return;
+            }
+            e1 e1Var2 = this.a;
+            a1 a1Var3 = this.b;
+            this.k = s1Var.c(e1Var2, a1Var3.a, d(this.c, a1Var3), this.b.c);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c1
-    /* renamed from: h */
-    public i3 d(a1 a1Var, String str, x2 x2Var, a aVar) {
-        InterceptResult invokeLLLL;
-        String str2;
+    @Override // com.baidu.tieba.i8
+    public Void call() throws Exception {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, a1Var, str, x2Var, aVar)) == null) {
-            if (aVar != null && (str2 = aVar.g) != null) {
-                String str3 = x2Var.s(this.b.b[0]).h().toString();
-                p3.a f = ((p3) a1Var.j(str2, p3.class)).f(str3);
-                if (f != null) {
-                    return new i3(x2Var, f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.l) {
+                return null;
+            }
+            g1 g1Var = (g1) this.c;
+            if (!this.g) {
+                a1 a1Var = this.b;
+                this.h = g1Var.a(a1Var.a, d(this.c, a1Var), this.b.c);
+                if (this.h != null) {
+                    c(this.h);
+                    this.a.t(this.b.a, this.h);
+                } else {
+                    e1 e1Var = this.a;
+                    a1 a1Var2 = this.b;
+                    g1Var.c(e1Var, a1Var2.a, d(this.c, a1Var2), this.b.c);
+                    this.f = true;
                 }
-                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar.g);
+            } else {
+                e1 e1Var2 = this.a;
+                a1 a1Var3 = this.b;
+                g1Var.c(e1Var2, a1Var3.a, d(this.c, a1Var3), this.b.c);
+                this.f = true;
             }
-            int length = this.b.d().length;
-            o6 o6Var = new o6(length);
-            for (int i = 0; i < length; i++) {
-                o6Var.a(new q3((Texture) a1Var.j(this.b.c(i), Texture.class)));
-            }
-            return new i3(this.b, (o6<q3>) o6Var, true);
+            return null;
         }
-        return (i3) invokeLLLL.objValue;
+        return (Void) invokeV.objValue;
+    }
+
+    public final void c(s6<a1> s6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s6Var) == null) {
+            boolean z = s6Var.c;
+            s6Var.c = true;
+            for (int i = 0; i < s6Var.b; i++) {
+                String str = s6Var.get(i).a;
+                GenericDeclaration genericDeclaration = s6Var.get(i).b;
+                for (int i2 = s6Var.b - 1; i2 > i; i2--) {
+                    if (genericDeclaration == s6Var.get(i2).b && str.equals(s6Var.get(i2).a)) {
+                        s6Var.h(i2);
+                    }
+                }
+            }
+            s6Var.c = z;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            f1 f1Var = this.c;
+            if (f1Var instanceof g1) {
+                e1 e1Var = this.a;
+                a1 a1Var = this.b;
+                ((g1) f1Var).e(e1Var, a1Var.a, d(f1Var, a1Var), this.b.c);
+            }
+        }
+    }
+
+    public boolean update() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.c instanceof s1) {
+                b();
+            } else {
+                a();
+            }
+            if (this.k != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final b3 d(f1 f1Var, a1 a1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, f1Var, a1Var)) == null) {
+            if (a1Var.d == null) {
+                a1Var.d = f1Var.b(a1Var.a);
+            }
+            return a1Var.d;
+        }
+        return (b3) invokeLL.objValue;
     }
 }

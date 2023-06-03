@@ -2,7 +2,6 @@ package com.baidu.webkit.logsdk.c;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.webkit.logsdk.d;
 import com.baidu.webkit.logsdk.d.c;
 import com.baidu.webkit.logsdk.upload.BdLogNetRequest;
@@ -146,7 +145,7 @@ public final class c {
                                 com.baidu.webkit.logsdk.b.a a2 = com.baidu.webkit.logsdk.a.b.a().e().a(str2);
                                 int i2 = a2.b;
                                 if (!str3.equals("cache") && !str3.equals(SevenZipUtils.FILE_NAME_TEMP)) {
-                                    if (str3.equals(StatConstants.VALUE_TYPE_UPLOAD)) {
+                                    if (str3.equals("upload")) {
                                         if (i == 3 && i2 == 3) {
                                             b().a(str2, true);
                                         }
@@ -228,7 +227,7 @@ public final class c {
                     }
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "baseinfo", com.baidu.webkit.logsdk.d.c.a(remove.i, remove.f));
                 } else {
-                    com.baidu.webkit.logsdk.d.c.e("BdLogSDK", StatConstants.VALUE_TYPE_UPLOAD);
+                    com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "upload");
                 }
                 d dVar = new d() { // from class: com.baidu.webkit.logsdk.upload.b.1
                     @Override // com.baidu.webkit.logsdk.d
@@ -324,7 +323,7 @@ public final class c {
                 String[] split = str.split("-");
                 if (split.length > 1) {
                     String str2 = split[1];
-                    if (str2.equals("cache") || str2.equals(SevenZipUtils.FILE_NAME_TEMP) || str2.equals(StatConstants.VALUE_TYPE_UPLOAD)) {
+                    if (str2.equals("cache") || str2.equals(SevenZipUtils.FILE_NAME_TEMP) || str2.equals("upload")) {
                         com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "checkLocalFileNum file", str);
                         i++;
                         max++;

@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jm;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.nm;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class AiAppGuideActivity extends BaseActivity {
     public ImageView b;
     public View.OnClickListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,13 +91,13 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d002a);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f09284b);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092884);
             this.a = gifView;
-            gifView.setGifFile(jm.b("aiapp_guide.gif"));
+            gifView.setGifFile(nm.b("aiapp_guide.gif"));
             ImageView imageView = (ImageView) findViewById(R.id.img_close);
             this.b = imageView;
             imageView.setOnClickListener(this.c);
-            int l = ri.l(getActivity()) - (ri.g(getActivity(), R.dimen.tbds44) * 2);
+            int l = vi.l(getActivity()) - (vi.g(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = l;
             layoutParams.height = (int) (((l * 828) * 1.0f) / 760.0f);

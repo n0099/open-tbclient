@@ -1,93 +1,93 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tieba.i69;
+import com.baidu.tieba.q55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class k69 {
+public final class k69 extends q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l69 a;
-    public TbPageContext b;
-    public List<rn> c;
-    public PersonMoreData d;
+    public final i69 c;
 
-    public k69(TbPageContext tbPageContext, Bundle bundle, wj6<l79> wj6Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k69(Activity activity, i69 controller) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, wj6Var};
+            Object[] objArr = {activity, controller};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        l69 l69Var = new l69(tbPageContext);
-        this.a = l69Var;
-        l69Var.f(wj6Var);
-        a(bundle);
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(controller, "controller");
+        this.c = controller;
     }
 
-    public final void a(Bundle bundle) {
+    public static final void g(k69 this$0) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.q55
+    public void d(q55.a shouldShowCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        l79 l79Var = new l79();
-                        l79Var.e = personMoreItemData.mName;
-                        l79Var.a = 36;
-                        l79Var.g = personMoreItemData.mUrl;
-                        l79Var.k = personMoreItemData.mId;
-                        this.c.add(l79Var);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
+            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
+            shouldShowCallback.callback(this.c.d());
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.q55
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.g();
+        }
+    }
+
+    @Override // com.baidu.tieba.q55
+    public void e() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0784);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b5d));
-            b();
-            this.a.e(this.c);
-        }
-    }
+            this.c.p(new i69.d() { // from class: com.baidu.tieba.s59
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public void d() {
-        l69 l69Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (l69Var = this.a) != null) {
-            l69Var.d();
+                @Override // com.baidu.tieba.i69.d
+                public final void onDismiss() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        k69.g(k69.this);
+                    }
+                }
+            });
+            if (dn5.e(true)) {
+                z = this.c.r();
+            } else {
+                z = false;
+            }
+            if (!z) {
+                c();
+            }
         }
     }
 }

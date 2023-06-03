@@ -4,8 +4,9 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.lc6;
+import com.baidu.tieba.pg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lc6> list;
+    public List<pg6> list;
     public AlaUserInfoData user_info;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,7 +51,7 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(SourceConstant.SOURCE_USER_INFO);
             if (optJSONObject2 != null) {
                 this.user_info = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject2, AlaUserInfoData.class);
             }
@@ -59,9 +60,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
-                        lc6 lc6Var = new lc6();
-                        lc6Var.c(optJSONObject3);
-                        this.list.add(lc6Var);
+                        pg6 pg6Var = new pg6();
+                        pg6Var.c(optJSONObject3);
+                        this.list.add(pg6Var);
                     }
                 }
             }
@@ -77,7 +78,7 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
         return (AlaUserInfoData) invokeV.objValue;
     }
 
-    public List<lc6> getList() {
+    public List<pg6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

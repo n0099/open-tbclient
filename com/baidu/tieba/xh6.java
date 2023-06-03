@@ -1,38 +1,43 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class xh6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xh6 {
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            HybridLog.getInstance().a(str, str2);
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        boolean a(float f);
     }
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HybridLog.getInstance().b(str, str2);
-        }
+    /* loaded from: classes8.dex */
+    public interface b {
+        float getSpeed();
     }
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            HybridLog.getInstance().c(str, str2);
-        }
+    /* loaded from: classes8.dex */
+    public interface c {
+        boolean onFinished();
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            HybridLog.getInstance().d(str, str2);
-        }
-    }
+    boolean a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    boolean pause();
+
+    boolean reset();
+
+    boolean setMaxDuration(int i);
+
+    boolean setMinDuration(int i);
+
+    boolean setProgress(long j);
+
+    boolean setShowDeleteLastTip(boolean z);
+
+    boolean start();
 }

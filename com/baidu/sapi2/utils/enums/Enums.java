@@ -5,7 +5,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 /* loaded from: classes3.dex */
 public class Enums {
 
@@ -55,7 +55,7 @@ public class Enums {
         NONE("none", 0),
         PWD("pwd", 1),
         SMS(LoginConstants.SMS_LOGIN, 2),
-        FACE("face", 3),
+        FACE(UgcTranscoderConstant.URL_GET_FACE, 3),
         TOUCHID(SapiOptions.Gray.FUN_NAME_GINGER, 15),
         WECHAT("wechat", 4),
         WEIBO("weibo", 5),
@@ -72,7 +72,7 @@ public class Enums {
         ONEKEYLOGIN_CM("onekeylogin_cm", 16),
         ONEKEYLOGIN_CU("onekeylogin_cu", 17),
         ONEKEYLOGIN_CT("onekeylogin_ct", 18),
-        SWITCH(SetImageWatermarkTypeReqMsg.SWITCH, 19),
+        SWITCH("switch", 19),
         QR("qr", 20),
         HISTORY("history", 21),
         IQIYI("iqiyi", 22),

@@ -1,92 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
+import tbclient.AlbumElement;
+import tbclient.ItemGameCode;
+import tbclient.ItemGameInfo;
+import tbclient.ItemInfo;
+import tbclient.ItemPage.DataRes;
+import tbclient.RecentUpdate;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class gl7 {
+public class gl7 implements pq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemInfo a;
+    public List<AlbumElement> b;
+    public ArrayList<vn> c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j87 a;
-
-        public a(j87 j87Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j87Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j87Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.Q0();
-            }
+    @Override // com.baidu.tieba.pq5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, j87 j87Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    @Override // com.baidu.tieba.pq5
+    public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, j87Var, frsViewData) != null) || frsViewData == null || j87Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+        }
+    }
+
+    public gl7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new ArrayList<>();
+    }
+
+    public void a(DataRes dataRes) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
+        ItemInfo itemInfo = dataRes.item_info;
+        this.a = itemInfo;
+        if (itemInfo == null) {
+            return;
+        }
+        this.b = dataRes.album_list;
+        int i = 1;
+        if (dataRes.has_tornado.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
+        ItemGameCode itemGameCode = dataRes.item_game_code;
+        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
+            yl7 yl7Var = new yl7();
+            yl7Var.e(dataRes.item_game_code);
+            this.c.add(yl7Var);
+        }
+        ItemGameInfo itemGameInfo = dataRes.item_game_info;
+        if (itemGameInfo != null) {
+            List<ThreadInfo> list = itemGameInfo.hot_videos;
+            if (list != null && ListUtils.getCount(list) >= 3) {
+                zl7 zl7Var = new zl7();
+                zl7Var.d(dataRes.item_game_info.hot_videos);
+                this.c.add(zl7Var);
+            }
+            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
+            if (recentUpdate != null && !ui.isEmpty(recentUpdate.log)) {
+                am7 am7Var = new am7();
+                am7Var.d(dataRes.item_game_info.recent_update);
+                this.c.add(am7Var);
             }
         }
-        if (z) {
-            sg.a().postDelayed(new a(j87Var), TimeUnit.SECONDS.toMillis(2L));
-        }
-    }
-
-    public static void b(j87 j87Var) {
-        HashMap<Integer, ThreadData> h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, j87Var) == null) && j87Var != null && j87Var.a0() != null && (h = j87Var.a0().h()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-                ThreadData value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
+        if (!ListUtils.isEmpty(dataRes.thread_list)) {
+            wl7 wl7Var = new wl7();
+            wl7Var.setSupportType(BaseCardInfo.SupportType.TOP);
+            this.c.add(wl7Var);
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.setPositionInFrsItemTab(i);
+                    i++;
+                    threadData.insertItemToTitleOrAbstractText();
+                    this.c.add(threadData);
+                    wl7 wl7Var2 = new wl7();
+                    wl7Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    this.c.add(wl7Var2);
                 }
             }
-            mg9.n().w(arrayList);
+            wl7 wl7Var3 = new wl7();
+            wl7Var3.d(this.a.id.intValue());
+            wl7Var3.setPositionInFrsItemTab(i);
+            wl7Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+            this.c.add(wl7Var3);
         }
+        xl7 xl7Var = new xl7();
+        xl7Var.e(dataRes.item_info);
+        if (xl7Var.d()) {
+            this.c.add(xl7Var);
+        }
+        bm7 bm7Var = new bm7();
+        bm7Var.d(dataRes.recommend_item);
+        this.c.add(bm7Var);
     }
 }

@@ -187,7 +187,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         private void ensureExtensionsIsMutable() {
             if (!this.extensionsIsMutable) {
-                this.extensions = this.extensions.m108clone();
+                this.extensions = this.extensions.m163clone();
                 this.extensionsIsMutable = true;
             }
         }
@@ -274,7 +274,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: clone */
-        public BuilderType mo29clone() {
+        public BuilderType mo43clone() {
             throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
         }
 
@@ -452,7 +452,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: clone */
-        public BuilderType mo29clone() {
+        public BuilderType mo43clone() {
             throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
         }
 

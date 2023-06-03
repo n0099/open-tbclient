@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hva;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicYuvToRGB;
+import android.renderscript.Type;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes5.dex */
-public class gva implements Animator.AnimatorListener {
+/* loaded from: classes6.dex */
+public class gva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ hva.a a;
-    public final /* synthetic */ View b;
-    public final /* synthetic */ ViewGroup c;
-    public final /* synthetic */ float d;
-    public final /* synthetic */ float e;
-    public final /* synthetic */ int[] f;
-    public final /* synthetic */ ViewGroup g;
-    public final /* synthetic */ hva h;
+    public RenderScript a;
+    public ScriptIntrinsicYuvToRGB b;
+    public Type.Builder c;
+    public Type.Builder d;
+    public Allocation e;
+    public Allocation f;
 
-    public gva(hva hvaVar, hva.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
+    public gva(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hvaVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,44 +38,32 @@ public class gva implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.h = hvaVar;
-        this.a = aVar;
-        this.b = view2;
-        this.c = viewGroup;
-        this.d = f;
-        this.e = f2;
-        this.f = iArr;
-        this.g = viewGroup2;
+        RenderScript create = RenderScript.create(context);
+        this.a = create;
+        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    public Bitmap a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            if (this.c == null) {
+                RenderScript renderScript = this.a;
+                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
+                this.c = x;
+                this.e = Allocation.createTyped(this.a, x.create(), 1);
+                RenderScript renderScript2 = this.a;
+                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
+                this.d = y;
+                this.f = Allocation.createTyped(this.a, y.create(), 1);
+            }
+            this.e.copyFrom(bArr);
+            this.b.setInput(this.e);
+            this.b.forEach(this.f);
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            this.f.copyTo(createBitmap);
+            return createBitmap;
         }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
-            this.h.getClass();
-        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

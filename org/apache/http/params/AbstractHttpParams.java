@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractHttpParams implements HttpParams {
     public AbstractHttpParams() {
         throw new RuntimeException("Stub!");

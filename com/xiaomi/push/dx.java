@@ -5,17 +5,18 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.pose.PoseAR;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class dx {
     public static Uri a(String str, String str2) {
-        return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
+        return Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + str).buildUpon().appendPath(str2).build();
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(bo.m239a(str), 2);
+        return Base64.encodeToString(bo.m294a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {

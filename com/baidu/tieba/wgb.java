@@ -1,180 +1,199 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.SharedPreferences;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.yy.transvod.player.common.AVStream;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectObject;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public class wgb extends BaseAdapter {
+public class wgb {
     public static /* synthetic */ Interceptable $ic;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public List<ifb> c;
-    public PayUIKitConfig d;
+    public TransVodProxy a;
+    public tgb b;
+    public Context c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271031, "Lcom/baidu/tieba/wgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271031, "Lcom/baidu/tieba/wgb;");
+                return;
+            }
+        }
+        xeb.b();
+        d = null;
     }
 
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
-        public TextView d;
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return xeb.a();
+        }
+        return invokeV.booleanValue;
+    }
 
-        public a(wgb wgbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wgbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.l();
+                    this.a = null;
+                }
+            }
+            tgb tgbVar = this.b;
+            if (tgbVar != null) {
+                tgbVar.f();
+                this.b = null;
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.v(true);
                 }
             }
         }
     }
 
-    public wgb(Context context, PayUIKitConfig payUIKitConfig, List<ifb> list) {
+    public wgb(Context context, yfb yfbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, payUIKitConfig, list};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, yfbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = context;
-        this.c = list;
-        this.d = payUIKitConfig;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        xeb.c(context);
+        c();
+        this.c = context;
+        String a = a(context);
+        TLog.h("TransVodManager", "generated uid " + a);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ifb getItem(int i) {
-        InterceptResult invokeI;
+    public static synchronized String a(Context context) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.get(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (wgb.class) {
+                if (d == null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
+                    String string = sharedPreferences.getString("transvod-uid-pref", null);
+                    d = string;
+                    if (string == null) {
+                        d = UUID.randomUUID().toString();
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putString("transvod-uid-pref", d);
+                        edit.commit();
+                    }
+                }
+                str = d;
+            }
+            return str;
         }
-        return (ifb) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void c(int i) {
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!xeb.a()) {
+                TLog.h("TransVodManager", "init failed, library not load success");
+                return;
+            }
+            Log.i("TransVodManager", "TLog.setLevel()");
+            TLog.i(4);
+            TransVodProxy.nativeClassInit();
+            AVframe.nativeClassInit();
+            AVStream.nativeClassInit();
+            NativeFfmpeg.nativeClassInit();
+            NativeIttiam.nativeClassInit();
+            VideoExtraInfo.nativeClassInit();
+            AlphaChannelData.nativeClassInit();
+            MixVideoExtraInfo.nativeClassInit();
+            MixAudioExtraInfo.nativeClassInit();
+            NetRequestStatusInfo.nativeClassInit();
+            AudioSendStamp.nativeClassInit();
+            EffectInfo.nativeClassInit();
+            EffectSource.nativeClassInit();
+            EffectObject.nativeClassInit();
+            EffectFrame.nativeClassInit();
+        }
+    }
+
+    public TransVodProxy d(int i, yfb yfbVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, yfbVar)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new TransVodProxy(null, i, yfbVar);
+                }
+            }
+            if (this.b == null) {
+                tgb tgbVar = new tgb(this.c, this);
+                this.b = tgbVar;
+                tgbVar.i();
+            }
+            return this.a;
+        }
+        return (TransVodProxy) invokeIL.objValue;
+    }
+
+    public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.f(i);
+                }
+            }
         }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_amount_way_choose, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.way_tv_title);
-                aVar.b = (ImageView) view2.findViewById(R.id.recharge_way_bg);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_tips);
-                aVar.c = view2.findViewById(R.id.amount_new_rl);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            ifb item = getItem(i);
-            aVar.a.setText(item.a());
-            PayType payType = item.a;
-            if (PayType.ALI_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_zhifubao_icon);
-            } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_weixin_icon);
-            } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxmkj_icon);
-            } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_unionpay_icon);
-            } else if (PayType.QQ_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_qqpay_icon);
-            } else if (PayType.DXM_PAY_H5.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
-            }
-            aVar.a.setTextColor(this.a.getResources().getColor(R.color.pay_ui_font_color_6));
-            if (kgb.a.b(this.d)) {
-                i2 = R.drawable.pay_ui_selector_amount_way_list_item_red;
-            } else {
-                i2 = R.drawable.pay_ui_selector_amount_way_list_item_yellow;
-            }
-            aVar.c.setBackgroundResource(i2);
-            if (this.b == i) {
-                aVar.c.setSelected(true);
-            } else {
-                aVar.c.setSelected(false);
-            }
-            if (TextUtils.isEmpty(item.c)) {
-                aVar.d.setVisibility(4);
-            } else {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.c);
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

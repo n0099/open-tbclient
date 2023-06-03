@@ -1,9 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface u0 {
-    void dispose();
+    void a(String str, String str2, Throwable th);
 
-    void pause();
+    void b(String str, String str2, Throwable th);
 
-    void resume();
+    void debug(String str, String str2);
+
+    void error(String str, String str2);
+
+    void error(String str, String str2, Throwable th);
+
+    void log(String str, String str2);
 }

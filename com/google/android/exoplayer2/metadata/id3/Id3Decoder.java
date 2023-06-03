@@ -1,13 +1,11 @@
 package com.google.android.exoplayer2.metadata.id3;
 
 import android.util.Log;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataDecoder;
 import com.google.android.exoplayer2.metadata.MetadataInputBuffer;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -126,16 +124,16 @@ public final class Id3Decoder implements MetadataDecoder {
         byte[] bArr = new byte[i3];
         parsableByteArray.readBytes(bArr, 0, i3);
         if (i2 == 2) {
-            str = FileUtils.IMAGE_FILE_START + Util.toLowerInvariant(new String(bArr, 0, 3, "ISO-8859-1"));
+            str = "image/" + Util.toLowerInvariant(new String(bArr, 0, 3, "ISO-8859-1"));
             if (str.equals("image/jpg")) {
-                str = WordCommandManager.IMAGE_JPEG;
+                str = "image/jpeg";
             }
             indexOfZeroByte = 2;
         } else {
             indexOfZeroByte = indexOfZeroByte(bArr, 0);
             String lowerInvariant = Util.toLowerInvariant(new String(bArr, 0, indexOfZeroByte, "ISO-8859-1"));
             if (lowerInvariant.indexOf(47) == -1) {
-                str = FileUtils.IMAGE_FILE_START + lowerInvariant;
+                str = "image/" + lowerInvariant;
             } else {
                 str = lowerInvariant;
             }

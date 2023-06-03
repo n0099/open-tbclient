@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -52,7 +53,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "bkb";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f1391), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f13e3), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -61,7 +62,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Intent intent2 = new Intent(context, DealIntentService.class);
             intent2.putExtra("class", 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0bff), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0c38), "", "", PendingIntent.getService(context, 2001, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

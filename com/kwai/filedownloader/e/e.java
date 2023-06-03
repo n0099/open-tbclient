@@ -1,6 +1,6 @@
 package com.kwai.filedownloader.e;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class e {
     public final boolean awR;
     public final boolean awS;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e awT;
@@ -318,12 +318,12 @@ public class e {
             obj = "download.max-network-thread-count";
             i = 0;
             this.awO = false;
-        } else if (!str6.equals("true") && !str6.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
-            throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE));
+        } else if (!str6.equals(YYOption.IsLive.VALUE_TRUE) && !str6.equals("false")) {
+            throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", "http.lenient", YYOption.IsLive.VALUE_TRUE, "false"));
         } else {
             obj = "download.max-network-thread-count";
             i = 0;
-            this.awO = str6.equals("true");
+            this.awO = str6.equals(YYOption.IsLive.VALUE_TRUE);
         }
         this.awP = true;
         if (str2 != null) {
@@ -353,26 +353,26 @@ public class e {
         if (str7 == null) {
             r6 = 0;
             this.awR = false;
-        } else if (!str7.equals("true") && !str7.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        } else if (!str7.equals(YYOption.IsLive.VALUE_TRUE) && !str7.equals("false")) {
             Object[] objArr = new Object[i2];
             objArr[0] = "file.non-pre-allocation";
-            objArr[1] = "true";
-            objArr[2] = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            objArr[1] = YYOption.IsLive.VALUE_TRUE;
+            objArr[2] = "false";
             throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.awR = str7.equals("true");
+            this.awR = str7.equals(YYOption.IsLive.VALUE_TRUE);
         }
         if (str8 == null) {
             this.awS = r6;
-        } else if (!str8.equals("true") && !str8.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        } else if (!str8.equals(YYOption.IsLive.VALUE_TRUE) && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
-            objArr2[1] = "true";
-            objArr2[2] = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+            objArr2[1] = YYOption.IsLive.VALUE_TRUE;
+            objArr2[2] = "false";
             throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.awS = str8.equals("true");
+            this.awS = str8.equals(YYOption.IsLive.VALUE_TRUE);
         }
         if (d.awL) {
             Object[] objArr3 = new Object[11];

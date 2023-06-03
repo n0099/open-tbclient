@@ -1,131 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.ChatRoomInfoData;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class g88 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
-            AtInfo atInfo = new AtInfo();
-            atInfo.setAtCountAll(atInfoData.getAtCountAll());
-            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
-            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
-            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
-            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
-            return atInfo;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747906, "Lcom/baidu/tieba/g88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747906, "Lcom/baidu/tieba/g88;");
+                return;
+            }
         }
-        return (AtInfo) invokeL.objValue;
+        c = new HashMap<>();
     }
 
-    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return Collections.emptyList();
-            }
-            ArrayList arrayList = new ArrayList();
-            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
-                if (atMsgBaseData != null) {
-                    AtInfoMsg atInfoMsg = new AtInfoMsg();
-                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
-                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
-                    arrayList.add(atInfoMsg);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return Collections.emptyList();
-            }
-            ArrayList arrayList = new ArrayList();
-            for (ChatRoomInfoData chatRoomInfoData : list) {
-                if (chatRoomInfoData != null) {
-                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
-                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
-                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
-                    if (chatroomInfoBasicData != null) {
-                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
-                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
-                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
-                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
-                        chatRoomInfo.setUnreadNum(pg.e(chatroomInfoBasicData.getUnreadNum(), 0));
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        h88.d().f();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    h88.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends")) {
+                                    h88.d().delete(next, null, null);
+                                }
+                            }
+                        }
                     }
-                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
-                    if (chatRoomInfoData.getAtInfoData() != null) {
-                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                h88.d().b();
+            }
+        }
+    }
+
+    public static LinkedList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
                     }
-                    arrayList.add(chatRoomInfo);
                 }
+                return linkedList;
+            } finally {
+                wi.a(cursor);
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (LinkedList) invokeV.objValue;
     }
 
-    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
-            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
-            if (chatroomInfoBasicData != null) {
-                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
-            }
-            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
-            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
-            if (chatroomMEMsgInfoData != null && newMessage != null) {
-                chatroomMEMsgInfoData.setFromUid(pg.g(newMessage.getFromUid(), 0L));
-                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
-                chatroomMEMsgInfoData.setContent(newMessage.getContent());
-                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
-                if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
-                    chatroomMEMsgInfoData.setSpecialMsg("[有人@我]");
-                } else {
-                    chatroomMEMsgInfoData.setSpecialMsg("");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (g88.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
                 }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    wi.b(b);
+                }
+                f88 f88Var = new f88(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = f88Var.getWritableDatabase();
+                return b;
             }
         }
-    }
-
-    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
-            String str3 = "";
-            if (!StringUtils.isNull(str)) {
-                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0401);
-            }
-            if (!StringUtils.isNull(str2)) {
-                return str3 + str2;
-            }
-            return str3;
-        }
-        return (String) invokeLLL.objValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

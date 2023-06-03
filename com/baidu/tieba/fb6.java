@@ -4,67 +4,31 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fb6 extends en<vb6, CardViewHolder<uc6>> {
+public class fb6 extends in<cb6, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb6 a;
-        public final /* synthetic */ fb6 b;
-
-        public a(fb6 fb6Var, vb6 vb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fb6Var, vb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fb6Var;
-            this.a = vb6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
-            }
-        }
-    }
+    public sb6 b;
+    public xb6 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fb6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), vb6.b);
+    public fb6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), cb6.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,51 +40,53 @@ public class fb6 extends en<vb6, CardViewHolder<uc6>> {
                 return;
             }
         }
+        this.d = "";
         this.a = tbPageContext;
-    }
-
-    public final void u(vb6 vb6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, vb6Var) == null) && vb6Var != null && vb6Var.c() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, vb6Var.c().b().user_id)));
-        }
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: x */
-    public CardViewHolder<uc6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.in
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new uc6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            sb6 sb6Var = new sb6(this.a, viewGroup, this.d);
+            this.b = sb6Var;
+            xb6 xb6Var = this.c;
+            if (xb6Var != null) {
+                sb6Var.s(xb6Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
     }
 
-    public final void t(vb6 vb6Var, uc6 uc6Var) {
+    public void u(xb6 xb6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vb6Var, uc6Var) != null) || vb6Var.c() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xb6Var) == null) {
+            this.c = xb6Var;
+            sb6 sb6Var = this.b;
+            if (sb6Var != null) {
+                sb6Var.s(xb6Var);
+            }
         }
-        uc6Var.y(8);
-        uc6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026c));
-        uc6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vb6 vb6Var, CardViewHolder<uc6> cardViewHolder) {
+    @Override // com.baidu.tieba.in
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cb6 cb6Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
+        sb6 sb6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vb6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cb6Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (sb6Var = liveTabConcernItemViewLineHolder.a) != null) {
+                sb6Var.i(cb6Var);
+                return liveTabConcernItemViewLineHolder.getView();
             }
-            t(vb6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, vb6Var));
-            return cardViewHolder.a().h();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

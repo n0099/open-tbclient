@@ -1,151 +1,130 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class k39 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ View b;
-
-        public a(Context context, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = view2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || BreatheTipWidget.f() || this.a == null) {
-                return;
-            }
-            g75 g75Var = new g75();
-            g75Var.b = R.raw.lottie_bubble_breath_tip;
-            g75Var.a = BreatheTipWidget.PointType.LOTTIE;
-            g75Var.c = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
-            h75 h75Var = new h75();
-            h75Var.a = o19.t(R.string.obfuscated_res_0x7f0f0597, new Object[0]);
-            h75Var.b = o19.t(R.string.agree_tip_content, new Object[0]);
-            h75Var.e = R.drawable.pic_guidecard;
-            h75Var.f = ri.g(this.a, R.dimen.tbds156);
-            h75Var.g = ri.g(this.a, R.dimen.tbds489);
-            h75Var.h = ri.g(this.a, R.dimen.tbds286);
-            if (this.b == null) {
-                return;
-            }
-            BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
-            breatheTipWidget.i(this.b);
-            breatheTipWidget.g(h75Var, g75Var);
-            if (breatheTipWidget.j((Activity) this.a, 4000L)) {
-                o65 m = o65.m();
-                m.w("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), true);
-                oc5.c("c14828");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
-                return;
-            }
-        }
-        a = o65.q("key_show_god_agree_tips_count");
-        b = o65.q("key_show_god_agree_tips_timestamp");
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
-            o65.m().A(b, System.currentTimeMillis());
-            o65.m().z(a, 0);
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long o = o65.m().o(b, 0L);
-            if (o >= 0) {
-                return TimeHelper.isSameDay(currentTimeMillis, o);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(mx8 mx8Var) {
+    public static String a(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, mx8Var)) == null) {
-            if (mx8Var == null || mx8Var.M() == null || !TbadkCoreApplication.isLogin() || !mx8Var.M().isExcellentThread() || mx8Var.M().getHasAgree() == 1) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
+                return null;
             }
-            if (b()) {
-                i = o65.m().n(a, 0);
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo c0 = tbRichTextData.c0();
+            if (c0 == null) {
+                return null;
+            }
+            if (!StringUtils.isNull(c0.U())) {
+                return c0.U();
+            }
+            if (c0.getHeight() * c0.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (c0.getHeight() * c0.getWidth()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (c0.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (c0.getHeight() * sqrt)));
             } else {
-                i = 0;
+                double width = c0.getWidth() / c0.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
             }
-            if (i >= 2) {
-                return false;
-            }
-            return true;
+            sb.append("&src=");
+            sb.append(ui.getUrlEncode(c0.getSrc()));
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void d(Context context, View view2, mx8 mx8Var) {
+    public static void b(ey9 ey9Var, AbsPbActivity.e eVar) {
+        ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, mx8Var) != null) || c(mx8Var)) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, ey9Var, eVar) != null) || ey9Var == null || ey9Var.a0() == null || ey9Var.a0().W() == null || eVar == null || eVar.a == null || eVar.b == null || ey9Var.a0().W().size() == 0) {
             return;
         }
-        o65 m = o65.m();
-        if (!m.i("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), false)) {
-            sg.a().postDelayed(new a(context, view2), 500L);
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
+            return;
         }
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = ey9Var.a0().W().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, imageUrlData);
+                }
+            }
+        }
+        eVar.j = ListUtils.getPosition(eVar.a, str);
+    }
+
+    public static ey9 c(j39 j39Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{j39Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (j39Var != null && j39Var.F() != null && j39Var.F().size() > 0) {
+                    ey9 ey9Var = j39Var.F().get(0);
+                    if (ey9Var.D() != 1) {
+                        return d(j39Var);
+                    }
+                    return ey9Var;
+                }
+                return null;
+            }
+            return d(j39Var);
+        }
+        return (ey9) invokeCommon.objValue;
+    }
+
+    public static ey9 d(j39 j39Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, j39Var)) == null) {
+            if (j39Var != null && j39Var.N() != null && j39Var.N().getAuthor() != null) {
+                ey9 ey9Var = new ey9();
+                MetaData author = j39Var.N().getAuthor();
+                String userId = author.getUserId();
+                HashMap<String, MetaData> userMap = j39Var.N().getUserMap();
+                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                    author = metaData;
+                }
+                ey9Var.L0(1);
+                ey9Var.R0(j39Var.N().getFirstPostId());
+                ey9Var.i1(j39Var.N().getTitle());
+                ey9Var.h1(j39Var.N().getCreateTime());
+                ey9Var.I0(author);
+                return ey9Var;
+            }
+            return null;
+        }
+        return (ey9) invokeL.objValue;
     }
 }

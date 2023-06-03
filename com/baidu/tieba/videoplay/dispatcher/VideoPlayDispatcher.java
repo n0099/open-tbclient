@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.hi9;
-import com.baidu.tieba.os5;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.oo9;
+import com.baidu.tieba.qw5;
+import com.baidu.tieba.tg;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class VideoPlayDispatcher implements hi9 {
+/* loaded from: classes8.dex */
+public class VideoPlayDispatcher implements oo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class VideoPlayDispatcher implements hi9 {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x017e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-    @Override // com.baidu.tieba.hi9
+    @Override // com.baidu.tieba.oo9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -69,8 +69,8 @@ public class VideoPlayDispatcher implements hi9 {
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
             boolean z3 = false;
-            videoItemData.video_duration = pg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-            if (pg.g(jSONObject.optString("videoHeight"), 0L) > pg.g(jSONObject.optString("videoWidth"), 0L)) {
+            videoItemData.video_duration = tg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+            if (tg.g(jSONObject.optString("videoHeight"), 0L) > tg.g(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
             } else {
                 z = false;
@@ -130,7 +130,7 @@ public class VideoPlayDispatcher implements hi9 {
                         new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
                         return;
                     } else {
-                        os5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, pg.g(videoItemData.forum_id, 0L));
+                        qw5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, tg.g(videoItemData.forum_id, 0L));
                         return;
                     }
                 }

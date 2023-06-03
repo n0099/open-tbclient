@@ -1,48 +1,64 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
 /* loaded from: classes5.dex */
 public class bq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static int a(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
-            return sb.toString();
+            throw new IllegalArgumentException("permission is null");
         }
-        return (String) invokeLLZ.objValue;
+        return invokeLL.intValue;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                bArr = messageDigest.digest();
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return dq4.a(context, i);
             }
-            return a(bArr, "", z);
+            return context.getResources().getColor(i);
         }
-        return (String) invokeLZ.objValue;
+        return invokeLI.intValue;
+    }
+
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return dq4.b(context, i);
+            }
+            return context.getResources().getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
+    }
+
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return cq4.a(context, i);
+            }
+            return context.getResources().getDrawable(i);
+        }
+        return (Drawable) invokeLI.objValue;
     }
 }

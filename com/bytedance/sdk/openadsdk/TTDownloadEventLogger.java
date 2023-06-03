@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface TTDownloadEventLogger {
     void onEvent(JSONObject jSONObject);
 

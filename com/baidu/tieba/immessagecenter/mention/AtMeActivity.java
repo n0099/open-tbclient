@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c9;
+import com.baidu.tieba.g9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,16 +36,16 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
     public boolean e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.e) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             } else {
@@ -203,7 +203,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -235,7 +235,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
             AtMessageFragment atMessageFragment = this.a;
             if (atMessageFragment != null && intent != null) {
                 atMessageFragment.setArguments(intent.getExtras());
-                this.a.c2();
+                this.a.d2();
             }
         }
     }
@@ -254,7 +254,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             boolean z = true;
-            z = (c9.f().h("YunPushProxyActivity") && c9.f().g() == 1) ? false : false;
+            z = (g9.f().h("YunPushProxyActivity") && g9.f().g() == 1) ? false : false;
             this.e = z;
             if (z) {
                 setIsAddSwipeBackLayout(false);
@@ -263,16 +263,16 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
             setContentView(R.layout.obfuscated_res_0x7f0d002c);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02de));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02e2));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             AtMessageFragment atMessageFragment = new AtMessageFragment();
             this.a = atMessageFragment;
             atMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090792, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09079d, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager x0 = x0();
-            this.c = x0;
-            x0.onCreate(getPageContext());
+            VoiceManager y0 = y0();
+            this.c = y0;
+            y0.onCreate(getPageContext());
             u1();
             v1();
         }

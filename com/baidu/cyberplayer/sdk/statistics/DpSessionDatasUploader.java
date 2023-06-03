@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.n;
+import com.baidu.cyberplayer.sdk.o;
 import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -33,53 +33,6 @@ public final class DpSessionDatasUploader {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, int i) {
-        String a2 = a(str2, i);
-        if (TextUtils.isEmpty(a2)) {
-            return;
-        }
-        boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue("enable_session_gzip", true);
-        byte[] a3 = a(str.getBytes(), cfgBoolValue);
-        if (a3 == null && cfgBoolValue) {
-            a3 = a(str.getBytes(), false);
-            cfgBoolValue = false;
-        }
-        if (a(n.a(a3), a2, cfgBoolValue)) {
-            a();
-        } else {
-            a(Base64.encode(n.a(a(str.getBytes(), false)), 2), i);
-        }
-    }
-
-    private void a(byte[] bArr, int i) {
-        d dVar;
-        if (i == 24) {
-            dVar = this.c;
-            if (dVar == null) {
-                return;
-            }
-        } else {
-            dVar = this.b;
-            if (dVar == null) {
-                return;
-            }
-        }
-        dVar.a(bArr);
-    }
-
-    public static byte[] a(byte[] bArr, boolean z) {
-        if (z) {
-            try {
-                return n.b(bArr);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return Base64.encode(bArr, 2);
-    }
-
     @Keep
     public static DpSessionDatasUploader getInstance() {
         if (a == null) {
@@ -92,12 +45,82 @@ public final class DpSessionDatasUploader {
         return a;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, String str2, int i) {
+        String a2 = a(str2, i);
+        if (TextUtils.isEmpty(a2)) {
+            return;
+        }
+        boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue("enable_session_gzip", true);
+        byte[] a3 = a(str.getBytes(), cfgBoolValue);
+        if (a3 == null && cfgBoolValue) {
+            a3 = a(str.getBytes(), false);
+            cfgBoolValue = false;
+        }
+        if (!a(o.a(a3), a2, cfgBoolValue)) {
+            a(Base64.encode(o.a(a(str.getBytes(), false)), 2), i);
+        } else {
+            a();
+        }
+    }
+
+    private void a(byte[] bArr, int i) {
+        if (i == 24) {
+            d dVar = this.c;
+            if (dVar != null) {
+                dVar.a(bArr);
+                return;
+            }
+            return;
+        }
+        d dVar2 = this.b;
+        if (dVar2 != null) {
+            dVar2.a(bArr);
+        }
+    }
+
+    @Keep
+    public void upload(final String str, final String str2) {
+        if (com.baidu.cyberplayer.sdk.e.a().b()) {
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    DpSessionDatasUploader.this.a(str, str2, 1);
+                }
+            });
+        }
+    }
+
+    @Keep
+    public void uploadLibInitSession(final String str, final String str2) {
+        if (com.baidu.cyberplayer.sdk.e.a().c()) {
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    DpSessionDatasUploader.this.a(str, str2, 1);
+                }
+            });
+        }
+    }
+
+    public static byte[] a(byte[] bArr, boolean z) {
+        if (z) {
+            try {
+                return o.b(bArr);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return Base64.encode(bArr, 2);
+    }
+
     public String a(String str, int i) {
-        String e = com.baidu.cyberplayer.sdk.c.a().e();
-        if (TextUtils.isEmpty(e)) {
+        String f = com.baidu.cyberplayer.sdk.e.a().f();
+        if (TextUtils.isEmpty(f)) {
             return null;
         }
-        String str2 = e + str;
+        String str2 = f + str;
         if (i == 24) {
             return str2 + "&upload_type=tieba_live";
         }
@@ -106,29 +129,28 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.b) == null || this.c == null) {
-            return;
+        if (context != null && (dVar = this.b) != null && this.c != null) {
+            dVar.a(context);
+            this.c.a(context);
         }
-        dVar.a(context);
-        this.c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00de */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0087, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00dd */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0086, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0089, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0088, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
         if (r10 == null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
         if (r10 == null) goto L15;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00eb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
@@ -221,30 +243,23 @@ public final class DpSessionDatasUploader {
             }
             throw th;
         }
-        return i == 200;
-    }
-
-    @Keep
-    public void upload(final String str, final String str2) {
-        if (com.baidu.cyberplayer.sdk.c.a().b()) {
-            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    DpSessionDatasUploader.this.a(str, str2, 1);
-                }
-            });
+        if (i != 200) {
+            return false;
         }
+        return true;
     }
 
     @Keep
     public void upload(final String str, final String str2, final int i) {
-        if (com.baidu.cyberplayer.sdk.c.a().b()) {
-            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
+        if (com.baidu.cyberplayer.sdk.e.a().b()) {
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (com.baidu.cyberplayer.sdk.c.a().c() && i == 24) {
-                        DpSessionDatasUploader.this.a(str, str2, 24);
+                    if (!com.baidu.cyberplayer.sdk.e.a().d() || i != 24) {
+                        DpSessionDatasUploader.this.a(str, str2, 1);
+                        return;
                     }
+                    DpSessionDatasUploader.this.a(str, str2, 24);
                     DpSessionDatasUploader.this.a(str, str2, 1);
                 }
             });

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.math.Matrix4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public short[] b;
-    public int c;
+    public t6<i4, Matrix4> a;
+    public Matrix4[] b;
 
     public l4() {
         Interceptable interceptable = $ic;

@@ -10,43 +10,43 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef5;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.lq8;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.oq8;
-import com.baidu.tieba.se5;
+import com.baidu.tieba.fi5;
+import com.baidu.tieba.hw8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.jw8;
+import com.baidu.tieba.lw8;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 {
+public class TailEditColorToolHost extends NoPressedLinearLayout implements fi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public kq8 b;
-    public mq8 c;
-    public oq8 d;
+    public hw8 b;
+    public jw8 c;
+    public lw8 d;
     public EditorTools e;
     public View.OnClickListener f;
 
-    @Override // com.baidu.tieba.te5
-    public void C(se5 se5Var) {
+    @Override // com.baidu.tieba.th5
+    public void C(sh5 sh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, se5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, sh5Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -79,14 +79,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            lq8 lq8Var;
+            iw8 iw8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (lq8Var = (lq8) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (iw8Var = (iw8) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(lq8Var.b());
+            this.a.c.c(iw8Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.C(new se5(26, -1, lq8Var.b()));
+            this.a.e.C(new sh5(26, -1, iw8Var.b()));
         }
     }
 
@@ -113,16 +113,16 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         f(tbPageContext, str);
     }
 
-    @Override // com.baidu.tieba.ef5
-    public void H(se5 se5Var) {
+    @Override // com.baidu.tieba.fi5
+    public void H(sh5 sh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se5Var) == null) && (editorTools = this.e) != null) {
-            editorTools.C(se5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sh5Var) == null) && (editorTools = this.e) != null) {
+            editorTools.C(sh5Var);
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -130,7 +130,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -138,7 +138,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -146,7 +146,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         }
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ef5
+    @Override // com.baidu.tieba.fi5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -167,14 +167,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
     public final void f(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
-            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0905, (ViewGroup) this, true);
-            this.d = new oq8(this);
-            mq8 mq8Var = new mq8(tbPageContext);
-            this.c = mq8Var;
-            mq8Var.c(str);
-            kq8 kq8Var = new kq8(tbPageContext, this.c, this.f);
-            this.b = kq8Var;
-            this.d.a(kq8Var);
+            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d091e, (ViewGroup) this, true);
+            this.d = new lw8(this);
+            jw8 jw8Var = new jw8(tbPageContext);
+            this.c = jw8Var;
+            jw8Var.c(str);
+            hw8 hw8Var = new hw8(tbPageContext, this.c, this.f);
+            this.b = hw8Var;
+            this.d.a(hw8Var);
         }
     }
 }

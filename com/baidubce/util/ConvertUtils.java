@@ -12,7 +12,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ConvertUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] CHUNK_SEPARATOR;

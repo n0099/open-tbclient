@@ -1,58 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.mr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vv9 extends CustomMessageListener {
+public final class vv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public final HotEventData a;
+    public final mr6.e b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vv9(MainTabActivity mainTabActivity, ju9 ju9Var) {
-        super(2921666);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof vv9) {
+                vv9 vv9Var = (vv9) obj;
+                return Intrinsics.areEqual(this.a, vv9Var.a) && Intrinsics.areEqual(this.b, vv9Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "HotEventShowData(hotEventData=" + this.a + ", dismissListener=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public vv9(HotEventData hotEventData, mr6.e dismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ju9Var};
+            Object[] objArr = {hotEventData, dismissListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        Intrinsics.checkNotNullParameter(hotEventData, "hotEventData");
+        Intrinsics.checkNotNullParameter(dismissListener, "dismissListener");
+        this.a = hotEventData;
+        this.b = dismissListener;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public final mr6.e a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            TbSingleton.isAppInBackground = booleanValue;
-            if (booleanValue) {
-                MainTabActivity mainTabActivity = this.a;
-                mainTabActivity.J = 0;
-                mainTabActivity.K = System.currentTimeMillis();
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(false);
-                ch8.o = false;
-                ch8.p = false;
-                return;
-            }
-            vt5.a(2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (mr6.e) invokeV.objValue;
+    }
+
+    public final HotEventData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (HotEventData) invokeV.objValue;
     }
 }

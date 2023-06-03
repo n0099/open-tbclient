@@ -1,46 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetToken.DataRes;
-import tbclient.GetToken.ToastInfo;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class js4 {
+public class js4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public a g;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public List<ms4<T>> a;
 
     public js4() {
         Interceptable interceptable = $ic;
@@ -52,68 +25,80 @@ public class js4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList(6);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(ms4<T> ms4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ms4Var) == null) && ms4Var != null && !this.a.contains(ms4Var)) {
+            this.a.add(ms4Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public a b() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.c) && StringUtils.isNull(this.a) && StringUtils.isNull(this.b) && StringUtils.isNull(this.d) && StringUtils.isNull(this.e) && StringUtils.isNull(this.f) && this.g == null) {
-                return true;
+            ArrayList<ms4> arrayList = new ArrayList();
+            Iterator<ms4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                ms4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
             }
-            return false;
+            if (arrayList.size() > 0) {
+                for (ms4 ms4Var : arrayList) {
+                    ms4Var.put(t);
+                }
+            }
+            return t;
         }
-        return invokeV.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    public void e(DataRes dataRes) {
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t == null || !(t instanceof String)) {
+                return false;
+            }
+            String str = (String) t;
+            if (str.length() != 32) {
+                return false;
+            }
+            for (char c : str.toCharArray()) {
+                if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
             return;
         }
-        this.a = dataRes.title;
-        this.b = dataRes.img;
-        this.c = dataRes.tips;
-        this.d = dataRes.url;
-        this.e = dataRes.btn_sure;
-        this.f = dataRes.btn_cancel;
-        if (dataRes.activity_done != null) {
-            a aVar = new a();
-            this.g = aVar;
-            ToastInfo toastInfo = dataRes.activity_done;
-            String str = toastInfo.url;
-            aVar.a = toastInfo.btntext;
-            String str2 = toastInfo.message;
-            String str3 = toastInfo.sharetoken;
+        for (ms4<T> ms4Var : this.a) {
+            if (ms4Var.a()) {
+                ms4Var.put(t);
+            }
         }
     }
 }

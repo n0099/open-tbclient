@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.YulePostActivity;
 /* loaded from: classes8.dex */
 public class y45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public String b;
 
     public y45() {
         Interceptable interceptable = $ic;
@@ -24,32 +26,61 @@ public class y45 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -2;
-        this.b = -1;
     }
 
-    public void a(int i) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(ViewPager viewPager) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
-        } else {
-            layoutParams.height = this.a;
-            layoutParams.width = this.b;
+        try {
+            jSONObject.optLong("start_time");
+            jSONObject.optLong("end_time");
+            this.a = jSONObject.optString("activity_banner");
+            jSONObject.optString("activity_url");
+            jSONObject.optString("activity_desc");
+            this.b = jSONObject.optString("activity_button");
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        viewPager.setLayoutParams(layoutParams);
+    }
+
+    public void d(YulePostActivity yulePostActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
+            return;
+        }
+        Long l = yulePostActivity.start_time;
+        if (l != null) {
+            l.longValue();
+        }
+        Long l2 = yulePostActivity.end_time;
+        if (l2 != null) {
+            l2.longValue();
+        }
+        this.a = yulePostActivity.activity_banner;
+        String str = yulePostActivity.activity_url;
+        String str2 = yulePostActivity.activity_desc;
+        this.b = yulePostActivity.activity_button;
     }
 }

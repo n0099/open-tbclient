@@ -198,7 +198,7 @@ public class CardView extends FrameLayout {
                 CardView.super.setPadding(i2 + rect.left, i3 + rect.top, i4 + rect.right, i5 + rect.bottom);
             }
         };
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.cardview.R.styleable.CardView, i, R.style.obfuscated_res_0x7f1000fe);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.cardview.R.styleable.CardView, i, R.style.obfuscated_res_0x7f100100);
         if (obtainStyledAttributes.hasValue(2)) {
             valueOf = obtainStyledAttributes.getColorStateList(2);
         } else {
@@ -208,9 +208,9 @@ public class CardView extends FrameLayout {
             float[] fArr = new float[3];
             Color.colorToHSV(color2, fArr);
             if (fArr[2] > 0.5f) {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0604d0);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0604d5);
             } else {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0604cf);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0604d4);
             }
             valueOf = ColorStateList.valueOf(color);
         }

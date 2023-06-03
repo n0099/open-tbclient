@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.plugin.AbsPlugin;
@@ -12,12 +14,15 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FloatingStatPlugin extends AbsPlugin {
+    public static final String KEY_FLOATING_POSITION = "playerPosition";
     public static final String KEY_TYPE = "type";
     public static final String KEY_VALUE = "value";
     public static final UBCManager UBC_MANAGER = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     public static final String VALUE_CLICK = "click";
+    public static final String VALUE_LAST = "last";
+    public static final String VALUE_NEXT = "next";
     public static final String VALUE_SHOW = "show";
     public Flow mFlow;
     public BDVideoPlayerUbcContent mUBCContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
@@ -26,6 +31,33 @@ public class FloatingStatPlugin extends AbsPlugin {
     @Nullable
     public int[] getSubscribeEvent() {
         return new int[]{6};
+    }
+
+    private void finishFlow() {
+        String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(this.mUBCContent.getExtStatisticsLog(), this.mUBCContent, (JSONObject) null);
+        Flow flow = this.mFlow;
+        if (flow != null) {
+            UBC_MANAGER.flowSetValueWithDuration(flow, ubcContent);
+            UBC_MANAGER.flowEnd(this.mFlow);
+            this.mFlow = null;
+        }
+    }
+
+    private void startFlow() {
+        this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING_DURATION);
+    }
+
+    private void onFloatingBack(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", "click");
+            jSONObject.put("value", "restore");
+            UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void onFloatingClick(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
@@ -60,6 +92,81 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
+    private void reportFloatingDurationFlow(boolean z) {
+        updateFloatingExtLog(z);
+        finishFlow();
+        startFlow();
+    }
+
+    public void updateFloatingExtLog(boolean z) {
+        try {
+            JSONObject extStatisticsLog = this.mUBCContent.getExtStatisticsLog();
+            if (z) {
+                extStatisticsLog.put(KEY_FLOATING_POSITION, "inapp");
+            } else {
+                extStatisticsLog.put(KEY_FLOATING_POSITION, "outapp");
+            }
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void onFloatingDragEnd(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, int i2) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", "miniwindow_move");
+            JSONObject extStatisticsLog = this.mUBCContent.getExtStatisticsLog();
+            extStatisticsLog.put("pos", i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+            UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void onFloatingGestureScale(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, boolean z) {
+        String str;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", "click");
+            jSONObject.put("value", "zoom");
+            JSONObject extStatisticsLog = this.mUBCContent.getExtStatisticsLog();
+            if (z) {
+                str = "in";
+            } else {
+                str = "out";
+            }
+            extStatisticsLog.put("state", str);
+            UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void onFloatingPlayClick(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, boolean z) {
+        String str;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", "click");
+            if (z) {
+                str = DownloadStatisticConstants.UBC_TYPE_PAUSE;
+            } else {
+                str = "play";
+            }
+            jSONObject.put("value", str);
+            UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void onFloatingScale(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Boolean bool) {
         String str;
         try {
@@ -74,6 +181,25 @@ public class FloatingStatPlugin extends AbsPlugin {
             UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void onFloatingVideoSwitchButtonClick(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, boolean z) {
+        String str;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", "click");
+            if (z) {
+                str = "next";
+            } else {
+                str = VALUE_LAST;
+            }
+            jSONObject.put("value", str);
+            UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -101,6 +227,41 @@ public class FloatingStatPlugin extends AbsPlugin {
                 }
                 c = 65535;
                 break;
+            case -1738802822:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_PLAY_CLICK)) {
+                    c = 6;
+                    break;
+                }
+                c = 65535;
+                break;
+            case -1561207561:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_GESTURE_SCALE)) {
+                    c = 7;
+                    break;
+                }
+                c = 65535;
+                break;
+            case -1542343859:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_DRAG_END)) {
+                    c = '\b';
+                    break;
+                }
+                c = 65535;
+                break;
+            case -1457948794:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_SHOW_IN_APP_FOREGROUND)) {
+                    c = '\n';
+                    break;
+                }
+                c = 65535;
+                break;
+            case -479632527:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_SHOW_IN_APP_BACKGROUND)) {
+                    c = 11;
+                    break;
+                }
+                c = 65535;
+                break;
             case -21330261:
                 if (action.equals(StatisticsEvent.ACTION_FLOATING_CLICK)) {
                     c = 4;
@@ -115,9 +276,23 @@ public class FloatingStatPlugin extends AbsPlugin {
                 }
                 c = 65535;
                 break;
+            case 414913380:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_BACK)) {
+                    c = 5;
+                    break;
+                }
+                c = 65535;
+                break;
             case 415426938:
                 if (action.equals(StatisticsEvent.ACTION_FLOATING_SHOW)) {
                     c = 1;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 1601630453:
+                if (action.equals(StatisticsEvent.ACTION_FLOATING_VIDEO_SWITCH)) {
+                    c = '\t';
                     break;
                 }
                 c = 65535;
@@ -133,38 +308,55 @@ public class FloatingStatPlugin extends AbsPlugin {
                 c = 65535;
                 break;
         }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c == 4) {
-                            updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                            onFloatingClick(this.mUBCContent);
-                            return;
-                        }
-                        return;
-                    }
-                    updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                    onFloatingScale(this.mUBCContent, Boolean.valueOf(videoEvent.getBooleanExtra(10)));
-                    return;
-                }
-                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                onFloatingDismiss(this.mUBCContent);
-                String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(this.mUBCContent.getExtStatisticsLog(), this.mUBCContent, (JSONObject) null);
-                Flow flow = this.mFlow;
-                if (flow != null) {
-                    UBC_MANAGER.flowSetValueWithDuration(flow, ubcContent);
-                    UBC_MANAGER.flowEnd(this.mFlow);
-                    this.mFlow = null;
-                    return;
-                }
+        switch (c) {
+            case 0:
+                this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
                 return;
-            }
-            updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-            onFloatingShow(this.mUBCContent);
-            this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING_DURATION);
-            return;
+            case 1:
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                onFloatingShow(this.mUBCContent);
+                updateFloatingExtLog(true);
+                startFlow();
+                return;
+            case 2:
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                updateFloatingExtLog(videoEvent.getBooleanExtra(18, true));
+                onFloatingDismiss(this.mUBCContent);
+                finishFlow();
+                return;
+            case 3:
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                onFloatingScale(this.mUBCContent, Boolean.valueOf(videoEvent.getBooleanExtra(10)));
+                return;
+            case 4:
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                onFloatingClick(this.mUBCContent);
+                return;
+            case 5:
+                onFloatingBack(this.mUBCContent);
+                return;
+            case 6:
+                onFloatingPlayClick(this.mUBCContent, videoEvent.getBooleanExtra(4));
+                return;
+            case 7:
+                onFloatingGestureScale(this.mUBCContent, videoEvent.getBooleanExtra(10));
+                return;
+            case '\b':
+                onFloatingDragEnd(this.mUBCContent, videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                return;
+            case '\t':
+                onFloatingVideoSwitchButtonClick(this.mUBCContent, videoEvent.getBooleanExtra(4));
+                return;
+            case '\n':
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                reportFloatingDurationFlow(false);
+                return;
+            case 11:
+                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                reportFloatingDurationFlow(true);
+                return;
+            default:
+                return;
         }
-        this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
     }
 }

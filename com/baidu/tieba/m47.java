@@ -1,97 +1,126 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.feed.component.uistate.CardVideoUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class m47 {
+public final class m47 extends l47 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c67 b;
+    public final d67 c;
+    public a67 d;
+    public final Function3<Context, Rect, d67, Unit> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922777, "Lcom/baidu/tieba/m47;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947922777, "Lcom/baidu/tieba/m47;");
+            if (obj instanceof m47) {
+                m47 m47Var = (m47) obj;
+                return Intrinsics.areEqual(this.b, m47Var.b) && Intrinsics.areEqual(this.c, m47Var.c) && Intrinsics.areEqual(this.d, m47Var.d) && Intrinsics.areEqual(this.e, m47Var.e);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.b.hashCode() * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardVideoUiState(videoData=" + this.b + ", schemaData=" + this.c + ", statData=" + this.d + ", onVideoClick=" + this.e + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m47(c67 videoData, d67 schemaData, a67 statData, Function3<? super Context, ? super Rect, ? super d67, Unit> onVideoClick) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {videoData, schemaData, statData, onVideoClick};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(videoData, "videoData");
+        Intrinsics.checkNotNullParameter(schemaData, "schemaData");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        Intrinsics.checkNotNullParameter(onVideoClick, "onVideoClick");
+        this.b = videoData;
+        this.c = schemaData;
+        this.d = statData;
+        this.e = onVideoClick;
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public /* synthetic */ m47(c67 c67Var, d67 d67Var, a67 a67Var, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(c67Var, d67Var, (i & 4) != 0 ? new a67(null, null, null, 7, null) : a67Var, (i & 8) != 0 ? CardVideoUiStateKt.a() : function3);
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public final Function3<Context, Rect, d67, Unit> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return (Function3) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public final d67 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (d67) invokeV.objValue;
+    }
 
-        public final int a(c07 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(dy6.a.getResources().getIdentifier(colorData.b(), "color", dy6.a.getPackageName()));
-                    }
-                } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return xp9.f(colorData.a());
-                        }
-                    } else {
-                        return xp9.f(colorData.b());
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
+    public final a67 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
+        return (a67) invokeV.objValue;
+    }
 
-        public final int b(c07 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return dy6.a.getResources().getIdentifier(colorData.b(), "color", dy6.a.getPackageName());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
+    public final c67 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return (c67) invokeV.objValue;
     }
 }

@@ -1,70 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.business.base.LiveBaseFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public class qb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static WeakReference<LiveBaseFragment> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public Class<?> b;
-    public WeakReference<pb0> c;
-    public rb0 d;
 
-    public qb0(int i, Class<?> cls, pb0 pb0Var, rb0 rb0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), cls, pb0Var, rb0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948085930, "Lcom/baidu/tieba/qb0;")) == null) {
+            return;
         }
-        this.a = i;
-        this.b = cls;
-        this.c = new WeakReference<>(pb0Var);
-        this.d = rb0Var;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948085930, "Lcom/baidu/tieba/qb0;");
+        }
     }
 
-    public void a() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 1;
-            WeakReference<pb0> weakReference = this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
+            WeakReference<LiveBaseFragment> weakReference = b;
             if (weakReference != null) {
                 weakReference.clear();
-                this.c = null;
+                b = null;
             }
         }
     }
 
-    public boolean b(Object obj) {
-        InterceptResult invokeL;
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj.getClass() == this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void call(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && this.c.get() != null) {
-            this.d.a(this.a, obj, this.c.get());
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
         }
     }
 }

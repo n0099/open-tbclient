@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.searchbox.player.utils.ExtLogUtil;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -225,7 +226,7 @@ public class LiveRoomEntity implements Parcelable {
             this.statInfo = liveStatInfo;
             liveStatInfo.parserJson(optJSONObject5);
         }
-        JSONObject optJSONObject6 = jSONObject.optJSONObject("gr_ext");
+        JSONObject optJSONObject6 = jSONObject.optJSONObject(ExtLogUtil.GR_EXT);
         if (optJSONObject6 != null) {
             this.grExt = optJSONObject6.toString();
         } else {
@@ -281,7 +282,7 @@ public class LiveRoomEntity implements Parcelable {
             this.statInfo = liveStatInfo;
             liveStatInfo.parserJson(optJSONObject5);
         }
-        JSONObject optJSONObject6 = jSONObject.optJSONObject("gr_ext");
+        JSONObject optJSONObject6 = jSONObject.optJSONObject(ExtLogUtil.GR_EXT);
         if (optJSONObject6 != null) {
             this.grExt = optJSONObject6.toString();
         } else {

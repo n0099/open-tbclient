@@ -1,8 +1,8 @@
 package org.apache.commons.codec.digest4util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class string {
         public static final int app_name = 0x7f0f029e;
     }

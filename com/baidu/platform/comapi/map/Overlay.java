@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.map;
 import android.os.Bundle;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +37,7 @@ public abstract class Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, null, i, bundle) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
+            bundle2.putFloat(DownloadStatisticConstants.UBC_VALUE_RED, ((i >> 16) & 255) / 255.0f);
             bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
             bundle2.putFloat("blue", (i & 255) / 255.0f);
             bundle2.putFloat(Key.ALPHA, (i >>> 24) / 255.0f);

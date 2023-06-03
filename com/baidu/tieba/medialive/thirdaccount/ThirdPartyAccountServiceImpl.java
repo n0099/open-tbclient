@@ -12,6 +12,7 @@ import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -171,9 +172,15 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService
     public void getOpenAccessToken(ThirdPartAccountService.OpenAccessTokenCallback openAccessTokenCallback, boolean z) {
+        String bduss;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openAccessTokenCallback, z) == null) {
-            String bduss = TbadkCoreApplication.getCurrentAccountInfo().getBDUSS();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo == null) {
+                bduss = "";
+            } else {
+                bduss = currentAccountInfo.getBDUSS();
+            }
             if (TextUtils.isEmpty(bduss)) {
                 openAccessTokenCallback.onFailed("bduss is null");
             } else if (SapiAccountManager.getInstance().getAccountService() == null) {

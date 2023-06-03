@@ -1,91 +1,131 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class yu0 extends fv0 {
+public final class yu0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final yu0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342517, "Lcom/baidu/tieba/yu0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948342517, "Lcom/baidu/tieba/yu0;");
+                return;
+            }
+        }
+        a = new yu0();
+    }
 
     public yu0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void e() {
+    @JvmStatic
+    public static final int a(vu0 vu0Var, String str) {
+        InterceptResult invokeLL;
+        tu0 c;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(xu0.w(ControlEvent.ACTION_RESUME));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, vu0Var, str)) == null) {
+            if (vu0Var != null || ((c = xu0.c(str)) != null && (vu0Var = c.a()) != null)) {
+                num = Integer.valueOf(vu0Var.a());
+            } else {
+                num = null;
+            }
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
         }
+        return invokeLL.intValue;
     }
 
-    public void g() {
+    @JvmStatic
+    public static final String c(vu0 vu0Var, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(xu0.w(ControlEvent.ACTION_SHOW_TIP));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, vu0Var, str, str2)) == null) {
+            return a.b(a(vu0Var, str), str2);
         }
+        return (String) invokeLLL.objValue;
     }
 
-    public void h() {
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        boolean z;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(xu0.w(ControlEvent.ACTION_START));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(xu0.w(ControlEvent.ACTION_STOP));
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            lv0 w = xu0.w(ControlEvent.ACTION_PAUSE);
-            w.n(11, Integer.valueOf(i));
-            boolean z = true;
-            if (i != 1) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str != null && str.length() != 0) {
                 z = false;
+            } else {
+                z = true;
             }
-            w.n(7, Boolean.valueOf(z));
-            c(w);
+            if (z) {
+                d = "https://sv.baidu.com";
+            } else {
+                d = d(str);
+            }
+            if (i != 1) {
+                return "";
+            }
+            return d;
         }
+        return (String) invokeIL.objValue;
     }
 
-    public void f(int i, int i2) {
+    public final String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            lv0 w = xu0.w(ControlEvent.ACTION_SEEK_MS);
-            w.n(5, Integer.valueOf(i));
-            w.n(12, Integer.valueOf(i2));
-            c(w);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                Uri url = Uri.parse(str);
+                Intrinsics.checkNotNullExpressionValue(url, "url");
+                String scheme = url.getScheme();
+                if (scheme == null) {
+                    return "https://sv.baidu.com";
+                }
+                String str2 = scheme + "://";
+                if (str2 == null) {
+                    return "https://sv.baidu.com";
+                }
+                String str3 = str2 + url.getHost();
+                if (str3 == null) {
+                    return "https://sv.baidu.com";
+                }
+                return str3;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "https://sv.baidu.com";
+            }
         }
-    }
-
-    public void j(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            lv0 w = xu0.w(ControlEvent.ACTION_SYNC_PROGRESS);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, Integer.valueOf(i3));
-            w.r(1);
-            c(w);
-        }
+        return (String) invokeL.objValue;
     }
 }

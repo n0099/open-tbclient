@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.defs.obj;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
@@ -57,8 +56,8 @@ public class Counter implements IJsonSerialize, Cloneable {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("scode", this.scode);
-            jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
-            jSONObject.put("counterName", URLEncoder.encode(this.counterName, IMAudioTransRequest.CHARSET));
+            jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
+            jSONObject.put("counterName", URLEncoder.encode(this.counterName, "utf-8"));
             jSONObject.put("value", j);
             jSONObject.put("invokecount", (int) j2);
             return jSONObject;

@@ -8,17 +8,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f0a;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.s5a;
-import com.baidu.tieba.t5a;
-import com.baidu.tieba.v5a;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.r6a;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
-import com.baidu.tieba.wv5;
+import com.baidu.tieba.xz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +31,8 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 ,2\u00020\u0001:\u0001,B%\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\u001f\u001a\u00020 J\u0012\u0010!\u001a\u00020 2\b\b\u0002\u0010\"\u001a\u00020#H\u0007J\b\u0010$\u001a\u00020 H\u0002J\b\u0010%\u001a\u00020 H\u0002J\b\u0010&\u001a\u00020 H\u0002J\b\u0010'\u001a\u00020 H\u0002J\u0006\u0010(\u001a\u00020 J\u0010\u0010)\u001a\u00020 2\u0006\u0010*\u001a\u00020+H\u0002R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001c\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u001c\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006-"}, d2 = {"Lcom/baidu/tieba/view/festivalview/FestivalTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "festivalTipViewClickCallBack", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;", "getFestivalTipViewClickCallBack", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;", "setFestivalTipViewClickCallBack", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;)V", "festivalTipViewData", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;", "getFestivalTipViewData", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;", "setFestivalTipViewData", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;)V", "festivalTipViewStyle", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;", "getFestivalTipViewStyle", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;", "setFestivalTipViewStyle", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;)V", "icon", "Lcom/baidu/tbadk/widget/image/TbImage;", "text", "Landroid/widget/TextView;", "bindData", "", "changeSkin", "shouldSetUrl", "", "initIcon", "initListener", "initRoot", "initText", "resetView", "setIconUrl", "iconUrl", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewData$IconUrl;", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+@Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 ,2\u00020\u0001:\u0001,B%\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\u001f\u001a\u00020 J\u0012\u0010!\u001a\u00020 2\b\b\u0002\u0010\"\u001a\u00020#H\u0007J\b\u0010$\u001a\u00020 H\u0002J\b\u0010%\u001a\u00020 H\u0002J\b\u0010&\u001a\u00020 H\u0002J\b\u0010'\u001a\u00020 H\u0002J\u0006\u0010(\u001a\u00020 J\u0010\u0010)\u001a\u00020 2\u0006\u0010*\u001a\u00020+H\u0002R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001c\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u001c\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006-"}, d2 = {"Lcom/baidu/tieba/view/festivalview/FestivalTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "festivalTipViewClickCallBack", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;", "getFestivalTipViewClickCallBack", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;", "setFestivalTipViewClickCallBack", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewClickCallBack;)V", "festivalTipViewData", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;", "getFestivalTipViewData", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;", "setFestivalTipViewData", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewData;)V", "festivalTipViewStyle", "Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;", "getFestivalTipViewStyle", "()Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;", "setFestivalTipViewStyle", "(Lcom/baidu/tieba/view/festivalview/FestivalTipViewStyle;)V", "icon", "Lcom/baidu/tbadk/widget/image/TbImage;", "text", "Landroid/widget/TextView;", "bindData", "", "changeSkin", "shouldSetUrl", "", "initIcon", "initListener", "initRoot", "initText", "resetView", "setIconUrl", GameAssistConstKt.KEY_ICONURL, "Lcom/baidu/tieba/view/festivalview/FestivalTipViewData$IconUrl;", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes8.dex */
 public final class FestivalTipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
@@ -40,9 +41,9 @@ public final class FestivalTipView extends LinearLayout {
     public static final int i;
     public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
-    public t5a a;
-    public v5a b;
-    public s5a c;
+    public ica a;
+    public kca b;
+    public hca c;
     public final TbImage d;
     public final TextView e;
 
@@ -105,11 +106,11 @@ public final class FestivalTipView extends LinearLayout {
                 return;
             }
         }
-        f = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-        g = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
-        h = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        i = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
-        j = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
+        f = vi.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+        g = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        h = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        i = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        j = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -151,15 +152,15 @@ public final class FestivalTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            s5a s5aVar = this$0.c;
-            if (s5aVar != null) {
+            hca hcaVar = this$0.c;
+            if (hcaVar != null) {
                 Intrinsics.checkNotNullExpressionValue(view2, "view");
-                s5aVar.onClick(view2);
+                hcaVar.onClick(view2);
             }
         }
     }
 
-    private final void setIconUrl(t5a.b bVar) {
+    private final void setIconUrl(ica.b bVar) {
         String b;
         boolean z;
         Interceptable interceptable = $ic;
@@ -187,18 +188,18 @@ public final class FestivalTipView extends LinearLayout {
 
     @JvmOverloads
     public final void b(boolean z) {
-        t5a t5aVar;
+        ica icaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            v5a v5aVar = this.b;
-            if (v5aVar != null) {
-                p45 d = p45.d(this);
+            kca kcaVar = this.b;
+            if (kcaVar != null) {
+                m75 d = m75.d(this);
                 d.o(R.string.J_X01);
-                d.h(f0a.b(v5aVar.b()));
-                this.e.setTextColor(f0a.b(v5aVar.c()));
+                d.h(r6a.b(kcaVar.b()));
+                this.e.setTextColor(r6a.b(kcaVar.c()));
             }
-            if (z && (t5aVar = this.a) != null) {
-                setIconUrl(t5aVar.b());
+            if (z && (icaVar = this.a) != null) {
+                setIconUrl(icaVar.b());
             }
         }
     }
@@ -206,10 +207,10 @@ public final class FestivalTipView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t5a t5aVar = this.a;
-            if (t5aVar != null) {
-                this.e.setText(t5aVar.d());
-                setIconUrl(t5aVar.b());
+            ica icaVar = this.a;
+            if (icaVar != null) {
+                this.e.setText(icaVar.d());
+                setIconUrl(icaVar.b());
             } else {
                 setVisibility(8);
             }
@@ -220,7 +221,7 @@ public final class FestivalTipView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.r5a
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gca
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -243,31 +244,31 @@ public final class FestivalTipView extends LinearLayout {
         }
     }
 
-    public final s5a getFestivalTipViewClickCallBack() {
+    public final hca getFestivalTipViewClickCallBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
-        return (s5a) invokeV.objValue;
+        return (hca) invokeV.objValue;
     }
 
-    public final t5a getFestivalTipViewData() {
+    public final ica getFestivalTipViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
-        return (t5a) invokeV.objValue;
+        return (ica) invokeV.objValue;
     }
 
-    public final v5a getFestivalTipViewStyle() {
+    public final kca getFestivalTipViewStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (v5a) invokeV.objValue;
+        return (kca) invokeV.objValue;
     }
 
     public final void h() {
@@ -291,7 +292,7 @@ public final class FestivalTipView extends LinearLayout {
             int i4 = i;
             layoutParams.setMargins(i3, i4, h, i4);
             this.d.setLayoutParams(layoutParams);
-            this.d.setPlaceHolderDrawable(wv5.a.a());
+            this.d.setPlaceHolderDrawable(xz5.a.a());
             addView(this.d);
         }
     }
@@ -304,31 +305,31 @@ public final class FestivalTipView extends LinearLayout {
             this.e.setLayoutParams(layoutParams);
             this.e.setSingleLine();
             this.e.setEllipsize(TextUtils.TruncateAt.END);
-            p45 d = p45.d(this.e);
+            m75 d = m75.d(this.e);
             d.B(R.dimen.T_X09);
             d.C(R.string.F_X02);
             addView(this.e);
         }
     }
 
-    public final void setFestivalTipViewClickCallBack(s5a s5aVar) {
+    public final void setFestivalTipViewClickCallBack(hca hcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, s5aVar) == null) {
-            this.c = s5aVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, hcaVar) == null) {
+            this.c = hcaVar;
         }
     }
 
-    public final void setFestivalTipViewData(t5a t5aVar) {
+    public final void setFestivalTipViewData(ica icaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, t5aVar) == null) {
-            this.a = t5aVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, icaVar) == null) {
+            this.a = icaVar;
         }
     }
 
-    public final void setFestivalTipViewStyle(v5a v5aVar) {
+    public final void setFestivalTipViewStyle(kca kcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, v5aVar) == null) {
-            this.b = v5aVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, kcaVar) == null) {
+            this.b = kcaVar;
         }
     }
 }

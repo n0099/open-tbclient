@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class GradeInfo extends Message {
     public static final String DEFAULT_INTRO = "";
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
@@ -17,7 +17,7 @@ public final class GradeInfo extends Message {
     public static final Integer DEFAULT_THRESHOLDDAY = 0;
     public static final Integer DEFAULT_MAXMEMBERNUM = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<GradeInfo> {
         public Integer grade;
         public String intro;

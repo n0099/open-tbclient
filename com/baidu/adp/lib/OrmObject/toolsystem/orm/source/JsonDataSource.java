@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae;
-import com.baidu.tieba.cd;
 import com.baidu.tieba.ee;
-import com.baidu.tieba.kd;
+import com.baidu.tieba.gd;
+import com.baidu.tieba.ie;
+import com.baidu.tieba.od;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class JsonDataSource implements cd {
+public class JsonDataSource implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject jo;
@@ -49,7 +49,7 @@ public class JsonDataSource implements cd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class JsonDataSource implements cd {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                ae aeVar = new ae(type);
-                kd a = ee.a(object);
+                ee eeVar = new ee(type);
+                od a = ie.a(object);
                 if (a != null) {
-                    return a.a(aeVar);
+                    return a.a(eeVar);
                 }
                 return object;
             }
@@ -89,7 +89,7 @@ public class JsonDataSource implements cd {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
+    @Override // com.baidu.tieba.gd
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {

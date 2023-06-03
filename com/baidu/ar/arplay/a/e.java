@@ -10,6 +10,8 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -197,7 +199,7 @@ public class e {
         hashMap3.put("buffer_status", bVar2.ea);
         hashMap3.put("buffer_progress", Integer.valueOf(bVar2.eb));
         hashMap3.put("play_status", bVar2.dZ);
-        hashMap3.put("play_progress", Integer.valueOf((int) (bVar2.ec * 100.0f)));
+        hashMap3.put(LocalDataScanHelper.EXT_KEY_PLAY_PROGRESS, Integer.valueOf((int) (bVar2.ec * 100.0f)));
         hashMap2.put("data", hashMap3);
         hashMap.put("msg_data", hashMap2);
         ARPMessage.getInstance().sendMessage(1902, hashMap);
@@ -249,7 +251,7 @@ public class e {
         hashMap2.put("buffer_status", bVar.ea);
         hashMap2.put("duration", String.valueOf(bVar.dV));
         hashMap2.put("buffer_progress", String.valueOf(bVar.eb));
-        hashMap2.put("play_progress", String.valueOf((int) (bVar.ec * 100.0f)));
+        hashMap2.put(LocalDataScanHelper.EXT_KEY_PLAY_PROGRESS, String.valueOf((int) (bVar.ec * 100.0f)));
         hashMap.put("msg_data", hashMap2);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_VIDEO_PLAY_INFO_UPDATE, hashMap);
     }
@@ -273,7 +275,7 @@ public class e {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (str == "finished") {
+        } else if (str == DownloadStatisticConstants.UBC_TYPE_FINISHED) {
             bVar2.ec = 1.0f;
         }
         if (bVar2.ec > 1.0f) {
@@ -340,7 +342,7 @@ public class e {
                 if (C != null) {
                     com.baidu.ar.arplay.a.a.b bVar = C.dg;
                     bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                    bVar.dZ = "finished";
+                    bVar.dZ = DownloadStatisticConstants.UBC_TYPE_FINISHED;
                     e.a(C);
                     if (eVar.aQ()) {
                         e.this.a(eVar, hashMap);

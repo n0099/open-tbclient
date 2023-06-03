@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface ja1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
-    public static final ja1 b = new a();
+    public static final ja1 a = new a();
 
-    void a(Context context, String str);
+    WebView a(@NonNull Context context);
 
     /* loaded from: classes6.dex */
     public static class a implements ja1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ja1
-        public void a(Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            }
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -37,6 +31,16 @@ public interface ja1 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.ja1
+        public WebView a(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new WebView(context);
+            }
+            return (WebView) invokeL.objValue;
         }
     }
 }

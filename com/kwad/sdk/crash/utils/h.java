@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h {
     public static SimpleDateFormat aio = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

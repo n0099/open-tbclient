@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TailData b;
 
-    public fq8(int i, TailData tailData) {
+    public static String a(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tailData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str + "?");
+            Iterator<String> keys = jSONObject.keys();
+            boolean z = true;
+            while (keys.hasNext()) {
+                if (z) {
+                    String next = keys.next();
+                    if (next != null) {
+                        sb.append(next + "=" + jSONObject.optString(next));
+                        z = false;
+                    }
+                } else {
+                    String next2 = keys.next();
+                    if (next2 != null) {
+                        sb.append("&");
+                        sb.append(next2 + "=" + jSONObject.optString(next2));
+                    }
+                }
             }
+            return sb.toString();
         }
-        this.a = 0;
-        this.a = i;
-        this.b = tailData;
+        return (String) invokeLL.objValue;
     }
 }

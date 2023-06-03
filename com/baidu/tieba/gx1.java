@@ -1,10 +1,21 @@
 package com.baidu.tieba;
 
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes6.dex */
 public interface gx1 {
-    @NonNull
-    hx1 a();
+    String a();
 
-    void d(String str, g12 g12Var);
+    @AnyThread
+    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
+
+    void c(@NonNull String str, so2 so2Var);
+
+    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, so2 so2Var);
+
+    void e(String str, u43 u43Var);
 }

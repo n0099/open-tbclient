@@ -81,7 +81,7 @@ public class IntentUtils {
                 return bundle.getBundle(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBundle failed on bundle " + bundle);
+                    Log.e("IntentUtils", "getBundle failed on bundle " + bundle);
                     return null;
                 }
                 return null;
@@ -98,7 +98,7 @@ public class IntentUtils {
                 return intent.getBundleExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBundleExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getBundleExtra failed on intent " + intent);
                     return null;
                 }
                 return null;
@@ -115,7 +115,7 @@ public class IntentUtils {
                 return intent.getByteArrayExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getByteArrayExtra failed on intent " + intent);
                     return null;
                 }
                 return null;
@@ -132,7 +132,7 @@ public class IntentUtils {
                 return (T) intent.getParcelableExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getByteArrayExtra failed on intent " + intent);
                     return null;
                 }
                 return null;
@@ -149,7 +149,7 @@ public class IntentUtils {
                 return bundle.getString(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getString failed on bundle " + bundle);
+                    Log.e("IntentUtils", "getString failed on bundle " + bundle);
                     return null;
                 }
                 return null;
@@ -166,7 +166,7 @@ public class IntentUtils {
                 return intent.getStringArrayListExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getStringArrayListExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getStringArrayListExtra failed on intent " + intent);
                     return null;
                 }
                 return null;
@@ -183,7 +183,7 @@ public class IntentUtils {
                 return intent.getStringExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getStringExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getStringExtra failed on intent " + intent);
                     return null;
                 }
                 return null;
@@ -246,7 +246,7 @@ public class IntentUtils {
                 return intent.getBooleanExtra(str, z);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBooleanExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getBooleanExtra failed on intent " + intent);
                 }
                 return z;
             }
@@ -262,7 +262,7 @@ public class IntentUtils {
                 return intent.getIntExtra(str, i);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getIntExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getIntExtra failed on intent " + intent);
                 }
                 return i;
             }
@@ -278,7 +278,7 @@ public class IntentUtils {
                 return intent.getLongExtra(str, j);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getLongExtra failed on intent " + intent);
+                    Log.e("IntentUtils", "getLongExtra failed on intent " + intent);
                 }
                 return j;
             }

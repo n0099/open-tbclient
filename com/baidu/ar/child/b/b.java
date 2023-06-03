@@ -7,7 +7,6 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpResponse;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -52,7 +51,7 @@ public class b {
         String x = x(i);
         hashMap.put("image", encodeToString);
         hashMap.put("svc_name", "child-face");
-        hashMap.put(TiebaStatic.Params.VID, x);
+        hashMap.put("vid", x);
         com.baidu.ar.child.b.a.a(gV, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {

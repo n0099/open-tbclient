@@ -24,14 +24,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b68;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.j08;
-import com.baidu.tieba.m08;
-import com.baidu.tieba.n45;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.k75;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
+import com.baidu.tieba.y58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<m08> w;
+    public List<b68> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -483,7 +483,7 @@ public class SelectTopicLayout extends RelativeLayout {
         ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
         layoutParams.height = i;
         this.a.setLayoutParams(layoutParams);
-        int j = ri.j(getContext()) - i;
+        int j = vi.j(getContext()) - i;
         this.q = j;
         this.c.setTranslationY(j);
     }
@@ -547,7 +547,7 @@ public class SelectTopicLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.u = ViewConfiguration.getMaximumFlingVelocity();
             this.t = ViewConfiguration.getMinimumFlingVelocity();
-            this.v = ri.j(getContext()) / 8;
+            this.v = vi.j(getContext()) / 8;
         }
     }
 
@@ -594,24 +594,24 @@ public class SelectTopicLayout extends RelativeLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d084e, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092492);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0864, this);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0924c6);
             this.a = findViewById;
             findViewById.setOnClickListener(new a(this));
-            this.b = findViewById(R.id.obfuscated_res_0x7f09079b);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907a6);
             this.c = (RelativeLayout) findViewById(R.id.container_layout);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0924fb);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090449);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09207a);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09207b);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092566);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092567);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092565);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f092568);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09252f);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09044c);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920a8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09259a);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09259b);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092599);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09259c);
             this.k = editText;
             editText.addTextChangedListener(new b(this));
-            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f092078);
-            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f092079);
+            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f0920a6);
+            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f0920a7);
             this.j.setOnClickListener(this.z);
             setDelButtonVisible(false);
             v();
@@ -695,60 +695,60 @@ public class SelectTopicLayout extends RelativeLayout {
         return invokeLII.booleanValue;
     }
 
-    public void s(j08 j08Var, j08 j08Var2, j08 j08Var3) {
+    public void s(y58 y58Var, y58 y58Var2, y58 y58Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, j08Var, j08Var2, j08Var3) == null) && (selectTopicListLayout = this.l) != null) {
-            selectTopicListLayout.a(j08Var, j08Var2, j08Var3);
+        if ((interceptable == null || interceptable.invokeLLL(1048589, this, y58Var, y58Var2, y58Var3) == null) && (selectTopicListLayout = this.l) != null) {
+            selectTopicListLayout.a(y58Var, y58Var2, y58Var3);
         }
     }
 
-    public void u(j08 j08Var) {
+    public void u(y58 y58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, j08Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, y58Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            j08 j08Var2 = new j08();
-            this.w.add(new m08(searchKey, 0L, false));
-            if (j08Var == null) {
-                j08Var = j08Var2;
+            y58 y58Var2 = new y58();
+            this.w.add(new b68(searchKey, 0L, false));
+            if (y58Var == null) {
+                y58Var = y58Var2;
             }
-            j08Var.c().addAll(0, this.w);
-            this.m.b(getSearchKey(), j08Var.c());
+            y58Var.c().addAll(0, this.w);
+            this.m.b(getSearchKey(), y58Var.c());
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            p45.d(this.b).p(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
-            p45 d2 = p45.d(this.d);
+            m75.d(this.b).p(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
+            m75 d2 = m75.d(this.d);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0207);
-            p45.d(this.e).f(R.color.CAM_X0207);
-            p45 d3 = p45.d(this.g);
+            m75.d(this.e).f(R.color.CAM_X0207);
+            m75 d3 = m75.d(this.g);
             d3.w(R.color.CAM_X0108);
             d3.B(R.dimen.T_X09);
             d3.C(R.string.F_X01);
-            p45 d4 = p45.d(this.h);
+            m75 d4 = m75.d(this.h);
             d4.o(R.string.J_X07);
             d4.f(R.color.CAM_X0209);
-            p45 d5 = p45.d(this.i);
+            m75 d5 = m75.d(this.i);
             d5.w(R.color.CAM_X0110);
             d5.B(R.dimen.T_X07);
             d5.C(R.string.F_X01);
-            this.k.setHintTextColor(n45.i(R.color.CAM_X0110));
-            p45 d6 = p45.d(this.k);
+            this.k.setHintTextColor(k75.i(R.color.CAM_X0110));
+            m75 d6 = m75.d(this.k);
             d6.w(R.color.CAM_X0105);
             d6.B(R.dimen.T_X07);
             d6.C(R.string.F_X01);
             this.l.d();
             this.m.d();
             SkinManager.setImageResource(this.j, R.drawable.del_search_btn);
-            p45 d7 = p45.d(this.f);
+            m75 d7 = m75.d(this.f);
             d7.o(R.string.J_X01);
             d7.f(R.color.CAM_X0209);
-            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b6a, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b8e, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 

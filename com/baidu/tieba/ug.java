@@ -1,219 +1,214 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.widget.PopupWindow;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.AssetManager;
+import android.content.res.ColorStateList;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class ug {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
+/* loaded from: classes8.dex */
+public class ug extends Resources {
     public static /* synthetic */ Interceptable $ic;
+    public static final ColorStateList c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Resources a;
+    public boolean b;
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318811, "Lcom/baidu/tieba/ug;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            dialog.dismiss();
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318811, "Lcom/baidu/tieba/ug;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        c = ColorStateList.valueOf(-16777216);
     }
 
-    public static final boolean d(PopupWindow popupWindow, Activity activity) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ug(Resources resources) {
+        super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
-            if (popupWindow != null && activity != null) {
-                if (g(activity) || !h(activity.getWindow().getDecorView())) {
-                    return false;
-                }
-                popupWindow.dismiss();
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {resources};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return c(popupWindow);
         }
-        return invokeLL.booleanValue;
+        this.a = resources;
+        this.b = false;
     }
 
-    public static final boolean b(Dialog dialog, g9<?> g9Var) {
-        InterceptResult invokeLL;
+    @Override // android.content.res.Resources
+    public int getColor(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, g9Var)) == null) {
-            if (g9Var != null && g9Var.getPageActivity() != null) {
-                return a(dialog, g9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean j(Dialog dialog, g9<?> g9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, g9Var)) == null) {
-            if (g9Var != null && g9Var.getPageActivity() != null) {
-                return i(dialog, g9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean k(PopupWindow popupWindow, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    popupWindow.showAsDropDown(view2);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean c(PopupWindow popupWindow) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
-            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
-                return false;
-            }
-            popupWindow.dismiss();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity == null || g(activity)) {
-                return false;
-            }
-            if (!h(activity.getWindow().getDecorView()) && activity.getWindow().isActive()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean f(g9<?> g9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, g9Var)) == null) {
-            if (g9Var == null) {
-                return false;
-            }
-            return e(g9Var.getPageActivity());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (context instanceof Activity) {
-                return ((Activity) context).isFinishing();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
-                        }
-                        return false;
+                    return this.a.getColor(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
                     }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            return false;
+            a("color", i);
+            return 0;
         }
-        return invokeL.booleanValue;
+        return invokeI.intValue;
     }
 
-    public static final boolean i(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    @Override // android.content.res.Resources
+    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused) {
+                    return this.a.getColorStateList(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused2) {
-                }
-            }
-            return false;
+            a("colorstatelist", i);
+            return c;
         }
-        return invokeLL.booleanValue;
+        return (ColorStateList) invokeI.objValue;
     }
 
-    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
-        InterceptResult invokeLLII;
+    @Override // android.content.res.Resources
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    popupWindow.showAsDropDown(view2, i, i2);
-                    return true;
-                } catch (Exception unused) {
+                    return this.a.getDrawable(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            return false;
+            a(ResourceManager.DRAWABLE, i);
+            return null;
         }
-        return invokeLLII.booleanValue;
+        return (Drawable) invokeI.objValue;
     }
 
-    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
+    @Override // android.content.res.Resources
+    public String getString(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    popupWindow.showAtLocation(view2, i, i2, i3);
-                    return true;
-                } catch (Exception unused) {
+                    return this.a.getString(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            return false;
+            a(EMABTest.TYPE_STRING, i);
+            return "";
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeI.objValue;
+    }
+
+    public final void a(String str, int i) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            try {
+                str2 = this.a.getResourceEntryName(i);
+            } catch (Exception unused) {
+                str2 = null;
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            try {
+                BdStatisticsManager.getInstance().error("resources", str, null, -9115, null, "resid", Integer.valueOf(i), "resname", str2);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    @Override // android.content.res.Resources
+    public InputStream openRawResource(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.a.openRawResource(i);
+        }
+        return (InputStream) invokeI.objValue;
+    }
+
+    @Override // android.content.res.Resources
+    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, typedValue)) == null) {
+            return this.a.openRawResource(i, typedValue);
+        }
+        return (InputStream) invokeIL.objValue;
     }
 }

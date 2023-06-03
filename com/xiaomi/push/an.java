@@ -21,7 +21,7 @@ public class an extends Handler {
         if (i == 0) {
             bVar.a();
         } else if (i == 1) {
-            bVar.mo299c();
+            bVar.mo354c();
         }
         super.handleMessage(message);
     }

@@ -1,135 +1,85 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public int d;
-    public long e;
-    public long f;
-    public int g;
-    public Rect h;
-    public boolean i;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948109056, "Lcom/baidu/tieba/qz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948109056, "Lcom/baidu/tieba/qz2;");
-                return;
-            }
-        }
-        j = g93.v;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = 2;
-        }
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f;
-            if (j2 > 0) {
-                this.f = j2 - (System.currentTimeMillis() - this.e);
-            }
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = 1;
-        }
-    }
-
-    public qz2(String str, String str2, long j2, boolean z) {
+    public qz2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 0;
-        this.a = str;
-        this.b = str2;
-        this.e = System.currentTimeMillis();
-        this.f = j2;
-        this.d = 0;
-        this.i = z;
+        this.a = 3;
+        this.b = true;
+        this.d = "back";
+        this.e = 60;
     }
 
-    public void d() {
+    public static qz2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j2 = this.f;
-            if (j2 > 0) {
-                this.f = j2 - (System.currentTimeMillis() - this.e);
-                if (j) {
-                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            qz2 qz2Var = new qz2();
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    int i = 0;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        char c = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -1367751899) {
+                            if (hashCode == 92896879 && optString.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
+                                c = 0;
+                            }
+                        } else if (optString.equals("camera")) {
+                            c = 1;
+                        }
+                        if (c != 0) {
+                            if (c == 1) {
+                                i |= 2;
+                            }
+                        } else {
+                            i |= 1;
+                        }
+                    }
+                    qz2Var.a = i;
                 }
+                qz2Var.b = jSONObject.optBoolean("compressed", true);
+                int i3 = 60;
+                int optInt = jSONObject.optInt("maxDuration", 60);
+                if (optInt <= 60) {
+                    i3 = optInt;
+                }
+                qz2Var.e = i3;
+                qz2Var.d = jSONObject.optString("camera");
+                qz2Var.c = jSONObject.optString("cb");
             }
+            return qz2Var;
         }
-    }
-
-    public void f(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
-            new WeakReference(bitmap);
-        }
+        return (qz2) invokeL.objValue;
     }
 }

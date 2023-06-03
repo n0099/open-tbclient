@@ -1,28 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pn4 {
+public class pn4 extends hn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, StringBuilder sb) {
-        int lastIndexOf;
+    public pn4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
-            if (obj == null) {
-                sb.append(StringUtil.NULL_STRING);
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            String simpleName = obj.getClass().getSimpleName();
-            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
-                simpleName = simpleName.substring(lastIndexOf + 1);
-            }
-            sb.append(simpleName);
-            sb.append('{');
-            sb.append(Integer.toHexString(System.identityHashCode(obj)));
         }
+    }
+
+    @Override // com.baidu.tieba.hn4
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            on4 c = on4.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", c.a());
+                jSONObject.put("ceres_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("version", c.b());
+                jSONObject.put("global_info", jSONObject3);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -55,14 +55,18 @@ public class PlayerLoadingFlow implements IUbcFlow {
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2) {
-        try {
-            String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent.getExtStatisticsLogClone(), bDVideoPlayerUbcContent, jSONObject2);
-            if (this.mFlow != null) {
-                this.mUBCManager.flowSetValueWithDuration(this.mFlow, ubcContent);
-                resetFlow();
+        if (jSONObject == null) {
+            try {
+                jSONObject = new JSONObject();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(jSONObject, bDVideoPlayerUbcContent, jSONObject2);
+        if (this.mFlow != null) {
+            this.mUBCManager.flowSetValueWithDuration(this.mFlow, ubcContent);
+            resetFlow();
         }
     }
 }

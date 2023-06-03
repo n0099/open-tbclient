@@ -20,6 +20,7 @@ import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import com.baidu.searchbox.bddownload.core.listener.DownloadTaskProgressListener;
 import com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.interaction.cloudcontrol.ccs.InteractionPrivacySwitch;
 import com.baidu.searchbox.live.chainlog.NpsLoadChainLog;
@@ -33,12 +34,12 @@ import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginInstallCallback;
 import com.baidu.searchbox.live.nps.LiveMediaPluginManager;
 import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.ee1;
-import com.baidu.tieba.ge1;
-import com.baidu.tieba.we1;
+import com.baidu.searchbox.ui.state.StateManager;
+import com.baidu.tieba.fg1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
+import com.baidu.tieba.nf1;
+import com.baidu.tieba.pf1;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 import kotlin.Metadata;
@@ -50,7 +51,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 H2\u00020\u0001:\u0001HB\u0007¢\u0006\u0004\bF\u0010GJ)\u0010\t\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\b\b\u0002\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ!\u0010\f\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ9\u0010\u0012\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u00022\u0006\u0010\u0011\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u000bH\u0016¢\u0006\u0004\b\u0012\u0010\u0013J\u001f\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0015\u0018\u00010\u00142\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u0019\u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u001f\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u0018\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u001f\u0010\u001f\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010!\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\u001aJ#\u0010%\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020$0#2\u0006\u0010!\u001a\u00020\u0002H\u0016¢\u0006\u0004\b%\u0010&J\u0017\u0010(\u001a\u00020\b2\u0006\u0010'\u001a\u00020\u0002H\u0002¢\u0006\u0004\b(\u0010)J\u0017\u0010*\u001a\u00020\b2\u0006\u0010'\u001a\u00020\u0002H\u0002¢\u0006\u0004\b*\u0010)J\u001f\u0010,\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010+\u001a\u00020$H\u0016¢\u0006\u0004\b,\u0010-J\u001d\u00100\u001a\b\u0012\u0004\u0012\u00020\u00150\u00142\u0006\u0010/\u001a\u00020.H\u0002¢\u0006\u0004\b0\u00101J\u001b\u00104\u001a\u0004\u0018\u00010\u00152\b\u00103\u001a\u0004\u0018\u000102H\u0002¢\u0006\u0004\b4\u00105JC\u00108\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u00022*\u00107\u001a&\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\b06H\u0002¢\u0006\u0004\b8\u00109R\u001e\u0010<\u001a\n ;*\u0004\u0018\u00010:0:8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u001e\u0010D\u001a\n ;*\u0004\u0018\u00010C0C8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bD\u0010E¨\u0006I"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/YYPluginManageServiceImpl;", "Lcom/baidu/searchbox/live/interfaces/service/yy/YYPluginManageService;", "", "pluginPackageName", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;", WebChromeClient.KEY_ARG_CALLBACK, "", "isRetry", "", "dispatchDownloadSuccess", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;Z)V", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;", "downloadBundle", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;)V", "packageName", "url", "path", CommonTbJsBridge.FILE_DOWNLOAD_FILE_NAME, "downloadFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;)V", "Landroid/util/SparseArray;", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginBundleInfo;", "getPluginBundleInfo", "(Ljava/lang/String;)Landroid/util/SparseArray;", "bundlePath", "hookHostAssets", "(Ljava/lang/String;)Z", "Landroid/content/res/Resources;", "hostResources", "hookResources", "(Landroid/content/res/Resources;Ljava/lang/String;)Z", "installBundle", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;)V", "apkPath", "installPluginApk", "Lkotlin/Pair;", "", "installPluginApkWithCode", "(Ljava/lang/String;)Lkotlin/Pair;", "msg", "log", "(Ljava/lang/String;)V", "logD", "bundleType", "resetBundleType", "(Ljava/lang/String;I)V", "Lcom/baidu/nps/pm/BundleInfoGroup;", "group", "transBundleGroup", "(Lcom/baidu/nps/pm/BundleInfoGroup;)Landroid/util/SparseArray;", "Lcom/baidu/nps/pm/BundleInfo;", "bundle", "transBundleInfo", "(Lcom/baidu/nps/pm/BundleInfo;)Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginBundleInfo;", "Lkotlin/Function4;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "transPackagePath", "(Ljava/lang/String;Lkotlin/Function4;)V", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "kotlin.jvm.PlatformType", "appService", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "delayCount", "I", "Lcom/baidu/searchbox/live/interfaces/yalog/LiveYalogApi;", "yalogApi", "Lcom/baidu/searchbox/live/interfaces/yalog/LiveYalogApi;", "Lcom/baidu/searchbox/live/interfaces/service/LiveYalogService;", "yalogService", "Lcom/baidu/searchbox/live/interfaces/service/LiveYalogService;", "<init>", "()V", "Companion", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 H2\u00020\u0001:\u0001HB\u0007¢\u0006\u0004\bF\u0010GJ)\u0010\t\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\b\b\u0002\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ!\u0010\f\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ9\u0010\u0012\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u00022\u0006\u0010\u0011\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u000bH\u0016¢\u0006\u0004\b\u0012\u0010\u0013J\u001f\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0015\u0018\u00010\u00142\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u0019\u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u001f\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u0018\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u001f\u0010\u001f\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010!\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\u001aJ#\u0010%\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020$0#2\u0006\u0010!\u001a\u00020\u0002H\u0016¢\u0006\u0004\b%\u0010&J\u0017\u0010(\u001a\u00020\b2\u0006\u0010'\u001a\u00020\u0002H\u0002¢\u0006\u0004\b(\u0010)J\u0017\u0010*\u001a\u00020\b2\u0006\u0010'\u001a\u00020\u0002H\u0002¢\u0006\u0004\b*\u0010)J\u001f\u0010,\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010+\u001a\u00020$H\u0016¢\u0006\u0004\b,\u0010-J\u001d\u00100\u001a\b\u0012\u0004\u0012\u00020\u00150\u00142\u0006\u0010/\u001a\u00020.H\u0002¢\u0006\u0004\b0\u00101J\u001b\u00104\u001a\u0004\u0018\u00010\u00152\b\u00103\u001a\u0004\u0018\u000102H\u0002¢\u0006\u0004\b4\u00105JC\u00108\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u00022*\u00107\u001a&\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\b06H\u0002¢\u0006\u0004\b8\u00109R\u001e\u0010<\u001a\n ;*\u0004\u0018\u00010:0:8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u001e\u0010D\u001a\n ;*\u0004\u0018\u00010C0C8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bD\u0010E¨\u0006I"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/YYPluginManageServiceImpl;", "Lcom/baidu/searchbox/live/interfaces/service/yy/YYPluginManageService;", "", "pluginPackageName", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;", WebChromeClient.KEY_ARG_CALLBACK, "", "isRetry", "", "dispatchDownloadSuccess", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;Z)V", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;", "downloadBundle", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;)V", "packageName", "url", "path", "fileName", "downloadFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginDownloadCallback;)V", "Landroid/util/SparseArray;", "Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginBundleInfo;", "getPluginBundleInfo", "(Ljava/lang/String;)Landroid/util/SparseArray;", "bundlePath", "hookHostAssets", "(Ljava/lang/String;)Z", "Landroid/content/res/Resources;", "hostResources", "hookResources", "(Landroid/content/res/Resources;Ljava/lang/String;)Z", "installBundle", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginInstallCallback;)V", "apkPath", "installPluginApk", "Lkotlin/Pair;", "", "installPluginApkWithCode", "(Ljava/lang/String;)Lkotlin/Pair;", "msg", LocalFilesFilterKt.FILTER_NAME_LOG, "(Ljava/lang/String;)V", "logD", "bundleType", "resetBundleType", "(Ljava/lang/String;I)V", "Lcom/baidu/nps/pm/BundleInfoGroup;", "group", "transBundleGroup", "(Lcom/baidu/nps/pm/BundleInfoGroup;)Landroid/util/SparseArray;", "Lcom/baidu/nps/pm/BundleInfo;", StateManager.KEY_STATE, "transBundleInfo", "(Lcom/baidu/nps/pm/BundleInfo;)Lcom/baidu/searchbox/live/interfaces/yy/plugin/YYPluginBundleInfo;", "Lkotlin/Function4;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "transPackagePath", "(Ljava/lang/String;Lkotlin/Function4;)V", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "kotlin.jvm.PlatformType", "appService", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "delayCount", "I", "Lcom/baidu/searchbox/live/interfaces/yalog/LiveYalogApi;", "yalogApi", "Lcom/baidu/searchbox/live/interfaces/yalog/LiveYalogApi;", "Lcom/baidu/searchbox/live/interfaces/service/LiveYalogService;", "yalogService", "Lcom/baidu/searchbox/live/interfaces/service/LiveYalogService;", "<init>", "()V", "Companion", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class YYPluginManageServiceImpl implements YYPluginManageService {
     public static final String BD_LIVE_CREATE_ICON_URL = "http://bos.box.bdimg.com/searchbox/aps/1616394905587.png";
@@ -135,8 +136,8 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void downloadBundle(final String str, final YYPluginDownloadCallback yYPluginDownloadCallback) {
-        NPSPackageManager.getInstance().downloadUpdatePackage(str, new be1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadUpdatePackage(str, new kf1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
                 if (yYPluginDownloadCallback2 != null) {
@@ -144,7 +145,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 }
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str2) {
                 boolean z;
                 YYPluginDownloadCallback yYPluginDownloadCallback2 = YYPluginDownloadCallback.this;
@@ -158,10 +159,10 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onResult(str3, z, str2);
                 }
             }
-        }, new de1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$2
-            @Override // com.baidu.tieba.de1
-            public final void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
-                ee1Var.onResult(1);
+        }, new mf1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$2
+            @Override // com.baidu.tieba.mf1
+            public final void checkAuthorization(IBundleInfo iBundleInfo, int i, nf1 nf1Var) {
+                nf1Var.onResult(1);
             }
         }, 1);
     }
@@ -173,13 +174,13 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void installBundle(final String str, final YYPluginInstallCallback yYPluginInstallCallback) {
-        NPSPackageManager.getInstance().downloadBundle(str, new be1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
-            @Override // com.baidu.tieba.be1
+        NPSPackageManager.getInstance().downloadBundle(str, new kf1() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
+            @Override // com.baidu.tieba.kf1
             public void onProgress(long j, long j2) {
                 yYPluginInstallCallback.onProgress(str, j, j2);
             }
 
-            @Override // com.baidu.tieba.be1
+            @Override // com.baidu.tieba.kf1
             public void onResult(int i, String str2) {
                 if (i == 2) {
                     YYPluginManageServiceImpl.dispatchDownloadSuccess$default(YYPluginManageServiceImpl.this, str, yYPluginInstallCallback, false, 4, null);
@@ -193,7 +194,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
     public void resetBundleType(String str, int i) {
         log("resetBundleType, packagename " + str + ", type = " + i);
-        ge1.j().s(NPSPackageManager.getInstance().getBundleGroup(str).getBundleByType(i));
+        pf1.j().s(NPSPackageManager.getInstance().getBundleGroup(str).getBundleByType(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -309,8 +310,8 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     private final void transPackagePath(String str, Function4<? super String, ? super String, ? super String, ? super String, Unit> function4) {
         String str2;
         String str3;
-        DataReq.a aVar = null;
-        aVar = null;
+        DataReq.Builder builder = null;
+        builder = null;
         boolean contains$default = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "entrance", false, 2, (Object) null);
         String str4 = BD_LIVE_CREATE_ICON_URL;
         String str5 = "com.baidu.searchbox.yylive.entrance";
@@ -351,13 +352,13 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     str2 = "直播插件";
                     str4 = BD_LIVE_ICON_URL;
                 }
-                aVar = "com.baidu.searchbox.livenps";
+                builder = "com.baidu.searchbox.livenps";
             }
-            aVar = "com.baidu.searchbox.yylive.entrance";
+            builder = "com.baidu.searchbox.yylive.entrance";
             str4 = YY_ICON_URL;
             str5 = str3;
         }
-        function4.invoke(str2, str4, aVar, str5);
+        function4.invoke(str2, str4, builder, str5);
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService
@@ -448,11 +449,11 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
             }
             if (z) {
                 log("apk file not exist, try reset bundle status in db");
-                ge1.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
+                pf1.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
                 return false;
             }
         }
-        PackageInfo a = we1.a(str, 128);
+        PackageInfo a = fg1.a(str, 128);
         if (a == null) {
             return false;
         }
@@ -520,11 +521,11 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
             }
             if (z) {
                 log("apk file not exist, try reset bundle status in db");
-                ge1.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
+                pf1.j().s(NPSPackageManager.getInstance().getBundleGroup((String) objectRef4.element).getBundleByType(2));
                 return TuplesKt.to(Boolean.FALSE, -1001);
             }
         }
-        PackageInfo a = we1.a(str, 128);
+        PackageInfo a = fg1.a(str, 128);
         if (a != null) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setName((String) objectRef.element);

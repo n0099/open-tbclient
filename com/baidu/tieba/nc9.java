@@ -1,57 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.helper.ProgressHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nc9 extends ProgressHelper {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class nc9 implements vn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDVideoPlayer a;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nc9(@NonNull BDVideoPlayer bDVideoPlayer) {
-        super(bDVideoPlayer);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947997797, "Lcom/baidu/tieba/nc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947997797, "Lcom/baidu/tieba/nc9;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public nc9(boolean z, kc9 kc9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bDVideoPlayer};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {Boolean.valueOf(z), kc9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BDVideoPlayer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = bDVideoPlayer;
-    }
-
-    public final void callPlayerBack(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
-            this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
-    public void doTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int position = this.a.getPosition();
-            int durationMs = this.a.getDurationMs();
-            int bufferingPosition = this.a.getBufferingPosition();
-            int positionMs = this.a.getPositionMs();
-            this.a.getControlEventTrigger().syncPos(position, durationMs, bufferingPosition);
-            callPlayerBack(positionMs, durationMs, bufferingPosition);
-        }
+        String str = kc9Var.e;
+        String str2 = kc9Var.d;
+        this.a = kc9Var.a;
+        String str3 = kc9Var.f;
+        List<lc9> list = kc9Var.c;
+        int i3 = kc9Var.b;
     }
 }

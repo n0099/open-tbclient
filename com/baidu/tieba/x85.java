@@ -9,11 +9,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class x85 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x85 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
+    public long a;
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 600000L;
+        }
+        return invokeV.longValue;
+    }
 
     public x85() {
         Interceptable interceptable = $ic;
@@ -28,99 +35,38 @@ public class x85 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
+        this.a = 300000L;
     }
 
-    public int b() {
+    public static x85 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (x85.class) {
+                    if (b == null) {
+                        b = new x85();
+                    }
+                }
+            }
+            return b;
+        }
+        return (x85) invokeV.objValue;
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return jj.a(R.string.voice_cache_error_internal);
-                case 2:
-                    return jj.a(R.string.voice_cache_error_no_space);
-                case 3:
-                    return jj.a(R.string.obfuscated_res_0x7f0f0db6);
-                case 4:
-                    return jj.a(R.string.voice_cache_error_no_file);
-                case 5:
-                    return jj.a(R.string.voice_cache_error_md5);
-                case 6:
-                    return jj.a(R.string.voice_cache_error_no_input);
-                case 7:
-                    return jj.a(R.string.voice_cache_error_no_dir);
-                default:
-                    return "";
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,33 +12,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class y14 extends m14 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+public class y14 implements g94 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948277293, "Lcom/baidu/tieba/y14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948277293, "Lcom/baidu/tieba/y14;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948277293, "Lcom/baidu/tieba/y14;")) == null) {
+            return;
         }
-        c = qp1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948277293, "Lcom/baidu/tieba/y14;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y14() {
-        super("startPermissionsPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,45 +44,53 @@ public class y14 extends m14 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = "com.baidu.gamenow";
     }
 
-    @Override // com.baidu.tieba.m14
-    public g12 a(JSONObject jSONObject, km2 km2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.g94
+    public boolean a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
-            g93 b0 = g93.b0();
-            if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
-                }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        km3.f(b0.w());
-                    }
-                } else {
-                    km3.g(b0.w());
-                }
-                km2Var.onSuccess(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
             }
-            return null;
+            Download download = (Download) obj;
+            if (TextUtils.equals(c24.a, download.getKeyByUser())) {
+                return true;
+            }
+            return TextUtils.isEmpty(yo3.d(download.getFromParam()).optString("apk_id"));
         }
-        return (g12) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.g94
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        g24 g24Var = new g24((Download) obj);
+        u24.n().f("reallyDownloaded", new t24(), g24Var.m(), g24Var.j(), g24Var.l());
+    }
+
+    @Override // com.baidu.tieba.g94
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        Download download = (Download) obj;
+        g24 g24Var = new g24(download);
+        u24.n().f("statusInstalled", new t24(), download.getKeyByUser(), g24Var.j(), g24Var.l());
+        if (TextUtils.equals(g24Var.m(), this.a)) {
+            mk3.a().putBoolean(b, true);
+            u24.n().p(13, g24Var.m(), g24Var.h(), g24Var.l());
+        }
     }
 }

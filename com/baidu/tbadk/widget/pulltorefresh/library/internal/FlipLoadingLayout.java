@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.chromium.net.NetError;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class FlipLoadingLayout extends LoadingLayout {
@@ -94,7 +95,7 @@ public class FlipLoadingLayout extends LoadingLayout {
             }
         }
         if (mode == PullToRefreshBase.Mode.PULL_FROM_START) {
-            i = -180;
+            i = NetError.ERR_TLS13_DOWNGRADE_DETECTED;
         } else {
             i = 180;
         }

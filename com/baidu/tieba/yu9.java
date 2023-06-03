@@ -1,59 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yu9 {
+public class yu9 implements q75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public PollingModel b;
-    public final Runnable c;
+    public i45 a;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yu9 a;
-
-        public a(yu9 yu9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yu9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yu9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.C0(PollingModel.POLLING_TYPE_LOOP);
-                sg.a().postDelayed(this.a.c, a65.a().b());
-            }
-        }
-    }
-
-    public yu9(MainTabActivity mainTabActivity) {
+    public yu9(i45 i45Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {i45Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,17 +27,47 @@ public class yu9 {
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = mainTabActivity;
-        PollingModel pollingModel = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
-        this.b = pollingModel;
-        pollingModel.M0(z25.d);
+        this.a = i45Var;
     }
 
-    public void b() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sg.a().removeCallbacks(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i45 i45Var = this.a;
+            if (i45Var == null) {
+                return null;
+            }
+            return i45Var.c();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q75
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            i45 i45Var = this.a;
+            if (i45Var == null) {
+                return null;
+            }
+            return i45Var.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q75
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            i45 i45Var = this.a;
+            if (i45Var == null) {
+                return null;
+            }
+            return i45Var.a();
+        }
+        return (String) invokeV.objValue;
     }
 }

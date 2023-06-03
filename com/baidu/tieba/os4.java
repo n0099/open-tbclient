@@ -1,78 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class os4 {
+import java.io.File;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class os4 implements ms4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public fb b;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ os4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(os4 os4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = os4Var;
+    @Override // com.baidu.tieba.ms4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null && this.a.a() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                ns4 ns4Var = null;
-                if (responsedMessage instanceof BackUserHTTPResMsg) {
-                    ns4Var = ((BackUserHTTPResMsg) responsedMessage).getData();
-                } else if (responsedMessage instanceof BackUserSocketResMsg) {
-                    ns4Var = ((BackUserSocketResMsg) responsedMessage).getData();
-                }
-                if (ns4Var != null && ns4Var.a) {
-                    o65.m().A(o65.q("pref_key_last_request_mission"), System.currentTimeMillis());
-                    m65.e().i();
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ms4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
-    public os4(BdUniqueId bdUniqueId) {
+    public os4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,30 +54,43 @@ public class os4 {
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
-        this.a = bdUniqueId;
-        b();
-        this.b.setTag(this.a);
-        MessageManager.getInstance().registerListener(this.b);
+        this.a = context.getApplicationContext();
     }
 
-    public BdUniqueId a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ms4
+    /* renamed from: b */
+    public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d();
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void b() {
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ar9.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, ar9.a(TbConfig.URL_BACK_USER, 309689));
-            tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
+            String str = null;
+            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, NetDiskFileMsg.JSON_KEY_FILES), "libuuid.so");
+                        if (file.exists()) {
+                            str = ss4.c(file);
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            break;
+                        }
+                    }
+                }
+            }
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 }

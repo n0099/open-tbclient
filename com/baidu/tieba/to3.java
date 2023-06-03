@@ -1,69 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanImageMenuView;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class to3 extends q83 {
+public class to3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public to3(View view2) {
-        super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + to3.b;
+                if (to3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                bv2.b(str, this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187889, "Lcom/baidu/tieba/to3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187889, "Lcom/baidu/tieba/to3;");
                 return;
             }
         }
-        s(-1);
-        p(true);
-        q(true);
+        a = is1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
-    @Override // com.baidu.tieba.q83
-    public void l(View view2, List<r83> list) {
+    public static void c(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanImageMenuView) view2).d(list);
-        }
-    }
-
-    @Override // com.baidu.tieba.q83
-    public View m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
-            swanImageMenuView.setMenu(this);
-            return swanImageMenuView;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.q83
-    public void u(PopupWindow popupWindow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 80, 0, 0);
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            so3.k(new a(str, z), "record_feedback_ext_info");
         }
     }
 }

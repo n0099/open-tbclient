@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
@@ -114,7 +113,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                     String command = miPushCommandMessage.getCommand();
                     List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     String str = (commandArguments == null || commandArguments.size() <= 0) ? null : commandArguments.get(0);
-                    if (MiPushClient.COMMAND_REGISTER.equals(command)) {
+                    if ("register".equals(command)) {
                         Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                         intent.putExtra(REGID, str);
                         intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());

@@ -11,14 +11,12 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.live.arch.utils.RomUtils;
 import com.baidu.live.arch.utils.StatusBarUtils;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImmersionUtils {
     public static final int STANDARD_STATUSBAR_HEIGHT = 50;
     public static boolean canUseImmersion = false;
@@ -54,7 +52,7 @@ public class ImmersionUtils {
                     if (RomUtils.isMIUIRom()) {
                         Window window = activity.getWindow();
                         window.addFlags(Integer.MIN_VALUE);
-                        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                        window.clearFlags(67108864);
                     }
                     i = systemUiVisibility | 8192;
                 }
@@ -169,7 +167,7 @@ public class ImmersionUtils {
             return 0;
         }
         try {
-            i = application.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            i = application.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
         } catch (Exception e) {
             e.printStackTrace();
             i = 0;

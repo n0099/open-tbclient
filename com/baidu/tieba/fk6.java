@@ -1,46 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class fk6 extends BaseCardInfo implements rk6, zz4 {
+public class fk6 implements bk6<Pair<String, Map<String, String>>, Response> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo a;
-    public String b;
-    public int c;
-    public boolean d;
+    public final HttpManager a;
 
-    @Override // com.baidu.tieba.rk6
-    public void N(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback<Response> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xmb a;
 
-    @Override // com.baidu.tieba.rk6
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
+        public Response parseResponse2(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.rk6
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
+        public a(fk6 fk6Var, xmb xmbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk6Var, xmbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xmbVar;
         }
-        return invokeV.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(Response response, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, response, i) == null) {
+                this.a.call(response, null);
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public /* bridge */ /* synthetic */ Response parseResponse(Response response, int i) throws Exception {
+            parseResponse2(response, i);
+            return response;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.call(null, exc);
+            }
+        }
     }
 
     public fk6() {
@@ -56,133 +91,36 @@ public class fk6 extends BaseCardInfo implements rk6, zz4 {
                 return;
             }
         }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = null;
-        this.position = -1;
+        this.a = HttpManager.getDefault(hl6.getContext());
     }
 
-    @Override // com.baidu.tieba.zz4
-    public AdvertAppInfo G() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bk6
+    @Nullable
+    /* renamed from: c */
+    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (AdvertAppInfo) invokeV.objValue;
-    }
-
-    public AdvertAppInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (AdvertAppInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rk6
-    public int getPosition() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            if (advertAppInfo != null) {
-                str = advertAppInfo.f;
-            } else {
-                str = "-1";
-            }
-            return pg.e(str, -1);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.zz4
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zz4
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.position;
-        }
-        return invokeV.intValue;
-    }
-
-    public fk6(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {advertAppInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = advertAppInfo;
-        this.position = advertAppInfo.position;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.w) {
-                return AdvertAppInfo.y;
-            }
-            AdvertAppInfo advertAppInfo2 = this.a;
-            if (advertAppInfo2 != null && (iLegoAdvert = advertAppInfo2.h) != null) {
-                BdUniqueId bdUniqueId = AdvertAppInfo.z;
-                int goodsStyle = iLegoAdvert.getGoodsStyle();
-                if (goodsStyle != 2) {
-                    if (goodsStyle != 14) {
-                        if (goodsStyle != 6) {
-                            if (goodsStyle != 7) {
-                                if (goodsStyle != 8) {
-                                    return bdUniqueId;
-                                }
-                            }
-                        } else {
-                            return AdvertAppInfo.B;
-                        }
-                    }
-                    return AdvertAppInfo.C;
-                }
-                return AdvertAppInfo.A;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair)) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                return this.a.getRequest().url(pair.first).tag(this).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).followRedirects(false).followSslRedirects(false).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
             }
             return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (Response) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zz4
-    public void setPosition(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bk6
+    /* renamed from: d */
+    public void b(Pair<String, Map<String, String>> pair, xmb<Response, Exception> xmbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.position = i;
-            this.a.position = i;
-            this.d = true;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, xmbVar) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, xmbVar));
+            } else {
+                xmbVar.call(null, new IllegalArgumentException("url is null !"));
+            }
         }
     }
 }

@@ -4,12 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class o4<T> {
+/* loaded from: classes7.dex */
+public class o4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public T b;
+    public k3[] a;
+    public float[] b;
+    public p4[] c;
 
     public o4() {
         Interceptable interceptable = $ic;
@@ -21,9 +22,7 @@ public class o4<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = null;
     }
 }

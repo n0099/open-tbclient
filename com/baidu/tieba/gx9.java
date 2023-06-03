@@ -1,157 +1,88 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.view.MotionEvent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class gx9 {
+/* loaded from: classes6.dex */
+public class gx9 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
-    public static gx9 mInstance;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mICrabSdk;
+    public boolean a;
+    public String b;
+    public zw9 c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Application application);
-
-        void b(Exception exc);
-
-        void c(String str);
-
-        void d(String str);
-
-        void e(String str);
-
-        void f(MotionEvent motionEvent, Activity activity);
-
-        void onPause(Activity activity);
-
-        void onResume(Activity activity);
-    }
-
-    private boolean isCrabSdkSwitchOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809441, "Lcom/baidu/tieba/gx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947809441, "Lcom/baidu/tieba/gx9;");
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        d = BdUniqueId.gen();
     }
 
     public gx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.mICrabSdk = getCrabSdk();
     }
 
-    private a getCrabSdk() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (isCrabSdkSwitchOn() && (runTask = MessageManager.getInstance().runTask(2016565, a.class)) != null) {
-                return (a) runTask.getData();
-            }
-            return null;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static gx9 getInstance() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (mInstance == null) {
-                synchronized (gx9.class) {
-                    if (mInstance == null) {
-                        mInstance = new gx9();
-                    }
-                }
-            }
-            return mInstance;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (gx9) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        a aVar;
+    public zw9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.f(motionEvent, activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (zw9) invokeV.objValue;
     }
 
-    public void initSdk(Application application) {
-        a aVar;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.a(application);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void onPause(Activity activity) {
-        a aVar;
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.vn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.onPause(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return d;
         }
-    }
-
-    public void onResume(Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.onResume(activity);
-        }
-    }
-
-    public void setFlutterPath(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.c(str);
-        }
-    }
-
-    public void setLastFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.e(str);
-        }
-    }
-
-    public void setOpenFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.d(str);
-        }
-    }
-
-    public void uploadException(Exception exc) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, exc) == null) && (aVar = this.mICrabSdk) != null) {
-            aVar.b(exc);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,179 +13,248 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public yi9 c;
-    public b d;
-    public fb e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(yi9 yi9Var);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xi9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xi9 xi9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xi9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xi9Var;
-        }
-
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            yi9 yi9Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
-                yi9Var = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof ForbiddenForumSocketResMsg) {
-                yi9Var = ((ForbiddenForumSocketResMsg) responsedMessage).getPageData();
-            } else {
-                yi9Var = null;
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (yi9Var == null || ListUtils.isEmpty(yi9Var.a))) {
-                    if (this.a.d != null) {
-                        this.a.d.a(null);
-                    }
-                } else if (yi9Var != null) {
-                    this.a.c.a.addAll(yi9Var.a);
-                    if (!ListUtils.isEmpty(yi9Var.a)) {
-                        this.a.c.b = yi9Var.b;
-                        xi9.c(this.a);
-                    } else {
-                        this.a.c.b = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(yi9Var);
-                    }
-                }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public xi9(BdUniqueId bdUniqueId) {
+    public xi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        i();
-        h();
-        this.c = new yi9();
     }
 
-    public static /* synthetic */ int c(xi9 xi9Var) {
-        int i = xi9Var.b;
-        xi9Var.b = i + 1;
-        return i;
-    }
-
-    public void k(b bVar) {
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1679289728:
+                    if (str.equals("Concern")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case -1152667590:
+                    if (str.equals("ad_feed")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -654725321:
+                    if (str.equals("ad_video_landing")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -421681106:
+                    if (str.equals("HomePage")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case -181435716:
+                    if (str.equals("HomeVideo")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 2546:
+                    if (str.equals("PB")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 70919:
+                    if (str.equals("Frs")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 175967569:
+                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 671041499:
+                    if (str.equals("ad_paster")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1974553171:
+                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                case 1:
+                case 2:
+                    return "ad";
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                    return "tbc";
+                default:
+                    return "Unknown";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void f(String str) {
-        yi9 yi9Var;
-        String str2;
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (yi9Var = this.c) != null && !ListUtils.isEmpty(yi9Var.a)) {
-            for (wi9 wi9Var : this.c.a) {
-                if (wi9Var != null && (str2 = wi9Var.c) != null && str2.equals(str)) {
-                    this.c.a.remove(wi9Var);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1567) {
+                if (hashCode != 1568) {
+                    if (hashCode != 1570) {
+                        if (hashCode != 1576) {
+                            if (hashCode != 1599) {
+                                switch (hashCode) {
+                                    case 49:
+                                        if (str.equals("1")) {
+                                            c = 0;
+                                            break;
+                                        }
+                                        break;
+                                    case 50:
+                                        if (str.equals("2")) {
+                                            c = 2;
+                                            break;
+                                        }
+                                        break;
+                                    case 51:
+                                        if (str.equals("3")) {
+                                            c = 4;
+                                            break;
+                                        }
+                                        break;
+                                    case 52:
+                                        if (str.equals("4")) {
+                                            c = 3;
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (hashCode) {
+                                            case 54:
+                                                if (str.equals("6")) {
+                                                    c = 7;
+                                                    break;
+                                                }
+                                                break;
+                                            case 55:
+                                                if (str.equals("7")) {
+                                                    c = 1;
+                                                    break;
+                                                }
+                                                break;
+                                            case 56:
+                                                if (str.equals("8")) {
+                                                    c = '\b';
+                                                    break;
+                                                }
+                                                break;
+                                            case 57:
+                                                if (str.equals("9")) {
+                                                    c = '\t';
+                                                    break;
+                                                }
+                                                break;
+                                        }
+                                }
+                            } else if (str.equals("21")) {
+                                c = '\f';
+                            }
+                        } else if (str.equals("19")) {
+                            c = '\n';
+                        }
+                    } else if (str.equals("13")) {
+                        c = 11;
+                    }
+                } else if (str.equals("11")) {
+                    c = 6;
                 }
+            } else if (str.equals("10")) {
+                c = 5;
+            }
+            switch (c) {
+                case 0:
+                    return "HomePage";
+                case 1:
+                    return "Concern";
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return "Frs";
+                case 7:
+                    return "PB";
+                case '\b':
+                case '\t':
+                case '\n':
+                    return "HomeVideo";
+                case 11:
+                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
+                case '\f':
+                    return PlayerConstant.PAGE_VIDEO_LANDING;
+                default:
+                    return "Unknown";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public yi9 g() {
-        InterceptResult invokeV;
+    public int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 49) {
+                if (hashCode == 50 && str.equals("2")) {
+                    c = 1;
+                }
+            } else if (str.equals("1")) {
+                c = 0;
+            }
+            if (c == 0 || c != 1) {
+                return 1;
+            }
+            return 0;
         }
-        return (yi9) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ip5 ip5Var = new ip5(309692);
-            ip5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
-            ip5Var.g(true);
-            ip5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ip5Var);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
-            forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.b;
-            forbiddenForumReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, ar9.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
+        return invokeL.intValue;
     }
 }

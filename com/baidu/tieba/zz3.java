@@ -1,5 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes8.dex */
 public interface zz3 {
-    void a(a04 a04Var);
+    void a(int i);
+
+    void b();
+
+    void c(DownloadState downloadState, int i);
+
+    void d(String str);
+
+    String e();
+
+    void f(boolean z);
 }

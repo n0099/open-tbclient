@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tieba.r;
 import com.baidu.tieba.s;
 import com.facebook.cache.common.CacheKey;
@@ -148,7 +149,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     }
 
     public static Uri createUriForPartialCacheKey(ImageRequest imageRequest) {
-        return imageRequest.getSourceUri().buildUpon().appendQueryParameter("fresco_partial", "true").build();
+        return imageRequest.getSourceUri().buildUpon().appendQueryParameter("fresco_partial", YYOption.IsLive.VALUE_TRUE).build();
     }
 
     public static boolean isTaskCancelled(s<?> sVar) {

@@ -196,27 +196,27 @@ public class FontParser {
         return config;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x008b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x008a, code lost:
         if (r2.equals("zh") != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0093, code lost:
         if (r2.equals("zh-Hant") != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x009c, code lost:
         if (r2.equals("zh-Hans") == false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x009f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x009e, code lost:
         r5 = new java.lang.StringBuilder();
         r5.append(r2);
         r5.append("/");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ab, code lost:
         if (r4.isItalic == false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
         r6 = "normal";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00af, code lost:
         r5.append(r6);
         r5.append("/");
         r5.append(r4.weight);

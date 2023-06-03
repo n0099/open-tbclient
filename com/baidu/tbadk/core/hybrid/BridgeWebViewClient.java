@@ -14,17 +14,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.ue9;
-import com.baidu.tieba.ve9;
-import com.baidu.tieba.we9;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.bl9;
+import com.baidu.tieba.cl9;
+import com.baidu.tieba.dl9;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.mm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +74,7 @@ public class BridgeWebViewClient extends WebViewClient {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, map, inputStream, Long.valueOf(j)})) == null) {
-            String b = ei6.b(str);
+            String b = mm6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tbadk.core.hybrid.BridgeWebViewClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +210,7 @@ public class BridgeWebViewClient extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, renderProcessGoneDetail)) == null) {
-            iv4.a("BridgeWebViewClient", webView);
+            ay4.a("BridgeWebViewClient", webView);
             return true;
         }
         return invokeLL.booleanValue;
@@ -262,7 +261,7 @@ public class BridgeWebViewClient extends WebViewClient {
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
-            m55.a("page " + str + " load finished.");
+            j85.a("page " + str + " load finished.");
             if (!this.c.contains(str)) {
                 this.b.p(str);
             }
@@ -280,7 +279,7 @@ public class BridgeWebViewClient extends WebViewClient {
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i, str, str2) == null) {
-            m55.a("Failed url " + str2 + " with description:" + str);
+            j85.a("Failed url " + str2 + " with description:" + str);
             this.c.add(str2);
             WebViewClient webViewClient = this.a;
             if (webViewClient != null) {
@@ -343,7 +342,7 @@ public class BridgeWebViewClient extends WebViewClient {
                 return super.shouldInterceptRequest(webView, webResourceRequest);
             } else if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
                 String uri = webResourceRequest.getUrl().toString();
-                if (ue9.s(uri)) {
+                if (bl9.s(uri)) {
                     WebViewClient webViewClient2 = this.a;
                     if (webViewClient2 != null) {
                         return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
@@ -352,7 +351,7 @@ public class BridgeWebViewClient extends WebViewClient {
                 }
                 try {
                     String path = new URL(uri).getPath();
-                    we9 c = ve9.a().c(path);
+                    dl9 c = cl9.a().c(path);
                     if (c == null) {
                         if (this.a != null) {
                             return this.a.shouldInterceptRequest(webView, webResourceRequest);
@@ -369,7 +368,7 @@ public class BridgeWebViewClient extends WebViewClient {
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     } else {
-                        String str = (ue9.n().m() + "/" + c.b + "/" + ue9.n().p(c.b) + "/") + ve9.a().e(path);
+                        String str = (bl9.n().m() + "/" + c.b + "/" + bl9.n().p(c.b) + "/") + cl9.a().e(path);
                         File file = new File(str);
                         try {
                             BufferedSource buffer = Okio.buffer(Okio.source(file));
@@ -379,7 +378,7 @@ public class BridgeWebViewClient extends WebViewClient {
                             if (str.contains(FileHelper.FILE_CACHE_CSS)) {
                                 return new WebResourceResponse("text/css", "UTF-8", buffer.inputStream());
                             }
-                            if (str.contains(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
+                            if (str.contains(".html")) {
                                 return new WebResourceResponse(SapiWebView.DATA_MIME_TYPE, "UTF-8", buffer.inputStream());
                             }
                             return a(uri, webResourceRequest.getRequestHeaders(), buffer.inputStream(), file.length());

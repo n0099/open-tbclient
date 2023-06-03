@@ -2,7 +2,7 @@ package org.apache.commons.logging;
 
 import java.util.Hashtable;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class LogFactory {
     public static final String DIAGNOSTICS_DEST_PROPERTY = "org.apache.commons.logging.diagnostics.dest";
     public static final String FACTORY_DEFAULT = "org.apache.commons.logging.impl.LogFactoryImpl";

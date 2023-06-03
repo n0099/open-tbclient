@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import android.widget.ExpandableListView;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class iz7 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<iz7> e;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static HashMap<String, Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -34,92 +28,49 @@ public class iz7 {
                 return;
             }
         }
-        e = new ArrayList<>(5);
+        b = new HashMap<>();
     }
 
-    public iz7() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b.clear();
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == 1) {
-                return ExpandableListView.getPackedPositionForChild(this.a, this.b);
-            }
-            return ExpandableListView.getPackedPositionForGroup(this.a);
-        }
-        return invokeV.longValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (e) {
-                if (e.size() < 5) {
-                    e.add(this);
-                }
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = 0;
-            this.d = 0;
-        }
-    }
-
-    public static iz7 b() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e) {
-                if (e.size() > 0) {
-                    iz7 remove = e.remove(0);
-                    remove.f();
-                    return remove;
-                }
-                return new iz7();
+            return b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        b.put(str, 0);
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            a = z;
+            if (!z) {
+                b.clear();
             }
         }
-        return (iz7) invokeV.objValue;
-    }
-
-    public static iz7 c(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
-            iz7 b = b();
-            b.d = i;
-            b.a = i2;
-            b.b = i3;
-            b.c = i4;
-            return b;
-        }
-        return (iz7) invokeIIII.objValue;
-    }
-
-    public static iz7 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(2, i, 0, 0);
-        }
-        return (iz7) invokeI.objValue;
     }
 }

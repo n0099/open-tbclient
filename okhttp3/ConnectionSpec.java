@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ConnectionSpec {
     @Nullable
     public final String[] cipherSuites;
@@ -21,7 +21,7 @@ public final class ConnectionSpec {
     public static final ConnectionSpec COMPATIBLE_TLS = new Builder(true).cipherSuites(APPROVED_CIPHER_SUITES).tlsVersions(TlsVersion.TLS_1_0).supportsTlsExtensions(true).build();
     public static final ConnectionSpec CLEARTEXT = new Builder(false).build();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         @Nullable
         public String[] cipherSuites;

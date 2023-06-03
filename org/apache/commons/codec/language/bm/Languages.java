@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Languages {
     public static final String ANY = "any";
     public static final LanguageSet ANY_LANGUAGE;
@@ -17,7 +17,7 @@ public class Languages {
     public static final LanguageSet NO_LANGUAGES;
     public final Set<String> languages;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class SomeLanguages extends LanguageSet {
         public final Set<String> languages;
 
@@ -145,7 +145,7 @@ public class Languages {
         return this.languages;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class LanguageSet {
         public abstract boolean contains(String str);
 

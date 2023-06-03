@@ -1,111 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class e12 implements c12 {
+public abstract class e12 extends b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile e12 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c12> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681411, "Lcom/baidu/tieba/e12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947681411, "Lcom/baidu/tieba/e12;");
-                return;
-            }
-        }
-        b = qp1.a;
+    @Override // com.baidu.tieba.b02
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Network" : (String) invokeV.objValue;
     }
 
-    public e12() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e12(@NonNull zz1 zz1Var) {
+        super(zz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new d12());
-    }
-
-    public static e12 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (e12.class) {
-                    if (c == null) {
-                        c = new e12();
-                    }
-                }
-            }
-            return c;
-        }
-        return (e12) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
-                }
-                if (c == null) {
-                    return;
-                }
-                c = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c12
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c12
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
             }
         }
     }

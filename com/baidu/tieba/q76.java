@@ -1,126 +1,128 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q76 extends xi6<h76> {
+public class q76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public HeadImageView k;
-    public TextView l;
-    public View m;
-    public h76 n;
-    public RelativeLayout o;
 
-    @Override // com.baidu.tieba.xi6
-    public int d() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            String imei = TbadkCoreApplication.getInst().getImei();
+            if (imei == null || Config.NULL_DEVICE_ID.equals(imei)) {
+                return "-";
+            }
+            return imei;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Integer e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static Integer f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static Integer b(Context context) {
+        InterceptResult invokeL;
+        int value;
+        WirelessNetworkType wirelessNetworkType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                String typeName = activeNetworkInfo.getTypeName();
+                if (typeName.equalsIgnoreCase("WIFI")) {
+                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+                }
+                if (typeName.equalsIgnoreCase("MOBILE")) {
+                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
+                        if (g(context)) {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
+                        } else {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
+                        }
+                        value = wirelessNetworkType.getValue();
+                    } else {
+                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
+                    }
+                    return Integer.valueOf(value);
+                }
+                return valueOf;
+            }
+            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08f9 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return xi.g();
+        }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q76(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return xi.k();
         }
-        this.m = h();
-        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090ff0);
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090fee);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090fed);
-        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090fec);
-        this.k = headImageView;
-        headImageView.setAutoChangeStyle(true);
-        this.k.setIsRound(true);
-        this.k.setDrawBorder(true);
-        this.k.setPlaceHolder(1);
-        this.k.setBorderWidth(ri.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090fef);
-        this.o.setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
-            e().a(view2, this.n);
-        }
-    }
-
-    @Override // com.baidu.tieba.xi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi6
-    /* renamed from: r */
-    public void i(h76 h76Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, h76Var) == null) && h76Var != null) {
-            this.n = h76Var;
-            String str2 = h76Var.c;
-            String str3 = "";
-            if (StringUtils.isNull(str2)) {
-                if (StringUtils.isNull(h76Var.b)) {
-                    str2 = "";
-                } else {
-                    str2 = h76Var.b;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    return true;
+                case 4:
+                case 7:
+                case 11:
+                default:
+                    return false;
             }
-            this.i.setText(str2);
-            TextView textView = this.j;
-            if (StringUtils.isNull(h76Var.e)) {
-                str = "";
-            } else {
-                str = h76Var.e;
-            }
-            textView.setText(str);
-            this.k.N(h76Var.d, 10, false);
-            TextView textView2 = this.l;
-            if (!StringUtils.isNull(h76Var.f)) {
-                str3 = h76Var.f;
-            }
-            textView2.setText(str3);
         }
+        return invokeL.booleanValue;
     }
 }

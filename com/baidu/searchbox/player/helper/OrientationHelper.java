@@ -4,7 +4,8 @@ import android.content.Context;
 import android.provider.Settings;
 import android.view.OrientationEventListener;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes3.dex */
+import org.chromium.net.NetError;
+/* loaded from: classes4.dex */
 public class OrientationHelper extends OrientationEventListener {
     public static final int ORIENTATION_CIRCLE_ANGLE = 360;
     public static final int ORIENTATION_DIVIDE_ANGLE = 23;
@@ -15,7 +16,7 @@ public class OrientationHelper extends OrientationEventListener {
     public int mLastOrientation;
     public IOrientationChange mListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface IOrientationChange {
         void onOrientationChanged(int i);
     }
@@ -32,7 +33,7 @@ public class OrientationHelper extends OrientationEventListener {
     }
 
     public static boolean isPortrait(int i) {
-        if ((i >= 0 && i <= 23) || ((337 <= i && i < 360) || Math.abs(i - 180) <= 23)) {
+        if ((i >= 0 && i <= 23) || ((337 <= i && i < 360) || Math.abs(i + NetError.ERR_TLS13_DOWNGRADE_DETECTED) <= 23)) {
             return true;
         }
         return false;

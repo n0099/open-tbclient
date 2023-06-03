@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
 import android.text.TextUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -313,7 +312,7 @@ public class SevenZipUtils {
         }
         boolean z = true;
         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_same_version_no7z_enable");
-        if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
+        if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
             z = false;
         }
         Log.i(GlobalConstants.LOG_PER_TAG, "zeus_same_version_no7z_enable = ".concat(String.valueOf(z)));

@@ -1,189 +1,195 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.bdtls.Certificate;
-import com.baidu.swan.bdtls.DH;
-import com.baidu.swan.bdtls.RSA;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.ByteString;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ss3 {
+public class ss3 extends ih3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean s;
+    public String t;
 
-    public static os3 a(rs3 rs3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rs3Var, bArr)) == null) {
-            os3 os3Var = null;
-            if (rs3Var == null || bArr == null || bArr.length == 0) {
-                return null;
-            }
-            try {
-                if (bArr[0] != 2) {
-                    return null;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends xg3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss3 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements rq3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                os3 os3Var2 = new os3();
-                try {
-                    Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
-                    if (parseFrom == null) {
-                        return null;
-                    }
-                    os3Var2.a(parseFrom);
-                    List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
-                    if (extensionsList == null) {
-                        return null;
-                    }
-                    for (Bdtls$Extension bdtls$Extension : extensionsList) {
-                        int type = bdtls$Extension.getType();
-                        byte[] byteArray = bdtls$Extension.getData().toByteArray();
-                        if (type == 0) {
-                            byte[] decrypt = RSA.decrypt(byteArray);
-                            int a = gs3.a(decrypt);
-                            byte[] dHSecretKey = DH.getDHSecretKey(a, rs3Var.d().intValue(), rs3Var.f().intValue());
-                            rs3Var.l(dHSecretKey);
-                            rs3Var.p(Integer.valueOf(a));
-                            if (cs3.a) {
-                                Log.d("BDTLS", "GroupId=" + rs3Var.d());
-                                Log.d("BDTLS", "client dh pubkey secret=" + rs3Var.f());
-                                Log.d("BDTLS", "client dh pubkey=" + rs3Var.e());
-                                Log.d("BDTLS", "server dh pubkey=" + a);
-                                Log.d("BDTLS", "server dh raw pubkey=" + gs3.d(decrypt));
-                                Log.d("BDTLS", "aeskey=" + gs3.d(dHSecretKey));
-                            }
-                        }
-                    }
-                    if (parseFrom.getSKR() == null) {
-                        return null;
-                    }
-                    Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
-                    newBuilder.u(parseFrom.getSKR());
-                    Bdtls$ApplicationData build = newBuilder.build();
-                    rs3Var.t(build.toByteArray());
-                    if (rs3Var.c() == null) {
-                        return null;
-                    }
-                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                    if (cs3.a) {
-                        Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
-                        Log.d("BDTLS", "expireTime=" + currentTimeMillis);
-                    }
-                    rs3Var.r(currentTimeMillis);
-                    if (parseFrom.getCipherSuite() != null) {
-                        rs3Var.q(parseFrom.getCipherSuite().toByteArray());
-                    }
-                    if (e33.c()) {
-                        new ns3().edit().putString("secretKey", Arrays.toString(rs3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
-                        return os3Var2;
-                    }
-                    return os3Var2;
-                } catch (Exception e) {
-                    e = e;
-                    os3Var = os3Var2;
-                    if (cs3.a) {
-                        e.printStackTrace();
-                        Log.d("BDTLS", "exception=" + e.getMessage());
-                    }
-                    return os3Var;
-                }
-            } catch (Exception e2) {
-                e = e2;
+                this.a = bVar;
             }
-        } else {
-            return (os3) invokeLL.objValue;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.rq3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        this.a.e(new OAuthException("null stoken", 10001));
+                        return;
+                    }
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (TextUtils.isEmpty(string)) {
+                        this.a.e(new OAuthException("empty stoken", 10001));
+                        return;
+                    }
+                    this.a.c.t = string;
+                    this.a.d();
+                }
+            }
+        }
+
+        public b(ss3 ss3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ss3Var;
+        }
+
+        public /* synthetic */ b(ss3 ss3Var, a aVar) {
+            this(ss3Var);
+        }
+
+        @Override // com.baidu.tieba.xg3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.s) {
+                    zr3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                    return false;
+                }
+                this.c.t = null;
+                if (ss3.u) {
+                    Log.w("MaOpenDataRequest", "user not login");
+                    return true;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public static byte[] b(rs3 rs3Var, os3 os3Var) {
-        InterceptResult invokeLL;
-        byte[] encrypt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rs3Var, os3Var)) == null) {
-            if (os3Var == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161942, "Lcom/baidu/tieba/ss3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            byte[] bArr = new byte[32];
-            new Random().nextBytes(bArr);
-            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
-            newBuilder.v(currentTimeMillis);
-            newBuilder.w(ByteString.copyFrom(bArr));
-            Bdtls$Random build = newBuilder.build();
-            int dHGroupId = DH.getDHGroupId();
-            int dHSecret = DH.getDHSecret();
-            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            rs3Var.m(Integer.valueOf(dHGroupId));
-            rs3Var.o(Integer.valueOf(dHSecret));
-            rs3Var.n(Integer.valueOf(dHPublicKey));
-            byte[] g = gs3.g(dHPublicKey);
-            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948161942, "Lcom/baidu/tieba/ss3;");
+                return;
             }
-            byte[] bytes = mp4.a(Certificate.getSignature(ns2.c()), "", false).getBytes(StandardCharsets.UTF_8);
-            LinkedList linkedList = new LinkedList();
-            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
-            newBuilder2.v(0);
-            newBuilder2.u(ByteString.copyFrom(encrypt));
-            linkedList.offer(newBuilder2.build());
-            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
-            newBuilder3.v(1);
-            newBuilder3.u(ByteString.copyFrom(new byte[]{0}));
-            linkedList.offer(newBuilder3.build());
-            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
-            newBuilder4.v(2);
-            newBuilder4.u(ByteString.copyFrom(gs3.g(dHGroupId)));
-            linkedList.offer(newBuilder4.build());
-            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
-            newBuilder5.v(3);
-            newBuilder5.u(ByteString.copyFrom(bytes));
-            linkedList.offer(newBuilder5.build());
-            if (e33.c()) {
-                if (bt3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
-                    newBuilder6.v(4);
-                    newBuilder6.u(ByteString.copyFrom(bt3.getContext().b().getBytes()));
-                    linkedList.offer(newBuilder6.build());
-                }
-                if (bt3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
-                    newBuilder7.v(5);
-                    newBuilder7.u(ByteString.copyFrom(hp4.f().getBytes()));
-                    linkedList.offer(newBuilder7.build());
-                }
-            }
-            if (cs3.a) {
-                Log.d("BDTLS", "groupId encode=" + dHGroupId);
-                Log.d("BDTLS", "secretC encode=" + dHSecret);
-                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
-                Log.d("BDTLS", "signature encode=" + new String(bytes));
-            }
-            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
-            Iterator it = linkedList.iterator();
-            while (it.hasNext()) {
-                newBuilder8.m((Bdtls$Extension) it.next());
-            }
-            newBuilder8.B(build);
-            newBuilder8.l(ByteString.copyFrom(ds3.c));
-            byte[] byteArray = newBuilder8.build().toByteArray();
-            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
-            allocate.put((byte) 1);
-            allocate.put(byteArray);
-            return allocate.array();
         }
-        return (byte[]) invokeLL.objValue;
+        u = is1.a;
+    }
+
+    @Override // com.baidu.tieba.ih3
+    public JSONObject P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject P = super.P();
+            if (!TextUtils.isEmpty(this.t)) {
+                try {
+                    P.put("stoken", this.t);
+                } catch (JSONException e) {
+                    if (u) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return P;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vg3
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h(new b(this, null));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ss3(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.s = z2;
+        y();
     }
 }

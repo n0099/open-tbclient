@@ -1,27 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kw8 {
+public class kw8 extends ei5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kw8(TbPageContext<?> tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 17, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() > 0) {
-                i = 1;
-            } else {
-                i = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
         }
+        this.d = R.drawable.tail_edit_tool_color_selector;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.m = new TailEditColorToolHost(tbPageContext, str);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

@@ -19,7 +19,7 @@ import com.sdk.base.module.manager.SDKManager;
 import com.sdk.j.a;
 import com.sdk.p.f;
 import com.sdk.y.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UiOauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean isDebug;

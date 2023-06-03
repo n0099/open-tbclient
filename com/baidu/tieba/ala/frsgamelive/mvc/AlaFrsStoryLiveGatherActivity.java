@@ -26,35 +26,35 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
-import com.baidu.tieba.e66;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.x96;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.z96;
+import com.baidu.tieba.be6;
+import com.baidu.tieba.de6;
+import com.baidu.tieba.ia6;
+import com.baidu.tieba.u95;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveGatherActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public NavigationBar b;
     public TextView c;
-    public x96 d;
+    public be6 d;
     public AlaFrsStoryLiveGatherModel e;
     public String f;
     public String g;
     public AlaFrsStoryLiveGatherModel.b h;
-    public e66 i;
-    public y65.g j;
+    public ia6 i;
+    public u95.g j;
     public BdListView.p k;
-    public z96 l;
+    public de6 l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements AlaFrsStoryLiveGatherModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                     return;
                 }
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
-                alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369));
+                alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374));
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
                 alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), str, false);
             }
@@ -176,7 +176,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 this.a.d.o(this.a.e.j0());
                 if (ListUtils.getCount(this.a.e.i0()) == 0) {
                     AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
-                    alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369));
+                    alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070374));
                     AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
                     alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), this.a.getPageContext().getString(R.string.no_data_text), false);
                     return;
@@ -187,8 +187,8 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements e66 {
+    /* loaded from: classes5.dex */
+    public class d implements ia6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -211,18 +211,18 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.e66
+        @Override // com.baidu.tieba.ia6
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = this.a;
-                alaFrsStoryLiveGatherActivity.B1(alaFrsStoryLiveGatherActivity.getPageContext(), threadData);
+                alaFrsStoryLiveGatherActivity.A1(alaFrsStoryLiveGatherActivity.getPageContext(), threadData);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements y65.g {
+    /* loaded from: classes5.dex */
+    public class e implements u95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -245,7 +245,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.y65.g
+        @Override // com.baidu.tieba.u95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.e != null) {
@@ -254,7 +254,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,8 +299,8 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g implements z96 {
+    /* loaded from: classes5.dex */
+    public class g implements de6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -323,7 +323,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.z96
+        @Override // com.baidu.tieba.de6
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.e != null && this.a.e.l0() != i) {
@@ -367,7 +367,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    public void B1(TbPageContext<?> tbPageContext, ThreadData threadData) {
+    public void A1(TbPageContext<?> tbPageContext, ThreadData threadData) {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
@@ -410,7 +410,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b = navigationBar;
             navigationBar.setStatusBarVisibility(8);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            new LinearLayout.LayoutParams(-2, -2).setMargins(0, 0, ri.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            new LinearLayout.LayoutParams(-2, -2).setMargins(0, 0, vi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
             this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f029a), new b(this));
             if (!StringUtils.isNull(this.g)) {
                 string = this.g + " - 直播";
@@ -420,9 +420,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b.setCenterTextTitle(string);
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
-            x96 x96Var = new x96(getPageContext(), false, false, getUniqueId());
-            this.d = x96Var;
-            x96Var.j();
+            be6 be6Var = new be6(getPageContext(), false, false, getUniqueId());
+            this.d = be6Var;
+            be6Var.j();
             this.d.p(1);
             this.d.q(this.i);
             this.d.s(this.j);
@@ -453,9 +453,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            x96 x96Var = this.d;
-            if (x96Var != null) {
-                x96Var.l(TbadkCoreApplication.getInst().getSkinType());
+            be6 be6Var = this.d;
+            if (be6Var != null) {
+                be6Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

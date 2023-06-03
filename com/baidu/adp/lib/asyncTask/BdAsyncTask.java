@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fe;
-import com.baidu.tieba.ge;
+import com.baidu.tieba.je;
+import com.baidu.tieba.ke;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
@@ -31,11 +30,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final int MESSAGE_POST_RESULT = 1;
-    public static final fe sDefaultExecutor;
+    public static final je sDefaultExecutor;
     public static final e sHandler;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSelfExecute;
-    public final ge<Result> mFuture;
+    public final ke<Result> mFuture;
     public boolean mIsTimeout;
     public String mKey;
     public BdAsyncTaskParallel mParallel;
@@ -102,7 +101,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 }
             }
             PENDING = new BdAsyncTaskStatus("PENDING", 0);
-            RUNNING = new BdAsyncTaskStatus(TornadoLiteRuntime.STATE_RUNNING, 1);
+            RUNNING = new BdAsyncTaskStatus("RUNNING", 1);
             BdAsyncTaskStatus bdAsyncTaskStatus = new BdAsyncTaskStatus("FINISHED", 2);
             FINISHED = bdAsyncTaskStatus;
             $VALUES = new BdAsyncTaskStatus[]{PENDING, RUNNING, bdAsyncTaskStatus};
@@ -189,7 +188,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public class b extends ge<Result> {
+    public class b extends ke<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -216,7 +215,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             this.b = bdAsyncTask;
         }
 
-        @Override // com.baidu.tieba.ge
+        @Override // com.baidu.tieba.ke
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -385,7 +384,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 return;
             }
         }
-        sDefaultExecutor = fe.e();
+        sDefaultExecutor = je.e();
         sHandler = new e(Looper.getMainLooper());
     }
 

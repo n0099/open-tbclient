@@ -1,95 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.PopupWindow;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.hn2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nn2 extends PopupWindow {
+import java.io.File;
+/* loaded from: classes7.dex */
+public class nn2<T extends hn2> extends jm2<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String[] b;
-    public int c;
-    public e d;
-    public dm2 e;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-
-        void b(int i);
-
-        void c(String str);
-
-        void d();
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GridView a;
-        public final /* synthetic */ AdapterView.OnItemClickListener b;
+        public int a;
+        public String b;
 
-        /* loaded from: classes6.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    int intValue = ((Integer) view2.getTag()).intValue();
-                    b bVar = this.a;
-                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
-                }
-            }
-        }
-
-        public b(nn2 nn2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn2Var, gridView, onItemClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,233 +41,224 @@ public class nn2 extends PopupWindow {
                     return;
                 }
             }
-            this.a = gridView;
-            this.b = onItemClickListener;
+            this.a = 0;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static a d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int childCount = this.a.getChildCount();
-                if (childCount > 0) {
-                    this.a.setClickable(false);
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.a.getChildAt(i);
-                        childAt.setTag(Integer.valueOf(i));
-                        childAt.setOnClickListener(new a(this));
-                    }
-                    return;
-                }
-                this.a.setOnItemClickListener(this.b);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return a(0, "");
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn2 a;
-
-        public a(nn2 nn2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn2Var;
+            return (a) invokeV.objValue;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        public boolean c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && i >= 0 && i <= this.a.b.length) {
-                if (i == 11) {
-                    if (this.a.d != null) {
-                        this.a.d.d();
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.c(this.a.b[i]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn2 a;
-
-        public c(nn2 nn2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends dm2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn2 a;
-
-        public d(nn2 nn2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn2Var;
-        }
-
-        @Override // com.baidu.tieba.dm2, com.baidu.tieba.em2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
-                if (i == 4) {
-                    this.a.dismiss();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == 0) {
                     return true;
                 }
                 return false;
             }
-            return invokeIL.booleanValue;
+            return invokeV.booleanValue;
+        }
+
+        public static a a(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+                a aVar = new a();
+                aVar.a = i;
+                aVar.b = str;
+                return aVar;
+            }
+            return (a) invokeIL.objValue;
+        }
+
+        public static a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return a(1, str);
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008151, "Lcom/baidu/tieba/nn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948008151, "Lcom/baidu/tieba/nn2;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
+
+    @Override // com.baidu.tieba.jm2
+    public File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new File(super.a(), "remote");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            k("0");
+            j(0L);
+        }
+    }
+
+    @NonNull
+    public ExtensionCore f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            long g = g();
+            extensionCore.extensionCoreVersionCode = g;
+            extensionCore.extensionCoreVersionName = h();
+            extensionCore.extensionCorePath = b(g).getPath();
+            extensionCore.extensionCoreType = 1;
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return mk3.a().getLong(this.a.b(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return mk3.a().getString(this.a.e(), "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nn2(@NonNull Activity activity, int i, @NonNull e eVar) {
-        super(activity);
+    public nn2(@NonNull T t) {
+        super(t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hn2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new String[12];
-        this.e = new d(this);
-        this.d = eVar;
-        c(i);
-        d(activity);
     }
 
-    public final void c(int i) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 0;
-            while (i2 < 9) {
-                int i3 = i2 + 1;
-                this.b[i2] = String.valueOf(i3);
-                i2 = i3;
-            }
-            if (i == 1) {
-                this.b[9] = "X";
-            } else if (i == 0) {
-                this.b[9] = "";
-            } else if (i == 2) {
-                this.b[9] = ".";
-            }
-            this.b[10] = "0";
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        cs4.k(str);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            mk3.a().putLong(this.a.b(), j);
         }
     }
 
-    public final void d(@NonNull Activity activity) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00ba, (ViewGroup) null);
-            this.c = activity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911f7);
-            gridView.setAdapter((ListAdapter) new mn2(activity, this.b));
-            an3.a0(new b(this, gridView, new a(this)));
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090717);
-            imageView.setOnClickListener(new c(this));
-            imageView.setClickable(true);
-            setContentView(linearLayout);
-            setWidth(-1);
-            setHeight(this.c);
-            setBackgroundDrawable(new BitmapDrawable());
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            mk3.a().putString(this.a.e(), str);
         }
     }
 
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
+    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/en2;>(TT;)Ljava/lang/Exception; */
+    public Exception e(@NonNull en2 en2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.dismiss();
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).H0(this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, en2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote");
             }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.a();
+            if (TextUtils.isEmpty(en2Var.c)) {
+                if (b) {
+                    Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
+                }
+                return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
             }
+            a i = i(en2Var);
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i);
+            }
+            d(en2Var.c);
+            if (i.c()) {
+                return null;
+            }
+            return new Exception("ExtCore-RemoteControl doUpdate: failed by " + i.toString());
         }
+        return (Exception) invokeL.objValue;
     }
 
-    public void e() {
+    public final a i(@NonNull en2 en2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !isShowing()) {
-            showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).v0(this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, en2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + en2Var.a + " ,filePath: " + en2Var.c + " ,sign:" + en2Var.d);
             }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.b(this.c);
+            long j = en2Var.b;
+            if (j == 0) {
+                return a.b("invalid version code : " + en2Var.a);
+            } else if (!lp3.a(new File(en2Var.c), en2Var.d)) {
+                return a.b("sign failed.");
+            } else {
+                if (!cs4.U(en2Var.c, b(j).getPath())) {
+                    return a.b("unzip bundle failed.");
+                }
+                pn2.b(a(), g(), j);
+                j(j);
+                k(en2Var.a);
+                if (b) {
+                    Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
+                }
+                return a.d();
             }
         }
+        return (a) invokeL.objValue;
     }
 }

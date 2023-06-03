@@ -11,6 +11,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes9.dex */
@@ -190,20 +191,15 @@ public final class JsonTreeReader extends JsonReader {
         int i = this.stackSize;
         Object[] objArr = this.stack;
         if (i == objArr.length) {
-            Object[] objArr2 = new Object[i * 2];
-            int[] iArr = new int[i * 2];
-            String[] strArr = new String[i * 2];
-            System.arraycopy(objArr, 0, objArr2, 0, i);
-            System.arraycopy(this.pathIndices, 0, iArr, 0, this.stackSize);
-            System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
-            this.stack = objArr2;
-            this.pathIndices = iArr;
-            this.pathNames = strArr;
+            int i2 = i * 2;
+            this.stack = Arrays.copyOf(objArr, i2);
+            this.pathIndices = Arrays.copyOf(this.pathIndices, i2);
+            this.pathNames = (String[]) Arrays.copyOf(this.pathNames, i2);
         }
-        Object[] objArr3 = this.stack;
-        int i2 = this.stackSize;
-        this.stackSize = i2 + 1;
-        objArr3[i2] = obj;
+        Object[] objArr2 = this.stack;
+        int i3 = this.stackSize;
+        this.stackSize = i3 + 1;
+        objArr2[i3] = obj;
     }
 
     @Override // com.google.gson.stream.JsonReader

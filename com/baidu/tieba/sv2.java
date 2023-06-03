@@ -1,6 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.jc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,33 +22,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import okhttp3.Interceptor;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class sv2 extends w42 {
+public class sv2 implements pi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zv2 j;
-    public double k;
-    public List<aw2> l;
-    public List<cw2> m;
-    public List<xv2> n;
-    public List<yv2> o;
-    public List<zv2> p;
-    public List<bw2> q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public String y;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sv2() {
-        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,90 +38,168 @@ public class sv2 extends w42 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.k = 16.0d;
-        this.r = true;
-        this.y = "";
-    }
-
-    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            String str = "markers";
-            if (jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
-                zv2 zv2Var = new zv2();
-                this.j = zv2Var;
-                zv2Var.a(jSONObject);
-            }
-            if (jSONObject.has("scale")) {
-                this.k = jSONObject.optDouble("scale", 16.0d);
-            }
-            jSONObject.optString("subkey", "");
-            jSONObject.optString("layerStyle", "");
-            this.y = jSONObject.optString("cb");
-            this.r = jSONObject.optBoolean("showLocation", true);
-            this.s = jSONObject.optBoolean("enableZoom", true);
-            this.t = jSONObject.optBoolean("enableScroll", true);
-            this.u = jSONObject.optBoolean("enableRotate", false);
-            this.v = jSONObject.optBoolean("showCompass", false);
-            this.w = jSONObject.optBoolean("enableOverlooking", false);
-            this.x = jSONObject.optBoolean("enable3D", false);
-            try {
-                if (!jSONObject.has("markers")) {
-                    str = "covers";
-                }
-                this.l = h(jSONObject, str, aw2.class);
-                this.n = h(jSONObject, "circles", xv2.class);
-                this.m = h(jSONObject, "polyline", cw2.class);
-                this.o = h(jSONObject, "controls", yv2.class);
-                this.p = h(jSONObject, "includePoints", zv2.class);
-                this.q = h(jSONObject, "polygons", bw2.class);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    public final <T extends fz2> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
-        InterceptResult invokeLLL;
-        int length;
+    @Override // com.baidu.tieba.pi4
+    public CookieManager f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
-            if (jSONObject.has(str)) {
-                JSONArray optJSONArray = jSONObject.optJSONArray(str);
-                if (optJSONArray == null) {
-                    length = 0;
-                } else {
-                    length = optJSONArray.length();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return fv2.q().a();
+        }
+        return (CookieManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return jc3.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public int getReadTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return jc3.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String g = SwanAppNetworkUtils.g();
+            if (TextUtils.isEmpty(g) && cj4.g().c()) {
+                return xn3.a();
+            }
+            return g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            fv2.g0().getSwitch("bbasm_framework_request_with_ua", true);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName()) && z53.c()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return is1.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (w53.a() == 2) {
+                return 128;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public List<Interceptor> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new q33());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return jc3.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    public final jc3.a a() {
+        InterceptResult invokeV;
+        jc3.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 == null) {
+                if (is1.a) {
+                    Log.e("SwanNetworkImpl", "swanapp is null");
                 }
-                if (length > 0) {
-                    ArrayList arrayList = new ArrayList(length);
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            T newInstance = cls.newInstance();
-                            newInstance.a(optJSONObject);
-                            if (newInstance.isValid()) {
-                                arrayList.add(newInstance);
-                            }
-                        }
-                    }
-                    return arrayList;
-                }
+                return null;
+            }
+            SwanAppConfigData Q = b0.Q();
+            if (Q != null && (aVar = Q.h) != null) {
+                return aVar;
+            }
+            if (is1.a) {
+                Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
             }
             return null;
         }
-        return (List) invokeLLL.objValue;
+        return (jc3.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public void j(String str, HttpRequestBuilder httpRequestBuilder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, httpRequestBuilder) == null) && u82.u(str)) {
+            httpRequestBuilder.setHeader("x-u-id", ks4.b(AppRuntime.getAppContext()).a());
+            try {
+                httpRequestBuilder.setHeader("x-c2-id", fv2.h0().i(AppRuntime.getAppContext()));
+            } catch (IllegalArgumentException unused) {
+            }
+        }
     }
 }

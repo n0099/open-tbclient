@@ -3,6 +3,7 @@ package com.baidu.nadcore.connect;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 /* loaded from: classes3.dex */
 public class NetWorkUtils {
     public static NetworkInfo a(Context context) {
@@ -44,7 +45,7 @@ public class NetWorkUtils {
         _3G("3g"),
         _4G("4g"),
         _5G("5g"),
-        UNKOWN("unknow");
+        UNKOWN(DownloadStatisticConstants.UBC_VALUE_UNKNOW);
         
         public final String type;
 

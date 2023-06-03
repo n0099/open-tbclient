@@ -20,8 +20,8 @@ import android.webkit.WebView;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -341,7 +341,7 @@ public class M {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealMetrics(displayMetrics);
@@ -612,7 +612,7 @@ public class M {
             if (f(sb3) || f(str)) {
                 str2 = "";
             } else {
-                byte[] bytes = sb3.getBytes(IMAudioTransRequest.CHARSET);
+                byte[] bytes = sb3.getBytes("utf-8");
                 byte[] bArr = new byte[16];
                 for (int i = 0; i < bytes.length && i < 16; i++) {
                     bArr[i] = bytes[i];
@@ -620,7 +620,7 @@ public class M {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
                 Cipher cipher = Cipher.getInstance("AES");
                 cipher.init(1, secretKeySpec);
-                str2 = Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
+                str2 = Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 2);
             }
             if (!TextUtils.isEmpty(str2)) {
                 return "KL_" + str2;
@@ -663,7 +663,7 @@ public class M {
                 int i2 = i * 2;
                 bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
             }
-            return new String(cipher.doFinal(bArr), IMAudioTransRequest.CHARSET);
+            return new String(cipher.doFinal(bArr), "utf-8");
         }
         return (String) invokeL.objValue;
     }

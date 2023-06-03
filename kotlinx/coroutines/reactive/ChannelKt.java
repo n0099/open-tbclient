@@ -4,7 +4,7 @@ import androidx.exifinterface.media.ExifInterface;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
-import kotlin.ReplaceWith;
+import kotlin.PublishedApi;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -15,16 +15,16 @@ import kotlinx.coroutines.channels.ChannelIterator;
 import kotlinx.coroutines.channels.ChannelsKt;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import org.reactivestreams.Publisher;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a7\u0010\u0005\u001a\u00020\u0003\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00030\u0002H\u0086Hø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001a7\u0010\u0007\u001a\u00020\u0003\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00030\u0002H\u0087Hø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\u0006\u001a/\u0010\u000b\u001a\b\u0012\u0004\u0012\u00028\u00000\n\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\b\b\u0002\u0010\t\u001a\u00020\bH\u0007¢\u0006\u0004\b\u000b\u0010\f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\r"}, d2 = {ExifInterface.GPS_DIRECTION_TRUE, "Lorg/reactivestreams/Publisher;", "Lkotlin/Function1;", "", "action", "collect", "(Lorg/reactivestreams/Publisher;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "consumeEach", "", "request", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "(Lorg/reactivestreams/Publisher;I)Lkotlinx/coroutines/channels/ReceiveChannel;", "kotlinx-coroutines-reactive"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000$\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u001a5\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00032\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u00020\u00010\u0005H\u0086Hø\u0001\u0000¢\u0006\u0002\u0010\u0006\u001a(\u0010\u0007\u001a\b\u0012\u0004\u0012\u0002H\u00020\b\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00032\b\b\u0002\u0010\t\u001a\u00020\nH\u0007\u001a(\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\u00020\b\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00032\b\b\u0002\u0010\t\u001a\u00020\nH\u0001\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\f"}, d2 = {"collect", "", ExifInterface.GPS_DIRECTION_TRUE, "Lorg/reactivestreams/Publisher;", "action", "Lkotlin/Function1;", "(Lorg/reactivestreams/Publisher;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "openSubscription", "Lkotlinx/coroutines/channels/ReceiveChannel;", "request", "", "toChannel", "kotlinx-coroutines-reactive"}, k = 2, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class ChannelKt {
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0082 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x008f A[Catch: all -> 0x004d, TryCatch #2 {all -> 0x004d, blocks: (B:12:0x0042, B:25:0x0087, B:27:0x008f, B:21:0x006c, B:28:0x0099), top: B:41:0x0042 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0099 A[Catch: all -> 0x004d, TRY_LEAVE, TryCatch #2 {all -> 0x004d, blocks: (B:12:0x0042, B:25:0x0087, B:27:0x008f, B:21:0x006c, B:28:0x0099), top: B:41:0x0042 }] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0083 -> B:25:0x0087). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0062 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x006f A[Catch: all -> 0x0086, TRY_LEAVE, TryCatch #1 {all -> 0x0086, blocks: (B:26:0x0067, B:28:0x006f), top: B:44:0x0067 }] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x007a  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0063 -> B:14:0x0038). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -32,296 +32,140 @@ public final class ChannelKt {
         ChannelKt$collect$1 channelKt$collect$1;
         int i;
         ReceiveChannel receiveChannel;
-        ReceiveChannel receiveChannel2;
         Throwable th;
-        Function1<? super T, Unit> function12;
-        Publisher<T> publisher2;
-        ChannelIterator channelIterator;
-        Object obj;
-        ChannelKt$collect$1 channelKt$collect$12;
-        ReceiveChannel receiveChannel3;
+        ReceiveChannel receiveChannel2;
+        ChannelIterator it;
         Object hasNext;
-        if (continuation instanceof ChannelKt$collect$1) {
-            channelKt$collect$1 = (ChannelKt$collect$1) continuation;
-            int i2 = channelKt$collect$1.label;
-            if ((i2 & Integer.MIN_VALUE) != 0) {
-                channelKt$collect$1.label = i2 - Integer.MIN_VALUE;
-                Object obj2 = channelKt$collect$1.result;
-                Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                i = channelKt$collect$1.label;
-                if (i == 0) {
-                    if (i == 1) {
-                        channelIterator = (ChannelIterator) channelKt$collect$1.L$6;
-                        ReceiveChannel receiveChannel4 = (ReceiveChannel) channelKt$collect$1.L$5;
-                        Throwable th2 = (Throwable) channelKt$collect$1.L$4;
-                        receiveChannel = (ReceiveChannel) channelKt$collect$1.L$3;
-                        ReceiveChannel receiveChannel5 = (ReceiveChannel) channelKt$collect$1.L$2;
-                        Function1<? super T, Unit> function13 = (Function1) channelKt$collect$1.L$1;
-                        Publisher<T> publisher3 = (Publisher) channelKt$collect$1.L$0;
-                        try {
-                            ResultKt.throwOnFailure(obj2);
-                            ChannelKt$collect$1 channelKt$collect$13 = channelKt$collect$1;
-                            receiveChannel3 = receiveChannel4;
-                            publisher2 = publisher3;
-                            ReceiveChannel receiveChannel6 = receiveChannel5;
-                            th = th2;
-                            obj = coroutine_suspended;
-                            channelKt$collect$12 = channelKt$collect$13;
-                            if (!((Boolean) obj2).booleanValue()) {
-                                function13.invoke((Object) channelIterator.next());
-                                function12 = function13;
-                                receiveChannel2 = receiveChannel6;
-                                channelKt$collect$12.L$0 = publisher2;
-                                channelKt$collect$12.L$1 = function12;
-                                channelKt$collect$12.L$2 = receiveChannel2;
-                                channelKt$collect$12.L$3 = receiveChannel;
-                                channelKt$collect$12.L$4 = th;
-                                channelKt$collect$12.L$5 = receiveChannel3;
-                                channelKt$collect$12.L$6 = channelIterator;
-                                channelKt$collect$12.label = 1;
-                                hasNext = channelIterator.hasNext(channelKt$collect$12);
-                                if (hasNext != obj) {
-                                    return obj;
-                                }
-                                ReceiveChannel receiveChannel7 = receiveChannel2;
-                                function13 = function12;
-                                obj2 = hasNext;
-                                receiveChannel6 = receiveChannel7;
-                                if (!((Boolean) obj2).booleanValue()) {
-                                    return Unit.INSTANCE;
-                                }
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
+        try {
+            if (continuation instanceof ChannelKt$collect$1) {
+                channelKt$collect$1 = (ChannelKt$collect$1) continuation;
+                int i2 = channelKt$collect$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    channelKt$collect$1.label = i2 - Integer.MIN_VALUE;
+                    Object obj = channelKt$collect$1.result;
+                    Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                    i = channelKt$collect$1.label;
+                    if (i == 0) {
+                        if (i == 1) {
+                            it = (ChannelIterator) channelKt$collect$1.L$2;
+                            receiveChannel = (ReceiveChannel) channelKt$collect$1.L$1;
+                            Function1<? super T, Unit> function12 = (Function1) channelKt$collect$1.L$0;
                             try {
-                                throw th;
-                            } finally {
-                                InlineMarker.finallyStart(1);
-                                ChannelsKt.cancelConsumed(receiveChannel, th);
-                                InlineMarker.finallyEnd(1);
+                                ResultKt.throwOnFailure(obj);
+                                ChannelKt$collect$1 channelKt$collect$12 = channelKt$collect$1;
+                                ReceiveChannel receiveChannel3 = receiveChannel;
+                                function1 = function12;
+                                Object obj2 = coroutine_suspended;
+                                ChannelKt$collect$1 channelKt$collect$13 = channelKt$collect$12;
+                                try {
+                                    if (!((Boolean) obj).booleanValue()) {
+                                        try {
+                                            function1.invoke((Object) it.next());
+                                            channelKt$collect$1.L$0 = function1;
+                                            channelKt$collect$1.L$1 = receiveChannel2;
+                                            channelKt$collect$1.L$2 = it;
+                                            channelKt$collect$1.label = 1;
+                                            hasNext = it.hasNext(channelKt$collect$1);
+                                            if (hasNext != coroutine_suspended) {
+                                                return coroutine_suspended;
+                                            }
+                                            channelKt$collect$12 = channelKt$collect$1;
+                                            receiveChannel3 = receiveChannel2;
+                                            obj = hasNext;
+                                            Object obj22 = coroutine_suspended;
+                                            ChannelKt$collect$1 channelKt$collect$132 = channelKt$collect$12;
+                                            if (!((Boolean) obj).booleanValue()) {
+                                                InlineMarker.finallyStart(1);
+                                                ChannelsKt.cancelConsumed(receiveChannel3, null);
+                                                InlineMarker.finallyEnd(1);
+                                                return Unit.INSTANCE;
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            receiveChannel = receiveChannel2;
+                                        }
+                                        receiveChannel2 = receiveChannel3;
+                                        channelKt$collect$1 = channelKt$collect$132;
+                                        coroutine_suspended = obj22;
+                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    receiveChannel = receiveChannel3;
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
                             }
+                        } else {
+                            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                         }
                     } else {
-                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                    }
-                } else {
-                    ResultKt.throwOnFailure(obj2);
-                    ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
-                    try {
-                        ChannelIterator it = openSubscription$default.iterator();
-                        receiveChannel2 = openSubscription$default;
-                        th = null;
-                        function12 = function1;
-                        receiveChannel = receiveChannel2;
-                        publisher2 = publisher;
-                        channelIterator = it;
-                        obj = coroutine_suspended;
-                        channelKt$collect$12 = channelKt$collect$1;
-                        receiveChannel3 = receiveChannel;
-                        channelKt$collect$12.L$0 = publisher2;
-                        channelKt$collect$12.L$1 = function12;
-                        channelKt$collect$12.L$2 = receiveChannel2;
-                        channelKt$collect$12.L$3 = receiveChannel;
-                        channelKt$collect$12.L$4 = th;
-                        channelKt$collect$12.L$5 = receiveChannel3;
-                        channelKt$collect$12.L$6 = channelIterator;
-                        channelKt$collect$12.label = 1;
-                        hasNext = channelIterator.hasNext(channelKt$collect$12);
-                        if (hasNext != obj) {
+                        ResultKt.throwOnFailure(obj);
+                        ReceiveChannel channel$default = toChannel$default(publisher, 0, 1, null);
+                        try {
+                            receiveChannel2 = channel$default;
+                            it = channel$default.iterator();
+                            channelKt$collect$1.L$0 = function1;
+                            channelKt$collect$1.L$1 = receiveChannel2;
+                            channelKt$collect$1.L$2 = it;
+                            channelKt$collect$1.label = 1;
+                            hasNext = it.hasNext(channelKt$collect$1);
+                            if (hasNext != coroutine_suspended) {
+                            }
+                        } catch (Throwable th5) {
+                            receiveChannel = channel$default;
+                            th = th5;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        receiveChannel = openSubscription$default;
-                        throw th;
                     }
+                    throw th;
                 }
             }
+            throw th;
+        } catch (Throwable th6) {
+            InlineMarker.finallyStart(1);
+            ChannelsKt.cancelConsumed(receiveChannel, th);
+            InlineMarker.finallyEnd(1);
+            throw th6;
         }
         channelKt$collect$1 = new ChannelKt$collect$1(continuation);
-        Object obj22 = channelKt$collect$1.result;
+        Object obj3 = channelKt$collect$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         i = channelKt$collect$1.label;
         if (i == 0) {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0082 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x008f A[Catch: all -> 0x004d, TryCatch #2 {all -> 0x004d, blocks: (B:12:0x0042, B:25:0x0087, B:27:0x008f, B:21:0x006c, B:28:0x0099), top: B:41:0x0042 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0099 A[Catch: all -> 0x004d, TRY_LEAVE, TryCatch #2 {all -> 0x004d, blocks: (B:12:0x0042, B:25:0x0087, B:27:0x008f, B:21:0x006c, B:28:0x0099), top: B:41:0x0042 }] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0083 -> B:25:0x0087). Please submit an issue!!! */
-    @Deprecated(level = DeprecationLevel.ERROR, message = "Use collect instead", replaceWith = @ReplaceWith(expression = "this.collect(action)", imports = {}))
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final <T> Object consumeEach(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
-        ChannelKt$consumeEach$1 channelKt$consumeEach$1;
-        int i;
-        ReceiveChannel receiveChannel;
-        ReceiveChannel receiveChannel2;
-        Throwable th;
-        Function1<? super T, Unit> function12;
-        Publisher<T> publisher2;
-        ChannelIterator channelIterator;
-        Object obj;
-        ChannelKt$consumeEach$1 channelKt$consumeEach$12;
-        ReceiveChannel receiveChannel3;
-        Object hasNext;
-        if (continuation instanceof ChannelKt$consumeEach$1) {
-            channelKt$consumeEach$1 = (ChannelKt$consumeEach$1) continuation;
-            int i2 = channelKt$consumeEach$1.label;
-            if ((i2 & Integer.MIN_VALUE) != 0) {
-                channelKt$consumeEach$1.label = i2 - Integer.MIN_VALUE;
-                Object obj2 = channelKt$consumeEach$1.result;
-                Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                i = channelKt$consumeEach$1.label;
-                if (i == 0) {
-                    if (i == 1) {
-                        channelIterator = (ChannelIterator) channelKt$consumeEach$1.L$6;
-                        ReceiveChannel receiveChannel4 = (ReceiveChannel) channelKt$consumeEach$1.L$5;
-                        Throwable th2 = (Throwable) channelKt$consumeEach$1.L$4;
-                        receiveChannel = (ReceiveChannel) channelKt$consumeEach$1.L$3;
-                        ReceiveChannel receiveChannel5 = (ReceiveChannel) channelKt$consumeEach$1.L$2;
-                        Function1<? super T, Unit> function13 = (Function1) channelKt$consumeEach$1.L$1;
-                        Publisher<T> publisher3 = (Publisher) channelKt$consumeEach$1.L$0;
-                        try {
-                            ResultKt.throwOnFailure(obj2);
-                            ChannelKt$consumeEach$1 channelKt$consumeEach$13 = channelKt$consumeEach$1;
-                            receiveChannel3 = receiveChannel4;
-                            publisher2 = publisher3;
-                            ReceiveChannel receiveChannel6 = receiveChannel5;
-                            th = th2;
-                            obj = coroutine_suspended;
-                            channelKt$consumeEach$12 = channelKt$consumeEach$13;
-                            if (!((Boolean) obj2).booleanValue()) {
-                                function13.invoke((Object) channelIterator.next());
-                                function12 = function13;
-                                receiveChannel2 = receiveChannel6;
-                                channelKt$consumeEach$12.L$0 = publisher2;
-                                channelKt$consumeEach$12.L$1 = function12;
-                                channelKt$consumeEach$12.L$2 = receiveChannel2;
-                                channelKt$consumeEach$12.L$3 = receiveChannel;
-                                channelKt$consumeEach$12.L$4 = th;
-                                channelKt$consumeEach$12.L$5 = receiveChannel3;
-                                channelKt$consumeEach$12.L$6 = channelIterator;
-                                channelKt$consumeEach$12.label = 1;
-                                hasNext = channelIterator.hasNext(channelKt$consumeEach$12);
-                                if (hasNext != obj) {
-                                    return obj;
-                                }
-                                ReceiveChannel receiveChannel7 = receiveChannel2;
-                                function13 = function12;
-                                obj2 = hasNext;
-                                receiveChannel6 = receiveChannel7;
-                                if (!((Boolean) obj2).booleanValue()) {
-                                    return Unit.INSTANCE;
-                                }
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            try {
-                                throw th;
-                            } finally {
-                                InlineMarker.finallyStart(1);
-                                ChannelsKt.cancelConsumed(receiveChannel, th);
-                                InlineMarker.finallyEnd(1);
-                            }
-                        }
-                    } else {
-                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                    }
-                } else {
-                    ResultKt.throwOnFailure(obj2);
-                    ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
-                    try {
-                        ChannelIterator it = openSubscription$default.iterator();
-                        receiveChannel2 = openSubscription$default;
-                        th = null;
-                        function12 = function1;
-                        receiveChannel = receiveChannel2;
-                        publisher2 = publisher;
-                        channelIterator = it;
-                        obj = coroutine_suspended;
-                        channelKt$consumeEach$12 = channelKt$consumeEach$1;
-                        receiveChannel3 = receiveChannel;
-                        channelKt$consumeEach$12.L$0 = publisher2;
-                        channelKt$consumeEach$12.L$1 = function12;
-                        channelKt$consumeEach$12.L$2 = receiveChannel2;
-                        channelKt$consumeEach$12.L$3 = receiveChannel;
-                        channelKt$consumeEach$12.L$4 = th;
-                        channelKt$consumeEach$12.L$5 = receiveChannel3;
-                        channelKt$consumeEach$12.L$6 = channelIterator;
-                        channelKt$consumeEach$12.label = 1;
-                        hasNext = channelIterator.hasNext(channelKt$consumeEach$12);
-                        if (hasNext != obj) {
-                        }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        receiveChannel = openSubscription$default;
-                        throw th;
-                    }
-                }
-            }
-        }
-        channelKt$consumeEach$1 = new ChannelKt$consumeEach$1(continuation);
-        Object obj22 = channelKt$consumeEach$1.result;
-        Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i = channelKt$consumeEach$1.label;
-        if (i == 0) {
-        }
-    }
-
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Object collect$$forInline(Publisher publisher, Function1 function1, Continuation continuation) {
-        ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
+    public static final <T> Object collect$$forInline(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
+        ReceiveChannel channel$default = toChannel$default(publisher, 0, 1, null);
         try {
-            ChannelIterator it = openSubscription$default.iterator();
+            ChannelIterator it = channel$default.iterator();
             while (true) {
+                InlineMarker.mark(3);
                 InlineMarker.mark(0);
-                Object hasNext = it.hasNext(continuation);
+                Object hasNext = it.hasNext(null);
                 InlineMarker.mark(1);
                 if (((Boolean) hasNext).booleanValue()) {
-                    function1.invoke(it.next());
+                    function1.invoke((Object) it.next());
                 } else {
-                    Unit unit = Unit.INSTANCE;
                     InlineMarker.finallyStart(1);
-                    ChannelsKt.cancelConsumed(openSubscription$default, null);
+                    ChannelsKt.cancelConsumed(channel$default, null);
                     InlineMarker.finallyEnd(1);
-                    return unit;
+                    return Unit.INSTANCE;
                 }
             }
         } finally {
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Deprecated(level = DeprecationLevel.ERROR, message = "Use collect instead", replaceWith = @ReplaceWith(expression = "this.collect(action)", imports = {}))
-    public static final Object consumeEach$$forInline(Publisher publisher, Function1 function1, Continuation continuation) {
-        ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
-        try {
-            ChannelIterator it = openSubscription$default.iterator();
-            while (true) {
-                InlineMarker.mark(0);
-                Object hasNext = it.hasNext(continuation);
-                InlineMarker.mark(1);
-                if (((Boolean) hasNext).booleanValue()) {
-                    function1.invoke(it.next());
-                } else {
-                    Unit unit = Unit.INSTANCE;
-                    InlineMarker.finallyStart(1);
-                    ChannelsKt.cancelConsumed(openSubscription$default, null);
-                    InlineMarker.finallyEnd(1);
-                    return unit;
-                }
-            }
-        } finally {
-        }
+    @Deprecated(level = DeprecationLevel.HIDDEN, message = "Transforming publisher to channel is deprecated, use asFlow() instead")
+    public static final /* synthetic */ ReceiveChannel openSubscription(Publisher publisher, int i) {
+        SubscriptionChannel subscriptionChannel = new SubscriptionChannel(i);
+        publisher.subscribe(subscriptionChannel);
+        return subscriptionChannel;
     }
 
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Transforming publisher to channel is deprecated, use asFlow() instead")
-    public static final <T> ReceiveChannel<T> openSubscription(Publisher<T> publisher, int i) {
+    @PublishedApi
+    public static final <T> ReceiveChannel<T> toChannel(Publisher<T> publisher, int i) {
         SubscriptionChannel subscriptionChannel = new SubscriptionChannel(i);
         publisher.subscribe(subscriptionChannel);
         return subscriptionChannel;
@@ -332,5 +176,12 @@ public final class ChannelKt {
             i = 1;
         }
         return openSubscription(publisher, i);
+    }
+
+    public static /* synthetic */ ReceiveChannel toChannel$default(Publisher publisher, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 1;
+        }
+        return toChannel(publisher, i);
     }
 }

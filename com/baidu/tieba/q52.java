@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public final class q52 extends n42 {
+public class q52 extends e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public Rect a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q52() {
-        super("input", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,38 +22,38 @@ public final class q52 extends n42 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.n42, com.baidu.tieba.s42, com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    @Override // com.baidu.tieba.e52
+    public void a(f52 f52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f52Var, canvas) == null) && this.a != null) {
+            int alpha = f52Var.b.getAlpha();
+            f52Var.c(f52Var.b);
+            canvas.drawRect(this.a, f52Var.b);
+            f52Var.b.setAlpha(alpha);
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new mz2();
+    }
+
+    @Override // com.baidu.tieba.e52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = pp3.g((float) jSONArray.optDouble(0));
+                    int g2 = pp3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, pp3.g((float) jSONArray.optDouble(2)) + g, pp3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (is1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
     }
 }

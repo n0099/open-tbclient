@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.oy9;
-import com.baidu.tieba.rn5;
+import com.baidu.tieba.a5a;
+import com.baidu.tieba.f4a;
+import com.baidu.tieba.h4a;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
-import com.baidu.tieba.tx9;
-import com.baidu.tieba.vx9;
-import com.baidu.tieba.y65;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.u95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,13 +24,13 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public vx9 c;
-    public tx9 d;
+    public h4a c;
+    public f4a d;
     public BackgroundListModel.c e;
     public BdListView.p f;
-    public final y65.g g;
+    public final u95.g g;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.on5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.qr5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, oy9 oy9Var, List<DressItemData> list) {
+        public void a(int i, String str, a5a a5aVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, oy9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, a5aVar, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
@@ -73,7 +73,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     this.a.c.h();
                     return;
                 }
-                this.a.c.i(oy9Var, list, this.a.b.n0());
+                this.a.c.i(a5aVar, list, this.a.b.n0());
             }
         }
     }
@@ -112,7 +112,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     /* loaded from: classes7.dex */
-    public class c implements y65.g {
+    public class c implements u95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundListActivity a;
@@ -135,7 +135,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             this.a = backgroundListActivity;
         }
 
-        @Override // com.baidu.tieba.y65.g
+        @Override // com.baidu.tieba.u95.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.b != null) {
@@ -180,25 +180,25 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            vx9 vx9Var = this.c;
-            if (vx9Var != null) {
-                vx9Var.d();
+            h4a h4aVar = this.c;
+            if (h4aVar != null) {
+                h4aVar.d();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public rn5 getPageStayDurationItem() {
+    public tr5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            rn5 pageStayDurationItem = super.getPageStayDurationItem();
+            tr5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (rn5) invokeV.objValue;
+        return (tr5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -215,10 +215,10 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        vx9 vx9Var;
+        h4a h4aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (vx9Var = this.c) != null) {
-            showLoadingView(vx9Var.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (h4aVar = this.c) != null) {
+            showLoadingView(h4aVar.c());
             this.b.loadData();
         }
     }
@@ -242,12 +242,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.p0(this.e);
-            tx9 tx9Var = new tx9(this.a, this.b.getUniqueId());
-            this.d = tx9Var;
-            tx9Var.c(0);
-            vx9 vx9Var = new vx9(this, this.d);
-            this.c = vx9Var;
-            vx9Var.g(this.f, this.g);
+            f4a f4aVar = new f4a(this.a, this.b.getUniqueId());
+            this.d = f4aVar;
+            f4aVar.c(0);
+            h4a h4aVar = new h4a(this, this.d);
+            this.c = h4aVar;
+            h4aVar.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }

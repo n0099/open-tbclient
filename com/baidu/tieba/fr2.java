@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class fr2 extends an2<rr2> {
+public class fr2 extends sp2<js2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.an2
+    @Override // com.baidu.tieba.sp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUseFreeFlow" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableRemoteMirror" : (String) invokeV.objValue;
     }
 
     public fr2() {
@@ -36,17 +36,17 @@ public class fr2 extends an2<rr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
+    @Override // com.baidu.tieba.sp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull js2 js2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
-            boolean z = true;
-            if (command.arg1 != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, js2Var) == null) {
+            String str = command.what;
+            d(js2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                js2Var.x(((Boolean) obj).booleanValue());
             }
-            rr2Var.B(z);
-            d(rr2Var, command.what, null, false);
         }
     }
 }

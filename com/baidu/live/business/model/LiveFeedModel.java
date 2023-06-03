@@ -9,10 +9,11 @@ import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.model.data.LiveTabWrapData;
 import com.baidu.live.business.util.GrParasmUtil;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.vb0;
-import com.baidu.tieba.w90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.ed0;
+import com.baidu.tieba.fb0;
+import com.baidu.tieba.fd0;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
@@ -98,7 +99,7 @@ public class LiveFeedModel implements ILiveFeedModel {
 
     private void realReq(final String str, String str2, final int i, String str3, String str4, String str5, int i2, String str6, List<String> list, final ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         HashMap hashMap = new HashMap();
-        hashMap.put("resource", str);
+        hashMap.put(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE, str);
         hashMap.put("scene", this.mParamScene);
         if (str2 == null) {
             str2 = "";
@@ -112,16 +113,16 @@ public class LiveFeedModel implements ILiveFeedModel {
         hashMap.put("refresh_index", String.valueOf(i2));
         hashMap.put("start_time", System.currentTimeMillis() + "");
         hashMap.put("source", this.mSource);
-        wb0.f(FEED_PAGE_URL, hashMap, new vb0<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedModel.1
+        fd0.f(FEED_PAGE_URL, hashMap, new ed0<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedModel.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-            @Override // com.baidu.tieba.vb0
+            @Override // com.baidu.tieba.ed0
             public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list2) {
                 onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list2);
             }
 
             /* JADX WARN: Can't wrap try/catch for region: R(11:1|(2:3|(3:42|(1:44)|45)(3:6|(1:8)|9))(3:46|(1:48)|49)|10|(3:12|(9:36|37|38|16|(2:(1:34)(1:25)|26)(1:35)|27|28|29|30)|14)(1:41)|15|16|(0)(0)|27|28|29|30) */
-            /* JADX WARN: Removed duplicated region for block: B:30:0x00b2  */
-            /* JADX WARN: Removed duplicated region for block: B:40:0x00ca  */
+            /* JADX WARN: Removed duplicated region for block: B:30:0x00b0  */
+            /* JADX WARN: Removed duplicated region for block: B:40:0x00c8  */
             /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -170,7 +171,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                     str8 = "网络不给力，请稍后重试";
                     i3 = -100;
                 }
-                String n = w90.n(LiveFeedModel.this.mPage);
+                String n = fb0.n(LiveFeedModel.this.mPage);
                 if (map == null) {
                     str9 = "";
                     str10 = str9;
@@ -179,7 +180,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                 } else {
                     String str16 = map.get("tab");
                     String str17 = map.get("subtab");
-                    str10 = map.get("resource");
+                    str10 = map.get(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE);
                     String str18 = map.get("session_id");
                     if (map.containsKey("start_time")) {
                         try {
@@ -200,7 +201,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                             str13 = str14;
                         }
                         str15 = URLEncoder.encode(str10, "UTF-8");
-                        w90.t(LiveFeedPageSdk.getInstance().getApplication(), LiveFeedModel.this.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
+                        fb0.t(LiveFeedPageSdk.getInstance().getApplication(), LiveFeedModel.this.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
                     }
                     str9 = str16;
                     str11 = str17;
@@ -210,12 +211,12 @@ public class LiveFeedModel implements ILiveFeedModel {
                 if (str10.contains("tab")) {
                 }
                 str15 = URLEncoder.encode(str10, "UTF-8");
-                w90.t(LiveFeedPageSdk.getInstance().getApplication(), LiveFeedModel.this.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
+                fb0.t(LiveFeedPageSdk.getInstance().getApplication(), LiveFeedModel.this.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.vb0
+            @Override // com.baidu.tieba.ed0
             public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                 LiveFeedData liveFeedData = new LiveFeedData();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {

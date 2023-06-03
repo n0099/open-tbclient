@@ -1,156 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.LoadingProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nb1 extends Dialog {
+/* loaded from: classes7.dex */
+public class nb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LoadingProgressBar c;
-    public TextView d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nb1(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f10013e);
+    public static <T> void a(@NonNull gc1 gc1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = "";
-        this.g = false;
-        this.h = false;
-        this.a = context;
-        this.f = a(context);
-    }
-
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context instanceof Activity) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public nb1 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (nb1) invokeZ.objValue;
-    }
-
-    public nb1 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (nb1) invokeZ.objValue;
-    }
-
-    public nb1 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (nb1) invokeL.objValue;
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.nad_call_action_loading_dialog);
-            b();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091e94);
-            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f0915d2);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0916e1);
-            this.d = textView;
-            textView.setText(this.e);
-            setCancelable(this.g);
-            setCanceledOnTouchOutside(this.h);
-            f();
-        }
-    }
-
-    public final void f() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (context = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, gc1Var, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        Resources resources = context.getResources();
-        View view2 = this.b;
-        if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.nad_icon_loading_dialog_bg));
+        if (!str.startsWith("javascript:")) {
+            str = "javascript:" + str;
         }
-        LoadingProgressBar loadingProgressBar = this.c;
-        if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.nad_loading_animation));
-        }
-        TextView textView = this.d;
-        if (textView != null) {
-            textView.setTextColor(resources.getColor(R.color.nad_color_white));
-        }
+        gc1Var.loadUrl(str, null);
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public static <T> void b(@NonNull gc1 gc1Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.f) {
-            return;
-        }
-        try {
-            super.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{gc1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            a(gc1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
         }
     }
 }

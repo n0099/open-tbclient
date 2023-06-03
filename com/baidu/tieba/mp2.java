@@ -1,52 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class mp2 extends an2<rp2> {
+public class mp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.an2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVideoHeight" : (String) invokeV.objValue;
-    }
-
-    public mp2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980282, "Lcom/baidu/tieba/mp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980282, "Lcom/baidu/tieba/mp2;");
+                return;
             }
         }
+        boolean z = is1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rp2Var) == null) {
-            String str = command.what;
-            d(rp2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Integer) {
-                rp2Var.D(((Integer) obj).intValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] b = yn4.a().b();
+            y82.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
+            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
+                if (str != null && str.trim().length() > 0) {
+                    str2 = String.format("(%s) AND ", str.trim());
+                } else {
+                    str2 = "";
+                }
+                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
+                y82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
+                return format;
             }
+            y82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

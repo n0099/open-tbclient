@@ -1,128 +1,118 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailBottomVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mi7 {
+public class mi7 extends in<ri7, ForumRuleDetailBottomVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String b;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mi7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, yq9 yq9Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, yq9Var) != null) || yq9Var == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        zq9 zq9Var = yq9Var.f;
-        if (zq9Var != null) {
-            h46.b(zq9Var.b, zq9Var.c, "1191003700000000", zq9Var.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(yq9Var.d)) {
-                str = yq9Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = yq9Var.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        rl7.a(tbPageContext, yq9Var.e);
+        this.a = context;
     }
 
-    public static void c(yq9 yq9Var) {
-        int i;
-        String str;
+    public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, yq9Var) != null) || yq9Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", yq9Var.g);
-        if (yq9Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", yq9Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        zq9 zq9Var = yq9Var.f;
-        if (zq9Var != null) {
-            str = zq9Var.c;
-        } else {
-            str = yq9Var.d;
-        }
-        zq9 zq9Var2 = yq9Var.f;
-        if (zq9Var2 != null) {
-            String str2 = zq9Var2.a;
-        } else {
-            String str3 = yq9Var.c;
-        }
-        statisticItem.param("obj_name", yq9Var.c);
-        statisticItem.param("obj_param1", yq9Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(yq9Var.i, 1));
     }
 
-    public static void d(yq9 yq9Var) {
-        int i;
-        String str;
+    public void t(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, yq9Var) != null) || yq9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, forumRuleDetailBottomVH) != null) || forumRuleDetailBottomVH == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", yq9Var.g);
-        if (yq9Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: u */
+    public ForumRuleDetailBottomVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02fd, viewGroup, false));
+            t(forumRuleDetailBottomVH);
+            this.viewholder = forumRuleDetailBottomVH;
+            return forumRuleDetailBottomVH;
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", yq9Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        zq9 zq9Var = yq9Var.f;
-        if (zq9Var != null) {
-            str = zq9Var.c;
-        } else {
-            str = yq9Var.d;
+        return (ForumRuleDetailBottomVH) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.in
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ri7 ri7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        x(i, view2, viewGroup, ri7Var, forumRuleDetailBottomVH);
+        return view2;
+    }
+
+    public final void s(ForumRuleDetailBottomVH forumRuleDetailBottomVH, ri7 ri7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, forumRuleDetailBottomVH, ri7Var) != null) || forumRuleDetailBottomVH == null) {
+            return;
         }
-        zq9 zq9Var2 = yq9Var.f;
-        if (zq9Var2 != null) {
-            String str2 = zq9Var2.a;
+        forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.b.N(ri7Var.a(), 10, false);
+        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07bc);
+        EMTextView eMTextView = forumRuleDetailBottomVH.d;
+        eMTextView.setText(ri7Var.b() + string);
+        forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f.N(ri7Var.d(), 12, false);
+        forumRuleDetailBottomVH.g.setText(ri7Var.c());
+        if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
+            forumRuleDetailBottomVH.a(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            String str3 = yq9Var.c;
+            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c3), ri7Var.e()));
+            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07c3), ri7Var.e()));
         }
-        statisticItem.param("obj_name", yq9Var.c);
-        statisticItem.param("obj_param1", yq9Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(yq9Var.i, 0));
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, ri7 ri7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ri7Var, forumRuleDetailBottomVH})) == null) {
+            if (ri7Var != null) {
+                s(forumRuleDetailBottomVH, ri7Var);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class e94 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d94 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int microphoneStatus;
 
-    public e94(int i) {
+    public static synchronized d94 a() {
+        InterceptResult invokeV;
+        d94 d94Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (e94.class) {
+                if (a == null) {
+                    a = new d94();
+                }
+                d94Var = a;
             }
+            return d94Var;
         }
-        this.microphoneStatus = i;
+        return (d94) invokeV.objValue;
     }
 }

@@ -1,126 +1,131 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class l06 {
+public class l06 implements i06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
+    public double c;
+    public boolean d;
 
-    public l06(int i, int i2, int i3) {
+    @Override // com.baidu.tieba.i06
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public l06(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f = str;
+        this.a = 3;
+        this.b = 3;
+        this.d = true;
+        if (i > 0) {
+            this.b = i;
         }
     }
 
-    public void j(int i) {
+    @Override // com.baidu.tieba.i06
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return i2;
+            }
+            return e(constrainImageLayout, list, i2);
+        }
+        return invokeLLII.intValue;
+    }
+
+    public final double c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            TbadkCoreApplication.getInst();
+            if (i == 1) {
+                return 0.5625d;
+            }
+            double d = this.c;
+            if (d > 0.0d) {
+                return d;
+            }
+            return 0.6666666666666666d;
+        }
+        return invokeI.doubleValue;
+    }
+
+    public void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
         }
     }
 
-    public void i(String str, String str2) {
+    public int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                if (count >= 2) {
+                    constrainImageLayout.setImageMaxChildCount(this.a);
+                    constrainImageLayout.setCanCenterStart(false);
+                } else {
+                    constrainImageLayout.setImageMaxChildCount(-1);
+                    constrainImageLayout.setCanCenterStart(true);
+                }
+                int i3 = this.b;
+                int i4 = count - i3;
+                String str = null;
+                if (i4 > 0) {
+                    i2 = i3 + i;
+                    List<MediaData> subList = ListUtils.subList(list, i, i2);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i4)});
+                    if (this.d) {
+                        str = string;
+                    }
+                    constrainImageLayout.setExtraCenterText(str);
+                    constrainImageLayout.setUrls(subList, i, true, this.d);
+                } else {
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                    constrainImageLayout.setExtraCenterText(null);
+                    i2 = count;
+                }
+                constrainImageLayout.setSingleImageRatio(c(count));
+                return i2;
+            }
+            return i;
         }
+        return invokeLLI.intValue;
     }
 }

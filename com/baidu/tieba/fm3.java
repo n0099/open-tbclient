@@ -1,189 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.IntentUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fm3 {
+public class fm3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768893, "Lcom/baidu/tieba/fm3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements cm3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+
+        public a(fm3 fm3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fm3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947768893, "Lcom/baidu/tieba/fm3;");
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.cm3
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                y82.i("MemoryWarningAction", "trimMemory consume level:" + i);
+                if (i == 10 || i == 15) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("level", i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fm3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/memoryWarning");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qp1.a;
     }
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null && b(activity.getIntent())) {
-                try {
-                    pl3.j(activity);
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (context != null && callbackHandler != null && yb3Var != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y82.c("MemoryWarningAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    y82.c("MemoryWarningAction", "callback is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                j(context, callbackHandler, optString);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
+            y82.c("MemoryWarningAction", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    public void j(Context context, CallbackHandler callbackHandler, String str) {
+        dm3 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent != null) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        extras.isEmpty();
-                        return false;
-                    }
-                    return false;
-                } catch (Throwable unused) {
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, str) == null) && (context instanceof em3) && (b = ((em3) context).b()) != null) {
+            b.b(new a(this, callbackHandler, str));
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
-            try {
-                return bundle.getBoolean(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
-                }
-                return z;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static int f(Bundle bundle, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
-            try {
-                return bundle.getInt(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
-                }
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static Bundle d(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
-            try {
-                return bundle.getBundle(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Bundle e(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
-            try {
-                return intent.getBundleExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static String g(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
-            try {
-                return intent.getStringExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

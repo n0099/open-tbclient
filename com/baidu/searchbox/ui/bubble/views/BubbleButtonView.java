@@ -14,13 +14,13 @@ public class BubbleButtonView extends BubbleTextView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0183;
+        return R.layout.obfuscated_res_0x7f0d0189;
     }
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public boolean initViewIfNeed() {
         if (super.initViewIfNeed()) {
-            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904f3);
+            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fa);
             return true;
         }
         return false;
@@ -56,7 +56,7 @@ public class BubbleButtonView extends BubbleTextView {
         }
         this.mBubbleBtn.setTextColor(i);
         this.mBubbleBtn.setText(charSequence);
-        this.mBubbleBtn.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08054b));
+        this.mBubbleBtn.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080560));
         this.mBubbleBtn.setVisibility(0);
     }
 }

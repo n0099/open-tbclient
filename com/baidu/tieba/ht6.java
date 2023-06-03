@@ -6,17 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ForumPopupInfo;
-/* loaded from: classes5.dex */
-public class ht6 {
+/* loaded from: classes6.dex */
+public final class ht6 extends dt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public long d;
-    public List<String> e;
+    public int b;
+    public boolean c;
 
     public ht6() {
         Interceptable interceptable = $ic;
@@ -28,64 +23,48 @@ public class ht6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = -1;
     }
 
-    public List<String> a() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public long b() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dt6, com.baidu.tieba.r7.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.reset();
+            this.b = -1;
+            this.c = false;
         }
-        return invokeV.intValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public final ht6 update(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.b = i;
+            this.c = z;
+            return this;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public void f(ForumPopupInfo forumPopupInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, forumPopupInfo) != null) || forumPopupInfo == null) {
-            return;
-        }
-        this.a = forumPopupInfo.forum_id.intValue();
-        this.c = forumPopupInfo.mem_count_static.intValue();
-        this.d = forumPopupInfo.thread_count_static.intValue();
-        this.e = forumPopupInfo.forum_names;
-        this.b = forumPopupInfo.forum_name;
+        return (ht6) invokeCommon.objValue;
     }
 }

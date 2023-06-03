@@ -1,46 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public String savedFilePath;
 
-    public xl2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948304139, "Lcom/baidu/tieba/xl2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948304139, "Lcom/baidu/tieba/xl2;");
                 return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
+        a = is1.a;
+        fv2.g0().getSwitch("swan_js_event_dispatch_opt", 0);
+        b = false;
+        if (a) {
+            Log.d("MessageDispatchOptSwitch", "swan_js_event_dispatch_opt - " + b);
         }
-        return (String) invokeV.objValue;
     }
 }

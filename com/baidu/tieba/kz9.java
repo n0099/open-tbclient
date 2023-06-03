@@ -1,96 +1,124 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.ChunkUploadSwitch;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class kz9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 524288;
+    public static int d = 6144000;
+    public static int e = 524288;
     public transient /* synthetic */ FieldHolder $fh;
+    public oz9 a;
+    public px8 b;
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
-    }
-
-    public static void a(q25 q25Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, q25Var, i) == null) && q25Var != null && i >= 0) {
-            int i2 = 1;
-            int i3 = i + 1;
-            boolean d = q25Var.d();
-            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-            if (d) {
-                i2 = 2;
-            }
-            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
-        }
-    }
-
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
-            }
-            return false;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
-            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-            bdTopToast.h(z);
-            bdTopToast.g(str);
-            bdTopToast.i(viewGroup);
-        }
-    }
-
-    public static String c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof sr9) {
-                sr9 sr9Var = (sr9) tag;
-                if (sr9Var.p() != null) {
-                    return sr9Var.p().getUserId();
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
-            g((ViewGroup) activity.findViewById(16908290), str, false);
-        }
-    }
-
-    public static void f(View view2, sr9 sr9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, sr9Var) != null) || view2 == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947930527, "Lcom/baidu/tieba/kz9;")) == null) {
             return;
         }
-        view2.setTag(sr9Var);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947930527, "Lcom/baidu/tieba/kz9;");
+        }
+    }
+
+    public kz9(px8 px8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {px8Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = px8Var;
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i <= 0) {
+                d = 6144000;
+            } else {
+                d = i;
+            }
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (i <= 0) {
+                c = 524288;
+            } else {
+                c = i;
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            if (i <= 0) {
+                e = 524288;
+            } else {
+                e = i;
+            }
+        }
+    }
+
+    public void a() {
+        oz9 oz9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (oz9Var = this.a) != null) {
+            oz9Var.cancel();
+        }
+    }
+
+    public VideoFinishResult e(String str, String str2, int i, rz9 rz9Var) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, rz9Var)) == null) {
+            try {
+                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
+                    this.a = new qz9(str2, e, this.b);
+                } else {
+                    this.a = new pz9(str, c, d, this.b);
+                }
+                this.a.a(rz9Var);
+                return this.a.b(str2, i);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                px8 px8Var = this.b;
+                if (px8Var != null) {
+                    px8Var.f(306, -4399, jx8.a(e2));
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

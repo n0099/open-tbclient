@@ -10,7 +10,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.io.IOException;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ParcelFileDescriptorBitmapDecoder implements ResourceDecoder<ParcelFileDescriptor, Bitmap> {
     public final Downsampler downsampler;
 

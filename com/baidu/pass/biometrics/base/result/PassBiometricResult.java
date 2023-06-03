@@ -24,21 +24,21 @@ public class PassBiometricResult {
     public SparseArray<String> msgMap;
     public int resultCode;
     public String resultMsg;
-    public static final String RESULT_MSG_SUCCESS = ResUtils.getString(R.string.obfuscated_res_0x7f0f0edd);
-    public static final String ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ecb);
-    public static final String ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed4);
-    public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed2);
-    public static final String ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed5);
-    public static final String ERROR_MSG_PARAM = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ece);
-    public static final String ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed0);
-    public static final String ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed1);
-    public static final String ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ec4);
-    public static final String ERROR_MSG_SYSTEM_VERSION_LOW_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ed3);
-    public static final String ERROR_MSG_CONFIG_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ec2);
-    public static final String ERROR_MSG_LACK_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ec7);
-    public static final String ERROR_MSG_NOT_IMPORT_VIS_SDK = ResUtils.getString(R.string.obfuscated_res_0x7f0f0eca);
-    public static final String ERROR_MSG_NOT_INIT_PASS_SDK = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ecf);
-    public static final String ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0ecc);
+    public static final String RESULT_MSG_SUCCESS = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f19);
+    public static final String ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f07);
+    public static final String ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f10);
+    public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0e);
+    public static final String ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f11);
+    public static final String ERROR_MSG_PARAM = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0a);
+    public static final String ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0c);
+    public static final String ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0d);
+    public static final String ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f00);
+    public static final String ERROR_MSG_SYSTEM_VERSION_LOW_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0f);
+    public static final String ERROR_MSG_CONFIG_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0efe);
+    public static final String ERROR_MSG_LACK_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f03);
+    public static final String ERROR_MSG_NOT_IMPORT_VIS_SDK = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f06);
+    public static final String ERROR_MSG_NOT_INIT_PASS_SDK = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f0b);
+    public static final String ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0f08);
 
     public PassBiometricResult() {
         SparseArray<String> sparseArray = new SparseArray<>();

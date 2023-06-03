@@ -2,28 +2,69 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes6.dex */
-public final class n4b {
+public class n4b extends l5b<KsRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final int a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n4b(KsRewardVideoAd ksRewardVideoAd) {
+        super(ksRewardVideoAd);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksRewardVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.l5b
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw null;
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
+            }
+            return ((KsRewardVideoAd) a).getECPM();
         }
-        return invokeV.intValue;
+        return invokeV.doubleValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l5b
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw null;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
-        return invokeV.intValue;
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    }
+
+    @Override // com.baidu.tieba.l5b
+    public void c(long j, long j2) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        ((KsRewardVideoAd) a).setBidEcpm((int) j);
     }
 }

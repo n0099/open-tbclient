@@ -12,33 +12,33 @@ public class PrefetchOptions implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public PrefetchOptions createFromParcel(Parcel parcel) {
-            return new PrefetchOptions(parcel);
+        public PrefetchOptions[] newArray(int i) {
+            return new PrefetchOptions[0];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public PrefetchOptions[] newArray(int i) {
-            return new PrefetchOptions[0];
+        public PrefetchOptions createFromParcel(Parcel parcel) {
+            return new PrefetchOptions(parcel);
         }
     };
     public Map<String, String> a = new HashMap();
-
-    public PrefetchOptions() {
-    }
-
-    public PrefetchOptions(Parcel parcel) {
-        readFromParcel(parcel);
-    }
 
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
     }
 
+    public PrefetchOptions() {
+    }
+
     public Map<String, String> getOptions() {
         return this.a;
+    }
+
+    public PrefetchOptions(Parcel parcel) {
+        readFromParcel(parcel);
     }
 
     public void readFromParcel(Parcel parcel) {
@@ -55,18 +55,17 @@ public class PrefetchOptions implements Parcelable {
         this.a.put(str, String.valueOf(i));
     }
 
-    public void setOption(String str, String str2) {
-        if (str == null || str2 == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new HashMap();
-        }
-        this.a.put(str, str2);
-    }
-
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeMap(this.a);
+    }
+
+    public void setOption(String str, String str2) {
+        if (str != null && str2 != null) {
+            if (this.a == null) {
+                this.a = new HashMap();
+            }
+            this.a.put(str, str2);
+        }
     }
 }

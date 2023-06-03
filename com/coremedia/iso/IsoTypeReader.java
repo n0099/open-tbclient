@@ -12,7 +12,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;

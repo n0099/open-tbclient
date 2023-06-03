@@ -1,248 +1,231 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yn8 {
+public class yn8 implements un8 {
     public static /* synthetic */ Interceptable $ic;
-    public static yn8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public final StatisticItem a;
 
     /* loaded from: classes8.dex */
-    public class a implements CyberPlayerManager.InstallListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CyberPlayerManager.InstallListener a;
-        public final /* synthetic */ yn8 b;
+    }
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
+    /* loaded from: classes8.dex */
+    public static class b implements un8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.un8
+        public void a(ICardInfo iCardInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
             }
         }
 
-        public a(yn8 yn8Var, CyberPlayerManager.InstallListener installListener) {
+        @Override // com.baidu.tieba.un8
+        public un8 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (un8) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.tieba.un8
+        public un8 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (un8) invokeLJ.objValue;
+        }
+
+        @Override // com.baidu.tieba.un8
+        public un8 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (un8) invokeLL.objValue;
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn8Var, installListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yn8Var;
-            this.a = installListener;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                if (this.b.b < 3) {
-                    yn8.c(this.b);
-                    this.b.g(this.a);
-                    return;
-                }
-                this.b.b = 0;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallError(i, i2, str);
                 }
             }
         }
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                this.b.b = 0;
-                this.b.a = true;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallSuccess(i, str);
-                }
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements CyberPlayerManager.InstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CyberPlayerManager.InstallListener a;
-        public final /* synthetic */ yn8 b;
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            }
-        }
-
-        public b(yn8 yn8Var, CyberPlayerManager.InstallListener installListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn8Var, installListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yn8Var;
-            this.a = installListener;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                if (this.b.b < 3) {
-                    yn8.c(this.b);
-                    this.b.g(this.a);
-                    return;
-                }
-                this.b.b = 0;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallError(i, i2, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                this.b.b = 0;
-                this.b.a = true;
-                CyberPlayerManager.InstallListener installListener = this.a;
-                if (installListener != null) {
-                    installListener.onInstallSuccess(i, str);
-                }
-            }
-        }
-    }
-
-    public yn8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yn8(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
     }
 
-    public static yn8 e() {
-        InterceptResult invokeV;
+    public yn8(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                i();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return c;
         }
-        return (yn8) invokeV.objValue;
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (!TextUtils.isEmpty(str2)) {
+            this.a.param("obj_card", str2);
+        }
     }
 
-    public static synchronized void i() {
+    public static un8 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (yn8.class) {
-                if (c == null) {
-                    c = new yn8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return new yn8(baseLegoCardInfo);
+            }
+            return new b(null);
+        }
+        return (un8) invokeL.objValue;
+    }
+
+    public static un8 f(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new yn8(str, i, i2, str2);
+            }
+            return new b(null);
+        }
+        return (un8) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.un8
+    public void a(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.un8
+    public un8 b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
+        }
+        return (un8) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.un8
+    public un8 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
+        }
+        return (un8) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.un8
+    public un8 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
+        }
+        return (un8) invokeLL.objValue;
+    }
+
+    public final void g(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
+                List<Object> params = this.a.getParams();
+                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                    String[] split = str.split("=");
+                    if (split.length == 2) {
+                        String str2 = split[0];
+                        String str3 = split[1];
+                        boolean z = false;
+                        for (int i = 0; i < params.size() && !z; i += 2) {
+                            if (TextUtils.equals(str2, params.get(i).toString())) {
+                                int i2 = i + 1;
+                                if (i2 < params.size()) {
+                                    params.set(i2, str3);
+                                }
+                                z = true;
+                            }
+                        }
+                        if (!z) {
+                            this.a.param(str2, str3);
+                        }
+                    }
                 }
-            }
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
-            if (isCoreLoaded && !this.a) {
-                this.a = true;
-            }
-            return isCoreLoaded;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static /* synthetic */ int c(yn8 yn8Var) {
-        int i = yn8Var.b;
-        yn8Var.b = i + 1;
-        return i;
-    }
-
-    public void g(CyberPlayerManager.InstallListener installListener) {
-        String absolutePath;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) && !CyberPlayerManager.isCoreLoaded(3)) {
-            this.a = false;
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir != null) {
-                absolutePath = cacheDir.getAbsolutePath();
-            } else {
-                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("cache-path", absolutePath);
-            try {
-                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, hashMap, new a(this, installListener));
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void h(CyberPlayerManager.InstallListener installListener, int i) {
-        String absolutePath;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) && !CyberPlayerManager.isCoreLoaded(i)) {
-            this.a = false;
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir != null) {
-                absolutePath = cacheDir.getAbsolutePath();
-            } else {
-                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("cache-path", absolutePath);
-            try {
-                CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, hashMap, new b(this, installListener));
-            } catch (Exception unused) {
+                d(TiebaStatic.Params.OBJ_PARAM3, qn6.e());
             }
         }
     }

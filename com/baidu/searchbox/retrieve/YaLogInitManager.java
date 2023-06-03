@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.ck1;
-import com.baidu.tieba.g10;
-import com.baidu.tieba.j80;
-import com.baidu.tieba.vpa;
-import com.baidu.tieba.yj1;
+import com.baidu.tieba.b20;
+import com.baidu.tieba.hl1;
+import com.baidu.tieba.ixa;
+import com.baidu.tieba.ll1;
+import com.baidu.tieba.s90;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            j80.a(this.mApp, str, g10.a().getDeviceId(), 1);
+            s90.a(this.mApp, str, b20.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        vpa vpaVar;
-        if (z && (vpaVar = (vpa) ServiceManager.getService(vpa.a)) != null) {
-            vpaVar.retry();
+        ixa ixaVar;
+        if (z && (ixaVar = (ixa) ServiceManager.getService(ixa.a)) != null) {
+            ixaVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            ck1.b(application);
-            if (yj1.g()) {
+            ll1.b(application);
+            if (hl1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!yj1.g()) {
+        if (!hl1.g()) {
             return;
         }
         if (z) {

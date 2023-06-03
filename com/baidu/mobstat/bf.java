@@ -131,16 +131,16 @@ public class bf {
         return af.a;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x012a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0128, code lost:
         if (r4 != null) goto L57;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x012c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x012a, code lost:
         r4.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0138, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0136, code lost:
         if (r4 != null) goto L57;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x013c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x013a, code lost:
         return r2;
      */
     /*

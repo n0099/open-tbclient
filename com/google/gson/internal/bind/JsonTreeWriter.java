@@ -135,7 +135,7 @@ public final class JsonTreeWriter extends JsonWriter {
         if (!isLenient() && (Double.isNaN(d) || Double.isInfinite(d))) {
             throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d);
         }
-        put(new JsonPrimitive((Number) Double.valueOf(d)));
+        put(new JsonPrimitive(Double.valueOf(d)));
         return this;
     }
 
@@ -153,7 +153,7 @@ public final class JsonTreeWriter extends JsonWriter {
 
     @Override // com.google.gson.stream.JsonWriter
     public JsonWriter value(long j) throws IOException {
-        put(new JsonPrimitive((Number) Long.valueOf(j)));
+        put(new JsonPrimitive(Long.valueOf(j)));
         return this;
     }
 

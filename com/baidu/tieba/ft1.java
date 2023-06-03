@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import java.net.MalformedURLException;
 /* loaded from: classes5.dex */
 public interface ft1 {
-    boolean a(Context context, String str);
+    String a();
 
-    boolean b(Context context, String str);
+    boolean b();
 
-    boolean c(Context context, String str);
+    String c(String str) throws MalformedURLException;
 }

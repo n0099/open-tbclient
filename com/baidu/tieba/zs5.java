@@ -1,67 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class zs5<KEY> {
+public class zs5 extends hb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap<KEY, Long> a;
-    public final long b;
 
-    public zs5(int i, @NonNull TimeUnit timeUnit) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zs5() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap<>();
-        this.b = timeUnit.toMillis(i);
     }
 
-    public static <T> zs5<T> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new zs5<>(1000, TimeUnit.MILLISECONDS);
-        }
-        return (zs5) invokeV.objValue;
-    }
-
-    public synchronized boolean a(@NonNull KEY key) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eb
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.b) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage == null) {
+                return null;
             }
+            if (socketResponsedMessage.getError() == 2260104) {
+                mw5.a();
+            }
+            return socketResponsedMessage;
         }
-        return invokeL.booleanValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

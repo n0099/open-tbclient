@@ -2,7 +2,7 @@ package com.facebook.common.logging;
 
 import com.facebook.infer.annotation.NullsafeStrict;
 @NullsafeStrict
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface LoggingDelegate {
     void d(String str, String str2);
 

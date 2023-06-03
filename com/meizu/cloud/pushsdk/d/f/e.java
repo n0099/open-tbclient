@@ -9,6 +9,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
@@ -16,7 +17,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static final String a = "e";
 
@@ -163,7 +164,7 @@ public class e {
         Point point = new Point();
         Display display = null;
         try {
-            windowManager = (WindowManager) context.getSystemService("window");
+            windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         } catch (Exception unused) {
             c.a(a, "Display.getSize isn't available on older devices.", new Object[0]);
             if (display != null) {

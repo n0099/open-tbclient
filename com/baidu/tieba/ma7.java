@@ -1,160 +1,242 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tbadk.core.util.RemoveFansController;
+import com.baidu.tieba.la7;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class ma7 extends xi6<na7> {
+public class ma7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public TextView j;
-    public TextView k;
-    public View l;
-    public RelativeLayout m;
-    public ConstrainImageGroup n;
+    public TbPageContext a;
+    public RemoveFansController b;
+    public la7 c;
+    public bc9 d;
+    public zaa e;
+    public e f;
 
-    @Override // com.baidu.tieba.xi6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d032c : invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a();
+
+        void b(int i, String str, boolean z, int i2, long j);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements la7.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ma7 a;
+
+        public a(ma7 ma7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ma7Var;
+        }
+
+        @Override // com.baidu.tieba.la7.b
+        public void a(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 0, 0L);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ma7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes6.dex */
+    public class b implements RemoveFansController.IResultCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ma7 a;
+
+        public b(ma7 ma7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ma7Var;
+        }
+
+        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
+        public void onResultCallBack(int i, String str, long j, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 1, j);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements zaa.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ma7 a;
+
+        public c(ma7 ma7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ma7Var;
+        }
+
+        @Override // com.baidu.tieba.zaa.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d.dismiss();
+                if (this.a.f != null) {
+                    this.a.f.a();
+                }
+                this.a.c.d();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements zaa.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ma7 a;
+
+        public d(ma7 ma7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ma7Var;
+        }
+
+        @Override // com.baidu.tieba.zaa.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
+                return;
+            }
+            this.a.d.dismiss();
+        }
+    }
+
+    public ma7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0900fa);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090113);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0900b0);
-        this.n = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0900c3);
-        this.l = h.findViewById(R.id.item_divider);
-        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090c15);
-        h.setOnClickListener(this);
+        this.a = tbPageContext;
+        la7 la7Var = new la7(tbPageContext, bdUniqueId);
+        this.c = la7Var;
+        la7Var.e(new a(this));
+        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
+        this.b = removeFansController;
+        removeFansController.setResultCallBack(new b(this));
     }
 
-    public void s(gg<TbImageView> ggVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ggVar) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setImageViewPool(ggVar);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.b.removeFans(j);
         }
     }
 
-    public void t(gg<ConstrainImageLayout> ggVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public void g(e eVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, ggVar) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setConstrainLayoutPool(ggVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
+            this.f = eVar;
         }
     }
 
-    public void u(double d) {
-        ConstrainImageGroup constrainImageGroup;
+    public void d() {
+        zaa zaaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setSingleImageRatio(d);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zaaVar = this.e) != null) {
+            zaaVar.e();
         }
     }
 
-    @Override // com.baidu.tieba.xi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.a != i) {
-            this.a = i;
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
-            this.n.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi6
-    /* renamed from: r */
-    public void i(na7 na7Var) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, na7Var) != null) || na7Var == null) {
-            return;
-        }
-        this.i.setPlaceHolder(1);
-        this.i.N(na7Var.e(), 10, false);
-        this.i.setRadius(ri.g(getContext(), R.dimen.tbds26));
-        this.i.setDrawerType(1);
-        this.i.setDrawBorder(true);
-        this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.i.setBorderWidth(ri.g(getContext(), R.dimen.tbds1));
-        this.i.setDefaultResource(R.drawable.transparent_bg);
-        this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.j.setText(na7Var.d());
-        this.k.setText(na7Var.c());
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
-        if (ListUtils.getCount(na7Var.i()) > 0) {
-            kw5 kw5Var = new kw5(3);
-            kw5Var.d(1.0d);
-            this.n.setVisibility(0);
-            this.n.setFromCDN(true);
-            this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
-            this.n.setImageProcessor(kw5Var);
-            this.n.setImageMediaList(na7Var.i());
-            if (!na7Var.h()) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ri.g(getContext(), R.dimen.tbds16));
-                layoutParams.addRule(12);
-                this.l.setLayoutParams(layoutParams);
-                SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-                this.l.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                zaa zaaVar = new zaa(this.a.getContext());
+                this.e = zaaVar;
+                zaaVar.h(this.a.getString(R.string.obfuscated_res_0x7f0f04c1));
+                ArrayList arrayList = new ArrayList();
+                zaa.b bVar = new zaa.b(this.a.getString(R.string.obfuscated_res_0x7f0f04bb), this.e);
+                bVar.h(new c(this));
+                arrayList.add(bVar);
+                this.e.g(new d(this));
+                this.e.f(arrayList);
+                bc9 bc9Var = new bc9(this.a.getPageActivity(), this.e.b());
+                this.d = bc9Var;
+                bc9Var.a(0.7f);
             }
-            this.l.setVisibility(8);
-            return;
+            this.d.show();
         }
-        this.n.setVisibility(8);
-        if (!na7Var.h()) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, ri.g(getContext(), R.dimen.tbds1));
-            layoutParams2.addRule(12);
-            this.l.setLayoutParams(layoutParams2);
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-            this.l.setVisibility(0);
-            return;
-        }
-        this.l.setVisibility(8);
     }
 }

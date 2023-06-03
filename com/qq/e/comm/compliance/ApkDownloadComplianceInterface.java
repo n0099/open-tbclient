@@ -1,5 +1,5 @@
 package com.qq.e.comm.compliance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ApkDownloadComplianceInterface {
     public static final int INSTALL_BITS = 256;
     public static final int SCENES_AD_OR_NATIVE_LANDING_PAGE = 1;

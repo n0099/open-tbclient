@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class gd5 extends db {
+public class gd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<hd5> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gd5() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,33 +22,46 @@ public class gd5 extends db {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.ab
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
-                ki5.b(0, 0, 0, 1, 11);
-                BdSocketLinkService.startService(true, "be server kicked off");
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    l95.m().B("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(l95.m().s("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    hd5 hd5Var = new hd5();
+                    hd5 hd5Var2 = new hd5();
+                    hd5Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        hd5Var2.i(jSONArray2.getJSONObject(i2));
+                        if (hd5Var.c != null && hd5Var.c.equals(hd5Var2.c)) {
+                            if (!TextUtils.isEmpty(hd5Var2.e) && hd5Var2.e.equals(hd5Var.e)) {
+                                z = false;
+                                hd5Var.f = z;
+                            }
+                            z = true;
+                            hd5Var.f = z;
+                        }
+                    }
+                    if (!hd5Var.f()) {
+                        this.a.add(hd5Var);
+                    }
+                }
+                l95.m().B("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return socketResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

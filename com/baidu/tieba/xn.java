@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import android.view.ViewGroup;
-import java.util.List;
 /* loaded from: classes8.dex */
 public interface xn<V extends ViewGroup> {
-    void addAdapters(List<en> list);
+    int getContentViewsCount();
 
-    List<rn> getData();
+    int getFooterViewsCount();
 
-    sn getListAdapter();
+    int getHeaderViewsCount();
 
     V getListView();
 
-    void setData(List<? extends rn> list);
+    boolean removeHeaderView(View view2);
 }

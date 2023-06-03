@@ -1,24 +1,171 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class cv5 {
+public class cv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
+    public d a;
+    public a b;
+    public b c;
 
-    public abstract int a();
+    /* loaded from: classes5.dex */
+    public static class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
 
-    public abstract View b(int i, ViewGroup viewGroup);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = cv5.c(R.string.no_data_common_txt, new Object[0]);
+            this.e = cv5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = false;
+            this.g = vi.g(cv5.b(), R.dimen.obfuscated_res_0x7f0703d3);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = vi.g(cv5.b(), R.dimen.obfuscated_res_0x7f0703aa);
+            this.e = cv5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = cv5.c(R.string.refresh_view_title_text, new Object[0]);
+            this.g = cv5.c(R.string.data_load_error, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vi.g(cv5.b(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = cv5.c(R.string.obfuscated_res_0x7f0f0bce, new Object[0]);
+            this.d = cv5.c(R.string.pb_load_more, new Object[0]);
+            this.e = cv5.c(R.string.list_no_more, new Object[0]);
+            this.f = cv5.c(R.string.click_retry, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cv5.c(R.string.loading_text, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public cv5() {
         Interceptable interceptable = $ic;
@@ -30,38 +177,29 @@ public abstract class cv5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new DataSetObservable();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
-        }
-    }
-
-    public void d(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
-            try {
-                this.a.registerObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
             }
         }
     }
 
-    public void e(DataSetObserver dataSetObserver) {
+    public static /* synthetic */ Context b() {
+        return getContext();
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getApplicationContext();
         }
+        return (Context) invokeV.objValue;
+    }
+
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) {
+            return getContext().getString(i, objArr);
+        }
+        return (String) invokeIL.objValue;
     }
 }

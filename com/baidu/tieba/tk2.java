@@ -1,64 +1,132 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.ww2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class tk2 extends sk2<nk2> {
+public class tk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tk2() {
-        super(new nk2());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((pk2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ww2.a aVar = (ww2.a) new ww2.a().s(this.a);
+                bj3 bj3Var = new bj3();
+                bj3Var.a = ri3.n(0);
+                bj3Var.b = "launch";
+                bj3Var.e = "repeatlaunch";
+                bj3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
+                bj3Var.j(aVar);
+                bj3Var.d(aVar.s0().getString("ubc"));
+                bj3Var.b(ri3.k(aVar.W()));
+                ri3.onEvent(bj3Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184014, "Lcom/baidu/tieba/tk2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948184014, "Lcom/baidu/tieba/tk2;");
                 return;
             }
         }
+        a = is1.a;
     }
 
-    @Override // com.baidu.tieba.sk2
-    public boolean k() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r(h().extensionCorePath) && !super.k()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.currentTimeMillis() - b;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static boolean r(String str) {
-        InterceptResult invokeL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            g62.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str, "extension.js");
-            if (file.exists() && file.length() > 0) {
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
+        }
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
                 z = true;
+            } else {
+                z = false;
             }
-            g62.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
+            }
             return z;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
+        }
     }
 }

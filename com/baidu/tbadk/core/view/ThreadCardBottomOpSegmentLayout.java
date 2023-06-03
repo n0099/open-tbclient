@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 W(0, -1, 0, 1.0f, true, this.e.I());
                 return;
             }
-            W(-2, -1, ri.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
+            W(-2, -1, vi.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
         }
     }
 
@@ -259,7 +259,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             } else if (f2 != 0.0f || i != -2) {
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = ri.g(this.F, R.dimen.tbds50);
+                layoutParams.leftMargin = vi.g(this.F, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.e.setLayoutParams(layoutParams);
             }

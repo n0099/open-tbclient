@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.qq.e.comm.adevent.AdEventType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -143,7 +144,7 @@ public class s {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, dArr)) == null) {
-                int[] iArr = {1, 32, 60, 91, 121, Cea708Decoder.COMMAND_DF0, 182, 213, GDiffPatcher.COPY_UBYTE_UBYTE, 274, 305, 335};
+                int[] iArr = {1, 32, 60, 91, 121, Cea708Decoder.COMMAND_DF0, 182, AdEventType.VIDEO_PRELOAD_ERROR, GDiffPatcher.COPY_UBYTE_UBYTE, 274, 305, 335};
                 b bVar = new b(this.a);
                 int i = 0;
                 int i2 = (int) dArr[0];

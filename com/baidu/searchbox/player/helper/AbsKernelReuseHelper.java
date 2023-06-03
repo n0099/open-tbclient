@@ -8,9 +8,14 @@ import com.baidu.searchbox.player.assistant.KernelCacheAssistant;
 import com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
-    public abstract boolean performAutoDetachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str);
+    @Override // com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper
+    public BaseKernelLayer getKernelLayer(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable BaseKernelLayer baseKernelLayer) {
+        return baseKernelLayer;
+    }
+
+    public abstract boolean performAutoDetachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str, boolean z);
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper
     public boolean attachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str) {
@@ -21,7 +26,7 @@ public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
         BdVideoLog.d("ReuseHelper:  attach,cache is " + validCache + ",cacheKey is " + str);
         validCache.resume();
         bDVideoPlayer.setKLayerCacheKey(str);
-        bDVideoPlayer.restoreVideoTask(validCache);
+        bDVideoPlayer.restoreVideoSeries(validCache);
         bDVideoPlayer.attachKernelLayer(validCache);
         return true;
     }

@@ -1,66 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class rl {
+public class rl implements IWebViewDataDirectoryManager {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ul> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316083, "Lcom/baidu/tieba/rl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
+    public void setDataDirectorySuffix() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public rl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316083, "Lcom/baidu/tieba/rl;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new ql());
-    }
-
-    public static void a(String str, int i) {
-        ul ulVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (ulVar = a.get(str)) != null) {
-            ulVar.b(i);
-        }
-    }
-
-    public static void b(String str, int i, long j) {
-        ul ulVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ulVar = a.get(str)) != null) {
-            ulVar.c(i, j);
-        }
-    }
-
-    public static void c(String str, int i, int i2) {
-        ul ulVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (ulVar = a.get(str)) != null) {
-            ulVar.d(i, i2);
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        ul ulVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (ulVar = a.get(str)) != null) {
-            ulVar.e(i, i2);
         }
     }
 }

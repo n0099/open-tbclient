@@ -3,7 +3,7 @@ package com.facebook.fresco.animation.bitmap.preparation;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePreparationStrategy {
     public static final int DEFAULT_FRAMES_TO_PREPARE = 3;
     public static final Class<?> TAG = FixedNumberBitmapFramePreparationStrategy.class;

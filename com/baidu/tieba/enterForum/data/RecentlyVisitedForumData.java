@@ -1,9 +1,10 @@
 package com.baidu.tieba.enterForum.data;
 
+import androidx.annotation.NonNull;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +52,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 Iterator<VisitedForumData> it = linkedList.iterator();
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
-                    if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+                    if (!ui.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                         return true;
                     }
                 }
@@ -59,6 +60,27 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
             return false;
         }
         return invokeLL.booleanValue;
+    }
+
+    private void oldListFillToNewList(@NonNull LinkedList<VisitedForumData> linkedList) {
+        LinkedList<VisitedForumData> linkedList2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, this, linkedList) == null) && (linkedList2 = this.mForumData) != null && linkedList2.size() != 0) {
+            Iterator<VisitedForumData> it = linkedList.iterator();
+            while (it.hasNext()) {
+                VisitedForumData next = it.next();
+                Iterator<VisitedForumData> it2 = this.mForumData.iterator();
+                while (true) {
+                    if (it2.hasNext()) {
+                        VisitedForumData next2 = it2.next();
+                        if (ui.isEquals(next.getForumId(), next2.getForumId())) {
+                            next.setPostNum(next2.getPostNum());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void addForumItem(VisitedForumData visitedForumData) {
@@ -73,7 +95,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 break;
             }
             VisitedForumData next = it.next();
-            if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!ui.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 visitedForumData2 = next;
                 break;
             }
@@ -99,7 +121,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                     break;
                 }
                 VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-                if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!ui.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i = i2;
                     break;
                 }
@@ -130,6 +152,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
     public void setForumData(LinkedList<VisitedForumData> linkedList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, linkedList) == null) && linkedList != null && linkedList.size() != 0) {
+            oldListFillToNewList(linkedList);
             this.mForumData.clear();
             this.mForumData.addAll(linkedList);
         }

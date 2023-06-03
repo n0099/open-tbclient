@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.MethodUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static Class a;
     public static Object b;

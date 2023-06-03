@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -167,7 +166,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
                 sb.append("&group_id=");
                 sb.append(this.mGroupId);
                 sb.append("&group_name=");
-                sb.append(URLEncoder.encode(this.mGroupName, IMAudioTransRequest.CHARSET));
+                sb.append(URLEncoder.encode(this.mGroupName, "utf-8"));
                 sb.append("&timestamp=");
                 sb.append(currentTimeMillis);
                 sb.append("&sign=");

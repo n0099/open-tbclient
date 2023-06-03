@@ -12,6 +12,8 @@ public interface FunAdFactory {
 
     FunNativeAd2 getNativeAd2(Context context, String str);
 
+    ReadyCacheStatistic getReadyCacheStatistic(String str);
+
     boolean isAdReady(String str);
 
     void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);

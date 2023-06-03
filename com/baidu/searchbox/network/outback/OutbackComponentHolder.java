@@ -1,15 +1,15 @@
 package com.baidu.searchbox.network.outback;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.uj1;
-import com.baidu.tieba.wj1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.dl1;
+import com.baidu.tieba.fl1;
+/* loaded from: classes4.dex */
 public class OutbackComponentHolder {
     @Inject(force = false)
-    public wj1<IOutbackContext> outbackContextHolder;
+    public fl1<IOutbackContext> outbackContextHolder;
 
     public void initoutbackContextHolder() {
-        uj1 b = uj1.b();
+        dl1 b = dl1.b();
         this.outbackContextHolder = b;
         b.a(new IOutbackContext_OutbackComponentHolder_Provider());
     }

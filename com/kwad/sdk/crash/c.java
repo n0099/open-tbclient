@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash;
 
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static final double agV = Runtime.getRuntime().maxMemory();
     public static final Pattern agW = Pattern.compile("/data/user");

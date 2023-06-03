@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.Locale;
 import java.util.concurrent.CancellationException;
@@ -31,7 +29,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
     public volatile Object value;
     @Nullable
     public volatile Waiter waiters;
-    public static final boolean GENERATE_CANCELLATION_CAUSES = Boolean.parseBoolean(System.getProperty("guava.concurrent.generate_cancellation_cause", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE));
+    public static final boolean GENERATE_CANCELLATION_CAUSES = Boolean.parseBoolean(System.getProperty("guava.concurrent.generate_cancellation_cause", "false"));
     public static final Logger log = Logger.getLogger(AbstractResolvableFuture.class.getName());
 
     public void afterDone() {
@@ -225,7 +223,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
     static {
         AtomicHelper synchronizedHelper;
         try {
-            synchronizedHelper = new SafeAtomicHelper(AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Thread.class, "thread"), AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Waiter.class, UnitedSchemeConstants.UNITED_SCHEME_NEXT), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Waiter.class, "waiters"), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Listener.class, "listeners"), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Object.class, "value"));
+            synchronizedHelper = new SafeAtomicHelper(AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Thread.class, "thread"), AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Waiter.class, "next"), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Waiter.class, "waiters"), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Listener.class, "listeners"), AtomicReferenceFieldUpdater.newUpdater(AbstractResolvableFuture.class, Object.class, "value"));
             th = null;
         } catch (Throwable th) {
             th = th;

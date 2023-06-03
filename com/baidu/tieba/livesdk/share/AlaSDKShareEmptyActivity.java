@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.mk8;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.jq8;
+import com.baidu.tieba.li;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public mk8 m;
+    public jq8 m;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -192,8 +192,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (shareItem = this.l) == null) {
             return;
         }
-        hi.a(shareItem.x);
-        ri.Q(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
+        li.a(shareItem.x);
+        vi.Q(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -201,14 +201,14 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            mk8 mk8Var = this.m;
-            if (mk8Var != null) {
-                mk8Var.d();
+            jq8 jq8Var = this.m;
+            if (jq8Var != null) {
+                jq8Var.d();
             }
         }
     }
 
-    public final ShareItem B1() {
+    public final ShareItem A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -234,17 +234,17 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void E1() {
-        mk8 mk8Var;
+        jq8 jq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (mk8Var = this.m) != null) {
-            if (ListUtils.isEmpty(mk8Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (jq8Var = this.m) != null) {
+            if (ListUtils.isEmpty(jq8Var.b())) {
                 this.m.c();
             }
-            this.m.e(pg.g(this.g, 0L), this.i, this.l);
+            this.m.e(tg.g(this.g, 0L), this.i, this.l);
         }
     }
 
-    public final void G1() {
+    public final void F1() {
         ShareItem shareItem;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (shareItem = this.l) == null) {
@@ -265,22 +265,28 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0278, R.drawable.obfuscated_res_0x7f080ac5, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0278, R.drawable.obfuscated_res_0x7f080ae8, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        mk8 mk8Var = this.m;
-        if (mk8Var != null) {
-            mk8Var.c();
+        jq8 jq8Var = this.m;
+        if (jq8Var != null) {
+            jq8Var.c();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
+        int intExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i == 24007 && intent != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, Integer.valueOf(intent.getIntExtra("extra_share_status", 2))));
+            if (i == 24007) {
+                if (intent == null) {
+                    intExtra = 1;
+                } else {
+                    intExtra = intent.getIntExtra("extra_share_status", 2);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, Integer.valueOf(intExtra)));
             }
             finish();
         }
@@ -292,7 +298,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new mk8(getPageContext());
+            this.m = new jq8(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -321,10 +327,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 this.h = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
                 this.i = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
             }
-            this.l = B1();
+            this.l = A1();
             int i = this.f;
             if (i == 1) {
-                G1();
+                F1();
             } else if (i == 2) {
                 C1();
             } else {

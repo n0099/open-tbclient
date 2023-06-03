@@ -22,11 +22,11 @@ import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.em;
-import com.baidu.tieba.fg;
-import com.baidu.tieba.fm;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.a95;
+import com.baidu.tieba.im;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class ViewHelper {
     public static final int TYPE_DOWN = 2;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_UP = 0;
-    public static fg<Integer, Integer> cachedSkinInViews = null;
+    public static jg<Integer, Integer> cachedSkinInViews = null;
     public static Context mAppContext = null;
     public static boolean mIsNeedInit = false;
     public static int mMore_color = -1;
@@ -84,7 +84,7 @@ public class ViewHelper {
                 return;
             }
         }
-        cachedSkinInViews = new fg<>(500);
+        cachedSkinInViews = new jg<>(500);
         mAppContext = null;
     }
 
@@ -177,7 +177,7 @@ public class ViewHelper {
     public static void skipToRegisterActivity(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65562, null, context) == null) && context != null) {
-            d65.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            a95.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             skipToLoginActivity(context);
         }
     }
@@ -357,9 +357,9 @@ public class ViewHelper {
                                 TextView textView = (TextView) view2;
                                 Application app = TbadkCoreApplication.getInst().getApp();
                                 if (this.val$isNight) {
-                                    i2 = R.style.obfuscated_res_0x7f100419;
+                                    i2 = R.style.obfuscated_res_0x7f10041b;
                                 } else {
-                                    i2 = R.style.obfuscated_res_0x7f100418;
+                                    i2 = R.style.obfuscated_res_0x7f10041a;
                                 }
                                 textView.setTextAppearance(app, i2);
                                 return false;
@@ -458,20 +458,20 @@ public class ViewHelper {
     public static void skipToLoginActivity(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) && context != null) {
-            d65.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            a95.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
             checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
             checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
             checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-            if (!qi.isEmpty(str)) {
+            if (!ui.isEmpty(str)) {
                 loginActivityConfig.setFrom(str);
             }
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(fm.a);
+                requestParams.setRunType(jm.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new em("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new im("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
@@ -481,7 +481,7 @@ public class ViewHelper {
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) && context != null) {
-            d65.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            a95.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
     }

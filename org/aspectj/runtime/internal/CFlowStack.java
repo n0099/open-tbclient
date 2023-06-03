@@ -1,5 +1,6 @@
 package org.aspectj.runtime.internal;
 
+import com.baidu.searchbox.player.model.YYOption;
 import java.util.Stack;
 import org.aspectj.lang.NoAspectBoundException;
 import org.aspectj.runtime.CFlow;
@@ -7,7 +8,7 @@ import org.aspectj.runtime.internal.cflowstack.ThreadStack;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactory;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl11;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class CFlowStack {
     public static ThreadStackFactory tsFactory;
     public ThreadStack stackProxy = tsFactory.getNewThreadStack();
@@ -87,7 +88,7 @@ public class CFlowStack {
     public static void selectFactoryForVMVersion() {
         String systemPropertyWithoutSecurityException = getSystemPropertyWithoutSecurityException("aspectj.runtime.cflowstack.usethreadlocal", "unspecified");
         boolean z = false;
-        if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals("true") : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
+        if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals(YYOption.IsLive.VALUE_TRUE) : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
             z = true;
         }
         if (z) {

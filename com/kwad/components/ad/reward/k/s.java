@@ -30,7 +30,7 @@ public final class s extends d implements View.OnClickListener {
     public TextView vg;
 
     /* renamed from: vi  reason: collision with root package name */
-    public View f1081vi;
+    public View f1218vi;
     public View vj;
     public LayoutInflater wi;
     public ViewGroup wj;
@@ -42,7 +42,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c0, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04cc, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -50,8 +50,8 @@ public final class s extends d implements View.OnClickListener {
 
     private SpannableString V(String str) {
         SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06078d));
-        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06078d));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06079e));
+        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06079e));
         StyleSpan styleSpan = new StyleSpan(1);
         int length = spannableString.length();
         spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);
@@ -61,15 +61,15 @@ public final class s extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091383);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091385);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091381);
-        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091384);
-        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091382);
-        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091375);
-        this.f1081vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091380);
-        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09137f);
-        this.f1081vi.setOnClickListener(this);
+        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09139b);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09139d);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091399);
+        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09139c);
+        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09139a);
+        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09138d);
+        this.f1218vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091398);
+        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091397);
+        this.f1218vi.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.it.setOnClickListener(this);
         this.eQ.setOnClickListener(this);
@@ -93,7 +93,7 @@ public final class s extends d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         l.a aVar;
-        if (view2.equals(this.f1081vi)) {
+        if (view2.equals(this.f1218vi)) {
             this.vf.dismiss();
             l.a aVar2 = this.nf;
             if (aVar2 != null) {

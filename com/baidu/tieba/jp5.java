@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
-import com.baidu.tieba.lq5;
-import com.baidu.tieba.mq5;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jp5<Q extends lq5, P extends mq5> implements kp5<Q, P> {
+public class jp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
 
     public jp5() {
         Interceptable interceptable = $ic;
@@ -27,68 +24,23 @@ public class jp5<Q extends lq5, P extends mq5> implements kp5<Q, P> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void a(Intent intent, zo5 zo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.kp5
-    public void a(Q q, P p) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
-            return;
-        }
-        if (p.getPageInfo() != null) {
-            gq5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, zo5Var) == null) {
+            if (zo5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) zo5Var);
+            } else if (zo5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) zo5Var);
+            } else if (zo5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) zo5Var);
             }
-        }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
-        }
-        br5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
-    }
-
-    @Override // com.baidu.tieba.kp5
-    public void b(Q q, boolean z) {
-        LoadType loadType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
-            fq5 c = q.c();
-            if (z) {
-                if (!c.a()) {
-                    this.c = this.b;
-                }
-                if (c.a()) {
-                    loadType = LoadType.PREPEND;
-                } else {
-                    loadType = LoadType.REFRESH;
-                }
-                c.b = loadType;
-                c.c = this.c;
-            } else {
-                int i = this.c + 1;
-                this.c = i;
-                c.b = LoadType.APPEND;
-                c.c = i;
-            }
-            br5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
         }
     }
 }

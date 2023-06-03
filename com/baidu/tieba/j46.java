@@ -1,208 +1,178 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class j46 {
+public class j46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpMessageListener a;
+    public c b;
+    public CustomMessageListener c;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
+    public interface c {
+        void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qr4 a;
-        public final /* synthetic */ PopupWindow b;
+        public final /* synthetic */ j46 a;
 
-        public a(qr4 qr4Var, PopupWindow popupWindow) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(j46 j46Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qr4Var, popupWindow};
+                Object[] objArr = {j46Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = qr4Var;
-            this.b = popupWindow;
+            this.a = j46Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e15) {
-                    if (c9.f().b() != null && !StringUtils.isNull(this.a.f())) {
-                        Uri parse = Uri.parse(this.a.f());
-                        if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
-                            TiebaStatic.log(new StatisticItem("c13391").param("obj_type", parse.getQueryParameter("obj_type")).param("obj_source", parse.getQueryParameter("obj_source")));
-                        }
-                        if (this.a.f().startsWith(BdUniDispatchSchemeController.SCHEME)) {
-                            Uri.Builder buildUpon = Uri.parse(this.a.f()).buildUpon();
-                            buildUpon.appendQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM, BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN);
-                            parse = buildUpon.build();
-                        }
-                        UtilHelper.dealOneScheme(c9.f().b(), parse.toString());
-                    }
-                    try {
-                        this.b.dismiss();
-                    } catch (Throwable th) {
-                        BdLog.e(th);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e14) {
-                    try {
-                        this.b.dismiss();
-                    } catch (Throwable th2) {
-                        BdLog.e(th2);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.c((JSONObject) customResponsedMessage.getData());
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements View.OnClickListener {
+    public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ qr4 b;
-        public final /* synthetic */ PopupWindow c;
+        public final /* synthetic */ j46 a;
 
-        public b(String str, qr4 qr4Var, PopupWindow popupWindow) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(j46 j46Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, qr4Var, popupWindow};
+                Object[] objArr = {j46Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
-            this.b = qr4Var;
-            this.c = popupWindow;
+            this.a = j46Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e15) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.a));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.b.j).param("obj_source", "tb_password").param("obj_name", this.b.h).param("obj_param1", this.b.k.intValue()));
-                    try {
-                        this.c.dismiss();
-                    } catch (Throwable th) {
-                        BdLog.e(th);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e14) {
-                    try {
-                        this.c.dismiss();
-                    } catch (Throwable th2) {
-                        BdLog.e(th2);
-                    }
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003185 || !(httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) || !httpResponsedMessage.isSuccess() || this.a.b == null) {
+                return;
             }
+            this.a.b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
         }
     }
 
-    public static PopupWindow a(qr4 qr4Var) {
-        InterceptResult invokeL;
-        View.OnClickListener aVar;
+    public j46(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, qr4Var)) == null) {
-            Activity b2 = c9.f().b();
-            if (b2 == null || qr4Var == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String f = qr4Var.f();
-            if (StringUtils.isNull(f)) {
-                return null;
-            }
-            View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00df, (ViewGroup) null, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e15);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e14);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924dc);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924db);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0924dd);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081460);
-            tbImageView.setAutoChangeStyle(false);
-            PopupWindow popupWindow = new PopupWindow(b2);
-            if (qr4Var.g() != 3) {
-                aVar = new b(f, qr4Var, popupWindow);
-                if (!StringUtils.isNull(qr4Var.c())) {
-                    tbImageView.N(qr4Var.c(), 10, false);
-                } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f081460);
-                }
-            } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f081461);
-                aVar = new a(qr4Var, popupWindow);
-            }
-            textView.setOnClickListener(aVar);
-            textView2.setOnClickListener(aVar);
-            textView.setText(qr4Var.b());
-            textView2.setText(qr4Var.a());
-            textView3.setText(qr4Var.e());
-            textView4.setText(qr4Var.d());
-            ColorDrawable colorDrawable = new ColorDrawable();
-            colorDrawable.setColor(Color.argb(178, 0, 0, 0));
-            popupWindow.setBackgroundDrawable(colorDrawable);
-            popupWindow.setWidth(ri.l(b2));
-            popupWindow.setHeight(ri.j(b2));
-            popupWindow.setContentView(inflate);
-            popupWindow.setOutsideTouchable(true);
-            GreyUtil.grey(popupWindow);
-            if (Build.VERSION.SDK_INT >= 21) {
-                try {
-                    Field declaredField = PopupWindow.class.getDeclaredField("mLayoutInScreen");
-                    declaredField.setAccessible(true);
-                    declaredField.set(popupWindow, Boolean.TRUE);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return popupWindow;
         }
-        return (PopupWindow) invokeL.objValue;
+        this.b = null;
+        this.c = new a(this, 2016489);
+        if (this.a == null) {
+            this.a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        }
+        MessageManager.getInstance().registerListener(this.a);
+        MessageManager.getInstance().registerListener(this.c);
+    }
+
+    public void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.b = cVar;
+        }
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            try {
+                int i = jSONObject.getInt("type");
+                String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
+                String JsonArrayToString2 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("reason"));
+                String JsonArrayToString3 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("is_frs_masks"));
+                String string = jSONObject.getString("forum_id");
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+                httpMessage.addParam("type", i);
+                httpMessage.addParam("thread_ids", JsonArrayToString);
+                httpMessage.addParam("is_frs_masks", JsonArrayToString3);
+                httpMessage.addParam("reason", JsonArrayToString2);
+                httpMessage.addParam("forum_id", string);
+                httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
+                MessageManager.getInstance().sendMessage(httpMessage);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+            MessageManager.getInstance().unRegisterListener(this.a);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
+            MessageManager.getInstance().registerListener(this.c);
+        }
     }
 }

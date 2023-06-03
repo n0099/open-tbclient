@@ -6,14 +6,14 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
 /* loaded from: classes3.dex */
-public final class a implements a.InterfaceC0132a<c> {
+public final class a implements a.InterfaceC0137a<c> {
     public final /* synthetic */ Context a;
 
     public a(Context context) {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0132a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0137a
     public void a(HttpClient.HttpStateError httpStateError) {
         int i = b.b[httpStateError.ordinal()];
         if (i != 1) {
@@ -27,7 +27,7 @@ public final class a implements a.InterfaceC0132a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0132a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0137a
     public void a(c cVar) {
         if (cVar == null) {
             Log.d("baidumapsdk", "pano info is null");

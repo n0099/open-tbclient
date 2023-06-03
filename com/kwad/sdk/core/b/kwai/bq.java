@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -24,12 +23,12 @@ public final class bq implements com.kwad.sdk.core.d<AdInfo.DownloadSafeInfo> {
         }
         downloadSafeInfo.secWindowPopNoWifiSwitch = jSONObject.optBoolean("secWindowPopNoWifiSwitch");
         downloadSafeInfo.secWindowPopSwitch = jSONObject.optBoolean("secWindowPopSwitch");
-        downloadSafeInfo.downloadPauseEnable = jSONObject.optBoolean("downloadPauseEnable", new Boolean(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE).booleanValue());
+        downloadSafeInfo.downloadPauseEnable = jSONObject.optBoolean("downloadPauseEnable", new Boolean("false").booleanValue());
         downloadSafeInfo.windowPopUrl = jSONObject.optString("windowPopUrl");
         if (jSONObject.opt("windowPopUrl") == JSONObject.NULL) {
             downloadSafeInfo.windowPopUrl = "";
         }
-        downloadSafeInfo.webPageTipbarSwitch = jSONObject.optBoolean("webPageTipbarSwitch", new Boolean(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE).booleanValue());
+        downloadSafeInfo.webPageTipbarSwitch = jSONObject.optBoolean("webPageTipbarSwitch", new Boolean("false").booleanValue());
         downloadSafeInfo.webPageTipbarText = jSONObject.optString("webPageTipbarText");
         if (jSONObject.opt("webPageTipbarText") == JSONObject.NULL) {
             downloadSafeInfo.webPageTipbarText = "";

@@ -1,21 +1,68 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface wt0 {
-    void onBeforeSwitchToFull();
+public class wt0 extends hu0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public gz0 P;
 
-    void onBeforeSwitchToHalf();
+    @Override // com.baidu.tieba.hu0, com.baidu.tieba.bu0, com.baidu.tieba.au0
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 23;
+        }
+        return invokeV.intValue;
+    }
 
-    void onGestureActionEnd();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wt0(@NonNull tx0 tx0Var, @Nullable Context context) {
+        super(tx0Var, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tx0Var, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((tx0) objArr2[0], (Context) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void onGestureActionStart();
+    @Override // com.baidu.tieba.hu0, com.baidu.tieba.nu0, com.baidu.tieba.au0
+    public void G0(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            super.G0(context);
+            b(new yz0());
+            I1("ad_video_tail_frame_layer");
+        }
+    }
 
-    boolean onGestureDoubleClick(MotionEvent motionEvent);
-
-    void onPanelVisibilityChanged(boolean z);
-
-    void onVideoSwitchToFull();
-
-    void onVideoSwitchToHalf();
+    public void I1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            lz0 lz0Var = new lz0(str);
+            this.P = lz0Var;
+            b(lz0Var);
+        }
+    }
 }

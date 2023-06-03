@@ -1,114 +1,243 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
-import com.baidu.tieba.du2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770846, "Lcom/baidu/tieba/h14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Nullable
+    public static Map<String, String> a(String str, String str2, String str3, String str4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
+            if (!z && q04.b() != null) {
+                TreeMap treeMap = new TreeMap();
+                treeMap.put("ver", r14.l());
+                treeMap.put("host", q04.b().a());
+                treeMap.put("os", "android");
+                int c = NetworkUtils.c(false);
+                treeMap.put("net", c + "");
+                treeMap.put("phone", r14.e());
+                treeMap.put("osV", r14.f());
+                treeMap.put("slot", str);
+                treeMap.put("flow", str2);
+                treeMap.put("appid", str3);
+                treeMap.put("apid", str4);
+                treeMap.put("sdk", q04.b().getSdkVersion());
+                treeMap.put("time", "" + System.currentTimeMillis());
+                return treeMap;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947770846, "Lcom/baidu/tieba/h14;");
-                return;
-            }
+            return null;
         }
-        a = qp1.a;
+        return (Map) invokeCommon.objValue;
     }
 
-    public static void a(String str, String str2, String str3, String str4, f14 f14Var) {
+    public static String b(String str, @Nullable Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, f14Var) == null) {
-            String l = g14.l(str2);
-            if (TextUtils.isEmpty(l)) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map == null) {
+                return "https://mobads-logs.baidu.com/dz.zb?type=mnp&";
             }
-            if (a) {
-                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            g14 g14Var = new g14();
-            g14Var.m(f14Var);
-            g14Var.b = l;
-            g14Var.e = str3;
-            g14Var.v = str;
-            g14Var.l = an3.D();
-            if (g93.b0() != null) {
-                du2.a W = g93.b0().W();
-                g14Var.a = zf3.n(W.G());
-                g14Var.f = W.H();
-                g14Var.c = W.T();
-            }
-            g14Var.t = str4;
-            zf3.x("1245", g14Var);
+            map.put("name", str);
+            return p14.b("https://mobads-logs.baidu.com/dz.zb?type=mnp&", map);
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static void d(String str, p04 p04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(str, str2, "");
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, p04Var) == null) {
+            p04Var.e(str);
         }
     }
 
-    public static void c(String str, String str2, String str3) {
+    public static void g(AdElementInfo adElementInfo, p04 p04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            String l = g14.l(str);
-            if (TextUtils.isEmpty(l)) {
-                return;
-            }
-            g14 g14Var = new g14();
-            g14Var.b = l;
-            g14Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
-            if (str3 == null) {
-                str3 = "";
-            }
-            g14Var.a("packageName", str3);
-            zf3.x("1245", g14Var);
+        if ((interceptable != null && interceptable.invokeLL(65542, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            d(e(str, 0, 0), p04Var);
         }
     }
 
-    public static void d(int i, String str, String str2, String str3) {
+    public static void k(@Nullable Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String d = x54.b().d();
+        if (interceptable == null || interceptable.invokeLL(65546, null, map, str) == null) {
+            l(map, str, new y04(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void m(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
+            n(str, map, new y04(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void p(AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65551, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getSkipTrackers()) {
+            d(e(str, 0, 0), p04Var);
+        }
+    }
+
+    public static void q(AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65552, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getStartTrackers()) {
+            d(e(str, 0, 0), p04Var);
+        }
+    }
+
+    public static String c(@NonNull Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            return map.get("flow");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            String replaceAll = str.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()).replaceAll("%25%25play_mode%25%25", "0");
+            String replaceAll2 = replaceAll.replaceAll("%25%25cur_time%25%25", "" + i);
+            return replaceAll2.replaceAll("%25%25start_time%25%25", "" + i2).replaceAll("%25%25area%25%25", "hot");
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static void f(String str, String str2, String str3, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, p04Var) == null) && q04.b() != null && !r14.o()) {
+            String a = q04.b().a();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cuid", ns2.h0().i(ns2.c()));
-                jSONObject.put("type", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("host", ns2.n().a());
-                jSONObject.put("version", an3.D());
-                jSONObject.put("package", str);
-                jSONObject.put("appid", str2);
-                jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) kg4.h(ns2.c()).postRequest().cookieManager(ns2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
-            } catch (Exception unused) {
+                jSONObject.put("bizId", 10003);
+                jSONObject.put(TbEnum.SystemMessage.KEY_GROUP_ID, 10003);
+                jSONObject.put("containerAppName", a);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("distribute_channel", 38);
+                jSONObject2.put("CTK", str3);
+                jSONObject2.put("logtype", 2);
+                jSONObject2.put("media_id", str);
+                jSONObject2.put("PVID", str3);
+                jSONObject2.put("tuid", str2);
+                jSONObject2.put("time", r14.j());
+                jSONObject2.put("page_type", 1);
+                jSONObject2.put("traffic_type", 1);
+                jSONObject.put("content", jSONObject2);
+                p04Var.d(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+        }
+    }
+
+    public static void h(AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String a = p14.a(p14.a(p14.c(str, hashSet), BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE"), "da_type", WorkPostNotifyFlutterData.FAIL_POST);
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), p04Var);
+        }
+        d(adElementInfo.getClickUrl(), p04Var);
+    }
+
+    public static void i(AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String c = p14.c(str, hashSet);
+            if (!TextUtils.isEmpty(adElementInfo.getEndFrameUrl())) {
+                c = p14.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE");
+            } else if (!TextUtils.isEmpty(adElementInfo.getEndFrameHtml())) {
+                c = p14.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL");
+            }
+            String a = p14.a(c, "da_type", "103");
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), p04Var);
+        }
+    }
+
+    public static void j(AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, adElementInfo, p04Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            d(e(str, 0, 0), p04Var);
+        }
+        for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
+            d(e(str2, 0, 0), p04Var);
+        }
+    }
+
+    public static void l(@Nullable Map<String, String> map, String str, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65547, null, map, str, p04Var) != null) || map == null) {
+            return;
+        }
+        TreeMap treeMap = new TreeMap(map);
+        if (!TextUtils.isEmpty(str)) {
+            treeMap.put(StatConstants.KEY_EXT_ERR_CODE, str);
+            treeMap.put(StatConstants.KEY_EXT_ERR_MSG, l14.a(str));
+        }
+        n("error", treeMap, p04Var);
+    }
+
+    public static void n(String str, Map<String, String> map, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65549, null, str, map, p04Var) != null) || map == null) {
+            return;
+        }
+        d(b(str, map), p04Var);
+    }
+
+    public static void o(int i, int i2, AdElementInfo adElementInfo, p04 p04Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), adElementInfo, p04Var}) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            d(e(str, i, i2), p04Var);
         }
     }
 }

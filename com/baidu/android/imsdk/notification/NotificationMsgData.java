@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +56,7 @@ public class NotificationMsgData {
             if (this.mMsg != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mMsg.getJsonContent());
-                    if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray("user_info")) != null && optJSONArray.length() > 0) {
+                    if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray(SourceConstant.SOURCE_USER_INFO)) != null && optJSONArray.length() > 0) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                             if (jSONObject2 != null && jSONObject2.has("uk")) {
@@ -138,7 +139,7 @@ public class NotificationMsgData {
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatUser) == null) && chatUser != null && this.mMsg != null) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mMsg.getJsonContent());
-                if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray("user_info")) != null && optJSONArray.length() > 0) {
+                if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray(SourceConstant.SOURCE_USER_INFO)) != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null && jSONObject2.has("uk")) {

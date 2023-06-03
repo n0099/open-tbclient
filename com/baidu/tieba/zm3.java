@@ -1,187 +1,145 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class zm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948364713, "Lcom/baidu/tieba/zm3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948364713, "Lcom/baidu/tieba/zm3;");
-                return;
-            }
-        }
-        a = qp1.a;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g93.M() != null) {
-                return g93.M().b;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ul3.b(ul3.a(), "yyyy-MM-dd");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            JSONObject d = d(a());
-            if (d == null) {
-                return 0;
-            }
-            return d.optInt("launch_count", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            i(a(), "visit_duration", Long.valueOf(e()));
-        }
-    }
-
-    public static JSONObject d(String str) {
+    public static WifiConfiguration a(wm3 wm3Var) {
         InterceptResult invokeL;
-        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wm3Var)) == null) {
+            int b = an3.b(wm3Var);
+            if (!f(wm3Var.a)) {
+                return null;
+            }
+            WifiConfiguration wifiConfiguration = new WifiConfiguration();
+            wifiConfiguration.SSID = "\"" + wm3Var.a + "\"";
+            if (!TextUtils.isEmpty(wm3Var.b)) {
+                wifiConfiguration.BSSID = wm3Var.b;
+            }
+            if (b != 0) {
+                if (b != 1) {
+                    if (b != 2) {
+                        if (b == 3) {
+                            an3.d(wifiConfiguration, 3);
+                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
+                            wifiEnterpriseConfig.setEapMethod(0);
+                            wifiEnterpriseConfig.setIdentity(wm3Var.c);
+                            wifiEnterpriseConfig.setPassword(wm3Var.d);
+                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
+                        }
+                    } else {
+                        an3.d(wifiConfiguration, 2);
+                        wifiConfiguration.preSharedKey = "\"" + wm3Var.d + "\"";
+                    }
+                } else {
+                    an3.d(wifiConfiguration, 1);
+                    String[] strArr = wifiConfiguration.wepKeys;
+                    strArr[0] = "\"" + wm3Var.d + "\"";
+                }
+            } else {
+                an3.d(wifiConfiguration, 0);
+            }
+            return wifiConfiguration;
+        }
+        return (WifiConfiguration) invokeL.objValue;
+    }
+
+    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
+            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static WifiConfiguration c(Context context, WifiManager wifiManager, wm3 wm3Var) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, wm3Var)) == null) {
+            if (wm3Var != null && f(wm3Var.a) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), wm3Var.a)) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
+            if (wifiManager == null) {
+                return null;
+            }
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
+                    return null;
+                }
+                return wifiManager.getConfiguredNetworks();
+            } catch (Exception e) {
+                y82.b("SwanWifiUtils", Log.getStackTraceString(e));
+                return null;
+            }
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String string = uh3.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
+                int i = length - 1;
+                if (str.charAt(i) == '\"') {
+                    return str.substring(1, i);
+                }
+                return str;
             }
-            JSONObject jSONObject2 = null;
-            try {
-                if (TextUtils.isEmpty(string)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(string);
-                }
-                if (f(jSONObject)) {
-                    jSONObject.put(GfhKeyValue.TYPE_DATE, b());
-                }
-                jSONObject2 = jSONObject.optJSONObject(str);
-                if (jSONObject2 == null) {
-                    jSONObject.put(str, new JSONObject());
-                    uh3.a().putString("dailyInfo", jSONObject.toString());
-                    return jSONObject2;
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-            return jSONObject2;
+            return str;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static long e() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            JSONObject d = d(a());
-            if (d != null) {
-                j = d.optLong("foreground_aiapp_last_time_local", 0L);
-            } else {
-                j = 0;
-            }
-            if (d == null) {
-                return 0L;
-            }
-            return d.optLong("visit_duration", 0L) + (currentTimeMillis - j);
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean f(JSONObject jSONObject) {
+    public static boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String b = b();
-            String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE, "");
-            if (!TextUtils.isEmpty(optString) && optString.equals(b)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
+                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
-        }
-    }
-
-    public static void i(String str, String str2, Object obj) {
-        JSONObject jSONObject;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
-            String string = uh3.a().getString("dailyInfo", "");
-            if (a) {
-                if (TextUtils.isEmpty(string)) {
-                    str3 = "dailyinfo is null";
-                } else {
-                    str3 = string;
-                }
-                Log.i("SwanAppUserVisitInfoUtils", str3);
-            }
-            try {
-                if (TextUtils.isEmpty(string)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(string);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str);
-                if (optJSONObject != null) {
-                    optJSONObject.put(str2, obj);
-                } else {
-                    jSONObject.put(str, new JSONObject());
-                }
-                uh3.a().putString("dailyInfo", jSONObject.toString());
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-        }
     }
 }

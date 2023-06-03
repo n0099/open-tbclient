@@ -17,7 +17,7 @@ import com.bumptech.glide.util.pool.GlideTrace;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static final String TAG = "BitmapEncoder";
     @Nullable

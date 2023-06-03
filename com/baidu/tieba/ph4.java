@@ -1,264 +1,560 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.location.Address;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
+import com.baidu.mapapi.search.poi.PoiCitySearchOption;
+import com.baidu.mapapi.search.poi.PoiDetailResult;
+import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
+import com.baidu.mapapi.search.poi.PoiIndoorResult;
+import com.baidu.mapapi.search.poi.PoiResult;
+import com.baidu.mapapi.search.poi.PoiSearch;
+import com.baidu.swan.map.location.LocationDetailAdapter;
+import com.baidu.swan.map.location.LocationFooterViewHolder;
+import com.baidu.swan.map.location.LocationItemDecoration;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.tieba.hb2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ph4 implements oh4<PMSAppInfo> {
+public class ph4 extends eb2 implements kh4, OnGetPoiSearchResultListener, View.OnKeyListener, View.OnFocusChangeListener, TextWatcher, View.OnTouchListener, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final im4 a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public EditText G0;
+    public View H0;
+    public TextView I0;
+    public RecyclerView J0;
+    public LocationDetailAdapter K0;
+    public LinearLayoutManager L0;
+    public List<lh4> M0;
+    public PoiSearch N0;
+    public InputMethodManager O0;
+    public int P0;
+    public int Q0;
+    public String R0;
+    public boolean S0;
+    public boolean T0;
+    public String U0;
 
-    public String d() {
+    @Override // com.baidu.tieba.eb2
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "swan_app" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948062029, "Lcom/baidu/tieba/ph4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.eb2
+    public void W1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048582, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.eb2
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eb2
+    public boolean g2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eb2, com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eb2
+    public void l2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, poiDetailResult) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, poiDetailSearchResult) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, poiIndoorResult) == null) {
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048604, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ph4 a;
+
+        public a(ph4 ph4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948062029, "Lcom/baidu/tieba/ph4;");
-                return;
+            this.a = ph4Var;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            int b3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                super.onScrollStateChanged(recyclerView, i);
+                if (i == 0 && (b3 = this.a.b3()) >= 0 && b3 + 1 == this.a.K0.getItemCount()) {
+                    this.a.c3();
+                }
             }
         }
-        a = im4.c();
-        b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ph4 a;
+
+        public b(ph4 ph4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ph4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ph4 ph4Var = this.a;
+                ph4Var.i3(ph4Var.G0, true);
+            }
+        }
     }
 
     public ph4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.N0 = null;
+        this.P0 = 0;
+        this.Q0 = 0;
+        this.U0 = Address.Builder.BEI_JING;
+    }
+
+    public final void Z2() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (activity = this.c0) != null) {
+            activity.onBackPressed();
+        }
+    }
+
+    public final View a3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int b3 = b3();
+            if (b3 == -1) {
+                return null;
+            }
+            return this.L0.findViewByPosition(b3);
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final int b3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            LinearLayoutManager linearLayoutManager = this.L0;
+            if (linearLayoutManager != null) {
+                return linearLayoutManager.findLastVisibleItemPosition();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.S0) {
+            return;
+        }
+        if (this.P0 < this.Q0) {
+            l3(this.R0);
+            this.S0 = true;
+            return;
+        }
+        f3();
+    }
+
+    public final void f3() {
+        View a3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (a3 = a3()) == null) {
+            return;
+        }
+        RecyclerView.ViewHolder childViewHolder = this.J0.getChildViewHolder(a3);
+        if (childViewHolder instanceof LocationFooterViewHolder) {
+            ((LocationFooterViewHolder) childViewHolder).b(false);
+        }
+    }
+
+    public final void g3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || TextUtils.isEmpty(this.R0)) {
+            return;
+        }
+        this.P0 = 0;
+        l3(this.R0);
+        i3(this.G0, false);
+    }
+
+    public void k3() {
+        hb2 U;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (U = lx2.T().U()) != null) {
+            hb2.b i = U.i("navigateTo");
+            i.n(hb2.g, hb2.i);
+            i.j(this);
+            i.b();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            super.z0();
+            this.N0.destroy();
+        }
+    }
+
+    public static ph4 e3(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            ph4 ph4Var = new ph4();
+            if (bundle != null) {
+                ph4Var.k1(bundle);
+            }
+            return ph4Var;
+        }
+        return (ph4) invokeL.objValue;
+    }
+
+    public final void h3(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, intent) != null) || S() == null) {
+            return;
+        }
+        S().r0(T(), 0, intent);
+    }
+
+    public void j3(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            View view2 = this.H0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090535) {
+            Z2();
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, editable) == null) {
+            if (editable != null && editable.length() > 0) {
+                this.T0 = false;
+                this.P0 = 0;
+                this.Q0 = 0;
+                String obj = editable.toString();
+                this.R0 = obj;
+                l3(obj);
+                return;
+            }
+            this.M0.clear();
+            this.K0.setData(this.M0);
+            this.R0 = "";
+            this.P0 = 0;
+            this.Q0 = 0;
+            this.T0 = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.kh4
+    public void d(lh4 lh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lh4Var) == null) {
+            Intent intent = new Intent();
+            PoiInfo poiInfo = lh4Var.a;
+            if (poiInfo != null && poiInfo.location != null) {
+                intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
+            }
+            h3(intent);
+            Z2();
+        }
+    }
+
+    public final void l3(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.N0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.U0).keyword(str).pageCapacity(13).pageNum(this.P0));
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d3(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.M0 = new ArrayList(11);
+            if (o() != null) {
+                String string = o().getString("city");
+                if (TextUtils.isEmpty(string)) {
+                    string = Address.Builder.BEI_JING;
+                }
+                this.U0 = string;
+            }
+            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f092061);
+            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091616);
+            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f0918ed);
+            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090535);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(lx2.T().getActivity());
+            this.L0 = linearLayoutManager;
+            this.J0.setLayoutManager(linearLayoutManager);
+            LocationDetailAdapter locationDetailAdapter = new LocationDetailAdapter(lx2.T().getActivity(), this.J0, this);
+            this.K0 = locationDetailAdapter;
+            this.J0.setAdapter(locationDetailAdapter);
+            this.J0.addItemDecoration(new LocationItemDecoration(lx2.T().getActivity()));
+            this.J0.setOnTouchListener(this);
+            this.I0.setOnClickListener(this);
+            PoiSearch newInstance = PoiSearch.newInstance();
+            this.N0 = newInstance;
+            newInstance.setOnGetPoiSearchResultListener(this);
+            this.G0.addTextChangedListener(this);
+            this.G0.setOnFocusChangeListener(this);
+            this.G0.setOnKeyListener(this);
+            this.G0.requestFocus();
+            this.J0.addOnScrollListener(new a(this));
+            this.G0.postDelayed(new b(this), 100L);
+        }
+    }
+
+    public void i3(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048591, this, view2, z) == null) {
+            if (this.O0 == null) {
+                this.O0 = (InputMethodManager) lx2.T().getActivity().getApplicationContext().getSystemService("input_method");
+            }
+            InputMethodManager inputMethodManager = this.O0;
+            if (inputMethodManager == null) {
+                return;
+            }
+            if (z) {
+                inputMethodManager.showSoftInput(view2, 0);
+            } else {
+                inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oh4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(c());
+        if (interceptable == null || interceptable.invokeLZ(1048598, this, view2, z) == null) {
+            i3(this.G0, z);
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
-        if (r0.isClosed() == false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(SQLiteDatabase sQLiteDatabase, String str) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            boolean z = false;
-            try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT * FROM " + d() + " LIMIT 0", null);
-                    if (cursor != null) {
-                        if (cursor.getColumnIndex(str) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    a.g("PMSDBHelperAppInfo", "#checkColumnExist error", e);
-                    if (cursor != null) {
-                    }
-                }
-                return z;
-            } finally {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
-                }
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, view2, motionEvent)) == null) {
+            i3(this.G0, false);
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiResult(PoiResult poiResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "CREATE TABLE " + d() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT UNIQUE," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0,version_name TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT,app_name TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT,brand TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0,web_permit INTEGER DEFAULT 0,user_action_apis TEXT," + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0);";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD customer_service INTEGER default " + PMSConstants.PayProtected.NO_PAY_PROTECTED.type + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_notice INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_private INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                StringBuilder sb = new StringBuilder();
-                sb.append("ALTER TABLE ");
-                sb.append(d());
-                sb.append(" ADD ");
-                sb.append("pa_number");
-                sb.append(" TEXT;");
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1115 error", e);
+        if (interceptable == null || interceptable.invokeL(1048602, this, poiResult) == null) {
+            boolean z = false;
+            this.S0 = false;
+            if (this.T0) {
+                return;
             }
-        }
-    }
-
-    public final void l(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) {
-            try {
-                if (!b(sQLiteDatabase, MultiRatePlayUrlHelper.RANK)) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD " + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0;");
+            if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
+                this.Q0 = poiResult.getTotalPageNum();
+                if (this.P0 == 0) {
+                    this.M0.clear();
                 }
-                if (!b(sQLiteDatabase, "web_permit")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
+                this.M0.addAll(lh4.a(poiResult.getAllPoi()));
+                this.K0.n(this.M0, this.R0);
+                this.P0++;
+            } else {
+                if (this.P0 == 0) {
+                    this.Q0 = 0;
+                    this.M0.clear();
+                    this.K0.setData(this.M0);
                 }
-                if (!b(sQLiteDatabase, "user_action_apis")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD user_action_apis TEXT;");
-                }
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1217 error", e);
+                f3();
+            }
+            if (this.P0 == 0 && this.M0.size() == 0) {
+                z = true;
+            }
+            j3(z);
+            if (this.M0.size() <= 0) {
+                f3();
             }
         }
     }
 
-    public final void f(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD brand TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1117 error", e);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048603, this, view2, i, keyEvent)) == null) {
+            if (i == 66) {
+                g3();
+                return true;
             }
+            return false;
         }
+        return invokeLIL.booleanValue;
     }
 
-    public final void i(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD cs_protocol_version INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1125 error", e);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, layoutInflater, viewGroup, bundle)) == null) {
+            fg4.a();
+            SDKInitializer.setCoordType(CoordType.GCJ02);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d008c, viewGroup, false);
+            d3(inflate);
+            if (V1()) {
+                inflate = Y1(inflate);
+                x1(-1);
             }
+            return F1(inflate, this);
         }
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1215 error", e);
-            }
-        }
-    }
-
-    public final void g(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) {
-            try {
-                String d = d();
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD last_launch_time LONG DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD launch_count INTEGER DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD install_src INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1122 error", e);
-            }
-        }
-    }
-
-    public final void h(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_url TEXT;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD quick_app_key TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1124 error", e);
-            }
-        }
-    }
-
-    public final void j(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + b + ParamableElem.DIVIDE_PARAM);
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1180 error", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oh4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048588, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 1) {
-                    if (i != 4) {
-                        switch (i) {
-                            case 6:
-                                f(sQLiteDatabase);
-                                continue;
-                            case 7:
-                                g(sQLiteDatabase);
-                                continue;
-                            case 8:
-                                h(sQLiteDatabase);
-                                continue;
-                            case 9:
-                                i(sQLiteDatabase);
-                                continue;
-                            case 10:
-                                k(sQLiteDatabase);
-                                continue;
-                            case 11:
-                                l(sQLiteDatabase);
-                                continue;
-                        }
-                    } else {
-                        e(sQLiteDatabase);
-                    }
-                } else {
-                    j(sQLiteDatabase);
-                }
-                i++;
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 }

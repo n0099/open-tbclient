@@ -9,17 +9,17 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f2a;
+import com.baidu.tieba.r8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f2a a;
+    public r8a a;
     public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class PreviewViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (this.b == null) {
-                this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d018c, (ViewGroup) null);
+                this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0192, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 addView(this.b, layoutParams);
@@ -105,19 +105,19 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            f2a f2aVar = this.a;
-            if (f2aVar != null) {
-                f2aVar.b(motionEvent);
+            r8a r8aVar = this.a;
+            if (r8aVar != null) {
+                r8aVar.b(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void setZoomHelper(f2a f2aVar) {
+    public void setZoomHelper(r8a r8aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, f2aVar) == null) && f2aVar != null) {
-            this.a = f2aVar;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, r8aVar) == null) && r8aVar != null) {
+            this.a = r8aVar;
         }
     }
 }

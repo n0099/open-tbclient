@@ -1,34 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class oz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public interface oz9 {
+    void a(rz9 rz9Var);
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            b(tbPageContext, str, null);
-        }
-    }
+    VideoFinishResult b(String str, int i) throws IOException;
 
-    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) && !StringUtils.isNull(str) && tbPageContext != null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
-                bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
-        }
-    }
+    void cancel();
 }

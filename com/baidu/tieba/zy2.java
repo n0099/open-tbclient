@@ -1,115 +1,108 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zy2 extends mz1 {
+public class zy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zy2(@NonNull hx1 hx1Var) {
-        super(hx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376214, "Lcom/baidu/tieba/zy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948376214, "Lcom/baidu/tieba/zy2;");
                 return;
             }
         }
+        boolean z = is1.a;
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return 12;
-                }
-                return 20;
-            }
-            return 19;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public g12 x(String str) {
-        InterceptResult invokeL;
+    public zy2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<g12, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((g12) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new g12(202);
-                }
-                int y = y(optString);
-                tu2 U = tu2.U();
-                if (U == null) {
-                    return new g12(1001);
-                }
-                p82 V = U.V();
-                if (V == null) {
-                    return new g12(1001);
-                }
-                m82 m = V.m();
-                if (m == null) {
-                    return new g12(1001);
-                }
-                nf4 R1 = m.R1();
-                if (R1 == null) {
-                    if (m instanceof t82) {
-                        ((t82) m).m3(y);
-                        return g12.f();
-                    }
-                    return new g12(1001);
-                }
-                R1.e(y);
-                R1.y();
-                return g12.f();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new g12(202);
         }
-        return (g12) invokeL.objValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
+    }
+
+    public static zy2 a(JSONObject jSONObject, zy2 zy2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, zy2Var)) == null) {
+            zy2 zy2Var2 = new zy2();
+            if (jSONObject != null) {
+                zy2Var2.a = jSONObject.optString("audioId", zy2Var.a);
+                zy2Var2.b = jSONObject.optString("slaveId", zy2Var.b);
+                zy2Var2.e = jSONObject.optBoolean("autoplay", zy2Var.e);
+                zy2Var2.f = jSONObject.optBoolean("loop", zy2Var.f);
+                zy2Var2.c = jSONObject.optString("src", zy2Var.c);
+                zy2Var2.d = jSONObject.optInt("startTime", zy2Var.d);
+                zy2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", zy2Var.g);
+                zy2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, zy2Var.h);
+                zy2Var2.i = (float) jSONObject.optDouble("volume", zy2Var.i);
+                zy2Var2.j = jSONObject.optString("cb", zy2Var.j);
+            }
+            return zy2Var2;
+        }
+        return (zy2) invokeLL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-import com.baidu.tieba.wt8;
+import com.baidu.tieba.tz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,15 +62,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                wt8 wt8Var = null;
+                tz8 tz8Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof wt8) {
-                        wt8Var = (wt8) extra;
+                    if (extra instanceof tz8) {
+                        tz8Var = (tz8) extra;
                     }
                 }
-                if (wt8Var != null) {
-                    wt8Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (tz8Var != null) {
+                    tz8Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -97,11 +97,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void U(wt8 wt8Var) {
+    public void U(tz8 tz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wt8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, tz8Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(wt8Var);
+            httpMessage.setExtra(tz8Var);
             sendMessage(httpMessage);
         }
     }

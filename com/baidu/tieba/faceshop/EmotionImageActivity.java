@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -16,10 +17,10 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.nw6;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.lw5;
+import com.baidu.tieba.o17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -155,28 +156,28 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d027d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0284);
             z1(bundle);
-            B1();
+            A1();
         }
     }
 
-    public final void B1() {
+    public final void A1() {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0603));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0637));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090e10);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090e22);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = js5.c();
+            boolean c = lw5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -188,19 +189,19 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 gifInfo.mStaticUrl = this.j;
             }
             this.b.l0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09098c);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09099d);
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.N(this.h, 10, false);
             } else {
-                Bitmap f = nw6.f(this.f, "panel.png");
+                Bitmap f = o17.f(this.f, "panel.png");
                 if (f != null) {
-                    new cn(f, false).h(this.c);
+                    new gn(f, false).h(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909c1);
             this.d = textView;
             textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09097c);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09098d);
             this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }
@@ -212,14 +213,14 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            hx4 layoutMode = getLayoutMode();
+            d05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
             layoutMode.l(z);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f09098d));
+            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f09099e));
             this.a.onChangeSkinType(getPageContext(), i);
         }
     }
@@ -231,7 +232,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             super.onSaveInstanceState(bundle);
             bundle.putString("pid", this.f);
             bundle.putString("panme", this.g);
-            bundle.putString("iconUrl", this.h);
+            bundle.putString(GameAssistConstKt.KEY_ICONURL, this.h);
             bundle.putString("gifUrl", this.i);
             bundle.putString("staticUrl", this.j);
             bundle.putString("sharpText", this.k);
@@ -259,7 +260,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (bundle != null) {
                 this.f = bundle.getString("pid");
                 this.g = bundle.getString("panme");
-                this.h = bundle.getString("iconUrl");
+                this.h = bundle.getString(GameAssistConstKt.KEY_ICONURL);
                 this.i = bundle.getString("gifUrl");
                 this.j = bundle.getString("staticUrl");
                 this.k = bundle.getString("sharpText");
@@ -269,7 +270,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 Intent intent = getIntent();
                 this.f = intent.getStringExtra("pid");
                 this.g = intent.getStringExtra("panme");
-                this.h = intent.getStringExtra("iconUrl");
+                this.h = intent.getStringExtra(GameAssistConstKt.KEY_ICONURL);
                 this.i = intent.getStringExtra("gifUrl");
                 this.j = intent.getStringExtra("staticUrl");
                 this.k = intent.getStringExtra("sharpText");

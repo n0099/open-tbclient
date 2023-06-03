@@ -1008,7 +1008,7 @@ public class CriusData {
         this.id = CriusUtil.getStringIfExist(jSONObject, "id");
         this.name = CriusUtil.getStringIfExist(jSONObject, "name");
         this.type = CriusUtil.getStringIfExist(jSONObject, "type");
-        this.component = CriusUtil.getStringIfExist(jSONObject, NativeConstants.COMPONENT);
+        this.component = CriusUtil.getStringIfExist(jSONObject, "component");
         this.src = CriusUtil.getStringIfExist(jSONObject, "src");
         this.srcSet = CriusUtil.getMapIfExist(jSONObject, NativeConstants.SRCSET);
         this.poster = CriusUtil.getStringIfExist(jSONObject, NativeConstants.POSTER);

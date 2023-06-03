@@ -1,115 +1,173 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ed3 extends w42 {
+public class ed3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
-    public List<String> n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947730453, "Lcom/baidu/tieba/ed3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947730453, "Lcom/baidu/tieba/ed3;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
-
-    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public final String l(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.c);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            switch (i) {
+                case 0:
+                case 1:
+                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
+                case 2:
+                    return "up-mirrored";
+                case 3:
+                    return "down";
+                case 4:
+                    return "down-mirrored";
+                case 5:
+                    return "left-mirrored";
+                case 6:
+                    return "left";
+                case 7:
+                    return "right-mirrored";
+                case 8:
+                    return "right";
+                default:
+                    return "";
+            }
         }
-        return invokeV.booleanValue;
+        return (String) invokeI.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ed3() {
-        super("webView", "viewId");
+    public ed3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/getImageInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = true;
     }
 
-    public static ed3 h(UnitedSchemeEntity unitedSchemeEntity) {
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            if (yb3Var == null) {
+                y82.c("getImageInfo", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            String optString = yo3.d(unitedSchemeEntity.getParam("params")).optString("src");
+            if (TextUtils.isEmpty(optString)) {
+                y82.c("getImageInfo", "path null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            JSONObject jSONObject = null;
+            if (gj3.s(optString) == PathType.BD_FILE) {
+                jSONObject = k(gj3.M(optString, yb3Var.b), optString);
+            } else if (gj3.s(optString) == PathType.RELATIVE) {
+                jSONObject = k(gj3.L(optString, yb3Var, yb3Var.k0()), optString);
+            }
+            if (jSONObject != null) {
+                y82.i("getImageInfo", "getImgInfo success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final ExifInterface j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str = unitedSchemeEntity.getParams().get("params");
-            ed3 ed3Var = new ed3();
             try {
-                ed3Var.a(new JSONObject(str));
-                return ed3Var;
-            } catch (JSONException e) {
-                g62.d(WebView.LOGTAG, "parsing params occurs exception", e);
+                return new ExifInterface(str);
+            } catch (IOException unused) {
                 return null;
             }
         }
-        return (ed3) invokeL.objValue;
+        return (ExifInterface) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public final JSONObject k(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optString("src");
-        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
-        this.l = jSONObject.optString("type");
-        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.n = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                this.n.add(optJSONArray.optString(i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            y82.i("getImageInfo", "getImgInfo start");
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            int i = 1;
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            String str4 = options.outMimeType;
+            if (!TextUtils.isEmpty(str4)) {
+                String[] split = str4.split("/");
+                str3 = split[split.length - 1];
+            } else {
+                str3 = "";
+            }
+            if (!TextUtils.equals("png", str3)) {
+                ExifInterface j = j(str);
+                if (j == null) {
+                    return null;
+                }
+                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i3);
+                jSONObject.put("path", str2);
+                jSONObject.put("orientation", l(i));
+                jSONObject.put("type", str3);
+            } catch (JSONException e) {
+                y82.c("getImageInfo", "getImgInfo failed by json exception");
+                if (vd3.b) {
+                    e.printStackTrace();
+                }
+            }
+            y82.i("getImageInfo", "getImgInfo end");
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

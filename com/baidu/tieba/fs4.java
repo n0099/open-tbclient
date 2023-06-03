@@ -1,191 +1,191 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import android.util.Xml;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes5.dex */
 public class fs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) {
-            String paramStr = UrlManager.getParamStr(str);
-            if (!TextUtils.isEmpty(paramStr)) {
-                b(statisticItem, UrlManager.getParamPair(paramStr));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
+            boolean z = false;
+            if (inputStream == null || file == null) {
+                return false;
             }
-        }
-    }
-
-    public static void b(StatisticItem statisticItem, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, statisticItem, map) == null) && statisticItem != null && map != null) {
-            statisticItem.param(TiebaStatic.Params.REFER, map.get(TiebaStatic.Params.REFER));
-            statisticItem.param("pid", map.get("hightlight_anchor_pid"));
-        }
-    }
-
-    public static void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, uri) == null) && uri != null) {
-            String d = d(uri);
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if ("shoubai".equals(queryParameter) || ThirdPartyUtil.TYPE_WEIXIN.equals(queryParameter) || "tbShareH5".equals(queryParameter) || PbModel.WISE.equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter) || Constants.SOURCE_QQ.equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                uri.getQueryParameter("obj_type");
-                String queryParameter3 = uri.getQueryParameter("obj_param1");
-                String queryParameter4 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM2);
-                String queryParameter5 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM3);
-                String queryParameter6 = uri.getQueryParameter("tid");
-                String queryParameter7 = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                String queryParameter8 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-                String queryParameter9 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-                String queryParameter10 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-                String queryParameter11 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
-                String queryParameter12 = uri.getQueryParameter("obj_name");
-                String queryParameter13 = uri.getQueryParameter(TiebaStatic.Params.EQID);
-                String queryParameter14 = uri.getQueryParameter("topic_id");
-                String queryParameter15 = uri.getQueryParameter("fid");
-                String queryParameter16 = uri.getQueryParameter("room_id");
-                String queryParameter17 = uri.getQueryParameter(TiebaStatic.Params.REFER);
-                String queryParameter18 = uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID);
-                String queryParameter19 = uri.getQueryParameter(TiebaStatic.Params.BDID);
-                String queryParameter20 = uri.getQueryParameter("hightlight_anchor_pid");
-                String queryParameter21 = uri.getQueryParameter(TiebaStatic.Params.QD);
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_CALL_NATIVE);
-                statisticItem.param("obj_locate", queryParameter2);
-                statisticItem.param("obj_type", d);
-                statisticItem.param("obj_param1", queryParameter3);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, queryParameter4);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, queryParameter5);
-                statisticItem.param("tid", queryParameter6);
-                statisticItem.param("fid", queryParameter15);
-                statisticItem.param("fname", queryParameter7);
-                statisticItem.param("room_id", queryParameter16);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID, queryParameter8);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID, queryParameter9);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE, queryParameter10);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID, queryParameter11);
-                statisticItem.param("obj_source", queryParameter);
-                statisticItem.param("obj_name", queryParameter12);
-                statisticItem.param("query", queryParameter13);
-                statisticItem.param("topic_id", queryParameter14);
-                statisticItem.param("obj_id", TbadkCoreApplication.getInst().getStartType());
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
-                statisticItem.param(TiebaStatic.Params.WISE_SAMPLE_ID, queryParameter18);
-                statisticItem.param(TiebaStatic.Params.BDID, queryParameter19);
-                if (TextUtils.isEmpty(queryParameter17)) {
-                    queryParameter17 = StringUtil.NULL_STRING;
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            if (file.exists()) {
+                file.delete();
+            }
+            FileOutputStream fileOutputStream2 = null;
+            FileOutputStream fileOutputStream3 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
                 }
-                statisticItem.param(TiebaStatic.Params.REFER, queryParameter17);
-                statisticItem.param("pid", queryParameter20);
-                statisticItem.param(TiebaStatic.Params.QD, queryParameter21);
-                TiebaStatic.log(statisticItem);
+            } catch (Exception e) {
+                e = e;
             }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                z = true;
+                cs4.d(fileOutputStream);
+                fileOutputStream2 = read;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream3 = fileOutputStream;
+                e.printStackTrace();
+                cs4.d(fileOutputStream3);
+                fileOutputStream2 = fileOutputStream3;
+                cs4.d(inputStream);
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                cs4.d(fileOutputStream2);
+                cs4.d(inputStream);
+                throw th;
+            }
+            cs4.d(inputStream);
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static String d(Uri uri) {
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return "";
-            }
-            String uri2 = uri.toString();
-            if (TextUtils.isEmpty(uri2)) {
-                return "";
-            }
-            if (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) {
-                return "5";
-            }
-            if (!uri2.contains("tbpb") && !uri2.contains(PbModel.UNIDISPATCH_PB)) {
-                if (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) {
-                    return "2";
-                }
-                if (uri2.contains("tbwebview")) {
-                    return "9";
-                }
-                if (!uri2.contains("tbusercenter") && !uri2.contains("unidispatch/usercenter") && !uri2.contains("usercenter")) {
-                    if (!uri2.contains("tbtopicdetail") && !uri2.contains("unidispatch/topicdetail")) {
-                        if (uri2.contains("unidispatch/hotuserrank")) {
-                            return "7";
-                        }
-                        if (BdUniDispatchSchemeController.PATH_HOMEPAGE.equals(uri.getPath())) {
-                            return "5";
-                        }
-                        if (uri2.contains("unidispatch/searchResultPage")) {
-                            if (TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY))) {
-                                return "5";
-                            }
-                            return "11";
-                        }
-                        return "10";
-                    }
-                    return "3";
-                }
-                return "4";
-            } else if ("tbpb://tieba.baidu.com".equals(uri2)) {
-                return "5";
-            } else {
-                if (!TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID))) {
-                    return "6";
-                }
-                String queryParameter = uri.getQueryParameter("obj_param1");
-                if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter) || "2".equals(queryParameter)) {
-                    String queryParameter2 = uri.getQueryParameter("obj_source");
-                    String queryParameter3 = uri.getQueryParameter("tid");
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
-                    if (BdUniDispatchSchemeController.PARAM_WISE.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 2);
-                    } else if (BdUniDispatchSchemeController.PARAM_SHOUBAI.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 3);
-                    } else if (BdUniDispatchSchemeController.PARAM_TBSHAREH5.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 4);
-                    } else if (BdUniDispatchSchemeController.PARAM_QQ.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 5);
-                    }
-                    statisticItem.param("tid", queryParameter3);
-                    TiebaStatic.log(statisticItem);
-                    return "1";
-                }
-                return "1";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, Xml.Encoding.UTF_8.toString());
         }
         return (String) invokeL.objValue;
     }
 
-    public static void e(Uri uri) {
+    public static String c(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri) == null) && uri != null) {
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.IS_NEW_SCHEMA);
-            if (!TextUtils.isEmpty(queryParameter) && queryParameter.equals("1")) {
-                String queryParameter2 = uri.getQueryParameter("obj_source");
-                String queryParameter3 = uri.getQueryParameter("obj_locate");
-                String queryParameter4 = uri.getQueryParameter("obj_type");
-                String queryParameter5 = uri.getQueryParameter("obj_param1");
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_PAY_PUT_TIE);
-                statisticItem.param("obj_source", queryParameter2);
-                statisticItem.param("obj_locate", queryParameter3);
-                statisticItem.param("obj_type", queryParameter4);
-                statisticItem.param("obj_param1", queryParameter5);
-                TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream == null) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    }
+                } catch (Throwable th) {
+                    cs4.d(inputStream);
+                    throw th;
+                }
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            cs4.d(inputStream);
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            boolean z = false;
+            if (inputStream != null && !TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                byte[] bArr = new byte[8192];
+                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry != null) {
+                            String str2 = str + "/" + nextEntry.getName();
+                            if (cs4.x(str2)) {
+                                cs4.d(zipInputStream);
+                                return false;
+                            } else if (nextEntry.isDirectory()) {
+                                File file2 = new File(str2);
+                                if (!file2.exists()) {
+                                    file2.mkdirs();
+                                }
+                            } else {
+                                File parentFile = new File(str2).getParentFile();
+                                if (!parentFile.exists()) {
+                                    parentFile.mkdirs();
+                                }
+                                if (!parentFile.isDirectory()) {
+                                    parentFile.delete();
+                                    parentFile.mkdirs();
+                                }
+                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
+                                while (true) {
+                                    try {
+                                        int read = zipInputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } finally {
+                                    }
+                                }
+                                cs4.d(fileOutputStream);
+                            }
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    } catch (IOException unused) {
+                    } catch (Throwable th) {
+                        cs4.d(zipInputStream);
+                        throw th;
+                    }
+                }
+                cs4.d(zipInputStream);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 }

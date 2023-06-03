@@ -2,6 +2,7 @@ package com.win.opensdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +91,7 @@ public class x1 {
                                 }
                                 info.setWt(optInt2);
                                 info.setPs(optJSONObject.optInt("ps", 0));
-                                info.setVertical(optJSONObject.optBoolean("vertical", true));
+                                info.setVertical(optJSONObject.optBoolean(LiveConfig.CUT_LIST_VERTICAL_KEY, true));
                                 info.setNat(optJSONObject.optBoolean("nat", true));
                                 info.setHo_c_sw(optJSONObject.optBoolean("ho_c_sw", true));
                                 info.setOpen(optJSONObject.optString("open", ""));

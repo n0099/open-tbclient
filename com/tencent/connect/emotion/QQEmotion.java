@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
 import com.baidu.searchbox.IntentConstants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -81,7 +80,7 @@ public class QQEmotion extends BaseApi {
             StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_face_collection?");
             if (!TextUtils.isEmpty(a)) {
                 if (a.length() > 20) {
-                    a = a.substring(0, 20) + StringHelper.STRING_MORE;
+                    a = a.substring(0, 20) + "...";
                 }
                 stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
             }

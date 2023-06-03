@@ -1,151 +1,264 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class gm2 implements em2 {
+public class gm2 extends km2<ln2, on2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static volatile gm2 e;
+    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<em2> a;
 
-    public gm2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final km2 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return hm2.f(e());
+            }
+            return (km2) invokeV.objValue;
+        }
+
+        public final ExtensionCore c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (d() == null) {
+                    return null;
+                }
+                ExtensionCore d = d().d();
+                if (!d.isAvailable()) {
+                    d().h();
+                    return d().d();
+                }
+                return d;
+            }
+            return (ExtensionCore) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putParcelable("aiapps_extension_core", c());
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putBoolean("swan_preset_extension", gm2.f);
+                y82.k("ExtCore-AppsManager", "is extension file exists : " + gm2.f);
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798653, "Lcom/baidu/tieba/gm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947798653, "Lcom/baidu/tieba/gm2;");
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
+        d = is1.a;
+        f = m();
     }
 
-    @Override // com.baidu.tieba.em2
-    public void b() {
-        List<em2> list;
+    public static gm2 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.b();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void c() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void d() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void e() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void f() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.f();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void g() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                em2Var.g();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public void a() {
-        List<em2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (em2 em2Var : this.a) {
-                if (em2Var != null) {
-                    em2Var.a();
-                }
-            }
-        }
-    }
-
-    public void h(@NonNull em2 em2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, em2Var) == null) {
-            this.a.add(em2Var);
-        }
-    }
-
-    public void i(@NonNull em2 em2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, em2Var) == null) {
-            this.a.remove(em2Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.em2
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
-            List<em2> list = this.a;
-            if (list == null || list.size() <= 0) {
-                return false;
-            }
-            while (true) {
-                boolean z = false;
-                for (em2 em2Var : this.a) {
-                    boolean onKeyDown = em2Var.onKeyDown(i, keyEvent);
-                    if (z || onKeyDown) {
-                        z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (gm2.class) {
+                    if (e == null) {
+                        e = new gm2();
                     }
                 }
-                return z;
+            }
+            return e;
+        }
+        return (gm2) invokeV.objValue;
+    }
+
+    public static ln2 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (j()) {
+                return new ln2();
+            }
+            return new mn2();
+        }
+        return (ln2) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm2() {
+        super(l(), new on2());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((kn2) objArr[0], (nn2) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeIL.booleanValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                y82.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
+                return f;
+            }
+            n83 c = l83.c(b.class, null);
+            boolean z = true;
+            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
+                z = false;
+            }
+            y82.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            fn2 fn2Var = new fn2();
+            if (jo3.a(AppRuntime.getAppContext(), fn2Var.d()) && jo3.a(AppRuntime.getAppContext(), fn2Var.a())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            y82.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.km2
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i != 1) {
+                return pm2.b().getPath();
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.km2
+    @Nullable
+    public ExtensionCore c() {
+        InterceptResult invokeV;
+        ExtensionCore extensionCore;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                extensionCore = d();
+            } else {
+                Bundle bundle = l83.c(a.class, null).a;
+                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
+                if (d) {
+                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                }
+            }
+            if (extensionCore != null && x73.Y() && extensionCore.extensionCoreVersionCode < 4294967297L) {
+                return x73.a(extensionCore);
+            }
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

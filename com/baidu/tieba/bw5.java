@@ -1,1035 +1,246 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.widget.Scroller;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ew5;
-import com.baidu.tieba.yv5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.lang.reflect.Array;
 /* loaded from: classes5.dex */
-public class bw5 implements aw5 {
+public class bw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public GestureDetector c;
-    public ScaleGestureDetector d;
-    public BitmapRegionDecoder e;
-    public zv5 f;
-    public cw5 g;
-    public float h;
-    public float i;
-    public float j;
-    public float k;
-    public Bitmap l;
-    public int m;
-    public c n;
-    public ew5 o;
-    public final Matrix p;
-    public View.OnClickListener q;
-    public View.OnLongClickListener r;
-    public Bitmap s;
-    public aw5 t;
-    public ValueAnimator u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public BdAsyncTask<String, String, String> y;
 
-    /* loaded from: classes5.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ bw5 c;
-
-        public a(bw5 bw5Var, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw5Var, Float.valueOf(f), Float.valueOf(f2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
+        InterceptResult invokeCommon;
+        int width;
+        int height;
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int i2 = i;
+            if (z) {
+                width = bitmap.getWidth() / 2;
+                height = bitmap.getHeight() / 4;
+            } else {
+                width = bitmap.getWidth();
+                height = bitmap.getHeight();
             }
-            this.c = bw5Var;
-            this.a = f;
-            this.b = f2;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator != null && (valueAnimator.getAnimatedValue() instanceof Float)) {
-                this.c.L(((Float) valueAnimator.getAnimatedValue()).floatValue() / this.c.i, this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, String, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw5 a;
-
-        public b(bw5 bw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bw5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            double d;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (this.a.f != null && this.a.e != null) {
-                    int[] b = this.a.g.b();
-                    int i = 1;
-                    while (true) {
-                        d = i;
-                        if (Math.max(b[0] / this.a.f.i(), b[1] / this.a.f.h()) <= Math.pow(2.0d, d)) {
-                            break;
-                        }
-                        i++;
-                    }
-                    int pow = (int) Math.pow(2.0d, d);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inSampleSize = pow;
-                    Rect rect = new Rect(0, 0, b[0], b[1]);
-                    try {
-                        this.a.s = this.a.e.decodeRegion(rect, options);
-                    } catch (Throwable unused) {
-                        TbadkCoreApplication.getInst().onAppMemoryLow();
-                        System.gc();
-                        try {
-                            this.a.s = this.a.e.decodeRegion(rect, options);
-                        } catch (Throwable unused2) {
-                            this.a.s = null;
-                        }
-                    }
-                    TbImageMemoryCache.u().l("long_img_mThumb" + System.currentTimeMillis(), new cn(this.a.s, false));
-                    bw5 bw5Var = this.a;
-                    bw5Var.B(bw5Var.s, bw5Var.f, pow);
-                    this.a.f.t(this.a.s);
-                    this.a.C();
-                }
+            if (width == 0 || height == 0) {
                 return null;
             }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                if (this.a.t != null) {
-                    this.a.t.onLoadFinished();
-                }
-                this.a.u();
-                this.a.b.invalidate();
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
+            if (i2 < 1) {
+                return null;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends Scroller {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(bw5 bw5Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw5Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            int i3 = width * height;
+            int[] iArr2 = new int[i3];
+            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
+            int i4 = width - 1;
+            int i5 = height - 1;
+            int i6 = i2 + i2 + 1;
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[i3];
+            int[] iArr5 = new int[i3];
+            int[] iArr6 = new int[Math.max(width, height)];
+            int i7 = (i6 + 1) >> 1;
+            int i8 = i7 * i7;
+            int i9 = i8 * 256;
+            int[] iArr7 = new int[i9];
+            for (int i10 = 0; i10 < i9; i10++) {
+                iArr7[i10] = i10 / i8;
             }
-            this.a = 0;
-            this.b = 0;
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a = i;
-            }
-        }
-
-        public void d(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                this.b = i;
-            }
-        }
-
-        @Override // android.widget.Scroller
-        public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-                this.a = 0;
-                this.b = 0;
-                super.fling(i, i2, i3, i4, i5, i6, i7, i8);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends GestureDetector.SimpleOnGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw5 a;
-
-        public d(bw5 bw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bw5Var;
-        }
-
-        public /* synthetic */ d(bw5 bw5Var, a aVar) {
-            this(bw5Var);
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-        public boolean onDoubleTap(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, motionEvent)) != null) {
-                return invokeL.booleanValue;
-            }
-            this.a.U(this.a.i == this.a.j ? this.a.k : this.a.j, motionEvent.getX(), motionEvent.getY(), 400);
-            return true;
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public void onLongPress(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-                if (!this.a.x && this.a.r != null) {
-                    this.a.r.onLongClick(this.a.b);
-                } else {
-                    this.a.x = false;
-                }
-                super.onLongPress(motionEvent);
-            }
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-        public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-                if (!this.a.x && this.a.q != null) {
-                    this.a.q.onClick(this.a.b);
-                } else {
-                    this.a.x = false;
-                }
-                return super.onSingleTapConfirmed(motionEvent);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                Rect o = this.a.f.o();
-                Rect f3 = this.a.f.f();
-                this.a.n.forceFinished(true);
-                int i = (int) 0.0f;
-                this.a.n.fling(i, i, (int) f, (int) f2, o.right - f3.right, o.left - f3.left, o.bottom - f3.bottom, o.top - f3.top);
-                this.a.b.invalidate();
-                if (Math.abs(f2) > bw5.z) {
-                    this.a.x = true;
-                }
-                return true;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                this.a.I((int) f, (int) f2);
-                if (Math.abs(f2) > bw5.z) {
-                    this.a.x = true;
-                }
-                if (this.a.b != null && this.a.i != this.a.k) {
-                    this.a.b.getParent().requestDisallowInterceptTouchEvent(true);
-                }
-                return true;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw5 a;
-
-        public e(bw5 bw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bw5Var;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                this.a.L(scaleGestureDetector.getScaleFactor(), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public /* synthetic */ e(bw5 bw5Var, a aVar) {
-            this(bw5Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659401, "Lcom/baidu/tieba/bw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659401, "Lcom/baidu/tieba/bw5;");
-                return;
-            }
-        }
-        z = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
-    }
-
-    public final void C() {
-        zv5 zv5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zv5Var = this.f) != null) {
-            zv5Var.q(1.0f / this.k);
-        }
-    }
-
-    public boolean D() {
-        InterceptResult invokeV;
-        Rect o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zv5 zv5Var = this.f;
-            if (zv5Var == null || (o = zv5Var.o()) == null || o.top > 10) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (Math.floor(this.k * 10000.0f) == Math.floor(this.i * 10000.0f)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.w;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.v;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public float N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void X() {
-        List<yv5> d2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (d2 = this.f.d()) != null) {
-            for (yv5 yv5Var : d2) {
-                Y(yv5Var, this.f);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.aw5
-    public void onLoadFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.b.postInvalidate();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            float f = this.i;
-            float f2 = this.k;
-            if (f / f2 < 1.0f) {
-                U(f2, 0.0f, 0.0f, 400);
-            }
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048605, this) != null) || this.m == 1) {
-            return;
-        }
-        w(this.f, true);
-    }
-
-    public float y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return this.k * 2.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            float f = this.k;
-            if (f >= 1.0f) {
-                return 1.0f;
-            }
-            return f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public bw5(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.j = 2.0f;
-        this.k = 1.0f;
-        this.m = 1;
-        this.p = new Matrix();
-        this.s = null;
-        this.v = true;
-        this.w = false;
-        this.x = false;
-        this.y = new b(this);
-        this.b = view2;
-        this.a = view2.getContext();
-        this.c = new GestureDetector(this.a, new d(this, null));
-        this.d = new ScaleGestureDetector(this.a, new e(this, null));
-        this.n = new c(this, this.a);
-        this.m = 0;
-    }
-
-    public boolean J(Canvas canvas) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, canvas)) == null) {
-            if (this.m == 1 && this.l != null) {
-                return false;
-            }
-            zv5 zv5Var = this.f;
-            if (zv5Var != null) {
-                zv5Var.o();
-                if (E()) {
-                    canvas.drawBitmap(this.f.n().b(), this.p, null);
-                }
-                w(this.f, false);
-                X();
-                canvas.save();
-                float k = (this.f.k() * 1.0f) / this.f.l();
-                canvas.scale(k, k);
-                List<yv5> d2 = this.f.d();
-                if (d2 != null) {
-                    for (yv5 yv5Var : d2) {
-                        canvas.drawBitmap(yv5Var.b(), yv5Var.f(), yv5Var.c(), (Paint) null);
+            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
+            int i11 = i2 + 1;
+            int i12 = 0;
+            int i13 = 0;
+            int i14 = 0;
+            while (i12 < height) {
+                Bitmap bitmap2 = createBitmap;
+                int i15 = 0;
+                int i16 = 0;
+                int i17 = 0;
+                int i18 = 0;
+                int i19 = 0;
+                int i20 = 0;
+                int i21 = 0;
+                int i22 = 0;
+                int i23 = -i2;
+                int i24 = 0;
+                while (i23 <= i2) {
+                    int i25 = height;
+                    int i26 = i5;
+                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
+                    int[] iArr9 = iArr8[i23 + i2];
+                    iArr9[0] = (i27 & 16711680) >> 16;
+                    iArr9[1] = (i27 & 65280) >> 8;
+                    iArr9[2] = i27 & 255;
+                    int abs = i11 - Math.abs(i23);
+                    i24 += iArr9[0] * abs;
+                    i15 += iArr9[1] * abs;
+                    i16 += iArr9[2] * abs;
+                    if (i23 > 0) {
+                        i20 += iArr9[0];
+                        i21 += iArr9[1];
+                        i22 += iArr9[2];
+                    } else {
+                        i17 += iArr9[0];
+                        i18 += iArr9[1];
+                        i19 += iArr9[2];
                     }
+                    i23++;
+                    height = i25;
+                    i5 = i26;
                 }
-                canvas.restore();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void R(aw5 aw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, aw5Var) == null) {
-            this.t = aw5Var;
-        }
-    }
-
-    public void S(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.q = onClickListener;
-        }
-    }
-
-    public void T(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onLongClickListener) == null) {
-            this.r = onLongClickListener;
-        }
-    }
-
-    public final void w(zv5 zv5Var, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048607, this, zv5Var, z2) == null) {
-            v(zv5Var.m(), zv5Var.k(), z2);
-        }
-    }
-
-    public final float[] A(float f, float f2) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            float[] fArr = new float[2];
-            Rect o = this.f.o();
-            int[] b2 = this.g.b();
-            if (o.top + f2 < 0.0f) {
-                f2 = 0.0f;
-            }
-            int i = o.bottom;
-            boolean z3 = true;
-            if (i + f2 > b2[1]) {
-                f2 = (b2[1] - i) * this.i;
-            }
-            if (o.bottom - o.top > b2[1]) {
-                f2 = 0.0f;
-            }
-            fArr[0] = 0.0f;
-            fArr[1] = f2;
-            if (f2 == 0.0f) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.v = z2;
-            if (o.bottom != b2[1]) {
-                z3 = false;
-            }
-            this.w = z3;
-            if (z3) {
-                this.v = false;
-            }
-            return fArr;
-        }
-        return (float[]) invokeCommon.objValue;
-    }
-
-    public boolean K(Canvas canvas, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, canvas, bitmap)) == null) {
-            if (bitmap != null && !bitmap.isRecycled() && !E()) {
-                Matrix matrix = new Matrix();
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int width2 = (this.b.getWidth() - this.b.getPaddingLeft()) - this.b.getPaddingRight();
-                int height2 = (this.b.getHeight() - this.b.getPaddingTop()) - this.b.getPaddingBottom();
-                if (width * height2 > width2 * height) {
-                    f = height2 / height;
-                } else {
-                    f = width2 / width;
-                }
-                matrix.setScale(f, f);
-                matrix.postTranslate(0.0f, 0.0f);
-                canvas.drawBitmap(bitmap, matrix, null);
-                return true;
-            }
-            return J(canvas);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void B(Bitmap bitmap, zv5 zv5Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, zv5Var, i) == null) {
-            float max = Math.max((zv5Var.i() * 1.0f) / bitmap.getWidth(), (zv5Var.h() * 1.0f) / bitmap.getHeight());
-            this.p.postScale(max, max);
-            float f = (1.0f / i) * max;
-            this.h = f;
-            this.k = f;
-            this.i = f;
-            this.j = f * 2.0f;
-            float i2 = (zv5Var.i() * 1.0f) / this.e.getWidth();
-            if (i2 > 1.0f) {
-                this.h /= i2;
-            }
-            zv5Var.s(1.0f / this.i);
-        }
-    }
-
-    public final void P(yv5 yv5Var, Rect rect, Rect rect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, yv5Var, rect, rect2) == null) {
-            int i = rect.left;
-            int i2 = rect2.left;
-            if (i <= i2) {
-                i = i2;
-            }
-            int i3 = rect.right;
-            int i4 = rect2.right;
-            if (i3 >= i4) {
-                i3 = i4;
-            }
-            int i5 = rect.top;
-            int i6 = rect2.top;
-            if (i5 <= i6) {
-                i5 = i6;
-            }
-            int i7 = rect.bottom;
-            int i8 = rect2.bottom;
-            if (i7 >= i8) {
-                i7 = i8;
-            }
-            int c2 = yv5Var.d().c();
-            int i9 = rect.left;
-            int i10 = rect.top;
-            yv5Var.k((i - i9) / c2, (i5 - i10) / c2, (i3 - i9) / c2, (i7 - i10) / c2);
-            int i11 = rect2.left;
-            int i12 = rect2.top;
-            yv5Var.i((i - i11) / c2, (i5 - i12) / c2, (i3 - i11) / c2, (i7 - i12) / c2);
-        }
-    }
-
-    public final yv5 x(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        yv5 f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048608, this, i, i2, i3)) == null) {
-            yv5.a aVar = new yv5.a(i, i2, i3);
-            if (this.o.e() != null && (f = this.o.e().f(aVar)) != null) {
-                if (f.b() != null && !f.b().isRecycled()) {
-                    return f;
-                }
-                this.o.e().i(aVar);
-            }
-            return null;
-        }
-        return (yv5) invokeIII.objValue;
-    }
-
-    public final boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            zv5 zv5Var = this.f;
-            if (zv5Var != null && zv5Var.n() != null && this.f.n().b() != null && !this.f.n().b().isRecycled()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            ValueAnimator valueAnimator = this.u;
-            if (valueAnimator != null) {
-                valueAnimator.cancel();
-            }
-            BdAsyncTask<String, String, String> bdAsyncTask = this.y;
-            if (bdAsyncTask != null) {
-                bdAsyncTask.cancel();
-            }
-            ew5 ew5Var = this.o;
-            if (ew5Var != null) {
-                ew5Var.g();
-            }
-            zv5 zv5Var = this.f;
-            if (zv5Var != null && zv5Var.d() != null) {
-                this.f.d().clear();
-            }
-            Bitmap bitmap = this.s;
-            if (bitmap != null) {
-                bitmap.recycle();
-                this.s = null;
-            }
-        }
-    }
-
-    public void I(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && this.f != null) {
-            float[] A = A(f, f2);
-            float f3 = A[0];
-            float f4 = A[1];
-            this.p.postTranslate(-f3, -f4);
-            zv5 zv5Var = this.f;
-            float f5 = this.i;
-            zv5Var.p((f3 * 1.0f) / f5, (f4 * 1.0f) / f5);
-            u();
-            this.b.invalidate();
-        }
-    }
-
-    public void Q(Bitmap bitmap, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048592, this, bitmap, bArr) == null) && bArr != null && bArr.length != 0 && this.g == null) {
-            this.l = bitmap;
-            cw5 cw5Var = new cw5(this.a);
-            this.g = cw5Var;
-            try {
-                this.e = cw5Var.a(bArr);
-            } catch (Throwable unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                System.gc();
-                try {
-                    this.e = this.g.a(bArr);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-            this.m = 2;
-            V();
-        }
-    }
-
-    public void L(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            float f4 = this.i;
-            float f5 = this.h;
-            if (f4 * f < f5) {
-                f = f5 / f4;
-            }
-            float f6 = this.i;
-            float f7 = this.j;
-            if (f6 * f > f7) {
-                f = f7 / f6;
-            }
-            Rect o = this.f.o();
-            float f8 = ((o.left + o.right) * 1.0f) / 2.0f;
-            float f9 = ((o.top + o.bottom) * 1.0f) / 2.0f;
-            zv5 zv5Var = this.f;
-            if (zv5Var != null) {
-                this.p.postScale(f, f, zv5Var.i() / 2, this.f.h() / 2);
-                this.f.r(1.0f / f, f8, f9);
-                float f10 = this.i * f;
-                this.i = f10;
-                this.f.s(1.0f / f10);
-                float[] s = s();
-                this.p.postTranslate(-s[0], -s[1]);
-                zv5 zv5Var2 = this.f;
-                float f11 = this.i;
-                zv5Var2.p((s[0] * 1.0f) / f11, (s[1] * 1.0f) / f11);
-                u();
-                this.b.invalidate();
-            }
-        }
-    }
-
-    public boolean M(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
-            if (this.m != 2 || !E()) {
-                return false;
-            }
-            if (action != 0) {
-                if (action == 1 || action == 3) {
-                    r();
-                }
-            } else {
-                if (!this.n.isFinished()) {
-                    this.x = true;
-                } else {
-                    this.x = false;
-                }
-                r();
-            }
-            this.n.forceFinished(true);
-            this.d.onTouchEvent(motionEvent);
-            if (!this.d.isInProgress()) {
-                this.c.onTouchEvent(motionEvent);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void U(float f, float f2, float f3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
-            ValueAnimator valueAnimator = this.u;
-            if (valueAnimator != null) {
-                valueAnimator.cancel();
-            }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.i, f);
-            this.u = ofFloat;
-            ofFloat.setDuration(i);
-            this.u.addUpdateListener(new a(this, f2, f3));
-            this.u.start();
-        }
-    }
-
-    public void V() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.m == 2 && this.g != null && this.y.getStatus() == BdAsyncTask.BdAsyncTaskStatus.PENDING && this.f == null && this.b.getMeasuredWidth() > 0 && this.b.getMeasuredHeight() > 0 && this.g.b()[0] > 0 && this.g.b()[1] > 0) {
-            this.f = new zv5(this.b.getMeasuredWidth(), this.b.getMeasuredHeight(), this.g.b());
-            this.y.setPriority(3);
-            this.y.execute(new String[0]);
-        }
-    }
-
-    public final float[] s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            Rect o = this.f.o();
-            int[] b2 = this.g.b();
-            float[] fArr = {(b2[0] / 2) - (((o.left + o.right) * 1.0f) / 2.0f)};
-            int i = o.top;
-            if (i < 0) {
-                fArr[1] = 0 - i;
-            }
-            int i2 = o.bottom;
-            if (i2 > b2[1]) {
-                fArr[1] = b2[1] - i2;
-            }
-            int i3 = o.bottom;
-            int i4 = o.top;
-            if (i3 - i4 > b2[1]) {
-                fArr[1] = (b2[1] / 2) - (((i4 + i3) * 1.0f) / 2.0f);
-            }
-            float f = fArr[0];
-            float f2 = this.i;
-            fArr[0] = f * f2;
-            fArr[1] = fArr[1] * f2;
-            return fArr;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (this.m == 1) {
-                return false;
-            }
-            if (this.n.computeScrollOffset()) {
-                int currX = this.n.getCurrX();
-                int currY = this.n.getCurrY();
-                float a2 = (currX - this.n.a()) * 2.0f;
-                float b2 = (currY - this.n.b()) * 2.0f;
-                int j = ri.j(TbadkCoreApplication.getInst());
-                if (b2 > 0.0f && Math.abs(b2) <= 20.0f && currX < j) {
-                    I(0.0f, -20.0f);
-                    this.b.invalidate();
-                    return true;
-                }
-                this.n.c(currX);
-                this.n.d(currY);
-                I(-a2, -b2);
-                this.b.invalidate();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void W(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048598, this, i, i2, i3) == null) {
-            ew5.d dVar = new ew5.d(i, i2, i3);
-            dVar.d(this);
-            this.o.h(dVar);
-        }
-    }
-
-    public void Y(yv5 yv5Var, zv5 zv5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048600, this, yv5Var, zv5Var) != null) || yv5Var == null) {
-            return;
-        }
-        if (yv5Var.d().a() == 0 && yv5Var.d().b() == 1) {
-            System.currentTimeMillis();
-        }
-        P(yv5Var, zv5Var.g(yv5Var), zv5Var.o());
-    }
-
-    public final void v(Point[] pointArr, int i, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{pointArr, Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-            if (this.o == null) {
-                this.o = new ew5(this.f, this.e);
-            }
-            int i2 = pointArr[0].x;
-            boolean z3 = true;
-            int i3 = pointArr[1].y;
-            int i4 = pointArr[1].x;
-            List<yv5> list = null;
-            if (!z2) {
-                list = this.f.d();
-                list.clear();
-            }
-            for (int i5 = pointArr[0].y; i5 < i3; i5++) {
-                for (int i6 = i2; i6 < i4; i6++) {
-                    yv5 x = x(i5, i6, i);
-                    if (x == null) {
-                        if (z2) {
-                            W(i5, i6, i);
-                        }
-                        z3 = false;
-                    } else if (list != null && !z2) {
-                        list.add(x);
+                int i28 = height;
+                int i29 = i5;
+                int i30 = i2;
+                int i31 = i24;
+                int i32 = 0;
+                while (i32 < width) {
+                    iArr3[i13] = iArr7[i31];
+                    iArr4[i13] = iArr7[i15];
+                    iArr5[i13] = iArr7[i16];
+                    int i33 = i31 - i17;
+                    int i34 = i15 - i18;
+                    int i35 = i16 - i19;
+                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
+                    int i36 = i17 - iArr10[0];
+                    int i37 = i18 - iArr10[1];
+                    int i38 = i19 - iArr10[2];
+                    if (i12 == 0) {
+                        iArr = iArr7;
+                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
+                    } else {
+                        iArr = iArr7;
                     }
+                    int i39 = iArr2[i14 + iArr6[i32]];
+                    iArr10[0] = (i39 & 16711680) >> 16;
+                    iArr10[1] = (i39 & 65280) >> 8;
+                    iArr10[2] = i39 & 255;
+                    int i40 = i20 + iArr10[0];
+                    int i41 = i21 + iArr10[1];
+                    int i42 = i22 + iArr10[2];
+                    i31 = i33 + i40;
+                    i15 = i34 + i41;
+                    i16 = i35 + i42;
+                    i30 = (i30 + 1) % i6;
+                    int[] iArr11 = iArr8[i30 % i6];
+                    i17 = i36 + iArr11[0];
+                    i18 = i37 + iArr11[1];
+                    i19 = i38 + iArr11[2];
+                    i20 = i40 - iArr11[0];
+                    i21 = i41 - iArr11[1];
+                    i22 = i42 - iArr11[2];
+                    i13++;
+                    i32++;
+                    iArr7 = iArr;
                 }
+                i14 += width;
+                i12++;
+                createBitmap = bitmap2;
+                height = i28;
+                i5 = i29;
             }
-            if (z3) {
-                this.o.d(false);
+            int i43 = height;
+            int i44 = i5;
+            int[] iArr12 = iArr7;
+            Bitmap bitmap3 = createBitmap;
+            int i45 = 0;
+            while (i45 < width) {
+                int i46 = -i2;
+                int i47 = i6;
+                int[] iArr13 = iArr6;
+                int i48 = 0;
+                int i49 = 0;
+                int i50 = 0;
+                int i51 = 0;
+                int i52 = 0;
+                int i53 = 0;
+                int i54 = 0;
+                int i55 = i46;
+                int i56 = i46 * width;
+                int i57 = 0;
+                int i58 = 0;
+                while (i55 <= i2) {
+                    int i59 = width;
+                    int max = Math.max(0, i56) + i45;
+                    int[] iArr14 = iArr8[i55 + i2];
+                    iArr14[0] = iArr3[max];
+                    iArr14[1] = iArr4[max];
+                    iArr14[2] = iArr5[max];
+                    int abs2 = i11 - Math.abs(i55);
+                    i57 += iArr3[max] * abs2;
+                    i58 += iArr4[max] * abs2;
+                    i48 += iArr5[max] * abs2;
+                    if (i55 > 0) {
+                        i52 += iArr14[0];
+                        i53 += iArr14[1];
+                        i54 += iArr14[2];
+                    } else {
+                        i49 += iArr14[0];
+                        i50 += iArr14[1];
+                        i51 += iArr14[2];
+                    }
+                    int i60 = i44;
+                    if (i55 < i60) {
+                        i56 += i59;
+                    }
+                    i55++;
+                    i44 = i60;
+                    width = i59;
+                }
+                int i61 = width;
+                int i62 = i44;
+                int i63 = i2;
+                int i64 = i45;
+                int i65 = i43;
+                int i66 = 0;
+                while (i66 < i65) {
+                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
+                    int i67 = i57 - i49;
+                    int i68 = i58 - i50;
+                    int i69 = i48 - i51;
+                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
+                    int i70 = i49 - iArr15[0];
+                    int i71 = i50 - iArr15[1];
+                    int i72 = i51 - iArr15[2];
+                    if (i45 == 0) {
+                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
+                    }
+                    int i73 = iArr13[i66] + i45;
+                    iArr15[0] = iArr3[i73];
+                    iArr15[1] = iArr4[i73];
+                    iArr15[2] = iArr5[i73];
+                    int i74 = i52 + iArr15[0];
+                    int i75 = i53 + iArr15[1];
+                    int i76 = i54 + iArr15[2];
+                    i57 = i67 + i74;
+                    i58 = i68 + i75;
+                    i48 = i69 + i76;
+                    i63 = (i63 + 1) % i47;
+                    int[] iArr16 = iArr8[i63];
+                    i49 = i70 + iArr16[0];
+                    i50 = i71 + iArr16[1];
+                    i51 = i72 + iArr16[2];
+                    i52 = i74 - iArr16[0];
+                    i53 = i75 - iArr16[1];
+                    i54 = i76 - iArr16[2];
+                    i64 += i61;
+                    i66++;
+                    i2 = i;
+                }
+                i45++;
+                i2 = i;
+                i44 = i62;
+                i43 = i65;
+                iArr6 = iArr13;
+                i6 = i47;
+                width = i61;
             }
+            int i77 = width;
+            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
+            return bitmap3;
         }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

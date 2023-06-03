@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.tieba.cc2;
-import com.baidu.tieba.cs2;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.gc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,30 +14,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public class xc2 extends kc2 {
+public class xc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public bc2 c;
+    public final gc2 a;
+    public final pc2 b;
+    public final dc2 c;
     public String d;
-    public String e;
-    public xg4<gi4> f;
 
     /* loaded from: classes8.dex */
-    public class a extends ug4<gi4> {
+    public class a implements gc2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc2 a;
+        public final /* synthetic */ SceneType a;
+        public final /* synthetic */ rc2 b;
+        public final /* synthetic */ fc2 c;
+        public final /* synthetic */ xc2 d;
 
-        public a(xc2 xc2Var) {
+        public a(xc2 xc2Var, SceneType sceneType, rc2 rc2Var, fc2 fc2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xc2Var};
+                Object[] objArr = {xc2Var, sceneType, rc2Var, fc2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,86 +48,38 @@ public class xc2 extends kc2 {
                     return;
                 }
             }
-            this.a = xc2Var;
+            this.d = xc2Var;
+            this.a = sceneType;
+            this.b = rc2Var;
+            this.c = fc2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xg4
-        /* renamed from: l */
-        public String d(gi4 gi4Var) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.gc2.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gi4Var)) == null) {
-                return zc2.a(this.a.e);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
-        /* renamed from: q */
-        public void f(gi4 gi4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gi4Var) == null) {
-                super.f(gi4Var);
-                if (xc2.g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloading");
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                xb2.b(this.d.d);
+                ac2.i(1);
+                zb2.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getScene());
+                sb.append(this.c.a());
+                sb.append(this.b.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.b.c());
+                ac2.g(sb.toString());
+                if (xc2.e) {
+                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
                 }
-                this.a.V(gi4Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.zg4
-        @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
-                return this.a.m(bundle, set);
-            }
-            return (Bundle) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
-        /* renamed from: o */
-        public void e(gi4 gi4Var, ai4 ai4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, gi4Var, ai4Var) == null) {
-                super.e(gi4Var, ai4Var);
-                if (xc2.g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadError:" + ai4Var.toString());
-                }
-                zk3 zk3Var = new zk3();
-                zk3Var.k(12L);
-                zk3Var.i(ai4Var.a);
-                zk3Var.d("分包下载失败");
-                zk3Var.f(ai4Var.toString());
-                this.a.S(3, zk3Var);
-                cc2.c().a(gi4Var, PMSDownloadType.ALONE_SUB, zk3Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
-        /* renamed from: p */
-        public void i(gi4 gi4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, gi4Var) == null) {
-                super.i(gi4Var);
-                if (xc2.g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish:" + gi4Var.toString());
-                }
-                this.a.U(gi4Var);
+                this.d.h(networkStatus, this.c, this.b);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements cc2.c {
+    public class b implements gc2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc2 a;
 
         public b(xc2 xc2Var) {
             Interceptable interceptable = $ic;
@@ -141,28 +93,20 @@ public class xc2 extends kc2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = xc2Var;
         }
 
-        @Override // com.baidu.tieba.cc2.c
-        public void a(PMSDownloadType pMSDownloadType) {
+        @Override // com.baidu.tieba.gc2.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, pMSDownloadType) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                pc2.d().j();
+                dc2.d().j();
+                xb2.c();
+                ac2.i(0);
+                zb2.c("exit_skeleton", networkStatus.getStatus());
             }
-            this.a.T();
-        }
-
-        @Override // com.baidu.tieba.cc2.c
-        public void b(PMSDownloadType pMSDownloadType, zk3 zk3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, zk3Var) != null) {
-                return;
-            }
-            this.a.S(0, zk3Var);
         }
     }
 
@@ -179,46 +123,30 @@ public class xc2 extends kc2 {
                 return;
             }
         }
-        g = qp1.a;
+        e = is1.a;
     }
 
-    @Override // com.baidu.tieba.bh4
-    public xg4<gi4> A() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (xg4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bh4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            zk3 zk3Var = new zk3();
-            zk3Var.k(12L);
-            zk3Var.i(2901L);
-            zk3Var.d("Server无包");
-            S(2, zk3Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
+            }
+            this.a.a(new b(this));
         }
     }
 
-    public final void T() {
-        bc2 bc2Var;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bc2Var = this.c) != null) {
-            bc2Var.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f(SceneType.SCENE_SKELETON_TIMEOUT);
         }
     }
 
-    public xc2(String str, String str2, bc2 bc2Var) {
+    public xc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bc2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -228,71 +156,52 @@ public class xc2 extends kc2 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.d = str;
-        this.c = bc2Var;
-        this.e = cs2.e.i(str, str2).getPath();
+        this.c = dc2.d();
+        this.a = new gc2();
+        this.b = pc2.d();
     }
 
-    @Override // com.baidu.tieba.bh4
-    public void C(ai4 ai4Var) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ai4Var) == null) {
-            super.C(ai4Var);
-            zk3 zk3Var = new zk3();
-            zk3Var.k(12L);
-            zk3Var.c(ai4Var);
-            S(1, zk3Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final void V(gi4 gi4Var) {
+    public void f(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gi4Var) == null) {
-            cc2.c().d(gi4Var, new b(this));
-        }
-    }
-
-    public final void S(int i, zk3 zk3Var) {
-        bc2 bc2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, zk3Var) == null) && (bc2Var = this.c) != null) {
-            bc2Var.b(i, zk3Var);
-        }
-    }
-
-    public final void U(gi4 gi4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gi4Var) == null) {
-            if (!tm3.a(new File(gi4Var.a), gi4Var.m)) {
-                if (g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
+            if (sp3.I(this.d) && sp3.H()) {
+                if (e) {
+                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
                 }
-                zk3 zk3Var = new zk3();
-                zk3Var.k(12L);
-                zk3Var.i(2300L);
-                zk3Var.d("分包签名校验");
-                S(4, zk3Var);
-                cc2.c().a(gi4Var, PMSDownloadType.ALONE_SUB, zk3Var);
-            } else if (zc2.h(new File(gi4Var.a), new File(this.e, gi4Var.p))) {
-                if (g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
-                }
-                gi4Var.o = this.d;
-                dh4.i().m(gi4Var);
-                T();
-                cc2.c().b(gi4Var, PMSDownloadType.ALONE_SUB);
-            } else {
-                if (g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
-                }
-                zk3 zk3Var2 = new zk3();
-                zk3Var2.k(12L);
-                zk3Var2.i(2320L);
-                zk3Var2.d("分包解压失败");
-                S(5, zk3Var2);
-                cc2.c().a(gi4Var, PMSDownloadType.ALONE_SUB, zk3Var2);
+                pc2.d().j();
+                dc2.d().j();
+                fc2 f = this.c.f();
+                this.a.a(new a(this, sceneType, this.b.f(), f));
+            } else if (e) {
+                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
             }
+        }
+    }
+
+    public final void h(@NonNull NetworkStatus networkStatus, @NonNull fc2 fc2Var, @NonNull rc2 rc2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, fc2Var, rc2Var) == null) {
+            boolean b2 = fc2Var.b();
+            int i = R.string.obfuscated_res_0x7f0f1539;
+            if (b2) {
+                i = R.string.obfuscated_res_0x7f0f153e;
+            } else if (rc2Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f153c;
+            } else if (rc2Var.e() != RequestStatus.STATUS_FAILED) {
+                if (rc2Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f153d : R.string.obfuscated_res_0x7f0f153a;
+                } else if (rc2Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f153b;
+                }
+            }
+            yb2.f(i);
         }
     }
 }

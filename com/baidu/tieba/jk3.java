@@ -1,52 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes6.dex */
-public abstract class jk3 extends db3 {
+public class jk3 extends ik3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jk3(da3 da3Var, String str) {
-        super(da3Var, str);
+    public jk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {da3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static sk3 j() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ik3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(hk3 hk3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return gy1.z();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hk3Var)) == null) {
+            Bundle bundle = new Bundle();
+            gk3 b = mk3.b(hk3Var.a);
+            if (b == null) {
+                if (!ik3.a) {
+                    return bundle;
+                }
+                throw new IllegalArgumentException("illegal sp.");
+            }
+            int i = hk3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (ik3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                bundle.putFloat("result_value", b.getFloat(hk3Var.c, Float.parseFloat(hk3Var.d)));
+                            }
+                        } else {
+                            bundle.putString("result_value", b.getString(hk3Var.c, hk3Var.d));
+                        }
+                    } else {
+                        bundle.putBoolean("result_value", b.getBoolean(hk3Var.c, Boolean.parseBoolean(hk3Var.d)));
+                    }
+                } else {
+                    bundle.putLong("result_value", b.getLong(hk3Var.c, Long.parseLong(hk3Var.d)));
+                }
+            } else {
+                bundle.putInt("result_value", b.getInt(hk3Var.c, Integer.parseInt(hk3Var.d)));
+            }
+            if (ik3.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + hk3Var);
+            }
+            return bundle;
         }
-        return (sk3) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return gy1.B();
-        }
-        return invokeV.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 }

@@ -3,16 +3,13 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class at0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final at0 b;
+    public static et0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -27,22 +24,15 @@ public class at0 {
                 return;
             }
         }
-        b = new at0();
+        a = et0.a;
     }
 
-    public at0() {
+    public static et0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        this.a = 0;
+        return (et0) invokeV.objValue;
     }
 }

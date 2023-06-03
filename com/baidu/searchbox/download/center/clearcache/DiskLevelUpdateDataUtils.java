@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import java.util.LinkedHashMap;
 import kotlin.Metadata;
 import kotlin.TuplesKt;
@@ -66,7 +67,7 @@ public final class DiskLevelUpdateDataUtils {
             }
         }
         DiskManagerSharedPrefsUtils diskManagerSharedPrefsUtils = DiskManagerSharedPrefsUtils.INSTANCE;
-        JSONObject optJSONObject3 = data.optJSONObject("quota");
+        JSONObject optJSONObject3 = data.optJSONObject(GameAssistConstKt.KEY_DISK_QUOTA);
         if (optJSONObject3 != null) {
             str = optJSONObject3.toString();
         } else {

@@ -1,64 +1,61 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class ut2 {
+/* loaded from: classes8.dex */
+public class ut2 extends sp2<ju2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final vt2[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948222454, "Lcom/baidu/tieba/ut2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948222454, "Lcom/baidu/tieba/ut2;");
-                return;
-            }
-        }
-        a = new vt2[]{new st2(), new tt2()};
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        vt2[] vt2VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (vt2 vt2Var : a) {
-                sb.append(vt2Var.b());
-                sb.append(vt2Var.enable() ? 1 : 0);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.sp2
     @NonNull
-    public static List<vt2> b() {
+    public String b() {
         InterceptResult invokeV;
-        vt2[] vt2VarArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (vt2 vt2Var : a) {
-                if (vt2Var.enable()) {
-                    arrayList.add(vt2Var);
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
+    }
+
+    public ut2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sp2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ju2 ju2Var) {
+        Object obj;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ju2Var) != null) || (obj = command.obj) == null) {
+            return;
+        }
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        String str = (String) arrayList.get(0);
+        String f = uk3.l().f(str, (String) arrayList.get(1));
+        command.ret = ju2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(ju2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

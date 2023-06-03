@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.external.music.data.MusicData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface cw6 {
-    void setMusicData(List<MusicData> list);
+    void a(List<xv6> list, List<xv6> list2, int i);
+
+    void b(int i, String str);
 }

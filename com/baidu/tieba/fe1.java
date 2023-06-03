@@ -1,72 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.ContentValues;
+import android.app.Dialog;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.pm.SubBundleInfo;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.hr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class fe1 {
+public class fe1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fe1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public he1 a;
+    public d a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947761143, "Lcom/baidu/tieba/fe1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947761143, "Lcom/baidu/tieba/fe1;");
-        }
-    }
-
-    public int delete(Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
-            return 0;
-        }
-        return invokeLLL.intValue;
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(List<hr0.a> list);
     }
 
     /* loaded from: classes5.dex */
-    public class a extends ie1 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ContentValues b;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ AdBaseModel b;
         public final /* synthetic */ fe1 c;
 
-        public a(fe1 fe1Var, ContentValues contentValues) {
+        public a(fe1 fe1Var, List list, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fe1Var, contentValues};
+                Object[] objArr = {fe1Var, list, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -77,34 +58,36 @@ public class fe1 {
                 }
             }
             this.c = fe1Var;
-            this.b = contentValues;
+            this.a = list;
+            this.b = adBaseModel;
         }
 
-        @Override // com.baidu.tieba.ie1
-        public boolean b(SQLiteDatabase sQLiteDatabase) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                return this.c.k(sQLiteDatabase, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.c.a != null) {
+                    this.c.a.a(this.a);
+                }
+                this.c.g(this.b, this.a);
+                this.c.dismiss();
             }
-            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends ie1 {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BundleInfo b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ fe1 d;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ fe1 b;
 
-        public b(fe1 fe1Var, BundleInfo bundleInfo, List list) {
+        public b(fe1 fe1Var, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fe1Var, bundleInfo, list};
+                Object[] objArr = {fe1Var, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -114,321 +97,239 @@ public class fe1 {
                     return;
                 }
             }
-            this.d = fe1Var;
-            this.b = bundleInfo;
-            this.c = list;
+            this.b = fe1Var;
+            this.a = adBaseModel;
         }
 
-        @Override // com.baidu.tieba.ie1
-        public boolean b(SQLiteDatabase sQLiteDatabase) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                this.d.k(sQLiteDatabase, BundleInfo.toContentValues(this.b));
-                for (BundleInfo bundleInfo : this.c) {
-                    this.d.l(sQLiteDatabase, BundleInfo.toContentValues(bundleInfo));
-                }
-                return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.dismiss();
+                tj0.c(this.a.g.c, this.b.getContext());
             }
-            return invokeL.booleanValue;
         }
     }
 
-    public fe1(Context context) {
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hr0.a a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ TextView c;
+        public final /* synthetic */ TextView d;
+        public final /* synthetic */ fe1 e;
+
+        public c(fe1 fe1Var, hr0.a aVar, List list, TextView textView, TextView textView2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fe1Var, aVar, list, textView, textView2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = fe1Var;
+            this.a = aVar;
+            this.b = list;
+            this.c = textView;
+            this.d = textView2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c()) {
+                    this.a.f(false);
+                    if (this.b.contains(this.a)) {
+                        x21.j(this.b, this.a);
+                    }
+                    if (this.b.size() == 0) {
+                        this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_dislike));
+                    }
+                    this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC1));
+                    return;
+                }
+                this.a.f(true);
+                if (!this.b.contains(this.a)) {
+                    x21.b(this.b, this.a);
+                }
+                this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC13));
+                this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_done));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fe1(Context context, @NonNull AdBaseModel adBaseModel) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, adBaseModel};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new he1(context);
+        f(adBaseModel);
     }
 
-    public static fe1 d(Context context) {
+    public final void g(AdBaseModel adBaseModel, List<hr0.a> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, adBaseModel, list) != null) || adBaseModel == null) {
+            return;
+        }
+        n31.b(new r31().e(e(list)).g(adBaseModel.f.d).f(kk0.a().g()));
+    }
+
+    public final List<hr0.a> d(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
+        hr0 hr0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (b == null) {
-                synchronized (fe1.class) {
-                    if (b == null) {
-                        Application applicationContext = ContextHolder.getApplicationContext();
-                        if (applicationContext != null) {
-                            context = applicationContext;
-                        }
-                        b = new fe1(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
+            if (adBaseModel != null && (hr0Var = adBaseModel.g) != null) {
+                return hr0Var.b;
             }
-            return b;
+            return null;
         }
-        return (fe1) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public int h(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
+    public void h(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bundleInfo)) == null) {
-            bundleInfo.setType(1);
-            this.a.getWritableDatabase().update("bundleinfo", BundleInfo.toContentValues(bundleInfo), "pkg_name =? AND version_code = ? ", new String[]{bundleInfo.getPackageName(), String.valueOf(bundleInfo.getVersionCode())});
-            return 0;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.a = dVar;
         }
-        return invokeL.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public final void c(AdBaseModel adBaseModel) {
+        int i;
+        hr0 hr0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.a.getWritableDatabase().delete("bundleinfo", "abi <>? AND abi <> 3", new String[]{String.valueOf(xe1.a())});
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0029, code lost:
-        if (com.baidu.tieba.te1.a() == false) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x002b, code lost:
-        r0.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0044, code lost:
-        if (com.baidu.tieba.te1.a() == false) goto L8;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<BundleInfo> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, "", null, null, null, null);
-            List<BundleInfo> arrayList = new ArrayList<>();
-            try {
-                try {
-                    arrayList = BundleInfo.toBundleInfoList(query);
-                    try {
-                        query.close();
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Exception e2) {
-                    if (te1.a()) {
-                        e2.printStackTrace();
-                    }
-                    try {
-                        query.close();
-                    } catch (Exception e3) {
-                        e = e3;
-                    }
-                }
-                return arrayList;
-            } catch (Throwable th) {
-                try {
-                    query.close();
-                } catch (Exception e4) {
-                    if (te1.a()) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Cursor f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return query(null, null, "pkg_name =? AND type = ? AND broken = ? ", new String[]{str, String.valueOf(i), "0"}, null);
-        }
-        return (Cursor) invokeLI.objValue;
-    }
-
-    public Cursor g(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
-            return query(null, null, "pkg_name =? AND type = ? AND version_code >= ? AND broken = ? ", new String[]{str, String.valueOf(i2), String.valueOf(i), "0"}, null);
-        }
-        return (Cursor) invokeLII.objValue;
-    }
-
-    public final boolean i(ie1 ie1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ie1Var)) == null) {
-            ie1Var.c(this.a.getWritableDatabase());
-            return ie1Var.a();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j(BundleInfo bundleInfo) {
-        List<SubBundleInfo> subBundle;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bundleInfo) == null) && (subBundle = bundleInfo.getSubBundle()) != null && !subBundle.isEmpty()) {
-            Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, null, null, null, null, null);
-            Map<String, BundleInfoGroup> bundleInfoGroups = BundleInfo.toBundleInfoGroups(BundleInfo.toBundleInfoList(query), 0L);
-            try {
-                query.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
             ArrayList arrayList = new ArrayList();
-            for (SubBundleInfo subBundleInfo : subBundle) {
-                String packageName = subBundleInfo.getPackageName();
-                int minVersion = subBundleInfo.getMinVersion();
-                int maxVersion = subBundleInfo.getMaxVersion();
-                BundleInfoGroup bundleInfoGroup = bundleInfoGroups.get(packageName);
-                if (bundleInfoGroup != null) {
-                    BundleInfo bundleByType = bundleInfoGroup.getBundleByType(1);
-                    BundleInfo bundleByType2 = bundleInfoGroup.getBundleByType(2);
-                    BundleInfo bundleByType3 = bundleInfoGroup.getBundleByType(3);
-                    bundleByType = (bundleByType == null || bundleByType.getVersionCode() < minVersion || bundleByType.getVersionCode() > maxVersion) ? null : null;
-                    if (bundleByType2 == null || bundleByType2.getVersionCode() < minVersion || bundleByType2.getVersionCode() > maxVersion) {
-                        bundleByType2 = bundleByType;
-                    }
-                    if (bundleByType3 == null || bundleByType3.getVersionCode() < minVersion || bundleByType3.getVersionCode() > maxVersion) {
-                        bundleByType3 = bundleByType2;
-                    }
-                    if (bundleByType3 != null) {
-                        bundleByType3.setType(4);
-                        arrayList.add(bundleByType3);
-                    }
+            ViewGroup viewGroup = null;
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_dialog_menu_new_dislike, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.tv_bottom);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0914d8);
+            textView.setText(getContext().getString(R.string.nad_dislike_dislike));
+            textView.setOnClickListener(new a(this, arrayList, adBaseModel));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.nad_bg_bottom_popup_ffffff));
+            Resources resources = inflate.getContext().getResources();
+            int i2 = R.color.NAD_FC1;
+            textView.setTextColor(resources.getColor(R.color.NAD_FC1));
+            findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.NAD_FC96));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.layout_enum);
+            LayoutInflater from = LayoutInflater.from(inflate.getContext());
+            TextView textView2 = (TextView) inflate.findViewById(R.id.tv_why_show_ad);
+            if (adBaseModel != null && (hr0Var = adBaseModel.g) != null && !TextUtils.isEmpty(hr0Var.c)) {
+                if (!TextUtils.isEmpty(adBaseModel.g.a)) {
+                    textView2.setText(adBaseModel.g.a);
                 }
-            }
-            i(new b(this, bundleInfo, arrayList));
-        }
-    }
-
-    public final boolean k(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, contentValues)) == null) {
-            BundleInfo bundleInfo = BundleInfo.toBundleInfo(contentValues);
-            if (bundleInfo == null) {
-                return false;
-            }
-            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =? ", new String[]{bundleInfo.getPackageName()}, null, null, null);
-            List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(query);
-            try {
-                query.close();
-            } catch (Exception unused) {
-            }
-            if (bundleInfoList.isEmpty()) {
-                sQLiteDatabase.insert("bundleinfo", null, contentValues);
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (BundleInfo bundleInfo2 : bundleInfoList) {
-                if (bundleInfo2 != null) {
-                    hashMap.put(Integer.valueOf(bundleInfo2.getType()), bundleInfo2);
-                }
-            }
-            BundleInfo bundleInfo3 = (BundleInfo) hashMap.get(3);
-            BundleInfo bundleInfo4 = (BundleInfo) hashMap.get(2);
-            BundleInfo bundleInfo5 = (BundleInfo) hashMap.get(1);
-            if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() > bundleInfo.getUpdateV()) {
-                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo3);
-            }
-            if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() > bundleInfo.getUpdateV()) {
-                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo4);
-            }
-            if (bundleInfo5 != null && bundleInfo5.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo5.getUpdateV() > bundleInfo.getUpdateV()) {
-                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo5);
-            }
-            int type = bundleInfo.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type == 3) {
-                        if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
-                            hashMap.put(3, bundleInfo);
-                        }
-                        if (bundleInfo4 != null && bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
-                            hashMap.remove(2);
-                        }
-                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
-                            hashMap.remove(1);
-                        }
-                    }
-                } else if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
-                    if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
-                        BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
-                    } else {
-                        if (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
-                            hashMap.put(2, bundleInfo);
-                        }
-                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
-                            hashMap.remove(1);
-                        }
-                    }
-                }
-            } else if ((bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) && (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode())) {
-                if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
-                    BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
-                } else if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() <= bundleInfo.getUpdateV()) {
-                    BundleInfo.updateBundleInfoConfig(bundleInfo4, bundleInfo);
-                } else if (bundleInfo5 == null || bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
-                    hashMap.put(1, bundleInfo);
-                }
-            }
-            sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{contentValues.getAsString("pkg_name")});
-            for (BundleInfo bundleInfo6 : hashMap.values()) {
-                sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void l(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, contentValues) == null) {
-            boolean z = false;
-            String[] strArr = {contentValues.getAsString("pkg_name"), contentValues.getAsString("type")};
-            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =?  AND type =? ", strArr, null, null, null);
-            if (query.getCount() == 0) {
-                z = true;
-            }
-            try {
-                query.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (z) {
-                sQLiteDatabase.insert("bundleinfo", null, contentValues);
+                textView2.setVisibility(0);
+                textView2.setOnClickListener(new b(this, adBaseModel));
             } else {
-                sQLiteDatabase.update("bundleinfo", contentValues, "pkg_name =?  AND type =? ", strArr);
+                textView2.setVisibility(8);
             }
+            List<hr0.a> d2 = d(adBaseModel);
+            if (d2 == null) {
+                linearLayout.setVisibility(8);
+                return;
+            }
+            int min = Math.min(d2.size(), 7);
+            int i3 = 0;
+            while (i3 < min) {
+                hr0.a aVar = (hr0.a) x21.d(d2, i3);
+                if (aVar != null && !TextUtils.isEmpty(aVar.a())) {
+                    View inflate2 = from.inflate(R.layout.nad_item_menu_new_dislike, viewGroup);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.tv_enum);
+                    textView3.setText(aVar.a());
+                    textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
+                    i = i3;
+                    inflate2.setOnClickListener(new c(this, aVar, arrayList, textView, textView3));
+                    linearLayout.addView(inflate2);
+                } else {
+                    i = i3;
+                }
+                i3 = i + 1;
+                viewGroup = null;
+                i2 = R.color.NAD_FC1;
+            }
+            setContentView(inflate);
         }
     }
 
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeLLLLL;
+    public String e(List<hr0.a> list) {
+        InterceptResult invokeL;
+        hr0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, uri, strArr, str, strArr2, str2)) == null) {
-            return this.a.getReadableDatabase().query("bundleinfo", null, str, strArr2, null, null, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            String str = "";
+            for (int i = 0; i < list.size(); i++) {
+                if (((hr0.a) x21.d(list, i)) != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        str = str + "," + aVar.b();
+                    } else {
+                        str = str + aVar.b();
+                    }
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            return str;
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
+    public final void f(@NonNull AdBaseModel adBaseModel) {
+        Window window;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, uri, contentValues, str, strArr)) == null) {
-            i(new a(this, contentValues));
-            return 1;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || (window = getWindow()) == null) {
+            return;
         }
-        return invokeLLLL.intValue;
+        window.requestFeature(1);
+        c(adBaseModel);
+        window.getDecorView().setPadding(0, 0, 0, 0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -2;
+        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003de;
+        attributes.gravity = 80;
+        window.setAttributes(attributes);
+        window.setBackgroundDrawableResource(17170445);
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                u51.b(this);
+                return;
+            }
+            window.setFlags(8, 8);
+            u51.b(this);
+            t61.a(window);
+            window.clearFlags(8);
+        }
     }
 }

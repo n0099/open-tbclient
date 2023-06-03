@@ -23,12 +23,12 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a();
+        void onDoubleTap();
     }
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a();
+        void onSingleTapConfirmed();
     }
 
     public boolean G(MotionEvent motionEvent) {
@@ -65,7 +65,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
             if (BdImageViewTouch.this.I != null) {
-                BdImageViewTouch.this.I.a();
+                BdImageViewTouch.this.I.onSingleTapConfirmed();
             }
             return BdImageViewTouch.this.J(motionEvent);
         }
@@ -86,7 +86,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
                 BdImageViewTouch.this.invalidate();
             }
             if (BdImageViewTouch.this.H != null) {
-                BdImageViewTouch.this.H.a();
+                BdImageViewTouch.this.H.onDoubleTap();
             }
             return super.onDoubleTap(motionEvent);
         }

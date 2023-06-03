@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface GlideType {
     Class<?> value();
 }

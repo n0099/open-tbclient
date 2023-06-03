@@ -1,63 +1,25 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class gc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<fc8> a;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ListView a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ fc8 c;
-        public final /* synthetic */ ChatMessage d;
-        public final /* synthetic */ ChatMessage e;
-
-        public a(gc8 gc8Var, ListView listView, List list, fc8 fc8Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gc8Var, listView, list, fc8Var, chatMessage, chatMessage2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = listView;
-            this.b = list;
-            this.c = fc8Var;
-            this.d = chatMessage;
-            this.e = chatMessage2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
-                return;
-            }
-            this.c.b(this.a, this.d, this.e);
-        }
-    }
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public YyExtData e;
+    public String f;
+    public String g;
 
     public gc8() {
         Interceptable interceptable = $ic;
@@ -69,32 +31,92 @@ public class gc8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        ArrayList<fc8> arrayList = new ArrayList<>(2);
-        this.a = arrayList;
-        arrayList.add(new ec8());
-        this.a.add(new hc8());
     }
 
-    public void a(MsglistModel msglistModel, ListView listView) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
-            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
-            if (ListUtils.isEmpty(chatMessages)) {
-                return;
-            }
-            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
-            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
-            Iterator<fc8> it = this.a.iterator();
-            while (it.hasNext()) {
-                fc8 next = it.next();
-                if (next.a(chatMessage, chatMessage2)) {
-                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
-                    return;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public YyExtData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (YyExtData) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        jSONObject.optLong("live_id");
+        this.b = jSONObject.optString("user_name");
+        jSONObject.optString("portrait");
+        this.c = jSONObject.optInt("audience_count");
+        jSONObject.optString("title");
+        this.d = jSONObject.optLong("room_id");
+        jSONObject.optString("cover_wide");
+        JSONObject optJSONObject = jSONObject.optJSONObject("yy_ext");
+        YyExtData yyExtData = new YyExtData();
+        this.e = yyExtData;
+        yyExtData.parserJson(optJSONObject);
+        this.f = jSONObject.optString("label_name");
+        jSONObject.optString("feed_id");
+        this.g = jSONObject.optString("user_id");
     }
 }

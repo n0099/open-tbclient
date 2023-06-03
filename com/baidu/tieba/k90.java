@@ -1,79 +1,96 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.searchbox.security.WarmTipsManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes6.dex */
 public class k90 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "lcpsdk";
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static long c;
+    public static volatile String d;
+    public static volatile long e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947867783, "Lcom/baidu/tieba/k90;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867783, "Lcom/baidu/tieba/k90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947867783, "Lcom/baidu/tieba/k90;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947867783, "Lcom/baidu/tieba/k90;");
-        }
+        a = AppConfig.isDebug();
+        b = -1L;
+        c = -1L;
+        d = "";
+        e = -1L;
     }
 
-    public static void a(String str, String str2) {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && j90.a) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
         }
+        return invokeV.longValue;
     }
 
-    public static void b(String str, String str2) {
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && j90.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
+        return invokeV.longValue;
     }
 
-    public static void d(String str, String str2) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && j90.a) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void e(String str, String str2) {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && j90.a) {
-            String str3 = a;
-            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && j90.a) {
-            String str3 = a;
-            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && j90.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
+            if (System.currentTimeMillis() - e < 10000) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
+                }
+            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
+                }
+            } else {
+                e = System.currentTimeMillis();
+                d = str;
+                if (!TextUtils.equals(j90.e(), str)) {
+                    j90.g(str);
+                }
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
+                }
+            }
         }
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xc4 {
+public class xc4 extends zc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
     public String b;
-    public JSONObject c;
 
     public xc4() {
         Interceptable interceptable = $ic;
@@ -28,15 +28,19 @@ public class xc4 {
         }
     }
 
-    public boolean a() {
+    @Override // com.baidu.tieba.zc4
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 0) {
-                return true;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("key", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
             }
-            return false;
+            return jSONObject;
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

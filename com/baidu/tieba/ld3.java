@@ -1,40 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ld3 extends f02 {
+public class ld3 extends vd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements zn3<Boolean> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ld3 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
 
-        public a(ld3 ld3Var, boolean z, String str) {
+        public a(ld3 ld3Var, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ld3Var, Boolean.valueOf(z), str};
+                Object[] objArr = {ld3Var, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,40 +40,33 @@ public class ld3 extends f02 {
                     return;
                 }
             }
-            this.c = ld3Var;
-            this.a = z;
-            this.b = str;
+            this.a = str;
+            this.b = jSONObject;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(Boolean bool) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                if (bool.booleanValue()) {
-                    kd3.e(this.a);
-                    this.c.d(this.b, new g12(0));
-                    return;
-                }
-                this.c.d(this.b, new g12(10005, "system deny"));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                er4.l(this.a, this.b);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ld3(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    public ld3(vc3 vc3Var) {
+        super(vc3Var, "/swanAPI/openStatisticEvent");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
+            Object[] objArr = {vc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,20 +74,39 @@ public class ld3 extends f02 {
         }
     }
 
-    public g12 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, yb3 yb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#hideCaptureScreenShareDialog", false);
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, yb3Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            kd3.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
-            return new g12(0);
+            String optString = optParamsAsJo.optString("bizId", "-1");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+                return false;
+            }
+            try {
+                optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+                optParamsAsJo.putOpt("eventType", "0");
+                optParamsAsJo.putOpt("propagation", yo3.f(optParamsAsJo.optJSONObject("propagation"), "source", xb3.K().q().W().T()));
+            } catch (JSONException e) {
+                if (vd3.b) {
+                    e.printStackTrace();
+                }
+            }
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("content");
+            if (optJSONObject != null) {
+                vi3.y(optJSONObject.optJSONObject("ext"));
+            }
+            y82.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
+            so3.k(new a(this, optString, optParamsAsJo), "OpenStatisticEvent");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (g12) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

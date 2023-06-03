@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class el0 {
+public final class el0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, WeakReference<fl0>> a;
+    public static final el0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,30 +32,20 @@ public class el0 {
                 return;
             }
         }
-        a = new HashMap();
+        a = new el0();
     }
 
-    public static fl0 a(@NonNull qk0 qk0Var) {
-        InterceptResult invokeL;
-        fl0 fl0Var;
+    public el0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qk0Var)) == null) {
-            WeakReference<fl0> weakReference = a.get(qk0Var.e());
-            if (weakReference == null || (fl0Var = weakReference.get()) == null) {
-                fl0 fl0Var2 = new fl0(qk0Var);
-                a.put(qk0Var.e(), new WeakReference<>(fl0Var2));
-                return fl0Var2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return fl0Var;
-        }
-        return (fl0) invokeL.objValue;
-    }
-
-    public static void b(@NonNull qk0 qk0Var) {
-        WeakReference<fl0> remove;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, qk0Var) == null) && (remove = a.remove(qk0Var.e())) != null) {
-            remove.clear();
         }
     }
 }

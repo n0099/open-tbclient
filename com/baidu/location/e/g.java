@@ -2,7 +2,6 @@ package com.baidu.location.e;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -133,7 +132,7 @@ public class g implements Runnable {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.c.i = new String(byteArrayOutputStream.toByteArray(), IMAudioTransRequest.CHARSET);
+                                    this.c.i = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                                     if (this.b) {
                                         this.c.l = byteArrayOutputStream.toByteArray();
                                     }

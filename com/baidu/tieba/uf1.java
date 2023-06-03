@@ -1,182 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
+import android.app.Application;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.statistics.exception.SdkException;
-import com.baidu.poly.wallet.paychannel.IChannelAuth;
-import com.baidu.poly.wallet.paychannel.IChannelPay;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.tieba.fi1;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.runtime.InitException;
+import com.baidu.nps.runtime.resources.ResourcesHookUtil;
+import com.baidu.nps.utils.Constant;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class uf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public BundleInfo a;
+    public vf1 b;
+    public wf1 c;
 
-    /* loaded from: classes7.dex */
-    public interface d {
-        void onError(String str);
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends wf1<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(uf1 uf1Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf1Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.wf1
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                ch1 ch1Var = new ch1("1");
-                ch1Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
-                fh1.e(ch1Var);
-                oh1.g("requestChannelList onError result=" + str);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.onError(str);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wf1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                oh1.g("requestChannelList onSuccess result=" + jSONObject.toString());
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.onSuccess(jSONObject.toString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Context b;
-        public boolean c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 1;
-            this.c = false;
-        }
-
-        public uf1 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new uf1(this, null);
-            }
-            return (uf1) invokeV.objValue;
-        }
-
-        public b e(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                this.b = context;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b f(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.a = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(int i, String str);
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public uf1(b bVar) {
+    public uf1(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -186,113 +41,171 @@ public class uf1 {
                 return;
             }
         }
-        this.a = 0L;
-        if (bVar != null) {
-            if (bVar.b != null) {
-                dg1.b(bVar.a);
-                jg1.c(ig1.d(bVar.b.getApplicationContext()));
-                sh1.b(bVar.b.getApplicationContext());
-                oh1.d = bVar.c;
-                return;
+        this.c = null;
+        if (a(bundleInfo)) {
+            this.a = bundleInfo;
+            return;
+        }
+        pf1.j().s(bundleInfo);
+        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
+    }
+
+    public static uf1 b(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
+            uf1 uf1Var = new uf1(bundleInfo);
+            uf1Var.d();
+            return uf1Var;
+        }
+        return (uf1) invokeL.objValue;
+    }
+
+    public final boolean a(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
+            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
+                return false;
             }
-            throw new IllegalArgumentException("context can not be null");
-        }
-        throw new IllegalArgumentException("builder can not be null");
-    }
-
-    public /* synthetic */ uf1(b bVar, tf1 tf1Var) {
-        this(bVar);
-    }
-
-    public void a(Bundle bundle, xh1 xh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, xh1Var) == null) {
-            yh1.a(bundle, xh1Var);
-        }
-    }
-
-    public void d(Bundle bundle, d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, dVar) == null) {
-            bh1.a("1.01", System.currentTimeMillis());
-            eg1.j().f(rh1.b(sh1.a(), bundle), true, new a(this, dVar));
-        }
-    }
-
-    public void b(Context context, Bundle bundle, IChannelPay iChannelPay, IChannelAuth iChannelAuth, ci1 ci1Var, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, bundle, iChannelPay, iChannelAuth, ci1Var, cVar}) == null) {
-            if (context != null) {
-                if (bundle != null) {
-                    if (iChannelPay != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - this.a < 1000) {
-                            oh1.g("cashier pay time interval less than 1s");
-                            return;
-                        }
-                        this.a = currentTimeMillis;
-                        oh1.g("cashier pay");
-                        String str = "1";
-                        bh1.a("1", currentTimeMillis);
-                        String string = bundle.getString("chosenChannel");
-                        String string2 = bundle.getString("panelType");
-                        if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && !TextUtils.isEmpty(string)) {
-                            str = "0";
-                        } else if (!TextUtils.equals(string2, "HALF") && TextUtils.equals(string2, "FULL")) {
-                            str = "2";
-                        }
-                        ch1 ch1Var = new ch1("0");
-                        ch1Var.a("panelType", str);
-                        fh1.e(ch1Var);
-                        PolyActivity.n(context, iChannelPay, iChannelAuth, ci1Var, cVar, bundle);
-                        return;
-                    }
-                    throw new IllegalArgumentException("channelPay can not be null");
-                }
-                throw new IllegalArgumentException("arguments can not be null");
+            Application applicationContext = ContextHolder.getApplicationContext();
+            if (!dg1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
+                return false;
             }
-            throw new IllegalArgumentException("context can not be null");
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void c() {
+    public ClassLoader c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.b = tf1.d().b(this.a, ContextHolder.getApplicationContext());
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return super.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            eh1.g().h();
-        }
-    }
-
-    public void e(int i, JSONObject jSONObject, zg1 zg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i, jSONObject, zg1Var) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (zg1Var != null) {
-                        zg1Var.a(1, "unknown command");
-                        return;
+            if (e()) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    if (!g()) {
+                        throw new InitException(20, "resources init error");
                     }
                     return;
+                } else if (f()) {
+                    return;
+                } else {
+                    throw new InitException(20, "resources init error");
                 }
-                hg1.f(zg1Var);
-                return;
             }
-            dg1.c(jSONObject, zg1Var);
+            throw new InitException(16, "class loader init error");
         }
     }
 
-    public void f(Activity activity, hi1 hi1Var, fi1.d dVar) {
+    public final synchronized boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, hi1Var, dVar) == null) {
-            if (activity == null) {
-                oh1.d("couponEntity is null!");
-            } else if (hi1Var != null && hi1Var.b != null) {
-                fi1 fi1Var = new fi1(activity);
-                fi1Var.d(dVar);
-                fi1Var.update(hi1Var.b);
-                fi1Var.show();
-            } else {
-                oh1.d("couponEntity || couponItemList is null!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                try {
+                    Application applicationContext = ContextHolder.getApplicationContext();
+                    Resources a = ef1.c().a();
+                    Resources b = ef1.c().b();
+                    Resources[] d = ef1.c().d();
+                    yf1.a().b(applicationContext);
+                    String absolutePath = dg1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
+                    if (d != null) {
+                        for (Resources resources : d) {
+                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
+                        }
+                    }
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = dg1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                String str = applicationContext.getApplicationInfo().sourceDir;
+                try {
+                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
+                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
+                    Resources a = ef1.c().a();
+                    this.c = new wf1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
+                } catch (Exception e) {
+                    if (cg1.a()) {
+                        Log.e("Runtime", LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE, e);
+                        return false;
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized Resources getResources(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
+            synchronized (this) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    return this.c;
+                }
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = dg1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                AssetManager assets = resources.getAssets();
+                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
+                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
+                        if (this.c != null) {
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
+                                this.c = new wf1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                            }
+                        } else {
+                            this.c = new wf1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                        }
+                    }
+                    return this.c;
+                }
+                throw new InitException(21, "resources hook error");
             }
         }
+        return (Resources) invokeL.objValue;
     }
 }

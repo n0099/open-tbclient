@@ -8,7 +8,7 @@ import android.os.Handler;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DisplayImageOptions {
     public final boolean cacheInMemory;
     public final boolean cacheOnDisk;
@@ -30,7 +30,7 @@ public final class DisplayImageOptions {
     public final BitmapProcessor preProcessor;
     public final boolean resetViewBeforeLoading;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public int imageResOnLoading = 0;
         public int imageResForEmptyUri = 0;

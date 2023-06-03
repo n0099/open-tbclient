@@ -1,48 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes7.dex */
-public interface ta0 {
-    void a(Context context, String str);
+public class ta0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "lcpsdk";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948174342, "Lcom/baidu/tieba/ta0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948174342, "Lcom/baidu/tieba/ta0;");
+        }
+    }
 
-    void c();
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && sa0.a) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
 
-    void d();
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sa0.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
 
-    void e(Context context);
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sa0.a) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
 
-    void f(Context context, int i);
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && sa0.a) {
+            String str3 = a;
+            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && sa0.a) {
+            String str3 = a;
+            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
 
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(ta0 ta0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                ta0Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && sa0.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
         }
     }
 }

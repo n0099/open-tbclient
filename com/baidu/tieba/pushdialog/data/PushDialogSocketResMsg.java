@@ -3,8 +3,8 @@ package com.baidu.tieba.pushdialog.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ke9;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
+import com.baidu.tieba.rk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ke9 mData;
+    public rk9 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -49,9 +49,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    ke9 ke9Var = new ke9();
-                    this.mData = ke9Var;
-                    ke9Var.e(getLockWindowMsgResIdl.data);
+                    rk9 rk9Var = new rk9();
+                    this.mData = rk9Var;
+                    rk9Var.e(getLockWindowMsgResIdl.data);
                 }
                 return getLockWindowMsgResIdl;
             } catch (IOException unused) {
@@ -61,12 +61,12 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ke9 getData() {
+    public rk9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (ke9) invokeV.objValue;
+        return (rk9) invokeV.objValue;
     }
 }

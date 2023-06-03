@@ -25,9 +25,9 @@ public class cc {
             }
             return notification;
         }
-        List<StatusBarNotification> m727b = axVar.m727b();
-        if (m727b != null) {
-            for (StatusBarNotification statusBarNotification : m727b) {
+        List<StatusBarNotification> m782b = axVar.m782b();
+        if (m782b != null) {
+            for (StatusBarNotification statusBarNotification : m782b) {
                 Notification notification2 = statusBarNotification.getNotification();
                 String string = notification2.extras.getString("message_id");
                 if (i == statusBarNotification.getId() && str.equals(string)) {
@@ -45,14 +45,14 @@ public class cc {
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static void m752a(Context context, String str, int i, String str2, Notification notification) {
-        if (com.xiaomi.push.j.m651a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
+    public static void m807a(Context context, String str, int i, String str2, Notification notification) {
+        if (com.xiaomi.push.j.m706a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
             c(context, str, i, str2, notification);
         }
     }
 
     public static void a(Context context, Map<String, String> map, ep epVar, long j) {
-        if (map == null || epVar == null || !com.xiaomi.push.j.m651a(context) || !m753a(map)) {
+        if (map == null || epVar == null || !com.xiaomi.push.j.m706a(context) || !m808a(map)) {
             return;
         }
         int a = a(map);
@@ -73,7 +73,7 @@ public class cc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m753a(Map<String, String> map) {
+    public static boolean m808a(Map<String, String> map) {
         String str = map.get("notification_top_repeat");
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -114,7 +114,7 @@ public class cc {
         if (!z) {
             if (min > 0) {
                 a2.when = currentTimeMillis;
-                com.xiaomi.channel.commonutils.logger.b.m120a("update top notification: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m175a("update top notification: " + str2);
                 a.a(i, a2);
             } else {
                 Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, a2);
@@ -128,13 +128,13 @@ public class cc {
                     extras.remove("mipush_n_top_prd");
                     recoverBuilder.setExtras(extras);
                 }
-                com.xiaomi.channel.commonutils.logger.b.m120a("update top notification to common: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m175a("update top notification to common: " + str2);
                 a.a(i, recoverBuilder.build());
             }
         }
         if (min > 0) {
-            com.xiaomi.channel.commonutils.logger.b.m120a("schedule top notification next update delay: " + min);
-            com.xiaomi.push.aj.a(context).m200a(b(i, str2));
+            com.xiaomi.channel.commonutils.logger.b.m175a("schedule top notification next update delay: " + min);
+            com.xiaomi.push.aj.a(context).m255a(b(i, str2));
             com.xiaomi.push.aj.a(context).b(a(context, str, i, str2, (Notification) null), min);
         }
     }

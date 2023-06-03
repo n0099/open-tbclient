@@ -420,25 +420,6 @@ public final class FpsTracer extends Tracer {
         return str + "_" + str2 + "_" + str3;
     }
 
-    public final Object beginFpsCollect(String from, String page, String type) {
-        Intrinsics.checkNotNullParameter(from, "from");
-        Intrinsics.checkNotNullParameter(page, "page");
-        Intrinsics.checkNotNullParameter(type, "type");
-        String generateCollectorKey = generateCollectorKey(from, page, type);
-        if (!this.config.isFpsEnable()) {
-            Logcat.INSTANCE.d(TAG, "[beginFpsCollect] FPS disable!");
-            return generateCollectorKey;
-        }
-        FpsCollector fpsCollector = this.fpsCollectorCache.get(generateCollectorKey);
-        if (fpsCollector == null) {
-            fpsCollector = new FpsCollector();
-            fpsCollector.setStatParams(from, page, type);
-            this.fpsCollectorCache.put(generateCollectorKey, fpsCollector);
-        }
-        addListener(fpsCollector);
-        return generateCollectorKey;
-    }
-
     private final void notifyListener(final String str, final long j, final long j2, final boolean z, final long j3, final long j4, final long j5) {
         FpsTracer fpsTracer;
         long currentTimeMillis;
@@ -541,6 +522,25 @@ public final class FpsTracer extends Tracer {
             th = th7;
             fpsTracer = fpsTracer2;
         }
+    }
+
+    public final Object beginFpsCollect(String from, String page, String type) {
+        Intrinsics.checkNotNullParameter(from, "from");
+        Intrinsics.checkNotNullParameter(page, "page");
+        Intrinsics.checkNotNullParameter(type, "type");
+        String generateCollectorKey = generateCollectorKey(from, page, type);
+        if (!this.config.isFpsEnable()) {
+            Logcat.INSTANCE.d(TAG, "[beginFpsCollect] FPS disable!");
+            return generateCollectorKey;
+        }
+        FpsCollector fpsCollector = this.fpsCollectorCache.get(generateCollectorKey);
+        if (fpsCollector == null) {
+            fpsCollector = new FpsCollector();
+            fpsCollector.setStatParams(from, page, type);
+            this.fpsCollectorCache.put(generateCollectorKey, fpsCollector);
+        }
+        addListener(fpsCollector);
+        return generateCollectorKey;
     }
 
     @Override // com.baidu.searchbox.fluency.core.FrameRefreshMonitor.FrameRefreshObserver

@@ -1,16 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cf2 extends fi4 {
+public abstract class cf2 extends tj4 implements sl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String q;
+    public final int a;
+    public int b;
+
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     public cf2() {
         Interceptable interceptable = $ic;
@@ -22,20 +32,37 @@ public class cf2 extends fi4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        int K = K();
+        this.a = K;
+        this.b = K;
     }
 
-    @Override // com.baidu.tieba.ei4
-    public boolean a() {
+    public int J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (super.a() && !TextUtils.isEmpty(this.q)) {
-                return true;
+            int i = this.b;
+            if (i == 0) {
+                return this.a;
             }
-            return false;
+            return i;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public cf2 L(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.b;
+            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
+                this.b = i;
+            }
+            return this;
+        }
+        return (cf2) invokeI.objValue;
     }
 }

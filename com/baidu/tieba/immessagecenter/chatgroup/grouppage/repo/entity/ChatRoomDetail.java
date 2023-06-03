@@ -4,14 +4,15 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.ARConfigKey;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.EnableDegradeUserData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
-import com.baidu.tieba.va8;
+import com.baidu.tieba.mg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,12 +38,12 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     @Nullable
     @SerializedName("conf")
     public ChatConf chatConf;
-    @SerializedName(ARConfigKey.EXTRA_INFO)
+    @SerializedName("extra_info")
     public ExtraInfo extraInfo;
     @Nullable
     @SerializedName("forbidden_toast")
     public String forbiddenContent;
-    @SerializedName("resource")
+    @SerializedName(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE)
     public ChatResource groupChatResource;
     @Nullable
     @SerializedName("input_text_list")
@@ -55,7 +56,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<va8> maskInfoList;
+    public List<mg8> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -66,7 +67,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public String showText;
     @SerializedName("has_chated")
     public int todayChatMsgCount;
-    @SerializedName("user_info")
+    @SerializedName(SourceConstant.SOURCE_USER_INFO)
     public UserInfo userInfo;
 
     /* loaded from: classes6.dex */
@@ -560,7 +561,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<va8> getMaskInfoList() {
+    public List<mg8> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

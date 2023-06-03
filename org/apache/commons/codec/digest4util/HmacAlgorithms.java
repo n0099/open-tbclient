@@ -1,5 +1,5 @@
 package org.apache.commons.codec.digest4util;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum HmacAlgorithms {
     HMAC_MD5("HmacMD5"),
     HMAC_SHA_1("HmacSHA1"),

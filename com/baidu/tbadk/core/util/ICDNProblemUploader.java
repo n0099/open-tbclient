@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,13 +31,13 @@ public abstract class ICDNProblemUploader {
         }
     }
 
-    public abstract cz4 getmCdnLogData();
+    public abstract y15 getmCdnLogData();
 
     public abstract void insertErrorData(int i, String str);
 
     public abstract void insertNormalData(long j, String str);
 
-    public abstract void setmCdnLogData(cz4 cz4Var);
+    public abstract void setmCdnLogData(y15 y15Var);
 
     public ICDNProblemUploader() {
         Interceptable interceptable = $ic;

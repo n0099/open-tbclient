@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns.transmit.transmitter;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.RetryException;
 import java.io.DataOutputStream;
@@ -27,7 +26,7 @@ public abstract class HttpPostDataTransmitter<T> extends HttpDataTransmitter<T> 
             } catch (IOException unused) {
             }
             try {
-                dataOutputStream.write(buildParametersString.getBytes(IMAudioTransRequest.CHARSET));
+                dataOutputStream.write(buildParametersString.getBytes("utf-8"));
                 dataOutputStream.flush();
                 try {
                     dataOutputStream.close();

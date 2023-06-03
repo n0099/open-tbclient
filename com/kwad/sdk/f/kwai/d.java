@@ -5,7 +5,7 @@ import android.provider.Settings;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int amw = 0;
     public int amx = 0;

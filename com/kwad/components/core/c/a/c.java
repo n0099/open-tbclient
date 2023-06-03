@@ -269,7 +269,7 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
 
     private boolean mU() {
         Context context = KsAdSDKImpl.get().getContext();
-        if (d.a(new a.C0610a(context).L(this.Eg), 1) == 1) {
+        if (d.a(new a.C0630a(context).L(this.Eg), 1) == 1) {
             return true;
         }
         boolean W = ai.W(context, com.kwad.sdk.core.response.a.a.ag(this.mAdInfo));
@@ -284,8 +284,8 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
         com.kwad.sdk.core.download.a.x(this.mAdInfo);
     }
 
-    private int n(a.C0610a c0610a) {
-        Context context = c0610a.getContext();
+    private int n(a.C0630a c0630a) {
+        Context context = c0630a.getContext();
         String bO = com.kwad.sdk.core.response.a.a.bO(this.mAdInfo);
         if (com.kwad.sdk.utils.d.a(context, bO, this.Eg)) {
             com.kwad.sdk.core.report.a.m(this.Eg, 1);
@@ -299,13 +299,13 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
             if (!ae.isNetworkConnected(context)) {
                 t.z(context, u.ck(context));
                 return 0;
-            } else if (c0610a.mE() && com.kwad.sdk.core.config.d.rO()) {
-                return o(c0610a);
+            } else if (c0630a.mE() && com.kwad.sdk.core.config.d.rO()) {
+                return o(c0630a);
             } else {
-                if (c0610a.mB()) {
-                    return p(c0610a);
+                if (c0630a.mB()) {
+                    return p(c0630a);
                 }
-                if (q(c0610a)) {
+                if (q(c0630a)) {
                     return 0;
                 }
                 mW();
@@ -314,10 +314,10 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
         }
     }
 
-    private int o(a.C0610a c0610a) {
-        Context context = c0610a.getContext();
-        AdTemplate adTemplate = c0610a.getAdTemplate();
-        int mF = c0610a.mF();
+    private int o(a.C0630a c0630a) {
+        Context context = c0630a.getContext();
+        AdTemplate adTemplate = c0630a.getAdTemplate();
+        int mF = c0630a.mF();
         if (mF == 1) {
             mW();
             return 0;
@@ -328,19 +328,19 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
         return 0;
     }
 
-    private int p(a.C0610a c0610a) {
-        Context context = c0610a.getContext();
-        AdTemplate adTemplate = c0610a.getAdTemplate();
-        int s = s(c0610a);
+    private int p(a.C0630a c0630a) {
+        Context context = c0630a.getContext();
+        AdTemplate adTemplate = c0630a.getAdTemplate();
+        int s = s(c0630a);
         if (s == 1) {
             if (com.kwad.sdk.core.response.a.b.bt(adTemplate)) {
                 com.kwad.components.core.c.kwai.b.a(new b.a().ah(context).K(adTemplate).ak(com.kwad.sdk.core.response.a.b.bs(adTemplate)).a(this.Ek).c(this.mOnDismissListener).ms());
             }
             return 0;
         } else if (s == 2) {
-            c(c0610a.getContext(), c0610a.getAdTemplate());
+            c(c0630a.getContext(), c0630a.getAdTemplate());
             return 0;
-        } else if (s == 3 || q(c0610a)) {
+        } else if (s == 3 || q(c0630a)) {
             return 0;
         } else {
             mW();
@@ -348,25 +348,25 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
         }
     }
 
-    private boolean q(a.C0610a c0610a) {
-        if (c0610a.mz() || this.mAdInfo.status == 4 || !com.kwad.sdk.core.response.a.b.bw(this.Eg) || !r(c0610a)) {
+    private boolean q(a.C0630a c0630a) {
+        if (c0630a.mz() || this.mAdInfo.status == 4 || !com.kwad.sdk.core.response.a.b.bw(this.Eg) || !r(c0630a)) {
             return false;
         }
-        return com.kwad.components.core.c.kwai.b.a(new b.a().ah(c0610a.getContext()).K(this.Eg).ak(com.kwad.sdk.core.response.a.b.bv(this.Eg)).a(this.Ek).c(this.mOnDismissListener).ms());
+        return com.kwad.components.core.c.kwai.b.a(new b.a().ah(c0630a.getContext()).K(this.Eg).ak(com.kwad.sdk.core.response.a.b.bv(this.Eg)).a(this.Ek).c(this.mOnDismissListener).ms());
     }
 
-    public static boolean r(a.C0610a c0610a) {
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0610a.getAdTemplate());
-        if (com.kwad.sdk.core.response.a.a.aN(bQ) && (DownloadLandPageActivity.showingAdWebViewLandPage || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0610a.getAdTemplate().isWebViewDownload)) {
+    public static boolean r(a.C0630a c0630a) {
+        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0630a.getAdTemplate());
+        if (com.kwad.sdk.core.response.a.a.aN(bQ) && (DownloadLandPageActivity.showingAdWebViewLandPage || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0630a.getAdTemplate().isWebViewDownload)) {
             return true;
         }
-        return com.kwad.sdk.core.response.a.a.aO(bQ) && !ae.isWifiConnected(c0610a.getContext());
+        return com.kwad.sdk.core.response.a.a.aO(bQ) && !ae.isWifiConnected(c0630a.getContext());
     }
 
-    public static int s(a.C0610a c0610a) {
-        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0610a.getAdTemplate());
+    public static int s(a.C0630a c0630a) {
+        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0630a.getAdTemplate());
         if (bQ.downloadSafeInfo.complianceInfo != null) {
-            int cC = c0610a.cC();
+            int cC = c0630a.cC();
             return cC != 2 ? cC != 3 ? bQ.downloadSafeInfo.complianceInfo.actionBarType : bQ.downloadSafeInfo.complianceInfo.materialJumpType : bQ.downloadSafeInfo.complianceInfo.describeBarType;
         }
         return 0;
@@ -426,9 +426,9 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
             this.mAdInfo.status = 7;
             mM();
             if (hVar.sX()) {
-                a.C0648a c0648a = new a.C0648a(i, str2);
-                com.kwad.sdk.core.report.a.a(this.Eg, c0648a);
-                com.kwad.components.core.j.a.og().b(this.Eg, this.mAdInfo.adConversionInfo.appDownloadUrl, c0648a.toJson().toString());
+                a.C0668a c0668a = new a.C0668a(i, str2);
+                com.kwad.sdk.core.report.a.a(this.Eg, c0668a);
+                com.kwad.components.core.j.a.og().b(this.Eg, this.mAdInfo.adConversionInfo.appDownloadUrl, c0668a.toJson().toString());
                 hVar.sW();
             }
             if (this.mAdInfo.adConversionInfo.retryH5TimeStep <= 0 || this.Ei) {
@@ -600,7 +600,7 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
         }
     }
 
-    public final int m(a.C0610a c0610a) {
+    public final int m(a.C0630a c0630a) {
         this.Ei = false;
         mN();
         switch (this.mAdInfo.status) {
@@ -609,10 +609,10 @@ public final class c implements NetworkMonitor.a, f, com.kwad.sdk.core.webview.a
             case 5:
             case 6:
             case 7:
-                return n(c0610a);
+                return n(c0630a);
             case 2:
             case 3:
-                if (c0610a.mx() && this.downloadPauseEnable) {
+                if (c0630a.mx() && this.downloadPauseEnable) {
                     com.kwad.sdk.core.download.a.bD(this.mAdInfo.downloadId);
                     return 0;
                 }

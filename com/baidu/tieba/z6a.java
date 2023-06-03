@@ -1,94 +1,56 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.webkit.sdk.SevenZipUtils;
 /* loaded from: classes8.dex */
 public class z6a {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
+    public static final String h;
+    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return n0a.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return n0a.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) == null) {
-            String str3 = "";
-            FileOutputStream fileOutputStream = null;
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313284, "Lcom/baidu/tieba/z6a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                try {
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(file, str2);
-                if (!file2.exists()) {
-                    file2.createNewFile();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                    fileOutputStream2.flush();
-                    str3 = file2.getAbsolutePath();
-                    fileOutputStream2.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream = fileOutputStream2;
-                    e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    return str3;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str3;
-            } catch (Throwable th2) {
-                th = th2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948313284, "Lcom/baidu/tieba/z6a;");
+                return;
             }
-        } else {
-            return (String) invokeLLL.objValue;
         }
+        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
+        StringBuilder sb = new StringBuilder();
+        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb.append("/");
+        sb.append("tieba");
+        sb.append("/videoCover.jpg");
+        b = sb.toString();
+        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
+        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb2.append("/");
+        sb2.append("DCIM/tieba/");
+        g = sb2.toString();
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

@@ -53,10 +53,9 @@ import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.ym1;
+import com.baidu.tieba.qp1;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -309,7 +308,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiConfiguration sapiConfiguration2 = getSapiConfiguration();
         if (sapiConfiguration2 != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            ym1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            qp1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
@@ -336,7 +335,7 @@ public final class SapiAccountManager implements ISAccountManager {
         }
         hashMap.put("success_count", str2);
         if (z) {
-            str = ComboPraiseManager.PRAISE_SOURCE_PREFIX_NA;
+            str = "na";
         } else {
             str = DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB;
         }

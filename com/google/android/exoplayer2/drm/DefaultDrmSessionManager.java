@@ -202,7 +202,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     public static String getSchemeMimeType(DrmInitData.SchemeData schemeData, UUID uuid) {
         String str = schemeData.mimeType;
         if (Util.SDK_INT < 26 && C.CLEARKEY_UUID.equals(uuid)) {
-            if (MimeTypes.VIDEO_MP4.equals(str) || MimeTypes.AUDIO_MP4.equals(str)) {
+            if ("video/mp4".equals(str) || MimeTypes.AUDIO_MP4.equals(str)) {
                 return "cenc";
             }
             return str;

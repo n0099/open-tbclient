@@ -1,6 +1,5 @@
 package com.vivo.push.util;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,9 +29,9 @@ public final class j {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes("utf-8"), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes(IMAudioTransRequest.CHARSET)));
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes("utf-8")));
             return cipher.doFinal(bArr);
         }
         return (byte[]) invokeLLL.objValue;

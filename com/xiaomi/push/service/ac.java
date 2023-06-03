@@ -20,16 +20,16 @@ public final class ac extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo695a() {
+    public String mo750a() {
         return "send ack message for unrecognized new miui message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo412a() {
+    public void mo467a() {
         try {
             id a = y.a((Context) this.f880a, this.a);
-            a.m564a().a("miui_message_unrecognized", "1");
+            a.m619a().a("miui_message_unrecognized", "1");
             ah.a(this.f880a, a);
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IDeviceIdService extends IInterface {
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Default implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public interface IDeviceIdService extends IInterface {
     }
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic = null;
         @Keep
@@ -96,7 +96,7 @@ public interface IDeviceIdService extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Keep
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Proxy implements IDeviceIdService {
             public static /* synthetic */ Interceptable $ic;
             @Keep

@@ -120,6 +120,14 @@ public class BIMRtcSendMsg extends Message {
         return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mBody = generateBody().toString();
+        }
+    }
+
     public JSONObject generateBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,14 +152,6 @@ public class BIMRtcSendMsg extends Message {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void buildBody() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mBody = generateBody().toString();
-        }
     }
 
     @Override // com.baidu.android.imsdk.request.Message

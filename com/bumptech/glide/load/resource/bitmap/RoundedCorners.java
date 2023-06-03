@@ -8,7 +8,7 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RoundedCorners extends BitmapTransformation {
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.RoundedCorners";
     public static final byte[] ID_BYTES = ID.getBytes(Key.CHARSET);

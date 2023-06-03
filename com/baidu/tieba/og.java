@@ -1,83 +1,45 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.net.HttpURLConnection;
-/* loaded from: classes6.dex */
-public class og {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public abstract class og<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor) {
+    public void onCancelled(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
-            try {
-                cursor.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public static void b(Closeable closeable) {
+    public void onLoaded(@Nullable T t, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, str, i) == null) {
         }
     }
 
-    public static void c(InputStream inputStream) {
+    public void onProgressUpdate(Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, inputStream) == null) && inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) {
         }
     }
 
-    public static void d(OutputStream outputStream) {
+    public og() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, outputStream) == null) && outputStream != null) {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void e(Reader reader) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) && reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void f(HttpURLConnection httpURLConnection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, httpURLConnection) == null) && httpURLConnection != null) {
-            try {
-                httpURLConnection.disconnect();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

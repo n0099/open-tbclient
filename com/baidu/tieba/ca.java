@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.framework.message.SocketMessage;
 /* loaded from: classes5.dex */
 public interface ca {
-    boolean onFindMessage(SocketMessage socketMessage);
+    public static final int[] a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
 }

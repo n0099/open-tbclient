@@ -1,143 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class r72 extends ie3 {
+public class r72 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948074460, "Lcom/baidu/tieba/r72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948074460, "Lcom/baidu/tieba/r72;");
-                return;
-            }
-        }
-        b = qp1.a;
-    }
-
-    public r72() {
+    public r72(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new s72();
-    }
-
-    public final Bundle a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", i);
-            bundle.putString("param1", str);
-            bundle.putString("param2", str2);
-            return bundle;
+        PathType s = gj3.s(str);
+        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
+            this.a = new File(lx2.T().G().a(str)).getParent();
         }
-        return (Bundle) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.ie3, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
         InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.getCookie(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
+            if (lottieImageAsset == null) {
+                return null;
             }
-            v53 c = t53.c(q72.class, a(str, "", 4));
-            if (!c.a()) {
-                return "";
+            String fileName = lottieImageAsset.getFileName();
+            if (TextUtils.isEmpty(fileName)) {
+                return null;
             }
-            String string = c.a.getString("result");
-            if (b) {
-                Log.d("DelegationCookieManager", "getCookie cookie : " + string);
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldAcceptCookie(str, str2);
-            }
-            v53 c = t53.c(q72.class, a(str, str2, 1));
-            if (!c.a()) {
-                return false;
-            }
-            return c.a.getBoolean("result");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldSendCookie(str, str2);
-            }
-            v53 c = t53.c(q72.class, a(str, str2, 2));
-            if (!c.a()) {
-                return false;
-            }
-            return c.a.getBoolean("result");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                this.a.storeCookie(str, list);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", 3);
-            bundle.putString("param1", str);
-            bundle.putStringArrayList("param2", (ArrayList) list);
-            t53.c(q72.class, bundle);
-            if (b) {
-                Log.d("DelegationCookieManager", "set cookies for " + str);
+            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
+                try {
+                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inScaled = true;
+                    options.inDensity = 160;
+                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
+                } catch (IllegalArgumentException e) {
+                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
+                    return null;
+                }
+            } else if (TextUtils.isEmpty(this.a)) {
+                return null;
+            } else {
+                String dirName = lottieImageAsset.getDirName();
+                if (TextUtils.isEmpty(dirName)) {
+                    file = new File(this.a);
+                } else {
+                    file = new File(this.a, dirName);
+                }
+                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
             }
         }
+        return (Bitmap) invokeL.objValue;
     }
 }

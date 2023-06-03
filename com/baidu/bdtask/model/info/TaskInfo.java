@@ -156,7 +156,7 @@ public final class TaskInfo implements ITaskModelData {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData})) == null) ? new TaskInfo(str, str2, i, str3, i2, str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData) : (TaskInfo) invokeCommon.objValue;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

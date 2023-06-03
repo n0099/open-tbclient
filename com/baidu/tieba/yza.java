@@ -4,21 +4,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.FunAdLoader;
 /* loaded from: classes8.dex */
-public final class yza<TResult> implements v0b<TResult> {
+public class yza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x0b a;
-    public Executor b;
-    public final Object c;
+    public final a a;
 
-    public yza(Executor executor, x0b x0bVar) {
+    /* loaded from: classes8.dex */
+    public interface a {
+        FunAdLoader a(a6b a6bVar);
+    }
+
+    public yza(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, x0bVar};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +31,6 @@ public final class yza<TResult> implements v0b<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = x0bVar;
-        this.b = executor;
-    }
-
-    @Override // com.baidu.tieba.v0b
-    public final void a(h0b<TResult> h0bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, h0bVar) == null) && !h0bVar.f()) {
-            h0bVar.e();
-            this.b.execute(new wza(this, h0bVar));
-        }
+        this.a = aVar;
     }
 }

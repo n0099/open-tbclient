@@ -18,9 +18,9 @@ public class PinnedHeaderListView extends ListView {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(View view2, int i, int i2);
+        void configurePinnedHeader(View view2, int i, int i2);
 
-        int b(int i);
+        int getPinnedHeaderState(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -99,11 +99,11 @@ public class PinnedHeaderListView extends ListView {
         b bVar;
         int i2;
         if (this.b != null && (bVar = this.a) != null) {
-            int b2 = bVar.b(i);
-            if (b2 != 0) {
+            int pinnedHeaderState = bVar.getPinnedHeaderState(i);
+            if (pinnedHeaderState != 0) {
                 int i3 = 255;
-                if (b2 != 1) {
-                    if (b2 == 2) {
+                if (pinnedHeaderState != 1) {
+                    if (pinnedHeaderState == 2) {
                         int bottom = getChildAt(0).getBottom();
                         int height = this.b.getHeight();
                         if (bottom < height) {
@@ -112,7 +112,7 @@ public class PinnedHeaderListView extends ListView {
                         } else {
                             i2 = 0;
                         }
-                        this.a.a(this.b, i, i3);
+                        this.a.configurePinnedHeader(this.b, i, i3);
                         if (this.b.getTop() != i2) {
                             this.b.layout(0, i2, this.d, this.e + i2);
                         }
@@ -121,7 +121,7 @@ public class PinnedHeaderListView extends ListView {
                     }
                     return;
                 }
-                this.a.a(this.b, i, 255);
+                this.a.configurePinnedHeader(this.b, i, 255);
                 if (this.b.getTop() != 0) {
                     this.b.layout(0, 0, this.d, this.e);
                 }

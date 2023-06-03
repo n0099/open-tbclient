@@ -11,7 +11,7 @@ public class ReportInfo {
     public String host = null;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1089view = null;
+    public String f1233view = null;
     public NetStatusInfo netInfo = null;
     public StatsInfo stats0 = null;
     public int ct = -1;
@@ -69,7 +69,7 @@ public class ReportInfo {
     }
 
     public String getView() {
-        return this.f1089view;
+        return this.f1233view;
     }
 
     public void setCt(int i) {
@@ -113,6 +113,6 @@ public class ReportInfo {
     }
 
     public void setView(String str) {
-        this.f1089view = str;
+        this.f1233view = str;
     }
 }

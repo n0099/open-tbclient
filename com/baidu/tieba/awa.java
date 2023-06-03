@@ -1,46 +1,29 @@
 package com.baidu.tieba;
+/* loaded from: classes5.dex */
+public interface awa {
+    void a(int i);
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.kwad.sdk.api.KsVideoPlayConfig;
-/* loaded from: classes4.dex */
-public abstract class awa<A> extends ReporterPidLoader<A> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs e;
+    void b(String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public awa(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(funAdType, pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = moduleConfigKs;
-    }
+    boolean c();
 
-    public KsVideoPlayConfig e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal).videoSoundEnable(this.e.ksVideoSoundEnable).build() : (KsVideoPlayConfig) invokeV.objValue;
-    }
+    awa d();
+
+    void e(boolean z);
+
+    void f(String str);
+
+    void g(String str);
+
+    String getAAID();
+
+    String getOAID();
+
+    int getStatusCode();
+
+    String getVAID();
+
+    void h(boolean z);
+
+    boolean isSupport();
 }

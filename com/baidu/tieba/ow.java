@@ -1,79 +1,171 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import kotlin.TypeCastException;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+/* loaded from: classes7.dex */
 public final class ow {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static final ow a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448313541, "Lcom/baidu/tieba/ow;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313541, "Lcom/baidu/tieba/ow;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448313541, "Lcom/baidu/tieba/ow;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new ow();
+    }
+
+    public ow() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448313541, "Lcom/baidu/tieba/ow;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final int a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            for (String str3 : split$default) {
+                if (str3 != null) {
+                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
+                    if (!Intrinsics.areEqual(obj, "")) {
+                        linkedList.add(obj);
                     }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
                 }
-                return null;
             }
-            return null;
+            for (String str4 : split$default2) {
+                if (str4 != null) {
+                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
+                    if (!Intrinsics.areEqual(obj2, "")) {
+                        linkedList2.add(obj2);
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
+                }
+            }
+            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
+                ow owVar = a;
+                Object pollFirst = linkedList.pollFirst();
+                if (pollFirst == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e = owVar.e((String) pollFirst);
+                ow owVar2 = a;
+                Object pollFirst2 = linkedList2.pollFirst();
+                if (pollFirst2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e2 = owVar2.e((String) pollFirst2);
+                if (e > e2) {
+                    return 1;
+                }
+                if (e < e2) {
+                    return -1;
+                }
+            }
+            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
+                return 0;
+            }
+            while (!linkedList.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
+                    return 1;
+                }
+            }
+            while (!linkedList2.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
+                    return -1;
+                }
+            }
+            return 0;
         }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
+        return invokeLL.intValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Intrinsics.areEqual(bs.c.h().getAppVersion(), "")) {
+                String b = zt.b();
+                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
+                return b;
             }
-            return a;
+            return bs.c.h().getAppVersion();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(Context context) {
+    public final boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (nw.a.a() <= j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public final boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (a(b(), str) >= 0) {
                 return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

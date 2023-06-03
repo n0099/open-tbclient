@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppPrivacyPolicyActivity extends Activity {
     public ImageView a;
     public WebView b;
@@ -35,7 +35,7 @@ public class AppPrivacyPolicyActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0955);
+        setContentView(R.layout.obfuscated_res_0x7f0d096d);
         if (a()) {
             b();
         } else {
@@ -75,8 +75,8 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d9);
-        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091c75);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f1);
+        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091ca3);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

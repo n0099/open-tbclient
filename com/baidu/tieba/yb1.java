@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static yb1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public final ac1 a;
+    public boolean b;
+    public int c;
+    public final JSONObject d;
 
     public yb1() {
         Interceptable interceptable = $ic;
@@ -27,32 +32,124 @@ public class yb1 {
                 return;
             }
         }
-        new ArrayList();
-        this.a = new ArrayList();
+        this.b = true;
+        this.c = -1;
+        this.d = new JSONObject();
+        ac1 ac1Var = new ac1();
+        this.a = ac1Var;
+        ac1Var.a = System.currentTimeMillis();
     }
 
-    public static yb1 a() {
-        InterceptResult invokeV;
+    public String a(String str, long j, long j2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (yb1.class) {
-                    if (b == null) {
-                        b = new yb1();
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adinfo", str);
+                jSONObject.put("isbrowser", String.valueOf(j));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("aderrorcode", String.valueOf(j2));
+                jSONObject2.put("multipleaccess", String.valueOf(z));
+                jSONObject2.put(PrefetchEvent.MODULE, "0");
+                jSONObject.put("adext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return b;
+            return jSONObject.toString();
         }
-        return (yb1) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public synchronized void b(String str) {
+    public void b(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                o11.b(this.a, str);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || this.a == null) {
+            return;
+        }
+        if (str3 == null) {
+            str3 = "";
+        }
+        u31 g = new u31().g("1006");
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("ext", str2);
+            g.b("f1", jSONObject.toString());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("timing", str);
+            g.b("f2", jSONObject2.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        ac1 ac1Var = this.a;
+        g.b("f3", str4);
+        g.b("f4", String.valueOf(j));
+        g.b("f6", String.valueOf(this.c));
+        g.b("f7", "ad");
+        g.b("f14", "");
+        g.b("f15", String.valueOf(this.a.a));
+        g.b("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - ac1Var.d) + ac1Var.e)) * 1.0f) / 1000.0f)));
+        g.b("f17", str3);
+        g.b("f18", String.valueOf(this.a.b));
+        g.b("f19", String.valueOf(this.a.c));
+        g.b("f20", String.valueOf(this.a.d));
+        g.b("f21", String.valueOf(this.a.f));
+        g.c("f23", this.d);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ac1 ac1Var = this.a;
+            ac1Var.a = 0L;
+            ac1Var.e = 0L;
+            ac1Var.f = 0L;
+            ac1Var.d = 0L;
+            ac1Var.c = 0L;
+            ac1Var.b = 0L;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d = System.currentTimeMillis();
+            ac1 ac1Var = this.a;
+            long j = ac1Var.d - ac1Var.c;
+            if (j < 0) {
+                j = 0;
             }
+            this.a.e += j;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.c = System.currentTimeMillis();
+            if (this.b) {
+                ac1 ac1Var = this.a;
+                long j = ac1Var.c - ac1Var.a;
+                if (j < 0) {
+                    j = 0;
+                }
+                this.a.e = j;
+                this.b = false;
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.b = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.f = System.currentTimeMillis();
         }
     }
 }

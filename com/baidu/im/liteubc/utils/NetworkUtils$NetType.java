@@ -1,5 +1,6 @@
 package com.baidu.im.liteubc.utils;
 
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,7 @@ public final class NetworkUtils$NetType {
         _3G = new NetworkUtils$NetType("_3G", 3, "3g");
         _4G = new NetworkUtils$NetType("_4G", 4, "4g");
         _5G = new NetworkUtils$NetType("_5G", 5, "5g");
-        NetworkUtils$NetType networkUtils$NetType = new NetworkUtils$NetType("UNKOWN", 6, "unknow");
+        NetworkUtils$NetType networkUtils$NetType = new NetworkUtils$NetType("UNKOWN", 6, DownloadStatisticConstants.UBC_VALUE_UNKNOW);
         UNKOWN = networkUtils$NetType;
         $VALUES = new NetworkUtils$NetType[]{NONE, WIFI, _2G, _3G, _4G, _5G, networkUtils$NetType};
     }

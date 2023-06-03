@@ -1,243 +1,119 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
+import android.content.SharedPreferences;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardUserInfoLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.permissionhelper.context.ContextCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public class dx extends ax<jy4> implements g7a {
-    public static /* synthetic */ Interceptable $ic;
+public class dx {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "dx";
     public transient /* synthetic */ FieldHolder $fh;
-    public CardUserInfoLayout f;
-    public int g;
-    public jy4 h;
-    public b i;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(jy4 jy4Var, View view2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dx a;
-
-        public a(dx dxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dxVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303001, "Lcom/baidu/tieba/dx;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.i != null) {
-                    this.a.i.a(this.a.h, view2);
-                }
-                if (this.a.h() != null) {
-                    this.a.h().a(view2, this.a.h);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dx(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448303001, "Lcom/baidu/tieba/dx;");
+        }
+    }
+
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
-        }
-        this.g = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().c instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().c.getParent() == null) {
-            this.f = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().c;
-        } else {
-            this.f = new CardUserInfoLayout(context);
-        }
-        this.f.setShowFlag(this.g);
-        this.f.setUserAfterClickListener(new a(this));
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.f.setShowFlag(this.g);
-        }
-    }
-
-    public void B(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.f.setPageContext(tbPageContext);
-        }
-    }
-
-    public void C(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getUserName() != null) {
-            this.f.getUserName().setClickable(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            int i2 = i | this.g;
-            this.g = i2;
-            A(i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            int i2 = (~i) & this.g;
-            this.g = i2;
-            A(i2);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: u */
-    public void a(jy4 jy4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jy4Var) == null) {
-            this.h = jy4Var;
-            this.f.setData(jy4Var.getThreadData());
-        }
-    }
-
-    public void x(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getAvatar() != null) {
-            this.f.getAvatar().setClickable(z);
-        }
-    }
-
-    public void y(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void z(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
-            this.f.setPageUniqueId(bdUniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.g7a
-    public void b() {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            cardUserInfoLayout.startVirtualAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.g7a
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            jy4 jy4Var = this.h;
-            if (jy4Var != null && jy4Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
+            try {
+                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                if (ApiUtil.shouldCheckPermission()) {
+                    return false;
+                }
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g7a
-    public void d() {
-        CardUserInfoLayout cardUserInfoLayout;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            cardUserInfoLayout.recoverVirtualAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.g7a
-    public void e() {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            if (cardUserInfoLayout.isHasPlayVirtualImage()) {
-                this.f.recoverVirtualImageAnimate();
-                this.f.setHasPlayVirtualImage(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
             }
-            this.f.recoverVirtualAnimation();
+            try {
+                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (Build.VERSION.SDK_INT >= 16) {
+                    if (!checkPermissionGranted) {
+                    }
+                    z = true;
+                    return z;
+                }
+                return checkPermissionGranted;
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                if (ApiUtil.shouldCheckPermission()) {
+                    return false;
+                }
+                return true;
+            }
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ax
-    public View k() {
-        InterceptResult invokeV;
+    public static boolean c(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (context == null) {
+                return false;
+            }
+            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
+            if (sharedPreferences == null) {
+                return true;
+            }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = sharedPreferences.getBoolean(str, true);
+            d(context, str);
+            return z;
         }
-        return (View) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g7a
-    public void play() {
-        CardUserInfoLayout cardUserInfoLayout;
+    public static void d(Context context, String str) {
+        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.isVirtualImage() && !this.f.isHasPlayVirtualImage()) {
-            this.f.setHasPlayVirtualImage(true);
-            this.f.startVirtualImageAnimate();
-        }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && (sharedPreferences = context.getSharedPreferences(a, 0)) != null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putBoolean(str, false);
+            edit.apply();
         }
     }
 }

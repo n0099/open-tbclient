@@ -1,151 +1,125 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cf6 {
+public class cf6 extends in<sf6, CardViewHolder<yg6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947672886, "Lcom/baidu/tieba/cf6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sf6 a;
+        public final /* synthetic */ cf6 b;
+
+        public a(cf6 cf6Var, sf6 sf6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cf6Var, sf6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947672886, "Lcom/baidu/tieba/cf6;");
+            this.b = cf6Var;
+            this.a = sf6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cf6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), sf6.b);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        this.a = tbPageContext;
     }
 
-    @NonNull
-    public static Map<String, String> a(Uri uri) {
+    public final void u(sf6 sf6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sf6Var) == null) && sf6Var != null && sf6Var.c() != null && sf6Var.c().h != null) {
+            gg6 gg6Var = sf6Var.c().h;
+            qx4.D(this.a.getPageActivity(), true, gg6Var.b, gg6Var.a);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: x */
+    public CardViewHolder<yg6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            HashMap hashMap = new HashMap();
-            Set<String> queryParameterNames = uri.getQueryParameterNames();
-            if (!zh6.a(queryParameterNames)) {
-                for (String str : queryParameterNames) {
-                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
-                }
-            }
-            hashMap.putAll(b());
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new yg6(this.a));
         }
-        return (Map) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static Map<String, String> b() {
-        InterceptResult invokeV;
-        String str;
+    public final void t(sf6 sf6Var, yg6 yg6Var) {
+        rf6 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (zh6.b(a)) {
-                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                a.put("{device.cuid}", inst.getCuid());
-                a.put("{device.imei}", inst.getImei());
-                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
-                a.put("{device.brand}", Build.BRAND);
-                a.put("{device.platform}", "Android");
-                a.put("{device.clientVersion}", TbConfig.getVersion());
-                a.put("{device.zid}", inst.getZid());
-                a.put("{device.sign}", "tiebaclient!!!");
-                a.put("{device.clientType}", "2");
-                HashMap<String, String> hashMap = a;
-                String str2 = "1";
-                if (TbSingleton.getInstance().getSyncYYSwitch()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                hashMap.put("{device.is_yy_user}", str);
-                a.put("{device.androidId}", inst.getAndroidId());
-                a.put("{device.imsi}", inst.getIMsi());
-                a.put("{device.model}", ti.g());
-                a.put("{device.pkgName}", inst.getPackageName());
-                HashMap<String, String> hashMap2 = a;
-                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
-                HashMap<String, String> hashMap3 = a;
-                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
-                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
-                a.put("{device.hardware}", Build.HARDWARE);
-                a.put("{device.board}", Build.BOARD);
-                HashMap<String, String> hashMap4 = a;
-                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
-                    str2 = "0";
-                }
-                hashMap4.put("{device.imu}", str2);
-                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
-                a.put("{user.tbs}", inst.getTbs());
-                a.put("{client_version}", TbConfig.getVersion());
-                a.put("{client_type}", "2");
-                a.put("{User-Agent}", yt5.b());
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sf6Var, yg6Var) == null) && (c = sf6Var.c()) != null && c.h != null) {
+            yg6Var.y(8);
+            yg6Var.z(c.h.a);
+            yg6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (Map) invokeV.objValue;
     }
 
-    public static String c(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.in
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sf6 sf6Var, CardViewHolder<yg6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
-            String str3 = "";
-            if (map != null) {
-                try {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        str2 = map.getOrDefault(str, "");
-                    } else if (map.containsKey(str)) {
-                        str2 = map.get(str);
-                    }
-                    str3 = str2;
-                } catch (Exception unused) {
-                    return str3;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sf6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
-            return Uri.encode(str3);
+            t(sf6Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, sf6Var));
+            return cardViewHolder.a().h();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
-            if (map == null) {
-                return "";
-            }
-            if (Build.VERSION.SDK_INT >= 24) {
-                return map.getOrDefault(str, "");
-            }
-            if (!map.containsKey(str)) {
-                return "";
-            }
-            return map.get(str);
-        }
-        return (String) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

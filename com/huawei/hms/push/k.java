@@ -296,7 +296,7 @@ public class k {
             jSONObject2.put("group", this.a);
             jSONObject2.put("tag", this.A);
             jSONObject2.put(RemoteMessageConst.Notification.AUTO_CANCEL, this.x);
-            jSONObject2.put(RemoteMessageConst.Notification.VISIBILITY, this.y);
+            jSONObject2.put("visibility", this.y);
             jSONObject2.put(RemoteMessageConst.Notification.WHEN, this.z);
             return jSONObject2;
         }
@@ -461,7 +461,7 @@ public class k {
             HMSLog.d("PushSelfShowLog", "NOTIFY_GROUP:" + this.a);
             this.x = jSONObject.optInt(RemoteMessageConst.Notification.AUTO_CANCEL, 1);
             HMSLog.d("PushSelfShowLog", "autoCancel: " + this.x);
-            this.y = jSONObject.optInt(RemoteMessageConst.Notification.VISIBILITY, 0);
+            this.y = jSONObject.optInt("visibility", 0);
             this.z = jSONObject.optString(RemoteMessageConst.Notification.WHEN);
             this.A = jSONObject.optString("tag");
         }

@@ -7,6 +7,7 @@ import android.content.pm.Signature;
 import android.content.pm.SigningInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,9 +103,9 @@ public class b {
                 return stringBuffer2.toString();
             }
             if (Build.VERSION.SDK_INT >= 28) {
-                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo;
+                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo;
                 if (signingInfo != null) {
-                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getSigningCertificateHistory();
+                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getSigningCertificateHistory();
                     str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[0].toByteArray())));
                     StringBuffer stringBuffer22 = new StringBuffer();
                     if (str2 != null) {
@@ -206,9 +207,9 @@ public class b {
                 strArr = null;
             }
             if (Build.VERSION.SDK_INT >= 28) {
-                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo;
+                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo;
                 if (signingInfo != null) {
-                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getSigningCertificateHistory();
+                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION).signingInfo.getSigningCertificateHistory();
                     if (signatureArr != null || signatureArr.length <= 0) {
                         strArr = null;
                     } else {

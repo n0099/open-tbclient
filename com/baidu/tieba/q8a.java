@@ -1,86 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.app.Activity;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ShareFriendTitleData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.write.transmit.ShareFriendActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class q8a extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int e = 3;
+public class q8a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ViewGroup b;
-    public ShareFriendActivity c;
-    public List<MetaData> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948047087, "Lcom/baidu/tieba/q8a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948047087, "Lcom/baidu/tieba/q8a;");
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a {
+    public static class b implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
 
-        public a(q8a q8aVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,230 +51,213 @@ public class q8a extends BaseAdapter {
                 }
             }
         }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Camera.Size size, Camera.Size size2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
+                int i = size.width;
+                int i2 = size2.width;
+                if (i != i2) {
+                    return i - i2;
+                }
+                return size.height - size2.height;
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public LinearLayout a;
-        public HeadImageView b;
-        public TextView c;
+    public static int b(Activity activity, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, activity, i)) == null) {
+            if (Build.VERSION.SDK_INT > 8) {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int e = e(activity);
+                if (cameraInfo.facing == 1) {
+                    return (360 - ((cameraInfo.orientation + e) % 360)) % 360;
+                }
+                return ((cameraInfo.orientation - e) + 360) % 360;
+            }
+            return 0;
+        }
+        return invokeLI.intValue;
+    }
 
-        public b(q8a q8aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q8aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static int c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            int numberOfCameras = Camera.getNumberOfCameras();
+            Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+            for (int i = 0; i < numberOfCameras; i++) {
+                cameraInfoArr[i] = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfoArr[i]);
+            }
+            int i2 = -1;
+            int i3 = -1;
+            for (int i4 = 0; i4 < numberOfCameras; i4++) {
+                if (i3 == -1 && cameraInfoArr[i4].facing == 0) {
+                    i3 = i4;
+                } else if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
+                    i2 = i4;
                 }
             }
+            if (i2 != -1 && z) {
+                return i2;
+            }
+            if (i3 != -1 && !z) {
+                return i3;
+            }
+            if (z && i2 == -1) {
+                return i3;
+            }
+            if (i2 != -1) {
+                return i2;
+            }
+            if (i3 == -1) {
+                return -1;
+            }
+            return i3;
         }
+        return invokeZ.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
+    public static boolean f(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            try {
+                int numberOfCameras = Camera.getNumberOfCameras();
+                Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+                for (int i3 = 0; i3 < numberOfCameras; i3++) {
+                    cameraInfoArr[i3] = new Camera.CameraInfo();
+                    Camera.getCameraInfo(i3, cameraInfoArr[i3]);
+                }
+                i = -1;
+                i2 = -1;
+                for (int i4 = 0; i4 < numberOfCameras; i4++) {
+                    if (i == -1) {
+                        try {
+                            if (cameraInfoArr[i4].facing == 0) {
+                                i = i4;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw e;
+                            }
+                            if (i2 == -1) {
+                            }
+                            if (i != -1) {
+                            }
+                            return false;
+                        }
+                    }
+                    if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
+                        i2 = i4;
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+                i = -1;
+                i2 = -1;
+            }
+            if (i2 == -1 && z) {
+                return true;
+            }
+            if (i != -1 || z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
 
-        public c(q8a q8aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q8aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static Camera.Size d(Camera camera, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, camera, i, i2)) == null) {
+            List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
+            Camera.Size size = null;
+            Collections.sort(supportedPreviewSizes, new b(null));
+            if (supportedPreviewSizes != null && supportedPreviewSizes.size() > 0) {
+                boolean z = false;
+                Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
+                int i3 = -1;
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Camera.Size next = it.next();
+                    i3++;
+                    if (next != null && next.width >= i2 && next.height >= i) {
+                        size = next;
+                        z = true;
+                        break;
+                    }
+                }
+                if (!z) {
+                    i3 = supportedPreviewSizes.size() - 1;
+                    size = supportedPreviewSizes.get(i3);
+                }
+                int i4 = ((int) (1080 * ((i2 * 1.0f) / i))) * 1080;
+                while (size.width * size.height > i4 && i3 > 0) {
+                    i3--;
+                    size = supportedPreviewSizes.get(i3);
                 }
             }
+            return size;
         }
+        return (Camera.Size) invokeLII.objValue;
     }
 
-    public q8a(ShareFriendActivity shareFriendActivity) {
+    public static int e(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {shareFriendActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.d = new ArrayList();
-        this.c = shareFriendActivity;
-        this.a = shareFriendActivity.getPageContext().getContext();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public MetaData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<MetaData> list = this.d;
-            if (list == null || i >= list.size()) {
-                return null;
-            }
-            return this.d.get(i);
-        }
-        return (MetaData) invokeI.objValue;
-    }
-
-    public void b(List<MetaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.d.clear();
-            this.d.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (e != i) {
-                notifyDataSetChanged();
-            }
-            e = i;
-        }
-    }
-
-    public void d(List<MetaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.d = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return getItem(i).getItemType();
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<MetaData> list = this.d;
-            if (list == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation == 0) {
                 return 0;
             }
-            return list.size();
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        String avater;
-        String name_show;
-        a aVar;
-        c cVar;
+    public static boolean g(PackageManager packageManager) {
+        InterceptResult invokeL;
+        FeatureInfo[] systemAvailableFeatures;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (this.b == null) {
-                this.b = viewGroup;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, packageManager)) == null) {
+            if (packageManager != null && (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) != null) {
+                for (FeatureInfo featureInfo : systemAvailableFeatures) {
+                    if (featureInfo != null && "android.hardware.camera.flash".equals(featureInfo.name)) {
+                        return true;
+                    }
+                }
             }
-            if (getItemViewType(i) == 0) {
-                if (view2 != null && (view2.getTag() instanceof c)) {
-                    cVar = (c) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d085a, (ViewGroup) null);
-                    cVar = new c(this);
-                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b0);
-                    cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090321);
-                    view2.setTag(cVar);
-                }
-                cVar.a.setText(((ShareFriendTitleData) getItem(i)).getTitle());
-                p45 d = p45.d(cVar.a);
-                d.C(R.string.F_X01);
-                d.B(R.dimen.T_X08);
-                d.w(R.color.CAM_X0107);
-                p45.d(cVar.b).f(R.color.CAM_X0201);
-            } else if (getItemViewType(i) != 3 && getItemViewType(i) != 1) {
-                if (view2 != null && (view2.getTag() instanceof a)) {
-                    aVar = (a) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0858, (ViewGroup) null);
-                    aVar = new a(this);
-                    aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f090ea1);
-                    view2.setTag(aVar);
-                }
-                p45.d(aVar.a).f(R.color.CAM_X0204);
-            } else {
-                MetaData item = getItem(i);
-                if (view2 != null && (view2.getTag() instanceof b)) {
-                    bVar = (b) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) null);
-                    b bVar2 = new b(this);
-                    bVar2.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920ba);
-                    bVar2.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920cb);
-                    bVar2.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b0);
-                    view2.setTag(bVar2);
-                    bVar = bVar2;
-                }
-                bVar.b.setIsRound(true);
-                if (getItemViewType(i) == 1) {
-                    UtilHelper.showHeadImageViewBigVForStranger(bVar.b, item);
-                } else {
-                    UtilHelper.showHeadImageViewFocusBigV(bVar.b, item);
-                }
-                GroupInfoData groupInfoData = item.groupData;
-                if (groupInfoData != null) {
-                    avater = groupInfoData.getPortrait();
-                } else {
-                    avater = item.getAvater();
-                }
-                bVar.b.setTag(avater);
-                bVar.b.N(avater, 12, false);
-                TextView textView = bVar.c;
-                GroupInfoData groupInfoData2 = item.groupData;
-                if (groupInfoData2 != null) {
-                    name_show = groupInfoData2.getName();
-                } else {
-                    name_show = item.getName_show();
-                }
-                textView.setText(name_show);
-                p45 d2 = p45.d(bVar.a);
-                d2.o(R.string.J_X02);
-                d2.f(R.color.CAM_X0201);
-                p45 d3 = p45.d(bVar.c);
-                d3.B(R.dimen.T_X07);
-                d3.C(R.string.F_X01);
-                d3.w(R.color.CAM_X0107);
-            }
-            notifyDataSetChanged();
-            return view2;
+            return false;
         }
-        return (View) invokeILL.objValue;
+        return invokeL.booleanValue;
     }
 }

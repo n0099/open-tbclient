@@ -1,175 +1,221 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.le3;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wz1 extends mz1 {
+public class wz1 implements zz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    @NonNull
+    public Context a;
+    @NonNull
+    public CallbackHandler b;
+    public WeakReference<Activity> c;
+    public wa2 d;
 
-    @Override // com.baidu.tieba.jx1
-    public String j() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948287771, "Lcom/baidu/tieba/wz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948287771, "Lcom/baidu/tieba/wz1;");
+                return;
+            }
+        }
+        e = is1.a;
+    }
+
+    @Override // com.baidu.tieba.zz1
+    @NonNull
+    public wa2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (wa2) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements zn3<je3<le3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ wz1 d;
-
-        public a(wz1 wz1Var, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wz1Var, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = wz1Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+    @Override // com.baidu.tieba.zz1
+    @NonNull
+    public CallbackHandler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zn3
-        /* renamed from: b */
-        public void a(je3<le3.e> je3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
-                if (!ee3.h(je3Var)) {
-                    int b = je3Var.b();
-                    this.d.d(this.a, new g12(b, ee3.f(b)));
-                    return;
-                }
-                this.d.z(this.b, this.c);
-                this.d.d(this.a, new g12(0));
-            }
-        }
+        return (CallbackHandler) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wz1(@NonNull hx1 hx1Var) {
-        super(hx1Var);
+    @Override // com.baidu.tieba.zz1
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return h();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Context h() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            WeakReference<Activity> weakReference = this.c;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.a;
+            }
+            return activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public wz1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull wa2 wa2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, callbackHandler, wa2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = callbackHandler;
+        this.d = wa2Var;
     }
 
-    public g12 A(String str) {
-        InterceptResult invokeL;
+    public void a(@NonNull wa2 wa2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#openSystemSMSPanel", false);
-            Pair<g12, JSONObject> s = s(str);
-            g12 g12Var = (g12) s.first;
-            if (!g12Var.isSuccess()) {
-                return g12Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            g62.b("ShowSMSPanelApi", "params: ", jSONObject);
-            String optString = jSONObject.optString("content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-            if (optJSONArray == null) {
-                return new g12(202);
-            }
-            String y = y(optJSONArray);
-            if (!TextUtils.isEmpty(y) && !TextUtils.isEmpty(optString)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new g12(202);
-                }
-                f93.K().q().e0().g(getContext(), "scope_show_sms_panel", new a(this, optString2, y, optString));
-                return g12.f();
-            }
-            return new g12(202);
-        }
-        return (g12) invokeL.objValue;
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jg3 jg3Var = new jg3();
-            jg3Var.b = "sms_panel";
-            jg3Var.e = String.valueOf(this.f);
-            jg3Var.a("appid", f93.K().getAppId());
-            zf3.x("1639", jg3Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, wa2Var) == null) {
+            wa2Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
         }
     }
 
-    public final String y(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public final void b(@NonNull wa2 wa2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wa2Var) == null) {
+            if (wa2Var instanceof ij2) {
+                c((ij2) wa2Var);
+            } else {
+                f(wa2Var);
             }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public void z(@NonNull String str, @NonNull String str2) {
+    public final void c(@NonNull ij2 ij2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            getContext().startActivity(intent);
-            x();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ij2Var) == null) {
+            g(ij2Var, SwanApi$$ModulesProvider.getV8ApiModules(this), fv2.s().b(this));
+        }
+    }
+
+    public final void f(@NonNull wa2 wa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, wa2Var) == null) {
+            g(wa2Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), fv2.s().c(this));
+        }
+    }
+
+    public void i(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && activity != null) {
+            this.c = new WeakReference<>(activity);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void g(@NonNull wa2 wa2Var, Map<String, Object> map, Map<String, Object> map2) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, wa2Var, map, map2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (map2 != null) {
+                if (map == null) {
+                    map = map2;
+                } else {
+                    try {
+                        map.putAll(map2);
+                    } catch (Exception e2) {
+                        if (!e) {
+                            return;
+                        }
+                        e2.printStackTrace();
+                        throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
+                    }
+                }
+            }
+            if (map == null) {
+                if (!e) {
+                    return;
+                }
+                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
+            }
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                if (TextUtils.isEmpty(key)) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
+                    }
+                } else if (value == null) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
+                    }
+                } else {
+                    wa2Var.addJavascriptInterface(value, key);
+                    if (e) {
+                        if (wa2Var instanceof ij2) {
+                            str = "V8";
+                        } else {
+                            str = "Webview";
+                        }
+                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
+                    }
+                }
+            }
+            if (e) {
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                if (currentTimeMillis2 > 5) {
+                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
+                }
+            }
         }
     }
 }

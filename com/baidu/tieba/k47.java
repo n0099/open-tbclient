@@ -1,61 +1,62 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class k47 implements x27 {
+public final class k47 extends q47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SpannableStringBuilder e;
+    public final boolean f;
 
-    public k47() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k47(SpannableStringBuilder titleBuilder, boolean z) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {titleBuilder, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        this.e = titleBuilder;
+        this.f = z;
     }
 
-    @Override // com.baidu.tieba.x27
-    public List<f37<?, ?>> a() {
+    public final SpannableStringBuilder f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new i47("recommend_card_person_attention"));
-            arrayList.add(new u37("mount"));
-            arrayList.add(new f47("img_text"));
-            arrayList.add(new h47("sideway_card"));
-            arrayList.add(new d47("common_card"));
-            arrayList.add(new g47("live_card"));
-            arrayList.add(new v37("card_multi_link"));
-            arrayList.add(new q37("mount_app"));
-            arrayList.add(new c47("feed_voice"));
-            arrayList.add(new j47("social_bar"));
-            arrayList.add(new t37("live"));
-            arrayList.add(new a47("video"));
-            arrayList.add(new y37("card_single_link"));
-            arrayList.add(new z37("title"));
-            arrayList.add(new s37("feed_head"));
-            arrayList.add(new e47("delegate-layout"));
-            arrayList.add(new l47("video_card"));
-            arrayList.add(new r37("feed_entrybar"));
-            arrayList.add(new b47("virtual_head"));
-            arrayList.add(new w37("origin_card"));
-            arrayList.add(new x37("pic"));
-            arrayList.add(new p37("abstract"));
-            return arrayList;
+            return this.e;
         }
-        return (List) invokeV.objValue;
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

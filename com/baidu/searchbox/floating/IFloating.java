@@ -10,7 +10,8 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.Pair;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0019\u0010\t\u001a\u00020\u00042\b\b\u0002\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0007H&¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\u0007H&¢\u0006\u0004\b\r\u0010\fJ\u000f\u0010\u000e\u001a\u00020\u0004H&¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0004H&¢\u0006\u0004\b\u0010\u0010\u000fJ\u0017\u0010\u0011\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u0007H&¢\u0006\u0004\b\u0011\u0010\nJ\u0017\u0010\u0014\u001a\u00020\u00042\u0006\u0010\u0013\u001a\u00020\u0012H&¢\u0006\u0004\b\u0014\u0010\u0015J/\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u00162\u0006\u0010\u0018\u001a\u00020\u00162\u0006\u0010\u0019\u001a\u00020\u00162\u0006\u0010\u001a\u001a\u00020\u0016H&¢\u0006\u0004\b\u001b\u0010\u001cJ\u001f\u0010\u001f\u001a\u00020\u00042\u0006\u0010\u001d\u001a\u00020\u00162\u0006\u0010\u001e\u001a\u00020\u0016H&¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010\"\u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0007H&¢\u0006\u0004\b\"\u0010\nJ\u001f\u0010%\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\u00162\u0006\u0010$\u001a\u00020\u0016H&¢\u0006\u0004\b%\u0010 J#\u0010)\u001a\u00020\u00042\u0012\u0010(\u001a\u000e\u0012\u0004\u0012\u00020'\u0012\u0004\u0012\u00020'0&H&¢\u0006\u0004\b)\u0010*J\u0017\u0010-\u001a\u00020\u00042\u0006\u0010,\u001a\u00020+H&¢\u0006\u0004\b-\u0010.¨\u0006/"}, d2 = {"Lcom/baidu/searchbox/floating/IFloating;", "Lkotlin/Any;", "Lcom/baidu/searchbox/floating/listener/FloatViewListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "", "addFloatListener", "(Lcom/baidu/searchbox/floating/listener/FloatViewListener;)V", "", "immediately", "dismiss", "(Z)V", "hasFloatingView", "()Z", "nextScale", "onCreate", "()V", MissionEvent.MESSAGE_DESTROY, MediaAEffect.AE_ANIM_REVERSE, "Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;", ShaderParams.VALUE_TYPE_ANIMATOR, "setAnimator", "(Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;)V", "", "left", "top", "right", "bottom", "setBlockOffset", "(IIII)V", "with", "height", "setDefaultSize", "(II)V", "enable", "setDragEnable", "x", "y", "setLocation", "Lkotlin/Pair;", "Lcom/baidu/searchbox/floating/config/ScaleMode;", "mode", "setScaleMode", "(Lkotlin/Pair;)V", "Landroid/app/Notification;", "notification", "startForeground", "(Landroid/app/Notification;)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\bf\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u0016J\u0012\u0010\u0006\u001a\u00020\u00032\b\b\u0002\u0010\u0007\u001a\u00020\bH\u0016J\b\u0010\t\u001a\u00020\bH\u0016J\b\u0010\n\u001a\u00020\bH\u0016J\b\u0010\u000b\u001a\u00020\u0003H\u0016J\b\u0010\f\u001a\u00020\u0003H\u0016J\u0010\u0010\r\u001a\u00020\u00032\u0006\u0010\r\u001a\u00020\bH\u0016J\u0010\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u000f\u001a\u00020\u0010H\u0016J(\u0010\u0011\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u00132\u0006\u0010\u0016\u001a\u00020\u0013H\u0016J\u0018\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0018\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u0013H\u0016J\u0010\u0010\u001a\u001a\u00020\u00032\u0006\u0010\u001b\u001a\u00020\bH\u0016J\u0018\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001d\u001a\u00020\u00132\u0006\u0010\u001e\u001a\u00020\u0013H\u0016J\u001c\u0010\u001f\u001a\u00020\u00032\u0012\u0010 \u001a\u000e\u0012\u0004\u0012\u00020\"\u0012\u0004\u0012\u00020\"0!H\u0016J\u0010\u0010#\u001a\u00020\u00032\u0006\u0010$\u001a\u00020%H\u0016¨\u0006&"}, d2 = {"Lcom/baidu/searchbox/floating/IFloating;", "", "addFloatListener", "", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/searchbox/floating/listener/FloatViewListener;", "dismiss", "immediately", "", "hasFloatingView", "nextScale", "onCreate", MissionEvent.MESSAGE_DESTROY, MediaAEffect.AE_ANIM_REVERSE, "setAnimator", ShaderParams.VALUE_TYPE_ANIMATOR, "Lcom/baidu/searchbox/floating/animator/FloatViewAnimator;", "setBlockOffset", "left", "", "top", "right", "bottom", "setDefaultSize", "with", "height", "setDragEnable", "enable", "setLocation", "x", "y", "setScaleMode", "mode", "Lkotlin/Pair;", "Lcom/baidu/searchbox/floating/config/ScaleMode;", "startForeground", "notification", "Landroid/app/Notification;", "floating-view_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public interface IFloating {
     void addFloatListener(FloatViewListener floatViewListener);
@@ -41,9 +42,57 @@ public interface IFloating {
 
     void startForeground(Notification notification);
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class DefaultImpls {
+        public static void addFloatListener(IFloating iFloating, FloatViewListener listener) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+        }
+
+        public static void dismiss(IFloating iFloating, boolean z) {
+        }
+
+        public static boolean hasFloatingView(IFloating iFloating) {
+            return false;
+        }
+
+        public static boolean nextScale(IFloating iFloating) {
+            return false;
+        }
+
+        public static void onCreate(IFloating iFloating) {
+        }
+
+        public static void onDestroy(IFloating iFloating) {
+        }
+
+        public static void reverse(IFloating iFloating, boolean z) {
+        }
+
+        public static void setAnimator(IFloating iFloating, FloatViewAnimator animator) {
+            Intrinsics.checkNotNullParameter(animator, "animator");
+        }
+
+        public static void setBlockOffset(IFloating iFloating, int i, int i2, int i3, int i4) {
+        }
+
+        public static void setDefaultSize(IFloating iFloating, int i, int i2) {
+        }
+
+        public static void setDragEnable(IFloating iFloating, boolean z) {
+        }
+
+        public static void setLocation(IFloating iFloating, int i, int i2) {
+        }
+
+        public static void setScaleMode(IFloating iFloating, Pair<? extends ScaleMode, ? extends ScaleMode> mode) {
+            Intrinsics.checkNotNullParameter(mode, "mode");
+        }
+
+        public static void startForeground(IFloating iFloating, Notification notification) {
+            Intrinsics.checkNotNullParameter(notification, "notification");
+        }
+
         public static /* synthetic */ void dismiss$default(IFloating iFloating, boolean z, int i, Object obj) {
             if (obj == null) {
                 if ((i & 1) != 0) {

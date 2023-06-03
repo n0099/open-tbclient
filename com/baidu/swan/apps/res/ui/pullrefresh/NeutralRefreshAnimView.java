@@ -14,13 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.am3;
-import com.baidu.tieba.qp1;
-import com.baidu.tieba.xm3;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.pp3;
+import com.baidu.tieba.so3;
 /* loaded from: classes4.dex */
 public class NeutralRefreshAnimView extends View {
-    public static final boolean s = qp1.a;
-    public static final int t = xm3.g(3.5f);
+    public static final boolean s = is1.a;
+    public static final int t = pp3.g(3.5f);
     public static final int u = Color.parseColor("#000000");
     public static final int v;
     public static final int w;
@@ -80,7 +80,7 @@ public class NeutralRefreshAnimView extends View {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             NeutralRefreshAnimView.this.m = NeutralRefreshAnimView.w * floatValue;
             if (NeutralRefreshAnimView.s) {
-                Log.e("NeutralRefreshAnimView", "mRightBallXPosi=" + NeutralRefreshAnimView.this.m + ",anim value=" + floatValue);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "mRightBallXPosi=" + NeutralRefreshAnimView.this.m + ",anim value=" + floatValue);
             }
             NeutralRefreshAnimView.this.postInvalidate();
         }
@@ -96,7 +96,7 @@ public class NeutralRefreshAnimView extends View {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             NeutralRefreshAnimView.this.n = NeutralRefreshAnimView.w * floatValue;
             if (NeutralRefreshAnimView.s) {
-                Log.e("NeutralRefreshAnimView", "mLeftBallXPosi=" + NeutralRefreshAnimView.this.n + ",anim value=" + floatValue);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "mLeftBallXPosi=" + NeutralRefreshAnimView.this.n + ",anim value=" + floatValue);
             }
             NeutralRefreshAnimView.this.postInvalidate();
         }
@@ -135,7 +135,7 @@ public class NeutralRefreshAnimView extends View {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             NeutralRefreshAnimView.this.q = ((Integer) valueAnimator.getAnimatedValue()).intValue();
             if (NeutralRefreshAnimView.s) {
-                Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.q);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.q);
             }
             NeutralRefreshAnimView.this.postInvalidate();
         }
@@ -150,14 +150,14 @@ public class NeutralRefreshAnimView extends View {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             NeutralRefreshAnimView.this.r = ((Integer) valueAnimator.getAnimatedValue()).intValue();
             if (NeutralRefreshAnimView.s) {
-                Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.q);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.q);
             }
             NeutralRefreshAnimView.this.postInvalidate();
         }
     }
 
     static {
-        int g = xm3.g(18.0f);
+        int g = pp3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -168,7 +168,7 @@ public class NeutralRefreshAnimView extends View {
         n(1);
         postInvalidate();
         if (s) {
-            Log.e("NeutralRefreshAnimView", "stopAnim");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "stopAnim");
         }
     }
 
@@ -182,7 +182,7 @@ public class NeutralRefreshAnimView extends View {
 
     public void q() {
         if (s) {
-            Log.e("NeutralRefreshAnimView", "onRefreshCompleteAnim");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "onRefreshCompleteAnim");
         }
         A();
         n(3);
@@ -191,7 +191,7 @@ public class NeutralRefreshAnimView extends View {
 
     public void r() {
         if (s) {
-            Log.e("NeutralRefreshAnimView", "onRefreshingAnim");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "onRefreshingAnim");
         }
         n(2);
         w();
@@ -205,7 +205,7 @@ public class NeutralRefreshAnimView extends View {
     public final void n(int i) {
         this.i = i;
         if (s) {
-            Log.i("NeutralRefreshAnimView", "curr state:" + this.i);
+            Log.i(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "curr state:" + this.i);
         }
     }
 
@@ -272,7 +272,7 @@ public class NeutralRefreshAnimView extends View {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            am3.j(new a(i, i2), "CreateBitmapOnSizeChanged");
+            so3.j(new a(i, i2), com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.CREATEBITMAP_RUNNABLE_NAME);
         }
     }
 
@@ -290,7 +290,7 @@ public class NeutralRefreshAnimView extends View {
             canvas3.drawCircle(pointF2.x + this.n, pointF2.y, t, this.f);
             canvas.drawBitmap(this.d, 0.0f, 0.0f, (Paint) null);
             if (s) {
-                Log.e("NeutralRefreshAnimView", "performOnRefreshingAnim");
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "performOnRefreshingAnim");
             }
         }
     }
@@ -306,13 +306,13 @@ public class NeutralRefreshAnimView extends View {
         n(1);
         postInvalidate();
         if (s) {
-            Log.e("NeutralRefreshAnimView", "setAnimPercent, percent = " + f2);
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "setAnimPercent, percent = " + f2);
         }
     }
 
     public final void t(Canvas canvas) {
         if (s) {
-            Log.e("NeutralRefreshAnimView", "performPullToRefreshAnim");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "performPullToRefreshAnim");
         }
         Bitmap bitmap = this.d;
         if (bitmap != null && this.e != null) {
@@ -332,7 +332,7 @@ public class NeutralRefreshAnimView extends View {
                 canvas3.drawCircle(pointF2.x, pointF2.y, t, this.g);
                 canvas.drawBitmap(this.d, 0.0f, 0.0f, (Paint) null);
                 if (s) {
-                    Log.e("NeutralRefreshAnimView", "first level,alpha=" + i);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "first level,alpha=" + i);
                 }
             } else if (f2 < 1.0f) {
                 int o = o((int) (f2 * 77.0f));
@@ -348,11 +348,11 @@ public class NeutralRefreshAnimView extends View {
                 canvas5.drawCircle(pointF4.x - (w * f3), pointF4.y, t, this.f);
                 canvas.drawBitmap(this.d, 0.0f, 0.0f, (Paint) null);
                 if (s) {
-                    Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.a);
-                    Log.e("NeutralRefreshAnimView", "second level,rightBallAlpha=" + o);
-                    Log.e("NeutralRefreshAnimView", "second level,leftBallAlpha=" + o2);
-                    Log.e("NeutralRefreshAnimView", "second level,fraction=" + f3);
-                    Log.e("NeutralRefreshAnimView", "second level,HALF_MAX_DISTANCE * fraction=" + (((float) w) * f3));
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "second level,mAnimPercent=" + this.a);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "second level,rightBallAlpha=" + o);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "second level,leftBallAlpha=" + o2);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "second level,fraction=" + f3);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "second level,HALF_MAX_DISTANCE * fraction=" + (((float) w) * f3));
                 }
             } else if (f2 == 1.0f) {
                 this.f.setAlpha(26);
@@ -365,7 +365,7 @@ public class NeutralRefreshAnimView extends View {
                 canvas7.drawCircle(pointF6.x - w, pointF6.y, t, this.f);
                 canvas.drawBitmap(this.d, 0.0f, 0.0f, (Paint) null);
                 if (s) {
-                    Log.e("NeutralRefreshAnimView", "third level,mAnimPercent=" + this.a);
+                    Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "third level,mAnimPercent=" + this.a);
                 }
             }
         }
@@ -390,7 +390,7 @@ public class NeutralRefreshAnimView extends View {
 
     public final void v(Canvas canvas) {
         if (s) {
-            Log.e("NeutralRefreshAnimView", "performRefreshCompleteAnim");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "performRefreshCompleteAnim");
         }
         Bitmap bitmap = this.d;
         if (bitmap != null && this.e != null) {
@@ -409,9 +409,9 @@ public class NeutralRefreshAnimView extends View {
             canvas3.drawCircle(pointF2.x + this.n, pointF2.y, t, this.f);
             canvas.drawBitmap(this.d, 0.0f, 0.0f, (Paint) null);
             if (s) {
-                Log.e("NeutralRefreshAnimView", "Complete:mAlpha=" + this.q);
-                Log.e("NeutralRefreshAnimView", "Complete:mRightBallXPosi=" + this.m);
-                Log.e("NeutralRefreshAnimView", "Complete:mLeftBallXPosi=" + this.n);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "Complete:mAlpha=" + this.q);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "Complete:mRightBallXPosi=" + this.m);
+                Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "Complete:mLeftBallXPosi=" + this.n);
             }
         }
     }
@@ -454,7 +454,7 @@ public class NeutralRefreshAnimView extends View {
             this.l.cancel();
         }
         if (s) {
-            Log.e("NeutralRefreshAnimView", "resetAnimator");
+            Log.e(com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.TAG, "resetAnimator");
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URI;
@@ -61,7 +62,7 @@ public class ai {
         @Override // com.baidu.mobstat.ci
         public void a(Exception exc) {
             if (bc.c().b()) {
-                bc.c().a("onError");
+                bc.c().a(GameAssistConstKt.TYPE_CALLBACK_ERROR);
             }
         }
 

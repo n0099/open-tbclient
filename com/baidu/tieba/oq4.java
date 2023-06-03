@@ -1,122 +1,101 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import androidx.core.view.LayoutInflaterCompat;
+import com.baidu.tieba.nq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.lang.reflect.Field;
+/* loaded from: classes7.dex */
 public class oq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Field a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public Context b;
-    public int c;
-    public b d;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
+    /* loaded from: classes7.dex */
+    public static class a extends nq4.a implements LayoutInflater.Factory2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq4 this$0;
 
-        public a(oq4 oq4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qq4 qq4Var) {
+            super(qq4Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oq4Var};
+                Object[] objArr = {qq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((qq4) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.this$0 = oq4Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int d;
+        @Override // android.view.LayoutInflater.Factory2
+        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+            InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !TextUtils.equals(intent.getAction(), NetworkMonitor.NET_CHANGE_ACTION) || (d = this.this$0.d()) == this.this$0.c) {
-                return;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+                return this.a.onCreateView(view2, str, context, attributeSet);
             }
-            if (this.this$0.d != null) {
-                this.this$0.d.a(this.this$0.c, d);
-            }
-            this.this$0.c = d;
+            return (View) invokeLLLL.objValue;
         }
     }
 
-    public oq4() {
+    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
+            if (!b) {
+                try {
+                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
+                    a = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+                }
+                b = true;
+            }
+            Field field = a;
+            if (field != null) {
+                try {
+                    field.set(layoutInflater, factory2);
+                } catch (IllegalAccessException e2) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
+                }
             }
         }
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static void b(LayoutInflater layoutInflater, qq4 qq4Var) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.b)) {
-                return 1;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, qq4Var) == null) {
+            if (qq4Var != null) {
+                aVar = new a(qq4Var);
+            } else {
+                aVar = null;
             }
-            if (SwanAppNetworkUtils.i(this.b)) {
-                return 2;
+            layoutInflater.setFactory2(aVar);
+            LayoutInflater.Factory factory = layoutInflater.getFactory();
+            if (factory instanceof LayoutInflater.Factory2) {
+                a(layoutInflater, (LayoutInflater.Factory2) factory);
+            } else {
+                a(layoutInflater, aVar);
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void g() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (context = this.b) != null) {
-            context.unregisterReceiver(this.a);
-        }
-    }
-
-    public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.b = context;
-            this.c = d();
-            a aVar = new a(this);
-            this.a = aVar;
-            this.b.registerReceiver(aVar, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION));
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mp;
-import com.baidu.tieba.sq;
+import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
+import com.baidu.tieba.eq;
+import com.baidu.tieba.kr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,23 +13,23 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", "invoke", "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
 public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $rawTaskStr;
-    public final /* synthetic */ mp $taskCallback;
-    public final /* synthetic */ sq $taskInterceptor;
+    public final /* synthetic */ eq $taskCallback;
+    public final /* synthetic */ kr $taskInterceptor;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, mp mpVar, sq sqVar) {
+    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, eq eqVar, kr krVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, mpVar, sqVar};
+            Object[] objArr = {str, eqVar, krVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,8 +41,8 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implem
             }
         }
         this.$rawTaskStr = str;
-        this.$taskCallback = mpVar;
-        this.$taskInterceptor = sqVar;
+        this.$taskCallback = eqVar;
+        this.$taskInterceptor = krVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

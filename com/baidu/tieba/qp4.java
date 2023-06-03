@@ -1,53 +1,48 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.android.util.KVStorageRuntime;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes7.dex */
-public class qp4 implements ip4 {
+public class qp4 extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SharedPreferences a;
-    public String b;
-    public final Context c;
+    public int b0;
+    public int c0;
+    public boolean d0;
+    public boolean e0;
+    public int f0;
+    public Dialog g0;
+    public boolean h0;
+    public boolean i0;
+    public boolean j0;
 
-    @Override // com.baidu.tieba.ip4
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public qp4(String str) {
-        String str2;
+    public qp4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,285 +52,267 @@ public class qp4 implements ip4 {
                 return;
             }
         }
-        this.c = AppRuntime.getAppContext();
-        if (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) {
-            str2 = "default";
-        } else {
-            str2 = str;
+        this.b0 = 0;
+        this.c0 = 0;
+        this.d0 = true;
+        this.e0 = true;
+        this.f0 = -1;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.B0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = true;
+                dialog.dismiss();
+                this.g0 = null;
+            }
         }
-        this.b = str2;
-        if ("default".equals(str2)) {
-            this.a = PreferenceManager.getDefaultSharedPreferences(this.c);
-            this.b = this.c.getPackageName() + "_preferences";
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.C0();
+            if (!this.j0 && !this.i0) {
+                this.i0 = true;
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void L0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.L0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = false;
+                dialog.show();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void M0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.M0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                dialog.hide();
+            }
+        }
+    }
+
+    public void o1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            p1(false);
+        }
+    }
+
+    public Dialog q1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g0;
+        }
+        return (Dialog) invokeV.objValue;
+    }
+
+    @StyleRes
+    public int r1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.c0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public LayoutInflater C(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (!this.e0) {
+                return super.C(bundle);
+            }
+            Dialog s1 = s1(bundle);
+            this.g0 = s1;
+            if (s1 != null) {
+                t1(s1, this.b0);
+                return (LayoutInflater) this.g0.getContext().getSystemService("layout_inflater");
+            }
+            return (LayoutInflater) this.t.getContext().getSystemService("layout_inflater");
+        }
+        return (LayoutInflater) invokeL.objValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void K0(Bundle bundle) {
+        Bundle onSaveInstanceState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.K0(bundle);
+            Dialog dialog = this.g0;
+            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
+                bundle.putBundle(DialogFragment.SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
+            }
+            int i = this.b0;
+            if (i != 0) {
+                bundle.putInt(DialogFragment.SAVED_STYLE, i);
+            }
+            int i2 = this.c0;
+            if (i2 != 0) {
+                bundle.putInt(DialogFragment.SAVED_THEME, i2);
+            }
+            boolean z = this.d0;
+            if (!z) {
+                bundle.putBoolean(DialogFragment.SAVED_CANCELABLE, z);
+            }
+            boolean z2 = this.e0;
+            if (!z2) {
+                bundle.putBoolean(DialogFragment.SAVED_SHOWS_DIALOG, z2);
+            }
+            int i3 = this.f0;
+            if (i3 != -1) {
+                bundle.putInt(DialogFragment.SAVED_BACK_STACK_ID, i3);
+            }
+        }
+    }
+
+    public void p1(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || this.i0) {
             return;
         }
-        this.a = KVStorageFactory.getSharedPreferences(str, 0);
+        this.i0 = true;
+        this.j0 = false;
+        Dialog dialog = this.g0;
+        if (dialog != null) {
+            dialog.dismiss();
+            this.g0 = null;
+        }
+        this.h0 = true;
+        if (this.f0 >= 0) {
+            A().e(this.f0, 1);
+            this.f0 = -1;
+            return;
+        }
+        wp4 a = A().a();
+        a.h(this);
+        if (z) {
+            a.f();
+        } else {
+            a.e();
+        }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void q0(Bundle bundle) {
+        Bundle bundle2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String kVStoragePath = KVStorageRuntime.getKVStorageControl().getKVStoragePath();
-            if (kVStoragePath == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.q0(bundle);
+            if (!this.e0) {
+                return;
             }
-            return kVStoragePath;
+            View b0 = b0();
+            if (b0 != null) {
+                if (b0.getParent() == null) {
+                    this.g0.setContentView(b0);
+                } else {
+                    throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                }
+            }
+            this.g0.setOwnerActivity(getActivity());
+            this.g0.setCancelable(this.d0);
+            this.g0.setOnCancelListener(this);
+            this.g0.setOnDismissListener(this);
+            if (bundle != null && (bundle2 = bundle.getBundle(DialogFragment.SAVED_DIALOG_STATE_TAG)) != null) {
+                this.g0.onRestoreInstanceState(bundle2);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ip4
-    public Set<String> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void v0(@Nullable Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getAll().keySet();
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+            super.v0(bundle);
+            if (this.x == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.e0 = z;
+            if (bundle != null) {
+                this.b0 = bundle.getInt(DialogFragment.SAVED_STYLE, 0);
+                this.c0 = bundle.getInt(DialogFragment.SAVED_THEME, 0);
+                this.d0 = bundle.getBoolean(DialogFragment.SAVED_CANCELABLE, true);
+                this.e0 = bundle.getBoolean(DialogFragment.SAVED_SHOWS_DIALOG, this.e0);
+                this.f0 = bundle.getInt(DialogFragment.SAVED_BACK_STACK_ID, -1);
+            }
         }
-        return (Set) invokeV.objValue;
     }
 
-    @Override // android.content.SharedPreferences.Editor
-    public void apply() {
+    public void onDismiss(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            edit().apply();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) && !this.h0) {
+            p1(true);
         }
     }
 
-    @Override // com.baidu.tieba.ip4
-    public long c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void s0(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getFile().length();
+        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+            super.s0(activity);
+            if (!this.j0) {
+                this.i0 = false;
+            }
         }
-        return invokeV.longValue;
     }
 
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor clear() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a.edit().clear().apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public boolean commit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return edit().commit();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.edit();
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ip4, android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.getAll();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ip4
     @NonNull
-    public File getFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return e(this.c, this.b);
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File e(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            String str2 = context.getApplicationInfo().dataDir;
-            return new File(str2, "shared_prefs/" + str + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    public Dialog s1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return this.a.contains(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
+            return new Dialog(getActivity(), r1());
         }
-        return invokeL.booleanValue;
+        return (Dialog) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ip4, android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public void t1(Dialog dialog, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, onSharedPreferenceChangeListener) == null) {
-            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor remove(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            this.a.edit().remove(str).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ip4, android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, onSharedPreferenceChangeListener) == null) {
-            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || interceptable.invokeLI(1048591, this, dialog, i) == null) {
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    dialog.getWindow().addFlags(24);
+                } else {
+                    return;
+                }
+            }
+            dialog.requestWindowFeature(1);
         }
     }
 
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public void u1(up4 up4Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            return this.a.getBoolean(str, z);
+        if (interceptable == null || interceptable.invokeLL(1048592, this, up4Var, str) == null) {
+            this.i0 = false;
+            this.j0 = true;
+            wp4 a = up4Var.a();
+            a.c(this, str);
+            a.e();
         }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048587, this, str, f)) == null) {
-            return this.a.getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
-            return this.a.getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j)) == null) {
-            return this.a.getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public String getString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            return this.a.getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, set)) == null) {
-            return this.a.getStringSet(str, set);
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) {
-            this.a.edit().putBoolean(str, z).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLZ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048593, this, str, f)) == null) {
-            this.a.edit().putFloat(str, f).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLF.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
-            this.a.edit().putInt(str, i).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLI.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, str, j)) == null) {
-            this.a.edit().putLong(str, j).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLJ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
-            this.a.edit().putString(str, str2).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) {
-            this.a.edit().putStringSet(str, set).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
     }
 }

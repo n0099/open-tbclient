@@ -1,8 +1,9 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.player.model.YYOption;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class dz implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.PatchAdInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdStyleInfo.PlayDetailInfo.PatchAdInfo patchAdInfo, JSONObject jSONObject) {
@@ -26,7 +27,7 @@ public final class dz implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.
             patchAdInfo.weakStyleAdMark = "";
         }
         patchAdInfo.weakStyleAppearTime = jSONObject.optLong("weakStyleAppearTime");
-        patchAdInfo.weakStyleEnableClose = jSONObject.optBoolean("weakStyleEnableClose", new Boolean("true").booleanValue());
+        patchAdInfo.weakStyleEnableClose = jSONObject.optBoolean("weakStyleEnableClose", new Boolean(YYOption.IsLive.VALUE_TRUE).booleanValue());
         patchAdInfo.typePortrait = jSONObject.optInt("typePortrait");
         patchAdInfo.strongStyleCardUrl = jSONObject.optString("strongStyleCardUrl");
         if (jSONObject.opt("strongStyleCardUrl") == JSONObject.NULL) {
@@ -45,7 +46,7 @@ public final class dz implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.
         if (jSONObject.opt("strongStyleAdMark") == JSONObject.NULL) {
             patchAdInfo.strongStyleAdMark = "";
         }
-        patchAdInfo.strongStyleEnableClose = jSONObject.optBoolean("strongStyleEnableClose", new Boolean("true").booleanValue());
+        patchAdInfo.strongStyleEnableClose = jSONObject.optBoolean("strongStyleEnableClose", new Boolean(YYOption.IsLive.VALUE_TRUE).booleanValue());
         patchAdInfo.weakStyleShowTime = jSONObject.optLong("weakStyleShowTime");
         patchAdInfo.strongStyleShowTime = jSONObject.optLong("strongStyleShowTime");
     }

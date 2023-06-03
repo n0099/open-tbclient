@@ -19,9 +19,10 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.b29;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +33,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +43,7 @@ public class AuthActivity extends BaseActivity {
     public String w;
     public String x;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +160,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,13 +257,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                ew8.f().b(z, str);
+                b29.f().b(z, str);
             } else if (i == 1) {
-                ew8.f().e(z);
+                b29.f().e(z);
             } else if (i == 2) {
-                ew8.f().c(z);
+                b29.f().c(z);
             } else {
-                ew8.f().a(null);
+                b29.f().a(null);
             }
             finish();
         }
@@ -307,7 +308,7 @@ public class AuthActivity extends BaseActivity {
             try {
                 arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
                 arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
-                arrayList.add(new PassNameValuePair("isnew", "true"));
+                arrayList.add(new PassNameValuePair("isnew", YYOption.IsLive.VALUE_TRUE));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.v, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.x, "UTF-8")));
                 arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));

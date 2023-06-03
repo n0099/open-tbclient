@@ -1,24 +1,24 @@
 package rx.functions;
 
-import com.baidu.tieba.v7b;
-import com.baidu.tieba.w7b;
-import com.baidu.tieba.x7b;
+import com.baidu.tieba.vmb;
+import com.baidu.tieba.wmb;
+import com.baidu.tieba.xmb;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Actions {
     public static final a a = new a();
 
-    /* loaded from: classes10.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements v7b, w7b<T0>, x7b<T0, T1> {
-        @Override // com.baidu.tieba.v7b
+    /* loaded from: classes2.dex */
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements vmb, wmb<T0>, xmb<T0, T1> {
+        @Override // com.baidu.tieba.vmb
         public void call() {
         }
 
-        @Override // com.baidu.tieba.w7b
+        @Override // com.baidu.tieba.wmb
         public void call(T0 t0) {
         }
 
-        @Override // com.baidu.tieba.x7b
+        @Override // com.baidu.tieba.xmb
         public void call(T0 t0, T1 t1) {
         }
 
@@ -51,16 +51,16 @@ public final class Actions {
         return a;
     }
 
-    public static w7b<Throwable> b() {
+    public static wmb<Throwable> b() {
         return NotImplemented.INSTANCE;
     }
 
-    /* loaded from: classes10.dex */
-    public enum NotImplemented implements w7b<Throwable> {
+    /* loaded from: classes2.dex */
+    public enum NotImplemented implements wmb<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w7b
+        @Override // com.baidu.tieba.wmb
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }

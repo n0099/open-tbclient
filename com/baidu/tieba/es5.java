@@ -1,14 +1,42 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.FIELD})
-@Retention(RetentionPolicy.RUNTIME)
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public @interface es5 {
-    boolean deserialize() default true;
+public class es5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public int b;
+    public String c;
+    public Long d;
+    public zr5 e;
+    public int f;
+    public boolean g;
 
-    boolean serialize() default true;
+    public es5(Context context, int i, String str, Long l, zr5 zr5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str, l, zr5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+        this.a = context;
+        this.b = i;
+        this.c = str;
+        this.d = l;
+        this.e = zr5Var;
+    }
 }

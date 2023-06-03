@@ -2,7 +2,6 @@ package com.baidu.android.util.io;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,7 +65,7 @@ public class CommentUtils {
                     byte[] bArr2 = new byte[stream2Short];
                     randomAccessFile2.seek(length - stream2Short);
                     randomAccessFile2.readFully(bArr2);
-                    String str = new String(bArr2, IMAudioTransRequest.CHARSET);
+                    String str = new String(bArr2, "utf-8");
                     try {
                         randomAccessFile2.close();
                     } catch (IOException e2) {

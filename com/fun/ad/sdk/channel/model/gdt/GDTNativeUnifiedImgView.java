@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.gdt.u;
+import com.fun.module.gdt.t;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class GDTNativeUnifiedImgView extends u {
+public class GDTNativeUnifiedImgView extends t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView d;
@@ -90,22 +90,22 @@ public class GDTNativeUnifiedImgView extends u {
         this.e = 1.78f;
     }
 
-    @Override // com.fun.module.gdt.u
+    @Override // com.fun.module.gdt.t
     public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.c);
-            arrayList.add(((u) this).b);
-            arrayList.add(((u) this).a);
+            arrayList.add(((t) this).b);
+            arrayList.add(((t) this).a);
             arrayList.add(this.d);
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.fun.module.gdt.u
+    @Override // com.fun.module.gdt.t
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
@@ -116,7 +116,7 @@ public class GDTNativeUnifiedImgView extends u {
         }
     }
 
-    @Override // com.fun.module.gdt.u, android.view.View
+    @Override // com.fun.module.gdt.t, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

@@ -2,7 +2,7 @@ package okio;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SegmentPool {
     public static final long MAX_SIZE = 65536;
     public static long byteCount;

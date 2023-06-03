@@ -1,133 +1,367 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.Scopes;
 /* loaded from: classes5.dex */
 public class eu5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static PostWriteCallBackData a;
-    @Nullable
-    public static bb5 b;
-    @Nullable
-    public static WriteData c;
-    @Nullable
-    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int i;
+    public eu5(bo boVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {boVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int indexOf = str.indexOf("(");
-            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
-                return null;
+        }
+        this.a = 2;
+        this.b = "index";
+        this.c = "index";
+        this.d = "2001";
+        this.e = 1;
+        this.f = 1;
+        this.g = 1;
+        this.h = 3;
+        this.i = "personalize_page";
+        if (boVar != null && boVar.getListView() != null) {
+            String a = TbPageExtraHelper.findPageExtraByView(boVar.getListView()).a();
+            this.a = c(a);
+            this.b = e(a);
+            this.c = d(a);
+            this.d = i(a);
+            this.e = a(a);
+            this.f = b(a);
+            this.g = f(a);
+            this.h = g(a);
+            this.i = h(a);
+            dv5.b("currentPageKey=" + a);
+            dv5.b(toString());
+        }
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if ("a072".equals(str)) {
+                return 10;
             }
-            return str.substring(i, indexOf2);
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
+                if ("a005".equals(str)) {
+                    return 4;
+                }
+                if ("a007".equals(str)) {
+                    return 12;
+                }
+                if ("a038".equals(str)) {
+                    return 9;
+                }
+                if ("a066".equals(str)) {
+                    return 15;
+                }
+                if ("a067".equals(str)) {
+                    return 21;
+                }
+                if ("a001".equals(str) || "a002".equals(str)) {
+                    return 1;
+                }
+                if ("a011".equals(str)) {
+                    return 3;
+                }
+                if ("a068".equals(str)) {
+                    return 22;
+                }
+                if (!"a008".equals(str)) {
+                    return 1;
+                }
+                return 13;
+            }
+            return 2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if ("a072".equals(str)) {
+                return 10;
+            }
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
+                if ("a005".equals(str)) {
+                    return 7;
+                }
+                if ("a007".equals(str)) {
+                    return 9;
+                }
+                if ("a038".equals(str)) {
+                    return 4;
+                }
+                if ("a066".equals(str)) {
+                    return 11;
+                }
+                if ("a067".equals(str)) {
+                    return 18;
+                }
+                if (!"a001".equals(str) && !"a002".equals(str)) {
+                    if (!"a010".equals(str) && !"a014".equals(str)) {
+                        if ("a011".equals(str)) {
+                            return 3;
+                        }
+                        if ("a068".equals(str)) {
+                            return 19;
+                        }
+                        if ("a008".equals(str)) {
+                            return 10;
+                        }
+                    } else {
+                        return 5;
+                    }
+                }
+                return 1;
+            }
+            return 2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return 20;
+                }
+                if ("a001".equals(str) || "a002".equals(str)) {
+                    return 2;
+                }
+                if ("a038".equals(str)) {
+                    return 1;
+                }
+                if ("a066".equals(str)) {
+                    return 18;
+                }
+                if ("a067".equals(str)) {
+                    return 19;
+                }
+                if ("a011".equals(str)) {
+                    return 4;
+                }
+                if ("a068".equals(str) || "a023".equals(str) || !"a024".equals(str)) {
+                    return 2;
+                }
+                return 17;
+            }
+            return 3;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return "pb";
+                }
+                if ("a007".equals(str) || "a001".equals(str) || "a002".equals(str)) {
+                    return "index";
+                }
+                if ("a038".equals(str)) {
+                    return "concern_tab";
+                }
+                if ("a066".equals(str)) {
+                    return ImageViewerConfig.FROM_GAME_VIDEO;
+                }
+                if ("a067".equals(str)) {
+                    return "video_tab";
+                }
+                if ("a011".equals(str)) {
+                    return Scopes.PROFILE;
+                }
+                if ("a068".equals(str)) {
+                    return "14";
+                }
+                if (!"a023".equals(str)) {
+                    return "index";
+                }
+                return "auto_midpage";
+            }
+            return "frs";
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean b(String str) {
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return "pb";
+                }
+                if ("a038".equals(str)) {
+                    return ImageViewerConfig.FROM_CONCERN;
+                }
+                if ("a066".equals(str)) {
+                    return ImageViewerConfig.FROM_GAME_VIDEO;
+                }
+                if ("a067".equals(str)) {
+                    return "video_tab";
+                }
+                if ("a001".equals(str)) {
+                    return "index";
+                }
+                "a002".equals(str);
+                return "index";
             }
-            if (!str.equals("4") && !str.equals("5") && !str.equals("6")) {
-                return false;
-            }
-            return true;
+            return "frs";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean c(int i, int i2, @Nullable Intent intent) {
-        InterceptResult invokeIIL;
-        boolean z;
-        PostWriteCallBackData postWriteCallBackData;
+    public static int f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
-            if (i != 12006) {
-                return false;
-            }
-            if (i2 == -1 && intent != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (a != null && b != null && c != null && d != null && z) {
-                try {
-                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    postWriteCallBackData = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return 4;
                 }
-                if (postWriteCallBackData == null) {
-                    return false;
+                if ("a001".equals(str) || "a002".equals(str)) {
+                    return 1;
                 }
-                ot9.g().f(true, postWriteCallBackData, b, c, d);
-            } else {
-                ot9.g().f(false, a, null, c, d);
+                if ("a038".equals(str)) {
+                    return 9;
+                }
+                if ("a066".equals(str)) {
+                    return 12;
+                }
+                if ("a067".equals(str)) {
+                    return 16;
+                }
+                if (!"a011".equals(str)) {
+                    return 1;
+                }
+                return 8;
             }
-            a = null;
-            b = null;
-            c = null;
-            d = null;
-            return true;
+            return 2;
         }
-        return invokeIIL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable bb5 bb5Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public static int g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, bb5Var, writeData, antiData)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && writeData != null && bb5Var != null && !TextUtils.isEmpty(bb5Var.c())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                a = postWriteCallBackData;
-                b = bb5Var;
-                c = writeData;
-                d = antiData;
-                writeData.setVcodeMD5(bb5Var.b());
-                writeData.setVcodeUrl(bb5Var.c());
-                writeData.setVcodeExtra(bb5Var.a());
-                if (b(bb5Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, bb5Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return 2;
                 }
+                if ("a001".equals(str) || "a002".equals(str)) {
+                    return 3;
+                }
+                if ("a038".equals(str)) {
+                    return 4;
+                }
+                if ("a066".equals(str)) {
+                    return 9;
+                }
+                if ("a067".equals(str)) {
+                    return 10;
+                }
+                if ("a011".equals(str)) {
+                    return 6;
+                }
+                if ("a075".equals(str)) {
+                    return 12;
+                }
+                if (!"a076".equals(str)) {
+                    return 3;
+                }
+                return 13;
             }
-            return z;
+            return 1;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if (!"a001".equals(str) && !"a002".equals(str)) {
+                    if ("a011".equals(str)) {
+                        return "person_page";
+                    }
+                    if ("a038".equals(str)) {
+                        return "concern_page";
+                    }
+                    return null;
+                }
+                return "personalize_page";
+            }
+            return "frs_page";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
+                if ("a005".equals(str)) {
+                    return "2002";
+                }
+                if ("a023".equals(str)) {
+                    return "2005";
+                }
+                if ("a001".equals(str)) {
+                    return "2001";
+                }
+                "a002".equals(str);
+                return "2001";
+            }
+            return "2003";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "AdapterSourceItem:【pbPageFromType=" + this.a + ",imageViewerFromType=" + this.b + ",videoLocationType=" + this.c + ",videoStageType=" + this.d + ",agreeLocate=" + this.e + ",disagreeLocate=" + this.f + ",pageFrom=" + this.g + ",shareReportFrom=" + this.h + ",stType=" + this.i + "】";
+        }
+        return (String) invokeV.objValue;
     }
 }

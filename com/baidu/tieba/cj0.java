@@ -1,88 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class cj0 {
+public class cj0 extends uj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<in0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (in0 in0Var : cj0.a) {
-                    in0Var.b();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        List<in0> list;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676544, "Lcom/baidu/tieba/cj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947676544, "Lcom/baidu/tieba/cj0;");
-                return;
-            }
-        }
-        a = new ArrayList();
-        xj1<in0> xj1Var = new kn0().a;
-        if (xj1Var != null && (list = xj1Var.getList()) != null) {
-            a.addAll(list);
-        }
-    }
-
-    public static void c() {
+    @Override // com.baidu.tieba.uj0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f31.c(new a(), "nad_core_init_on_create", 0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
+    }
+
+    public cj0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(@NonNull Application application) {
+    @Override // com.baidu.tieba.uj0
+    public boolean b(@NonNull Context context, @NonNull yj0 yj0Var, @Nullable Map<String, Object> map, @Nullable ck0 ck0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            bj0.a = application;
-            ir0.a(application);
-            for (in0 in0Var : a) {
-                in0Var.a(application);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yj0Var, map, ck0Var)) == null) {
+            super.b(context, yj0Var, map, ck0Var);
+            HashMap<String, String> d = yj0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            String str3 = d.get("ext");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String b = dj0.a().b(str);
+                JSONObject jSONObject = new JSONObject();
+                y21.f(jSONObject, "key", str);
+                y21.f(jSONObject, "message", b);
+                y21.f(jSONObject, "ext", str3);
+                d(ck0Var, yj0Var, jSONObject.toString(), 0, true);
+                return true;
             }
+            c(ck0Var, yj0Var, 202, false);
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

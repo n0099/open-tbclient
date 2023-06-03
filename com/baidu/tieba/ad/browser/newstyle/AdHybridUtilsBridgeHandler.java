@@ -6,10 +6,10 @@ import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.cl0;
+import com.baidu.tieba.p85;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.adapter.internal.CommonCode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,18 +31,18 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdHybridUtilsBridgeHandler(s55 s55Var) {
-        super(s55Var);
+    public AdHybridUtilsBridgeHandler(p85 p85Var) {
+        super(p85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s55Var};
+            Object[] objArr = {p85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s55) newInitContext.callArgs[0]);
+                super((p85) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,17 +50,17 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @u55(isAsync = false, value = "showDeviceInfo")
+    @r85(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = tj0.c().h(false);
-            String e = tj0.c().e(false);
-            int l = ri.l(getContext());
-            int j = ri.j(getContext());
+            String h = cl0.c().h(false);
+            String e = cl0.c().e(false);
+            int l = vi.l(getContext());
+            int j = vi.j(getContext());
             String str = String.valueOf(l) + "," + String.valueOf(j);
             String versionName = TbadkCoreApplication.getInst().getVersionName();
             try {
@@ -81,7 +81,7 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @u55(isAsync = false, value = "showNetStatus")
+    @r85(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -115,7 +115,7 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @u55(isAsync = false, value = PopItemMethodConstant.showToast)
+    @r85(isAsync = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {

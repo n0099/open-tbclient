@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mm5;
-import com.baidu.tieba.nr5;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ss5;
-import com.baidu.tieba.tn7;
+import com.baidu.tieba.oq5;
+import com.baidu.tieba.pv5;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.ws7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes5.dex */
-public class FrsCommonTabRequestData extends OrmObject implements mm5 {
+public class FrsCommonTabRequestData extends OrmObject implements oq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,7 +33,7 @@ public class FrsCommonTabRequestData extends OrmObject implements mm5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.nq5
     public HashMap<String, Object> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class FrsCommonTabRequestData extends OrmObject implements mm5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.nq5
     public HashMap<String, String> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsCommonTabRequestData extends OrmObject implements mm5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.om5
+    @Override // com.baidu.tieba.qq5
     public Object p(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -88,21 +88,21 @@ public class FrsCommonTabRequestData extends OrmObject implements mm5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = tn7.e().d("frs_feed");
+            String d = ws7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = nr5.g(d, nr5.f());
-            builder.ad_bear_sid_price = Double.valueOf(nr5.i());
-            builder.has_ad_bear = Integer.valueOf(nr5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = pv5.g(d, pv5.f());
+            builder.ad_bear_sid_price = Double.valueOf(pv5.i());
+            builder.has_ad_bear = Integer.valueOf(pv5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
             }
-            builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) ri.i(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) vi.i(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            ss5.c(builder, true, false, true);
+            uw5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

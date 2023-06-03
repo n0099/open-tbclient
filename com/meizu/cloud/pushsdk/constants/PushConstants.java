@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PushConstants {
     public static final String BASIC_PUSH_STATUS_CODE = "code";
     public static final String BASIC_PUSH_STATUS_MESSAGE = "message";

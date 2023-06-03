@@ -3,6 +3,7 @@ package com.baidu.tieba.view.cloudmusic.data;
 import androidx.core.app.NotificationCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CloudMusicData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +23,7 @@ public class CloudMusicData extends OrmObject {
     @SerializedName(PushConstants.SUB_TAGS_STATUS_LIST)
     public List<TagList> tag_list;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class MusicTagList extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -34,7 +35,7 @@ public class CloudMusicData extends OrmObject {
         @SerializedName("tag_id")
         public int tag_id;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class MusicList extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3;
@@ -51,7 +52,7 @@ public class CloudMusicData extends OrmObject {
             public int music_id;
             @SerializedName("name")
             public String name;
-            @SerializedName("resource")
+            @SerializedName(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE)
             public String resource;
 
             public MusicList() {
@@ -148,7 +149,7 @@ public class CloudMusicData extends OrmObject {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Page extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2;
@@ -188,7 +189,7 @@ public class CloudMusicData extends OrmObject {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TagList extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

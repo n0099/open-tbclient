@@ -7,7 +7,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicLineParser implements LineParser {
     public static final BasicLineParser DEFAULT = null;
     public final ProtocolVersion protocol;

@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.c;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.meizu.cloud.pushsdk.handler.a.c.c.1
         /* JADX DEBUG: Method merged with bridge method */

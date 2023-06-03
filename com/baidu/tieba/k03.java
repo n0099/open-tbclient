@@ -1,87 +1,138 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k03 extends RequestBody {
+public class k03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final a13 b;
-    public final String c;
+    public CallbackHandler a;
+    public UnitedSchemeEntity b;
 
-    public k03(File file, String str, a13 a13Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859227, "Lcom/baidu/tieba/k03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859227, "Lcom/baidu/tieba/k03;");
+                return;
+            }
+        }
+        c = is1.a;
+    }
+
+    public k03(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, a13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = file;
-        this.c = str;
-        this.b = a13Var;
+        this.a = callbackHandler;
+        this.b = unitedSchemeEntity;
+        d = str;
+        e = str2;
+        f = str3;
+        g = str4;
+        h = str5;
+        i = str6;
+        j = str7;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
+    public static k03 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, k03 k03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(this.c);
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                long j = 0;
-                while (true) {
-                    long read = source.read(bufferedSink.buffer(), 2048L);
-                    if (read != -1) {
-                        j += read;
-                        bufferedSink.flush();
-                        this.b.a(j);
-                    } else {
-                        return;
-                    }
-                }
-            } finally {
-                kp4.d(source);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, k03Var)) == null) {
+            if (str == null) {
+                return k03Var;
             }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("onStart");
+                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
+                String optString3 = jSONObject.optString("onResume");
+                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
+                String optString5 = jSONObject.optString(GameAssistConstKt.TYPE_CALLBACK_ERROR);
+                String optString6 = jSONObject.optString("onInterruptionBegin");
+                String optString7 = jSONObject.optString("onInterruptionEnd");
+                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
+                    return new k03(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return k03Var;
         }
+        return (k03) invokeLLLL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(str, null);
+        }
+    }
+
+    public void c(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
+        if (c) {
+            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
+        }
+    }
+
+    public void d(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
+            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        c(h, jSONObject);
     }
 }

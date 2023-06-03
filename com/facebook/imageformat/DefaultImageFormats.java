@@ -5,7 +5,7 @@ import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DefaultImageFormats {
     public static ImmutableList<ImageFormat> sAllDefaultFormats;
     public static final ImageFormat JPEG = new ImageFormat("JPEG", "jpeg");

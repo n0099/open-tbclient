@@ -3,7 +3,7 @@ package com.bytedance.pangle.a.a;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static Constructor a(Class<?> cls, Class<?>... clsArr) {
         Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);

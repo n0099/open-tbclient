@@ -47,7 +47,7 @@ import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.MultiplePair;
 import com.baidu.android.imsdk.utils.TimeUtil;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
+import com.baidu.searchbox.player.utils.BasicVideoParserKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1147,8 +1147,8 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0284 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0286  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0283 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0285  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2739,7 +2739,7 @@ public class ChatMessageDBManager extends DBBase {
                     delMsgs = getInstance(this.mContext).delMsgs(jArr);
                 }
                 if (delMsgs < 0) {
-                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                    return -1009;
                 }
                 return updateSession(delMsgs, chatObject);
             }
@@ -3397,7 +3397,7 @@ public class ChatMessageDBManager extends DBBase {
                     msgRead = getInstance(this.mContext).setMsgRead(j);
                 }
                 if (msgRead < 0) {
-                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                    return -1009;
                 }
                 if (msgRead != 0 && (chatRecord = getChatRecord(chatObject)) != null) {
                     if (1 == chatObject.getCategory()) {
@@ -3953,7 +3953,7 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         str10 = str11;
                     }
-                    chatSession.addExt("ext_log", str10);
+                    chatSession.addExt(BasicVideoParserKt.EXT_LOG, str10);
                 } else {
                     arrayList = arrayList3;
                     chatMsg = chatMsg2;
@@ -4255,7 +4255,7 @@ public class ChatMessageDBManager extends DBBase {
             synchronized (this.mContext) {
                 int delMsgsOfCertainContacter = getInstance(this.mContext).delMsgsOfCertainContacter(chatObject, j, i);
                 if (delMsgsOfCertainContacter < 0) {
-                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                    return -1009;
                 }
                 ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
                 if (fetchMsg != null && fetchMsg.size() > 0) {
@@ -4918,7 +4918,7 @@ public class ChatMessageDBManager extends DBBase {
                 chatRecord.setBusinessType(chatObject.getBusinessType());
             }
             if (chatObject.getCategory() == 0 && (chatObject.getContacter() & 17592186044416L) != 0) {
-                chatRecord.addExt("ext_log", str2);
+                chatRecord.addExt(BasicVideoParserKt.EXT_LOG, str2);
                 if (j4 > 0) {
                     chatRecord.setLastMsgidFromMe(j4);
                 }

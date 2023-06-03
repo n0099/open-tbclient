@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.c.a;
 
 import com.meizu.cloud.pushsdk.c.c.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c<T> {
     public final T a;
     public final com.meizu.cloud.pushsdk.c.b.a b;

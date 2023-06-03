@@ -3,7 +3,6 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +50,7 @@ public final class e extends c<com.vivo.push.model.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new String(j.a(j.a(e()), j.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+            return new String(j.a(j.a(e()), j.a(f()), Base64.decode(str, 2)), "utf-8");
         }
         return (String) invokeL.objValue;
     }

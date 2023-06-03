@@ -1,104 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class lq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public String b;
-    public View c;
 
-    public lq8() {
+    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            sb.append("roomId");
+            sb.append("=");
+            sb.append(j);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_CODE);
+            sb.append("=");
+            sb.append(i);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_MSG);
+            sb.append("=");
+            sb.append(str);
+            sb.append(",");
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static void b(@NonNull StringBuilder sb, boolean z) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0906, (ViewGroup) null);
-            this.a = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0922fc);
-            this.a.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-            this.a.setBackgroundColor(fr8.a(str));
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            View view2 = this.c;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
             if (z) {
-                i = 0;
+                str = "success";
             } else {
-                i = 4;
+                str = "fail";
             }
-            view2.setVisibility(i);
+            sb.append(str);
+            sb.append(",");
         }
     }
 
-    public void c(TbPageContext<?> tbPageContext) {
-        boolean z;
+    public static void d(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            hx4 layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(this.a);
-            this.a.setBackgroundColor(fr8.a(this.b));
+        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
+            o05.d(str + j);
+        }
+    }
+
+    public static void k(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65546, null, str, j) == null) {
+            o05.e(str + j);
+        }
+    }
+
+    public static void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            o05.d(str);
+        }
+    }
+
+    public static void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            b(sb, z);
+            o05.b("login_lcp", sb.toString());
+        }
+    }
+
+    public static void j(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            o05.e(str);
+        }
+    }
+
+    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            o05.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
+        }
+    }
+
+    public static void f(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            o05.b("im_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void g(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            o05.b("im_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void h(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            o05.b("login_im", sb.toString());
         }
     }
 }

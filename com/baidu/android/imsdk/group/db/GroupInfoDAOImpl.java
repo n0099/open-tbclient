@@ -237,47 +237,6 @@ public class GroupInfoDAOImpl {
         return invokeLL.intValue;
     }
 
-    public static ArrayList<String> getExpiredFansGroupInfoList(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j)) == null) {
-            DBOperation newDb = DBOperationFactory.getNewDb(context);
-            if (newDb != null) {
-                return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.android.imsdk.db.IResultParse
-                    public String onParse(Cursor cursor) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            return CursorWrapper.getString(cursor, "group_id");
-                        }
-                        return (String) invokeL.objValue;
-                    }
-                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_groupinfo_version < " + j, null, null, null, "create_time DESC", null);
-            }
-            return null;
-        }
-        return (ArrayList) invokeLJ.objValue;
-    }
-
     public static ArrayList<String> getExpiredFansGroupMemberList(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -746,6 +705,47 @@ public class GroupInfoDAOImpl {
             return DBResponseCode.ERROR_DB_OPEN;
         }
         return invokeLL.intValue;
+    }
+
+    public static ArrayList<String> getExpiredFansGroupInfoList(Context context, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j)) == null) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            if (newDb != null) {
+                return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.android.imsdk.db.IResultParse
+                    public String onParse(Cursor cursor) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+                            return CursorWrapper.getString(cursor, "group_id");
+                        }
+                        return (String) invokeL.objValue;
+                    }
+                }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type = 3 AND local_groupinfo_version < " + j, null, null, null, "create_time DESC", null);
+            }
+            return null;
+        }
+        return (ArrayList) invokeLJ.objValue;
     }
 
     public static ArrayList<GroupMember> getMemberNickname(Context context, String str) {

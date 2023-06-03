@@ -68,8 +68,8 @@ public final class UtilKt {
         Annotations annotations = valueParameterDescriptor.getAnnotations();
         FqName fqName = JvmAnnotationNames.DEFAULT_VALUE_FQ_NAME;
         Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.DEFAULT_VALUE_FQ_NAME");
-        AnnotationDescriptor mo2039findAnnotation = annotations.mo2039findAnnotation(fqName);
-        if (mo2039findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2039findAnnotation)) != null) {
+        AnnotationDescriptor mo2094findAnnotation = annotations.mo2094findAnnotation(fqName);
+        if (mo2094findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2094findAnnotation)) != null) {
             if (!(firstArgument instanceof StringValue)) {
                 firstArgument = null;
             }

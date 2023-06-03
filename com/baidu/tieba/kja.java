@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.baidu.tieba.write.write.sticker.view.StickerView;
 /* loaded from: classes6.dex */
 public interface kja {
-    IMediaPlayer a();
+    void a(StickerView stickerView);
 
-    String b();
+    void b(StickerView stickerView, boolean z);
 
-    rka c();
+    void c(StickerView stickerView);
 
-    String e();
+    void onDelete();
 }

@@ -14,10 +14,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh8;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.en8;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,7 +101,7 @@ public class LabelItemView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e2, (ViewGroup) this, false);
+            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) this, false);
         }
         return (TextView) invokeV.objValue;
     }
@@ -117,7 +116,7 @@ public class LabelItemView extends LinearLayout {
             paint.setStyle(Paint.Style.STROKE);
             this.d.setColor(SkinManager.getColor(R.color.CAM_X0204));
             this.d.setStrokeWidth(1.0f);
-            this.c = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            this.c = vi.g(getContext(), R.dimen.obfuscated_res_0x7f070233);
             for (int i = 0; i < 3; i++) {
                 addView(a());
             }
@@ -142,7 +141,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<hh8> list, boolean z) {
+    public void setData(List<en8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +155,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            hh8 hh8Var = list.get(i2);
-            if (hh8Var != null && (getChildAt(i2) instanceof TextView)) {
+            en8 en8Var = list.get(i2);
+            if (en8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = hh8Var.b;
-                if (!StringUtils.isNull(str) && hh8Var.b.length() > 4) {
-                    str = hh8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = en8Var.b;
+                if (!StringUtils.isNull(str) && en8Var.b.length() > 4) {
+                    str = en8Var.b.substring(0, 3) + "...";
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(hh8Var.c);
-                textView.setTag(hh8Var);
+                textView.setSelected(en8Var.c);
+                textView.setTag(en8Var);
             }
             i2++;
         }

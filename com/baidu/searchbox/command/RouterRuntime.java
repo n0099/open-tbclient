@@ -2,12 +2,12 @@ package com.baidu.searchbox.command;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.ci9;
+import com.baidu.tieba.jo9;
 @Autowired
 /* loaded from: classes3.dex */
 public class RouterRuntime {
     @Inject
     public static ICommandIoc getICommandIoc() {
-        return ci9.a();
+        return jo9.a();
     }
 }

@@ -1,74 +1,78 @@
 package com.baidu.tieba;
 
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewOutlineProvider;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+@RequiresApi(21)
+/* loaded from: classes8.dex */
 public class vc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile int b;
+    public static final int[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948235846, "Lcom/baidu/tieba/vc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948235846, "Lcom/baidu/tieba/vc0;");
-        }
-    }
-
-    public vc0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948235846, "Lcom/baidu/tieba/vc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948235846, "Lcom/baidu/tieba/vc0;");
                 return;
             }
         }
-        this.a = 0;
+        a = new int[]{16843848};
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
         }
-        return invokeV.intValue;
     }
 
-    public static synchronized vc0 a() {
-        InterceptResult invokeV;
-        vc0 vc0Var;
+    public static void b(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (vc0.class) {
-                if (b < 1000000) {
-                    b = 1000000;
+        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
+            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0013);
+            StateListAnimator stateListAnimator = new StateListAnimator();
+            long j = integer;
+            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f0404bc, -2130969789}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
+            view2.setStateListAnimator(stateListAnimator);
+        }
+    }
+
+    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
+            Context context = view2.getContext();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
+            try {
+                if (obtainStyledAttributes.hasValue(0)) {
+                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
                 }
-                vc0Var = new vc0();
-                vc0Var.a = b;
-                b++;
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
             }
-            return vc0Var;
+            obtainStyledAttributes.recycle();
         }
-        return (vc0) invokeV.objValue;
     }
 }

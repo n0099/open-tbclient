@@ -1,105 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.utils.BdNetUtils;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class sz0 implements uz0 {
+public class sz0 extends pz0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy0 a;
-    public Context b;
-    public xz0 c;
-
-    @Override // com.baidu.tieba.mw0
-    public void a(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lv0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void d(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lv0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.uz0
-    public void g(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lv0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public int getExpectOrder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void h(@NonNull PlayerStatus playerStatus, @NonNull PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, playerStatus, playerStatus2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void j(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, lv0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void k(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, lv0Var) == null) {
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void n(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, lv0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mw0
-    public void q(@NonNull lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, lv0Var) == null) {
-        }
-    }
+    public FrameLayout e;
+    public LinearLayout f;
+    public TextView g;
+    public Button h;
+    public LinearLayout i;
+    public TextView j;
+    public boolean k;
 
     public sz0() {
         Interceptable interceptable = $ic;
@@ -114,98 +46,234 @@ public abstract class sz0 implements uz0 {
                 return;
             }
         }
-        l(null);
+        this.k = true;
+        FrameLayout frameLayout = new FrameLayout(this.c);
+        this.e = frameLayout;
+        frameLayout.setVisibility(4);
     }
 
-    public void e() {
+    public final void N() {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (linearLayout = this.i) != null) {
+            linearLayout.setVisibility(8);
         }
     }
 
-    public void f() {
-        sy0 sy0Var;
+    public final void O() {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (sy0Var = this.a) != null) {
-            sy0Var.e(this);
-            this.a = null;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (linearLayout = this.f) != null) {
+            linearLayout.setVisibility(4);
         }
     }
 
-    public Context getContext() {
+    @Override // com.baidu.tieba.uz0
+    @NonNull
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (Context) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.vx0
     @Nullable
-    public rs0 i() {
+    public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            xz0 xz0Var = this.c;
-            if (xz0Var != null) {
-                return xz0Var.b();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new int[]{4, 5, 2, 3, 8};
         }
-        return (rs0) invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 
-    public final void o() {
-        int[] subscribeEvent;
+    public void P() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (subscribeEvent = getSubscribeEvent()) != null && subscribeEvent.length > 0) {
-            for (int i : subscribeEvent) {
-                this.a.c(i, this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.i == null) {
+                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_kernel_error, null);
+                this.i = linearLayout;
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c09);
+                this.j = textView;
+                textView.setOnClickListener(this);
+                this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
             }
+            this.j.setText(R.string.nad_bdvideoplayer_tip_kernel_error);
+            R(u().V0());
+            this.i.setVisibility(0);
         }
     }
 
-    public sz0(@Nullable Context context) {
+    public void Q() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !this.k) {
+            return;
+        }
+        if (this.f == null) {
+            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092639);
+            Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f09048d);
+            this.h = button;
+            button.setOnClickListener(this);
+            this.e.addView(this.f, new FrameLayout.LayoutParams(-1, -1));
+        }
+        S(u().V0());
+        H(kw0.w(LayerEvent.ACTION_NET_ERROR_SHOW));
+        this.f.setVisibility(0);
+        u().y().y(true);
+    }
+
+    public final void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            Drawable[] compoundDrawables = this.j.getCompoundDrawables();
+            if (z) {
+                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
+                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp));
+            } else {
+                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
+                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp));
+            }
+            this.j.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
+        }
+    }
+
+    @Override // com.baidu.tieba.hz0, com.baidu.tieba.vx0
+    public void k(@NonNull uw0 uw0Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, uw0Var) == null) {
+            String c2 = uw0Var.c();
+            int hashCode = c2.hashCode();
+            if (hashCode != -552621273) {
+                if (hashCode != -552580917) {
+                    if (hashCode == 1409909918 && c2.equals(LayerEvent.ACTION_SWITCH_FLOATING)) {
+                        c = 2;
+                    }
+                    c = 65535;
+                } else {
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                    c = 0;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        N();
+                        O();
+                        return;
+                    }
+                    return;
+                }
+                if (this.f != null) {
+                    S(false);
+                }
+                if (this.i != null) {
+                    R(false);
+                    return;
+                }
                 return;
             }
-        }
-        l(context);
-    }
-
-    public void b(@NonNull xz0 xz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xz0Var) == null) {
-            this.c = xz0Var;
+            if (this.f != null) {
+                S(true);
+            }
+            if (this.i != null) {
+                R(true);
+            }
         }
     }
 
-    public void c(@NonNull sy0 sy0Var) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sy0Var) == null) {
-            this.a = sy0Var;
-            o();
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09048d || view2.getId() == R.id.obfuscated_res_0x7f091c09) {
+                if (!BdNetUtils.f()) {
+                    ViewGroup n = u().n();
+                    if (n != null && u().n1().a()) {
+                        g51.a().a(n.getContext(), R.string.nad_bdvideoplayer_tip_net_error);
+                        return;
+                    }
+                    return;
+                }
+                N();
+                O();
+                this.e.setVisibility(4);
+                u().m0();
+                H(kw0.w(LayerEvent.ACTION_CLICK_RETRY));
+            }
         }
     }
 
-    public void l(@Nullable Context context) {
+    public final void S(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            if (context == null) {
-                this.b = qs0.b();
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
+            if (z) {
+                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
+                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
+                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_102dp);
+                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_32dp);
+                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_31dp);
             } else {
-                this.b = context;
+                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
+                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
+                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_66dp);
+                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24_33dp);
+                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24dp);
+            }
+            this.h.setLayoutParams(layoutParams);
+        }
+    }
+
+    @Override // com.baidu.tieba.hz0, com.baidu.tieba.vx0
+    public void d(@NonNull uw0 uw0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uw0Var) == null) && PlayerEvent.ACTION_ON_ERROR.equals(uw0Var.c()) && !u().U0()) {
+            this.e.setVisibility(0);
+            u().y().j(this);
+            if (!BdNetUtils.f()) {
+                Q();
+                N();
+                return;
+            }
+            P();
+            O();
+        }
+    }
+
+    @Override // com.baidu.tieba.hz0, com.baidu.tieba.vx0
+    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, playerStatus, playerStatus2) == null) {
+            super.h(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PREPARING) {
+                u().y().i(this);
+                O();
+                N();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hz0, com.baidu.tieba.vx0
+    public void q(@NonNull uw0 uw0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, uw0Var) == null) {
+            if (ControlEvent.ACTION_RESUME.equals(uw0Var.c()) || ControlEvent.ACTION_SHOW_TIP.equals(uw0Var.c()) || ControlEvent.ACTION_START.equals(uw0Var.c())) {
+                u().y().i(this);
+                N();
+                O();
             }
         }
     }

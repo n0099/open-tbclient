@@ -1,288 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class c21 extends x21 {
+public class c21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d21 a;
 
-    public c21() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new d21();
-    }
-
-    public String A() {
+    public static Animation a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.e.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        return (String) invokeV.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public int B() {
+    public static Animation b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.h.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        return invokeV.intValue;
+        return (Animation) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x21
-    public w21 b() {
+    public static Animation c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        return (w21) invokeV.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public String c() {
+    public static Animation d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.l.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.m.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.f.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.j.getValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.a.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.k.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.d.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.g.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public long x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a.i.getValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.c.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.a.b.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public c21 k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.a.l.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.a.m.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.a.f.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 n(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-            this.a.j.setValue(j);
-            return this;
-        }
-        return (c21) invokeJ.objValue;
-    }
-
-    public c21 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a.a.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.a.k.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.a.d.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.a.g.setValue(i);
-            return this;
-        }
-        return (c21) invokeI.objValue;
-    }
-
-    public c21 s(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            this.a.i.setValue(j);
-            return this;
-        }
-        return (c21) invokeJ.objValue;
-    }
-
-    public c21 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.a.c.setValue(i);
-            return this;
-        }
-        return (c21) invokeI.objValue;
-    }
-
-    public c21 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.a.b.setValue(i);
-            return this;
-        }
-        return (c21) invokeI.objValue;
-    }
-
-    public c21 v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            this.a.e.setValue(str);
-            return this;
-        }
-        return (c21) invokeL.objValue;
-    }
-
-    public c21 w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.a.h.setValue(i);
-            return this;
-        }
-        return (c21) invokeI.objValue;
+        return (Animation) invokeV.objValue;
     }
 }

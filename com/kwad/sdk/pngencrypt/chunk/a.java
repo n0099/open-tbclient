@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a implements com.kwad.sdk.pngencrypt.g {
     public boolean alt;
 

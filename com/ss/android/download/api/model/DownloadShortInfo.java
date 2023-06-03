@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloadShortInfo {
     public String fileName;
     public boolean onlyWifi;

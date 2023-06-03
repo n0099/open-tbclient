@@ -1,13 +1,10 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface g7a {
-    void b();
+    void o1(String str, int i, String str2);
 
-    boolean c();
-
-    void d();
-
-    void e();
-
-    void play();
+    void setMusicData(List<MusicData> list);
 }

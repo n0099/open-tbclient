@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.ix7;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix7 tabFeedData;
+    public w28 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -58,9 +58,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
             if (activityPageResIdl.data == null) {
                 return activityPageResIdl;
             }
-            ix7 ix7Var = new ix7();
-            this.tabFeedData = ix7Var;
-            ix7Var.j(activityPageResIdl.data);
+            w28 w28Var = new w28();
+            this.tabFeedData = w28Var;
+            w28Var.j(activityPageResIdl.data);
             return activityPageResIdl;
         }
         return invokeIL.objValue;

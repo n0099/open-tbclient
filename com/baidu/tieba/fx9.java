@@ -1,187 +1,94 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import tbclient.FrsPage.BusinessPromot;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
-public final class fx9 {
+public class fx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ev9 a;
-    public boolean b;
-    public boolean c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779650, "Lcom/baidu/tieba/fx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947779650, "Lcom/baidu/tieba/fx9;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
-
-    public /* synthetic */ fx9(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final fx9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a() : (fx9) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final fx9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (fx9) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final fx9 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-789516412, "Lcom/baidu/tieba/fx9$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-789516412, "Lcom/baidu/tieba/fx9$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new fx9(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final fx9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (fx9) invokeV.objValue;
-        }
-    }
+    public boolean a;
+    public TiebaPlusInfo b;
 
     public fx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ev9();
     }
 
-    public final ev9 b() {
+    public TiebaPlusInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (ev9) invokeV.objValue;
+        return (TiebaPlusInfo) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public void c(BusinessPromot businessPromot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
+            this.a = businessPromot.is_download.booleanValue();
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = businessPromot.download_developer;
+            builder.title = businessPromot.download_appname;
+            builder.app_privacy = businessPromot.download_privacy_policy;
+            builder.download_url = businessPromot.download_url;
+            builder.app_icon = businessPromot.download_img;
+            builder.app_version = businessPromot.download_version;
+            builder.app_power = businessPromot.download_user_power;
+            builder.app_package = businessPromot.download_package_name;
+            builder.app_id = businessPromot.download_appid;
+            builder.item_id = businessPromot.download_item_id;
+            this.b = builder.build(true);
         }
-        return invokeV.booleanValue;
     }
 
-    public final void e(boolean z) {
+    public void d(HeadImgs headImgs) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
+            if (headImgs.download_is_thirdpage.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = z;
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = headImgs.download_developer;
+            builder.title = headImgs.download_appname;
+            builder.app_privacy = headImgs.download_privacy_policy;
+            builder.download_url = headImgs.download_url;
+            builder.app_icon = headImgs.download_img;
+            builder.app_version = headImgs.download_version;
+            builder.app_power = headImgs.download_user_power;
+            builder.app_package = headImgs.download_package_name;
+            builder.app_id = headImgs.download_appid;
+            builder.item_id = String.valueOf(headImgs.download_item_id);
+            this.b = builder.build(true);
         }
     }
 }

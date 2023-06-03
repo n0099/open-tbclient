@@ -1,6 +1,5 @@
 package kotlinx.coroutines.flow;
 
-import androidx.exifinterface.media.ExifInterface;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -9,23 +8,21 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.functions.Function2;
+import kotlinx.coroutines.flow.internal.AbortFlowException;
+import kotlinx.coroutines.flow.internal.FlowExceptions_commonKt;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J!\u0010\u0005\u001a\u00020\u00042\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "Lkotlinx/coroutines/flow/FlowCollector;", "collector", "", "collect", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public final class FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1<T> implements Flow<T> {
     public final /* synthetic */ Function2 $predicate$inlined;
     public final /* synthetic */ Flow $this_takeWhile$inlined;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0096@¨\u0006\b"}, d2 = {"collect", "", ExifInterface.GPS_DIRECTION_TRUE, "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "continuation", "Lkotlin/coroutines/Continuation;", "", "kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1$collect$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1", f = "Limit.kt", i = {0, 0, 0, 0, 0}, l = {115}, m = "collect", n = {"this", "collector", "continuation", "$receiver", "$this$collect$iv"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4"})
+    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
+    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1", f = "Limit.kt", i = {0}, l = {124}, m = "collect", n = {"collector$iv"}, s = {"L$0"})
     /* renamed from: kotlinx.coroutines.flow.FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1$1  reason: invalid class name */
     /* loaded from: classes10.dex */
     public static final class AnonymousClass1 extends ContinuationImpl {
         public Object L$0;
-        public Object L$1;
-        public Object L$2;
-        public Object L$3;
-        public Object L$4;
         public int label;
         public /* synthetic */ Object result;
 
@@ -46,23 +43,16 @@ public final class FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1<T> implements
         this.$predicate$inlined = function2;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0021 */
-    /* JADX WARN: Can't wrap try/catch for region: R(9:1|(2:3|(7:5|6|7|(1:(2:10|11)(2:17|18))(3:19|20|(1:22))|12|13|14))|25|6|7|(0)(0)|12|13|14) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0062, code lost:
-        r6 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0063, code lost:
-        kotlinx.coroutines.flow.internal.FlowExceptions_commonKt.checkOwnership(r6, r5);
-     */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
     @Override // kotlinx.coroutines.flow.Flow
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object collect(FlowCollector flowCollector, Continuation continuation) {
+    public Object collect(FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {
         AnonymousClass1 anonymousClass1;
         int i;
+        FlowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1 flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
@@ -73,30 +63,32 @@ public final class FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1<T> implements
                 i = anonymousClass1.label;
                 if (i == 0) {
                     if (i == 1) {
-                        Flow flow = (Flow) anonymousClass1.L$4;
-                        FlowCollector flowCollector2 = (FlowCollector) anonymousClass1.L$3;
-                        Continuation continuation2 = (Continuation) anonymousClass1.L$2;
-                        FlowCollector flowCollector3 = (FlowCollector) anonymousClass1.L$1;
-                        FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1 flowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1 = (FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1) anonymousClass1.L$0;
-                        ResultKt.throwOnFailure(obj);
-                        flowCollector = flowCollector2;
+                        flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1 = (FlowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1) anonymousClass1.L$0;
+                        try {
+                            ResultKt.throwOnFailure(obj);
+                        } catch (AbortFlowException e) {
+                            e = e;
+                            FlowExceptions_commonKt.checkOwnership(e, flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1);
+                            return Unit.INSTANCE;
+                        }
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                 } else {
                     ResultKt.throwOnFailure(obj);
-                    Flow flow2 = this.$this_takeWhile$inlined;
-                    FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1$lambda$1 flowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1$lambda$1 = new FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1$lambda$1(flowCollector, this);
-                    anonymousClass1.L$0 = this;
-                    anonymousClass1.L$1 = flowCollector;
-                    anonymousClass1.L$2 = anonymousClass1;
-                    anonymousClass1.L$3 = flowCollector;
-                    anonymousClass1.L$4 = flow2;
-                    anonymousClass1.label = 1;
-                    Object collect = flow2.collect(flowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1$lambda$1, anonymousClass1);
-                    flowCollector = collect;
-                    if (collect == coroutine_suspended) {
-                        return coroutine_suspended;
+                    Flow flow = this.$this_takeWhile$inlined;
+                    FlowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1 flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$12 = new FlowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1(this.$predicate$inlined, flowCollector);
+                    try {
+                        anonymousClass1.L$0 = flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$12;
+                        anonymousClass1.label = 1;
+                        if (flow.collect(flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$12, anonymousClass1) == coroutine_suspended) {
+                            return coroutine_suspended;
+                        }
+                    } catch (AbortFlowException e2) {
+                        e = e2;
+                        flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1 = flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$12;
+                        FlowExceptions_commonKt.checkOwnership(e, flowKt__LimitKt$takeWhile$lambda6$$inlined$collectWhile$1);
+                        return Unit.INSTANCE;
                     }
                 }
                 return Unit.INSTANCE;

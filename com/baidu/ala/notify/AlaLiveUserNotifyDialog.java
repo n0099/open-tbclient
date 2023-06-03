@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes.dex */
 public class AlaLiveUserNotifyDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
@@ -92,8 +92,8 @@ public class AlaLiveUserNotifyDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                getWindow().addFlags(134217728);
+                getWindow().addFlags(67108864);
+                getWindow().addFlags(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
             super.onCreate(bundle);
             getWindow().requestFeature(1);
@@ -128,13 +128,13 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0109, (ViewGroup) null);
             this.mRootView = inflate;
             setContentView(inflate);
-            this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090218);
-            this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090219);
-            this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09048e);
-            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c22);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092742);
-            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911c0);
-            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091967);
+            this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090219);
+            this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09021a);
+            this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090493);
+            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c50);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09277a);
+            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09198d);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.userPortrait.setIsRound(true);
             this.userPortrait.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -145,10 +145,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814f9);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081528);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814fa);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081529);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

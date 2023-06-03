@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.hybrid;
 
-import com.baidu.tieba.s55;
+import com.baidu.tieba.p85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,18 +13,18 @@ public abstract class NamedBridgeHandler extends BridgeHandler {
     public abstract String scope();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NamedBridgeHandler(s55 s55Var) {
-        super(s55Var);
+    public NamedBridgeHandler(p85 p85Var) {
+        super(p85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s55Var};
+            Object[] objArr = {p85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s55) newInitContext.callArgs[0]);
+                super((p85) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,145 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.wx4;
+import android.content.Context;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes6.dex */
 public class lr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdTypeRecyclerView a;
+    public final List<in> b;
+    public nr8 c;
+    public qr8 d;
+    public or8 e;
+    public pr8 f;
+    public rr8 g;
 
-    public static String[] a() {
-        InterceptResult invokeV;
+    public lr8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
-                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String[]) invokeV.objValue;
+        this.b = new ArrayList();
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        a(context, bdTypeRecyclerView);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
-            }
-            return UtilHelper.getGprsIpAddress();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
+            this.c = new nr8(context, sr8.c);
+            this.d = new qr8(context, vr8.l);
+            this.e = new or8(context, tr8.i);
+            this.f = new pr8(context, ur8.g);
+            this.g = new rr8(context, wr8.e);
+            this.b.add(this.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.b.add(this.g);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
-        InterceptResult invokeLL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            HashMap hashMap = new HashMap();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                arrayList2.add(arrayList.get(i).getName());
-                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nr8 nr8Var = this.c;
+            if (nr8Var != null) {
+                nr8Var.notifyDataSetChanged();
             }
-            Collections.sort(arrayList2);
-            StringBuffer stringBuffer = new StringBuffer();
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                stringBuffer.append(str2);
-                stringBuffer.append("=");
-                try {
-                    String str3 = (String) hashMap.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e.getMessage());
-                }
-                stringBuffer.append("&");
+            qr8 qr8Var = this.d;
+            if (qr8Var != null) {
+                qr8Var.notifyDataSetChanged();
             }
-            stringBuffer.append("sign_key=" + str);
-            return yi.c(stringBuffer.toString());
+            or8 or8Var = this.e;
+            if (or8Var != null) {
+                or8Var.notifyDataSetChanged();
+            }
+            pr8 pr8Var = this.f;
+            if (pr8Var != null) {
+                pr8Var.notifyDataSetChanged();
+            }
+            rr8 rr8Var = this.g;
+            if (rr8Var != null) {
+                rr8Var.notifyDataSetChanged();
+            }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static wx4.b d(wx4.b bVar) {
-        InterceptResult invokeL;
+    public void c(DataRes dataRes, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
-            if (bVar == null) {
-                return null;
-            }
-            try {
-                String[] a = a();
-                if (a == null) {
-                    return null;
-                }
-                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-                arrayList.add(new BasicNameValuePair("crypttype", "1"));
-                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
-                arrayList.add(new BasicNameValuePair("appid", "1"));
-                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
-                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", bVar.a);
-                jSONObject.put("ptoken", bVar.b);
-                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
-                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new xx4().a(a[1], jSONObject.toString())));
-                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
-                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                netWork.setPostData(arrayList);
-                netWork.getNetContext().getRequest().mRequestGzip = true;
-                netWork.getNetContext().getRequest().mIsBaiduServer = false;
-                String postNetData = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || qi.isEmpty(postNetData)) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject(postNetData);
-                if (!"0".equals(jSONObject2.optString("errno"))) {
-                    return null;
-                }
-                wx4.b bVar2 = new wx4.b();
-                bVar2.a = jSONObject2.optString("bduss");
-                bVar2.b = jSONObject2.optString("ptoken");
-                jSONObject2.optString("uname");
-                return bVar2;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
+            return;
         }
-        return (wx4.b) invokeL.objValue;
+        List<vn> a = xr8.a(dataRes, str);
+        if (!ListUtils.isEmpty(a)) {
+            this.a.setData(a);
+        }
     }
 }

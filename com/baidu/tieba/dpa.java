@@ -1,55 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
 public class dpa {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713620, "Lcom/baidu/tieba/dpa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713620, "Lcom/baidu/tieba/dpa;");
+                return;
             }
-            sb.append("&");
-            sb.append("clientfrom=native");
-            sb.append("&");
-            sb.append("client=android");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        a = aoa.m();
     }
 
-    public static String b(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
-            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                    return bArr2;
+                }
+                return bArr2;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append("&");
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

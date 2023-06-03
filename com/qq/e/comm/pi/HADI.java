@@ -1,5 +1,5 @@
 package com.qq.e.comm.pi;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface HADI {
     void loadUrl(String str);
 }

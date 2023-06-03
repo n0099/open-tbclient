@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TTDownloadEventModel {
     public String a;
     public String b;

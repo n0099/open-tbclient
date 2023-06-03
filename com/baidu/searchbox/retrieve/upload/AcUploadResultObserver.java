@@ -6,24 +6,23 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
-import com.baidu.tieba.spa;
+import com.baidu.tieba.fxa;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
-public class AcUploadResultObserver implements spa {
+public class AcUploadResultObserver implements fxa {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchAcUploadResult";
     public static final String TYPE_ACTIVE_UPLOAD = "acupload";
     public ActiveUploadObserver mActiveUploadObserver;
 
-    @Override // com.baidu.tieba.spa
+    @Override // com.baidu.tieba.fxa
     public String getBizType() {
         return "acupload";
     }
@@ -57,24 +56,24 @@ public class AcUploadResultObserver implements spa {
             return;
         }
         if (TextUtils.equals(fileType, "1")) {
-            iStatTask.recordActiveUploadData(z, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
+            iStatTask.recordActiveUploadData(z, "upload", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
         } else if (z) {
             iStatTask.recordActiveUploadData(true, "query", activeUpObj.getDataId(), activeUpObj.getType(), fileType);
-            iStatTask.recordActiveUploadData(true, StatConstants.VALUE_TYPE_ZIP, activeUpObj.getDataId(), activeUpObj.getType(), fileType);
-            iStatTask.recordActiveUploadData(true, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType(), fileType);
+            iStatTask.recordActiveUploadData(true, "zip", activeUpObj.getDataId(), activeUpObj.getType(), fileType);
+            iStatTask.recordActiveUploadData(true, "upload", activeUpObj.getDataId(), activeUpObj.getType(), fileType);
         } else if (TextUtils.equals("dir not found", str)) {
             iStatTask.recordActiveUploadData(false, "query", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
         } else if (TextUtils.equals("zip failed", str)) {
             iStatTask.recordActiveUploadData(true, "query", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
-            iStatTask.recordActiveUploadData(false, StatConstants.VALUE_TYPE_ZIP, activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
+            iStatTask.recordActiveUploadData(false, "zip", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
         } else {
             iStatTask.recordActiveUploadData(true, "query", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
-            iStatTask.recordActiveUploadData(true, StatConstants.VALUE_TYPE_ZIP, activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
-            iStatTask.recordActiveUploadData(false, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
+            iStatTask.recordActiveUploadData(true, "zip", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
+            iStatTask.recordActiveUploadData(false, "upload", activeUpObj.getDataId(), activeUpObj.getType(), activeUpObj.getFileType());
         }
     }
 
-    @Override // com.baidu.tieba.spa
+    @Override // com.baidu.tieba.fxa
     public void onReceiveResult(boolean z, String str, final String str2, JSONObject jSONObject, final JSONObject jSONObject2) {
         String jSONObject3;
         if (jSONObject2 != null && jSONObject2.length() != 0) {
@@ -85,7 +84,7 @@ public class AcUploadResultObserver implements spa {
             }
             String optString3 = jSONObject2.optString("dataId");
             List asList = Arrays.asList(jSONObject2.optString("space"));
-            String optString4 = jSONObject2.optString(UploadConstant.KEY_FILE_TYPE);
+            String optString4 = jSONObject2.optString("fileType");
             if (jSONObject == null) {
                 jSONObject3 = "";
             } else {

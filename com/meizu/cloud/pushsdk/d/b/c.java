@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.d.b;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public final ArrayList<com.meizu.cloud.pushsdk.d.a.a> a;
     public final LinkedList<Long> b;

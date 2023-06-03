@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b6a;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ability.RequestRouterHandler;
@@ -22,10 +23,10 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonM
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.helper.BotEffectUIAssist;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.AbilityEffectItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.pz9;
-import com.baidu.tieba.t88;
-import com.baidu.tieba.tv5;
-import com.baidu.tieba.w88;
+import com.baidu.tieba.je8;
+import com.baidu.tieba.ke8;
+import com.baidu.tieba.me8;
+import com.baidu.tieba.uz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +47,8 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final ChildItemData b;
-    public final w88.c c;
-    public final t88 d;
+    public final me8.c c;
+    public final je8 d;
     public final RelativeLayout e;
     public final TbImage f;
     public final TbImage g;
@@ -71,12 +72,12 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements tv5 {
+    public static final class a implements uz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BotEffectUIAssist<ChildItemData> a;
 
-        @Override // com.baidu.tieba.tv5
+        @Override // com.baidu.tieba.uz5
         public void a(String str, ImageInfo imageInfo, Animatable animatable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
@@ -101,7 +102,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
             this.a = botEffectUIAssist;
         }
 
-        @Override // com.baidu.tieba.tv5
+        @Override // com.baidu.tieba.uz5
         public void b(String str, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
@@ -112,12 +113,12 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
         }
     }
 
-    public BotEffectUIAssist(Context context, ChildItemData childitemdata, BaseChatAdapter.SelfHolder holder, w88.c helper, t88 t88Var) {
+    public BotEffectUIAssist(Context context, ChildItemData childitemdata, BaseChatAdapter.SelfHolder holder, me8.c helper, je8 je8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, childitemdata, holder, helper, t88Var};
+            Object[] objArr = {context, childitemdata, holder, helper, je8Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,7 +134,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
         this.a = context;
         this.b = childitemdata;
         this.c = helper;
-        this.d = t88Var;
+        this.d = je8Var;
         RelativeLayout relativeLayout = holder.g;
         Intrinsics.checkNotNullExpressionValue(relativeLayout, "holder.bubbleEffectContainer");
         this.e = relativeLayout;
@@ -151,7 +152,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.e.getVisibility() == 0) {
-                pz9.b(this$0.e, 800);
+                b6a.b(this$0.e, 800);
             }
         }
     }
@@ -159,9 +160,9 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
     public final void g(AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, abilityItem) == null) {
-            t88 t88Var = this.d;
-            if (t88Var != null) {
-                t88.e(t88Var, abilityItem, this.b, null, 4, null);
+            je8 je8Var = this.d;
+            if (je8Var != null) {
+                je8.e(je8Var, abilityItem, this.b, null, 4, null);
             }
             e(abilityItem, 3);
         }
@@ -188,7 +189,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
             Intrinsics.checkNotNullParameter(abilityItem, "$abilityItem");
             Intrinsics.checkNotNullParameter(view2, "$view");
             this$0.g(abilityItem);
-            pz9.b(view2, 800);
+            b6a.b(view2, 800);
             this$0.e(abilityItem, 4);
         }
     }
@@ -196,11 +197,8 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
     public final void c() {
         AbilityItem abilityItem;
         long j;
+        String mainEndImage;
         AbilityItem.StyleConf styleConf;
-        AbilityItem.Extra androidExtra;
-        String endImage;
-        AbilityItem.StyleConf styleConf2;
-        AbilityItem.Extra androidExtra2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ChildItemData childitemdata = this.b;
@@ -212,6 +210,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
             }
             AbilityEffectItem abilityEffectItem = commonMsgField.getAbilityEffectItem();
             this.h = abilityEffectItem;
+            AbilityItem.Extra extra = null;
             if (abilityEffectItem != null) {
                 abilityItem = abilityEffectItem.getAbilityItem();
             } else {
@@ -224,22 +223,34 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
                 j = 6;
             }
             long j2 = j * 1000;
-            final String str = "";
-            String str2 = (abilityItem == null || (styleConf2 = abilityItem.getStyleConf()) == null || (androidExtra2 = styleConf2.getAndroidExtra()) == null || (str2 = androidExtra2.getStartImage()) == null) ? "" : "";
-            if (abilityItem != null && (styleConf = abilityItem.getStyleConf()) != null && (androidExtra = styleConf.getAndroidExtra()) != null && (endImage = androidExtra.getEndImage()) != null) {
-                str = endImage;
+            if (abilityItem != null && (styleConf = abilityItem.getStyleConf()) != null) {
+                extra = styleConf.getAndroidExtra();
+            }
+            String str = "";
+            String str2 = (extra == null || (str2 = extra.getStartImage()) == null) ? "" : "";
+            final String str3 = (extra == null || (str3 = extra.getEndImage()) == null) ? "" : "";
+            String str4 = (extra == null || (str4 = extra.getMainStartImage()) == null) ? "" : "";
+            if (extra != null && (mainEndImage = extra.getMainEndImage()) != null) {
+                str = mainEndImage;
             }
             if (this.e.getVisibility() == 8) {
-                pz9.d(this.e, 800);
+                b6a.d(this.e, 800);
+            }
+            boolean c = ke8.c(String.valueOf(commonMsgField.getUserId()));
+            if (c) {
+                str2 = str4;
+            }
+            if (c) {
+                str3 = str;
             }
             this.f.setTag(str2);
             this.f.l(str2);
-            this.g.setTag(str);
-            this.g.l(str);
+            this.g.setTag(str3);
+            this.g.l(str3);
             this.f.setLoadResultListener(new a(this));
             this.f.k(str2);
             this.f.o();
-            this.f.setOnWebpEndedListener(new Function0<Unit>(this, str) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.helper.BotEffectUIAssist$dealEffectUIData$2
+            this.f.setOnWebpEndedListener(new Function0<Unit>(this, str3) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.helper.BotEffectUIAssist$dealEffectUIData$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String $guideUrl;
@@ -252,7 +263,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
+                        Object[] objArr = {this, str3};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -264,16 +275,16 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
                         }
                     }
                     this.this$0 = this;
-                    this.$guideUrl = str;
+                    this.$guideUrl = str3;
                 }
 
                 /* loaded from: classes6.dex */
-                public static final class a implements tv5 {
+                public static final class a implements uz5 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BotEffectUIAssist<ChildItemData> a;
 
-                    @Override // com.baidu.tieba.tv5
+                    @Override // com.baidu.tieba.uz5
                     public void a(String str, ImageInfo imageInfo, Animatable animatable) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
@@ -298,7 +309,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
                         this.a = botEffectUIAssist;
                     }
 
-                    @Override // com.baidu.tieba.tv5
+                    @Override // com.baidu.tieba.uz5
                     public void b(String str, Throwable th) {
                         TbImage tbImage;
                         TbImage tbImage2;
@@ -343,7 +354,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
             if (abilityItem != null) {
                 h(this.e, abilityItem);
             }
-            this.c.d(new Runnable() { // from class: com.baidu.tieba.i98
+            this.c.d(new Runnable() { // from class: com.baidu.tieba.ye8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -363,14 +374,14 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
         BotsDTO.BotListDTO.SkillDTO skillDTO;
         long j;
         BotsDTO.BotListDTO findBotByUk;
-        ChatPage f2;
+        ChatPage g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, i) == null) {
             RequestRouterHandler.Conf conf = (RequestRouterHandler.Conf) DataExt.toEntity(abilityItem.getConfMap(), RequestRouterHandler.Conf.class);
             Context context = this.a;
             String str = null;
-            if ((context instanceof GroupChatActivity) && (f2 = ((GroupChatActivity) context).t1().f2()) != null) {
-                botsDTO = f2.C0();
+            if ((context instanceof GroupChatActivity) && (g2 = ((GroupChatActivity) context).t1().g2()) != null) {
+                botsDTO = g2.B0();
             } else {
                 botsDTO = null;
             }
@@ -416,7 +427,7 @@ public final class BotEffectUIAssist<ChildItemData extends BaseMsg> {
     public final void h(final View view2, final AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, abilityItem) == null) {
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f98
+            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ve8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,43 +1,135 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class xp0 extends AdBaseModel {
+public class xp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final aq0 r;
+    public final Map<String, String> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xp0(@NonNull hq0 hq0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(hq0Var, jSONObject);
+    /* loaded from: classes8.dex */
+    public class a implements NadRequester.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wc1 a;
+        public final /* synthetic */ xp0 b;
+
+        public a(xp0 xp0Var, wc1 wc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xp0Var, wc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xp0Var;
+            this.a = wc1Var;
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void a(@NonNull NadRequester.Error error) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+                try {
+                    this.a.dismiss();
+                } catch (Exception unused) {
+                }
+                this.b.f();
+            }
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void b(@NonNull List<AdBaseModel> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                try {
+                    this.a.dismiss();
+                } catch (Exception unused) {
+                }
+                this.b.d(list);
+            }
+        }
+    }
+
+    public xp0(@NonNull Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hq0Var, jSONObject};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hq0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (hq0Var.k.size() >= 1) {
-            this.r = hq0Var.k.get(0);
-            return;
+        this.a = map;
+    }
+
+    public final boolean c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
+            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
+                return true;
+            }
+            return false;
         }
-        throw ParseError.contentError(3, hq0Var.a.value);
+        return invokeL.booleanValue;
+    }
+
+    public void e(@NonNull wc1 wc1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wc1Var, str) == null) {
+            RequestParameters.b bVar = new RequestParameters.b();
+            bVar.q(str);
+            bVar.n(this.a);
+            NadRequester.a(bVar.o(), new a(this, wc1Var));
+        }
+    }
+
+    public final void d(@NonNull List<AdBaseModel> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (x21.g(list)) {
+                f();
+                return;
+            }
+            AdBaseModel adBaseModel = (AdBaseModel) x21.d(list, 0);
+            if (!c(adBaseModel)) {
+                f();
+            } else {
+                tj0.d(adBaseModel.f.c, kk0.b(), null);
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            g51.a().showToast(kk0.b(), kk0.b().getString(R.string.nad_reward_video_lp_empty));
+        }
     }
 }

@@ -367,7 +367,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
                     } else {
                         ChatSession chatSession2 = null;
                         try {
-                            chatSession2 = list.get(0).m28clone();
+                            chatSession2 = list.get(0).m42clone();
                         } catch (CloneNotSupportedException unused) {
                             LogUtils.d(TAG, "doAggSessionChangeNotify classtype exception");
                         }
@@ -404,7 +404,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             } else {
                 ChatSession chatSession = null;
                 try {
-                    chatSession = list.get(0).m28clone();
+                    chatSession = list.get(0).m42clone();
                 } catch (CloneNotSupportedException unused) {
                     LogUtils.d(TAG, "doAggSessionChangeNotify stanger exception");
                 }
@@ -705,7 +705,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             for (ChatSession chatSession : list) {
                 if (IMConfigInternal.getInstance().getProductLine(this.mContext) != 4 || chatSession.getCategory() == 1) {
                     try {
-                        arrayList2.add(chatSession.m28clone());
+                        arrayList2.add(chatSession.m42clone());
                     } catch (CloneNotSupportedException e) {
                         LogUtils.e(TAG, "ChatSessionChangerCallBack throw RuntimeException", e);
                     }

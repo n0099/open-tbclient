@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = -1;
             this.b = 0;
             this.c = -1;
-            this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+            this.d = vi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         }
     }
 
@@ -87,8 +87,8 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        h = ri.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        i = ri.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        h = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        i = vi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -221,8 +221,8 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
         }
     }
 
@@ -244,7 +244,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                p45 d = p45.d(this.d);
+                m75 d = m75.d(this.d);
                 d.o(R.string.J_X06);
                 d.f(this.f.a);
             }
@@ -263,7 +263,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar = this.f;
             if (aVar != null && (i2 = aVar.c) != -1 && (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) != null) {
-                int g = ri.g(getContext(), R.dimen.tbds32);
+                int g = vi.g(getContext(), R.dimen.tbds32);
                 pureDrawable.setBounds(0, 0, g, g);
                 this.d.setCompoundDrawables(pureDrawable, null, null, null);
             }
@@ -280,12 +280,12 @@ public class NormalItemCell extends ConstraintLayout {
                 int i4 = aVar.d;
                 setPadding(i4, 0, i4, 0);
                 if (aVar.a != -1) {
-                    i2 = ri.g(getContext(), R.dimen.M_W_X004);
+                    i2 = vi.g(getContext(), R.dimen.M_W_X004);
                 } else {
                     i2 = 0;
                 }
                 if (aVar.a != -1) {
-                    i3 = ri.g(getContext(), R.dimen.tbds8);
+                    i3 = vi.g(getContext(), R.dimen.tbds8);
                 } else {
                     i3 = 0;
                 }

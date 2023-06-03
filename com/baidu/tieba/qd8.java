@@ -1,101 +1,233 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class qd8 extends en<md8, CardViewHolder<rd8>> {
+public class qd8 extends mc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public wj6 b;
-    public String c;
+    public long k;
+    public final Set<Long> l;
+    public boolean m;
+    @Nullable
+    public final rd8 n;
+    @Nullable
+    public sd8 o;
+    public final CustomMessageListener p;
+
+    @Override // com.baidu.tieba.mc8
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SCENE_CHAT_ENTRANCE" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qd8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qd8 qd8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qd8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Map map;
+            ChatRoomInfo chatRoomInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof Map) && (map = (Map) customResponsedMessage.getData()) != null && !map.isEmpty() && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.k))) != null && this.a.n != null) {
+                this.a.n.a(chatRoomInfo);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements sn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qd8 a;
+
+        public b(qd8 qd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qd8Var;
+        }
+
+        @Override // com.baidu.tieba.sn5
+        public void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, chatRoomInfo}) == null) {
+                this.a.l.add(Long.valueOf(j));
+                if (this.a.o != null && i == 0) {
+                    this.a.o.b(j);
+                }
+                this.a.m = true;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements tn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qd8 a;
+
+        public c(qd8 qd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qd8Var;
+        }
+
+        @Override // com.baidu.tieba.tn5
+        public void a(long j, int i, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+                this.a.l.remove(Long.valueOf(j));
+                if (this.a.o != null && i == -200) {
+                    this.a.o.a(j);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    public qd8(@NonNull Context context, @Nullable rd8 rd8Var) {
+        super(context, ChatGroupSource.GROUP_CHAT_FLOAT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context, rd8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (ChatGroupSource) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.k = 0L;
+        this.l = new HashSet();
+        this.p = new a(this, 2921766);
+        this.n = rd8Var;
+        MessageManager.getInstance().registerListener(this.p);
     }
 
-    @Override // com.baidu.tieba.en
-    public bo getOnAdapterItemClickListener() {
+    public boolean y(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return this.l.contains(Long.valueOf(j));
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public void z(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            p(j, 0);
+        }
+    }
+
+    @Override // com.baidu.tieba.mc8
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.j();
+            this.m = false;
+            this.l.clear();
+            m(null);
+            o(null);
+            MessageManager.getInstance().unRegisterListener(this.p);
+        }
+    }
+
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.m;
         }
-        return (bo) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public CardViewHolder<rd8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void x(List<ChatRoomInfoData> list, long j, @Nullable sd8 sd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            rd8 rd8Var = new rd8(this.a, viewGroup);
-            wj6 wj6Var = this.b;
-            if (wj6Var != null) {
-                rd8Var.n(wj6Var);
-            }
-            return new CardViewHolder<>(rd8Var);
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), sd8Var}) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void x(wj6 wj6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, wj6Var) == null) {
-            this.b = wj6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, md8 md8Var, CardViewHolder<rd8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, md8Var, cardViewHolder})) == null) {
-            if (md8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                cardViewHolder.a().i(md8Var);
-                return cardViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        this.k = j;
+        this.o = sd8Var;
+        i(vd8.c(list));
+        this.f = new b(this);
+        this.g = new c(this);
+        m(this.f);
+        o(this.g);
     }
 }

@@ -1,46 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class nl5 implements yk5<ImageFpsEvent> {
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes7.dex */
+public class nl5 extends FilterInputStream implements ml5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public nl5() {
+    @Override // com.baidu.tieba.ml5
+    public InputStream a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (InputStream) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nl5(InputStream inputStream) {
+        super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        try {
+            inputStream.reset();
+        } catch (IOException unused) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ml5
+    public byte peek() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte read = (byte) read();
+            this.a++;
+            return read;
+        }
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.tieba.ml5
+    public int position() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ml5
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a = 0;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk5
-    /* renamed from: a */
-    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
-        InterceptResult invokeL;
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ml5
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
-            }
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
-            return true;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            this.a += Math.max(0, read);
+            return read;
         }
-        return invokeL.booleanValue;
+        return invokeLII.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.ml5
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            long skip = super.skip(j);
+            this.a = (int) (this.a + skip);
+            return skip;
+        }
+        return invokeJ.longValue;
     }
 }

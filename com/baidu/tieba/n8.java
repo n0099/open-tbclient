@@ -1,165 +1,178 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class n8 {
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+/* loaded from: classes7.dex */
+public final class n8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public long d;
+    public final Field a;
 
-    public n8(int i, int i2) {
+    public n8(Field field) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {field};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = -1L;
-        this.a = i;
-        this.b = i2;
+        this.a = field;
     }
 
-    public n8(int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = -1L;
-        this.a = i;
-        this.b = i2;
-        this.d = j;
-    }
-
-    public n8(int i, int i2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = -1L;
-        this.a = i;
-        this.b = i2;
-        this.d = j;
-        this.c = z;
-    }
-
-    public static n8 a(String str) {
+    public boolean f(Class<? extends Annotation> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String[] split = str.split("_");
-                if (split.length == 2) {
-                    return new n8(f20.d(split[0]), f20.d(split[1]), -1L, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            return this.a.isAnnotationPresent(cls);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.a.setAccessible(z);
+        }
+    }
+
+    public Object a(Object obj) throws ReflectionException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                return this.a.get(obj);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Illegal access to field: " + d(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Object is not an instance of " + b(), e2);
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public Class c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Type genericType = this.a.getGenericType();
+            if (genericType instanceof ParameterizedType) {
+                Type[] actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments();
+                if (actualTypeArguments.length - 1 >= i) {
+                    Type type = actualTypeArguments[i];
+                    if (type instanceof Class) {
+                        return (Class) type;
+                    }
+                    if (type instanceof ParameterizedType) {
+                        return (Class) ((ParameterizedType) type).getRawType();
+                    }
+                    if (type instanceof GenericArrayType) {
+                        Type genericComponentType = ((GenericArrayType) type).getGenericComponentType();
+                        if (genericComponentType instanceof Class) {
+                            return k8.a((Class) genericComponentType, 0).getClass();
+                        }
+                        return null;
+                    }
+                    return null;
                 }
                 return null;
             }
             return null;
         }
-        return (n8) invokeL.objValue;
+        return (Class) invokeI.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
+    public Class b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.a.getDeclaringClass();
         }
-        return invokeV.intValue;
+        return (Class) invokeV.objValue;
     }
 
-    public long d() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getName();
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.isAccessible();
         }
         return invokeV.booleanValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (!(obj instanceof n8)) {
-                return false;
-            }
-            n8 n8Var = (n8) obj;
-            if (this.a != n8Var.a || this.b != n8Var.b) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public String toString() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ExpInfo{expId=" + this.a + ", expComponentKey=" + this.b + ", mNeedUpload=" + this.c + ", mExpiredTime=" + this.d + '}';
+            return Modifier.isStatic(this.a.getModifiers());
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public Class getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.getType();
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.isSynthetic();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return Modifier.isTransient(this.a.getModifiers());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(Object obj, Object obj2) throws ReflectionException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, obj, obj2) == null) {
+            try {
+                this.a.set(obj, obj2);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Illegal access to field: " + d(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Argument not valid for field: " + d(), e2);
+            }
+        }
     }
 }

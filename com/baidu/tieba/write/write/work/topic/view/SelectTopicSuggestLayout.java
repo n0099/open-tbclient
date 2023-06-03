@@ -11,9 +11,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m08;
+import com.baidu.tieba.b68;
+import com.baidu.tieba.ho;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
     public VideoHotTopicSearchAdapter b;
-    public Cdo c;
+    public ho c;
 
     public void e() {
         Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(m08 m08Var) {
+        public void a(b68 b68Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m08Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, m08Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, b68Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, b68Var));
             }
         }
     }
@@ -158,10 +158,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     }
 
     public void d() {
-        Cdo cdo;
+        ho hoVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cdo = this.c) != null) {
-            cdo.e(new b(this));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hoVar = this.c) != null) {
+            hoVar.e(new b(this));
         }
     }
 
@@ -230,11 +230,11 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         c();
     }
 
-    public void b(String str, List<m08> list) {
-        Cdo cdo;
+    public void b(String str, List<b68> list) {
+        ho hoVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (cdo = this.c) != null) {
-            cdo.e(new c(this, str, list));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (hoVar = this.c) != null) {
+            hoVar.e(new c(this, str, list));
         }
     }
 
@@ -253,7 +253,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             this.b.l(new a(this));
             this.a.setAdapter(this.b);
             addView(this.a, new LinearLayout.LayoutParams(-1, -1));
-            this.c = new Cdo(this.a);
+            this.c = new ho(this.a);
         }
     }
 }

@@ -1,123 +1,122 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.az;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.py;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
+import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
+public class vp5 implements ap5<LocationEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lb a;
 
     /* loaded from: classes8.dex */
-    public class a implements bo {
+    public class a extends lb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vp5 a;
 
-        public a(vp5 vp5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vp5 vp5Var, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vp5Var};
+                Object[] objArr = {vp5Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vp5Var;
         }
 
-        @Override // com.baidu.tieba.bo
-        public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            LocationData locationData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (rnVar instanceof o15) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadData threadData = ((o15) rnVar).t;
-                threadData.objType = 1;
-                ThreadCardUtils.jumpToPB((jy4) threadData, view2.getContext(), this.a.C(), false);
-                ((ThreadCardViewHolder) view2.getTag()).a().p(new az.a(1));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null) {
+                return;
             }
+            LocationEvent locationEvent = new LocationEvent();
+            locationEvent.setType(1);
+            locationEvent.eventType = 1;
+            locationEvent.errorCode = socketResponsedMessage.getError();
+            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
+            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
+                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
+            }
+            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
+                LocationModel.X(locationData);
+                cz9.a().f(System.currentTimeMillis());
+                cz9.a().d(locationEvent.locationData);
+            }
+            gp5.i(locationEvent);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vp5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_ITEM);
+    public vp5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new a(this, 303017, true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: O */
-    public ThreadCardViewHolder<o15> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ap5
+    /* renamed from: a */
+    public boolean onEvent(LocationEvent locationEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            py.b bVar = new py.b(this.c.getPageActivity(), false);
-            wx wxVar = new wx(this.c.getPageActivity());
-            wxVar.C(true);
-            wxVar.y();
-            bVar.h(wxVar);
-            py k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
-            k.s(C());
-            ThreadCardViewHolder<o15> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(new a(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: P */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o15 o15Var, ThreadCardViewHolder<o15> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o15Var, threadCardViewHolder})) == null) {
-            if (o15Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = o15Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(o15Var);
-                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
+            if (locationEvent == null) {
+                return false;
             }
-            return null;
+            if (locationEvent.getType() == 3) {
+                MessageManager.getInstance().unRegisterListener(this.a);
+                MessageManager.getInstance().registerListener(this.a);
+                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
+                locationSocketRequestMessage.setLat(locationEvent.lat);
+                locationSocketRequestMessage.setLng(locationEvent.lng);
+                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
+            } else if (locationEvent.eventType == 1) {
+                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
+                locationSocketResponsedMessage.setError(locationEvent.errorCode);
+                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
+                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
+                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
+            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
+                cz9.a().d(locationEvent.locationData);
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
+            }
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,197 +1,178 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.tencent.open.SocialConstants;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class yra extends hxa {
+public class yra extends sra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-
-    /* loaded from: classes8.dex */
-    public static class a extends hxa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Map<String, Set<Object>> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readUTF();
-            HashMap hashMap = new HashMap();
-            int readInt = objectInput.readInt();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                String readUTF = objectInput.readUTF();
-                int readInt2 = objectInput.readInt();
-                HashSet hashSet = new HashSet();
-                for (int i5 = 0; i5 < readInt2; i5++) {
-                    try {
-                        hashSet.add(objectInput.readObject());
-                    } catch (ClassNotFoundException e) {
-                        LogPrinter.e(e);
-                    }
-                }
-                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
-            }
-            this.b = Collections.unmodifiableMap(hashMap);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject) {
-            super(1);
-            Map<String, Set<Object>> unmodifiableMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.getString("key");
-            JSONArray optJSONArray = jSONObject.optJSONArray("content");
-            if (optJSONArray == null) {
-                unmodifiableMap = Collections.emptyMap();
-            } else {
-                HashMap hashMap = new HashMap();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
-                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                    HashSet hashSet = new HashSet();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        hashSet.add(optJSONArray2.get(i4));
-                    }
-                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
-                }
-                unmodifiableMap = Collections.unmodifiableMap(hashMap);
-            }
-            this.b = unmodifiableMap;
-        }
-
-        @Override // com.baidu.tieba.hxa
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-                objectOutput.writeUTF(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
-                    Set<Object> value = entry.getValue();
-                    objectOutput.writeUTF(entry.getKey());
-                    objectOutput.writeInt(value.size());
-                    for (Object obj : value) {
-                        objectOutput.writeObject(obj);
-                    }
-                }
-            }
-        }
-    }
+    public xra B;
+    public Thread C;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yra(int i, ObjectInput objectInput) {
-        super(i);
+    public yra(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new a(objectInput.readInt(), objectInput));
-        }
-        this.a = Collections.unmodifiableSet(hashSet);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yra(JSONObject jSONObject) {
-        super(1);
-        Set<a> unmodifiableSet;
+    @Override // com.baidu.tieba.sra
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            M(j * 1000, true);
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
-        if (optJSONArray == null) {
-            unmodifiableSet = Collections.emptySet();
-        } else {
-            HashSet hashSet = new HashSet();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
-            }
-            unmodifiableSet = Collections.unmodifiableSet(hashSet);
-        }
-        this.a = unmodifiableSet;
     }
 
-    @Override // com.baidu.tieba.hxa
-    public void srzableInternal(ObjectOutput objectOutput) {
+    @Override // com.baidu.tieba.sra
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (a aVar : this.a) {
-                aVar.srzable(objectOutput);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.C;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.C = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public final void K() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i = 4;
+            } else {
+                i();
+                i = 12;
+            }
+            int i2 = this.q;
+            if (i2 != 1 && i2 != 2) {
+                this.q = 2;
+            }
+            this.B = new xra(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
+        }
+    }
+
+    public boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            xra xraVar = this.B;
+            return xraVar != null && xraVar.getState() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            if (this.e != null && j > this.e.getDuration()) {
+                j = this.e.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.B.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
+                }
+                synchronized (this.b) {
+                    if (L()) {
+                        this.B.flush();
+                    }
+                    this.d = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.c) {
+                if (this.e != null) {
+                    this.e.seek(j);
+                }
             }
         }
+    }
+
+    public void N(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            synchronized (this.b) {
+                if (L()) {
+                    this.B.setStereoVolume(f, f2);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sra
+    public wra p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            K();
+            return this.B;
+        }
+        return (wra) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sra
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 2) {
+                    this.B.pause();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sra
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 3) {
+                    this.B.play();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sra
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+            return;
+        }
+        this.C = null;
     }
 }

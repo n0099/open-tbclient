@@ -1,64 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public abstract class eab<E> extends gab<E> {
+public class eab {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> consumerNode;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729027, "Lcom/baidu/tieba/eab;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
+            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
+                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(u9b.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729027, "Lcom/baidu/tieba/eab;");
-                return;
-            }
+            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        b = ibb.a(eab.class, "consumerNode");
+        return (SecretKey) invokeCommon.objValue;
     }
 
-    public eab() {
+    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
+            if (secretKey == null || bArr == null) {
+                throw new NullPointerException("key or cipherText must not be null.");
             }
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
+            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
+    public static byte[] c(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) ibb.a.f(this, b);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
+            if (bArr != null) {
+                for (int i2 = 0; i2 < bArr.length; i2++) {
+                    if (i < 0) {
+                        bArr[i2] = (byte) (bArr[i2] << (-i));
+                    } else {
+                        bArr[i2] = (byte) (bArr[i2] >> i);
+                    }
+                }
+                return bArr;
+            }
+            throw new NullPointerException("bytes must not be null.");
         }
-        return (LinkedQueueNode) invokeV.objValue;
+        return (byte[]) invokeLI.objValue;
     }
 
-    public final void d(LinkedQueueNode<E> linkedQueueNode) {
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.consumerNode = linkedQueueNode;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                throw new NullPointerException("left or right must not be null.");
+            }
+            if (bArr.length == bArr2.length) {
+                byte[] bArr3 = new byte[bArr.length];
+                for (int i = 0; i < bArr.length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+                }
+                return bArr3;
+            }
+            throw new IllegalArgumentException("left and right must be the same length.");
         }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
+            c(bArr, -4);
+            byte[] d = d(bArr, bArr2);
+            c(d, 6);
+            return d(d, bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

@@ -103,7 +103,9 @@ public class FeedbackEditActivity extends Activity {
     public ListView Q;
     public RelativeLayout R;
     public TextView S;
-    public SpannableString T;
+
+    /* renamed from: T  reason: collision with root package name */
+    public SpannableString f1194T;
     public ClickableSpan U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -476,7 +478,7 @@ public class FeedbackEditActivity extends Activity {
                 TextView textView8 = new TextView(this);
                 SpannableString spannableString2 = new SpannableString("允许第三方网站使用您的反馈资料,《相关说明》");
                 spannableString2.setSpan(this.U, 16, spannableString2.length(), 33);
-                this.T = spannableString2;
+                this.f1194T = spannableString2;
                 textView8.setText(spannableString2);
                 textView8.setTextSize(14.0f);
                 textView8.setTextColor(this.d ? -10066330 : -6710887);
@@ -834,7 +836,7 @@ public class FeedbackEditActivity extends Activity {
                     if (this.a.C != null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("result", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                            jSONObject2.put("result", "fail");
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -1458,11 +1460,11 @@ public class FeedbackEditActivity extends Activity {
                 FeedbackManager.getInstance(this).setFeedbackCallback(null);
                 this.C = null;
             }
-            SpannableString spannableString = this.T;
+            SpannableString spannableString = this.f1194T;
             if (spannableString != null) {
                 spannableString.removeSpan(this.U);
                 this.U = null;
-                this.T = null;
+                this.f1194T = null;
             }
             super.onDestroy();
         }

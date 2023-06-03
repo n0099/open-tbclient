@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.kwai.filedownloader.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class b implements com.kwai.filedownloader.d.a {
     public final RandomAccessFile awI;
     public final FileDescriptor fd;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

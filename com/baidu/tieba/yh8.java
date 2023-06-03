@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.widget.ListView;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes8.dex */
 public interface yh8 {
-    void setUniqueId(BdUniqueId bdUniqueId);
+    boolean a(ChatMessage... chatMessageArr);
+
+    void b(ListView listView, ChatMessage... chatMessageArr);
 }

@@ -1,62 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fm6 implements j37 {
+public class fm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.tieba.j37
-    public String getKey() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13565" : (String) invokeV.objValue;
-    }
-
-    public fm6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            HybridLog.getInstance().a(str, str2);
         }
-        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.j37
-    public Map<String, String> a(vz6 businessInfo) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            businessInfo.a();
-            hashMap.put("obj_source", this.a);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HybridLog.getInstance().b(str, str2);
         }
-        return (Map) invokeL.objValue;
     }
 
-    public final void b(String str) {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            HybridLog.getInstance().c(str, str2);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            HybridLog.getInstance().d(str, str2);
         }
     }
 }

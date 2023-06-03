@@ -1,6 +1,5 @@
 package com.baidu.ar.h;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -30,7 +29,7 @@ public class l {
     public static synchronized String aT(String str) {
         String h;
         synchronized (l.class) {
-            h = h(str.getBytes(Charset.forName(IMAudioTransRequest.CHARSET)));
+            h = h(str.getBytes(Charset.forName("utf-8")));
         }
         return h;
     }

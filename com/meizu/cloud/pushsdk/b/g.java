@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g extends h<f> implements f {
     public static g a;
     public boolean b;

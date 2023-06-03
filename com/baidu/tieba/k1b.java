@@ -1,78 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.PidLoaderSession;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class k1b {
+public class k1b implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ j1b c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ h1b.b f;
+    public final /* synthetic */ TTNativeExpressAd g;
+    public final /* synthetic */ h1b h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861645, "Lcom/baidu/tieba/k1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861645, "Lcom/baidu/tieba/k1b;");
+    public k1b(h1b h1bVar, j1b j1bVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, h1b.b bVar, TTNativeExpressAd tTNativeExpressAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h1bVar, j1bVar, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
+        this.h = h1bVar;
+        this.c = j1bVar;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
+        this.f = bVar;
+        this.g = tTNativeExpressAd;
     }
 
-    public static byte[] a(char[] cArr) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if ((cArr.length & 1) == 0) {
-                byte[] bArr = new byte[cArr.length >> 1];
-                int i = 0;
-                int i2 = 0;
-                while (i < cArr.length) {
-                    int digit = Character.digit(cArr[i], 16);
-                    if (digit == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
-                    }
-                    int i3 = i + 1;
-                    int digit2 = Character.digit(cArr[i3], 16);
-                    if (digit2 == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
-                    }
-                    i = i3 + 1;
-                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
-                    i2++;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdClicked((h1b) this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdShow((h1b) this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.d();
+            h1b.b bVar = this.f;
+            j1b j1bVar = this.c;
+            if (!bVar.d) {
+                int i2 = bVar.a + 1;
+                bVar.a = i2;
+                if (i2 == bVar.b) {
+                    bVar.e.onAdError(j1bVar, i, str);
                 }
-                return bArr;
             }
-            throw new IllegalArgumentException("Odd number of characters.");
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        boolean z;
+        PidLoaderSession<j1b> session;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b >> 4) & 15]);
-                sb.append(a[b & 15]);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.g.setCanInterruptVideoPlay(true);
+            this.h.g.put(this.c, this.d);
+            h1b.b bVar = this.f;
+            j1b j1bVar = this.c;
+            if (!bVar.d) {
+                bVar.e.onAdLoaded(j1bVar, new String[0]);
+                bVar.d = true;
+                session = bVar.e.getSession(j1bVar);
+                bVar.c = session;
+                return;
             }
-            return sb.toString();
+            PidLoaderSession<j1b> pidLoaderSession = bVar.c;
+            if (pidLoaderSession != null) {
+                z = bVar.e.isSupportCaching;
+                pidLoaderSession.cacheOrDestroy(j1bVar, z);
+            }
         }
-        return (String) invokeL.objValue;
     }
 }

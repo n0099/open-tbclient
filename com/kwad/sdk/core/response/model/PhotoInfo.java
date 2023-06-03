@@ -8,7 +8,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4483350806354759008L;
     public String mOriginJString;
@@ -16,7 +16,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     public VideoInfo videoInfo = new VideoInfo();
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
@@ -36,7 +36,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     }
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1395696168725754442L;
         public long duration;

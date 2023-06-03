@@ -55,7 +55,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m236a(String str) {
+    public static byte[] m291a(String str) {
         return a(str.toCharArray());
     }
 
@@ -179,6 +179,6 @@ public class bl {
     }
 
     public static String b(String str) {
-        return new String(m236a(str));
+        return new String(m291a(str));
     }
 }

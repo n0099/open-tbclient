@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes10.dex */
 public class J0 implements ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +31,7 @@ public class J0 implements ViewTreeObserver.OnTouchModeChangeListener {
     public void onTouchModeChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onTouchModeChanged:" + z);
+            Log.e("register", "onTouchModeChanged:" + z);
         }
     }
 }

@@ -1,5 +1,5 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class IncompleteHandshakeException extends RuntimeException {
     public static final long serialVersionUID = 7906596804233893092L;
     public int preferedSize;

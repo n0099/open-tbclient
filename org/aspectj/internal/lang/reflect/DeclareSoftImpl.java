@@ -5,7 +5,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.DeclareSoft;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class DeclareSoftImpl implements DeclareSoft {
     public AjType<?> declaringType;
     public AjType<?> exceptionType;

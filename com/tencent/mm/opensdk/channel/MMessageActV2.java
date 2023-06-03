@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.tencent.mm.opensdk.channel.a.b;
 import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
@@ -56,7 +57,7 @@ public class MMessageActV2 {
             intent.putExtra(ConstantsAPI.TOKEN, args.token);
             int i = args.flags;
             if (i == -1) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS).addFlags(134217728);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS).addFlags(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             } else {
                 intent.setFlags(i);
             }

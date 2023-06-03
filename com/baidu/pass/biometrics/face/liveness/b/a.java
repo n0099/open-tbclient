@@ -8,12 +8,15 @@ import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.LiveStatService;
 import com.baidu.pass.biometrics.base.utils.NetworkUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     public static final String S = "a";
-    public static final String T = "living_recog";
+
+    /* renamed from: T  reason: collision with root package name */
+    public static final String f1052T = "living_recog";
     public static final int U = 1;
     public static final int V = 0;
     public static final int W = -1;
@@ -188,7 +191,7 @@ public class a {
         hashMap.put("recog_type", this.a);
         hashMap.put("guide_liveness", this.o + "");
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
         int i = displayMetrics.heightPixels;
         int i2 = displayMetrics.widthPixels;
         hashMap.put("screen_size", i2 + "," + i);

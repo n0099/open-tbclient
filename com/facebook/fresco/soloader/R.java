@@ -1,4 +1,4 @@
 package com.facebook.fresco.soloader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class R {
 }

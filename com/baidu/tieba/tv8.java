@@ -1,58 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.wx4;
+import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
+import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
+import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class tv8 {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class tv8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BaseActivity b;
-    public uv8 c;
-    public BdAsyncTask<?, ?, ?> d;
-    public vv8 e;
-    public String f;
-    public View.OnClickListener g;
-    public final wx4.a h;
+    public List<MemberPayResult.VipPayPrivilegeData> a;
+    public LayoutInflater b;
+    public Context c;
+    public b d;
 
-    public abstract void j(vv8 vv8Var);
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(String str);
+    }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tv8 a;
+        public final /* synthetic */ MemberPayResult.VipPayPrivilegeData a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ zq8 c;
+        public final /* synthetic */ tv8 d;
 
-        public a(tv8 tv8Var) {
+        public a(tv8 tv8Var, MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar, zq8 zq8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tv8Var};
+                Object[] objArr = {tv8Var, vipPayPrivilegeData, cVar, zq8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,31 +65,59 @@ public abstract class tv8 {
                     return;
                 }
             }
-            this.a = tv8Var;
+            this.d = tv8Var;
+            this.a = vipPayPrivilegeData;
+            this.b = cVar;
+            this.c = zq8Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.n(view2);
+                String str = this.a.mLinkUrl;
+                if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                    qx4.s(this.d.b.getContext(), str);
+                } else {
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleGroupActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
+                        MemberCenterStatic.a((TbPageContext) q9.a(this.d.c), new String[]{str});
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.d.c)));
+                    }
+                }
+                if (this.d.d != null) {
+                    this.d.d.a(this.a.mEquityId);
+                }
+                if (!TextUtils.equals("click", this.a.getDynamicDisappear())) {
+                    return;
+                }
+                this.d.e(this.b.d, this.c);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends WebAuthListener {
+    /* loaded from: classes8.dex */
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
-        public final /* synthetic */ tv8 b;
+        public TbImageView a;
+        public TextView b;
+        public RelativeLayout c;
+        public final TextView d;
 
-        public b(tv8 tv8Var, SocialType socialType) {
+        public c(tv8 tv8Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tv8Var, socialType};
+                Object[] objArr = {tv8Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,131 +127,19 @@ public abstract class tv8 {
                     return;
                 }
             }
-            this.b = tv8Var;
-            this.a = socialType;
-        }
-
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.l();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f159e), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), this.b.f, this.a.name().toLowerCase());
-            }
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e5);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e9);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e8);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e7);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements wx4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tv8 a;
-
-        public c(tv8 tv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tv8Var;
-        }
-
-        @Override // com.baidu.tieba.wx4.a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.l();
-            }
-        }
-
-        @Override // com.baidu.tieba.wx4.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.e(accountData);
-            }
-        }
-
-        @Override // com.baidu.tieba.wx4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.b.showToast(str2);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public d(tv8 tv8Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tv8Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ux4.g(this.a);
-                d65.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
-            }
-        }
-    }
-
-    public tv8(TbPageContext tbPageContext, uv8 uv8Var, String str) {
+    public tv8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, uv8Var, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -230,153 +149,130 @@ public abstract class tv8 {
                 return;
             }
         }
-        this.g = new a(this);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() instanceof BaseActivity) {
-            this.b = (BaseActivity) tbPageContext.getPageActivity();
-        }
-        this.c = uv8Var;
-        this.f = str;
-        uv8Var.d(this.g);
+        this.b = LayoutInflater.from(context);
+        this.c = context;
     }
 
-    public void c(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: f */
+    public MemberPayResult.VipPayPrivilegeData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.setResult(i, new Intent());
-            this.b.finish();
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c.b(z);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c.e(z);
-        }
-    }
-
-    public final void m(SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new LoginActivityConfig(this.b, true, 25061).start();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m(SocialType.QQ_SSO);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            m(SocialType.WEIXIN);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            m(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            m(SocialType.YY);
-        }
-    }
-
-    public final void e(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            h(accountData);
-            d65.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-            TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
-            c(-1);
-            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (session != null) {
-                BdAsyncTask<?, ?, ?> bdAsyncTask = this.d;
-                if (bdAsyncTask != null) {
-                    bdAsyncTask.cancel();
-                }
-                this.d = wx4.b().a(session.username, session.bduss, "", null, this.h);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return null;
             }
-            this.b.closeLoadingDialog();
-            c(0);
+            return list.get(i);
+        }
+        return (MemberPayResult.VipPayPrivilegeData) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
+        }
+        return invokeI.longValue;
+    }
+
+    public void h(List<MemberPayResult.VipPayPrivilegeData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void l() {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b.getLoadingDialog() != null && this.b.getLoadingDialog().c()) {
-                return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void e(View view2, zq8 zq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, zq8Var) == null) {
+            if (view2 != null) {
+                view2.setVisibility(8);
             }
-            this.b.showLoadingDialog(this.a.getString(R.string.sapi_logining));
-            if (this.b.getLoadingDialog() != null) {
-                this.b.getLoadingDialog().f(false);
-                this.b.getLoadingDialog().g(false);
+            if (zq8Var != null) {
+                zq8Var.i();
             }
         }
     }
 
-    public final void h(AccountData accountData) {
+    public final void g(MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar) {
+        zq8 zq8Var;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            vg.a().c(new d(this, accountData));
-            d65.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
-            yu4.j(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vipPayPrivilegeData, cVar) != null) || vipPayPrivilegeData == null) {
+            return;
         }
+        cVar.b.setText(vipPayPrivilegeData.mTitle);
+        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
+        yq8 yq8Var = null;
+        if (TextUtils.equals("click", vipPayPrivilegeData.getDynamicDisappear())) {
+            zq8 zq8Var2 = new zq8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            yq8 yq8Var2 = new yq8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            z = zq8Var2.g(yq8Var2.f(vipPayPrivilegeData.getDynamicText()));
+            yq8Var = yq8Var2;
+            zq8Var = zq8Var2;
+        } else {
+            zq8Var = null;
+            z = false;
+        }
+        if (!TextUtils.isEmpty(vipPayPrivilegeData.getDynamicText()) && !z) {
+            cVar.d.setText(vipPayPrivilegeData.getDynamicText());
+            if (yq8Var != null) {
+                yq8Var.update(vipPayPrivilegeData.getDynamicText());
+            }
+            cVar.d.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            m75 d = m75.d(cVar.d);
+            d.m(R.dimen.tbds3);
+            d.l(R.color.CAM_X0402);
+            d.o(R.string.J_X01);
+            d.h(vipPayPrivilegeData.getDynamicColor());
+            cVar.d.setVisibility(0);
+        } else {
+            cVar.d.setVisibility(8);
+        }
+        cVar.a.N(vipPayPrivilegeData.mIconUrl, 10, false);
+        cVar.c.setOnClickListener(new a(this, vipPayPrivilegeData, cVar, zq8Var));
     }
 
-    public void n(View view2) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0904a6) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.btn_skip) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d14) {
-                g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092900) {
-                o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092903) {
-                p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092984) {
-                q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091733) {
-                d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return 0;
             }
+            return list.size();
         }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) null);
+                view2.setTag(new c(this, view2));
+            }
+            g(getItem(i), (c) view2.getTag());
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

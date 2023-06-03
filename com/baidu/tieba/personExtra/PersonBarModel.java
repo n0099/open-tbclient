@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.c25;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.k89;
-import com.baidu.tieba.se;
+import com.baidu.tieba.k9;
+import com.baidu.tieba.qe9;
+import com.baidu.tieba.we;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public k89 a;
+    public qe9 a;
     public boolean b;
     public String c;
     public int d;
@@ -93,23 +93,23 @@ public class PersonBarModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new k89();
+        this.a = new qe9();
         this.b = z;
     }
 
-    public k89 U() {
+    public qe9 U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (k89) invokeV.objValue;
+        return (qe9) invokeV.objValue;
     }
 
     public boolean V() {
@@ -166,8 +166,8 @@ public class PersonBarModel extends BdBaseModel {
         }
         if (str != null) {
             try {
-                c25.d();
-                se<String> e2 = c25.e("tb.my_pages");
+                z45.d();
+                we<String> e2 = z45.e("tb.my_pages");
                 if (e2 != null) {
                     e2.e(str2, str, 604800000L);
                 }

@@ -1,50 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.RecoverableSecurityException;
+import android.content.Context;
 import android.net.Uri;
-import android.os.Bundle;
-import android.os.CancellationSignal;
+import android.os.ParcelFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.FileNotFoundException;
+@SuppressLint({"NewApi"})
+@Deprecated
 /* loaded from: classes8.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
-    public String b;
-    public String c;
-    public Bundle d;
-    public String e;
-    public String[] f;
-    public ContentValues g;
-    public CancellationSignal h;
-    public w i;
-    public long j;
 
-    public x() {
+    @TargetApi(29)
+    public static ParcelFileDescriptor a(Context context, Uri uri, String str, y yVar) throws FileNotFoundException {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, uri, str, yVar)) == null) {
+            try {
+                return context.getContentResolver().openFileDescriptor(uri, str);
+            } catch (RecoverableSecurityException e) {
+                b0.b().h(context, e.getUserAction().getActionIntent().getIntentSender(), uri, str, null, yVar, 3);
+                return null;
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "RequestInfo{uri=" + this.a + ", fileOpenMode='" + this.b + "', mimeType='" + this.c + "', opts=" + this.d + ", where='" + this.e + "', selectionArgs=" + Arrays.toString(this.f) + ", values=" + this.g + ", cancellationSignal=" + this.h + ", requestCallback=" + this.i + ", timeStamp=" + this.j + '}';
-        }
-        return (String) invokeV.objValue;
+        return (ParcelFileDescriptor) invokeLLLL.objValue;
     }
 }

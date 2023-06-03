@@ -7,7 +7,6 @@ import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
-import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
@@ -16,32 +15,14 @@ import kotlin.internal.LowPriorityInOverloadResolution;
 import kotlin.jvm.functions.Function1;
 import kotlinx.coroutines.AbstractCoroutine;
 import kotlinx.coroutines.ExperimentalCoroutinesApi;
-import kotlinx.coroutines.InternalCoroutinesApi;
 import kotlinx.coroutines.JobCancellationException;
 import kotlinx.coroutines.JobSupport;
-import kotlinx.coroutines.ObsoleteCoroutinesApi;
 import kotlinx.coroutines.selects.SelectClause1;
 import kotlinx.coroutines.selects.SelectClause2;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u0003B%\u0012\u0006\u0010@\u001a\u00020?\u0012\f\u0010'\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\u0012\u0006\u0010A\u001a\u00020\t¢\u0006\u0004\bB\u0010CJ\u000f\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0019\u0010\u0005\u001a\u00020\t2\b\u0010\b\u001a\u0004\u0018\u00010\u0007H\u0007¢\u0006\u0004\b\u0005\u0010\nJ\u001d\u0010\u0005\u001a\u00020\u00042\u000e\u0010\b\u001a\n\u0018\u00010\u000bj\u0004\u0018\u0001`\f¢\u0006\u0004\b\u0005\u0010\rJ\u0017\u0010\u000e\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u001a\u0010\u0010\u001a\u00020\t2\b\u0010\b\u001a\u0004\u0018\u00010\u0007H\u0096\u0001¢\u0006\u0004\b\u0010\u0010\nJ5\u0010\u0015\u001a\u00020\u00042#\u0010\u0014\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u0007¢\u0006\f\b\u0012\u0012\b\b\u0013\u0012\u0004\b\b(\b\u0012\u0004\u0012\u00020\u00040\u0011H\u0097\u0001¢\u0006\u0004\b\u0015\u0010\u0016J\u0016\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00000\u0017H\u0096\u0003¢\u0006\u0004\b\u0018\u0010\u0019J\u0018\u0010\u001b\u001a\u00020\t2\u0006\u0010\u001a\u001a\u00028\u0000H\u0096\u0001¢\u0006\u0004\b\u001b\u0010\u001cJ\u0012\u0010\u001d\u001a\u0004\u0018\u00018\u0000H\u0096\u0001¢\u0006\u0004\b\u001d\u0010\u001eJ\u0013\u0010\u001f\u001a\u00028\u0000H\u0096Aø\u0001\u0000¢\u0006\u0004\b\u001f\u0010 J\u001c\u0010\"\u001a\b\u0012\u0004\u0012\u00028\u00000!H\u0097Aø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\"\u0010 J\u0015\u0010#\u001a\u0004\u0018\u00018\u0000H\u0097Aø\u0001\u0000¢\u0006\u0004\b#\u0010 J\u001b\u0010$\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00028\u0000H\u0096Aø\u0001\u0000¢\u0006\u0004\b$\u0010%J\u001b\u0010&\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00028\u0000H\u0086@ø\u0001\u0000¢\u0006\u0004\b&\u0010%R\"\u0010'\u001a\b\u0012\u0004\u0012\u00028\u00000\u00028\u0004@\u0004X\u0084\u0004¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0019\u0010,\u001a\b\u0012\u0004\u0012\u00028\u00000\u00028F@\u0006¢\u0006\u0006\u001a\u0004\b+\u0010*R\u0016\u0010-\u001a\u00020\t8\u0016@\u0017X\u0097\u0005¢\u0006\u0006\u001a\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\t8\u0016@\u0017X\u0097\u0005¢\u0006\u0006\u001a\u0004\b/\u0010.R\u0016\u00100\u001a\u00020\t8\u0016@\u0017X\u0097\u0005¢\u0006\u0006\u001a\u0004\b0\u0010.R\u0016\u00101\u001a\u00020\t8\u0016@\u0017X\u0097\u0005¢\u0006\u0006\u001a\u0004\b1\u0010.R\u001c\u00105\u001a\b\u0012\u0004\u0012\u00028\u0000028\u0016@\u0016X\u0096\u0005¢\u0006\u0006\u001a\u0004\b3\u00104R%\u00107\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000!028\u0016@\u0017X\u0097\u0005ø\u0001\u0000¢\u0006\u0006\u001a\u0004\b6\u00104R\u001e\u00109\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u0000028\u0016@\u0017X\u0097\u0005¢\u0006\u0006\u001a\u0004\b8\u00104R(\u0010>\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000;0:8\u0016@\u0016X\u0096\u0005¢\u0006\u0006\u001a\u0004\b<\u0010=\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006D"}, d2 = {"Lkotlinx/coroutines/channels/ChannelCoroutine;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/Channel;", "Lkotlinx/coroutines/AbstractCoroutine;", "", "cancel", "()V", "", "cause", "", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "(Ljava/util/concurrent/CancellationException;)V", "cancelInternal", "(Ljava/lang/Throwable;)V", "close", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "handler", "invokeOnClose", "(Lkotlin/Function1;)V", "Lkotlinx/coroutines/channels/ChannelIterator;", "iterator", "()Lkotlinx/coroutines/channels/ChannelIterator;", "element", "offer", "(Ljava/lang/Object;)Z", "poll", "()Ljava/lang/Object;", StatConstants.VALUE_TYPE_RECEIVE, "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ValueOrClosed;", "receiveOrClosed", "receiveOrNull", "send", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "sendFair", "_channel", "Lkotlinx/coroutines/channels/Channel;", "get_channel", "()Lkotlinx/coroutines/channels/Channel;", "getChannel", "channel", "isClosedForReceive", "()Z", "isClosedForSend", "isEmpty", "isFull", "Lkotlinx/coroutines/selects/SelectClause1;", "getOnReceive", "()Lkotlinx/coroutines/selects/SelectClause1;", "onReceive", "getOnReceiveOrClosed", "onReceiveOrClosed", "getOnReceiveOrNull", "onReceiveOrNull", "Lkotlinx/coroutines/selects/SelectClause2;", "Lkotlinx/coroutines/channels/SendChannel;", "getOnSend", "()Lkotlinx/coroutines/selects/SelectClause2;", "onSend", "Lkotlin/coroutines/CoroutineContext;", "parentContext", "active", "<init>", "(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;Z)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0012\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u00020\u00030\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0004B+\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\t¢\u0006\u0002\u0010\u000bJ\b\u0010\"\u001a\u00020\u0003H\u0016J\u0012\u0010\"\u001a\u00020\t2\b\u0010#\u001a\u0004\u0018\u00010$H\u0007J\u0016\u0010\"\u001a\u00020\u00032\u000e\u0010#\u001a\n\u0018\u00010%j\u0004\u0018\u0001`&J\u0010\u0010'\u001a\u00020\u00032\u0006\u0010#\u001a\u00020$H\u0016J\u0013\u0010(\u001a\u00020\t2\b\u0010#\u001a\u0004\u0018\u00010$H\u0096\u0001J.\u0010)\u001a\u00020\u00032#\u0010*\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010$¢\u0006\f\b,\u0012\b\b-\u0012\u0004\b\b(#\u0012\u0004\u0012\u00020\u00030+H\u0097\u0001J\u000f\u0010.\u001a\b\u0012\u0004\u0012\u00028\u00000/H\u0096\u0003J\u0016\u00100\u001a\u00020\t2\u0006\u00101\u001a\u00028\u0000H\u0097\u0001¢\u0006\u0002\u00102J\u0010\u00103\u001a\u0004\u0018\u00018\u0000H\u0097\u0001¢\u0006\u0002\u00104J\u0011\u00105\u001a\u00028\u0000H\u0096Aø\u0001\u0000¢\u0006\u0002\u00106J\"\u00107\u001a\b\u0012\u0004\u0012\u00028\u00000\u0019H\u0096Aø\u0001\u0000ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b8\u00106J\u0013\u00109\u001a\u0004\u0018\u00018\u0000H\u0097Aø\u0001\u0000¢\u0006\u0002\u00106J\u0019\u0010:\u001a\u00020\u00032\u0006\u00101\u001a\u00028\u0000H\u0096Aø\u0001\u0000¢\u0006\u0002\u0010;J\u001f\u0010<\u001a\b\u0012\u0004\u0012\u00028\u00000\u0019H\u0096\u0001ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b=\u00104J'\u0010>\u001a\b\u0012\u0004\u0012\u00020\u00030\u00192\u0006\u00101\u001a\u00028\u0000H\u0096\u0001ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\b?\u0010@R\u001a\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004X\u0084\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0017\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00000\u00048F¢\u0006\u0006\u001a\u0004\b\u000f\u0010\rR\u0014\u0010\u0010\u001a\u00020\t8\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u0010\u0010\u0011R\u0014\u0010\u0012\u001a\u00020\t8\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u0011R\u0014\u0010\u0013\u001a\u00020\t8\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u0013\u0010\u0011R\u0018\u0010\u0014\u001a\b\u0012\u0004\u0012\u00028\u00000\u0015X\u0096\u0005¢\u0006\u0006\u001a\u0004\b\u0016\u0010\u0017R!\u0010\u0018\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00190\u0015X\u0096\u0005ø\u0001\u0000¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u0017R\u001c\u0010\u001b\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u00158VX\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u001c\u0010\u0017R$\u0010\u001d\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u001f0\u001eX\u0096\u0005¢\u0006\u0006\u001a\u0004\b \u0010!\u0082\u0002\u000f\n\u0002\b\u0019\n\u0002\b!\n\u0005\b¡\u001e0\u0001¨\u0006A"}, d2 = {"Lkotlinx/coroutines/channels/ChannelCoroutine;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/AbstractCoroutine;", "", "Lkotlinx/coroutines/channels/Channel;", "parentContext", "Lkotlin/coroutines/CoroutineContext;", "_channel", "initParentJob", "", "active", "(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/Channel;ZZ)V", "get_channel", "()Lkotlinx/coroutines/channels/Channel;", "channel", "getChannel", "isClosedForReceive", "()Z", "isClosedForSend", "isEmpty", "onReceive", "Lkotlinx/coroutines/selects/SelectClause1;", "getOnReceive", "()Lkotlinx/coroutines/selects/SelectClause1;", "onReceiveCatching", "Lkotlinx/coroutines/channels/ChannelResult;", "getOnReceiveCatching", "onReceiveOrNull", "getOnReceiveOrNull", "onSend", "Lkotlinx/coroutines/selects/SelectClause2;", "Lkotlinx/coroutines/channels/SendChannel;", "getOnSend", "()Lkotlinx/coroutines/selects/SelectClause2;", "cancel", "cause", "", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "cancelInternal", "close", "invokeOnClose", "handler", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "iterator", "Lkotlinx/coroutines/channels/ChannelIterator;", "offer", "element", "(Ljava/lang/Object;)Z", "poll", "()Ljava/lang/Object;", StatConstants.VALUE_TYPE_RECEIVE, "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "receiveCatching", "receiveCatching-JP2dKIU", "receiveOrNull", "send", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "tryReceive", "tryReceive-PtdJZtk", "trySend", "trySend-JP2dKIU", "(Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Channel<E> {
     public final Channel<E> _channel;
-
-    public static /* synthetic */ Object receive$suspendImpl(ChannelCoroutine channelCoroutine, Continuation continuation) {
-        return channelCoroutine._channel.receive(continuation);
-    }
-
-    public static /* synthetic */ Object receiveOrClosed$suspendImpl(ChannelCoroutine channelCoroutine, Continuation continuation) {
-        return channelCoroutine._channel.receiveOrClosed(continuation);
-    }
-
-    public static /* synthetic */ Object receiveOrNull$suspendImpl(ChannelCoroutine channelCoroutine, Continuation continuation) {
-        return channelCoroutine._channel.receiveOrNull(continuation);
-    }
-
-    public static /* synthetic */ Object send$suspendImpl(ChannelCoroutine channelCoroutine, Object obj, Continuation continuation) {
-        return channelCoroutine._channel.send(obj, continuation);
-    }
 
     @Override // kotlinx.coroutines.channels.SendChannel
     public boolean close(Throwable th) {
@@ -58,8 +39,8 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
-    public SelectClause1<ValueOrClosed<E>> getOnReceiveOrClosed() {
-        return this._channel.getOnReceiveOrClosed();
+    public SelectClause1<ChannelResult<E>> getOnReceiveCatching() {
+        return this._channel.getOnReceiveCatching();
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
@@ -75,8 +56,8 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
     @Override // kotlinx.coroutines.channels.SendChannel
     @ExperimentalCoroutinesApi
     /* renamed from: invokeOnClose */
-    public void mo2261invokeOnClose(Function1<? super Throwable, Unit> function1) {
-        this._channel.mo2261invokeOnClose(function1);
+    public void mo2352invokeOnClose(Function1<? super Throwable, Unit> function1) {
+        this._channel.mo2352invokeOnClose(function1);
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
@@ -94,52 +75,62 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
         return this._channel.isEmpty();
     }
 
-    @Override // kotlinx.coroutines.channels.SendChannel
-    public boolean isFull() {
-        return this._channel.isFull();
-    }
-
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     public ChannelIterator<E> iterator() {
         return this._channel.iterator();
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'trySend' method", replaceWith = @ReplaceWith(expression = "trySend(element).isSuccess", imports = {}))
     public boolean offer(E e) {
         return this._channel.offer(e);
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'tryReceive'. Please note that the provided replacement does not rethrow channel's close cause as 'poll' did, for the precise replacement please refer to the 'poll' documentation", replaceWith = @ReplaceWith(expression = "tryReceive().getOrNull()", imports = {}))
     public E poll() {
         return this._channel.poll();
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     public Object receive(Continuation<? super E> continuation) {
-        return receive$suspendImpl(this, continuation);
+        return this._channel.receive(continuation);
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
-    @InternalCoroutinesApi
-    public Object receiveOrClosed(Continuation<? super ValueOrClosed<? extends E>> continuation) {
-        return receiveOrClosed$suspendImpl(this, continuation);
+    /* renamed from: receiveCatching-JP2dKIU */
+    public Object mo2291receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
+        Object mo2291receiveCatchingJP2dKIU = this._channel.mo2291receiveCatchingJP2dKIU(continuation);
+        IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        return mo2291receiveCatchingJP2dKIU;
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Deprecated in favor of receiveOrClosed and receiveOrNull extension", replaceWith = @ReplaceWith(expression = "receiveOrNull", imports = {"kotlinx.coroutines.channels.receiveOrNull"}))
+    @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in favor of 'receiveCatching'. Please note that the provided replacement does not rethrow channel's close cause as 'receiveOrNull' did, for the detailed replacement please refer to the 'receiveOrNull' documentation", replaceWith = @ReplaceWith(expression = "receiveCatching().getOrNull()", imports = {}))
     @LowPriorityInOverloadResolution
-    @ObsoleteCoroutinesApi
     public Object receiveOrNull(Continuation<? super E> continuation) {
-        return receiveOrNull$suspendImpl(this, continuation);
+        return this._channel.receiveOrNull(continuation);
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
     public Object send(E e, Continuation<? super Unit> continuation) {
-        return send$suspendImpl(this, e, continuation);
+        return this._channel.send(e, continuation);
     }
 
-    public ChannelCoroutine(CoroutineContext coroutineContext, Channel<E> channel, boolean z) {
-        super(coroutineContext, z);
+    @Override // kotlinx.coroutines.channels.ReceiveChannel
+    /* renamed from: tryReceive-PtdJZtk */
+    public Object mo2292tryReceivePtdJZtk() {
+        return this._channel.mo2292tryReceivePtdJZtk();
+    }
+
+    @Override // kotlinx.coroutines.channels.SendChannel
+    /* renamed from: trySend-JP2dKIU */
+    public Object mo2293trySendJP2dKIU(E e) {
+        return this._channel.mo2293trySendJP2dKIU(e);
+    }
+
+    public ChannelCoroutine(CoroutineContext coroutineContext, Channel<E> channel, boolean z, boolean z2) {
+        super(coroutineContext, z, z2);
         this._channel = channel;
     }
 
@@ -154,6 +145,9 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
 
     @Override // kotlinx.coroutines.JobSupport, kotlinx.coroutines.Job
     public final void cancel(CancellationException cancellationException) {
+        if (isCancelled()) {
+            return;
+        }
         if (cancellationException == null) {
             cancellationException = new JobCancellationException(cancellationExceptionMessage(), null, this);
         }
@@ -172,17 +166,5 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
     public final /* synthetic */ boolean cancel(Throwable th) {
         cancelInternal(new JobCancellationException(cancellationExceptionMessage(), null, this));
         return true;
-    }
-
-    public final Object sendFair(E e, Continuation<? super Unit> continuation) {
-        Channel<E> channel = this._channel;
-        if (channel != null) {
-            Object sendFair$kotlinx_coroutines_core = ((AbstractSendChannel) channel).sendFair$kotlinx_coroutines_core(e, continuation);
-            if (sendFair$kotlinx_coroutines_core == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                return sendFair$kotlinx_coroutines_core;
-            }
-            return Unit.INSTANCE;
-        }
-        throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.channels.AbstractSendChannel<E>");
     }
 }

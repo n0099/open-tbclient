@@ -19,7 +19,7 @@ import java.util.TreeSet;
 import org.apache.commons.codec.language.bm.Languages;
 import org.apache.commons.codec.language.bm.Rule;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PhoneticEngine {
     public static final Map<NameType, Set<String>> NAME_PREFIXES;
     public final boolean concat;
@@ -28,7 +28,7 @@ public class PhoneticEngine {
     public final RuleType ruleType;
 
     /* renamed from: org.apache.commons.codec.language.bm.PhoneticEngine$2  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$commons$codec$language$bm$NameType;
 
@@ -50,7 +50,7 @@ public class PhoneticEngine {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PhonemeBuilder {
         public final Set<Rule.Phoneme> phonemes;
 
@@ -99,7 +99,7 @@ public class PhoneticEngine {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class RulesApplication {
         public final List<Rule> finalRules;
         public boolean found;

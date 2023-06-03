@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds5;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.k26;
-import com.baidu.tieba.n26;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.f66;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.l66;
+import com.baidu.tieba.o66;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetAdFreeTimeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public HttpMessageListener b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,13 +65,13 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            k26 adIncentiveVideoTaskData;
+            l66 adIncentiveVideoTaskData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || ds5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || fw5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
                 return;
             }
-            long g = pg.g(adIncentiveVideoTaskData.a(), 0L) * 1000;
-            long g2 = pg.g(adIncentiveVideoTaskData.b(), 0L) * 1000;
+            long g = tg.g(adIncentiveVideoTaskData.a(), 0L) * 1000;
+            long g2 = tg.g(adIncentiveVideoTaskData.b(), 0L) * 1000;
             this.a.b0(g);
             this.a.X(g2);
             this.a.a0(g, g2);
@@ -139,7 +139,7 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_AD_FREE_TIME);
-            httpMessage.addParam("request_key", e26.i().k());
+            httpMessage.addParam("request_key", f66.i().k());
             sendMessage(httpMessage);
             return false;
         }
@@ -157,12 +157,12 @@ public class GetAdFreeTimeModel extends BdBaseModel {
     public final void a0(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            if (n26.K().P()) {
-                n26.K().M(j);
+            if (o66.K().P()) {
+                o66.K().M(j);
             } else if (j2 > 0) {
-                n26.K().a0(j2);
-                n26.K().T(j2);
-                n26.K().b0();
+                o66.K().a0(j2);
+                o66.K().T(j2);
+                o66.K().b0();
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_FLOAT_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }

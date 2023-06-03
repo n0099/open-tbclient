@@ -10,12 +10,12 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Collection;
 @SuppressLint({"BanTargetApiAnnotation"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
 
     @TargetApi(19)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public final Object mDelegate;
 

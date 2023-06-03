@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface k {
     void a(int i, @Nullable Context context, @Nullable DownloadModel downloadModel, String str, Drawable drawable, int i2);
 

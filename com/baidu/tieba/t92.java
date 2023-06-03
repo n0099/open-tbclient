@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t92 extends q92 {
+public class t92 implements a92 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
 
     public t92() {
         Interceptable interceptable = $ic;
@@ -26,30 +28,52 @@ public class t92 extends q92 {
         }
     }
 
-    public static t92 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public static void d() {
+        yb3 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            t92 t92Var = new t92();
-            t92Var.a = 1;
-            t92Var.b = str;
-            t92Var.c = 0L;
-            t92Var.d = bitmap;
-            return t92Var;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = yb3.M()) == null) {
+            return;
         }
-        return (t92) invokeLL.objValue;
+        ho3.j(M.getActivity());
+        System.exit(0);
     }
 
-    public static t92 b(String str, long j) {
-        InterceptResult invokeLJ;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            t92 t92Var = new t92();
-            t92Var.a = 1;
-            t92Var.b = str;
-            t92Var.c = j;
-            return t92Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (t92) invokeLJ.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a92
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return r92.e().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a92
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = xo3.i(bundle, "extraWSUrl");
+            b92.i(xo3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            b92.j(xo3.i(bundle, "slavePreload"));
+        }
+    }
+
+    @Override // com.baidu.tieba.a92
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", b92.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b92.a());
+        }
     }
 }

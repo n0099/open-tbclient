@@ -1,5 +1,5 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class IncompleteException extends Throwable {
     public static final long serialVersionUID = 7330519489840500997L;
     public int preferredSize;

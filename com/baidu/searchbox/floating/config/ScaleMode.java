@@ -1,11 +1,10 @@
 package com.baidu.searchbox.floating.config;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u0002\u001a\u00020\u0000H&¢\u0006\u0004\b\u0002\u0010\u0003J\u000f\u0010\u0004\u001a\u00020\u0000H&¢\u0006\u0004\b\u0004\u0010\u0003J+\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050\b2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u0005H&¢\u0006\u0004\b\t\u0010\nj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000f¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/floating/config/ScaleMode;", "Ljava/lang/Enum;", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Lcom/baidu/searchbox/floating/config/ScaleMode;", "pre", "", "x", "y", "Lkotlin/Pair;", "scale", "(II)Lkotlin/Pair;", "<init>", "(Ljava/lang/String;I)V", ExifInterface.LATITUDE_SOUTH, "M", "L", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0000H&J\b\u0010\u0004\u001a\u00020\u0000H&J$\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\u00070\u00062\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u0007H&j\u0002\b\nj\u0002\b\u000bj\u0002\b\f¨\u0006\r"}, d2 = {"Lcom/baidu/searchbox/floating/config/ScaleMode;", "", "(Ljava/lang/String;I)V", "next", "pre", "scale", "Lkotlin/Pair;", "", "x", "y", ExifInterface.LATITUDE_SOUTH, "M", "L", "floating-view_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public enum ScaleMode {
     S { // from class: com.baidu.searchbox.floating.config.ScaleMode.S
@@ -57,13 +56,13 @@ public enum ScaleMode {
         }
     };
 
+    /* synthetic */ ScaleMode(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
     public abstract ScaleMode next();
 
     public abstract ScaleMode pre();
 
     public abstract Pair<Integer, Integer> scale(int i, int i2);
-
-    /* synthetic */ ScaleMode(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
 }

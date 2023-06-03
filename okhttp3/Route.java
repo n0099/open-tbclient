@@ -3,7 +3,7 @@ package okhttp3;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Route {
     public final Address address;
     public final int addressIndex;

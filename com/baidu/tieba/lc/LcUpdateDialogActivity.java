@@ -32,8 +32,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.wq8;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -184,7 +184,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            a35.m("lcUpdateDialog");
+            x55.m("lcUpdateDialog");
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
             D1(bundle);
@@ -300,7 +300,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
             unregisterReceiver(this.p);
-            a35.s("lcUpdateDialog");
+            x55.s("lcUpdateDialog");
             super.onDestroy();
         }
     }
@@ -311,7 +311,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
             if (TbSingleton.getInstance().isSplashShowing()) {
-                zk8 defaultLog = DefaultLog.getInstance();
+                wq8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
                 finish();
             }

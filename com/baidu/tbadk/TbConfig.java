@@ -9,7 +9,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -18,8 +17,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ki;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -156,6 +156,7 @@ public class TbConfig {
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FRIEND_AND_STRANGER_MSG_SWITCH = "c/u/user/getMsgMask";
     public static final String GET_GIFT_LIST_BY_CATEGORY = "c/e/present/getGiftListByCategoryId";
+    public static final String GET_HOMEPAGE_REC_FORUM_INFO = "c/f/excellent/getBackRecommendForum";
     public static final String GET_HOT_FORUM_URL = "c/f/forum/hotforum";
     public static final String GET_IMAGE_WATERMARK_TYPE = "c/u/user/getWatermark";
     public static final String GET_IP_LIST = "c/s/getipinfo";
@@ -455,6 +456,7 @@ public class TbConfig {
     public static final String URL_GET_HOT_TOPIC_TAB = "c/f/forum/hotThreadList";
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_RECOMMEND_TOPIC = "c/f/recommend/getRecommendTopic";
+    public static final String URL_GET_SKILL_SUG_LIST = "c/f/chat/getSkillSugList";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
     public static final String URL_GET_TAB_TOPIC_LIST = "c/f/recommend/newtopiclist";
     public static final String URL_GET_TOKEN = "c/s/getToken";
@@ -1055,7 +1057,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(ri.l(context) * ri.j(context));
+        int sqrt = (int) Math.sqrt(vi.l(context) * vi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1300,7 +1302,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return ri.g(TbadkCoreApplication.getInst().getContext(), i);
+            return vi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1309,7 +1311,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = ri.d(context, 427.0f);
+            int d = vi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1397,12 +1399,12 @@ public class TbConfig {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (!UbsABTestHelper.isImageCacheOptimize()) {
-                return f2;
-            }
-            float d = pg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = tg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
-                return d;
+                f2 = d;
+            }
+            if (!ki.a()) {
+                return f2 * 0.5f;
             }
             return f2;
         }

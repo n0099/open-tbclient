@@ -1,170 +1,296 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.tieba.qi3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m54 extends oc2 {
+public class m54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.oc2
-    public int U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public interface d {
+        void onFail(String str);
+
+        void onSuccess(Object obj);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923645, "Lcom/baidu/tieba/m54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public a(d dVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923645, "Lcom/baidu/tieba/m54;");
-                return;
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.onFail(exc.getMessage());
             }
         }
-        k = qp1.a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    JSONObject e = m54.e(str, this.a);
+                    if (e == null) {
+                        return;
+                    }
+                    this.a.onSuccess(o54.a(e));
+                    return;
+                }
+                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.oc2
-    public PMSDownloadType V() {
+    /* loaded from: classes6.dex */
+    public static class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.onFail(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    JSONObject e = m54.e(str, this.a);
+                    if (e == null) {
+                        return;
+                    }
+                    this.a.onSuccess(n54.a(e));
+                    return;
+                }
+                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yb3 a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        public c(yb3 yb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yb3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                try {
+                    if (new JSONObject(str).getInt("errno") != 0) {
+                        gk3 a = mk3.a();
+                        a.putInt("swangame_valid__" + this.a.O(), 0);
+                        return;
+                    }
+                    gk3 a2 = mk3.a();
+                    a2.putInt("swangame_valid__" + this.a.O(), 1);
+                    m54.g("1");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void b() {
+        yb3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (b0 = yb3.b0()) != null && !c() && fv2.h0().e(fv2.c())) {
+            if (d()) {
+                g("1");
+            } else {
+                fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().a()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(b0));
+            }
+        }
+    }
+
+    public static void f() {
+        yb3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (b0 = yb3.b0()) != null && d() && fv2.h0().e(fv2.c())) {
+            fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().i()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+        }
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 == null) {
+                return true;
+            }
+            gk3 a2 = mk3.a();
+            if (a2.getInt("swangame_valid__" + b0.O(), -1) == 0) {
+                return true;
+            }
+            return false;
         }
-        return (PMSDownloadType) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oc2
-    public String W() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return yc2.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            yb3 b0 = yb3.b0();
+            if (b0 == null) {
+                return false;
+            }
+            gk3 a2 = mk3.a();
+            if (1 != a2.getInt("swangame_valid__" + b0.O(), -1)) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oc2
-    public String X() {
-        InterceptResult invokeV;
+    public static JSONObject e(String str, d dVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return yc2.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m54(zn3<Exception> zn3Var) {
-        super(zn3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zn3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zn3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oc2
-    public zk3 b0(bi4 bi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bi4Var)) == null) {
-            if (bi4Var == null) {
-                zk3 zk3Var = new zk3();
-                zk3Var.k(14L);
-                zk3Var.b(2908L);
-                zk3Var.d("小游戏Extension包 Extension null");
-                return zk3Var;
-            }
-            mk2 mk2Var = new mk2();
-            mk2Var.b = bi4Var.i;
-            mk2Var.a = bi4Var.j;
-            mk2Var.c = bi4Var.a;
-            mk2Var.d = bi4Var.m;
-            boolean z = true;
-            if (pj2.b(1, mk2Var) != null) {
-                z = false;
-            }
-            if (z) {
-                if (k) {
-                    Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, dVar)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optInt("errno", -1) != 0) {
+                    dVar.onFail(jSONObject.optString("errmsg"));
                     return null;
                 }
+                return jSONObject.optJSONObject("data");
+            } catch (Exception e) {
+                dVar.onFail(e.getMessage());
                 return null;
             }
-            zk3 zk3Var2 = new zk3();
-            zk3Var2.k(14L);
-            zk3Var2.b(2908L);
-            zk3Var2.d("小游戏Extension包更新失败");
-            return zk3Var2;
         }
-        return (zk3) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.oc2
-    public zk3 c0(di4 di4Var) {
-        InterceptResult invokeL;
+    public static void g(String str) {
+        yb3 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, di4Var)) == null) {
-            if (k) {
-                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + di4Var);
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && (b0 = yb3.b0()) != null && d() && fv2.h0().e(fv2.c())) {
+            String h = fv2.h0().h(fv2.c());
+            if (TextUtils.isEmpty(h)) {
+                return;
             }
-            if (di4Var == null) {
-                zk3 zk3Var = new zk3();
-                zk3Var.k(13L);
-                zk3Var.b(2907L);
-                zk3Var.d("小游戏GameCore包 Framework null");
-                return zk3Var;
+            String d2 = es4.d(Base64.encode(h.getBytes(), 0), false);
+            String i = fv2.h0().i(fv2.c());
+            if (!TextUtils.isEmpty(i) && i.length() > 32) {
+                i = i.substring(0, 32);
             }
-            qi3.b c = qi3.c(di4Var, 1);
-            kp4.k(di4Var.a);
-            if (c.c()) {
-                if (k) {
-                    Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");
-                }
-                long e = qi3.e(1);
-                if (e > 0) {
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(117, e);
-                    return null;
-                }
-                return null;
-            }
-            zk3 zk3Var2 = new zk3();
-            zk3Var2.k(13L);
-            zk3Var2.b(2907L);
-            zk3Var2.d("小游戏GameCore包更新失败");
-            return zk3Var2;
+            fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
         }
-        return (zk3) invokeL.objValue;
+    }
+
+    public static void h(String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, str, dVar) != null) || dVar == null) {
+            return;
+        }
+        yb3 b0 = yb3.b0();
+        if (b0 == null) {
+            dVar.onFail("swan app is null");
+            return;
+        }
+        fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().j()).addUrlParam("appkey", b0.O()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
+    }
+
+    public static void i(long j, d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJL(65544, null, j, dVar) != null) || dVar == null) {
+            return;
+        }
+        yb3 b0 = yb3.b0();
+        if (b0 == null) {
+            dVar.onFail("swan app is null");
+            return;
+        }
+        fa4.a().getRequest().cookieManager(fv2.q().a()).url(p84.b().h()).addUrlParam("appkey", b0.O()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
     }
 }

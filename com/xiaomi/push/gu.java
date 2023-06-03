@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.text.TextUtils;
 import androidx.core.net.MailTo;
 import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.searchbox.player.model.YYOption;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.xiaomi.push.gk;
 import com.xiaomi.push.go;
@@ -21,11 +22,11 @@ public class gu {
     public static XmlPullParser a;
 
     public static gj a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m476a = gt.a().m476a("all", "xm:chat");
-        if (m476a == null || !(m476a instanceof com.xiaomi.push.service.k)) {
+        Object m531a = gt.a().m531a("all", "xm:chat");
+        if (m531a == null || !(m531a instanceof com.xiaomi.push.service.k)) {
             return null;
         }
-        return ((com.xiaomi.push.service.k) m476a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.k) m531a).b(xmlPullParser);
     }
 
     public static gk a(XmlPullParser xmlPullParser, fv fvVar) {
@@ -48,7 +49,7 @@ public class gu {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals("error")) {
-                    gqVar = m480a(xmlPullParser);
+                    gqVar = m535a(xmlPullParser);
                 } else {
                     gkVar = new gk();
                     gkVar.a(a(name, namespace, xmlPullParser));
@@ -117,7 +118,7 @@ public class gu {
                             glVar.k(attributeValue2);
                             glVar.f(attributeValue5);
                             gj gjVar = new gj("s", null, null, null);
-                            gjVar.m467a(text);
+                            gjVar.m522a(text);
                             glVar.a(gjVar);
                             return glVar;
                         }
@@ -178,7 +179,7 @@ public class gu {
             }
         } catch (Exception unused5) {
         }
-        glVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase("true"));
+        glVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase(YYOption.IsLive.VALUE_TRUE));
         glVar2.f(xmlPullParser.getAttributeValue("", "type"));
         String b = b(xmlPullParser);
         if (b == null || "".equals(b.trim())) {
@@ -196,21 +197,21 @@ public class gu {
                 }
                 if (name.equals(MailTo.SUBJECT)) {
                     b(xmlPullParser);
-                    glVar2.g(m481a(xmlPullParser));
+                    glVar2.g(m536a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
-                    String m481a = m481a(xmlPullParser);
+                    String m536a = m536a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        glVar2.h(m481a);
+                        glVar2.h(m536a);
                     } else {
-                        glVar2.a(m481a, attributeValue11);
+                        glVar2.a(m536a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals("error")) {
-                    glVar2.a(m480a(xmlPullParser));
+                    glVar2.a(m535a(xmlPullParser));
                 } else {
                     glVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -223,7 +224,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static go m478a(XmlPullParser xmlPullParser) {
+    public static go m533a(XmlPullParser xmlPullParser) {
         go.b bVar = go.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -267,7 +268,7 @@ public class gu {
                         printStream2.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals("error")) {
-                    goVar.a(m480a(xmlPullParser));
+                    goVar.a(m535a(xmlPullParser));
                 } else {
                     goVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -279,7 +280,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gp m479a(XmlPullParser xmlPullParser) {
+    public static gp m534a(XmlPullParser xmlPullParser) {
         gp gpVar = null;
         boolean z = false;
         while (!z) {
@@ -294,7 +295,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gq m480a(XmlPullParser xmlPullParser) {
+    public static gq m535a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         boolean z = false;
         String str = "-1";
@@ -339,7 +340,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m481a(XmlPullParser xmlPullParser) {
+    public static String m536a(XmlPullParser xmlPullParser) {
         int depth = xmlPullParser.getDepth();
         String str = "";
         while (true) {

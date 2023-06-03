@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el8;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.fl8;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.br8;
+import com.baidu.tieba.cr8;
+import com.baidu.tieba.jb;
+import com.baidu.tieba.k9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,18 +20,18 @@ import java.util.List;
 public class HotForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9 a;
+    public k9 a;
     public b b;
-    public List<el8> c;
+    public List<br8> c;
     public HotSearchInfoData d;
-    public List<fl8> e;
+    public List<cr8> e;
     public String f;
 
     /* loaded from: classes6.dex */
     public interface b {
         void F(String str);
 
-        void r(List<el8> list, List<fl8> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void r(List<br8> list, List<cr8> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,7 +55,7 @@ public class HotForumModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends fb {
+    public class a extends jb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotForumModel a;
@@ -82,13 +82,13 @@ public class HotForumModel extends BdBaseModel {
             this.a = hotForumModel;
         }
 
-        @Override // com.baidu.tieba.fb
+        @Override // com.baidu.tieba.jb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotForumHttpResponseMessage) {
@@ -110,34 +110,34 @@ public class HotForumModel extends BdBaseModel {
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                         this.a.b.F(responsedMessage.getErrorString());
                     } else {
-                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
+                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
                     }
                 } else {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0def));
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotForumModel(g9 g9Var, b bVar) {
-        super(g9Var);
+    public HotForumModel(k9 k9Var, b bVar) {
+        super(k9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g9Var, bVar};
+            Object[] objArr = {k9Var, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g9) newInitContext.callArgs[0]);
+                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = g9Var;
+        this.a = k9Var;
         this.b = bVar;
         e0();
     }

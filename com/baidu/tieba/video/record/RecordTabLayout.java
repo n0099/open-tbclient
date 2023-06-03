@@ -11,13 +11,13 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecordTabLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class RecordTabLayout extends LinearLayout {
     public int d;
     public c e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void y(int i, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class RecordTabLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,14 +210,14 @@ public class RecordTabLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             TextView textView = new TextView(getContext());
-            textView.setTextSize(0, ri.g(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextSize(0, vi.g(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
             textView.setText(str);
             textView.setTag(Integer.valueOf(i));
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703cc);
+                layoutParams.leftMargin = vi.g(getContext(), R.dimen.obfuscated_res_0x7f0703d7);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -260,8 +260,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703cc), ri.g(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070374);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(vi.g(getContext(), R.dimen.obfuscated_res_0x7f0703d7), vi.g(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = vi.g(getContext(), R.dimen.obfuscated_res_0x7f07037f);
             addView(this.b, layoutParams);
         }
     }

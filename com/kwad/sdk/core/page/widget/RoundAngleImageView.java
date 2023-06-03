@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RoundAngleImageView extends ImageView {
     public Path ZA;
     public float[] ZB;

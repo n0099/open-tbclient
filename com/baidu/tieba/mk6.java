@@ -1,157 +1,232 @@
 package com.baidu.tieba;
 
+import android.text.Html;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.URLUtil;
+import android.webkit.WebResourceResponse;
+import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.util.videoPreload.IVideoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import okhttp3.MediaType;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.internal.Util;
+import okhttp3.internal.http2.Http2Codec;
 /* loaded from: classes6.dex */
-public class mk6 extends dk6 implements IVideoData {
+public class mk6 extends lk6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId U;
-    public static String V;
-    public static String W;
-    public static String X;
-    public static String Y;
-    public static String Z;
-    public static String a0;
-    public static String b0;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean R;
-    public boolean S;
-    public int T;
+    public final bk6<Pair<String, Map<String, String>>, Response> b;
 
-    @Override // com.baidu.tieba.dk6
-    public boolean isVideoThreadType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a implements xmb<Response, Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ mk6 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947975601, "Lcom/baidu/tieba/mk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(mk6 mk6Var, String str, Map map) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mk6Var, str, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947975601, "Lcom/baidu/tieba/mk6;");
-                return;
+            this.c = mk6Var;
+            this.a = str;
+            this.b = map;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xmb
+        public void call(Response response, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, exc) == null) {
+                if (this.c.l(response) && response.body() != null && exc == null) {
+                    try {
+                        this.c.j(this.a, response, this.b);
+                        DefaultLog.getInstance().c("WebViewNetworkLoader", "sendASyncRequest， 预取成功");
+                    } catch (IOException e) {
+                        BdLog.e(e);
+                    }
+                }
+                ek6.b().e(this.a);
             }
         }
-        U = BdUniqueId.gen();
-        V = "";
-        W = "";
-        X = "";
-        Y = "";
-        b0 = "";
     }
 
-    @Override // com.baidu.tieba.jy4
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData == null) {
-                return null;
-            }
-            return threadData.mRecomReason;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk6, com.baidu.tieba.jy4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData == null) {
-                return null;
-            }
-            if (threadData.getResource() != 5) {
-                this.a.setResource(1);
-            }
-            return this.a;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.videoPreload.IVideoData
-    public String getVideoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadVideoInfo() != null && this.a.getThreadVideoInfo().video_url != null) {
-                return this.a.getThreadVideoInfo().video_url;
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public mk6(ThreadData threadData) {
+    public mk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.R = false;
-        this.S = true;
-        this.T = 0;
-        this.a = threadData;
+        this.b = new fk6();
     }
 
-    public int Q(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void p(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
-            if (threadData == null) {
-                return 1;
-            }
-            if (!threadData.isBJHVideoDynamicThreadType() && !threadData.isBJHNormalThreadType()) {
-                if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                    return 1;
-                }
-                return 3;
-            }
-            return 2;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, map) == null) {
+            ek6.b().a(str);
+            Map<String, String> h = h(map);
+            this.b.b(Pair.create(str, h), new a(this, str, h));
         }
-        return invokeL.intValue;
     }
 
-    public static boolean P(ThreadData threadData) {
+    @Override // com.baidu.tieba.lk6
+    public boolean e(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            if (!URLUtil.isHttpsUrl(str2) && !URLUtil.isHttpUrl(str2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void o(String str, WebResourceResponse webResourceResponse, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048585, this, str, webResourceResponse, bArr) == null) && !hm6.d(bArr)) {
+            dk6.b().put(str, new pk6(webResourceResponse, bArr));
+        }
+    }
+
+    public final Map<String, String> h(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null || threadData.getThreadVideoInfo() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            CookieSyncManager.createInstance(hl6.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                String str = map.get("Cookie");
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.endsWith(ParamableElem.DIVIDE_PARAM)) {
+                        cookie = str + cookie;
+                    } else {
+                        cookie = str + ParamableElem.DIVIDE_PARAM + cookie;
+                    }
+                }
+                map.put("Cookie", cookie);
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final Map<String, String> i(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
+            Set<String> names = response.headers().names();
+            HashMap hashMap = new HashMap();
+            for (String str : names) {
+                hashMap.put(str, response.header(str));
+            }
+            hashMap.put("access-control-allow-origin", "*");
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final String k(ResponseBody responseBody) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responseBody)) == null) {
+            MediaType contentType = responseBody.contentType();
+            if (contentType == null) {
+                return "";
+            }
+            String mediaType = contentType.toString();
+            if (TextUtils.isEmpty(mediaType) || (split = mediaType.split(ParamableElem.DIVIDE_PARAM)) == null || split.length <= 0 || TextUtils.isEmpty(split[0])) {
+                return "";
+            }
+            return split[0].trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final WebResourceResponse j(String str, Response response, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
+        ResponseBody body;
+        WebResourceResponse webResourceResponse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, response, map)) == null) {
+            if (response == null || !response.isSuccessful() || (body = response.body()) == null) {
+                return null;
+            }
+            byte[] bytes = body.bytes();
+            String k = k(body);
+            if (xj6.isOn()) {
+                webResourceResponse = new WebResourceResponse(k, response.header(Http2Codec.ENCODING, null), new ByteArrayInputStream(bytes));
+            } else {
+                webResourceResponse = new WebResourceResponse(k, response.header(Http2Codec.ENCODING, Util.UTF_8.name()), new ByteArrayInputStream(bytes));
+            }
+            webResourceResponse.setStatusCodeAndReasonPhrase(response.code(), "OK");
+            Map<String, String> i = i(response);
+            if (map.containsKey("tieba-response-via")) {
+                i.put("tieba-response-via", PrefetchEvent.MODULE);
+                i.put("tieba-response-time", String.valueOf(System.currentTimeMillis()));
+            }
+            webResourceResponse.setResponseHeaders(i);
+            o(str, webResourceResponse, bytes);
+            if (response.cacheResponse() != null) {
+                fm6.c("newHybrid", "hit network cache：" + str);
+            } else {
+                fm6.c("newHybrid", "hit network：" + str);
+            }
+            if (map.containsKey("BdLoadMode") && TextUtils.equals(SapiWebView.DATA_MIME_TYPE, k)) {
+                n(response, bytes);
+            }
+            return webResourceResponse;
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public final boolean l(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, response)) == null) {
+            if (response == null || !response.isSuccessful() || response.isRedirect() || response.body() == null) {
                 return false;
             }
             return true;
@@ -159,249 +234,39 @@ public class mk6 extends dk6 implements IVideoData {
         return invokeL.booleanValue;
     }
 
-    public StatisticItem J(ThreadData threadData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lk6
+    /* renamed from: m */
+    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        WebResourceResponse webResourceResponse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
-            return K(threadData, -1);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, map)) == null) {
+            ek6.b().a(str2);
+            try {
+                Map<String, String> h = h(map);
+                webResourceResponse = j(str2, this.b.a(Pair.create(str2, h)), h);
+            } catch (Exception e) {
+                e.printStackTrace();
+                webResourceResponse = null;
+            }
+            ek6.b().e(str2);
+            return webResourceResponse;
         }
-        return (StatisticItem) invokeL.objValue;
+        return (WebResourceResponse) invokeLLL.objValue;
     }
 
-    public StatisticItem K(ThreadData threadData, int i) {
-        InterceptResult invokeLI;
+    public final void n(Response response, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, i)) == null) {
-            StatisticItem n = n(Y, true);
-            if (n != null) {
-                if (i != -1) {
-                    n.param(TiebaStatic.Params.CLICK_LOCATE, i);
-                }
-                if (getThreadData() != null) {
-                    ThreadData threadData2 = getThreadData();
-                    if (threadData2.getBaijiahaoData() != null) {
-                        n.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.getBaijiahaoData().oriUgcNid);
-                        n.param(TiebaStatic.Params.OBJ_PARAM6, threadData2.getBaijiahaoData().oriUgcVid);
-                    }
-                    n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData2));
-                }
-            }
-            return n;
-        }
-        return (StatisticItem) invokeLI.objValue;
-    }
-
-    public StatisticItem L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StatisticItem n = n(b0, true);
-            if (n != null && getThreadData() != null) {
-                ThreadData threadData = getThreadData();
-                if (threadData.getBaijiahaoData() != null) {
-                    n.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                    n.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData));
-            }
-            return n;
-        }
-        return (StatisticItem) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk6
-    public StatisticItem f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StatisticItem n = n(W, true);
-            if (n != null && getThreadData() != null) {
-                ThreadData threadData = getThreadData();
-                if (threadData.getBaijiahaoData() != null) {
-                    n.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                    n.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData));
-            }
-            return n;
-        }
-        return (StatisticItem) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk6
-    public StatisticItem u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StatisticItem n = n(Y, true);
-            if (getThreadData() != null) {
-                ThreadData threadData = getThreadData();
-                if (threadData.getBaijiahaoData() != null) {
-                    n.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                    n.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData));
-                n.param("nid", threadData.getNid());
-            }
-            return n;
-        }
-        return (StatisticItem) invokeV.objValue;
-    }
-
-    public StatisticItem M(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, threadData)) == null) {
-            StatisticItem n = n(V, true);
-            if (n != null && getThreadData() != null) {
-                ThreadData threadData2 = getThreadData();
-                if (threadData2.getBaijiahaoData() != null) {
-                    n.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.getBaijiahaoData().oriUgcNid);
-                    n.param(TiebaStatic.Params.OBJ_PARAM6, threadData2.getBaijiahaoData().oriUgcVid);
-                    if (threadData2.isAlaLiveUser()) {
-                        n.param(TiebaStatic.Params.OBJ_PARAM2, 2);
-                    } else {
-                        n.param(TiebaStatic.Params.OBJ_PARAM2, 1);
-                    }
-                }
-                if (threadData2.getAuthor() != null && threadData2.getAuthor().getAlaInfo() != null) {
-                    int calculateLiveType = YYLiveUtil.calculateLiveType(threadData2.getAuthor().getAlaInfo());
-                    if (threadData2.getAuthor().getAlaInfo().mYyExtData != null) {
-                        TiebaStaticHelper.addYYParam(n, threadData2.getAuthor().getAlaInfo().mYyExtData);
-                    }
-                    n.param(TiebaStatic.Params.OBJ_PARAM7, calculateLiveType);
-                }
-                n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData2));
-            }
-            return n;
-        }
-        return (StatisticItem) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk6
-    public StatisticItem d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            ThreadData threadData = this.a;
-            if (threadData != null) {
-                statisticItem.param("fid", threadData.getFid());
-                statisticItem.param("tid", this.a.getTid());
-                int i = 2;
-                if (this.a.isBJHVideoThreadType()) {
-                    statisticItem.param("obj_type", 8);
-                } else if (this.a.isBJHVideoDynamicThreadType()) {
-                    statisticItem.param("obj_type", 9);
-                } else if (this.a.isVideoThreadType()) {
-                    statisticItem.param("obj_type", 2);
-                }
-                if (!x()) {
-                    i = 1;
-                }
-                statisticItem.param("obj_param1", i);
-                if (this.a.getAuthor() != null) {
-                    statisticItem.param("obj_id", this.a.getAuthor().getUserId());
-                }
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData == null) {
-                return lk6.j0;
-            }
-            if (this.B) {
-                if (this.n) {
-                    return ThreadData.TYPE_VIDEO_WITH_FORUM_HEADER;
-                }
-                return threadData.getType();
-            } else if (this.m) {
-                return lk6.C0;
-            } else {
-                if (this.s) {
-                    return U;
-                }
-                if (this.A) {
-                    return lk6.J0;
-                }
-                if (this.y) {
-                    return lk6.L0;
-                }
-                if (this.x) {
-                    return lk6.K0;
-                }
-                if (this.n) {
-                    return lk6.D0;
-                }
-                if (this.u) {
-                    return lk6.M0;
-                }
-                if (this.v) {
-                    return lk6.N0;
-                }
-                if (this.w) {
-                    return lk6.O0;
-                }
-                if (this.z) {
-                    return lk6.P0;
-                }
-                return U;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, response, bArr) == null) {
+            try {
+                ik6 ik6Var = new ik6(response.request().isHttps());
+                ik6Var.c("link", new hk6());
+                ik6Var.c(ARPMessageType.ARPMessageParamKeys.MAP_NPC_KEY_NAME, new jk6());
+                Html.fromHtml(new String(bArr), null, ik6Var);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk6
-    public StatisticItem s() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = 1;
-            StatisticItem n = n(X, true);
-            if (n != null && getThreadData() != null) {
-                ThreadData threadData = getThreadData();
-                if (threadData.getTopAgreePost() != null && (threadData.getTopAgreePost().a0() != null || threadData.getTopAgreePost().s0() != null)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                n.param("obj_name", i);
-                if (threadData.getAuthor() != null) {
-                    n.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
-                }
-                if (threadData.getBaijiahaoData() != null) {
-                    n.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                    n.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                n.param(TiebaStatic.Params.OBJ_PARAM5, Q(threadData));
-                if (threadData.isAlaLiveUser()) {
-                    n.param(TiebaStatic.Params.OBJ_TO, 2);
-                } else {
-                    n.param(TiebaStatic.Params.OBJ_TO, 1);
-                }
-                if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-                    int calculateLiveType = YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo());
-                    if (threadData.getAuthor().getAlaInfo().live_status != 1 && threadData.getAuthor().getAlaInfo().friendRoomStatus != 2) {
-                        i2 = 2;
-                    }
-                    if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                        TiebaStaticHelper.addYYParam(n, threadData.getAuthor().getAlaInfo().mYyExtData);
-                    }
-                    n.param(TiebaStatic.Params.OBJ_PARAM7, i2);
-                    n.param(TiebaStatic.Params.OBJ_PARAM8, calculateLiveType);
-                }
-            }
-            return n;
-        }
-        return (StatisticItem) invokeV.objValue;
     }
 }

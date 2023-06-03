@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DislikeInfo extends Message {
     public static final Integer DEFAULT_DISLIKEID = 0;
     public static final String DEFAULT_DISLIKEREASON = "";
@@ -14,7 +14,7 @@ public final class DislikeInfo extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String extra;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DislikeInfo> {
         public Integer dislikeId;
         public String dislikeReason;

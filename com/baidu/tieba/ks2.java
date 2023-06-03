@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
 /* loaded from: classes6.dex */
-public interface ks2<V, T> {
-    @Nullable
-    V call(@Nullable T t) throws Exception;
+public interface ks2 extends vp2 {
+    RtcStatus a();
+
+    void onRelease();
+
+    boolean q();
 }

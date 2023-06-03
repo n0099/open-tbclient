@@ -1,222 +1,144 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.forumMember.member.PrivateMgrApplyViewHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.tieba.o77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.FeedItem;
+import tbclient.FeedKV;
 /* loaded from: classes6.dex */
-public class l67 extends d87<m67, PrivateMgrApplyViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: n */
-    public static final int obfuscated = 2131303544;
+public final class l67 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wc5 l;
-    public View.OnClickListener m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947894908, "Lcom/baidu/tieba/l67;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947894908, "Lcom/baidu/tieba/l67;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l67 a;
-
-        public a(l67 l67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l67Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    this.a.M(TbadkCoreApplication.getCurrentAccountInfo());
-                    return;
-                }
-                Object tag = view2.getTag(l67.obfuscated);
-                if (tag != null && !tag.toString().equals("")) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.mContext), new String[]{tag.toString()});
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l67(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new a(this);
-    }
-
-    public void onDestroy() {
-        wc5 wc5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (wc5Var = this.l) != null) {
-            wc5Var.s();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: J */
-    public PrivateMgrApplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new PrivateMgrApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07dc, (ViewGroup) null));
-        }
-        return (PrivateMgrApplyViewHolder) invokeL.objValue;
-    }
-
-    public View K(int i, View view2, ViewGroup viewGroup, m67 m67Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
+    public static final b47 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m67Var, privateMgrApplyViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) m67Var, (m67) privateMgrApplyViewHolder);
-            if (m67Var != null && !m67Var.d() && privateMgrApplyViewHolder != null) {
-                if (m67Var.d()) {
-                    privateMgrApplyViewHolder.e.setVisibility(8);
-                    return view2;
-                }
-                boolean z = true;
-                if (privateMgrApplyViewHolder.f != this.f) {
-                    SkinManager.setBackgroundColor(privateMgrApplyViewHolder.d, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
-                }
-                int a2 = m67Var.a();
-                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1580);
-                if (a2 == -1) {
-                    int c = m67Var.c();
-                    String numberUniformFormat = StringHelper.numberUniformFormat(c);
-                    if (c > 0) {
-                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f157a), numberUniformFormat);
-                        privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                        privateMgrApplyViewHolder.b.setText(string);
-                        privateMgrApplyViewHolder.c.setTag(obfuscated, m67Var.b());
-                        privateMgrApplyViewHolder.c.setEnabled(z);
-                        privateMgrApplyViewHolder.c.setClickable(z);
-                        privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                        privateMgrApplyViewHolder.f = this.f;
-                    }
-                    z = false;
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, m67Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.f;
-                } else {
-                    if (a2 == 0) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f157e);
-                    } else if (a2 == 1) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f157c);
-                    } else {
-                        if (a2 == 2) {
-                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f157b);
-                        }
-                        z = false;
-                    }
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, m67Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.f;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            JSONObject jSONObject = new JSONObject(apkDetailStr);
+            v47 v47Var = new v47();
+            v47Var.l = jSONObject.optString("appid");
+            v47Var.m = item.name;
+            v47Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                v47Var.c = (float) item.icon_ratio.doubleValue();
             }
-            return view2;
+            v47Var.n = jSONObject.optString("apk_name");
+            v47Var.o = jSONObject.optString("version");
+            v47Var.p = jSONObject.optInt("version_code");
+            v47Var.q = jSONObject.optLong("size");
+            v47Var.r = item.button_link;
+            v47Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                v47Var.f = (float) item.score.doubleValue();
+            }
+            v47Var.g = item.tags;
+            v47Var.s = jSONObject.optString("developer");
+            v47Var.t = jSONObject.optString("publisher");
+            v47Var.u = jSONObject.optString("authority_url");
+            v47Var.v = jSONObject.optString("privacy_url");
+            v47Var.w = jSONObject.optInt("pkg_source");
+            v47Var.h = item.button_name;
+            v47Var.a = j;
+            v47Var.k = forumName;
+            i77 i77Var = new i77();
+            i77Var.a = tid;
+            i77Var.b = pageFrom;
+            return new b47(v47Var, i77Var, false, 4, null);
         }
-        return (View) invokeCommon.objValue;
+        return (b47) invokeCommon.objValue;
     }
 
-    public final void M(AccountData accountData) {
-        Activity activity;
+    public static final f47 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            g9<?> a2 = m9.a(this.mContext);
-            if (a2 instanceof TbPageContext) {
-                activity = ((TbPageContext) a2).getPageActivity();
-            } else {
-                activity = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            t57 t57Var = new t57();
+            t57Var.a = j;
+            t57Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                t57Var.c = (float) item.icon_ratio.doubleValue();
             }
-            if (this.l == null) {
-                this.l = new wc5(activity);
+            t57Var.d = item.name;
+            t57Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                t57Var.f = (float) item.score.doubleValue();
             }
-            this.l.p();
-            this.l.u(accountData);
-            this.l.z(1);
+            t57Var.g = item.tags;
+            t57Var.h = item.button_name;
+            t57Var.i = item.button_link;
+            t57Var.k = forumName;
+            j77 j77Var = new j77();
+            j77Var.a = tid;
+            j77Var.b = pageFrom;
+            return new f47(t57Var, j77Var, false, 4, null);
         }
+        return (f47) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        K(i, view2, viewGroup, (m67) obj, (PrivateMgrApplyViewHolder) viewHolder);
-        return view2;
+    public static final void c(FeedItem feedItem, List<h87<?>> dataList, j57 feedExtraData) {
+        String str;
+        String str2;
+        String str3;
+        Map<String, String> a;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedItem, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            o77.a aVar = o77.a;
+            List<FeedKV> business_info = feedItem.business_info;
+            Intrinsics.checkNotNullExpressionValue(business_info, "business_info");
+            HashMap<String, String> a2 = aVar.a(business_info);
+            String str5 = a2.get("apk_detail");
+            String str6 = feedExtraData.a().a().get("thread_id");
+            if (str6 == null) {
+                str = "";
+            } else {
+                str = str6;
+            }
+            long g = tg.g(a2.get("item_id"), 0L);
+            String str7 = a2.get("forum_name");
+            if (str7 == null) {
+                str2 = "";
+            } else {
+                str2 = str7;
+            }
+            k87 k87Var = feedExtraData.d().get(PageInfo.KEY);
+            if (k87Var == null || (a = k87Var.a(new w47())) == null || (str4 = a.get("page_from")) == null) {
+                str3 = "";
+            } else {
+                str3 = str4;
+            }
+            if (str5 == null) {
+                dataList.add(new i87(b(feedItem, g, str, str2, str3), "mount"));
+            } else {
+                dataList.add(new i87(a(feedItem, str5, g, str, str2, str3), "mount_app"));
+            }
+        }
     }
 }

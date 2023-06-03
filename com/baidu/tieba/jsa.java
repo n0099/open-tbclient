@@ -1,161 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.ObjectInput;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jsa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
+    public int g;
+    public String h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895249, "Lcom/baidu/tieba/jsa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947895249, "Lcom/baidu/tieba/jsa;");
+    public jsa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = "";
+        this.g = 0;
     }
 
-    public static mra b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (mra) sra.b(b.getString("key_adcfg", null), new fxa() { // from class: com.baidu.tieba.gra
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.fxa
-            public final Object a(ObjectInput objectInput) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? jsa.c(objectInput) : invokeL.objValue;
-            }
-        }) : (mra) invokeV.objValue;
-    }
-
-    public static /* synthetic */ mra c(ObjectInput objectInput) {
-        return new mra(objectInput.readInt(), objectInput);
-    }
-
-    public static void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
-            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void e(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
-            synchronized (a) {
-                int j = j();
-                int k = k();
-                int i4 = i();
-                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
-            }
-        }
-    }
-
-    public static void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
-            b.edit().putInt(str, i).apply();
-        }
-    }
-
-    public static /* synthetic */ yra h(ObjectInput objectInput) {
-        return new yra(objectInput.readInt(), objectInput);
-    }
-
-    public static yra l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (yra) sra.b(b.getString("key_rptcfg", null), new fxa() { // from class: com.baidu.tieba.ara
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.fxa
-            public final Object a(ObjectInput objectInput) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? jsa.h(objectInput) : invokeL.objValue;
-            }
-        }) : (yra) invokeV.objValue;
-    }
-
-    public static double m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            synchronized (a) {
-                f("key_rpt_req_c", j() + 1);
-            }
-        }
-    }
-
-    public static int a(String str) {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return b.getInt("key_sid_c_pre_" + str, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optString("name");
+                this.b = jSONObject.optString("id");
+                this.c = jSONObject.optString("image");
+                this.d = jSONObject.optString("url");
+                this.e = jSONObject.optInt("progress");
+                this.f = jSONObject.optString("downloadPerSize");
+                this.g = jSONObject.optInt("status");
+                this.h = jSONObject.optString("savePath");
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static int g() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b.getInt("key_rpt_fai_c", 0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
         }
-        return invokeV.intValue;
     }
 
-    public static int i() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return b.getInt("key_rpt_mis_c", 0);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e = i;
         }
-        return invokeV.intValue;
     }
 
-    public static int j() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return b.getInt("key_rpt_req_c", 0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.h = str;
         }
-        return invokeV.intValue;
     }
 
-    public static int k() {
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return b.getInt("key_rpt_suc_c", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.a);
+                jSONObject.put("id", this.b);
+                jSONObject.put("image", this.c);
+                jSONObject.put("url", this.d);
+                jSONObject.put("progress", this.e);
+                jSONObject.put("downloadPerSize", this.f);
+                jSONObject.put("status", this.g);
+                jSONObject.put("savePath", this.h);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

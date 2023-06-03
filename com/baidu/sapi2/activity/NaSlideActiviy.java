@@ -20,7 +20,6 @@ import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
@@ -126,7 +125,7 @@ public class NaSlideActiviy extends AppCompatActivity {
             if (!this.b && isTaskRoot()) {
                 z = false;
             }
-            if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
+            if ((getWindow().getAttributes().flags & 67108864) == 0) {
                 Log.e(g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();

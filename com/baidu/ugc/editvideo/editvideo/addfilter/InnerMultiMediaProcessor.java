@@ -16,12 +16,12 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.fg0;
-import com.baidu.tieba.gna;
-import com.baidu.tieba.lg0;
-import com.baidu.tieba.lna;
-import com.baidu.tieba.qna;
-import com.baidu.tieba.yna;
+import com.baidu.tieba.dva;
+import com.baidu.tieba.lva;
+import com.baidu.tieba.oh0;
+import com.baidu.tieba.tua;
+import com.baidu.tieba.uh0;
+import com.baidu.tieba.yua;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.RecordConstants;
@@ -105,7 +105,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             FileInputStream fileInputStream = 0;
             try {
                 try {
-                    mediaExtractor = qna.b(multiMediaData.path);
+                    mediaExtractor = dva.b(multiMediaData.path);
                 } catch (Throwable th) {
                     th = th;
                     if (fileInputStream != 0) {
@@ -129,14 +129,14 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
             }
             multiMediaData.videoExtractor = mediaExtractor;
-            fileInputStream = multiMediaData.videoExtractor.getTrackFormat(qna.f(mediaExtractor));
+            fileInputStream = multiMediaData.videoExtractor.getTrackFormat(dva.f(mediaExtractor));
             multiMediaData.videoExtractor.seekTo(multiMediaData.start * 1000, 0);
             SurfaceTexture surfaceTexture = new SurfaceTexture(multiMediaData.textureId);
             multiMediaData.surfaceTexture = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(baseOutputSurface);
             Surface surface = new Surface(multiMediaData.surfaceTexture);
             multiMediaData.surface = surface;
-            multiMediaData.videoDecoder = qna.c(fileInputStream, surface);
+            multiMediaData.videoDecoder = dva.c(fileInputStream, surface);
             this.mLogDecoderCount++;
         }
     }
@@ -194,7 +194,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     } else {
                         boolean z3 = bufferInfo.size != 0;
                         mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z3);
-                        gna.e(TAG, "videoDecoderRender:" + z3);
+                        tua.e(TAG, "videoDecoderRender:" + z3);
                         if (z3) {
                             long j4 = bufferInfo.presentationTimeUs;
                             long j5 = j4 > 0 ? 1000L : 1000L;
@@ -212,7 +212,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             sb.append(j3);
                             sb.append(" mPlayTime ：");
                             sb.append(this.mPlayTime);
-                            gna.e(TAG, sb.toString());
+                            tua.e(TAG, sb.toString());
                             if (j3 >= this.mPlayTime * 1000) {
                                 notifyFrameAvailable();
                                 j = 1000;
@@ -226,7 +226,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                                 sb2.append(",");
                                 j = 1000;
                                 sb2.append(this.mPlayTime * 1000);
-                                gna.e(TAG, sb2.toString());
+                                tua.e(TAG, sb2.toString());
                             }
                             if (bufferInfo.presentationTimeUs >= multiMediaData.end * j) {
                                 notifyFrameAvailable();
@@ -284,8 +284,8 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 if (mediaTrack.mediaSegments != null) {
                     int i3 = 0;
                     while (i3 < mediaTrack.mediaSegments.size()) {
-                        MultiMediaData multiMediaData = (MultiMediaData) lna.c(multiMediaDataTrack.multiMediaDataList, i3);
-                        MediaSegment mediaSegment3 = (MediaSegment) lna.c(mediaTrack.mediaSegments, i3);
+                        MultiMediaData multiMediaData = (MultiMediaData) yua.c(multiMediaDataTrack.multiMediaDataList, i3);
+                        MediaSegment mediaSegment3 = (MediaSegment) yua.c(mediaTrack.mediaSegments, i3);
                         if (mediaSegment3 == null || multiMediaData == null) {
                             i = i2;
                         } else {
@@ -339,9 +339,9 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                             if (mediaTrack2.mediaSegments != null) {
                                 int i8 = 0;
                                 while (i8 < mediaTrack2.mediaSegments.size()) {
-                                    MultiMediaData multiMediaData4 = (MultiMediaData) lna.c(multiMediaDataTrack2.multiMediaDataList, i8);
+                                    MultiMediaData multiMediaData4 = (MultiMediaData) yua.c(multiMediaDataTrack2.multiMediaDataList, i8);
                                     long j5 = currentTimeMillis;
-                                    MediaSegment mediaSegment4 = (MediaSegment) lna.c(mediaTrack2.mediaSegments, i8);
+                                    MediaSegment mediaSegment4 = (MediaSegment) yua.c(mediaTrack2.mediaSegments, i8);
                                     if (multiMediaData4 != null && mediaSegment4 != null) {
                                         extractDecode(multiMediaData4, mediaSegment4, mediaFormat, baseOutputSurface);
                                     }
@@ -432,7 +432,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
             }
         } else if (this.mListener != null) {
-            yna.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMultiMediaProcessor.1
+            lva.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMultiMediaProcessor.1
                 @Override // java.lang.Runnable
                 public void run() {
                     OnGenFilterVideoListener onGenFilterVideoListener = InnerMultiMediaProcessor.this.mListener;
@@ -478,7 +478,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             if (FileUtils.isExists(multiMediaData.path)) {
                 long j4 = this.mPlayTime;
                 if (multiMediaData.currentPts / 1000 <= j4) {
-                    gna.e(TAG, multiMediaData.currentPts + "," + (this.mPlayTime * 1000) + "," + multiMediaData.path);
+                    tua.e(TAG, multiMediaData.currentPts + "," + (this.mPlayTime * 1000) + "," + multiMediaData.path);
                     createDecoder(multiMediaData, baseOutputSurface);
                     if (multiMediaData.videoDecoderDone && multiMediaData.loop) {
                         multiMediaData.videoDecoderDone = false;
@@ -501,7 +501,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 } else if (j4 <= 0) {
                     return;
                 } else {
-                    gna.e(TAG, "当前帧率不够，正在追帧");
+                    tua.e(TAG, "当前帧率不够，正在追帧");
                     if (this.mFrameSkip) {
                         createDecoder(multiMediaData, baseOutputSurface);
                         if (multiMediaData.videoDecoderDone && multiMediaData.loop) {
@@ -530,7 +530,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
             return;
         }
         if (TextUtils.equals(mediaSegment.type, SubtitleLog.TAG)) {
-            gna.e("subcreater", "parsersubtitle," + this.mPlayTime);
+            tua.e("subcreater", "parsersubtitle," + this.mPlayTime);
             NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
             if (newSubTitleCreater != null && (subTitle = newSubTitleCreater.getSubTitle(this.mPlayTime, getDuration())) != null && (bitmap = subTitle.textBitmap) != null && !bitmap.isRecycled() && !TextUtils.equals(multiMediaData.subTitleText, subTitle.line)) {
                 multiMediaData.subTitleText = subTitle.line;
@@ -540,7 +540,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = lg0.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = uh0.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -566,11 +566,11 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     }
 
     private MultiMediaDataTrack getInputMultiMediaDataTrack() {
-        return (MultiMediaDataTrack) lna.c(getMultiMediaDataTrack(), 0);
+        return (MultiMediaDataTrack) yua.c(getMultiMediaDataTrack(), 0);
     }
 
     private MediaTrack getInputTrack() {
-        return (MediaTrack) lna.c(getUpdateMediaTracks(), 0);
+        return (MediaTrack) yua.c(getUpdateMediaTracks(), 0);
     }
 
     private long getSegmentsDuration() {
@@ -587,7 +587,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 if (multiMediaData.width == 0 || multiMediaData.height == 0 || multiMediaData.originalDuration == 0) {
                     MultiDataSourceUtil.initVideoByPath(multiMediaData);
                 }
-                multiMediaData.textureId = fg0.d();
+                multiMediaData.textureId = oh0.d();
                 Matrix.setIdentityM(multiMediaData.mtx, 0);
                 return;
             }
@@ -617,7 +617,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     }
 
     private void log() {
-        lg0.l();
+        uh0.l();
     }
 
     private void notifyFrameAvailable() {
@@ -836,7 +836,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
         InputSurface inputSurface2;
         MediaCodecInfo m;
         String str = "video/avc";
-        MediaCodecInfo m2 = qna.m("video/avc");
+        MediaCodecInfo m2 = dva.m("video/avc");
         if (m2 == null) {
             return;
         }
@@ -846,7 +846,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 try {
                     i = this.mOutWidth == 0 ? RecordConstants.VIDEO_CONSTANT_WIDTH : this.mOutWidth;
                     i2 = this.mOutHeight == 0 ? RecordConstants.VIDEO_CONSTANT_HEIGHT : this.mOutHeight;
-                    if (this.mEncodeHevcVideo && (m = qna.m(MimeTypes.VIDEO_H265)) != null) {
+                    if (this.mEncodeHevcVideo && (m = dva.m(MimeTypes.VIDEO_H265)) != null) {
                         this.mCurrentEncodeHevcVideo = true;
                         m2 = m;
                         str = MimeTypes.VIDEO_H265;
@@ -862,7 +862,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     releaseTextures();
                     AtomicReference atomicReference = new AtomicReference();
                     try {
-                        d = qna.d(m2, createVideoFormat, atomicReference);
+                        d = dva.d(m2, createVideoFormat, atomicReference);
                     } catch (Exception unused) {
                         if (i % 16 != 0) {
                             i += 16 - (i % 16);
@@ -872,7 +872,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                         }
                         createVideoFormat.setInteger("width", i);
                         createVideoFormat.setInteger("height", i2);
-                        d = qna.d(m2, createVideoFormat, atomicReference);
+                        d = dva.d(m2, createVideoFormat, atomicReference);
                     }
                     try {
                         inputSurface2 = new InputSurface((Surface) atomicReference.get());
@@ -957,7 +957,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                         sb.append(">");
                     }
                     sb.append("< <exception log> ");
-                    sb.append(qna.g(e));
+                    sb.append(dva.g(e));
                     sb.append(">");
                     setErrMsg(true, sb.toString());
                     e.printStackTrace();
@@ -1209,13 +1209,13 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public void releaseTextures() {
-        int b = lna.b(getMultiMediaDataTrack());
+        int b = yua.b(getMultiMediaDataTrack());
         for (int i = 0; i < b; i++) {
             List<MultiMediaData> list = getMultiMediaDataTrack().get(i).multiMediaDataList;
-            int b2 = lna.b(list);
+            int b2 = yua.b(list);
             if (b2 != 0) {
                 for (int i2 = 0; i2 < b2; i2++) {
-                    MultiMediaData multiMediaData = (MultiMediaData) lna.c(list, i2);
+                    MultiMediaData multiMediaData = (MultiMediaData) yua.c(list, i2);
                     if (multiMediaData != null) {
                         multiMediaData.releaseSurface();
                         multiMediaData.releasePlayer(true);

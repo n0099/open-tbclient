@@ -4,7 +4,7 @@ import org.apache.http.auth.AuthScheme;
 import org.apache.http.auth.AuthSchemeFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class BasicSchemeFactory implements AuthSchemeFactory {
     public BasicSchemeFactory() {
         throw new RuntimeException("Stub!");

@@ -1,123 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.validation.utils.ValidationLog;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class cpa {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                String str = Build.VERSION.RELEASE;
-                b = str;
-                return str == null ? "" : str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683829, "Lcom/baidu/tieba/cpa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return b;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683829, "Lcom/baidu/tieba/cpa;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = aoa.m();
     }
 
-    public static String b(Context context) {
+    public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(d)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-                    d = charSequence;
-                    return charSequence;
-                } catch (Throwable unused) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
                 }
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            StringBuilder sb = new StringBuilder(str);
-            sb.append(" ");
-            sb.append("Sapi_");
-            sb.append(d());
-            sb.append("_");
-            sb.append("Android_");
-            sb.append(b(context));
-            sb.append("_");
-            sb.append(e(context));
-            sb.append("_");
-            sb.append(f());
-            sb.append("_");
-            sb.append(a());
-            sb.append("_Sapi");
-            ValidationLog.e(sb.toString(), new Object[0]);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                c = "1.0.5";
-                return "1.0.5";
-            }
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (TextUtils.isEmpty(e)) {
-                try {
-                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    e = str;
-                    return str;
-                } catch (Throwable unused) {
-                    return null;
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (!a) {
+                    return true;
+                } else {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
                 }
+            } else if (!a) {
+                return true;
+            } else {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
             }
-            return e;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                String str = Build.MODEL;
-                a = str;
-                return str == null ? "" : str;
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

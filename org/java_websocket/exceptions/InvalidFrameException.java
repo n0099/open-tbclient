@@ -1,5 +1,5 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class InvalidFrameException extends InvalidDataException {
     public static final long serialVersionUID = -9016496369828887591L;
 

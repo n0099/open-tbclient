@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.uo5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.ws5;
 /* loaded from: classes4.dex */
 public class InitFlutterNpsPluginTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -21,8 +21,8 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void execute() {
         if (PermissionUtil.isBrowseMode()) {
             initFlutterPlugin();
-        } else if (FixNpsAnrSwitch.getIsOn() && ri.q() > 1) {
-            sg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
+        } else if (FixNpsAnrSwitch.getIsOn() && vi.q() > 1) {
+            wg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
                 @Override // java.lang.Runnable
                 public void run() {
                     InitFlutterNpsPluginTask.this.initFlutterPlugin();
@@ -34,14 +34,14 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     }
 
     public void initFlutterPlugin() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new uo5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
-            @Override // com.baidu.tieba.uo5
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new ws5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
+            @Override // com.baidu.tieba.ws5
             public void onFail() {
             }
 
-            @Override // com.baidu.tieba.uo5
+            @Override // com.baidu.tieba.ws5
             public void onSuccess() {
-                sg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
+                wg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1.1

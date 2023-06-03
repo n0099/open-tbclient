@@ -1,6 +1,7 @@
 package kotlinx.coroutines.flow.internal;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -12,17 +13,16 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.flow.FlowCollector;
 /* JADX INFO: Add missing generic type declarations: [T] */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowOperator$collectWithContextUndispatched$2", f = "ChannelFlow.kt", i = {0}, l = {106}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0005H\u008a@"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "Lkotlinx/coroutines/flow/FlowCollector;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowOperator$collectWithContextUndispatched$2", f = "ChannelFlow.kt", i = {}, l = {Cea708Decoder.COMMAND_DF0}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes10.dex */
 public final class ChannelFlowOperator$collectWithContextUndispatched$2<T> extends SuspendLambda implements Function2<FlowCollector<? super T>, Continuation<? super Unit>, Object> {
-    public Object L$0;
+    public /* synthetic */ Object L$0;
     public int label;
-    public FlowCollector p$0;
-    public final /* synthetic */ ChannelFlowOperator this$0;
+    public final /* synthetic */ ChannelFlowOperator<S, T> this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChannelFlowOperator$collectWithContextUndispatched$2(ChannelFlowOperator channelFlowOperator, Continuation continuation) {
+    public ChannelFlowOperator$collectWithContextUndispatched$2(ChannelFlowOperator<S, T> channelFlowOperator, Continuation<? super ChannelFlowOperator$collectWithContextUndispatched$2> continuation) {
         super(2, continuation);
         this.this$0 = channelFlowOperator;
     }
@@ -30,14 +30,18 @@ public final class ChannelFlowOperator$collectWithContextUndispatched$2<T> exten
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         ChannelFlowOperator$collectWithContextUndispatched$2 channelFlowOperator$collectWithContextUndispatched$2 = new ChannelFlowOperator$collectWithContextUndispatched$2(this.this$0, continuation);
-        channelFlowOperator$collectWithContextUndispatched$2.p$0 = (FlowCollector) obj;
+        channelFlowOperator$collectWithContextUndispatched$2.L$0 = obj;
         return channelFlowOperator$collectWithContextUndispatched$2;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((ChannelFlowOperator$collectWithContextUndispatched$2) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return invoke((FlowCollector) ((FlowCollector) obj), continuation);
+    }
+
+    public final Object invoke(FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {
+        return ((ChannelFlowOperator$collectWithContextUndispatched$2) create(flowCollector, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -46,18 +50,15 @@ public final class ChannelFlowOperator$collectWithContextUndispatched$2<T> exten
         int i = this.label;
         if (i != 0) {
             if (i == 1) {
-                FlowCollector flowCollector = (FlowCollector) this.L$0;
                 ResultKt.throwOnFailure(obj);
             } else {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
         } else {
             ResultKt.throwOnFailure(obj);
-            FlowCollector<? super T> flowCollector2 = this.p$0;
-            ChannelFlowOperator channelFlowOperator = this.this$0;
-            this.L$0 = flowCollector2;
+            ChannelFlowOperator<S, T> channelFlowOperator = this.this$0;
             this.label = 1;
-            if (channelFlowOperator.flowCollect(flowCollector2, this) == coroutine_suspended) {
+            if (channelFlowOperator.flowCollect((FlowCollector) this.L$0, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         }

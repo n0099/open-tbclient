@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.s65;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.u65;
-import com.baidu.tieba.w8a;
+import com.baidu.tieba.lfa;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.q95;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public w8a c;
+    public lfa c;
     public BaseWebView d;
     public View e;
-    public s65 f;
+    public o95 f;
     public TextView g;
-    public u65 h;
+    public q95 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -106,9 +106,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                s65 s65Var = new s65(this.a.getPageContext());
-                this.f = s65Var;
-                s65Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                o95 o95Var = new o95(this.a.getPageContext());
+                this.f = o95Var;
+                o95Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(w8a w8aVar) {
+    public void setPresenter(lfa lfaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, w8aVar) == null) {
-            this.c = w8aVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lfaVar) == null) {
+            this.c = lfaVar;
             this.i = false;
         }
     }
@@ -174,7 +174,7 @@ public class NewVcodeView {
     public void showWebViewDelay(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            sg.a().postDelayed(this.j, i);
+            wg.a().postDelayed(this.j, i);
         }
     }
 
@@ -197,7 +197,7 @@ public class NewVcodeView {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
             newVcodeActivity.setActivityBgTransparent();
             newVcodeActivity.setSwipeBackEnabled(false);
-            if (this.b == pg.e("6", 0)) {
+            if (this.b == tg.e("6", 0)) {
                 newVcodeActivity.setContentView(R.layout.new_vcode_center_activity);
             } else {
                 newVcodeActivity.setContentView(R.layout.new_vcode_activity);
@@ -206,16 +206,16 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f12d6));
-            u65 u65Var = new u65();
-            this.h = u65Var;
-            u65Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1328));
+            q95 q95Var = new q95();
+            this.h = q95Var;
+            q95Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }
             try {
                 this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
-                if (this.b != pg.e("6", 0)) {
+                if (this.b != tg.e("6", 0)) {
                     UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.d, 1.2631578f);
                 }
                 this.d.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0def);
                             this.a.a.finish();
                         }
                     }
@@ -278,7 +278,7 @@ public class NewVcodeView {
                             }
                             if (!this.a.i) {
                                 this.a.i = true;
-                                sg.a().postDelayed(this.a.j, 500L);
+                                wg.a().postDelayed(this.a.j, 500L);
                                 if (this.a.c != null) {
                                     this.a.c.onPageFinished(webView, str);
                                 }
@@ -322,7 +322,7 @@ public class NewVcodeView {
     public void onDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sg.a().removeCallbacks(this.j);
+            wg.a().removeCallbacks(this.j);
         }
     }
 
@@ -340,7 +340,7 @@ public class NewVcodeView {
             BaseWebView baseWebView = this.d;
             if (baseWebView != null) {
                 if (z) {
-                    if (this.b != pg.e("6", 0)) {
+                    if (this.b != tg.e("6", 0)) {
                         UtilHelper.setSupportHeight(this.a.getPageContext().getPageActivity(), this.d, this.k);
                     }
                     this.d.setVisibility(0);

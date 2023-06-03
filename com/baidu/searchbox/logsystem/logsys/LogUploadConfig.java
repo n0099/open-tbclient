@@ -1,14 +1,14 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogUploadConfig {
     public boolean mUploadWifiOnly;
 
     public static void init() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public boolean mUploadWifiOnly = false;
 

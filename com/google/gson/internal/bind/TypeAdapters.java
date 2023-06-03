@@ -966,7 +966,7 @@ public final class TypeAdapters {
             public JsonElement read(JsonReader jsonReader) throws IOException {
                 switch (AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
                     case 1:
-                        return new JsonPrimitive((Number) new LazilyParsedNumber(jsonReader.nextString()));
+                        return new JsonPrimitive(new LazilyParsedNumber(jsonReader.nextString()));
                     case 2:
                         return new JsonPrimitive(Boolean.valueOf(jsonReader.nextBoolean()));
                     case 3:

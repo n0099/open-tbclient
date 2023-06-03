@@ -1,37 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLSession;
 /* loaded from: classes7.dex */
-public abstract class qbb {
+public class qbb implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Deprecated
-    public g7b.f a(g7b.f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar : (g7b.f) invokeL.objValue;
-    }
-
-    @Deprecated
-    public Throwable b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public g7b.f c(g7b g7bVar, g7b.f fVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, g7bVar, fVar)) == null) ? fVar : (g7b.f) invokeLL.objValue;
-    }
 
     public qbb() {
         Interceptable interceptable = $ic;
@@ -45,5 +26,23 @@ public abstract class qbb {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // javax.net.ssl.HostnameVerifier
+    public final boolean verify(String str, SSLSession sSLSession) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+            try {
+                X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
+                ybb.b("", "verify: certificate is : " + x509Certificate.getSubjectDN().getName());
+                sbb.a(str, x509Certificate, true);
+                return true;
+            } catch (SSLException e) {
+                ybb.d("", "SSLException : " + e.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

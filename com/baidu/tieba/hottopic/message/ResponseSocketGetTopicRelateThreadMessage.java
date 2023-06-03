@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sz7;
+import com.baidu.tieba.h58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,11 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz7 hotThreadItemListData;
+    public h58 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         }
     }
 
-    public sz7 getHotThreadItemListData() {
+    public h58 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (sz7) invokeV.objValue;
+        return (h58) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -84,9 +84,9 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                sz7 sz7Var = new sz7();
-                this.hotThreadItemListData = sz7Var;
-                sz7Var.i(getTopicRelateThreadResIdl.data);
+                h58 h58Var = new h58();
+                this.hotThreadItemListData = h58Var;
+                h58Var.i(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }

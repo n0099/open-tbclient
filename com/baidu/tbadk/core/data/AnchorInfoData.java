@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -184,7 +185,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
                 this.startTime = jSONObject.getInt("start_time");
                 this.status = jSONObject.getInt("status");
                 this.authorId = jSONObject.getLong("author_id");
-                this.authorName = jSONObject.getString("author_name");
+                this.authorName = jSONObject.getString(NativeUnifiedADAppInfoImpl.Keys.AUTHOR_NAME);
                 this.listeners = jSONObject.getInt("listeners");
                 this.likers = jSONObject.getInt("likers");
                 this.group_id = jSONObject.optLong("group_id", 0L);

@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.hh9;
-import com.baidu.tieba.kh9;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sr5;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.on9;
+import com.baidu.tieba.rn9;
+import com.baidu.tieba.tg;
+import com.baidu.tieba.uv5;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -70,7 +70,7 @@ public class RecPersonalizeRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             int i = 1;
-            ss5.c(builder, true, false, true);
+            uw5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -78,9 +78,9 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ri.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(vi.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             }
@@ -90,11 +90,11 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = kh9.f().d("HOME");
-            builder.app_pos = hh9.e().c();
+            builder.ad_context_list = rn9.f().d("HOME");
+            builder.app_pos = on9.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                q05 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(pg.g(pbToHomeUpdateData.a, 0L));
+                n35 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(tg.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
                 builder.second_dir = pbToHomeUpdateData.d;
@@ -103,7 +103,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = sr5.b();
+            builder.app_transmit_data = uv5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);

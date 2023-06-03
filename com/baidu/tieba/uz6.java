@@ -4,22 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class uz6 extends s07 {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class uz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public int p;
-    public long q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public int w;
+    public w35 a;
+    public ArrayList<vn> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public vz6 g;
+    public boolean h;
 
     public uz6() {
         Interceptable interceptable = $ic;
@@ -31,7 +28,15 @@ public class uz6 extends s07 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.h = true;
+        this.b = new ArrayList<>();
+        this.a = new w35();
     }
 }

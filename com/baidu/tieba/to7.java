@@ -1,20 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.mo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class to7 extends wa {
+public class to7 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public to7() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,35 +30,59 @@ public class to7 extends wa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.ab
-    public /* bridge */ /* synthetic */ HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        c(httpResponsedMessage2);
-        return httpResponsedMessage2;
+    @Override // com.baidu.tieba.v65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGroupChatGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
     }
 
-    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
+    @Override // com.baidu.tieba.v65
+    public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return httpResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z = false;
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
             }
-            if (httpResponsedMessage.getError() == 1990055 && !so7.c(httpResponsedMessage.getCmd())) {
-                so7.d();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
             }
-            return httpResponsedMessage;
+            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
+            if (v1 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前FrsFragment为空");
+                return false;
+            }
+            mo5.b O3 = v1.O3();
+            if (O3 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前OptFragment为空");
+                return false;
+            }
+            if (!l95.m().i("key_chat_group_guide_show", false) && O3.p0()) {
+                z = true;
+            }
+            if (!z) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗策略校验失败：已经显示过");
+            }
+            return z;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

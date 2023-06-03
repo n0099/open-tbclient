@@ -1,46 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.util.Log;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import org.json.JSONObject;
+/* compiled from: JsPromptInterface.java */
 /* loaded from: classes7.dex */
-public class rl6 implements l27 {
+public final /* synthetic */ class rl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rl6() {
+    public static void b(sl6 sl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, sl6Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.l27
-    public void a(Context context, String str) {
-        TbPageContext<?> tbPageContext;
+    public static void a(sl6 sl6Var, WebView webView, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (m9.a(context) instanceof TbPageContext) {
-                tbPageContext = (TbPageContext) m9.a(context);
-            } else {
-                tbPageContext = null;
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, sl6Var, webView, str, jSONObject) != null) || webView == null) {
+            return;
         }
+        long currentTimeMillis = System.currentTimeMillis();
+        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+        StringBuilder sb = new StringBuilder();
+        sb.append("javascript 执行成功:");
+        sb.append(str);
+        sb.append(" 耗时：");
+        sb.append(System.currentTimeMillis() - currentTimeMillis);
+        Log.i("newHybrid", sb.toString());
     }
 }

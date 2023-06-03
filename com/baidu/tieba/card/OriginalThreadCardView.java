@@ -38,9 +38,9 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.o16;
+import com.baidu.tieba.vi;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -148,11 +148,11 @@ public class OriginalThreadCardView extends RelativeLayout {
                 return;
             }
         }
-        s = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        t = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        u = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-        v = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        w = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        s = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        t = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        u = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        v = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        w = vi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -272,11 +272,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                p45.d(view2).f(i);
+                m75.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                p45.d(textView).f(i);
+                m75.d(textView).f(i);
             }
         }
     }
@@ -312,7 +312,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = nx5.d(itemStarData);
+            SpannableStringBuilder d = o16.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -586,19 +586,19 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.e = (ImageView) findViewById(R.id.thread_pic_mask);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
-        this.c.setRadius(ri.g(context, R.dimen.tbds10));
+        this.c.setRadius(vi.g(context, R.dimen.tbds10));
         this.c.setConrers(15);
-        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070895));
+        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708a8));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
-        int l = (((ri.l(context) - (ri.g(context, R.dimen.tbds44) * 2)) - (ri.g(getContext(), R.dimen.tbds26) * 2)) - (ri.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int l = (((vi.l(context) - (vi.g(context, R.dimen.tbds44) * 2)) - (vi.g(getContext(), R.dimen.tbds26) * 2)) - (vi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams.width = l;
         layoutParams.height = l;
         this.c.setLayoutParams(layoutParams);
         this.e.setLayoutParams(layoutParams);
-        int g = ri.g(context, R.dimen.tbds52);
+        int g = vi.g(context, R.dimen.tbds52);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams2.leftMargin = (l - g) / 2;
         this.d.setLayoutParams(layoutParams2);
@@ -606,9 +606,9 @@ public class OriginalThreadCardView extends RelativeLayout {
         layoutParams3.height = l;
         this.b.setLayoutParams(layoutParams3);
         this.f = (LinearLayout) findViewById(R.id.add_item);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09118f);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a2);
         this.g = textView;
-        textView.setMaxWidth(ri.s(context)[0] / 2);
+        textView.setMaxWidth(vi.s(context)[0] / 2);
         this.h = (RankStarView) findViewById(R.id.item_star);
         this.i = (TextView) findViewById(R.id.item_score);
         VoteView voteView = (VoteView) findViewById(R.id.vote_view);
@@ -679,8 +679,8 @@ public class OriginalThreadCardView extends RelativeLayout {
             if (i4 != 0) {
                 SkinManager.setImageResource(this.d, i4);
             }
-            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
-            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
+            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
+            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(vi.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
             this.j.D(skinType);
             SkinManager.setViewTextColor(this.g, i2, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0107, 1);

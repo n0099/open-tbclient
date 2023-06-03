@@ -128,7 +128,7 @@ public class Slide extends Visibility {
 
     private void captureValues(TransitionValues transitionValues) {
         int[] iArr = new int[2];
-        transitionValues.f1027view.getLocationOnScreen(iArr);
+        transitionValues.f1028view.getLocationOnScreen(iArr);
         transitionValues.values.put(PROPNAME_SCREEN_POSITION, iArr);
     }
 

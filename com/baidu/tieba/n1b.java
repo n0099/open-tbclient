@@ -1,156 +1,142 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class n1b implements f1b {
+public class n1b extends c1b<l1b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final c1b d;
-    public final p1b e;
-    public final q1b f;
-    public final Map<String, String> g;
-    public final List<x1b> h;
-    public final Map<String, String> i;
 
-    public n1b(Context context, String str, c1b c1bVar, InputStream inputStream, Map<String, String> map, List<x1b> list, String str2) {
+    /* loaded from: classes6.dex */
+    public class a implements TTAdNative.FullScreenVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n1b a;
+
+        public a(n1b n1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n1bVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded(new l1b(tTFullScreenVideoAd), new String[0]);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n1b(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, c1bVar, inputStream, map, list, str2};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new t1b(inputStream, str);
-            l1b.a(inputStream);
-        } else {
-            this.e = new w1b(this.b, str);
-        }
-        this.f = new q1b(this.e);
-        if (c1bVar != c1b.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (c1bVar == null || c1bVar == c1b.b) ? l1b.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : c1bVar;
-        this.g = l1b.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
     }
 
-    @Override // com.baidu.tieba.f1b
-    public String a(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            l1b l1bVar = (l1b) obj;
+        }
+    }
+
+    @Override // com.baidu.tieba.c1b
+    public void f(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            this.e.loadFullScreenVideoAd(i(funAdSlot), new a(this));
+        }
+    }
+
+    public AdSlot i(FunAdSlot funAdSlot) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f1b
-    public c1b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c1b c1bVar = this.d;
-            return c1bVar == null ? c1b.b : c1bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
-        return (c1b) invokeV.objValue;
+        return (AdSlot) invokeL.objValue;
     }
 
-    public final String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, h1b.a> a = h1b.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
-                }
-                h1b.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
-                }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
-            }
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            l1b l1bVar = (l1b) obj;
+            onShowStart(l1bVar);
+            ((TTFullScreenVideoAd) l1bVar.a).setFullScreenVideoAdInteractionListener(new q1b(this, l1bVar));
+            ((TTFullScreenVideoAd) l1bVar.a).setDownloadListener(new s0b(null));
+            ((TTFullScreenVideoAd) l1bVar.a).showFullScreenVideoAd(activity);
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public List<x1b> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
-            }
-            String e = l1b.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return q1b.c(a) ? this.f.a(a, str2) : a;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f1b
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f1b
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

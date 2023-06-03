@@ -12,30 +12,30 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c28;
-import com.baidu.tieba.n75;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.r78;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GamePersonalChatTitleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public c28 d;
+    public r78 d;
     public b e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull c28 c28Var);
+        void a(@NonNull r78 r78Var);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(c28 c28Var) {
+    public void h(r78 r78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c28Var) == null) {
-            this.d = c28Var;
-            this.b.setText(c28Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, r78Var) == null) {
+            this.d = r78Var;
+            this.b.setText(r78Var.c());
         }
     }
 
@@ -152,13 +152,13 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new TBSpecificationBtn(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, ri.g(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.setMargins(0, 0, vi.g(getContext(), R.dimen.M_W_X007), 0);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            n75 n75Var = new n75();
-            n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(n75Var);
+            ja5 ja5Var = new ja5();
+            ja5Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(ja5Var);
             this.c.setText(getContext().getString(R.string.game_title_btn));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
@@ -171,9 +171,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(9);
             this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(ri.g(getContext(), R.dimen.M_W_X008), ri.g(getContext(), R.dimen.tbds44), 0, ri.g(getContext(), R.dimen.tbds44));
+            this.b.setPadding(vi.g(getContext(), R.dimen.M_W_X008), vi.g(getContext(), R.dimen.tbds44), 0, vi.g(getContext(), R.dimen.tbds44));
             addView(this.b);
-            p45 d = p45.d(this.b);
+            m75 d = m75.d(this.b);
             d.B(R.dimen.T_X13);
             d.C(R.string.F_X01);
         }
@@ -207,9 +207,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            p45.d(this).f(R.color.CAM_X0204);
-            p45.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            p45.d(this.b).w(R.color.CAM_X0105);
+            m75.d(this).f(R.color.CAM_X0204);
+            m75.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            m75.d(this.b).w(R.color.CAM_X0105);
             this.c.k();
         }
     }

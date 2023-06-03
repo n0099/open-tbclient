@@ -13,11 +13,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
 import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.og;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class EmotionView extends TbImageView {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends kg<cn> {
+    public class a extends og<gn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionView a;
@@ -80,15 +80,15 @@ public class EmotionView extends TbImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(cn cnVar, String str, int i) {
+        @Override // com.baidu.tieba.og
+        public void onLoaded(gn gnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, str, i) == null) && cnVar != null) {
-                this.a.H = cnVar.t();
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, gnVar, str, i) == null) && gnVar != null) {
+                this.a.H = gnVar.t();
                 View findViewWithTag = this.a.findViewWithTag(str);
                 if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && str != null) {
                     TbImageView tbImageView = (TbImageView) findViewWithTag;
-                    cnVar.h(tbImageView);
+                    gnVar.h(tbImageView);
                     tbImageView.setTag(null);
                 }
             }
@@ -386,17 +386,17 @@ public class EmotionView extends TbImageView {
     }
 
     public final void q0(EmotionImageData emotionImageData) {
-        cn cnVar;
+        gn gnVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionImageData) == null) {
-            Object k = lg.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-            if (k != null && (k instanceof cn)) {
-                cnVar = (cn) k;
+            Object k = pg.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+            if (k != null && (k instanceof gn)) {
+                gnVar = (gn) k;
             } else {
-                cnVar = null;
+                gnVar = null;
             }
-            if (cnVar != null) {
-                cnVar.h(this);
+            if (gnVar != null) {
+                gnVar.h(this);
                 setTag(null);
             }
         }
@@ -423,8 +423,8 @@ public class EmotionView extends TbImageView {
             if (i < 0) {
                 layoutParams.leftMargin = 0;
             }
-            if (layoutParams.leftMargin + this.z0 > ri.l(getContext())) {
-                layoutParams.leftMargin = ri.l(getContext()) - this.z0;
+            if (layoutParams.leftMargin + this.z0 > vi.l(getContext())) {
+                layoutParams.leftMargin = vi.l(getContext()) - this.z0;
             }
             if (this.B0 == null) {
                 this.B0 = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
@@ -462,8 +462,8 @@ public class EmotionView extends TbImageView {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.z0 = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070390);
-            this.A0 = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070397);
+            this.z0 = vi.g(getContext(), R.dimen.obfuscated_res_0x7f07039b);
+            this.A0 = vi.g(getContext(), R.dimen.obfuscated_res_0x7f0703a2);
             this.K0 = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
         }
     }

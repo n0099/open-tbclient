@@ -215,10 +215,10 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         public final boolean dismiss;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1070view;
+        public final View f1206view;
 
         public SettleRunnable(View view2, boolean z) {
-            this.f1070view = view2;
+            this.f1206view = view2;
             this.dismiss = z;
         }
 
@@ -227,9 +227,9 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             OnDismissListener onDismissListener;
             ViewDragHelper viewDragHelper = SwipeDismissBehavior.this.viewDragHelper;
             if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                ViewCompat.postOnAnimation(this.f1070view, this);
+                ViewCompat.postOnAnimation(this.f1206view, this);
             } else if (this.dismiss && (onDismissListener = SwipeDismissBehavior.this.listener) != null) {
-                onDismissListener.onDismiss(this.f1070view);
+                onDismissListener.onDismiss(this.f1206view);
             }
         }
     }

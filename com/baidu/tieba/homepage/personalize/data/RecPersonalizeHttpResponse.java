@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.nv7;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,11 +59,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        nv7.a = false;
-        if (nv7.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-            this.resultData = nv7.b();
-            nv7.a = true;
-            nv7.a();
+        y08.a = false;
+        if (y08.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+            this.resultData = y08.b();
+            y08.a = true;
+            y08.a();
             return;
         }
         this.resultData = personalizedResIdl.data;

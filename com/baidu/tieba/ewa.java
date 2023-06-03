@@ -1,183 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsFullScreenVideoAd;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsScene;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ewa extends awa<KsFullScreenVideoAd> {
-    public static /* synthetic */ Interceptable $ic;
+public class ewa extends bwa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String h = "XMUnionID";
+    public static boolean i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements KsLoadManager.FullScreenVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ewa a;
-
-        public a(ewa ewaVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750138, "Lcom/baidu/tieba/ewa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ewaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947750138, "Lcom/baidu/tieba/ewa;");
+                return;
+            }
+        }
+        i = tva.e();
+    }
+
+    @Override // com.baidu.tieba.awa
+    public awa d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.c = hcb.b();
+                this.d = hcb.a(this.a);
+                this.g = 0;
+            } catch (Exception e) {
+                if (i) {
+                    Log.e(h, "xiaomi init4UnionId error", e);
                 }
             }
-            this.a = ewaVar;
+            return this;
         }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                this.a.onAdLoaded((ewa) list.get(0));
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                LogPrinter.d();
-            }
-        }
+        return (awa) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ewa(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigKs);
+    public ewa(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new xwa(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+        if (i) {
+            Log.e(h, "xiaomi XMUnionID !!");
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build();
-            onLoadStart(funAdSlot);
-            KsAdSDK.getLoadManager().loadFullScreenVideoAd(build, new a(this));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((KsFullScreenVideoAd) obj).getECPM() / 100.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (ksFullScreenVideoAd != null && ksFullScreenVideoAd.isAdEnable()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (z) {
-                ksFullScreenVideoAd.setBidEcpm((int) (d2 * 100.0d));
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, obj)) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (!ksFullScreenVideoAd.isAdEnable()) {
-                LogPrinter.e("Ad isn't ready now.", new Object[0]);
-                return false;
-            }
-            onShowStart(ksFullScreenVideoAd);
-            ksFullScreenVideoAd.setFullScreenVideoAdInteractionListener(new fwa(this, ksFullScreenVideoAd));
-            ksFullScreenVideoAd.showFullScreenVideoAd(activity, e());
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
     }
 }

@@ -5,6 +5,7 @@ import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class f extends a {
@@ -37,7 +38,7 @@ public class f extends a {
     public void dG() {
         super.dG();
         FaceAlgoData faceAlgoData = this.ob;
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", ConstPath.KEY_DETECT, SystemClock.elapsedRealtime() - this.of, (faceAlgoData == null || faceAlgoData.getFaceFrame() == null || this.ob.getFaceFrame().getFaceBoxes() == null) ? 0 : this.ob.getFaceFrame().getFaceBoxes().size());
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost(UgcTranscoderConstant.URL_GET_FACE, ConstPath.KEY_DETECT, SystemClock.elapsedRealtime() - this.of, (faceAlgoData == null || faceAlgoData.getFaceFrame() == null || this.ob.getFaceFrame().getFaceBoxes() == null) ? 0 : this.ob.getFaceFrame().getFaceBoxes().size());
         k kVar = this.od;
         if (kVar != null) {
             kVar.a(this.og);

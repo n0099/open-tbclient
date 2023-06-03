@@ -1,93 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class oa1 {
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+@Service
+/* loaded from: classes7.dex */
+public final class oa1 extends uj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public na1 b;
-    public int c;
+    public final String a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        String a();
+    @Override // com.baidu.tieba.uj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
     }
 
-    public oa1(int i) {
+    public oa1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.c = i;
+        this.a = "PreRenderAction";
     }
 
-    public void a(na1 na1Var) {
+    @Override // com.baidu.tieba.uj0
+    public boolean b(Context context, yj0 schemeModel, Map<String, Object> map, ck0 ck0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, na1Var) == null) {
-            this.b = na1Var;
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void getPerformanceTiming(String str) {
-        na1 na1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (na1Var = this.b) != null) {
-            na1Var.b(str);
-        }
-    }
-
-    @JavascriptInterface
-    public String getSysHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a aVar = this.a;
-            if (aVar == null) {
-                return "";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, ck0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, ck0Var);
+            if (eo0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            String a2 = aVar.a();
-            if (TextUtils.isEmpty(a2)) {
-                return "";
+            if (!z) {
+                ka1 c = ia1.c();
+                if (c != null) {
+                    c.c();
+                }
+                return false;
             }
-            return a2;
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            String str = d.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                qa1.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d.get("web_type");
+            String str2 = d.get("refer");
+            ka1 c2 = ia1.c();
+            if (c2 != null) {
+                c2.b(str, null, str2);
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public int pageType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public final class g1b {
+public class g1b implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public c1b b;
-    public InputStream c;
-    public final Map<String, String> d;
-    public final List<x1b> e;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ i1b c;
+    public final /* synthetic */ d1b d;
 
-    public g1b() {
+    public g1b(d1b d1bVar, i1b i1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d1bVar, i1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,24 +32,37 @@ public final class g1b {
                 return;
             }
         }
-        this.b = c1b.b;
-        this.d = new HashMap();
-        this.e = new ArrayList();
+        this.d = d1bVar;
+        this.c = i1bVar;
     }
 
-    public f1b a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new n1b(context, this.a, this.b, this.c, this.d, this.e, null) : (f1b) invokeL.objValue;
-    }
-
-    public g1b b(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            this.c = inputStream;
-            return this;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((d1b) this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (g1b) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((d1b) this.c, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((d1b) this.c, this.a, new String[0]);
+            this.a = true;
+        }
     }
 }

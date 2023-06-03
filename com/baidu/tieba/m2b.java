@@ -1,64 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes6.dex */
-public final class m2b<TResult> implements d2b<TResult> {
+public class m2b implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e2b<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final ModuleConfigGdt a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h2b a;
-        public final /* synthetic */ m2b b;
-
-        public a(m2b m2bVar, h2b h2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m2bVar, h2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m2bVar;
-            this.a = h2bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onComplete(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    public m2b(Executor executor, e2b<TResult> e2bVar) {
+    public m2b(ModuleConfigGdt moduleConfigGdt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, e2bVar};
+            Object[] objArr = {moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,26 +31,91 @@ public final class m2b<TResult> implements d2b<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = e2bVar;
-        this.b = executor;
+        this.a = moduleConfigGdt;
     }
 
-    @Override // com.baidu.tieba.d2b
-    public final void cancel() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return new f3b(pid);
+                case 1:
+                    return new t2b(pid);
+                case 2:
+                    return new g3b(pid);
+                case 3:
+                    return new h3b(pid, this.a);
+                case 4:
+                    return new z2b(pid);
+                case 5:
+                    return new e3b(pid, this.a);
+                case 6:
+                    return new s2b(pid, this.a);
+                default:
+                    return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.d2b
-    public final void onComplete(h2b<TResult> h2bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h2bVar) == null) {
-            this.b.execute(new a(this, h2bVar));
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

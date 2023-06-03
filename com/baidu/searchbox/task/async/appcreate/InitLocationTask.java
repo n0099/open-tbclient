@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.lf;
+import com.baidu.tieba.pf;
 /* loaded from: classes4.dex */
 public class InitLocationTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -19,9 +19,9 @@ public class InitLocationTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            lf.n().q();
+            pf.n().q();
             if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                lf.n().j(false);
+                pf.n().j(false);
             }
         } catch (Throwable th) {
             th.printStackTrace();

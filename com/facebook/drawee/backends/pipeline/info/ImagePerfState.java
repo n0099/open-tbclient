@@ -5,7 +5,7 @@ import com.facebook.fresco.ui.common.DimensionsInfo;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImagePerfState {
     @Nullable
     public Object mCallerContext;

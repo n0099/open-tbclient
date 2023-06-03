@@ -1,5 +1,5 @@
 package org.apache.commons.codec.language.bm;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ResourceConstants {
     public static final String CMT = "//";
     public static final String ENCODING = "UTF-8";

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import java.io.ObjectInput;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface fxa<T> {
-    T a(ObjectInput objectInput);
+public interface fxa {
+    String getBizType();
+
+    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
 }

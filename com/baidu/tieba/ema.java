@@ -1,27 +1,80 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes5.dex */
-public class ema extends MediaMetadataRetriever {
+public class ema extends ola {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ema(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.ola, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.ola, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.y(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.ola, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.ola, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.B(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (r() == null) {
+                C(q());
+            }
+            return new CronetUrlRequestContext(this);
+        }
+        return (ExperimentalCronetEngine) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ola, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

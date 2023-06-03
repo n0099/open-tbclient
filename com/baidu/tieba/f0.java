@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.ashley.core.ComponentOperationHandler;
+import com.badlogic.ashley.core.EntityManager;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class f0 {
     public static /* synthetic */ Interceptable $ic;
-    public static k7<String, f0> e;
-    public static int f;
-    public static final b g;
-    public static final r6 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r6 a;
-    public final r6 b;
-    public final r6 c;
-    public final int d;
+    public final n0<g0> a;
+    public final n0<g0> b;
+    public m0 c;
+    public EntityManager d;
+    public ComponentOperationHandler e;
+    public k0 f;
+    public boolean g;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -27,24 +31,18 @@ public class f0 {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this == obj : invokeL.booleanValue;
-    }
-
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b implements n0<g0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public r6 a;
-        public r6 b;
-        public r6 c;
+        public final /* synthetic */ f0 a;
 
-        public b() {
+        public b(f0 f0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,59 +52,150 @@ public class f0 {
                     return;
                 }
             }
-            this.a = f0.h;
-            this.b = f0.h;
-            this.c = f0.h;
+            this.a = f0Var;
         }
 
-        public f0 b() {
+        public /* synthetic */ b(f0 f0Var, a aVar) {
+            this(f0Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.n0
+        /* renamed from: b */
+        public void a(o0<g0> o0Var, g0 g0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0Var, g0Var) == null) {
+                this.a.f.f(g0Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements ComponentOperationHandler.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f0 a;
+
+        public c(f0 f0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f0Var;
+        }
+
+        public /* synthetic */ c(f0 f0Var, a aVar) {
+            this(f0Var);
+        }
+
+        @Override // com.badlogic.ashley.core.ComponentOperationHandler.b
+        public boolean value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return (f0) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.g;
             }
-            String f = f0.f(this.a, this.b, this.c);
-            f0 f0Var = (f0) f0.e.d(f, null);
-            if (f0Var == null) {
-                f0 f0Var2 = new f0(this.a, this.b, this.c, null);
-                f0.e.i(f, f0Var2);
-                return f0Var2;
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements h0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f0 a;
+
+        public d(f0 f0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return f0Var;
+            this.a = f0Var;
         }
 
-        @SafeVarargs
-        public final b a(Class<? extends z>... clsArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.h0
+        public void a(g0 g0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clsArr)) == null) {
-                this.a = a0.a(clsArr);
-                return this;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g0Var) == null) {
+                this.a.n(g0Var);
             }
-            return (b) invokeL.objValue;
         }
 
-        @SafeVarargs
-        public final b c(Class<? extends z>... clsArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.h0
+        public void b(g0 g0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clsArr)) == null) {
-                this.b = a0.a(clsArr);
-                return this;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g0Var) == null) {
+                this.a.d(g0Var);
             }
-            return (b) invokeL.objValue;
         }
 
-        public b d() {
-            InterceptResult invokeV;
+        public /* synthetic */ d(f0 f0Var, a aVar) {
+            this(f0Var);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements m0.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f0 a;
+
+        public e(f0 f0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.a = f0.h;
-                this.b = f0.h;
-                this.c = f0.h;
-                return this;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (b) invokeV.objValue;
+            this.a = f0Var;
+        }
+
+        @Override // com.baidu.tieba.m0.c
+        public void a(i0 i0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) {
+                i0Var.h(this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.m0.c
+        public void b(i0 i0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var) == null) {
+                i0Var.d(this.a);
+            }
+        }
+
+        public /* synthetic */ e(f0 f0Var, a aVar) {
+            this(f0Var);
         }
     }
 
@@ -123,18 +212,31 @@ public class f0 {
                 return;
             }
         }
-        e = new k7<>();
-        f = 0;
-        g = new b();
-        h = new r6();
+        j0.d(new Class[0]).b();
     }
 
-    public f0(r6 r6Var, r6 r6Var2, r6 r6Var3) {
+    public g0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new g0();
+        }
+        return (g0) invokeV.objValue;
+    }
+
+    public q0<i0> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c.c();
+        }
+        return (q0) invokeV.objValue;
+    }
+
+    public f0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r6Var, r6Var2, r6Var3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,123 +246,147 @@ public class f0 {
                 return;
             }
         }
-        this.a = r6Var;
-        this.b = r6Var2;
-        this.c = r6Var3;
-        int i3 = f;
-        f = i3 + 1;
-        this.d = i3;
+        this.a = new b(this, null);
+        this.b = new b(this, null);
+        this.c = new m0(new e(this, null));
+        this.d = new EntityManager(new d(this, null));
+        this.e = new ComponentOperationHandler(new c(this, null));
+        this.f = new k0(this.d.c());
     }
 
-    public /* synthetic */ f0(r6 r6Var, r6 r6Var2, r6 r6Var3, a aVar) {
-        this(r6Var, r6Var2, r6Var3);
-    }
-
-    public int g() {
-        InterceptResult invokeV;
+    public void c(g0 g0Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g0Var) == null) {
+            if (!this.g && !this.f.c()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.d.a(g0Var, z);
         }
-        return invokeV.intValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public void d(g0 g0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g0Var) == null) {
+            g0Var.a.a(this.a);
+            g0Var.b.a(this.b);
+            g0Var.e = this.e;
+            this.f.f(g0Var);
         }
-        return invokeV.intValue;
     }
 
-    @SafeVarargs
-    public static final b d(Class<? extends z>... clsArr) {
+    public void g(i0 i0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, i0Var) == null) {
+            this.c.a(i0Var);
+        }
+    }
+
+    public <T extends d0> T h(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, clsArr)) == null) {
-            b bVar = g;
-            bVar.d();
-            bVar.a(clsArr);
-            return bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            try {
+                return (T) l8.i(cls);
+            } catch (ReflectionException unused) {
+                return null;
+            }
         }
-        return (b) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    @SafeVarargs
-    public static final b i(Class<? extends z>... clsArr) {
+    public q0<g0> j(j0 j0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, clsArr)) == null) {
-            b bVar = g;
-            bVar.d();
-            bVar.c(clsArr);
-            return bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, j0Var)) == null) {
+            return this.f.b(j0Var);
         }
-        return (b) invokeL.objValue;
+        return (q0) invokeL.objValue;
     }
 
-    public static String e(r6 r6Var) {
+    public <T extends i0> T k(Class<T> cls) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, r6Var)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int h2 = r6Var.h();
-            for (int i = 0; i < h2; i++) {
-                if (r6Var.e(i)) {
-                    str = "1";
-                } else {
-                    str = "0";
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
+            return (T) this.c.b(cls);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public void m(g0 g0Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, g0Var) == null) {
+            if (!this.g && !this.f.c()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.d.e(g0Var, z);
+        }
+    }
+
+    public void n(g0 g0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, g0Var) == null) {
+            this.f.f(g0Var);
+            g0Var.a.c(this.a);
+            g0Var.b.c(this.b);
+            g0Var.e = null;
+        }
+    }
+
+    public void o(h0 h0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, h0Var) == null) {
+            this.f.e(h0Var);
+        }
+    }
+
+    public void p(i0 i0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, i0Var) == null) {
+            this.c.d(i0Var);
+        }
+    }
+
+    public void e(j0 j0Var, int i, h0 h0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, j0Var, i, h0Var) == null) {
+            this.f.a(j0Var, i, h0Var);
+        }
+    }
+
+    public void f(j0 j0Var, h0 h0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, j0Var, h0Var) == null) {
+            e(j0Var, 0, h0Var);
+        }
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            if (!this.g) {
+                this.g = true;
+                q0<i0> c2 = this.c.c();
+                for (int i = 0; i < c2.size(); i++) {
+                    try {
+                        i0 i0Var = c2.get(i);
+                        if (i0Var.e()) {
+                            i0Var.update(f);
+                        }
+                        this.e.b();
+                        this.d.d();
+                    } finally {
+                        this.g = false;
+                    }
                 }
-                sb.append(str);
+                return;
             }
-            return sb.toString();
+            throw new IllegalStateException("Cannot call update() on an Engine that is already updating.");
         }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean h(c0 c0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var)) == null) {
-            r6 e2 = c0Var.e();
-            if (!e2.d(this.a)) {
-                return false;
-            }
-            if (!this.b.g() && !this.b.f(e2)) {
-                return false;
-            }
-            if (!this.c.g() && this.c.f(e2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String f(r6 r6Var, r6 r6Var2, r6 r6Var3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, r6Var, r6Var2, r6Var3)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!r6Var.g()) {
-                sb.append("{all:");
-                sb.append(e(r6Var));
-                sb.append("}");
-            }
-            if (!r6Var2.g()) {
-                sb.append("{one:");
-                sb.append(e(r6Var2));
-                sb.append("}");
-            }
-            if (!r6Var3.g()) {
-                sb.append("{exclude:");
-                sb.append(e(r6Var3));
-                sb.append("}");
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLL.objValue;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.webkit.logsdk.c;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import java.io.File;
 import java.util.HashMap;
@@ -46,7 +45,7 @@ public final class b {
                 return;
             }
             String next = it.next();
-            if (!this.b.d(com.baidu.webkit.logsdk.d.c.c(next, StatConstants.VALUE_TYPE_UPLOAD))) {
+            if (!this.b.d(com.baidu.webkit.logsdk.d.c.c(next, "upload"))) {
                 HashMap<String, Boolean> hashMap = this.a;
                 if (!hashMap.get(next).booleanValue()) {
                     b();
@@ -57,7 +56,7 @@ public final class b {
                     boolean z2 = false;
                     if (b != 0 && System.currentTimeMillis() - b >= c2) {
                         com.baidu.webkit.logsdk.d.c.d(next, "cache");
-                        com.baidu.webkit.logsdk.d.c.d(next, StatConstants.VALUE_TYPE_UPLOAD);
+                        com.baidu.webkit.logsdk.d.c.d(next, "upload");
                         com.baidu.webkit.logsdk.d.c.d(next, SevenZipUtils.FILE_NAME_TEMP);
                         long currentTimeMillis = System.currentTimeMillis();
                         com.baidu.webkit.logsdk.a.b.a().e();

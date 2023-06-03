@@ -3,7 +3,6 @@ package com.baidu.searchbox.ui;
 import android.text.TextUtils;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.StringHelper;
 /* loaded from: classes4.dex */
 public class CustomLinkByEllipsize implements ViewTreeObserver.OnGlobalLayoutListener {
     public int maxLines;
@@ -27,7 +26,7 @@ public class CustomLinkByEllipsize implements ViewTreeObserver.OnGlobalLayoutLis
         if (this.textView.getLineCount() > this.maxLines) {
             try {
                 text = this.textView.getText().subSequence(0, this.textView.getLayout().getLineEnd(this.maxLines - 1) - 2);
-                str = StringHelper.STRING_MORE;
+                str = "...";
             } catch (Exception unused) {
                 text = this.textView.getText();
                 str = "";

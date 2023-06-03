@@ -1,49 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 /* loaded from: classes4.dex */
 public class a00 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile byte[] a;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a00() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561224, "Lcom/baidu/tieba/a00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947561224, "Lcom/baidu/tieba/a00;");
+                return;
+            }
+        }
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+    }
+
+    public static void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
     }
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public static void b(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (a00.class) {
-                    if (a == null) {
-                        byte[] bArr = new byte[16];
-                        System.arraycopy(h00.b(), 0, bArr, 0, 16);
-                        wz wzVar = new wz();
-                        wzVar.a(2, bArr, bArr);
-                        a = wzVar.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
         }
-        return (byte[]) invokeV.objValue;
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            view2.setPivotY(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY((-a) / 2.0f);
+            animate.setDuration(400L);
+            animate.start();
+        }
     }
 }

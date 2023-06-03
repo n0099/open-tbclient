@@ -1,59 +1,166 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class ns5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = null;
-    public static String c = null;
-    public static String d = "floor";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class ns5 extends ms5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948013049, "Lcom/baidu/tieba/ns5;")) == null) {
+    public ns5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+    }
+
+    public ns5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        this.a = i;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            qb qbVar = responsedMessage.performanceData;
+            this.w = qbVar.k;
+            this.x = qbVar.l;
+            this.t = qbVar.i;
+            this.u = qbVar.j;
+        } else {
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948013049, "Lcom/baidu/tieba/ns5;");
+        this.c = j;
+        this.d = j4;
+        this.e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.b = !responsedMessage.hasError();
+        qb qbVar2 = responsedMessage.performanceData;
+        this.f = qbVar2.a;
+        this.g = qbVar2.b;
+        this.h = qbVar2.c;
+        this.i = qbVar2.d;
+        this.j = qbVar2.e;
+        this.k = qbVar2.f;
+        this.l = qbVar2.g;
+        long j7 = qbVar2.h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && !ui.isEmpty(str) && !ui.isEmpty(str2)) {
+            this.E.put(str, str2);
         }
     }
 
-    public static void a(String str, String str2, String str3, int i, g9 g9Var, BaijiahaoData baijiahaoData) {
+    public void c() {
+        rs5 rs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), g9Var, baijiahaoData}) == null) {
-            b = str;
-            c = str2;
-            a = str3;
-            if (!StringUtils.isNull(str3) && g9Var != null && g9Var.getPageActivity() != null) {
-                if (d.equals(a)) {
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
-                    createSubPbActivityConfig.setKeyPageStartFrom(8);
-                    createSubPbActivityConfig.setBjhData(baijiahaoData);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                    return;
-                }
-                PbActivityConfig createNormalCfg = new PbActivityConfig(g9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
-                createNormalCfg.setStartFrom(8);
-                createNormalCfg.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (rs5Var = (rs5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            rs5Var.b(this);
+        }
+    }
+
+    public void d(int i) {
+        rs5 rs5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (rs5Var = (rs5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            rs5Var.c(this, i);
+        }
+    }
+
+    public void e(boolean z) {
+        rs5 rs5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (rs5Var = (rs5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            rs5Var.d(this, z);
         }
     }
 }

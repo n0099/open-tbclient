@@ -1,75 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import tbclient.NewFloorInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class vd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(md8 md8Var, int i) {
+    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, md8Var, i) == null) && md8Var != null && md8Var.w() != null && !ListUtils.isEmpty(md8Var.k()) && md8Var.k().size() >= 2) {
-            List<NewFloorInfo> k = md8Var.k();
-            if (k.size() > 2) {
-                if (StringHelper.equals(md8Var.w().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (k.get(1) != null) {
-                        if (k.get(1).is_floor.intValue() == 0) {
-                            b(md8Var, 12, i);
-                            return;
-                        } else if (k.get(1).is_floor.intValue() == 1) {
-                            b(md8Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (k.get(1) != null) {
-                    if (k.get(1).is_floor.intValue() == 0) {
-                        if (md8Var.q() != null) {
-                            if (StringHelper.equals(md8Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(md8Var, 14, i);
-                                return;
-                            } else {
-                                b(md8Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (k.get(1).is_floor.intValue() == 1) {
-                        b(md8Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
+            AtInfo atInfo = new AtInfo();
+            atInfo.setAtCountAll(atInfoData.getAtCountAll());
+            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
+            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
+            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
+            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
+            return atInfo;
+        }
+        return (AtInfo) invokeL.objValue;
+    }
+
+    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
+                if (atMsgBaseData != null) {
+                    AtInfoMsg atInfoMsg = new AtInfoMsg();
+                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
+                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
+                    arrayList.add(atInfoMsg);
                 }
             }
-            b(md8Var, 11, i);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData chatRoomInfoData : list) {
+                if (chatRoomInfoData != null) {
+                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
+                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
+                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                    if (chatroomInfoBasicData != null) {
+                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
+                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
+                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
+                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
+                        chatRoomInfo.setUnreadNum(tg.e(chatroomInfoBasicData.getUnreadNum(), 0));
+                    }
+                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
+                    if (chatRoomInfoData.getAtInfoData() != null) {
+                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
+                    }
+                    arrayList.add(chatRoomInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
+            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+            if (chatroomInfoBasicData != null) {
+                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
+            }
+            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (chatroomMEMsgInfoData != null && newMessage != null) {
+                chatroomMEMsgInfoData.setFromUid(tg.g(newMessage.getFromUid(), 0L));
+                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
+                chatroomMEMsgInfoData.setContent(newMessage.getContent());
+                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
+                if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
+                    chatroomMEMsgInfoData.setSpecialMsg("[有人@我]");
+                } else {
+                    chatroomMEMsgInfoData.setSpecialMsg("");
+                }
+            }
         }
     }
 
-    public static void b(md8 md8Var, int i, int i2) {
+    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, md8Var, i, i2) == null) && md8Var != null && md8Var.s() != null && md8Var.l() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", md8Var.l().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", md8Var.l().e);
-            statisticItem.param("fname", md8Var.l().d);
-            statisticItem.param("pid", md8Var.n());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str)) {
+                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0407);
+            }
+            if (!StringUtils.isNull(str2)) {
+                return str3 + str2;
+            }
+            return str3;
         }
+        return (String) invokeLLL.objValue;
     }
 }

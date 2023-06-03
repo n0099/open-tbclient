@@ -19,7 +19,7 @@ import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 import com.baidu.searchbox.network.outback.statistics.RequestCallException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestCall implements Cancelable {
     public Handler deliver = new Handler(Looper.getMainLooper());
     public Call realCall;

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Media extends Message {
     public static final String DEFAULT_BIGPIC = "";
     public static final String DEFAULT_BSIZE = "";
@@ -74,7 +74,7 @@ public final class Media extends Message {
     public static final Integer DEFAULT_SHOWORIGINALBTN = 0;
     public static final Integer DEFAULT_ISBLOCKEDPIC = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<Media> {
         public String bigPic;
         public String bsize;

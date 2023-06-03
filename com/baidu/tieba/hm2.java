@@ -1,30 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class hm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static fm2 a(SwanAppActivity swanAppActivity, g93 g93Var) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947828444, "Lcom/baidu/tieba/hm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947828444, "Lcom/baidu/tieba/hm2;");
+                return;
+            }
+        }
+        a = is1.a;
+    }
+
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, g93Var)) == null) {
-            if (g93Var == null || !g93Var.I()) {
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f(0).f().c();
+            f(0).e().f();
+            if (f(1) != null) {
+                f(1).f().c();
+                f(1).e().f();
+            }
+        }
+    }
+
+    public static <T extends en2> Exception b(int i, T t) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
+            km2 f = f(i);
+            if (f == null) {
+                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
+            }
+            return f.a(t);
+        }
+        return (Exception) invokeIL.objValue;
+    }
+
+    public static void h(int i, @Nullable rq3<Exception> rq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, rq3Var) == null) {
+            km2 f = f(i);
+            if (f != null) {
+                f.g(rq3Var);
+            } else if (rq3Var != null) {
+                rq3Var.a(null);
+            }
+        }
+    }
+
+    public static ExtensionCore c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            km2 f = f(i);
+            if (f == null) {
                 return null;
             }
-            int k = g93Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return os2.i().n(swanAppActivity, g93Var.b);
-            }
-            return new im2(swanAppActivity, g93Var.b);
+            return f.c();
         }
-        return (fm2) invokeLL.objValue;
+        return (ExtensionCore) invokeI.objValue;
+    }
+
+    public static long d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null) {
+                return c.extensionCoreVersionCode;
+            }
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null && !TextUtils.isEmpty(c.extensionCoreVersionName)) {
+                return c.extensionCoreVersionName;
+            }
+            return "0";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static km2 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                km2 t = gv2.i().t();
+                if (t == null && is1.a) {
+                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
+                }
+                return t;
+            }
+            return gm2.k();
+        }
+        return (km2) invokeI.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if (!"com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) && i == i2) {
+                return;
+            }
+            a();
+            pn2.i(0, true);
+            pn2.i(1, true);
+        }
     }
 }

@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 /* loaded from: classes4.dex */
 public class PmsContentProviderImpl {
@@ -31,7 +32,7 @@ public class PmsContentProviderImpl {
     public DbHelper mDbHelper;
 
     static {
-        Uri parse = Uri.parse("content://" + AUTHORITY);
+        Uri parse = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + AUTHORITY);
         BASE_URI = parse;
         CONTENT_URI_PACKAGE_INFO = parse.buildUpon().appendPath("package_info").build();
         CONTENT_URI_QUERY_SQL = BASE_URI.buildUpon().appendPath(PATH_QUERY_SQL).build();

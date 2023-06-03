@@ -1,96 +1,48 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class c03 extends a03 {
+public final class c03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public c03() {
+    public static int d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            int d = d(context);
+            if (i >= 0 && i < 255) {
+                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
             }
+            drawable.setColorFilter(d, mode);
         }
     }
 
-    @Override // com.baidu.tieba.a03
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        boolean z;
-        Set<Integer> set;
+    public static void b(Context context, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (a03.c) {
-                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            try {
-                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
-                if (pixel != -1 && pixel != -657931) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z && (set = this.b) != null) {
-                    Iterator<Integer> it = set.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().intValue() == pixel) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-                if (!z) {
-                    return false;
-                }
-                for (int i = rect.left + 1; i < rect.right - 1; i++) {
-                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
-                        if (pixel != bitmap.getPixel(i, i2)) {
-                            if (qp1.a) {
-                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                            return false;
-                        }
-                    }
-                }
-                if (a03.c) {
-                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
-                }
-                return true;
-            } catch (IllegalArgumentException e) {
-                if (a03.c) {
-                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
-                    e.printStackTrace();
-                }
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, drawable) == null) {
+            c(context, drawable, 255);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static void c(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
     }
 }

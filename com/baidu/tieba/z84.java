@@ -1,45 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class z84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile y84 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public boolean cancel;
-    @V8JavascriptField
-    public boolean confirm;
 
-    public z84(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.confirm = z;
-        this.cancel = !z;
-    }
-
-    public String toString() {
+    public static synchronized y84 a() {
         InterceptResult invokeV;
+        y84 y84Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (z84.class) {
+                if (a == null) {
+                    a = new y84();
+                }
+                y84Var = a;
+            }
+            return y84Var;
         }
-        return (String) invokeV.objValue;
+        return (y84) invokeV.objValue;
     }
 }

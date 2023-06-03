@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.mobstat.ai;
 import com.baidu.mobstat.aj;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.tencent.connect.common.Constants;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -355,7 +354,7 @@ public class al {
             return jSONObject2;
         }
         try {
-            jSONObject2.put("type", StatConstants.VALUE_TYPE_UPLOAD);
+            jSONObject2.put("type", "upload");
             jSONObject2.put("data", jSONObject);
         } catch (Exception unused) {
         }
@@ -371,7 +370,7 @@ public class al {
         ajVar.a(activity);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0059 A[Catch: Exception -> 0x0065, TRY_LEAVE, TryCatch #0 {Exception -> 0x0065, blocks: (B:8:0x000f, B:9:0x0028, B:11:0x002e, B:13:0x0043, B:14:0x0046, B:23:0x0059, B:19:0x0050), top: B:29:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0058 A[Catch: Exception -> 0x0064, TRY_LEAVE, TryCatch #0 {Exception -> 0x0064, blocks: (B:8:0x000f, B:9:0x0028, B:11:0x002e, B:13:0x0042, B:14:0x0045, B:23:0x0058, B:19:0x004f), top: B:29:0x000f }] */
     /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

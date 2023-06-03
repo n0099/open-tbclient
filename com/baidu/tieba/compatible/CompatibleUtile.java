@@ -19,7 +19,6 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -521,7 +520,7 @@ public class CompatibleUtile {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) && webView != null && !TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Config.LAUNCH_REFERER, "http://c.tieba.baidu.com/");
+                hashMap.put("referer", "http://c.tieba.baidu.com/");
                 webView.loadUrl(str, hashMap);
             }
         }

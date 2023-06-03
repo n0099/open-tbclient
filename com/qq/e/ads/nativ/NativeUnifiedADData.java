@@ -2,33 +2,17 @@ package com.qq.e.ads.nativ;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import com.qq.e.comm.adevent.ADEvent;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
-import java.util.HashMap;
+import com.qq.e.comm.pi.LADI;
+import com.qq.e.comm.pi.NFBI;
 import java.util.List;
-import java.util.Map;
-/* loaded from: classes9.dex */
-public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
-    public static final int AD_CLICKED = 2;
-    public static final int AD_ERROR = 3;
-    public static final int AD_EXPOSED = 1;
-    public static final int AD_STATUS_CHANGED = 4;
-    public static final int MEDIA_CLICKED = 15;
-    public static final int MEDIA_COMPLETED = 12;
-    public static final int MEDIA_ERROR = 13;
-    public static final int MEDIA_INIT = 5;
-    public static final int MEDIA_LOADED = 8;
-    public static final int MEDIA_LOADING = 6;
-    public static final int MEDIA_PAUSE = 10;
-    public static final int MEDIA_READY = 7;
-    public static final int MEDIA_RESUME = 11;
-    public static final int MEDIA_START = 9;
-    public static final int MEDIA_STOP = 14;
-    public static final Map<String, String> ext = new HashMap();
+/* loaded from: classes10.dex */
+public interface NativeUnifiedADData extends LADI, NFBI {
+    void bindAdToCustomVideo(ViewGroup viewGroup, Context context, List<View> list, List<View> list2);
 
     void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list);
 
@@ -60,15 +44,11 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     String getCTAText();
 
+    CustomizeVideo getCustomizeVideo();
+
     String getDesc();
 
     long getDownloadCount();
-
-    int getECPM();
-
-    String getECPMLevel();
-
-    Map<String, Object> getExtraInfo();
 
     String getIconUrl();
 
@@ -84,48 +64,27 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     String getTitle();
 
-    @Deprecated
-    String getVastContent();
-
-    @Deprecated
-    String getVastTag();
-
     int getVideoCurrentPosition();
 
     int getVideoDuration();
 
     boolean isAppAd();
 
-    @Deprecated
-    boolean isSkippable();
-
     boolean isWeChatCanvasAd();
 
-    void negativeFeedback();
-
     @Deprecated
-    void onVideoADExposured(View view2);
+    void negativeFeedback();
 
     void pauseAppDownload();
 
     void pauseVideo();
 
-    void preloadVideo(VideoPreloadListener videoPreloadListener);
-
     @Deprecated
-    void reportVastEvent(ADEvent aDEvent);
-
     void resume();
 
     void resumeAppDownload();
 
     void resumeVideo();
-
-    void sendLossNotification(int i, int i2, String str);
-
-    void sendWinNotification(int i);
-
-    void setBidECPM(int i);
 
     void setNativeAdEventListener(NativeADEventListener nativeADEventListener);
 

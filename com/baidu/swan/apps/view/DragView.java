@@ -25,7 +25,7 @@ public class DragView extends FrameLayout {
     public interface b {
         void a(int i);
 
-        void f(MotionEvent motionEvent);
+        void e(MotionEvent motionEvent);
 
         void onClose();
     }
@@ -101,7 +101,7 @@ public class DragView extends FrameLayout {
             this.a.processTouchEvent(motionEvent);
             b bVar = this.g;
             if (bVar != null) {
-                bVar.f(motionEvent);
+                bVar.e(motionEvent);
                 return true;
             }
             return true;

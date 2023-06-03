@@ -1,89 +1,78 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class w01 {
+public final class w01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<u01> a;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, r01.c(split[0]));
-                        calendar.set(12, r01.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, r01.c(split2[0]));
-                        calendar.set(12, r01.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof w01) && Intrinsics.areEqual(this.a, ((w01) obj).a);
             }
-            return false;
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            v01.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<u01> arrayList = this.a;
+            if (arrayList != null) {
+                return arrayList.hashCode();
             }
-            activity.getWindow().setFlags(1024, 1024);
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public static void c(Activity activity, boolean z) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
-            } else {
-                activity.getWindow().clearFlags(128);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public w01(ArrayList<u01> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = arrayList;
     }
 
-    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+    public final ArrayList<u01> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
-            new Intent().setComponent(componentName);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-    }
-
-    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
-            new Intent().setComponent(new ComponentName(str, str2 + str3));
-        }
+        return (ArrayList) invokeV.objValue;
     }
 }

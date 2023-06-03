@@ -1,70 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
-public class v32 extends m22 {
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes8.dex */
+public class v32 implements u32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public Map<String, g53> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189780, "Lcom/baidu/tieba/v32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948189780, "Lcom/baidu/tieba/v32;");
+                return;
+            }
+        }
+        b = is1.a;
+    }
 
     public v32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.m22
-    public void a(n22 n22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.u32
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) {
-            if (n22Var.a() == 0) {
-                n22Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(n22Var.a());
-                n22Var.b(canvas.save());
-            }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
+            return;
         }
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
+        }
+        g53 g53Var = new g53();
+        this.a.put(str, g53Var);
+        g53Var.i(System.currentTimeMillis());
+        g53Var.f(str);
     }
 
-    @Override // com.baidu.tieba.m22
-    public void b(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.u32
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = xm3.g((float) jSONArray.optDouble(4));
-                    this.f = xm3.g((float) jSONArray.optDouble(5));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            g53 g53Var = this.a.get(str);
+            if (g53Var == null) {
+                if (!b) {
+                    return;
                 }
-            } catch (Exception e) {
-                if (qp1.a) {
-                    e.printStackTrace();
+                throw new RuntimeException(str + " markEnd before markStart");
+            } else if (g53Var.d() > 0) {
+            } else {
+                g53Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + g53Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + g53Var.toString());
+                    }
+                    HybridUbcFlow p = d53.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(g53Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(g53Var.d());
+                    p.F(ubcFlowEvent2);
                 }
             }
         }

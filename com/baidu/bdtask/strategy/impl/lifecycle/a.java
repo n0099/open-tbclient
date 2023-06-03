@@ -12,14 +12,14 @@ import com.baidu.bdtask.model.guide.TaskGuideData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tieba.er;
 import com.baidu.tieba.fr;
-import com.baidu.tieba.ft;
-import com.baidu.tieba.mq;
-import com.baidu.tieba.nq;
-import com.baidu.tieba.oq;
-import com.baidu.tieba.rq;
-import com.baidu.tieba.sq;
-import com.baidu.tieba.zu;
+import com.baidu.tieba.gr;
+import com.baidu.tieba.jr;
+import com.baidu.tieba.kr;
+import com.baidu.tieba.rv;
+import com.baidu.tieba.xr;
+import com.baidu.tieba.xt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,9 +33,9 @@ import org.json.JSONObject;
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d<com.baidu.bdtask.ctrl.b, rq> a;
+    public final d<com.baidu.bdtask.ctrl.b, jr> a;
 
-    public a(d<com.baidu.bdtask.ctrl.b, rq> dVar) {
+    public a(d<com.baidu.bdtask.ctrl.b, jr> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,20 +80,20 @@ public abstract class a {
         return (TaskStatus) invokeL.objValue;
     }
 
-    public final fr g(SubTaskState subTaskState) {
+    public final xr g(SubTaskState subTaskState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, subTaskState)) == null) {
             return subTaskState.getCurStatusRuntime().getCurAction();
         }
-        return (fr) invokeL.objValue;
+        return (xr) invokeL.objValue;
     }
 
     @CallSuper
     public void j(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subTaskState) == null) {
-            zu.c.m(subTaskState);
+            rv.c.m(subTaskState);
         }
     }
 
@@ -101,7 +101,7 @@ public abstract class a {
     public void k(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, subTaskState) == null) {
-            zu.c.n(subTaskState);
+            rv.c.n(subTaskState);
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class a {
     public void l(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, subTaskState) == null) {
-            zu.c.o(subTaskState);
+            rv.c.o(subTaskState);
             a().h(b(subTaskState));
             a().l(b(subTaskState));
             e();
@@ -131,7 +131,7 @@ public abstract class a {
         BDPTask t;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (s = a().s(str)) != null && (deepCopy = s.deepCopy()) != null && (t = BDPTask.m.t()) != null) {
-            t.j0(deepCopy, new oq(deepCopy.getSingleKey(), null, null, str2, null, null, 54, null));
+            t.j0(deepCopy, new gr(deepCopy.getSingleKey(), null, null, str2, null, null, 54, null));
         }
     }
 
@@ -235,7 +235,7 @@ public abstract class a {
             if (!d(subTaskState).isEmpty()) {
                 com.baidu.bdtask.component.a.c(com.baidu.bdtask.component.a.b.a(), d(subTaskState).getUiType(), d(subTaskState).getUi(), subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), null, 16, null);
             }
-            zu.c.i(subTaskState);
+            rv.c.i(subTaskState);
         }
     }
 
@@ -246,7 +246,7 @@ public abstract class a {
             if (f(subTaskState).isCompleted()) {
                 c(b(subTaskState).getActionId(), f(subTaskState).getTaskStatusRuntime().getCurDuplicateId());
             }
-            zu.c.k(subTaskState);
+            rv.c.k(subTaskState);
         }
     }
 
@@ -259,8 +259,8 @@ public abstract class a {
                 f(subTaskState).reset2RunningStatus();
                 return true;
             }
-            fr g = g(subTaskState);
-            if ((g instanceof nq) || (g instanceof mq)) {
+            xr g = g(subTaskState);
+            if ((g instanceof fr) || (g instanceof er)) {
                 DebugTrace.a.c(new Function0<String>(this, subTaskState) { // from class: com.baidu.bdtask.strategy.impl.lifecycle.BaseLifecycleStrategy$finishAborted$2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +298,7 @@ public abstract class a {
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("abort by ");
-                            fr g2 = this.this$0.g(this.$subState);
+                            xr g2 = this.this$0.g(this.$subState);
                             if (g2 != null) {
                                 str = g2.e();
                             } else {
@@ -325,11 +325,11 @@ public abstract class a {
             if (response.isEmpty()) {
                 return true;
             }
-            fr g = g(subTaskState);
-            if (g instanceof nq) {
+            xr g = g(subTaskState);
+            if (g instanceof fr) {
                 return true;
             }
-            if ((g instanceof mq) && !response.isLayer()) {
+            if ((g instanceof er) && !response.isLayer()) {
                 DebugTrace.a.c(new Function0<String>(this, subTaskState) { // from class: com.baidu.bdtask.strategy.impl.lifecycle.BaseLifecycleStrategy$finishGuideShowAborted$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public abstract class a {
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("showFinishGuide abort by ");
-                            fr g2 = this.this$0.g(this.$subState);
+                            xr g2 = this.this$0.g(this.$subState);
                             if (g2 != null) {
                                 str = g2.e();
                             } else {
@@ -387,7 +387,7 @@ public abstract class a {
     }
 
     public final void n(SubTaskState subTaskState) {
-        ft ftVar;
+        xt xtVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, subTaskState) == null) {
             TaskResponseData response = b(subTaskState).getResponse();
@@ -399,13 +399,13 @@ public abstract class a {
             TaskUIData ui = response.getUi();
             TaskInfo taskInfo = subTaskState.getTaskInfo();
             TaskStatus taskStatus = subTaskState.getTaskStatus();
-            sq interceptor = subTaskState.getInterceptor();
+            kr interceptor = subTaskState.getInterceptor();
             if (interceptor != null) {
-                ftVar = interceptor.a();
+                xtVar = interceptor.a();
             } else {
-                ftVar = null;
+                xtVar = null;
             }
-            a.b(uiType, ui, taskInfo, taskStatus, ftVar);
+            a.b(uiType, ui, taskInfo, taskStatus, xtVar);
         }
     }
 }

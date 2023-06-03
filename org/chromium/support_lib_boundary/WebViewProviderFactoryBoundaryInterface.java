@@ -2,7 +2,7 @@ package org.chromium.support_lib_boundary;
 
 import android.webkit.WebView;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface WebViewProviderFactoryBoundaryInterface {
     InvocationHandler createWebView(WebView webView);
 

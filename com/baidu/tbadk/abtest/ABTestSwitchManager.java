@@ -5,9 +5,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.o65;
+import com.baidu.tieba.l95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +89,7 @@ public class ABTestSwitchManager {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString("log")));
+                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(LocalFilesFilterKt.FILTER_NAME_LOG)));
                     }
                 }
             } catch (Exception e) {
@@ -196,7 +197,7 @@ public class ABTestSwitchManager {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString("log")));
+                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(LocalFilesFilterKt.FILTER_NAME_LOG)));
                     }
                 }
                 synchronized (this.mSwitchs) {
@@ -204,7 +205,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                o65 m = o65.m();
+                l95 m = l95.m();
                 if (isATest(ABTestConst.KEY_PERF_START_TEST)) {
                     i = 1;
                 }

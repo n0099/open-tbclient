@@ -17,7 +17,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405ed);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405ef);
     }
 
     @Override // android.widget.RatingBar, android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View

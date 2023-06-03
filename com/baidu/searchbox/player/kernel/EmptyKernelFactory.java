@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.kernel;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmptyKernelFactory implements IKernelFactory {
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
     @NonNull

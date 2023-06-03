@@ -1,95 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eo4 implements Comparable<eo4> {
-    public static /* synthetic */ Interceptable $ic;
+public class eo4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
 
-    public eo4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741055, "Lcom/baidu/tieba/eo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741055, "Lcom/baidu/tieba/eo4;");
+                return;
             }
         }
+        hj4 b2 = jj4.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
+        }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            hj4 b2 = jj4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timespan", i);
             }
-            return j;
+            return i;
         }
-        return invokeV.longValue;
+        return invokeI.longValue;
     }
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            hj4 b2 = jj4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timeout", i);
+            }
+            return i;
         }
-        return (MethodInfo) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(eo4 eo4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eo4Var)) == null) {
-            return (int) (this.e - eo4Var.e());
-        }
-        return invokeL.intValue;
+        return invokeI.longValue;
     }
 }

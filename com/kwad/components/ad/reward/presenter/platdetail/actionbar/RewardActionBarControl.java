@@ -164,9 +164,9 @@ public final class RewardActionBarControl {
     }
 
     public final void S(boolean z) {
-        ShowActionBarResult T = T(z);
-        com.kwad.sdk.core.e.b.d("ActionBarControl", "showActionBarOnVideoStart result: " + T);
-        if (T != ShowActionBarResult.SHOW_H5_FAILURE) {
+        ShowActionBarResult T2 = T(z);
+        com.kwad.sdk.core.e.b.d("ActionBarControl", "showActionBarOnVideoStart result: " + T2);
+        if (T2 != ShowActionBarResult.SHOW_H5_FAILURE) {
             return;
         }
         this.mHandler.postDelayed(new Runnable() { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardActionBarControl.1

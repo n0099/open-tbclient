@@ -1,92 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ypa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class fqa implements UBCCloudConfigObserver {
+public final class fqa implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ypa a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774163, "Lcom/baidu/tieba/fqa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774163, "Lcom/baidu/tieba/fqa;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-    }
-
-    public fqa() {
+    public fqa(ypa ypaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ypaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = ypaVar;
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<ypa.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
             }
         }
     }
 
-    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
-    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
-        String optString;
-        boolean z;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            if (a) {
-                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
-                    return;
-                }
-                return;
-            }
-            if (jSONObject == null) {
-                optString = "0";
-            } else {
-                try {
-                    optString = jSONObject.optString("version_asc");
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<ypa.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
                 }
             }
-            if (!"0".equals(optString)) {
-                z = true;
-            } else {
-                z = false;
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                for (ypa.a aVar : this.a.b()) {
+                    aVar.a(activity);
+                }
             }
-            ((dqa) ServiceManager.getService(dqa.a)).b(new JSONObject(str), z);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (ypa.a aVar : this.a.b()) {
+                    aVar.onActivityDestroyed(activity);
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (ypa.a aVar : this.a.b()) {
+                    aVar.U();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (ypa.a aVar : this.a.b()) {
+                    aVar.b();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                Iterator<ypa.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
         }
     }
 }

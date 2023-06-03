@@ -1,157 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.cv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class bv5<T> extends cv5 {
+public class bv5 extends yu5<tm5, cv5.d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public List<T> c;
-    public Context d;
-    public LayoutInflater e;
-    public yw4<T> f;
+    public TbPageContext<?> e;
 
-    public abstract void f(dv5 dv5Var, T t, int i);
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public int b;
-        public final /* synthetic */ bv5 c;
-
-        public a(bv5 bv5Var, T t, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bv5Var, t, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bv5Var;
-            this.a = t;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            yw4<T> yw4Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (yw4Var = this.c.f) != null) {
-                T t = this.a;
-                int i = this.b;
-                yw4Var.d(view2, t, i, i);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public bv5(Context context, int i) {
-        this(context, null, i);
+    public bv5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = tbPageContext;
     }
 
-    public bv5(Context context, List<T> list, int i) {
-        ArrayList arrayList;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yu5
+    /* renamed from: g */
+    public void d(ViewType viewType, tm5 tm5Var, cv5.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = context;
-        if (list == null) {
-            arrayList = new ArrayList();
-        } else {
-            arrayList = new ArrayList(list);
-        }
-        this.c = arrayList;
-        this.b = i;
-        this.e = LayoutInflater.from(this.d);
-    }
-
-    @Override // com.baidu.tieba.cv5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.cv5
-    public View b(int i, ViewGroup viewGroup) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            View inflate = this.e.inflate(this.b, viewGroup, false);
-            dv5 dv5Var = new dv5(inflate);
-            T t = this.c.get(i);
-            f(dv5Var, t, i);
-            dv5Var.c(new a(this, t, i));
-            return inflate;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public void g(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            this.c = list;
-            c();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, tm5Var, dVar) == null) {
+            tm5Var.t(dVar.b);
+            tm5Var.k().setText(dVar.a);
+            tm5Var.onChangeSkinType();
         }
     }
 
-    public void h(yw4<T> yw4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yu5
+    /* renamed from: h */
+    public tm5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yw4Var) == null) {
-            this.f = yw4Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new tm5(this.e.getPageActivity());
         }
+        return (tm5) invokeLL.objValue;
     }
 }

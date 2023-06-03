@@ -54,27 +54,20 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
         return sb.toString();
     }
 
-    public static String modifyString(char c, String str, int i) {
-        if (i < str.length()) {
-            return c + str.substring(i);
-        }
-        return String.valueOf(c);
-    }
-
     public static String upperCaseFirstLetter(String str) {
-        StringBuilder sb = new StringBuilder();
+        int length = str.length() - 1;
         int i = 0;
-        char charAt = str.charAt(0);
-        int length = str.length();
-        while (i < length - 1 && !Character.isLetter(charAt)) {
-            sb.append(charAt);
+        while (!Character.isLetter(str.charAt(i)) && i < length) {
             i++;
-            charAt = str.charAt(i);
         }
-        if (!Character.isUpperCase(charAt)) {
-            sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
-            return sb.toString();
+        char charAt = str.charAt(i);
+        if (Character.isUpperCase(charAt)) {
+            return str;
         }
-        return str;
+        char upperCase = Character.toUpperCase(charAt);
+        if (i == 0) {
+            return upperCase + str.substring(1);
+        }
+        return str.substring(0, i) + upperCase + str.substring(i + 1);
     }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yf7;
+import com.baidu.tieba.bl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public yf7 c;
+    public bl7 c;
 
     /* loaded from: classes5.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -48,7 +48,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f09076f);
+            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f09077a);
         }
     }
 
@@ -106,15 +106,15 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0350, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0358, (ViewGroup) null));
         }
         return (a) invokeLI.objValue;
     }
 
-    public void m(yf7 yf7Var) {
+    public void m(bl7 bl7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yf7Var) == null) {
-            this.c = yf7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bl7Var) == null) {
+            this.c = bl7Var;
         }
     }
 }

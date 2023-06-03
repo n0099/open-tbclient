@@ -5,6 +5,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.mobstat.bl;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.Date;
@@ -149,7 +150,7 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public boolean checkWifiLocationSetting(Context context) {
-        return "true".equalsIgnoreCase(bw.a(context, Config.GET_WIFI_LOCATION));
+        return YYOption.IsLive.VALUE_TRUE.equalsIgnoreCase(bw.a(context, Config.GET_WIFI_LOCATION));
     }
 
     @Override // com.baidu.mobstat.ICooperService

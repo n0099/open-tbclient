@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapAnimationBackend implements AnimationBackend, AnimationBackendDelegateWithInactivityCheck.InactivityListener {
     public static final int FRAME_TYPE_CACHED = 0;
     public static final int FRAME_TYPE_CREATED = 2;
@@ -43,7 +43,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
     public final Paint mPaint = new Paint(6);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FrameListener {
         void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i);
 
@@ -53,7 +53,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface FrameType {
     }
 

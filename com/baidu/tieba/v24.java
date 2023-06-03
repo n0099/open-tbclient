@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class v24 {
+/* loaded from: classes8.dex */
+public class v24 extends aj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
     public v24() {
         Interceptable interceptable = $ic;
@@ -27,24 +24,16 @@ public class v24 {
         }
     }
 
-    public static v24 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void g(t24 t24Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            v24 v24Var = new v24();
-            v24Var.a = jSONObject.optInt("state");
-            v24Var.b = jSONObject.optString("msg");
-            return v24Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, t24Var) != null) || t24Var == null) {
+            return;
         }
-        return (v24) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+        if (aj3.j) {
+            Log.d("GamenowAppEvent", "setCommonData: " + t24Var.a());
         }
-        return (String) invokeV.objValue;
+        this.a = t24Var.a;
+        this.f = t24Var.c;
+        this.c = t24Var.b;
     }
 }

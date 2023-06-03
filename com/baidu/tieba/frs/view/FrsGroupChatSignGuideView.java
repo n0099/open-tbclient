@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,7 +119,7 @@ public final class FrsGroupChatSignGuideView extends RelativeLayout {
                 imageView = null;
             }
             imageView.setId(R.id.arrow_icon);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(ri.g(getContext(), R.dimen.tbds42), ri.g(getContext(), R.dimen.tbds13));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(vi.g(getContext(), R.dimen.tbds42), vi.g(getContext(), R.dimen.tbds13));
             this.b = layoutParams2;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowLp");
@@ -131,7 +131,7 @@ public final class FrsGroupChatSignGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowLp");
                 layoutParams3 = null;
             }
-            layoutParams3.rightMargin = ri.g(getContext(), R.dimen.M_H_X007);
+            layoutParams3.rightMargin = vi.g(getContext(), R.dimen.M_H_X007);
             ImageView imageView2 = this.a;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowIcon");
@@ -168,7 +168,7 @@ public final class FrsGroupChatSignGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
                 textView2 = null;
             }
-            textView2.setPadding(ri.g(getContext(), R.dimen.M_W_X006), ri.g(getContext(), R.dimen.M_H_X004), ri.g(getContext(), R.dimen.M_W_X006), ri.g(getContext(), R.dimen.M_H_X004));
+            textView2.setPadding(vi.g(getContext(), R.dimen.M_W_X006), vi.g(getContext(), R.dimen.M_H_X004), vi.g(getContext(), R.dimen.M_W_X006), vi.g(getContext(), R.dimen.M_H_X004));
             TextView textView3 = this.c;
             if (textView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
@@ -207,7 +207,7 @@ public final class FrsGroupChatSignGuideView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            p45 d = p45.d(textView);
+            m75 d = m75.d(textView);
             d.w(R.color.CAM_X0101);
             d.B(R.dimen.T_X09);
             d.C(R.string.F_X01);

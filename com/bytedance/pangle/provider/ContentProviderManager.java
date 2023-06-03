@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ContentProviderManager {
     public static final String PLUGIN_PKG_NAME = "plugin_pkg_name";
     public static final String PLUGIN_PROCESS_NAME = "process_name";
@@ -37,7 +37,7 @@ public class ContentProviderManager {
     public final Map<String, String> mAuthorityProcessNameMap = new HashMap();
     public final Map<String, c> mSystemProviderInfoMap = new HashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public final b a;
         public final ProviderInfo b;
@@ -50,7 +50,7 @@ public class ContentProviderManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public final String a;
         public final String b;
@@ -80,7 +80,7 @@ public class ContentProviderManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c extends b {
         public final ProviderInfo d;
 

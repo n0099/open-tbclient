@@ -22,14 +22,11 @@ public abstract class JsonElement {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    public Boolean getAsBooleanWrapper() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
     public byte getAsByte() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
+    @Deprecated
     public char getAsCharacter() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }

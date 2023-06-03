@@ -17,7 +17,6 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
@@ -33,11 +32,11 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0747a {
+public class c extends com.tencent.open.b implements a.InterfaceC0764a {
     public static Toast c;
     public String d;
     public IUiListener e;
-    public C0748c f;
+    public C0765c f;
     public Handler g;
     public com.tencent.open.b.a h;
     public com.tencent.open.b.b i;
@@ -99,14 +98,14 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0748c extends DefaultUiListener {
+    public static class C0765c extends DefaultUiListener {
         public String a;
         public String b;
         public WeakReference<Context> c;
         public String d;
         public IUiListener e;
 
-        public C0748c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0765c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
             this.a = str2;
@@ -137,7 +136,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
             g a = g.a();
-            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.a, false);
+            a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt("ret", -6), this.a, false);
             IUiListener iUiListener = this.e;
             if (iUiListener != null) {
                 iUiListener.onComplete(jSONObject);
@@ -165,11 +164,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
 
     /* loaded from: classes10.dex */
     public class d extends Handler {
-        public C0748c b;
+        public C0765c b;
 
-        public d(C0748c c0748c, Looper looper) {
+        public d(C0765c c0765c, Looper looper) {
             super(looper);
-            this.b = c0748c;
+            this.b = c0765c;
         }
 
         @Override // android.os.Handler
@@ -198,7 +197,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0748c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0765c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -311,7 +310,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0747a
+    @Override // com.tencent.open.b.a.InterfaceC0764a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         SLog.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");
@@ -322,7 +321,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0747a {
         super.onBackPressed();
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0747a
+    @Override // com.tencent.open.b.a.InterfaceC0764a
     public void a(int i) {
         WeakReference<Context> weakReference = this.j;
         if (weakReference != null && weakReference.get() != null) {

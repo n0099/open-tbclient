@@ -1,45 +1,37 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.logsys.LogFile;
-import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class g65 extends DeviceEventSceneHandler {
+public abstract class g65 extends h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public TBAlertBuilder b;
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        InterceptResult invokeLLL;
+    public abstract void b(TBAlertBuilder tBAlertBuilder);
+
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (Set) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return invokeLLL.booleanValue;
     }
 
     public g65() {
@@ -56,18 +48,61 @@ public class g65 extends DeviceEventSceneHandler {
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
+    public final Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
-            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
-                HashSet hashSet = new HashSet(1);
-                hashSet.add(DeviceSnapshotType.DEVICE_LINUX_KERNEL_VERSION);
-                return hashSet;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (Set) invokeLL.objValue;
+        return (Activity) invokeV.objValue;
+    }
+
+    public static final void e(g65 this$0, DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.h65
+    public void a(Context context, z55 data) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof Activity)) {
+                activity = TbadkApplication.getInst().getCurrentActivity();
+            } else {
+                activity = (Activity) context;
+            }
+            this.a = activity;
+            if (activity == null) {
+                c();
+                wq8 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.c("YunDialogManager", "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
+                return;
+            }
+            Intrinsics.checkNotNull(activity);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            this.b = tBAlertBuilder;
+            if (tBAlertBuilder != null) {
+                tBAlertBuilder.s(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.c65
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.content.DialogInterface.OnDismissListener
+                    public final void onDismiss(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            g65.e(g65.this, dialogInterface);
+                        }
+                    }
+                });
+                b(tBAlertBuilder);
+                d();
+            }
+        }
     }
 }

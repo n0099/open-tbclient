@@ -1,9 +1,19 @@
 package com.baidu.tieba;
-
-import com.fun.ad.sdk.internal.api.PidLoader;
 /* loaded from: classes5.dex */
-public interface bsa<R> {
-    R a(PidLoader pidLoader);
+public interface bsa {
+    int a(byte[] bArr, int i);
 
-    boolean a(R r);
+    boolean a();
+
+    boolean a(int i, int i2, int i3, int i4);
+
+    byte[] a(int i);
+
+    boolean b();
+
+    void c();
+
+    void d();
+
+    void e();
 }

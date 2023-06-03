@@ -2,7 +2,6 @@ package com.qq.e.ads.rewardvideo;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,165 +9,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.AbstractAD;
 import com.qq.e.ads.LiteAbstractAD;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.LoadAdParams;
+import com.qq.e.comm.listeners.NegativeFeedbackListener;
+import com.qq.e.comm.pi.NFBI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.RVADI;
 import com.qq.e.comm.util.AdErrorConvertor;
-import com.qq.e.comm.util.VideoAdValidity;
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes9.dex */
-public class RewardVideoAD extends LiteAbstractAD<RVADI> {
+/* loaded from: classes10.dex */
+public class RewardVideoAD extends LiteAbstractAD<RVADI> implements NFBI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REWARD_TYPE_PAGE = 1;
     public static final int REWARD_TYPE_VIDEO = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public RewardVideoADListener g;
+    public final RewardVideoADListener g;
     public volatile boolean h;
-    public boolean i;
-    public Map<String, String> j;
-    public LoadAdParams k;
-    public ServerSideVerificationOptions l;
-    public boolean m;
-
-    /* loaded from: classes9.dex */
-    public static class ADListenerAdapter implements ADListener {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int EVENT_TYPE_ON_AD_CLICK = 6;
-        public static final int EVENT_TYPE_ON_AD_CLOSE = 8;
-        public static final int EVENT_TYPE_ON_AD_EXPOSE = 4;
-        public static final int EVENT_TYPE_ON_AD_LOADED = 1;
-        public static final int EVENT_TYPE_ON_AD_SHOW = 3;
-        public static final int EVENT_TYPE_ON_ERROR = 9;
-        public static final int EVENT_TYPE_ON_REWARD = 5;
-        public static final int EVENT_TYPE_ON_VIDEO_CACHED = 2;
-        public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
-        public transient /* synthetic */ FieldHolder $fh;
-        public CacheCallback a;
-        public RewardVideoADListener adListener;
-        public WeakReference<RewardVideoAD> b;
-
-        /* loaded from: classes9.dex */
-        public interface CacheCallback {
-            void onCached();
-
-            void onLoaded();
-        }
-
-        public ADListenerAdapter(RewardVideoADListener rewardVideoADListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rewardVideoADListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.adListener = rewardVideoADListener;
-        }
-
-        public ADListenerAdapter(RewardVideoADListener rewardVideoADListener, CacheCallback cacheCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rewardVideoADListener, cacheCallback};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.adListener = rewardVideoADListener;
-            this.a = cacheCallback;
-        }
-
-        @Override // com.qq.e.comm.adevent.ADListener
-        public void onADEvent(ADEvent aDEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
-                switch (aDEvent.getType()) {
-                    case 1:
-                        this.adListener.onADLoad();
-                        CacheCallback cacheCallback = this.a;
-                        if (cacheCallback != null) {
-                            cacheCallback.onLoaded();
-                            return;
-                        }
-                        return;
-                    case 2:
-                        CacheCallback cacheCallback2 = this.a;
-                        if (cacheCallback2 != null) {
-                            cacheCallback2.onCached();
-                        }
-                        this.adListener.onVideoCached();
-                        return;
-                    case 3:
-                        this.adListener.onADShow();
-                        return;
-                    case 4:
-                        this.adListener.onADExpose();
-                        return;
-                    case 5:
-                        if (aDEvent.getParas().length < 1 || !(aDEvent.getParas()[0] instanceof String)) {
-                            AbstractAD.a(RewardVideoAD.class, aDEvent);
-                            return;
-                        }
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("transId", aDEvent.getParas()[0]);
-                        this.adListener.onReward(hashMap);
-                        return;
-                    case 6:
-                        if (this.b != null && aDEvent.getParas().length == 1) {
-                            Object obj = aDEvent.getParas()[0];
-                            if ((obj instanceof String) && this.b.get() != null) {
-                                this.b.get().setExt((String) obj);
-                            }
-                        }
-                        this.adListener.onADClick();
-                        return;
-                    case 7:
-                        this.adListener.onVideoComplete();
-                        return;
-                    case 8:
-                        this.adListener.onADClose();
-                        return;
-                    case 9:
-                        if (aDEvent.getParas().length < 1 || !(aDEvent.getParas()[0] instanceof Integer)) {
-                            AbstractAD.a(RewardVideoAD.class, aDEvent);
-                            return;
-                        } else {
-                            this.adListener.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
-                            return;
-                        }
-                    default:
-                        return;
-                }
-            }
-        }
-
-        public void setBase(RewardVideoAD rewardVideoAD) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rewardVideoAD) == null) {
-                this.b = new WeakReference<>(rewardVideoAD);
-            }
-        }
-    }
+    public LoadAdParams i;
+    public ServerSideVerificationOptions j;
+    public final boolean k;
+    public final ADListenerAdapter l;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RewardVideoAD(Context context, String str, RewardVideoADListener rewardVideoADListener) {
@@ -191,7 +53,9 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RewardVideoAD(Context context, String str, RewardVideoADListener rewardVideoADListener, boolean z) {
+        this(rewardVideoADListener, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,19 +65,19 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((RewardVideoADListener) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = new HashMap();
-        this.k = null;
-        this.g = rewardVideoADListener;
-        this.m = z;
         a(context, str);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RewardVideoAD(Context context, String str, RewardVideoADListener rewardVideoADListener, boolean z, String str2) {
+        this(rewardVideoADListener, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,61 +87,35 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((RewardVideoADListener) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.j = new HashMap();
-        this.k = null;
-        this.g = rewardVideoADListener;
-        this.m = z;
         a(context, str, str2);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public RewardVideoAD(Context context, String str, String str2, RewardVideoADListener rewardVideoADListener) {
-        this(context, str, str2, rewardVideoADListener, true);
+    public RewardVideoAD(RewardVideoADListener rewardVideoADListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, rewardVideoADListener};
+            Object[] objArr = {rewardVideoADListener, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (RewardVideoADListener) objArr2[3], ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public RewardVideoAD(Context context, String str, String str2, RewardVideoADListener rewardVideoADListener, boolean z) {
-        this(context, str2, rewardVideoADListener, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, rewardVideoADListener, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (RewardVideoADListener) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        c();
+        this.i = null;
+        this.k = z;
+        this.g = rewardVideoADListener;
+        this.l = new ADListenerAdapter(rewardVideoADListener);
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -290,17 +128,10 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         rewardVideoADListener.onError(AdErrorConvertor.formatErrorCode(i));
     }
 
-    public VideoAdValidity checkValidity() {
-        InterceptResult invokeV;
-        T t;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? hasShown() ? VideoAdValidity.SHOWED : SystemClock.elapsedRealtime() > getExpireTimestamp() - 1000 ? VideoAdValidity.OVERDUE : (this.i || (t = this.a) == 0 || ((RVADI) t).getRewardAdType() != 0) ? VideoAdValidity.VALID : VideoAdValidity.NONE_CACHE : (VideoAdValidity) invokeV.objValue;
-    }
-
     public String getAdNetWorkName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             T t = this.a;
             if (t != 0) {
                 return ((RVADI) t).getAdNetWorkName();
@@ -311,30 +142,10 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         return (String) invokeV.objValue;
     }
 
-    public long getExpireTimestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((RVADI) t).getExpireTimestamp();
-            }
-            a("getExpireTimestamp");
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public Map<String, String> getExts() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (Map) invokeV.objValue;
-    }
-
     public int getRewardAdType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             T t = this.a;
             if (t != 0) {
                 return ((RVADI) t).getRewardAdType();
@@ -348,7 +159,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             T t = this.a;
             if (t != 0) {
                 return ((RVADI) t).getVideoDuration();
@@ -362,7 +173,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     public boolean hasShown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             T t = this.a;
             if (t != 0) {
                 return ((RVADI) t).hasShown();
@@ -375,7 +186,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
 
     public void loadAD() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && a()) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && a()) {
             if (!b()) {
                 this.h = true;
                 return;
@@ -389,17 +200,10 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         }
     }
 
-    public void setExt(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.j.put(Constants.KEYS.EXPOSED_CLICK_URL_KEY, str);
-        }
-    }
-
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, loadAdParams) == null) {
-            this.k = loadAdParams;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, loadAdParams) == null) {
+            this.i = loadAdParams;
             T t = this.a;
             if (t != 0) {
                 ((RVADI) t).setLoadAdParams(loadAdParams);
@@ -407,10 +211,18 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         }
     }
 
+    @Override // com.qq.e.comm.pi.NFBI
+    public void setNegativeFeedbackListener(NegativeFeedbackListener negativeFeedbackListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, negativeFeedbackListener) == null) {
+            ADListenerAdapter.a(this.l, negativeFeedbackListener);
+        }
+    }
+
     public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, serverSideVerificationOptions) == null) {
-            this.l = serverSideVerificationOptions;
+        if (interceptable == null || interceptable.invokeL(1048586, this, serverSideVerificationOptions) == null) {
+            this.j = serverSideVerificationOptions;
             T t = this.a;
             if (t != 0) {
                 ((RVADI) t).setServerSideVerificationOptions(serverSideVerificationOptions);
@@ -420,7 +232,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
 
     public void showAD() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             T t = this.a;
             if (t != 0) {
                 ((RVADI) t).showAD();
@@ -432,7 +244,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
 
     public void showAD(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
             T t = this.a;
             if (t != 0) {
                 ((RVADI) t).showAD(activity);
@@ -442,52 +254,98 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         }
     }
 
+    /* loaded from: classes10.dex */
+    public static class ADListenerAdapter implements ADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NegativeFeedbackListener a;
+        public RewardVideoADListener adListener;
+
+        public ADListenerAdapter(RewardVideoADListener rewardVideoADListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rewardVideoADListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.adListener = rewardVideoADListener;
+        }
+
+        @Override // com.qq.e.comm.adevent.ADListener
+        public void onADEvent(ADEvent aDEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
+                int type = aDEvent.getType();
+                if (type == 100) {
+                    this.adListener.onADLoad();
+                } else if (type == 201) {
+                    this.adListener.onVideoCached();
+                } else if (type == 206) {
+                    this.adListener.onVideoComplete();
+                } else if (type == 304) {
+                    NegativeFeedbackListener negativeFeedbackListener = this.a;
+                    if (negativeFeedbackListener != null) {
+                        negativeFeedbackListener.onComplainSuccess();
+                    }
+                } else {
+                    switch (type) {
+                        case 102:
+                            this.adListener.onADShow();
+                            return;
+                        case 103:
+                            this.adListener.onADExpose();
+                            return;
+                        case 104:
+                            String str = (String) aDEvent.getParam(String.class);
+                            if (str != null) {
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("transId", str);
+                                this.adListener.onReward(hashMap);
+                                return;
+                            }
+                            return;
+                        case 105:
+                            this.adListener.onADClick();
+                            return;
+                        case 106:
+                            this.adListener.onADClose();
+                            return;
+                        case 107:
+                            Integer num = (Integer) aDEvent.getParam(Integer.class);
+                            if (num != null) {
+                                this.adListener.onError(AdErrorConvertor.formatErrorCode(num.intValue()));
+                                return;
+                            }
+                            return;
+                        default:
+                            return;
+                    }
+                }
+            }
+        }
+
+        public static void a(ADListenerAdapter aDListenerAdapter, NegativeFeedbackListener negativeFeedbackListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, aDListenerAdapter, negativeFeedbackListener) == null) {
+                aDListenerAdapter.a = negativeFeedbackListener;
+            }
+        }
+    }
+
     @Override // com.qq.e.ads.AbstractAD
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) {
-            ADListenerAdapter aDListenerAdapter = new ADListenerAdapter(this.g, new ADListenerAdapter.CacheCallback(this) { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RewardVideoAD a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
-                public void onCached() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.i = true;
-                    }
-                }
-
-                @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
-                public void onLoaded() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.i = false;
-                    }
-                }
-            });
-            aDListenerAdapter.setBase(this);
-            return pOFactory.getRewardVideoADDelegate(context, str, str2, str3, aDListenerAdapter);
+            return pOFactory.getRewardVideoADDelegate(context, str, str2, str3, this.l);
         }
         return invokeLLLLL.objValue;
     }
@@ -495,11 +353,11 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     @Override // com.qq.e.ads.AbstractAD
     public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             RVADI rvadi = (RVADI) obj;
-            rvadi.setVolumeOn(this.m);
-            rvadi.setLoadAdParams(this.k);
-            rvadi.setServerSideVerificationOptions(this.l);
+            rvadi.setVolumeOn(this.k);
+            rvadi.setLoadAdParams(this.i);
+            rvadi.setServerSideVerificationOptions(this.j);
             if (this.h) {
                 loadAD();
             }

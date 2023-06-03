@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetErrorElement extends AbsElement {
     public Button mBtnRetry;
     public LinearLayout mRootView;
@@ -32,31 +32,31 @@ public class NetErrorElement extends AbsElement {
 
     private void onSwitchFullStyle() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBtnRetry.getLayoutParams();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bf));
-        this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bf));
-        layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701b9);
-        layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c8);
-        layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c7);
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6));
+        this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6));
+        layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c1);
+        layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d1);
+        layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d0);
         this.mBtnRetry.setLayoutParams(layoutParams);
     }
 
     private void onSwitchHalfStyle() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBtnRetry.getLayoutParams();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bc));
-        this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bc));
-        layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701ce);
-        layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c3);
-        layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4);
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4));
+        this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4));
+        layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d9);
+        layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701cc);
+        layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701cd);
         this.mBtnRetry.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         if (this.mRootView == null) {
-            this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0169, null);
+            this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d016d, null);
         }
-        this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092602);
-        Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090488);
+        this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092639);
+        Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09048d);
         this.mBtnRetry = button;
         button.setOnClickListener(this.mParent);
     }

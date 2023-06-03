@@ -1,7 +1,6 @@
 package com.sdk.r;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +13,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static char[] a;
@@ -132,7 +131,7 @@ public class d {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
+            byte[] bytes = str.getBytes("utf-8");
             StringBuffer stringBuffer = new StringBuffer();
             int length = bytes.length;
             int i = 0;

@@ -1,63 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.AbilityTagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementFileItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillIconViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillTagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class za8 extends bc8 {
+public class za8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public za8() {
+    public static void a(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLI(65536, null, shareIMCommonCardData, i) == null) {
+            if (ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
+                c(shareIMCommonCardData, i);
+            } else if (ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
+                b(shareIMCommonCardData, i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bc8
-    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static void b(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == gb8.b) {
-                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0903, viewGroup, false), this.a);
-            }
-            if (i == eb8.d) {
-                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0900, viewGroup, false), this.a);
-            }
-            if (i == db8.c) {
-                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086e, viewGroup, false), this.a);
-            }
-            if (i == cb8.a) {
-                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086d, viewGroup, false), this.a);
-            }
-            if (i == fb8.f) {
-                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0902, viewGroup, false), this.a);
-            }
-            if (i == bb8.c) {
-                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ff, viewGroup, false), this.b);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
+            return;
         }
-        return (BaseTagItemViewHolder) invokeLI.objValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ALBUM_SHARE_TYPE);
+        statisticItem.addParam("obj_type", i);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public static void c(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TOPIC_SHARE_TYPE);
+        statisticItem.addParam("obj_type", i);
+        TiebaStatic.log(statisticItem);
     }
 }

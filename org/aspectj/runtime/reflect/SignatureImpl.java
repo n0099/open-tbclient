@@ -5,7 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 import org.aspectj.lang.Signature;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class SignatureImpl implements Signature {
     public static final String INNER_SEP = ":";
     public static final char SEP = '-';
@@ -20,7 +20,7 @@ public abstract class SignatureImpl implements Signature {
     public static String[] EMPTY_STRING_ARRAY = new String[0];
     public static Class[] EMPTY_CLASS_ARRAY = new Class[0];
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface Cache {
         String get(int i);
 
@@ -29,7 +29,7 @@ public abstract class SignatureImpl implements Signature {
 
     public abstract String createToString(StringMaker stringMaker);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CacheImpl implements Cache {
         public SoftReference toStringCacheRef;
 

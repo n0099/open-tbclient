@@ -1,7 +1,7 @@
 package com.baidu.searchbox.permission;
 
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ApiUtils {
     public static final int MARSHMALLOW = 23;
     public static final int Q_VERSION = 29;

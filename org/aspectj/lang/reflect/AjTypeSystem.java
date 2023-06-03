@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.aspectj.internal.lang.reflect.AjTypeImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class AjTypeSystem {
     public static Map<Class, WeakReference<AjType>> ajTypes = Collections.synchronizedMap(new WeakHashMap());
 

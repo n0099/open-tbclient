@@ -1,82 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import com.baidu.tieba.rn;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes7.dex */
-public abstract class s85<T extends rn, V extends BdBaseViewPagerAdapter.a> {
+public class s85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
 
-    /* loaded from: classes7.dex */
-    public interface a<T extends rn, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
-
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
-        }
-    }
-
-    public abstract View d(ViewGroup viewGroup, V v, T t);
-
-    public s85(Context context, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                if (url.getHost().endsWith(".baidu.com")) {
+                    if (str.contains("tieba_hybrid_enabled=1")) {
+                        return true;
+                    }
+                    if (str.contains("tieba_hybrid_enabled%3D1")) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (MalformedURLException unused) {
+                return false;
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
+        return invokeL.booleanValue;
     }
 
-    public a<T, V> a() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                return url.getHost().endsWith(".baidu.com");
+            } catch (MalformedURLException unused) {
+                return false;
+            }
         }
-        return (a) invokeV.objValue;
-    }
-
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(a<T, V> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
+        return invokeL.booleanValue;
     }
 }

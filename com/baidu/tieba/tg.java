@@ -1,125 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class tg {
+public abstract class tg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static boolean a(@Nullable Object obj, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
             try {
-                context.sendBroadcast(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (obj instanceof Boolean) {
+                    return ((Boolean) obj).booleanValue();
                 }
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                if (obj instanceof String) {
+                    return Boolean.parseBoolean((String) obj);
+                }
+                return z;
+            } catch (Exception unused) {
+                return z;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static boolean startService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                return z;
+            }
             try {
-                context.startService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                return Boolean.parseBoolean(str);
+            } catch (Exception unused) {
+                return z;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static boolean stopService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static double c(String str, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
+            if (str == null) {
+                return d;
+            }
             try {
-                context.stopService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                return Double.parseDouble(str);
+            } catch (Exception unused) {
+                return d;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeCommon.doubleValue;
     }
 
-    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
-        InterceptResult invokeLL;
+    public static float d(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
+            if (str == null) {
+                return f;
+            }
             try {
-                context.unbindService(serviceConnection);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLF.floatValue;
     }
 
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
-        InterceptResult invokeLLLI;
+    public static int e(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (str == null) {
+                return i;
+            }
             try {
-                context.bindService(intent, serviceConnection, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
             }
         }
-        return invokeLLLI.booleanValue;
+        return invokeLI.intValue;
     }
 
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
-        InterceptResult invokeLLI;
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
             try {
-                activity.startActivityForResult(intent, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
             }
         }
-        return invokeLLI.booleanValue;
+        return invokeLJ.longValue;
+    }
+
+    public static int f(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str, i2);
+            } catch (Exception unused) {
+                return i;
+            }
+        }
+        return invokeLII.intValue;
     }
 }

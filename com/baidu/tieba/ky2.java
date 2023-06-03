@@ -1,75 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ky2 extends iy2 {
+public class ky2 extends o72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929349, "Lcom/baidu/tieba/ky2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947929349, "Lcom/baidu/tieba/ky2;");
-                return;
-            }
-        }
-        boolean z = qp1.a;
-    }
+    public ry2 j;
+    public double k;
+    public List<sy2> l;
+    public List<uy2> m;
+    public List<py2> n;
+    public List<qy2> o;
+    public List<ry2> p;
+    public List<ty2> q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ky2(String str) {
-        super(str);
+    public ky2() {
+        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        this.k = 16.0d;
+        this.r = true;
+        this.y = "";
+    }
+
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.x13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String str = "markers";
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
+                ry2 ry2Var = new ry2();
+                this.j = ry2Var;
+                ry2Var.a(jSONObject);
+            }
+            if (jSONObject.has("scale")) {
+                this.k = jSONObject.optDouble("scale", 16.0d);
+            }
+            jSONObject.optString("subkey", "");
+            jSONObject.optString("layerStyle", "");
+            this.y = jSONObject.optString("cb");
+            this.r = jSONObject.optBoolean("showLocation", true);
+            this.s = jSONObject.optBoolean("enableZoom", true);
+            this.t = jSONObject.optBoolean("enableScroll", true);
+            this.u = jSONObject.optBoolean("enableRotate", false);
+            this.v = jSONObject.optBoolean("showCompass", false);
+            this.w = jSONObject.optBoolean("enableOverlooking", false);
+            this.x = jSONObject.optBoolean("enable3D", false);
+            try {
+                if (!jSONObject.has("markers")) {
+                    str = "covers";
+                }
+                this.l = h(jSONObject, str, sy2.class);
+                this.n = h(jSONObject, "circles", py2.class);
+                this.m = h(jSONObject, "polyline", uy2.class);
+                this.o = h(jSONObject, "controls", qy2.class);
+                this.p = h(jSONObject, "includePoints", ry2.class);
+                this.q = h(jSONObject, "polygons", ty2.class);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.iy2
-    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
-        InterceptResult invokeCommon;
+    public final <T extends x13> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
+        InterceptResult invokeLLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
-            g62.i("video", "seek, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
-            d(yx2Var, ay2Var.r, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
+            if (jSONObject.has(str)) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(str);
+                if (optJSONArray == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray.length();
+                }
+                if (length > 0) {
+                    ArrayList arrayList = new ArrayList(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            T newInstance = cls.newInstance();
+                            newInstance.a(optJSONObject);
+                            if (newInstance.isValid()) {
+                                arrayList.add(newInstance);
+                            }
+                        }
+                    }
+                    return arrayList;
+                }
+            }
+            return null;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(yx2 yx2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yx2Var, i, unitedSchemeEntity, callbackHandler) == null) {
-            yx2Var.t(i * 1000);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
+        return (List) invokeLLL.objValue;
     }
 }

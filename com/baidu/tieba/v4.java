@@ -1,96 +1,23 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.tieba.c7;
-import com.baidu.tieba.k7;
-import com.baidu.tieba.o6;
+import com.baidu.tieba.g7;
+import com.baidu.tieba.s6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class v4<T> implements c7.c {
+/* loaded from: classes8.dex */
+public class v4 implements g7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k7<String, b> a;
-    public o6<b> b;
-    public o6<a> c;
-    public T d;
-
-    /* loaded from: classes7.dex */
-    public static class a<T> implements c7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Class<T> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.c7.c
-        public void a(c7 c7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, c7Var, jsonValue) == null) {
-                this.a = (String) c7Var.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
-                String str = (String) c7Var.l("type", String.class, jsonValue);
-                try {
-                    this.b = h8.a(str);
-                } catch (ReflectionException e) {
-                    throw new GdxRuntimeException("Class not found: " + str, e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements c7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public z6 a;
-        public v4 b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            new k7();
-            this.a = new z6();
-        }
-
-        @Override // com.baidu.tieba.c7.c
-        public void a(c7 c7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, c7Var, jsonValue) == null) {
-                k7 k7Var = (k7) c7Var.l("data", k7.class, jsonValue);
-                this.a.b((int[]) c7Var.l("indices", int[].class, jsonValue));
-            }
-        }
-    }
+    public b5 a;
+    public s6<c5> b;
+    public e5<?, ?> c;
+    public float d;
 
     public v4() {
         Interceptable interceptable = $ic;
@@ -105,39 +32,69 @@ public class v4<T> implements c7.c {
                 return;
             }
         }
-        this.a = new k7<>();
-        this.b = new o6<>(true, 3, b.class);
-        this.c = new o6<>();
+        new Matrix4();
+        new Vector3(1.0f, 1.0f, 1.0f);
+        this.b = new s6<>(true, 3, c5.class);
+        d(0.016666668f);
     }
 
-    @Override // com.baidu.tieba.c7.c
-    public void a(c7 c7Var, JsonValue jsonValue) {
+    @Override // com.baidu.tieba.g7.c
+    public void a(g7 g7Var, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, c7Var, jsonValue) == null) {
-            k7<String, b> k7Var = (k7) c7Var.l("unique", k7.class, jsonValue);
-            this.a = k7Var;
-            k7.a<String, b> b2 = k7Var.b();
-            b2.c();
-            while (b2.hasNext()) {
-                ((b) b2.next().b).b = this;
-            }
-            o6<b> o6Var = (o6) c7Var.m("data", o6.class, b.class, jsonValue);
-            this.b = o6Var;
-            o6.b<b> it = o6Var.iterator();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, g7Var, jsonValue) == null) {
+            String str = (String) g7Var.l("name", String.class, jsonValue);
+            this.a = (b5) g7Var.l("emitter", b5.class, jsonValue);
+            this.b.b((s6) g7Var.m("influencers", s6.class, c5.class, jsonValue));
+            this.c = (e5) g7Var.l("renderer", e5.class, jsonValue);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.dispose();
+            s6.b<c5> it = this.b.iterator();
             while (it.hasNext()) {
-                it.next().b = this;
+                it.next().dispose();
             }
-            this.c.b((o6) c7Var.m("assets", o6.class, a.class, jsonValue));
-            this.d = (T) c7Var.l("resource", null, jsonValue);
         }
     }
 
-    public o6<a> b() {
-        InterceptResult invokeV;
+    public void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            update(w0.b.e());
         }
-        return (o6) invokeV.objValue;
+    }
+
+    public void c(e1 e1Var, z4 z4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, e1Var, z4Var) == null) {
+            this.a.f(e1Var, z4Var);
+            s6.b<c5> it = this.b.iterator();
+            while (it.hasNext()) {
+                it.next().f(e1Var, z4Var);
+            }
+            this.c.f(e1Var, z4Var);
+        }
+    }
+
+    public final void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            d(f);
+            this.a.update();
+            s6.b<c5> it = this.b.iterator();
+            while (it.hasNext()) {
+                it.next().update();
+            }
+        }
     }
 }

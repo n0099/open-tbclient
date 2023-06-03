@@ -7,8 +7,8 @@ import android.content.pm.ServiceInfo;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x1b;
-import com.baidu.tieba.y1b;
+import com.baidu.tieba.hab;
+import com.baidu.tieba.iab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class c {
         this.a = context;
     }
 
-    public final <T extends y1b> T a(String str) {
+    public final <T extends iab> T a(String str) {
         InterceptResult invokeL;
         StringBuilder sb;
         String localizedMessage;
@@ -94,7 +94,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 Class<?> cls = Class.forName(str);
-                if (y1b.class.isAssignableFrom(cls)) {
+                if (iab.class.isAssignableFrom(cls)) {
                     return (T) Class.forName(str).newInstance();
                 }
                 Log.e("ServiceRegistrarParser", cls + " must extends from ServiceRegistrar.");
@@ -124,7 +124,7 @@ public class c {
         return (T) invokeL.objValue;
     }
 
-    public List<x1b> b() {
+    public List<hab> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -132,10 +132,10 @@ public class c {
             List<String> c = c();
             ArrayList arrayList = new ArrayList();
             for (String str : c) {
-                y1b a2 = a(str);
+                iab a2 = a(str);
                 if (a2 != null) {
                     a2.a(this.a);
-                    List<x1b> b2 = a2.b(this.a);
+                    List<hab> b2 = a2.b(this.a);
                     if (b2 != null) {
                         arrayList.addAll(b2);
                     }

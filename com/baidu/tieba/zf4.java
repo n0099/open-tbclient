@@ -1,48 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.mg4;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.wf4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zf4 extends mg4.a {
+public class zf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zf4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358017, "Lcom/baidu/tieba/zf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948358017, "Lcom/baidu/tieba/zf4;");
                 return;
             }
         }
+        a = is1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public mg4 build() {
-        InterceptResult invokeV;
+    public static void a(@NonNull yb3 yb3Var, @NonNull wf4.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yf4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if (interceptable == null || interceptable.invokeLL(65537, null, yb3Var, eVar) == null) {
+            long l = yb3Var.W().l("launch_time", 0L);
+            if (l <= 0) {
+                if (a) {
+                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+                    return;
+                }
+                return;
+            }
+            aj3 aj3Var = new aj3();
+            aj3Var.a = ri3.n(yb3Var.W().G());
+            aj3Var.f = yb3Var.getAppId();
+            aj3Var.c = yb3Var.W().T();
+            aj3Var.b = "startup";
+            aj3Var.g = eVar.a;
+            aj3Var.e = eVar.b;
+            aj3Var.a("na_start", Long.valueOf(l));
+            aj3Var.a("h5_start", Long.valueOf(eVar.c));
+            aj3Var.a("h5_finish", Long.valueOf(eVar.d));
+            ri3.x("1235", aj3Var);
         }
-        return (mg4) invokeV.objValue;
     }
 }

@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fw3 {
+public class fw3 extends wv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ew3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ew3 a() {
-        InterceptResult invokeV;
-        ew3 ew3Var;
+    public fw3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (fw3.class) {
-                if (a == null) {
-                    a = new ew3();
-                }
-                ew3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ew3Var;
         }
-        return (ew3) invokeV.objValue;
     }
 }

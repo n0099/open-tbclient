@@ -4,6 +4,7 @@ import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
 /* loaded from: classes.dex */
 public class c extends a {
     public static final String TAG = "c";
@@ -38,7 +39,7 @@ public class c extends a {
                 }
             }
         }
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "animate", SystemClock.elapsedRealtime() - this.of, 1);
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost(UgcTranscoderConstant.URL_GET_FACE, "animate", SystemClock.elapsedRealtime() - this.of, 1);
         k kVar = this.od;
         if (kVar != null) {
             kVar.d(this.og);

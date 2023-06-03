@@ -2,19 +2,19 @@ package com.baidu.tieba.ad.incentivevideo.net;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.k26;
+import com.baidu.tieba.f66;
+import com.baidu.tieba.l66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k26 mAdIncentiveVideoTaskData;
+    public l66 mAdIncentiveVideoTaskData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetIncentiveVideoTaskResMsg(int i) {
@@ -44,21 +44,21 @@ public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mAdIncentiveVideoTaskData = new k26();
+                this.mAdIncentiveVideoTaskData = new l66();
                 String optString = optJSONObject.optString("request_key");
                 this.mAdIncentiveVideoTaskData.f(optString);
                 this.mAdIncentiveVideoTaskData.g(optJSONObject.optString("scheme"));
-                e26.i().u(optString);
+                f66.i().u(optString);
             }
         }
     }
 
-    public k26 getAdIncentiveVideoTaskData() {
+    public l66 getAdIncentiveVideoTaskData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAdIncentiveVideoTaskData;
         }
-        return (k26) invokeV.objValue;
+        return (l66) invokeV.objValue;
     }
 }

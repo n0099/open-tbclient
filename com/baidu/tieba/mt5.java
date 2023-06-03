@@ -1,43 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.nu5;
+import com.baidu.tieba.ou5;
 /* loaded from: classes6.dex */
-public class mt5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mt5<Q extends nu5, P extends ou5> {
+    void a(Q q, P p);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947984219, "Lcom/baidu/tieba/mt5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947984219, "Lcom/baidu/tieba/mt5;");
-        }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - a;
-            if (0 < j && j < 1000) {
-                return true;
-            }
-            a = currentTimeMillis;
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(Q q, boolean z);
 }

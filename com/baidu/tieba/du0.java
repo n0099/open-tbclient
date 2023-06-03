@@ -1,20 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.iu0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class du0 {
+public class du0 implements iu0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xt0 a;
-    public rt0 b;
+    public final tx0 a;
+
+    /* loaded from: classes5.dex */
+    public class a implements tx0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(du0 du0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {du0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tx0
+        @NonNull
+        public ux0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new cx0();
+            }
+            return (ux0) invokeV.objValue;
+        }
+    }
 
     public du0() {
         Interceptable interceptable = $ic;
@@ -26,283 +59,42 @@ public class du0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a(this);
     }
 
-    public xt0 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iu0.a
+    public iu0 a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            return new ku0(new e01(this.a, context));
         }
-        return (xt0) invokeV.objValue;
+        return (iu0) invokeLI.objValue;
     }
 
-    public void d() {
-        xt0 xt0Var;
+    @Override // com.baidu.tieba.iu0.a
+    public iu0 b(Context context, int i, @Nullable ju0 ju0Var) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onBufferEnd();
-        }
-    }
-
-    public void e() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onBufferStart();
-        }
-    }
-
-    public void k() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onPause();
-        }
-    }
-
-    public void l() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onPrepared();
-        }
-    }
-
-    public void m() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onResume();
-        }
-    }
-
-    public void n() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onSeekEnd();
-        }
-    }
-
-    public void o() {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onStart();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a = null;
-            this.b = null;
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (701 == i) {
-                e();
-            } else if (702 == i) {
-                d();
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, ju0Var)) == null) {
+            if (ju0Var == null) {
+                ju0Var = ju0.b;
             }
-        }
-    }
-
-    public void f(int i) {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onEnd(i);
-        }
-    }
-
-    public void i(ly0 ly0Var) {
-        rt0 rt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ly0Var) == null) && (rt0Var = this.b) != null) {
-            rt0Var.a(ly0Var);
-        }
-    }
-
-    public void j(ly0 ly0Var) {
-        rt0 rt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, ly0Var) == null) && (rt0Var = this.b) != null) {
-            rt0Var.b(ly0Var);
-        }
-    }
-
-    public void s(xt0 xt0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, xt0Var) == null) {
-            this.a = xt0Var;
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x007d, code lost:
-        if (r0.equals(com.baidu.searchbox.player.event.PlayerEvent.ACTION_SEEK_COMPLETE) != false) goto L14;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lv0Var) == null) {
-            char c = 4;
-            if (lv0Var.getType() == 4 || lv0Var.getType() == 2) {
-                String c2 = lv0Var.c();
-                switch (c2.hashCode()) {
-                    case -1502879971:
-                        if (c2.equals(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1244137507:
-                        break;
-                    case -525235558:
-                        if (c2.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -461848373:
-                        if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 154871702:
-                        if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 720027695:
-                        if (c2.equals(ControlEvent.ACTION_PAUSE)) {
-                            c = '\b';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 723345051:
-                        if (c2.equals(ControlEvent.ACTION_START)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 906917140:
-                        if (c2.equals(ControlEvent.ACTION_RESUME)) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1370689931:
-                        if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1547354793:
-                        if (c2.equals(ControlEvent.ACTION_STOP)) {
-                            c = '\t';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
+            int i2 = ju0Var.a;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        return new ku0(new yt0(this.a, context));
+                    }
+                    return new ku0(new xt0(this.a, context));
                 }
-                switch (c) {
-                    case 0:
-                        int g = lv0Var.g(1);
-                        h(g, lv0Var.g(2), lv0Var.f(3));
-                        a(g);
-                        return;
-                    case 1:
-                        g(lv0Var.g(1), lv0Var.g(2), lv0Var.f(3));
-                        return;
-                    case 2:
-                        l();
-                        return;
-                    case 3:
-                        f(307);
-                        return;
-                    case 4:
-                        n();
-                        return;
-                    case 5:
-                        q(lv0Var.g(5), lv0Var.g(6));
-                        return;
-                    case 6:
-                        o();
-                        return;
-                    case 7:
-                        m();
-                        return;
-                    case '\b':
-                        k();
-                        return;
-                    case '\t':
-                        f(0);
-                        return;
-                    default:
-                        return;
-                }
+                return new ku0(new wt0(this.a, context));
             }
+            return new ku0(new yt0(this.a, context));
         }
-    }
-
-    public void g(int i, int i2, Object obj) {
-        xt0 xt0Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, obj) == null) && (xt0Var = this.a) != null) {
-            if (obj != null) {
-                str = obj.toString();
-            } else {
-                str = "";
-            }
-            xt0Var.onError(i, i2, str);
-        }
-    }
-
-    public void h(int i, int i2, Object obj) {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onInfo(i, i2);
-        }
-    }
-
-    public void p(int i, int i2, int i3) {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onUpdateProgress(i, i2, i3);
-        }
-    }
-
-    public void q(int i, int i2) {
-        xt0 xt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && (xt0Var = this.a) != null) {
-            xt0Var.onVideoSizeChanged(i, i2);
-        }
+        return (iu0) invokeLIL.objValue;
     }
 }

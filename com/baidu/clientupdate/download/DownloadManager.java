@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.jni.MiniGzip;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.clientupdata.key.PublicKey;
@@ -25,12 +24,10 @@ import com.baidu.clientupdate.d.j;
 import com.baidu.down.common.DownDetail;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.TaskObserver;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
-import com.baidu.down.utils.Utils;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -317,8 +314,8 @@ public final class DownloadManager {
                     if (download != null) {
                         download.mCurrentLength = download.mFileLength;
                         String str2 = download.mSavedPath + "/" + Uri.encode(download.mFileName);
-                        LogUtil.logD("DownloadManager", "Download path:" + str2 + str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION));
-                        if (!this.this$0.isQuietDownload && (!com.baidu.clientupdate.d.a.a(this.this$0.mContext).d() || !str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION))) {
+                        LogUtil.logD("DownloadManager", "Download path:" + str2 + str2.endsWith(".bin"));
+                        if (!this.this$0.isQuietDownload && (!com.baidu.clientupdate.d.a.a(this.this$0.mContext).d() || !str2.endsWith(".bin"))) {
                             this.this$0.mHandler.post(new Runnable(this, str2, download) { // from class: com.baidu.clientupdate.download.DownloadManager.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +367,7 @@ public final class DownloadManager {
         binaryTaskMng.addObserver(this.mtaskObserver);
         HashMap hashMap = new HashMap();
         this.mHeaders = hashMap;
-        hashMap.put(Config.LAUNCH_REFERER, "https://update.baidu.com");
+        hashMap.put("referer", "https://update.baidu.com");
         try {
             queryAll();
         } catch (Exception e) {
@@ -462,7 +459,7 @@ public final class DownloadManager {
                         sb = new StringBuilder();
                         sb.append(".");
                     } else if (str3.toLowerCase().startsWith("text/")) {
-                        str4 = str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE) ? DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : str3.equalsIgnoreCase("text/bin") ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
+                        str4 = str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE) ? ".html" : str3.equalsIgnoreCase("text/bin") ? ".bin" : ".txt";
                     } else if (str3.toLowerCase().startsWith("audio/")) {
                         sb = new StringBuilder();
                         sb.append(".");
@@ -479,7 +476,7 @@ public final class DownloadManager {
                         str4 = str5.substring(lastIndexOf);
                     }
                 }
-                return str4 != null ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : str4;
+                return str4 != null ? ".bin" : str4;
             }
         }
         str4 = null;
@@ -507,7 +504,7 @@ public final class DownloadManager {
                 str2 = decode.substring(lastIndexOf);
             }
             if (str2 == null) {
-                str2 = Utils.DEFAULT_DL_FILENAME;
+                str2 = "downloadfile";
             } else {
                 int lastIndexOf3 = str2.lastIndexOf(46);
                 if (lastIndexOf3 > 0) {
@@ -580,7 +577,7 @@ public final class DownloadManager {
                                     if (read == -1) {
                                         break;
                                     }
-                                    sb.append(new String(bArr, 0, read, IMAudioTransRequest.CHARSET));
+                                    sb.append(new String(bArr, 0, read, "utf-8"));
                                 }
                                 inputStream.close();
                                 LogUtil.logD("DownloadManager", "获取公钥的返回结果: " + sb.toString());
@@ -704,7 +701,7 @@ public final class DownloadManager {
                         return;
                     }
                     Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
-                    intent.putExtra("downloadid", this.val$downloadId);
+                    intent.putExtra(DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.val$downloadId);
                     intent.putExtra("download", download);
                     intent.putExtra("progress", this.val$progress);
                     intent.setPackage(this.this$0.mContext.getPackageName());
@@ -752,7 +749,7 @@ public final class DownloadManager {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         GDiffPatcher gDiffPatcher = new GDiffPatcher();
                         Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
-                        intent.putExtra("downloadid", this.val$downloadId);
+                        intent.putExtra(DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.val$downloadId);
                         intent.putExtra("state", this.val$download.getState());
                         intent.putExtra("download", this.val$download);
                         intent.setPackage(this.this$0.mContext.getPackageName());
@@ -779,7 +776,7 @@ public final class DownloadManager {
                                 file = new File(strArr[2]);
                             }
                             Intent intent2 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
-                            intent2.putExtra("downloadid", this.val$downloadId);
+                            intent2.putExtra(DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.val$downloadId);
                             intent2.putExtra("state", DownloadState.MEAGESTART);
                             Download download2 = this.val$download;
                             download2.mState = DownloadState.MEAGESTART;
@@ -801,7 +798,7 @@ public final class DownloadManager {
                             }
                             LogUtil.logD("DownloadManager", "time is >>>  " + (System.currentTimeMillis() - currentTimeMillis) + "");
                             Intent intent3 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
-                            intent3.putExtra("downloadid", this.val$downloadId);
+                            intent3.putExtra(DownloadConstants.URI_SCHEME_DOWNLOAD_ID, this.val$downloadId);
                             intent3.putExtra("state", DownloadState.MEAGEEND);
                             Download download3 = this.val$download;
                             download3.mState = DownloadState.MEAGEEND;
@@ -891,14 +888,14 @@ public final class DownloadManager {
             download.mUrl = cursor.getString(cursor.getColumnIndex("uri"));
             download.mFileName = cursor.getString(cursor.getColumnIndex("_data"));
             download.mSavedPath = cursor.getString(cursor.getColumnIndex("saved_path_for_user"));
-            download.mFileLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
-            download.mCurrentLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
+            download.mFileLength = cursor.getLong(cursor.getColumnIndex("total_bytes"));
+            download.mCurrentLength = cursor.getLong(cursor.getColumnIndex("current_bytes"));
             String encode = Uri.encode(download.mFileName);
             File file = new File(download.mSavedPath + File.separator + encode);
             download.mCurrentLength = file.exists() ? file.length() : 0L;
             download.mState = DownloadState.getState(cursor.getInt(cursor.getColumnIndex("status")));
             download.mFailReason = cursor.getString(cursor.getColumnIndex("failreason"));
-            download.mMimeType = cursor.getString(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+            download.mMimeType = cursor.getString(cursor.getColumnIndex("mimetype"));
             download.mETag = cursor.getString(cursor.getColumnIndex("etag"));
             download.mSourceKey = cursor.getString(cursor.getColumnIndex("saved_source_key_user"));
             download.mNeedNotification = cursor.getInt(cursor.getColumnIndex("notificationneeded")) == 1;
@@ -930,12 +927,12 @@ public final class DownloadManager {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018c */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x019e  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01ea  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x020c  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x019d  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01e8  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x020a  */
     /* JADX WARN: Type inference failed for: r7v10 */
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v13, types: [boolean] */

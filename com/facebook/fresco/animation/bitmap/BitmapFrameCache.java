@@ -3,10 +3,10 @@ package com.facebook.fresco.animation.bitmap;
 import android.graphics.Bitmap;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface BitmapFrameCache {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FrameCacheListener {
         void onFrameCached(BitmapFrameCache bitmapFrameCache, int i);
 

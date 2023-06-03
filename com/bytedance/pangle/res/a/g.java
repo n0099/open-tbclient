@@ -1,7 +1,7 @@
 package com.bytedance.pangle.res.a;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g extends f {
     public g(i iVar) {
         super(iVar);

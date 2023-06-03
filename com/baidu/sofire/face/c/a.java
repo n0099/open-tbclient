@@ -20,11 +20,11 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.face.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0180a implements Comparator<Camera.Size> {
+    public static class C0194a implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0180a() {
+        public C0194a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -185,7 +185,7 @@ public final class a {
                 return new Point(640, 480);
             }
             ArrayList arrayList = new ArrayList(supportedPreviewSizes);
-            Collections.sort(arrayList, new C0180a());
+            Collections.sort(arrayList, new C0194a());
             int i = point.x;
             int i2 = point.y;
             if (i > i2) {

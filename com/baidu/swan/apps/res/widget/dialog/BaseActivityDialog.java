@@ -21,16 +21,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an3;
-import com.baidu.tieba.nl3;
-import com.baidu.tieba.ns2;
-import com.baidu.tieba.pl3;
-import com.baidu.tieba.qp1;
+import com.baidu.tieba.fo3;
+import com.baidu.tieba.fv2;
+import com.baidu.tieba.ho3;
+import com.baidu.tieba.is1;
+import com.baidu.tieba.sp3;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean q = qp1.a;
+    public static final boolean q = is1.a;
     public TextView a;
     public TextView b;
     public LinearLayout c;
@@ -101,7 +101,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 }
                 e.t(valueOf, e.this);
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                pl3.g(appContext, intent);
+                ho3.g(appContext, intent);
             }
         }
 
@@ -168,7 +168,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public void E(boolean z) {
-            an3.a0(new a(z));
+            sp3.a0(new a(z));
         }
 
         public void onEvent(c cVar) {
@@ -322,7 +322,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = ns2.M().b();
+        Resources b2 = fv2.M().b();
         if (b2 != null) {
             return b2;
         }
@@ -371,7 +371,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
         linearLayout.setVisibility(i);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-        layoutParams.addRule(3, R.id.obfuscated_res_0x7f09089a);
+        layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908a6);
         this.o.setLayoutParams(layoutParams);
     }
 
@@ -395,7 +395,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.j.addView(view2);
                 this.c.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09088e);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09089a);
                 this.o.setLayoutParams(layoutParams);
             }
         }
@@ -445,25 +445,25 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     public void c() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a4);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090899);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09089a);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c25);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091851);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091864);
-        this.h = findViewById(R.id.obfuscated_res_0x7f0908d3);
-        this.i = findViewById(R.id.obfuscated_res_0x7f0908d4);
-        this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09088f);
-        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090893);
-        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09203b);
-        this.g = findViewById(R.id.obfuscated_res_0x7f0908d2);
-        this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f0916f3);
-        this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904c8);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b0);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a5);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a6);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c53);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091875);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09188a);
+        this.h = findViewById(R.id.obfuscated_res_0x7f0908e4);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0908e5);
+        this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089b);
+        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f09089f);
+        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092069);
+        this.g = findViewById(R.id.obfuscated_res_0x7f0908e3);
+        this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091717);
+        this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904cf);
         this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
         if (this.m.p > 0) {
             this.n.getLayoutParams().height = this.m.p;
         }
-        if (nl3.k() || nl3.l()) {
+        if (fo3.k() || fo3.l()) {
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070131);
             this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
@@ -526,9 +526,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     public void q() {
         Resources resources = getResources();
-        int color = resources.getColor(R.color.obfuscated_res_0x7f06040e);
-        int color2 = resources.getColor(R.color.obfuscated_res_0x7f060401);
-        int color3 = resources.getColor(R.color.obfuscated_res_0x7f06040b);
+        int color = resources.getColor(R.color.obfuscated_res_0x7f060412);
+        int color2 = resources.getColor(R.color.obfuscated_res_0x7f060405);
+        int color3 = resources.getColor(R.color.obfuscated_res_0x7f06040f);
         this.l.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08015d));
         this.a.setTextColor(color);
         this.b.setTextColor(color2);

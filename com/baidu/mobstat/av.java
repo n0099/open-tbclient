@@ -6,7 +6,6 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.mobstat.at;
-import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -222,7 +221,7 @@ public class av {
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put(Config.TRACE_PART, jSONObject2);
+            jSONObject.put("trace", jSONObject2);
         } catch (Exception unused2) {
         }
     }
@@ -312,10 +311,10 @@ public class av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Can't wrap try/catch for region: R(8:9|(2:10|11)|(6:27|28|14|15|(2:20|21)|(1:18))|13|14|15|(0)|(0)) */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0038  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Can't wrap try/catch for region: R(9:9|10|11|(6:27|28|14|15|(2:20|21)|(1:18))|13|14|15|(0)|(0)) */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -665,7 +664,7 @@ public class av {
                 String optString = jSONObject.optString(Config.EVENT_NEXT_PAGENAME);
                 long optLong = jSONObject.optLong("t");
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - optLong <= BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT && TextUtils.isEmpty(optString)) {
+                if (currentTimeMillis - optLong <= 1500 && TextUtils.isEmpty(optString)) {
                     jSONObject.put(Config.EVENT_NEXT_PAGENAME, str + "|" + currentTimeMillis);
                     this.h.put(this.h.length() + (-1), jSONObject);
                     c(context);

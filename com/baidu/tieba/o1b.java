@@ -1,170 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h1b;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public class o1b extends i1b {
+/* loaded from: classes7.dex */
+public class o1b extends b1b<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context c;
-    public final String d;
-    public j1b e;
-    public volatile p1b f;
-    public final Object g;
-    public c1b h;
-    public final Map<String, String> i;
-    public volatile q1b j;
 
-    public o1b(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o1b(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new Object();
-        this.h = c1b.b;
-        this.i = new HashMap();
-        this.c = context;
-        this.d = str;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b1b
+    public double a() {
+        InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTNativeExpressAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
                 }
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
             }
-            return WebvttCueParser.CHAR_SLASH + str.substring(i);
         }
-        return (String) invokeL.objValue;
+        return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.f1b
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b1b
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) a;
+        if (z) {
+            tTNativeExpressAd.win(Double.valueOf(d2));
+        } else {
+            tTNativeExpressAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        }
     }
 
-    @Override // com.baidu.tieba.f1b
-    public c1b b() {
+    @Override // com.baidu.tieba.b1b
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.h == null) {
-                this.h = c1b.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTNativeExpressAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
-            if (this.h == c1b.b && this.f == null) {
-                f();
-            }
-            c1b c1bVar = this.h;
-            return c1bVar == null ? c1b.b : c1bVar;
+            return this.b;
         }
-        return (c1b) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
-            synchronized (this.g) {
-                if (this.f == null) {
-                    if (this.e != null) {
-                        this.f = new t1b(this.e.b());
-                        this.e.a();
-                        throw null;
-                    }
-                    this.f = new w1b(this.c, this.d);
-                    this.j = new q1b(this.f);
-                }
-                h();
-            }
-        }
-    }
-
-    public final String g(String str) {
-        InterceptResult invokeL;
-        h1b.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Map<String, h1b.a> a = h1b.a();
-            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
-                return aVar.a(this);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i1b, com.baidu.tieba.f1b
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i1b, com.baidu.tieba.f1b
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == c1b.b) {
-            if (this.f != null) {
-                this.h = l1b.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
-            } else {
-                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
-            }
-        }
-    }
-
-    public String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            if (str != null) {
-                if (this.f == null) {
-                    f();
-                }
-                String e = e(str);
-                String str3 = this.i.get(e);
-                if (str3 != null) {
-                    return str3;
-                }
-                String g = g(e);
-                if (g != null) {
-                    return g;
-                }
-                String a = this.f.a(e, str2);
-                return q1b.c(a) ? this.j.a(a, str2) : a;
-            }
-            throw new NullPointerException("path must not be null.");
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -17,7 +17,7 @@ public abstract class cx {
     public abstract String a(Context context, String str, List<bh> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m294a(Context context, String str, List<bh> list) {
+    public boolean m349a(Context context, String str, List<bh> list) {
         return true;
     }
 }

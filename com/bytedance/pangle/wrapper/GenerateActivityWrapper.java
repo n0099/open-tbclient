@@ -54,7 +54,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class GenerateActivityWrapper extends Activity implements a {
     public Activity mOriginActivity;
     public PluginContext pluginContext;

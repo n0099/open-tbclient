@@ -10,7 +10,6 @@ import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.utils.Log;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes3.dex */
 public class AccountCenterExternalActivity extends AccountCenterActivity {
     public static final String EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR = "extra_external_is_account_center_titlebar";
@@ -27,7 +26,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Intent intent = new Intent(this, AccountCenterActivity.class);
-        intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        intent.setFlags(67108864);
         intent.putExtra("action", SlideActiviy.SLIDE_ACTION_QUIT);
         startActivity(intent);
     }
@@ -88,7 +87,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
             public void onFinish(String str) {
                 if (SlideActiviy.ACCOUNT_CENTER_PAGE_NAME.equals(str)) {
                     Intent intent2 = new Intent(AccountCenterExternalActivity.this, AccountCenterActivity.class);
-                    intent2.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    intent2.setFlags(67108864);
                     AccountCenterExternalActivity.this.startActivity(intent2);
                 }
                 if (!SlideActiviy.SLIDE_ACTION_QUIT.equals(str)) {

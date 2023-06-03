@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class yi {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,86 +26,38 @@ public class yi {
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("java.lang.String", "java.lang.String");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Double", "java.lang.Double");
+        a.put("java.lang.Float", "java.lang.Float");
+        a.put("java.lang.Boolean", "java.lang.Boolean");
+        a.put("java.lang.Character", "java.lang.Character");
+        a.put("java.lang.Short", "java.lang.Short");
+        a.put("java.lang.Long", "java.lang.Long");
+        a.put("java.lang.Byte", "java.lang.Byte");
+        a.put("java.util.Date", "java.util.Date");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Integer", "java.lang.Integer");
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            String str = null;
-            if (inputStream == null) {
-                return null;
-            }
-            try {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj != null && field != null) {
+                boolean isAccessible = field.isAccessible();
+                field.setAccessible(true);
                 try {
-                    byte[] bArr = new byte[1024];
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str = a(messageDigest.digest());
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
+                    obj2 = field.get(obj);
+                } catch (Throwable unused) {
                 }
-                return str;
-            } finally {
-                si.e(inputStream);
+                field.setAccessible(isAccessible);
             }
+            return obj2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return d(str.getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return invokeLL.objValue;
     }
 }

@@ -1,43 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.ala.AlaSharedPrefConfig;
 import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gb6 extends en<wb6, CardViewHolder<uc6>> {
+public class gb6 extends in<kb6, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public TextView b;
-    public String c;
-    public String d;
-
-    public final void z(nb6 nb6Var, uc6 uc6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, nb6Var, uc6Var) != null) || nb6Var == null || uc6Var == null) {
-        }
-    }
+    public boolean b;
+    public eo6<kb6> c;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends eo6<kb6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gb6 a;
+        public final /* synthetic */ gb6 b;
 
         public a(gb6 gb6Var) {
             Interceptable interceptable = $ic;
@@ -54,22 +45,31 @@ public class gb6 extends en<wb6, CardViewHolder<uc6>> {
                     return;
                 }
             }
-            this.a = gb6Var;
+            this.b = gb6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.eo6
+        /* renamed from: d */
+        public void a(View view2, kb6 kb6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kb6Var) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090ffc) {
+                    if (!this.b.b) {
+                        this.b.b = true;
+                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ffd) {
+                    nb6.b(this.b.a);
+                }
             }
-            this.a.u();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gb6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), wb6.b);
+        super(tbPageContext.getPageActivity(), kb6.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,95 +86,39 @@ public class gb6 extends en<wb6, CardViewHolder<uc6>> {
                 return;
             }
         }
+        this.b = false;
+        this.c = new a(this);
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.in
     /* renamed from: x */
-    public CardViewHolder<uc6> onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new uc6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            tb6 tb6Var = new tb6(this.a, viewGroup);
+            tb6Var.k(this.c);
+            return new LiveTabConcernNotificationViewHolder(tb6Var);
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public final void A(TextView textView, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, textView, str, z) == null) && textView != null && this.a != null) {
-            if (z) {
-                textView.setText("");
-                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801fc);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                textView.setCompoundDrawables(null, null, drawable, null);
-                return;
-            }
-            if (str != null) {
-                textView.setText(str);
-            } else {
-                textView.setText("");
-            }
-            textView.setCompoundDrawables(null, null, null, null);
-        }
-    }
-
-    public final void t(wb6 wb6Var, uc6 uc6Var) {
-        nb6 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, wb6Var, uc6Var) == null) && (c = wb6Var.c()) != null && uc6Var != null) {
-            this.b = uc6Var.r();
-            this.c = c.b().user_id;
-            z(c, uc6Var);
-            uc6Var.y(8);
-            uc6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026d));
-            uc6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-            A(this.b, this.d, false);
-            StatisticItem statisticItem = new StatisticItem("c13333");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            String s = o65.m().s("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
-            if (s == null) {
-                return;
-            }
-            if (s.endsWith("/")) {
-                s = s.substring(0, s.length() - 1);
-            }
-            String str = this.c;
-            StringBuilder sb = new StringBuilder();
-            sb.append("id=");
-            sb.append(str);
-            if (!s.contains("?")) {
-                sb.insert(0, "?");
-            } else {
-                sb.insert(0, "&");
-            }
-            sb.insert(0, s);
-            yu4.s(this.a.getPageActivity(), sb.toString());
-        }
+        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.in
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wb6 wb6Var, CardViewHolder<uc6> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kb6 kb6Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         InterceptResult invokeCommon;
+        tb6 tb6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wb6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kb6Var, liveTabConcernNotificationViewHolder})) == null) {
+            if (liveTabConcernNotificationViewHolder != null && (tb6Var = liveTabConcernNotificationViewHolder.a) != null) {
+                this.b = false;
+                tb6Var.i(kb6Var);
+                return liveTabConcernNotificationViewHolder.getView();
             }
-            t(wb6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this));
-            return cardViewHolder.a().h();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

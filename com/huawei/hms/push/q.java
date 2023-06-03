@@ -10,11 +10,11 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Date;
 import java.util.List;
@@ -40,9 +40,9 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             if (c()) {
-                return CodedInputStream.DEFAULT_SIZE_LIMIT;
+                return 67108864;
             }
-            return 134217728;
+            return SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
         }
         return invokeV.intValue;
     }

@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
+import android.annotation.SuppressLint;
+import android.os.RemoteException;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
-import com.baidu.tbadk.core.message.UserGrowthTaskResponseMessage;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.swan.ubc.Flow;
+import com.baidu.swan.ubc.IRemoteUBCService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,74 +14,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.CommonTaskInfo;
-import tbclient.TaskProgress;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pr4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "TaskManager";
-    public static pr4 d;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<CommonTaskInfo> a;
-    public final HttpMessageListener b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071639, "Lcom/baidu/tieba/pr4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948071639, "Lcom/baidu/tieba/pr4;");
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final pr4 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pr4 pr4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pr4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-508914983, "Lcom/baidu/tieba/pr4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-508914983, "Lcom/baidu/tieba/pr4$b;");
                     return;
                 }
             }
-            this.a = pr4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UserGrowthTaskResponseMessage)) {
-                return;
-            }
-            int errCode = ((UserGrowthTaskResponseMessage) httpResponsedMessage).getErrCode();
-            zk8 defaultLog = DefaultLog.getInstance();
-            String str = pr4.c;
-            defaultLog.c(str, "任务完成：errCode=" + errCode);
-            if (errCode == 0) {
-                this.a.g();
-            }
+            a = new pr4(null);
         }
     }
 
@@ -92,111 +55,142 @@ public class pr4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_YINJI_TASK_SHARE_REPORT);
     }
 
-    public static pr4 d() {
+    public static pr4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (pr4.class) {
-                    if (d == null) {
-                        pr4 pr4Var = new pr4();
-                        d = pr4Var;
-                        pr4Var.f();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
         return (pr4) invokeV.objValue;
     }
 
-    public final void f() {
+    public final IRemoteUBCService c() throws RemoteException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return er4.f();
+        }
+        return (IRemoteUBCService) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            nr4.f().q();
         }
     }
 
-    public final void g() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            mr4.w().I();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            nr4.f().l();
         }
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return c(str, "");
-        }
-        return invokeL.booleanValue;
+    public /* synthetic */ pr4(a aVar) {
+        this();
     }
 
-    public void h(List<CommonTaskInfo> list) {
+    public final void onEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            e(str, "", 0);
         }
     }
 
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    @SuppressLint({"BDThrowableCheck"})
+    public Flow a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            zk8 defaultLog = DefaultLog.getInstance();
-            String str3 = c;
-            defaultLog.c(str3, "尝试完成任务：" + str);
-            if (!e(str)) {
-                return false;
-            }
-            zk8 defaultLog2 = DefaultLog.getInstance();
-            String str4 = c;
-            defaultLog2.c(str4, "开始完成任务：" + str + " data=" + str2);
-            UserGrowthTaskRequestMessage userGrowthTaskRequestMessage = new UserGrowthTaskRequestMessage(str);
-            userGrowthTaskRequestMessage.addActData(str2);
-            MessageManager.getInstance().sendMessage(userGrowthTaskRequestMessage);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        TaskProgress taskProgress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!StringUtils.isNull(str) && !ListUtils.isEmpty(this.a)) {
-                StringBuilder sb = new StringBuilder();
-                for (CommonTaskInfo commonTaskInfo : this.a) {
-                    sb.append(commonTaskInfo.act_type);
-                    sb.append("=");
-                    sb.append(commonTaskInfo.dotask_status);
-                    sb.append(",");
-                    if (str.equals(commonTaskInfo.act_type) && commonTaskInfo.dotask_status.intValue() == 1 && ((taskProgress = commonTaskInfo.task_progress) == null || taskProgress.total.intValue() <= 0 || commonTaskInfo.task_progress.current.intValue() < commonTaskInfo.task_progress.total.intValue())) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            if (hl1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
                 }
-                zk8 defaultLog = DefaultLog.getInstance();
-                String str2 = c;
-                defaultLog.b(str2, "任务列表中无此任务:" + sb.toString());
-                return false;
+                return nr4.f().a(str, str2, i);
             }
-            DefaultLog.getInstance().b(c, "任务列表为空，无法完成");
-            return false;
+            return d(str, rr4.b(str2), i);
         }
-        return invokeL.booleanValue;
+        return (Flow) invokeLLI.objValue;
+    }
+
+    public final Flow d(String str, String str2, int i) {
+        Flow flow;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            try {
+                flow = c().ubcBeginFlow(str, str2, i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                flow = null;
+            }
+            if (flow == null) {
+                return new Flow();
+            }
+            return flow;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
+            if (hl1.g()) {
+                if (er4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                nr4.f().j(str, str2, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, rr4.b(str2), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(String str, Map<String, String> map, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException unused) {
+            }
+            e(str, jSONObject.toString(), i);
+        }
+    }
+
+    public void g(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
+            if (hl1.g()) {
+                if (er4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                nr4.f().k(str, jSONObject, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, rr4.c(jSONObject), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

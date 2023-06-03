@@ -1,176 +1,166 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.zi3;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ zn3 c;
+    }
 
-        public a(int i, long j, zn3 zn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), zn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wl3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-314081843, "Lcom/baidu/tieba/wl3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-314081843, "Lcom/baidu/tieba/wl3$b;");
                     return;
                 }
             }
-            this.a = i;
-            this.b = j;
-            this.c = zn3Var;
+            a = new wl3(null);
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    wl3.f(jSONObject, t03.c(), this.a, this.b);
-                } catch (Exception e) {
-                    gm3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.a(jSONObject);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948274379, "Lcom/baidu/tieba/wl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948274379, "Lcom/baidu/tieba/wl3;");
+                return;
             }
         }
+        boolean z = is1.a;
     }
 
     public wl3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String c() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (wl3.class) {
-                    a = e();
+            try {
+                Resources system = Resources.getSystem();
+                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
+                if (identifier != 0) {
+                    return system.getInteger(identifier);
                 }
+                return 255;
+            } catch (Exception unused) {
+                return 255;
             }
-            return a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull du2 du2Var, @NonNull zn3<JSONObject> zn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, du2Var, zn3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(du2Var.i("host_launch_type"), du2Var.k("box_cold_launch"), zn3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
+    public static wl3 c() {
         InterceptResult invokeV;
-        String replace;
-        String replace2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (wl3) invokeV.objValue;
     }
 
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
+    public /* synthetic */ wl3(a aVar) {
+        this();
+    }
+
+    public static float d(Context context) {
+        int i;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            gm3.f(jSONObject, "model", Build.MODEL);
-            gm3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            gm3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            zi3.a a2 = zi3.a(ns2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                i = 0;
             }
-            gm3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            gm3.f(jSONObject, "appCurVersion", an3.D());
-            gm3.f(jSONObject, "startupType", String.valueOf(i2));
-            gm3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(cs2.i());
-            gm3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            gm3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) f93.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                gm3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                gm3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
+            return i * (1.0f / b());
+        }
+        return invokeL.floatValue;
+    }
+
+    public float a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    return d(activity);
                 }
-                gm3.f(jSONObject, "lowMemory", str);
+                return f;
             }
+            return -1.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public void e(Activity activity, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) && activity != null) {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = f;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public void f(Activity activity, boolean z) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) != null) || activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        if (z) {
+            window.addFlags(128);
+        } else {
+            window.clearFlags(128);
         }
     }
 }

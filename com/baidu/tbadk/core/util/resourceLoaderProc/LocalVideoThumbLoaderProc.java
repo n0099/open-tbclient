@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.mg;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.ng;
+import com.baidu.tieba.qg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes4.dex */
-public class LocalVideoThumbLoaderProc implements mg<cn> {
+public class LocalVideoThumbLoaderProc implements qg<gn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public cn m72decodeToResource(byte[] bArr, Object... objArr) {
+    public gn m127decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, objArr)) == null) {
             return null;
         }
-        return (cn) invokeLL.objValue;
+        return (gn) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.qg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class LocalVideoThumbLoaderProc implements mg<cn> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.qg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class LocalVideoThumbLoaderProc implements mg<cn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
-    public cn getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tieba.qg
+    public gn getFromRemote(String str, String str2, int i, int i2, ng ngVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ngVar, objArr})) == null) {
             return null;
         }
-        return (cn) invokeCommon.objValue;
+        return (gn) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.qg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,51 +93,51 @@ public class LocalVideoThumbLoaderProc implements mg<cn> {
         }
     }
 
-    public cn createVideoThumbnail(String str, int i, int i2) {
+    public gn createVideoThumbnail(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
                 if (new File(str).exists()) {
-                    return new cn(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
+                    return new gn(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
                 }
                 return null;
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (cn) invokeLII.objValue;
+        return (gn) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
-    public cn getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tieba.qg
+    public gn getFromLocal(String str, String str2, int i, int i2, ng ngVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ngVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return createVideoThumbnail(str, i, i2);
         }
-        return (cn) invokeCommon.objValue;
+        return (gn) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
-    public cn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.qg
+    public gn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            cn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.u().z(toCacheKey(str)), i, i2);
+            gn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.u().z(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
             return null;
         }
-        return (cn) invokeCommon.objValue;
+        return (gn) invokeCommon.objValue;
     }
 
     public String toCacheKey(String str) {
@@ -149,15 +149,15 @@ public class LocalVideoThumbLoaderProc implements mg<cn> {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.qg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof cn)) {
-            cn cnVar = (cn) obj;
-            if (cnVar.u()) {
-                cnVar.A(i);
-                cnVar.z(i2);
-                TbImageMemoryCache.u().l(toCacheKey(str), cnVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof gn)) {
+            gn gnVar = (gn) obj;
+            if (gnVar.u()) {
+                gnVar.A(i);
+                gnVar.z(i2);
+                TbImageMemoryCache.u().l(toCacheKey(str), gnVar);
             }
         }
     }

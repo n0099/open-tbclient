@@ -6,7 +6,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ExceptionPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static String ACTIVE_UPLOAD_TYPE = "1";
 

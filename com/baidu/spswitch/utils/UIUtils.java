@@ -5,7 +5,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -114,7 +113,7 @@ public class UIUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (UIUtils.class) {
                 if (!get) {
-                    int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                    int identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
                     if (identifier > 0) {
                         statusBarHeight = context.getResources().getDimensionPixelSize(identifier);
                         get = true;
@@ -134,7 +133,7 @@ public class UIUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
             int i = 0;
             if (identifier > 0) {
                 try {

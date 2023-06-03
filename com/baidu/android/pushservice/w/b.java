@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -47,7 +46,7 @@ public class b extends c {
             } catch (JSONException unused) {
                 jSONObject = null;
             }
-            int optInt = jSONObject != null ? jSONObject.optInt(Constants.KEYS.RET, -1) : -1;
+            int optInt = jSONObject != null ? jSONObject.optInt("ret", -1) : -1;
             if (optInt == 2002) {
                 com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
                 Utility.X(this.a);

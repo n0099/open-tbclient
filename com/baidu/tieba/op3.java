@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class op3 extends ProviderDelegation {
+/* loaded from: classes7.dex */
+public class op3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
     public op3() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,39 @@ public class op3 extends ProviderDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("result", hp3.x(getAgent().getContext()));
-            return bundle2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 2) {
+                    View view3 = this.a;
+                    if (view3 == null) {
+                        view2.setAlpha(1.0f);
+                        return false;
+                    }
+                    view3.setAlpha(1.0f);
+                    return false;
+                }
+                return false;
+            }
+            View view4 = this.a;
+            float f = 0.5f;
+            if (view4 == null) {
+                if (!fv2.M().a()) {
+                    f = 0.2f;
+                }
+                view2.setAlpha(f);
+                return false;
+            }
+            if (!fv2.M().a()) {
+                f = 0.2f;
+            }
+            view4.setAlpha(f);
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

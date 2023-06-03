@@ -1,50 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.entitiy.InstallmentEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.net.URLDecoder;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class gi1 extends BaseAdapter {
+public final class gi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static long c;
+    public static gi1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<InstallmentEntity> a;
-    public Context b;
+    public boolean a;
+    public boolean b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947794778, "Lcom/baidu/tieba/gi1;")) == null) {
+            return;
         }
-        return invokeI.longValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947794778, "Lcom/baidu/tieba/gi1;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends fh1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public View c;
+        public final /* synthetic */ jj1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ gi1 c;
 
-        public a(View view2) {
+        public a(gi1 gi1Var, jj1 jj1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {gi1Var, jj1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,92 +58,128 @@ public class gi1 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091aa2);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aa6);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aa5);
+            this.c = gi1Var;
+            this.a = jj1Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.fh1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (jh1.b(bj1.a()) && currentTimeMillis - gi1.c <= 3000) {
+                if (this.c.a) {
+                    this.a.onResult(1, "");
+                }
+                this.c.i(this.b, this.a);
+            } else {
+                this.a.onResult(3, "支付失败，请重试");
+            }
+            this.c.a = false;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fh1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
+                return;
+            }
+            int optInt = jSONObject.optInt("status", -1);
+            int optInt2 = jSONObject.optInt("payStatus", -1);
+            if (optInt == 1 && optInt2 == 0) {
+                this.a.onResult(3, "支付失败，请重试");
+                return;
+            }
+            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
+                if (optInt == 1 && optInt2 == 3) {
+                    this.a.onResult(3, "支付失败，请重试");
+                } else if (System.currentTimeMillis() - gi1.c <= 3000) {
+                    if (this.c.a) {
+                        this.a.onResult(1, "");
+                    }
+                    this.c.i(this.b, this.a);
+                } else {
+                    this.a.onResult(6, "支付结果查询失败，请重试");
+                }
+            } else {
+                this.a.onResult(0, "小额免密支付成功");
+            }
+            this.c.a = false;
         }
     }
 
-    public gi1(Context context) {
+    public gi1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = context;
+        this.a = true;
+        this.b = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public InstallmentEntity getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (InstallmentEntity) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static gi1 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<InstallmentEntity> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            InstallmentEntity item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d077a, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                aVar.a.setText(item.getTitle());
-                aVar.b.setText(item.getPayText());
-                if (item.isChecked()) {
-                    aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060927));
-                    aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060927));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081103));
-                } else {
-                    aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060b2a));
-                    aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060928));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081102));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (d == null) {
+                synchronized (gi1.class) {
+                    if (d == null) {
+                        d = new gi1();
+                    }
                 }
             }
-            return view2;
+            return d;
         }
-        return (View) invokeILL.objValue;
+        return (gi1) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void g(String str, jj1 jj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jj1Var) == null) {
+            this.b = false;
+            this.a = true;
+            c = System.currentTimeMillis();
+            i(str, jj1Var);
+        }
+    }
+
+    public final void i(String str, jj1 jj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jj1Var) == null) {
+            String[] split = str.split("&");
+            gh1 gh1Var = new gh1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        gh1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        gh1Var.d(split2[0], split2[1]);
+                    }
+                }
+            }
+            gh1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
+            nh1.j().g(ph1.e(), gh1Var, new a(this, jj1Var, str));
+        }
     }
 }

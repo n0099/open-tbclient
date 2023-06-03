@@ -7,7 +7,7 @@ import com.baidu.searchbox.network.outback.core.RequestBody;
 import com.baidu.searchbox.network.outback.support.request.HttpCommonRequest;
 import com.baidu.searchbox.network.outback.support.request.HttpCommonRequestBuilder;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class HttpCommonRequestBuilder<T extends HttpCommonRequestBuilder, R extends HttpCommonRequest<T>> extends Request.Builder<T> {
     public RequestBody requestBody;
 

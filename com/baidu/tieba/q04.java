@@ -1,67 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes7.dex */
 public class q04 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q04 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    public q04() {
+    @Inject(force = false)
+    public static r04 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return r84.a();
         }
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+        return (r04) invokeV.objValue;
     }
 
-    public static q04 a() {
+    @Inject
+    public static s04 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q04.class) {
-                    if (b == null) {
-                        b = new q04();
-                    }
-                }
-            }
-            return b;
+            return kv2.a();
         }
-        return (q04) invokeV.objValue;
+        return (s04) invokeV.objValue;
     }
 
-    public boolean b() {
+    @Inject
+    public static t04 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new lv2();
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
-            edit.apply();
-        }
+        return (t04) invokeV.objValue;
     }
 }

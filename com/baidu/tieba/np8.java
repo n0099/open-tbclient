@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
-/* loaded from: classes6.dex */
-public class np8 implements rn {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class np8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final HashMap<String, np8> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ap8 a;
-    public List<op8> b;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,25 +33,13 @@ public class np8 implements rn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        f = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public np8(VipTaskList vipTaskList) {
+    public np8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,18 +49,39 @@ public class np8 implements rn {
                 return;
             }
         }
-        if (vipTaskList != null && vipTaskList.item != null) {
-            String str = vipTaskList.card_id;
-            ap8 ap8Var = new ap8();
-            this.a = ap8Var;
-            ap8Var.e(3);
-            this.a.d(vipTaskList.class_name);
-            this.a.f(vipTaskList.class_url_name);
-            this.a.g(vipTaskList.class_url);
-            this.b = new ArrayList();
-            for (VipTaskItem vipTaskItem : vipTaskList.item) {
-                this.b.add(new op8(vipTaskItem));
+        this.b = "";
+    }
+
+    public static np8 a(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
+            sb.append(str);
+            return f.get(sb.toString());
+        }
+        return (np8) invokeJL.objValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            if (TextUtils.isEmpty(this.b)) {
+                str = "";
+            } else {
+                str = this.b;
+            }
+            sb.append(str);
+            f.put(sb.toString(), this);
         }
     }
 }

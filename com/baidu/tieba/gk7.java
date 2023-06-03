@@ -1,94 +1,250 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.u95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class gk7 implements y35 {
+public class gk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public xj7 b;
+    public View c;
+    public FrameLayout d;
+    public NavigationBar e;
+    public BdTypeListView f;
+    public NoNetworkView g;
+    public PbListView h;
+    public v95 i;
+    public String j;
+    public String k;
 
-    public gk7() {
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gk7 a;
+
+        public a(gk7 gk7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gk7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.g();
+        }
+    }
+
+    public gk7(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.j = str;
+        this.k = str2;
+        h();
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            NoNetworkView noNetworkView = this.g;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a, i);
+            }
+            NavigationBar navigationBar = this.e;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a, i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.y35
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public void l(u95.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsToast");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
+            this.i.f(gVar);
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.y35
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
+    public void n(BdListView.p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Frs数据为空");
-                return false;
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "Frs Toast策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
-            if (TextUtils.isEmpty(stringExtra)) {
-                return false;
-            }
-            BdToastData bdToastData = new BdToastData();
-            try {
-                bdToastData.parserJson(new JSONObject(stringExtra));
-                if (bdToastData.getIconType() == 0) {
-                    return false;
-                }
-                return true;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) {
+            this.f.setOnSrollToBottomListener(pVar);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f.y();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && BdNetTypeUtil.isNetWorkAvailable()) {
+            this.f.E();
+        }
+    }
+
+    public FrameLayout d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    public NavigationBar e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.getUniqueId()));
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.f.setNextPage(null);
+        }
+    }
+
+    public final void o() {
+        PbListView pbListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (pbListView = this.h) != null) {
+            if (pbListView.c().getParent() == null) {
+                this.f.setNextPage(this.h);
+            }
+            this.h.S();
+            this.h.U();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d034d, (ViewGroup) null);
+            this.c = inflate;
+            this.g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090dca);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090dcb);
+            this.f = bdTypeListView;
+            bdTypeListView.setDivider(null);
+            v95 v95Var = new v95(this.a);
+            this.i = v95Var;
+            v95Var.a0(this.a.getUniqueId());
+            this.f.setPullRefresh(this.i);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+            this.e = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.e.showBottomLine();
+            PbListView pbListView = new PbListView(this.a.getPageActivity());
+            this.h = pbListView;
+            pbListView.a();
+            this.b = new xj7(this.a, this.f, this.j, this.k);
+            i(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void k(List<vn> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            if (z) {
+                o();
+            } else {
+                p();
+            }
+            this.b.c(list);
+        }
+    }
+
+    public final void p() {
+        PbListView pbListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (pbListView = this.h) != null) {
+            if (pbListView.c().getParent() == null) {
+                this.f.setNextPage(this.h);
+            }
+            this.h.H(this.a.getPageActivity().getResources().getString(R.string.list_no_more));
+            this.h.g();
+        }
     }
 }

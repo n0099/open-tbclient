@@ -24,7 +24,6 @@ import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.widget.graphics.Palette;
 import com.baidu.tieba.R;
-import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
@@ -149,9 +148,9 @@ public class ImmersionHelper {
 
     private int getDefaultStatusBarViewBg() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a75);
+            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8c);
         }
-        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a76);
+        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8d);
     }
 
     public static boolean isSupportImmersion() {
@@ -171,13 +170,13 @@ public class ImmersionHelper {
         Window window = this.mActivity.getWindow();
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
             if (sRomType == 1) {
                 setMIUISetStatusBarLightMode(window, getConfig().mUseLightStatusBar);
             }
         } else if (i >= 19) {
-            window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(67108864);
         }
     }
 
@@ -221,7 +220,7 @@ public class ImmersionHelper {
     }
 
     public static boolean isImmersionEnabled(View view2) {
-        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910c7) == null) {
+        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910dd) == null) {
             return false;
         }
         return true;
@@ -229,10 +228,10 @@ public class ImmersionHelper {
 
     public static void setDialogImmersion(Dialog dialog) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060712);
+            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060717);
             Window window = dialog.getWindow();
             window.getDecorView().setSystemUiVisibility(1280);
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
             window.setStatusBarColor(color);
         }
@@ -363,7 +362,7 @@ public class ImmersionHelper {
             childAt.setLayoutParams(layoutParams2);
             View view2 = new View(this.mActivity);
             view2.setTag(VIEW_TAG);
-            view2.setId(R.id.obfuscated_res_0x7f0910c7);
+            view2.setId(R.id.obfuscated_res_0x7f0910dd);
             this.mRootView.addView(view2, 0, new ViewGroup.LayoutParams(-1, statusBarHeight));
             return view2;
         }
@@ -374,7 +373,7 @@ public class ImmersionHelper {
         int i;
         try {
             Window window = this.mActivity.getWindow();
-            window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(67108864);
             WindowManager.LayoutParams attributes = window.getAttributes();
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
             Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
@@ -468,7 +467,7 @@ public class ImmersionHelper {
             if (Build.VERSION.SDK_INT >= 21) {
                 window.clearFlags(Integer.MIN_VALUE);
             }
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.clearFlags(67108864);
             window.getDecorView().setSystemUiVisibility(-5121);
         }
     }

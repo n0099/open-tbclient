@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ss5;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,10 +45,10 @@ public class GetBigdayInfoReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ss5.a(builder, true);
+                    uw5.a(builder, true);
                 }
-                builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getContext()));
-                builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_h = Integer.valueOf(vi.j(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_w = Integer.valueOf(vi.l(TbadkCoreApplication.getInst().getContext()));
                 GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

@@ -4,9 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.bp7;
-import com.baidu.tieba.ix9;
-import com.baidu.tieba.yo7;
+import com.baidu.tieba.ku7;
+import com.baidu.tieba.nu7;
+import com.baidu.tieba.u3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HomeExtraStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ix9.a> {
+    /* loaded from: classes6.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<u3a.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,11 +40,11 @@ public class HomeExtraStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ix9.a> run(CustomMessage<ix9.a> customMessage) {
+        public CustomResponsedMessage<u3a.a> run(CustomMessage<u3a.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156671, new bp7());
+                return new CustomResponsedMessage<>(2156671, new nu7());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -63,7 +63,7 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new yo7());
+        MessageManager.getInstance().registerTask(new ku7());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

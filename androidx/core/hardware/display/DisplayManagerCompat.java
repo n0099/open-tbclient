@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import java.util.WeakHashMap;
 /* loaded from: classes.dex */
 public final class DisplayManagerCompat {
@@ -17,7 +18,7 @@ public final class DisplayManagerCompat {
 
     @NonNull
     public Display[] getDisplays() {
-        return Build.VERSION.SDK_INT >= 17 ? ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplays() : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
+        return Build.VERSION.SDK_INT >= 17 ? ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplays() : new Display[]{((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay()};
     }
 
     public DisplayManagerCompat(Context context) {
@@ -42,7 +43,7 @@ public final class DisplayManagerCompat {
         if (Build.VERSION.SDK_INT >= 17) {
             return ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplay(i);
         }
-        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
         if (defaultDisplay.getDisplayId() == i) {
             return defaultDisplay;
         }
@@ -54,6 +55,6 @@ public final class DisplayManagerCompat {
         if (Build.VERSION.SDK_INT >= 17) {
             return ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplays(str);
         }
-        return str == null ? new Display[0] : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
+        return str == null ? new Display[0] : new Display[]{((WindowManager) this.mContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay()};
     }
 }

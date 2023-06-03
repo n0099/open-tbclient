@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -28,7 +28,7 @@ public class a0 {
     public MsaIdInterface c;
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -99,20 +99,20 @@ public final class b {
     }
 
     public static void U(Context context) {
-        a T = T(context);
+        a T2 = T(context);
         long currentTimeMillis = System.currentTimeMillis();
-        if (T == null) {
-            T = new a(currentTimeMillis, 1);
-        } else if (T.e(currentTimeMillis)) {
-            T.eo++;
+        if (T2 == null) {
+            T2 = new a(currentTimeMillis, 1);
+        } else if (T2.e(currentTimeMillis)) {
+            T2.eo++;
         } else {
-            T.en = currentTimeMillis;
-            T.eo = 1;
+            T2.en = currentTimeMillis;
+            T2.eo = 1;
         }
-        if (context == null || T == null) {
+        if (context == null || T2 == null) {
             return;
         }
-        w.P(context, T.toJson().toString());
+        w.P(context, T2.toJson().toString());
     }
 
     public static void a(Context context, a aVar) {

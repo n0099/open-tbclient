@@ -6,7 +6,6 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
-import com.google.protobuf.CodedInputStream;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
@@ -62,7 +61,7 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
             public void onFinish(String str) {
                 if (SlideActiviy.INVOICE_PAGE_NAME.equals(str)) {
                     Intent intent = new Intent(InvoiceBuildExternalActivity.this, InvoiceBuildActivity.class);
-                    intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    intent.setFlags(67108864);
                     InvoiceBuildExternalActivity.this.startActivity(intent);
                 }
             }

@@ -1,23 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface o85 {
-    int getFansNum();
+    void a(q85 q85Var, JSONObject jSONObject);
 
-    boolean getIsLike();
-
-    int getLikeStatus();
-
-    String getPortrait();
-
-    String getUserId();
-
-    boolean isGod();
-
-    void setFansNum(int i);
-
-    void setIsFromNetWork(boolean z);
-
-    void setIsLike(boolean z);
-
-    void setLikeStatus(int i);
+    void b(int i, Throwable th);
 }

@@ -1,39 +1,80 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tq8 {
+public class tq8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public BaseActivity<?> b;
-    public NavigationBar c;
-    public View d;
-    public NoNetworkView e;
-    public TextView f;
-    public TextView g;
+    public qq8 a;
+    public SearchLocationActivity b;
+    public boolean c;
+    public NoDataView d;
 
-    public tq8(BaseActivity<?> baseActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public View b;
+
+        public b(tq8 tq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(tq8 tq8Var, a aVar) {
+            this(tq8Var);
+        }
+    }
+
+    public tq8(SearchLocationActivity searchLocationActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {searchLocationActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,87 +84,105 @@ public class tq8 {
                 return;
             }
         }
-        this.b = baseActivity;
-        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f09231b);
-        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f092317);
-        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f092318);
-        this.c = navigationBar;
-        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f153e));
-        this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f03c3), onClickListener);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f05d4), onClickListener);
-        this.g = addTextButton;
-        addTextButton.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        layoutParams.leftMargin = ri.g(this.b, R.dimen.obfuscated_res_0x7f0701be);
-        this.f.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.g.getLayoutParams();
-        layoutParams2.rightMargin = ri.g(this.b, R.dimen.obfuscated_res_0x7f0701be);
-        this.g.setLayoutParams(layoutParams2);
-        int g = ri.g(this.b, R.dimen.tbds27);
-        this.g.setPadding(g, 0, g, 0);
-        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f09232a);
-        View view2 = new View(baseActivity.getPageContext().getPageActivity());
-        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
-        View view3 = new View(baseActivity.getPageContext().getPageActivity());
-        view3.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9)));
-        this.a.addFooterView(view2);
-        this.a.addHeaderView(view3);
+        this.c = false;
+        this.b = searchLocationActivity;
     }
 
-    public TextView a() {
+    public b b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            b bVar = new b(this, null);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091617);
+            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091618);
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public void d(qq8 qq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qq8Var) == null) {
+            this.a = qq8Var;
+        }
+    }
+
+    public View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f15e7), null);
+            this.d = a2;
+            a2.f(this.b.getPageContext(), skinType);
+            this.d.setVisibility(0);
+            return this.d;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (TextView) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public TextView b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            hx4 layoutMode = this.b.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            qq8 qq8Var = this.a;
+            if (qq8Var != null && qq8Var.a() != null && !this.a.a().isEmpty()) {
+                this.c = true;
+                return this.a.a().size();
             }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.d);
-            this.e.d(this.b.getPageContext(), i);
-            this.c.onChangeSkinType(this.b.getPageContext(), i);
-            SkinManager.setViewTextColor(this.g, (int) R.color.navbar_btn_color);
-            SkinManager.setViewTextColor(this.f, (int) R.color.navi_back_text_color);
-            SkinManager.setBackgroundResource(this.g, R.drawable.s_navbar_button_bg);
+            this.c = false;
+            return 1;
         }
+        return invokeV.intValue;
     }
 
-    public void d(pq8 pq8Var) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pq8Var) == null) {
-            this.a.setAdapter((ListAdapter) pq8Var);
-        }
-    }
-
-    public void e(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0595));
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            qq8 qq8Var = this.a;
+            if (qq8Var != null && qq8Var.a() != null && !this.a.a().isEmpty()) {
+                return this.a.a().get(i);
             }
-            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f05d4));
-            this.g.setEnabled(!z2);
+            return null;
         }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (!this.c) {
+                return a(viewGroup);
+            }
+            b bVar = null;
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            }
+            if (bVar == null) {
+                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05df, viewGroup, false);
+                bVar = b(view2);
+                view2.setTag(bVar);
+            }
+            bVar.a.setText(this.a.a().get(i).a());
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

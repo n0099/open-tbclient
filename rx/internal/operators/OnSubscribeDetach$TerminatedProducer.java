@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.k7b;
-/* loaded from: classes10.dex */
-public enum OnSubscribeDetach$TerminatedProducer implements k7b {
+import com.baidu.tieba.kmb;
+/* loaded from: classes2.dex */
+public enum OnSubscribeDetach$TerminatedProducer implements kmb {
     INSTANCE;
 
-    @Override // com.baidu.tieba.k7b
+    @Override // com.baidu.tieba.kmb
     public void request(long j) {
     }
 }

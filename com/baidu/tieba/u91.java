@@ -1,37 +1,29 @@
 package com.baidu.tieba;
 
-import android.webkit.HttpAuthHandler;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class u91 extends p91 {
+/* loaded from: classes8.dex */
+public class u91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u91() {
+    public static <T> void a(@NonNull ea1 ea1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, ea1Var, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        if (!str.startsWith("javascript:")) {
+            str = "javascript:" + str;
+        }
+        ea1Var.loadUrl(str, null);
     }
 
-    public final p91 b(HttpAuthHandler httpAuthHandler) {
-        InterceptResult invokeL;
+    public static void b(@NonNull ea1 ea1Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpAuthHandler)) == null) {
-            a(httpAuthHandler);
-            return this;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ea1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            a(ea1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
         }
-        return (p91) invokeL.objValue;
     }
 }

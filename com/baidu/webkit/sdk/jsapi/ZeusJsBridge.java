@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk.jsapi;
 
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
@@ -74,7 +75,7 @@ public class ZeusJsBridge {
         if (webView == null || webView.isDestroyed()) {
             return;
         }
-        if (TextUtils.equals("true", WebSettingsGlobalBlink.GetCloudSettingsValue(REMOVE_CLOUD_SETTINGS_VALUE)) && WebKitFactory.getCurEngine() == 1) {
+        if (TextUtils.equals(YYOption.IsLive.VALUE_TRUE, WebSettingsGlobalBlink.GetCloudSettingsValue(REMOVE_CLOUD_SETTINGS_VALUE)) && WebKitFactory.getCurEngine() == 1) {
             this.mWebView.removeJavascriptInterface(JS_BRIDGE_NAME);
         }
         this.mWebView = null;

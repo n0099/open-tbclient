@@ -1,129 +1,197 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.kwad.sdk.api.KsVideoPlayConfig;
 /* loaded from: classes5.dex */
-public class d4b {
+public abstract class d4b<A extends l5b> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q4b a;
-    public final SVGAVideoEntity b;
+    public ModuleConfigKs e;
 
-    /* loaded from: classes5.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final l4b b;
-
-        public a(d4b d4bVar, String str, l4b l4bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d4bVar, str, l4bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = l4bVar;
-        }
-
-        public final l4b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (l4b) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public d4b(SVGAVideoEntity sVGAVideoEntity) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public d4b(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        this(funAdType, pid, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
+            Object[] objArr = {funAdType, pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new q4b();
+        this.e = moduleConfigKs;
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public d4b(FunAdType funAdType, Ssp.Pid pid, boolean z) {
+        this(funAdType, pid, z, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public final q4b b() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public d4b(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
+        this(funAdType, pid, z, z2, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d4b(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
+        super(funAdType, pid, z, z2, z3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
+    public AdReporter<A> createAdReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a4b(this.mPid) : (AdReporter) invokeV.objValue;
+    }
+
+    public KsVideoPlayConfig e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            KsVideoPlayConfig.Builder showLandscape = new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal);
+            ModuleConfigKs moduleConfigKs = this.e;
+            return showLandscape.videoSoundEnable(moduleConfigKs == null || moduleConfigKs.ksVideoSoundEnable).build();
         }
-        return (q4b) invokeV.objValue;
+        return (KsVideoPlayConfig) invokeV.objValue;
     }
 
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((l5b) obj).a() / 100.0d;
         }
-        return (SVGAVideoEntity) invokeV.objValue;
+        return invokeL.doubleValue;
     }
 
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
+        if (r6.equals(com.fun.ad.sdk.FunAdSdk.PLATFORM_CSJ) == false) goto L31;
+     */
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<k4b> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (k4b k4bVar : g) {
-                a aVar = null;
-                if (i >= 0 && i < k4bVar.a().size() && k4bVar.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, k4bVar.b(), k4bVar.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            l5b l5bVar = (l5b) obj;
+            double d3 = d * 100.0d;
+            double d4 = d2 * 100.0d;
+            if (z) {
+                l5bVar.c((long) d3, (long) d4);
+                return;
+            }
+            int i4 = (int) (d3 + 100.0d);
+            char c = 0;
+            if (i == 5) {
+                i2 = 0;
+            } else {
+                i2 = 2;
+            }
+            if (FunAdSdk.PLATFORM_KS.equals(str)) {
+                i3 = 1;
+            } else {
+                i3 = 2;
+            }
+            str.hashCode();
+            int hashCode = str.hashCode();
+            String str2 = "baidu";
+            if (hashCode != 98810) {
+                if (hashCode != 102199) {
+                    if (hashCode == 93498907 && str.equals("baidu")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals(FunAdSdk.PLATFORM_GDT)) {
+                        c = 1;
+                    }
+                    c = 65535;
                 }
             }
-            return arrayList;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        str2 = "other";
+                    }
+                } else {
+                    str2 = "guangdiantong";
+                }
+            } else {
+                str2 = "chuanshanjia";
+            }
+            l5bVar.b(i4, i2, i3, str2);
         }
-        return (List) invokeI.objValue;
     }
 }

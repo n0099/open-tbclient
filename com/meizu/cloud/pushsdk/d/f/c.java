@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.d.f;
 
 import com.meizu.cloud.pushinternal.DebugLogger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a;
 

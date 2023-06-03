@@ -1,108 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.qq.e.ads.banner2.UnifiedBannerView;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class m3b extends AsyncTask<Context, Integer, Boolean> {
+public class m3b extends l3b<UnifiedBannerView> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923149, "Lcom/baidu/tieba/m3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923149, "Lcom/baidu/tieba/m3b;");
-                return;
-            }
-        }
-        a = m3b.class.getSimpleName();
-    }
-
-    public m3b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m3b(UnifiedBannerView unifiedBannerView) {
+        super(unifiedBannerView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unifiedBannerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
+    @Override // com.baidu.tieba.l3b
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            o3b.b(a, "onPreExecute");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            A a = this.a;
+            return (a == 0 || ((UnifiedBannerView) a).getExtraInfo() == null) ? "" : (String) ((UnifiedBannerView) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l3b
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((UnifiedBannerView) this.a).sendLossNotification(map);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Context... contextArr) {
-        InterceptResult invokeL;
-        InputStream inputStream;
+    @Override // com.baidu.tieba.l3b
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                inputStream = j3b.m(contextArr[0]);
-            } catch (Exception e) {
-                String str = a;
-                o3b.d(str, "doInBackground: exception : " + e.getMessage());
-                inputStream = null;
-            }
-            String str2 = a;
-            o3b.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            if (inputStream != null) {
-                n3b.b(inputStream);
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            if (bool.booleanValue()) {
-                o3b.e(a, "onPostExecute: upate done");
-            } else {
-                o3b.d(a, "onPostExecute: upate failed");
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((UnifiedBannerView) this.a).sendWinNotification(map);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: c */
-    public void onProgressUpdate(Integer... numArr) {
+    @Override // com.baidu.tieba.l3b
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
-            o3b.e(a, "onProgressUpdate");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((UnifiedBannerView) this.a).getECPM();
         }
+        return invokeV.intValue;
     }
 }

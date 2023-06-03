@@ -2,7 +2,7 @@ package protobuf.DelGroupMsgs;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     public static final String DEFAULT_MSGIDS = "";
@@ -11,7 +11,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String msgIds;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public String msgIds;

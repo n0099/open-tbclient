@@ -1,97 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f87 {
+public class f87 implements t77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Runnable> a;
+    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d25 a;
-
-        public a(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d25Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d25Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+    public f87() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int l;
+    public final boolean b() {
+        InterceptResult invokeV;
+        Runnable runnable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
-            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
-            d25 d25Var = new d25(activity);
-            d25Var.setContentView(inflate);
-            d25Var.setContentViewSize(2);
-            d25Var.setCanceledOnTouchOutside(true);
-            d25Var.setAutoNight(true);
-            d25Var.setCancelable(true);
-            int g = ri.g(activity, R.dimen.tbds31);
-            SkinManager.setBackgroundShapeDrawable(inflate, g, R.color.CAM_X0201, R.color.CAM_X0101);
-            tbImageView.setRadius(g);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int g2 = ri.g(activity, R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-                l = ri.j(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<Runnable> weakReference = this.a;
+            if (weakReference != null) {
+                runnable = weakReference.get();
             } else {
-                l = ri.l(activity);
+                runnable = null;
             }
-            int i = l - (g2 * 2);
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (i * 556) / 988;
-            tbImageView.setLayoutParams(layoutParams);
-            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-            textView5.setOnClickListener(new a(d25Var));
-            d25Var.create(tbPageContext).show();
+            if (runnable != null) {
+                runnable.run();
+            }
+            if (runnable != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.t77
+    public final void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.b = true;
+            this.a = new WeakReference<>(runnable);
+        }
+    }
+
+    public final void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.a = new WeakReference<>(runnable);
         }
     }
 }

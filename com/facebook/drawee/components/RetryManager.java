@@ -1,5 +1,5 @@
 package com.facebook.drawee.components;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RetryManager {
     public static final int MAX_TAP_TO_RETRY_ATTEMPTS = 4;
     public int mMaxTapToRetryAttempts;

@@ -2,7 +2,7 @@ package com.huawei.hms.aaid.encrypt;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tieba.r2b;
+import com.baidu.tieba.bbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class PushEncrypter {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            return r2b.f(str, c.b(context));
+            return bbb.f(str, c.b(context));
         }
         return (String) invokeLL.objValue;
     }
@@ -47,7 +47,7 @@ public class PushEncrypter {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            return r2b.j(str, c.b(context));
+            return bbb.j(str, c.b(context));
         }
         return (String) invokeLL.objValue;
     }
@@ -59,7 +59,7 @@ public class PushEncrypter {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            return r2b.k(str, c.a(context));
+            return bbb.k(str, c.a(context));
         }
         return (String) invokeLL.objValue;
     }

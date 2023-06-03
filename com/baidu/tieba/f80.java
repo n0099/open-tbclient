@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.upload.action.track.Connection;
-import com.baidu.android.imsdk.upload.action.track.Request;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.CallFactory;
+import com.baidu.searchbox.network.outback.core.CallFactoryParams;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.tieba.s70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f80 {
+public abstract class f80 implements CallFactory.CallFactoryProducer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public s70 a;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements CallFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IMPushPb.ActionType a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ Object c;
+        public final /* synthetic */ s70 a;
+        public final /* synthetic */ f80 b;
 
-        public a(IMPushPb.ActionType actionType, Context context, Object obj) {
+        public a(f80 f80Var, s70 s70Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {actionType, context, obj};
+                Object[] objArr = {f80Var, s70Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,73 +39,36 @@ public class f80 {
                     return;
                 }
             }
-            this.a = actionType;
-            this.b = context;
-            this.c = obj;
+            this.b = f80Var;
+            this.a = s70Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.searchbox.network.outback.core.CallFactory
+        public Call newCall(Request request, boolean z) {
+            InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = b.a[this.a.ordinal()];
-                if (i != 1) {
-                    if (i == 2) {
-                        g80.j(this.b, (Request) this.c);
-                        return;
-                    }
-                    return;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, request, z)) == null) {
+                if (!this.b.isAvailable() && z) {
+                    return null;
                 }
-                g80.i(this.b, (Connection) this.c);
+                return new r70(request, this.a, false);
             }
+            return (Call) invokeLZ.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-848889875, "Lcom/baidu/tieba/f80$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-848889875, "Lcom/baidu/tieba/f80$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[IMPushPb.ActionType.values().length];
-            a = iArr;
-            try {
-                iArr[IMPushPb.ActionType.CONNECTION.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c {
+    public static abstract class b<T extends b, R extends f80> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public Request b;
+        public s70.a a;
 
-        public c(Context context) {
+        public abstract R b(s70 s70Var);
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,84 +78,53 @@ public class f80 {
                     return;
                 }
             }
-            Request request = new Request();
-            this.b = request;
-            this.a = context;
-            request.method = "";
-            request.requestId = "";
-            request.timestamp = -1L;
-            request.responseTime = -1L;
-            request.errorCode = -1L;
-            request.ext = "";
-            request.aliasId = -1L;
+            this.a = new s70.a();
         }
 
-        public c a(long j) {
-            InterceptResult invokeJ;
+        public final R a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                this.b.aliasId = j;
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b(this.a.b());
             }
-            return (c) invokeJ.objValue;
-        }
-
-        public c c(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.b.errorCode = j;
-                return this;
-            }
-            return (c) invokeJ.objValue;
-        }
-
-        public c d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.b.ext = str;
-                return this;
-            }
-            return (c) invokeL.objValue;
-        }
-
-        public c e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.b.method = str;
-                return this;
-            }
-            return (c) invokeL.objValue;
-        }
-
-        public c f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.b.requestId = str;
-                return this;
-            }
-            return (c) invokeL.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                f80.b(this.a, IMPushPb.ActionType.REQUEST, this.b);
-            }
+            return (R) invokeV.objValue;
         }
     }
 
-    public static void b(Context context, IMPushPb.ActionType actionType, Object obj) {
+    public f80(s70 s70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, actionType, obj) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (!h80.f(applicationContext)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s70Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            h90.a(applicationContext).b(new a(actionType, applicationContext, obj));
+        }
+        this.a = s70Var;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
+    public CallFactory produceCallFactory(CallFactoryParams callFactoryParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callFactoryParams)) == null) {
+            s70.a x = this.a.x();
+            a(x, callFactoryParams);
+            return new a(this, x.b());
+        }
+        return (CallFactory) invokeL.objValue;
+    }
+
+    public final void a(s70.a aVar, CallFactoryParams callFactoryParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, callFactoryParams) == null) {
+            aVar.c(new m70(this.a.p().c()));
         }
     }
 }

@@ -3,7 +3,7 @@ package kotlinx.coroutines;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import kotlin.Metadata;
 import kotlin.Unit;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0010\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\u0012\b\u0010\u0010\u001a\u0004\u0018\u00010\u000f¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0003H\u0003¢\u0006\u0004\b\n\u0010\u0005R\u001c\u0010\n\u001a\u00020\u00038\u0010@\u0010X\u0090\u0004¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\u0005R\u0016\u0010\u000e\u001a\u00020\u00038P@\u0010X\u0090\u0004¢\u0006\u0006\u001a\u0004\b\r\u0010\u0005¨\u0006\u0013"}, d2 = {"Lkotlinx/coroutines/JobImpl;", "Lkotlinx/coroutines/CompletableJob;", "Lkotlinx/coroutines/JobSupport;", "", TaskProcessData.keyComplete, "()Z", "", "exception", "completeExceptionally", "(Ljava/lang/Throwable;)Z", "handlesException", "Z", "getHandlesException$kotlinx_coroutines_core", "getOnCancelComplete$kotlinx_coroutines_core", "onCancelComplete", "Lkotlinx/coroutines/Job;", "parent", "<init>", "(Lkotlinx/coroutines/Job;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0010\u0003\n\u0000\b\u0010\u0018\u00002\u00020\u00012\u00020\u0002B\u000f\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004¢\u0006\u0002\u0010\u0005J\b\u0010\f\u001a\u00020\u0007H\u0016J\u0010\u0010\r\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0006\u001a\u00020\u0007H\u0003R\u0014\u0010\u0006\u001a\u00020\u0007X\u0090\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0014\u0010\n\u001a\u00020\u00078PX\u0090\u0004¢\u0006\u0006\u001a\u0004\b\u000b\u0010\t¨\u0006\u0010"}, d2 = {"Lkotlinx/coroutines/JobImpl;", "Lkotlinx/coroutines/JobSupport;", "Lkotlinx/coroutines/CompletableJob;", "parent", "Lkotlinx/coroutines/Job;", "(Lkotlinx/coroutines/Job;)V", "handlesException", "", "getHandlesException$kotlinx_coroutines_core", "()Z", "onCancelComplete", "getOnCancelComplete$kotlinx_coroutines_core", TaskProcessData.keyComplete, "completeExceptionally", "exception", "", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes10.dex */
 public class JobImpl extends JobSupport implements CompletableJob {
     public final boolean handlesException;
@@ -15,7 +15,7 @@ public class JobImpl extends JobSupport implements CompletableJob {
 
     public JobImpl(Job job) {
         super(true);
-        initParentJobInternal$kotlinx_coroutines_core(job);
+        initParentJob(job);
         this.handlesException = handlesException();
     }
 
@@ -25,28 +25,42 @@ public class JobImpl extends JobSupport implements CompletableJob {
     }
 
     private final boolean handlesException() {
-        JobSupport jobSupport;
+        ChildHandleNode childHandleNode;
+        JobSupport job;
+        ChildHandleNode childHandleNode2;
         ChildHandle parentHandle$kotlinx_coroutines_core = getParentHandle$kotlinx_coroutines_core();
-        if (!(parentHandle$kotlinx_coroutines_core instanceof ChildHandleNode)) {
-            parentHandle$kotlinx_coroutines_core = null;
+        if (parentHandle$kotlinx_coroutines_core instanceof ChildHandleNode) {
+            childHandleNode = (ChildHandleNode) parentHandle$kotlinx_coroutines_core;
+        } else {
+            childHandleNode = null;
         }
-        ChildHandleNode childHandleNode = (ChildHandleNode) parentHandle$kotlinx_coroutines_core;
-        if (childHandleNode != null && (jobSupport = (JobSupport) childHandleNode.job) != null) {
-            while (!jobSupport.getHandlesException$kotlinx_coroutines_core()) {
-                ChildHandle parentHandle$kotlinx_coroutines_core2 = jobSupport.getParentHandle$kotlinx_coroutines_core();
-                if (!(parentHandle$kotlinx_coroutines_core2 instanceof ChildHandleNode)) {
-                    parentHandle$kotlinx_coroutines_core2 = null;
-                }
-                ChildHandleNode childHandleNode2 = (ChildHandleNode) parentHandle$kotlinx_coroutines_core2;
-                if (childHandleNode2 != null) {
-                    jobSupport = (JobSupport) childHandleNode2.job;
-                    if (jobSupport == null) {
-                    }
-                }
+        if (childHandleNode == null) {
+            job = null;
+        } else {
+            job = childHandleNode.getJob();
+        }
+        if (job == null) {
+            return false;
+        }
+        while (!job.getHandlesException$kotlinx_coroutines_core()) {
+            ChildHandle parentHandle$kotlinx_coroutines_core2 = job.getParentHandle$kotlinx_coroutines_core();
+            if (parentHandle$kotlinx_coroutines_core2 instanceof ChildHandleNode) {
+                childHandleNode2 = (ChildHandleNode) parentHandle$kotlinx_coroutines_core2;
+            } else {
+                childHandleNode2 = null;
             }
-            return true;
+            if (childHandleNode2 == null) {
+                job = null;
+                continue;
+            } else {
+                job = childHandleNode2.getJob();
+                continue;
+            }
+            if (job == null) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     @Override // kotlinx.coroutines.CompletableJob

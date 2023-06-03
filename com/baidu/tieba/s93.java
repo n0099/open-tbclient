@@ -1,6 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,165 +15,158 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 /* loaded from: classes7.dex */
 public class s93 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public aa3 c;
+    public Context d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948106204, "Lcom/baidu/tieba/s93;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948106204, "Lcom/baidu/tieba/s93;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppConfigData a;
-        public final /* synthetic */ File b;
-
-        public a(SwanAppConfigData swanAppConfigData, File file, String str) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948106204, "Lcom/baidu/tieba/s93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppConfigData, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = swanAppConfigData;
-            this.b = file;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            FileOutputStream fileOutputStream;
-            Throwable th;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948106204, "Lcom/baidu/tieba/s93;");
                 return;
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(this.b);
-                try {
-                    fileOutputStream.write(SwanAppConfigData.w.call2((u93<SwanAppConfigData>) this.a));
-                    kp4.d(fileOutputStream);
-                } catch (Exception unused) {
-                    fileOutputStream2 = fileOutputStream;
-                    kp4.d(fileOutputStream2);
-                } catch (Throwable th2) {
-                    th = th2;
-                    kp4.d(fileOutputStream);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th3) {
-                fileOutputStream = null;
-                th = th3;
-            }
         }
+        e = is1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public s93(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == -1) {
-                ns2.g0().getSwitch("swan_app_json_serialize", 0);
-                a = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a != 1) {
-                return false;
-            }
-            return true;
         }
-        return invokeV.booleanValue;
+        this.a = -1;
+        this.b = view2;
+        this.d = view2.getContext();
     }
 
-    public static SwanAppConfigData b(String str) {
+    public final aa3 a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(str, false);
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SwanAppConfigData c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
-        SwanAppConfigData call;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
-            System.currentTimeMillis();
-            File file = new File(str, "app.json");
-            FileInputStream fileInputStream2 = null;
-            if (!file.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            aa3 aa3Var = this.c;
+            if (aa3Var != null) {
+                return aa3Var;
+            }
+            if (view2 instanceof aa3) {
+                aa3 aa3Var2 = (aa3) view2;
+                this.c = aa3Var2;
+                return aa3Var2;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    aa3 a = a(viewGroup.getChildAt(i));
+                    if (a != null) {
+                        this.c = a;
+                        return a;
+                    }
+                }
+                return null;
+            } else {
                 return null;
             }
-            String E = kp4.E(file);
-            File file2 = new File(str, "app_json_serialize6.kv");
-            if (a() && !z && file2.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(file2);
-                } catch (Exception unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    int available = fileInputStream.available();
-                    byte[] bArr = new byte[available];
-                    if (available == fileInputStream.read(bArr) && (call = SwanAppConfigData.x.call(bArr)) != null) {
-                        call.n = E;
-                        kp4.d(fileInputStream);
-                        return call;
-                    }
-                    kp4.d(fileInputStream);
-                } catch (Exception unused2) {
-                    fileInputStream2 = fileInputStream;
-                    kp4.d(fileInputStream2);
-                    SwanAppConfigData c = SwanAppConfigData.c(E, file.getParentFile());
-                    if (a()) {
-                    }
-                    return c;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream2 = fileInputStream;
-                    kp4.d(fileInputStream2);
-                    throw th;
-                }
-            }
-            SwanAppConfigData c2 = SwanAppConfigData.c(E, file.getParentFile());
-            if (a()) {
-                am3.k(new a(c2, file2, str), "SwanAppConfigDataReader");
-            }
-            return c2;
         }
-        return (SwanAppConfigData) invokeLZ.objValue;
+        return (aa3) invokeL.objValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            Context context = this.d;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (z93.f(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect);
+                    i2 = rect.bottom - rect.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+                if (z93.e(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect2 = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect2);
+                    i2 = rect2.bottom - rect2.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+            }
+            if (e) {
+                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            }
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
+                }
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
+                    return;
+                }
+                return;
+            }
+            this.a = i2;
+            aa3 a = a(this.b);
+            if (a == null) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
+                    return;
+                }
+                return;
+            }
+            int visibility = ((LinearLayout) a).getVisibility();
+            if (e) {
+                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
+            }
+            if (Math.abs(i4) < x93.g(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
+                }
+            } else if (Math.abs(i4) > x93.e(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
+                }
+            } else if (i4 > 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
+                }
+                a.handleHide();
+            } else {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
+                }
+                a.handleShow();
+            }
+        }
     }
 }

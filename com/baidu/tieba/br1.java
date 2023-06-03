@@ -1,113 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.h82;
-import com.baidu.tieba.hf2;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes5.dex */
-public class br1 implements jt1 {
+public class br1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static br1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jt1
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 10150;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.jt1
-    public VideoPlayerFactory b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (VideoPlayerFactory) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jt1
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.jt1
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jt1
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jt1
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements hf2.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h82.c a;
-
-        public a(br1 br1Var, h82.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {br1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.hf2.e
-        public void a() {
-            h82.c cVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
-                cVar.a();
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br1() {
+        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,29 +24,36 @@ public class br1 implements jt1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.jt1
-    public void d(boolean z) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                hf2.h(AppRuntime.getAppContext()).k(ProcessUtils.isMainProcess());
-            } else {
-                hf2.h(AppRuntime.getAppContext()).i();
-            }
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            br1 br1Var = new br1();
+            a = br1Var;
+            br1Var.start();
+            b = new Handler(a.getLooper());
         }
     }
 
-    @Override // com.baidu.tieba.jt1
-    public void h(h82.c cVar) {
+    public static Handler b() {
+        InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            hf2.h(AppRuntime.getAppContext()).f(new a(this, cVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (br1.class) {
+                a();
+                handler = b;
+            }
+            return handler;
         }
+        return (Handler) invokeV.objValue;
     }
 }

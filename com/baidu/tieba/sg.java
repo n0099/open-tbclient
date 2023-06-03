@@ -1,60 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.net.HttpURLConnection;
 /* loaded from: classes7.dex */
-public class sg extends Handler {
+public class sg {
     public static /* synthetic */ Interceptable $ic;
-    public static final sg a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316889, "Lcom/baidu/tieba/sg;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316889, "Lcom/baidu/tieba/sg;");
-                return;
-            }
-        }
-        a = new sg();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sg() {
-        super(Looper.getMainLooper());
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public static final sg a() {
-        InterceptResult invokeV;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
         }
-        return (sg) invokeV.objValue;
+    }
+
+    public static void c(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, inputStream) == null) && inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void d(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, outputStream) == null) && outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void e(Reader reader) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) && reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void f(HttpURLConnection httpURLConnection) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, httpURLConnection) == null) && httpURLConnection != null) {
+            try {
+                httpURLConnection.disconnect();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

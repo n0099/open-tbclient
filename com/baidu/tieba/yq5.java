@@ -1,72 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.ar5;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.kq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yq5 extends wq5<si5, ar5.b> {
+public class yq5<T extends kq5> extends vq5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
 
-    public yq5(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yq5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wq5
-    /* renamed from: h */
-    public si5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new si5(this.e.getPageActivity(), null);
-        }
-        return (si5) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wq5
-    /* renamed from: g */
-    public void d(ViewType viewType, si5 si5Var, ar5.b bVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, si5Var, bVar) == null) {
-            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
-                str = bVar.a;
-            } else {
-                str = bVar.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
+                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
+                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                kq5 kq5Var = (kq5) a();
+                if (kq5Var != null) {
+                    if (kq5Var instanceof jq5) {
+                        z45.d();
+                        we<byte[]> c = z45.c(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            kq5 kq5Var2 = (kq5) writeCacheMessage.getData();
+                            if (kq5Var2 == null) {
+                                BdCacheService.n().l(c);
+                            } else {
+                                c.remove(kq5Var2.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            kq5 kq5Var3 = (kq5) writeCacheMessage.getData();
+                            if (kq5Var3 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            c.g(kq5Var3.getCacheKey(), ((jq5) kq5Var3).toCacheByteArray());
+                            writeCacheRespMsg.setSuccess(true);
+                        }
+                    } else if (kq5Var instanceof mq5) {
+                        z45.d();
+                        we<String> f = z45.f(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            kq5 kq5Var4 = (kq5) writeCacheMessage.getData();
+                            if (kq5Var4 == null) {
+                                BdCacheService.n().l(f);
+                            } else {
+                                f.remove(kq5Var4.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            kq5 kq5Var5 = (kq5) writeCacheMessage.getData();
+                            if (kq5Var5 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            String t = ((mq5) kq5Var5).t();
+                            if (t != null) {
+                                f.g(kq5Var5.getCacheKey(), t);
+                                writeCacheRespMsg.setSuccess(true);
+                            }
+                        }
+                    }
+                }
+                return writeCacheRespMsg;
             }
-            si5Var.m(str);
-            si5Var.k(bVar.d);
-            si5Var.i(bVar.c);
-            si5Var.n(bVar.f);
-            si5Var.g(bVar.e);
-            si5Var.p();
-            si5Var.onChangeSkinType();
-            si5Var.c().setOnClickListener(bVar.h);
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }
